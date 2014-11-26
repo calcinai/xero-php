@@ -115,7 +115,7 @@ class Client {
      * @throws Exception
      */
     private function getSignature(){
-        echo $this->getSBS();
+
         switch ($this->getSignatureMethod()) {
             case self::SIGNATURE_RSA_SHA1:
                 $signature = RSA_SHA1::generateSignature($this->config, $this->getSBS(), $this->getSigningSecret());

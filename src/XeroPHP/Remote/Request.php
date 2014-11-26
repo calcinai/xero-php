@@ -77,9 +77,14 @@ class Request {
         $header_array = Helpers::flattenAssocArray($this->getHeaders(), '%s: %s');
         curl_setopt($ch, CURLOPT_HTTPHEADER, $header_array);
 
+        $full_uri = $this->getUrl()->getFullURL();
         //build parameter array - the only time there's a post body is with the XML
         $query_string = Helpers::flattenAssocArray($this->getParameters(), '%s=%s', '&');
-        curl_setopt($ch, CURLOPT_URL, $this->getUrl()->getFullURL()."?$query_string");
+
+        if(strlen($query_string) > 0)
+            $full_uri .= "?$query_string";
+
+        curl_setopt($ch, CURLOPT_URL, $full_uri);
 
         if($this->method === self::METHOD_POST || $this->method === self::METHOD_POST)
             curl_setopt($ch, CURLOPT_POST, true);
@@ -91,24 +96,9 @@ class Request {
             throw new Exception('Curl error: '.curl_error($ch));
         }
 
-        curl_close($ch);
+        $response = new Response($response, $info);
 
-        echo $response;
-        print_r($this);
-        exit;
-
-        // Clear the headers
-        $this->headers = array ();
-
-        // store the response
-        $this->response ['code'] = $code;
-        $this->response ['response'] = $response;
-        $this->response ['info'] = $info;
-        $this->response ['format'] = $this->format;
-        return $code;
-
-
-        return $this;
+        return $response;
     }
 
     public function setParameter($key, $value){
