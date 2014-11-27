@@ -1,0 +1,15 @@
+<?php
+
+namespace XeroPHP\Models\{{ api.meta.namespace }};
+
+class {{ class.meta.class_name }} {
+
+{% for field_name, field_data in class.properties %}
+    /**
+     * @var {{ field_data.type }}
+     * {{ field_data.description }}
+     */
+    private ${{ field_name }};
+
+{% endfor %}
+}

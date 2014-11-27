@@ -1,0 +1,235 @@
+#!/usr/bin/env php
+<?php
+
+require 'vendor/autoload.php';
+
+/*
+ * This is one big nasty file, not designed to really be maintained, just to speed up the process of building the models
+ * for each request.
+ *
+ * It is disgusting.
+ *
+ * It was a lot faster than going through each page in the docs.
+ */
+
+$documentation_base = 'http://developer.xero.com/documentation';
+$apis = array(
+    array(
+        'name' => 'Accounting API',
+        'uri' => 'api',
+        'types' => 'types',
+        'namespace' => 'Accounting',
+        'classes' => array(
+            //array('name' => 'Attachments', 'uri' => 'attachments', 'class_name' => 'Attachment'),
+            array('name' => 'Accounts', 'uri' => 'accounts', 'class_name' => 'Account'),
+            //array('name' => 'Bank Statements', 'uri' => 'bankstatements', 'class_name' => 'BankStatement'),
+            array('name' => 'Bank Transactions', 'uri' => 'banktransactions', 'class_name' => 'BankTransaction'),
+            array('name' => 'Bank Transfers', 'uri' => 'bank-transfers', 'class_name' => 'BankTransfer'),
+            array('name' => 'Branding Themes', 'uri' => 'branding-themes', 'class_name' => 'BrandingTheme'),
+            array('name' => 'Contacts', 'uri' => 'contacts', 'class_name' => 'Contact'),
+            array('name' => 'Contact Groups', 'uri' => 'contactgroups', 'class_name' => 'ContactGroup'),
+            array('name' => 'Credit Notes', 'uri' => 'credit-notes', 'class_name' => 'CreditNote'),
+            array('name' => 'Currencies', 'uri' => 'currencies', 'class_name' => 'Currency'),
+            array('name' => 'Employees', 'uri' => 'employees', 'class_name' => 'Employee'),
+            array('name' => 'Expense Claims', 'uri' => 'expense-claims', 'class_name' => 'ExpenseClaim'),
+            array('name' => 'Invoices', 'uri' => 'invoices', 'class_name' => 'Invoice'),
+            array('name' => 'Items', 'uri' => 'items', 'class_name' => 'Item'),
+            array('name' => 'Journals', 'uri' => 'journals', 'class_name' => 'Journal'),
+            array('name' => 'Manual Journals', 'uri' => 'manual-journals', 'class_name' => 'ManualJournal'),
+            array('name' => 'Organisation', 'uri' => 'organisation', 'class_name' => 'Organisation'),
+            array('name' => 'Payments', 'uri' => 'payments', 'class_name' => 'Payment'),
+            array('name' => 'Receipts', 'uri' => 'receipts', 'class_name' => 'Receipt'),
+            array('name' => 'Repeating Invoices', 'uri' => 'repeating-invoices', 'class_name' => 'Repeating Invoice'),
+            array('name' => 'Reports', 'uri' => 'reports', 'class_name' => 'Report'),
+            array('name' => 'Tax Rates', 'uri' => 'tax-rates', 'class_name' => 'TaxRate'),
+            array('name' => 'Tracking Categories', 'uri' => 'tracking-categories', 'class_name' => 'TrackingCategory'),
+            array('name' => 'Types', 'uri' => 'types', 'class_name' => 'Type'),
+            array('name' => 'Users', 'uri' => 'users', 'class_name' => 'User')
+        )
+    ),
+    array(
+        'name' => 'Payroll - AU',
+        'uri' => 'payroll-api',
+        'types' => 'types-and-codes',
+        'namespace' => 'PayrollAU',
+        'classes' => array(
+            array(
+                'name' => 'Employees',
+                'uri' => 'employees',
+                'class_name' => 'Employees',
+            ),
+            array('name' => 'Leave Applications', 'uri' => 'leaveapplications', 'class_name' => 'LeaveApplication'),
+            array('name' => 'Pay Items', 'uri' => 'payitems', 'class_name' => 'PayItem'),
+            array('name' => 'Payroll Calendars', 'uri' => 'payrollcalendars', 'class_name' => 'PayrollCalendar'),
+            array('name' => 'Pay Runs', 'uri' => 'payruns', 'class_name' => 'PayRun'),
+            array('name' => 'Payslip', 'uri' => 'payslip', 'class_name' => 'Payslip'),
+            array('name' => 'Settings', 'uri' => 'settings', 'class_name' => 'Setting'),
+            array('name' => 'Super Funds', 'uri' => 'superfunds', 'class_name' => 'SuperFund'),
+            array('name' => 'Super Fund Products', 'uri' => 'superfundproducts', 'class_name' => 'SuperFundProduct'),
+            array('name' => 'Timesheets', 'uri' => 'timesheets', 'class_name' => 'Timesheet')
+        )
+    )
+);
+
+$client = new Goutte\Client();
+$scraped_info = array();
+
+foreach($apis as $api){
+    $api_scraped_info = array(
+        'types' => array(),
+        'classes' => array()
+    );
+    $api_scraped_info['meta'] = $api;
+
+    //Get the types
+    $full_uri = sprintf('%s/%s/%s/', $documentation_base, $api['uri'], $api['types']);
+    $crawler = $client->request('GET', $full_uri);
+
+    $sections = array();
+    $section_index = '';
+    $subsection_index = '';
+    $crawler->filter('.entry-content')->children()->each(function($node, $i) use (&$api_scraped_info, &$sections, &$section_index, &$subsection_index) {
+        if($section_index == '' && $node->getNode(0)->tagName != 'h3')
+            return false;
+
+        switch($node->getNode(0)->tagName){
+            case 'h3':
+                $section_index = str_replace(' ', '', $node->text());
+                $sections[$section_index]['name'] = $node->text();
+                $sections[$section_index]['subsections'] = array();
+                break;
+            case 'p':
+                if('' == $subsection_index = preg_replace('/\(\w+\)/', '', str_replace(' ', '', $node->text()))) return;
+                $sections[$section_index]['subsections'][$subsection_index] = array('name' => $node->text());
+                break;
+            case 'table':
+                $values = array();
+
+                //this is because of the heading in this backward table
+                $reverse_kv = $subsection_index == 'SystemAccounts';
+                $skip_heading = $subsection_index == 'SystemAccounts';
+
+
+                $node->filter('tr')->each(function($node, $i) use(&$values, $reverse_kv, $skip_heading){
+
+                    if(!($i == 0 && $skip_heading)){
+                        $children = $node->children();
+                        $name = $children->getNode(0)->nodeValue;
+                        $description = count($children) > 1 ? $children->getNode(1)->nodeValue : '';
+
+                        $values[] = array(
+                            'name' => ($reverse_kv ? $description : $name),
+                            'description' => ($reverse_kv ? $name : $description)
+                        );
+                    }
+                });
+                $sections[$section_index]['subsections'][$subsection_index]['values'] = $values;
+                break;
+        }
+    });
+    $api_scraped_info['types'] = $sections;
+
+
+        //Parse actual classes
+    foreach($api['classes'] as $class){
+        $class_scraped_info = array('meta' => $class);
+
+        $full_uri = sprintf('%s/%s/%s/', $documentation_base, $api['uri'], $class['uri']);
+        $crawler = $client->request('GET', $full_uri);
+
+        $crawler->filter('.apidoc-table')->each(function($api_table, $i) use (&$api_scraped_info, &$class_scraped_info, $class) {
+            $class_scraped_info['class_name'] = $class['class_name'];
+            $class['index_key'] = str_replace(' ', '', $class['name']);
+
+            $api_table->filter('tr')->each(function($node) use (&$api_scraped_info, &$class_scraped_info, $class, $i) {
+
+                //2 col tables key | val
+                if(count($children = $node->children()) !== 2)
+                    return;
+
+                $key = str_replace(' ', '', $children->first()->text());
+                $value = $children->last()->text();
+
+                if($i == 0){
+                    //Overview table
+                    switch(strtolower($key)){
+                        case 'url':
+                            $class_scraped_info['url'] = $value;
+                            break;
+                        case 'methodssupported':
+                            $class_scraped_info['methods'] = explode(', ',$value);
+                            break;
+                    }
+                } elseif($i == 1){
+                    //Elements table
+
+                    $fragment = null;
+                    $children->last()->filter('a')->each(function($node) use(&$fragment){
+                        $href = $node->attr('href');
+                        if(preg_match('/^http/i', $href))
+                            return;
+
+                        if(false === $pos = strpos($href, '#'))
+                            return;
+
+                        $fragment = substr($href, $pos+1);
+                    });
+
+                    $type = 'string';
+                    $type_extra = null;
+
+                    if(preg_match('/^Bool/i', $value))
+                        $type = 'boolean';
+
+                    if($fragment !== null){
+                        if($fragment == 'TaxTypes'){
+                            //hack for tax types
+                            $type = 'enum';
+                            $type_extra = $api_scraped_info['types'][$fragment]['subsections']['Global'];
+                        } elseif(isset($api_scraped_info['types'][$class['index_key']]['subsections'][$fragment])){
+                            $type = 'enum';
+                            $type_extra = $api_scraped_info['types'][$class['index_key']]['subsections'][$fragment];
+                        } else {
+                            echo $fragment."\n";
+                        }
+                    }
+
+                    if(false !== stripos($value, 'Xero identifier')){
+                        $class_scraped_info['guid'] = $key;
+                        $type = 'guid';
+                    }
+
+
+                    $class_scraped_info['properties'][$key] = array(
+                        'description' => $value,
+                        'type' => $type,
+                        'type_extra' => $type_extra
+                    );
+                }
+
+            });
+        });
+        $api_scraped_info['classes'][$class['class_name']] = $class_scraped_info;
+        break;
+    }
+    $scraped_info[$api['namespace']] = $api_scraped_info;
+    break;
+}
+
+//print_r($scraped_info);
+
+
+$loader = new Twig_Loader_Filesystem('generator/templates/');
+$twig = new Twig_Environment($loader, array());
+
+foreach($scraped_info as $namespace => $api){
+    foreach($api['classes'] as $class_name => $class){
+        echo $twig->render('model.twig', array(
+            'class' => $class,
+            'api' => $api
+        ));
+
+        break 2;
+    }
+}
+

@@ -3,5 +3,7 @@
 ._*
 .Spotlight-V100
 .Trashes
+.idea/*
+vendor
 ehthumbs.db
 Thumbs.db

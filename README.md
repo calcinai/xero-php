@@ -5,9 +5,9 @@ A client implementation of the Xero API (<http://developer.xero.com>), with a cl
 
 ## Background
 
-I hate reinventing the wheel, but this was written out of desperation, as I wasn't comfortable putting the implementation that's recommended by Xero in to production, even after persisting with extending it.
+I hate reinventing the wheel, but this was written out of desperation. I wasn't comfortable putting the implementation that's recommended by Xero in to production, even after persisting with extending it.
 
-This is loosely based on the functional flow of XeroAPI/XeroOAuth-PHP, but is split logically into more of an OO design.  I initially 
+This is loosely based on the functional flow of XeroAPI/XeroOAuth-PHP, but is split logically into more of an OO design.
 
 ## Main changes
 * Variables are named clearly and only defined if actually used
