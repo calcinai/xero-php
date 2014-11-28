@@ -1,0 +1,125 @@
+<?php
+
+namespace XeroPHP\Models\Accounting;
+
+use XeroPHP\Remote\Object as RemoteObject;
+
+class Employee extends RemoteObject {
+
+    /**
+     * Xero identifier 
+     *
+     * @property guid EmployeeID
+     */
+
+    /**
+     * Current status of an employee – see contact status types 
+     *
+     * @property string[] Status
+     */
+
+    /**
+     * First name of an employee (max length = 255) 
+     *
+     * @property string FirstName
+     */
+
+    /**
+     * Last name of an employee (max length = 255) 
+     *
+     * @property string LastName
+     */
+
+    /**
+     * Link to an external resource, for example, an employee record in an external system. You can specify 
+     * the URL element.
+The description of the link is auto-generated in the form “Go to <App name>”. <App 
+     * name> refers to the Xero application name that is making the API call. 
+     *
+     * @property string ExternalLink
+     */
+
+
+    /**
+     * @return guid
+     */
+    public function getEmployeeID(){
+        return $this->_data['EmployeeID'];
+    }
+
+    /**
+     * @param guid $value
+     * @return Employee
+     */
+    public function setEmployeeID($value){
+        $this->_data['EmployeeID'] = $value;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getStatus(){
+        return $this->_data['Status'];
+    }
+
+    /**
+     * @param string[] $value
+     * @return Employee
+     */
+    public function addStatu($value){
+        $this->_data['Status'][] = $value;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getFirstName(){
+        return $this->_data['FirstName'];
+    }
+
+    /**
+     * @param string $value
+     * @return Employee
+     */
+    public function setFirstName($value){
+        $this->_data['FirstName'] = $value;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getLastName(){
+        return $this->_data['LastName'];
+    }
+
+    /**
+     * @param string $value
+     * @return Employee
+     */
+    public function setLastName($value){
+        $this->_data['LastName'] = $value;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getExternalLink(){
+        return $this->_data['ExternalLink'];
+    }
+
+    /**
+     * @param string $value
+     * @return Employee
+     */
+    public function setExternalLink($value){
+        $this->_data['ExternalLink'] = $value;
+        return $this;
+    }
+
+
+
+}

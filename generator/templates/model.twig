@@ -1,15 +1,50 @@
 <?php
 
-namespace XeroPHP\Models\{{ api.meta.namespace }};
+namespace XeroPHP\Models\{{ model.API.Namespace }};
 
-class {{ class.meta.class_name }} {
+use XeroPHP\Remote\Object as RemoteObject;
 
-{% for field_name, field_data in class.properties %}
+class {{ model.ClassName }} extends RemoteObject {
+
+{% for property in model.Properties %}
     /**
-     * @var {{ field_data.type }}
-     * {{ field_data.description }}
+     * {{ property.Description|wordwrap|raw }}
+     *
+     * @property {{ property.Type }}{% if property.isArray %}[]{% endif %} {{ property.Name }}
      */
-    private ${{ field_name }};
 
 {% endfor %}
+
+{#  getters and setters #}
+{% for property in model.properties %}
+    /**
+     * @return {{ property.Type }}
+     */
+    public function get{{ property.Name }}(){
+        return $this->_data['{{ property.Name }}'];
+    }
+
+{% if property.isArray %}
+    /**
+     * @param {{ property.Type }}[] $value
+     * @return {{ model.ClassName }}
+     */
+    public function add{{ property.NameSingular }}($value){
+        $this->_data['{{ property.Name }}'][] = $value;
+        return $this;
+    }
+{% else %}
+    /**
+     * @param {{ property.Type }} $value
+     * @return {{ model.ClassName }}
+     */
+    public function set{{ property.Name }}($value){
+        $this->_data['{{ property.Name }}'] = $value;
+        return $this;
+    }
+{% endif %}
+
+{% endfor %}
+
+
 }

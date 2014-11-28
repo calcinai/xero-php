@@ -1,0 +1,319 @@
+#!/usr/bin/env php
+<?php
+
+/*
+ * This is one big nasty file, not designed to really be maintained, just to speed up the process of building the models
+ * for each request.
+ *
+ * It is disgusting.
+ *
+ * It was a lot faster than going through each page in the docs.
+ */
+
+define('GEN_ROOT', __DIR__);
+
+require GEN_ROOT.'/../vendor/autoload.php';
+require GEN_ROOT.'/objects/API.php';
+require GEN_ROOT.'/objects/Model.php';
+require GEN_ROOT.'/objects/Property.php';
+require GEN_ROOT.'/objects/Enum.php';
+
+$documentation_base = 'http://developer.xero.com/documentation';
+$scrape_apis = array(
+    array(
+        'name' => 'Accounting API',
+        'uri' => 'api',
+        'types' => 'types',
+        'namespace' => 'Accounting',
+        'model_uris' => array(
+            //'attachments',
+            'accounts',
+            //'bankstatements',
+            'banktransactions',
+            'bank-transfers',
+            'branding-themes',
+            'contacts',
+            'contactgroups',
+            'credit-notes',
+            'currencies',
+            'employees',
+            'expense-claims',
+            'invoices',
+            'items',
+            'journals',
+            'manual-journals',
+            'organisation',
+            'payments',
+            'receipts',
+            'repeating-invoices',
+            //'reports', - this is in a way different format
+            'tax-rates',
+            'tracking-categories',
+            'users'
+        )
+    ),
+    array(
+        'name' => 'Payroll - AU',
+        'uri' => 'payroll-api',
+        'types' => 'types-and-codes',
+        'namespace' => 'PayrollAU',
+        'model_uris' => array(
+//            'employees',
+//            'leaveapplications',
+//            'payitems',
+//            'payrollcalendars',
+//            'payruns',
+//            'payslip',
+//            'settings',
+//            'superfunds',
+//            'superfundproducts',
+//            'timesheets'
+        )
+    )
+);
+
+
+$apis = array();
+
+$client = new Goutte\Client();
+
+foreach($scrape_apis as $scrape_api) {
+    $api = new API($scrape_api['name'], $scrape_api['namespace']);
+
+    //Get the types
+    $full_uri = sprintf('%s/%s/%s/', $documentation_base, $scrape_api['uri'], $scrape_api['types']);
+    $crawler = $client->request('GET', $full_uri);
+
+    $crawler->filter('.entry-content')->children()->each(function($node) use($api){
+        //keep static in closure.
+        static $section_name, $enum;
+
+        $current_tag = $node->getNode(0)->tagName;
+
+        //don't start till there's a section
+        if(!isset($section_name) && $current_tag !== 'h3')
+            return false;
+
+        switch($current_tag){
+            case 'h3':
+                $section_name = str_replace(' ', '', $node->text());
+                break;
+            case 'p':
+
+                //Skip empty sections
+                if('' == $subsection_name = preg_replace('/\(\w+\)/', '', str_replace(' ', '', $node->text()))) return;
+
+                //Try record the anchor on page for searching
+                $anchor = null;
+                $node->filter('a')->each(function($node) use(&$anchor){ $anchor = $node->attr('name'); });
+                $enum = new Enum($section_name, $subsection_name, $anchor);
+                break;
+            case 'table':
+                $node->filter('tr')->each(function($node, $row_index) use($enum){
+
+                    //Why is this table different to every other one in the docs?
+                    $swap_name_description = $enum->getName() == 'SystemAccounts';
+                    $skip_first_row = $enum->getName() == 'SystemAccounts';
+
+                    if($skip_first_row && $row_index == 0)
+                        return false;
+
+                    $children = $node->children();
+                    $has_description = count($children) > 1;
+
+
+                    $name = $children->eq(0)->text();
+                    $description =  $has_description ? $children->eq(1)->text() : null;
+
+                    if($swap_name_description)
+                        list($name, $description) = array($description, $name);
+
+                    $enum->addValue($name, $description);
+
+                });
+
+                $api->addEnum($enum);
+                break;
+        }
+    });
+
+    //Parse actual classes
+    foreach($scrape_api['model_uris'] as $uri) {
+
+        $full_uri = sprintf('%s/%s/%s/', $documentation_base, $scrape_api['uri'], $uri);
+        $crawler = $client->request('GET', $full_uri);
+
+        $crawler->filter('.entry-content')->children()->each(function ($node) use ($api) {
+            //keep static in closure.
+            static $section_name, $primary_model, $current_model;
+
+            $current_tag = $node->getNode(0)->tagName;
+
+            switch($current_tag) {
+                case 'h3':
+                case 'h4':
+                    if(false === stripos($node->text(), 'optional'))
+                        $section_name = str_replace("\xc2\xa0", ' ', $node->text());
+                    break;
+                case 'table':
+                    //If no section, we're in the overview table.
+                    if(!isset($section_name)){
+
+                        //The primary model
+                        $primary_model = new Model();
+                        $current_model = $primary_model;
+                        $api->addModel($primary_model);
+
+                        $node->filter('tr')->each(function($node) use($primary_model){
+                            $columns = $node->children();
+                            if(count($columns) == 0)
+                                return;
+                            switch(strtolower($columns->eq(0)->text())){
+                                case 'url':
+                                    $primary_model->setUrl($columns->eq(1)->text());
+                                    break;
+                                case 'methods supported':
+                                    $primary_model->setMethods($columns->eq(1)->text());
+                                    break;
+                            }
+                        });
+                        return;
+                    }
+
+                    //try to work out what's next
+                    if(preg_match('/(xml )?elements( returned)? for( an| get)? (?<model_name>[\w\s]+)/i', $section_name, $matches)){
+                        $model_name = str_replace(' ', '', ucwords($matches['model_name']));
+                        //if it hasn't been set, set it.
+                        if($primary_model->getName() === null){
+                            $primary_model->setName($model_name);
+                        }
+                        elseif($primary_model->getName() !== $model_name){
+                            //If its not the same, we've reached a new one
+                            //create the sub one and add its parent
+                            $current_model = new Model();
+                            $current_model->setName($model_name);
+                            $api->addModel($current_model);
+
+                            $primary_model->addSubModel($current_model);
+                        }
+                    }
+
+                    //try to work out what's next
+                    if(preg_match('/^GET (?<model_name>[\w\s]+)/i', $section_name, $matches)){
+
+                        //actually, don't bother doing anything with these.
+                        //This will be met when there are filters like where and order, but they're the same for any object.
+                        return;
+                    }
+
+
+                    //At this point, we will have a $current_model, so parse properties
+                    $rows_processed = false;
+                    $node->filter('tr')->each(function($node) use ($current_model, &$rows_processed){
+                        static $mandatory, $skip_next;
+
+                        //this is for skipping rowspans
+                        if(isset($skip_next) && $skip_next){
+                            $skip_next = false;
+                            return;
+                        }
+
+                        $children = $node->children();
+                        $num_children = count($children);
+
+                        //Breaks in the table with colspans
+                        if($num_children === 1){
+                            if(preg_match('/(required|mandatory)/i', $children->eq(0)->text())){
+                                $mandatory = true;
+                            } elseif(preg_match('/(optional|recommended)/i', $children->eq(0)->text())){
+                                $mandatory = false;
+                            }
+                        } else {
+                            if(!isset($mandatory)){
+                                $mandatory = false;
+                            }
+
+                            //Handle tables with rowspans
+                            if($num_children === 2){
+                                $column_name = trim($children->eq(0)->text(), "<> \n");
+                                $column_description = trim($children->eq(1)->text());
+                            } else {
+                                //at least 3 children in here
+                                $skip_next = true;
+                                return;
+                            }
+
+                            $split = explode('> or <', $column_name);
+                            if(isset($split[1])){
+                                //make it into another param
+                                $property = new Property($split[1], $column_description);
+                                $current_model->addProperty($property);
+                                $column_name = $split[0];
+                            }
+
+                            $column_name = str_replace(' ', '', $column_name);
+
+                            //At this point, mandatory is set and there are at least 2 columns
+                            $property = new Property($column_name, $column_description);
+
+                            //add links to property (for parsing types)
+                            $children->eq(1)->filter('a')->each(function($node) use($property){
+                               $property->addLink($node->text(), $node->attr('href'));
+                            });
+                            $current_model->addProperty($property);
+                            $rows_processed = true;
+
+                        }
+                    });
+                    if($rows_processed){
+                        $prop_names = array();
+                        foreach($current_model->getProperties() as $property){
+                            $prop_names[] = $property->getName();
+                        }
+                        printf("Parsing: %s\n", $current_model->getName());
+                        printf(" \\-> %d properties: %s \n", count($prop_names), substr(implode(', ',$prop_names), 0, 200));
+                    }
+                    unset($section_name);
+                    break;
+                //END HANDLING FOR TABLE ELEMENT
+            }
+
+        });
+
+    }
+    $apis[] = $api;
+}
+
+//print_r($apis);
+//exit;
+
+$loader = new Twig_Loader_Filesystem('generator/templates/');
+$twig = new Twig_Environment($loader, array());
+
+$twig->addFilter(new Twig_SimpleFilter('wordwrap', function ($string, $length = 100, $concat = "\n     * ") {
+    $words = explode(' ', $string);
+    $out = $tmp = '';
+    foreach($words as $word){
+        if(strlen($tmp) > $length){
+            $out .= $tmp.$concat;
+            $tmp = '';
+        }
+        $tmp .= "$word ";
+    }
+    return $out.$tmp;;
+}));
+
+
+foreach($apis as $api){
+    $dir = sprintf('%s/output/%s', GEN_ROOT, $api->getNamespace());
+    if(!is_dir($dir))
+        mkdir($dir);
+
+    foreach($api->getModels() as $model){
+        $template = $twig->render('model.twig', array(
+            'model' => $model,
+        ));
+        $filename = sprintf('%s/%s.php', $dir, $model->getClassName());
+        file_put_contents($filename, $template);
+    }
+}
