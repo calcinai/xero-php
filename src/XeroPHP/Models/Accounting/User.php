@@ -2,62 +2,102 @@
 
 namespace XeroPHP\Models\Accounting;
 
-use XeroPHP\Remote\Object as RemoteObject;
+use XeroPHP\Remote;
 
-class User extends RemoteObject {
+
+class User extends Remote\Object {
 
     /**
-     * Xero identifier 
+     * Xero identifier
      *
-     * @property guid UserID
+     * @property string UserID
      */
 
     /**
-     * Email address of user 
+     * Email address of user
      *
      * @property string EmailAddress
      */
 
     /**
-     * First name of user 
+     * First name of user
      *
      * @property string FirstName
      */
 
     /**
-     * Last name of user 
+     * Last name of user
      *
      * @property string LastName
      */
 
     /**
-     * Timestamp of last change to user 
+     * Timestamp of last change to user
      *
-     * @property date UpdatedDateUTC
+     * @property \DateTime UpdatedDateUTC
      */
 
     /**
-     * Boolean to indicate if user is the subscriber 
+     * Boolean to indicate if user is the subscriber
      *
      * @property bool IsSubscriber
      */
 
     /**
-     * User role (see Types) 
+     * User role (see Types)
      *
-     * @property enum OrganisationRole
+     * @property string OrganisationRole
      */
 
 
+
+    /*
+    * Get the resource uri of the class (Contacts) etc
+    */
+    public static function getResourceURI(){
+        return 'Users';
+    }
+
+
+    /*
+    * Get the stem of the API (core.xro) etc
+    */
+    public static function getAPIStem(){
+        return Remote\URL::API_CORE;
+    }
+
+
+    /*
+    * Get the supported methods
+    */
+    public static function getSupportedMethods(){
+        return array(
+            Remote\Request::METHOD_GET
+        );
+    }
+
+    public static function getProperties(){
+            return array(
+                'UserID',
+                'EmailAddress',
+                'FirstName',
+                'LastName',
+                'UpdatedDateUTC',
+                'IsSubscriber',
+                'OrganisationRole'
+        );
+    }
+
+
     /**
-     * @return guid
+     * @return string
      */
     public function getUserID(){
         return $this->_data['UserID'];
     }
 
     /**
-     * @param guid $value
+     * @param string $value
      * @return User
      */
     public function setUserID($value){
@@ -114,17 +154,17 @@ class User extends RemoteObject {
     }
 
     /**
-     * @return date
+     * @return \DateTime
      */
     public function getUpdatedDateUTC(){
         return $this->_data['UpdatedDateUTC'];
     }
 
     /**
-     * @param date $value
+     * @param \DateTime $value
      * @return User
      */
-    public function setUpdatedDateUTC($value){
+    public function setUpdatedDateUTC(\DateTime $value){
         $this->_data['UpdatedDateUTC'] = $value;
         return $this;
     }
@@ -146,21 +186,20 @@ class User extends RemoteObject {
     }
 
     /**
-     * @return enum
+     * @return string
      */
     public function getOrganisationRole(){
         return $this->_data['OrganisationRole'];
     }
 
     /**
-     * @param enum $value
+     * @param string $value
      * @return User
      */
     public function setOrganisationRole($value){
         $this->_data['OrganisationRole'] = $value;
         return $this;
     }
-
 
 
 }

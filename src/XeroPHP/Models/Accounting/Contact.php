@@ -2,226 +2,301 @@
 
 namespace XeroPHP\Models\Accounting;
 
-use XeroPHP\Remote\Object as RemoteObject;
+use XeroPHP\Remote;
 
-class Contact extends RemoteObject {
+use XeroPHP\Models\Accounting\Contact\ContactPerson;
+use XeroPHP\Models\Accounting\TrackingCategory;
+use XeroPHP\Models\Accounting\BrandingTheme;
+use XeroPHP\Models\Accounting\Organisation\PaymentTerm;
+
+class Contact extends Remote\Object {
 
     /**
-     * Xero identifier 
+     * Xero identifier
      *
-     * @property guid ContactID
+     * @property string ContactID
      */
 
     /**
-     * This can be updated via the API only i.e. This field is read only on the Xero contact screen, used to 
-     * identify contacts in external systems (max length = 50) 
+     * This can be updated via the API only i.e. This field is read only on the Xero contact screen, used
+     * to identify contacts in external systems (max length = 50)
      *
-     * @property date ContactNumber
+     * @property string ContactNumber
      */
 
     /**
-     * This can be updated via the API and the Xero UI (max length = 50) 
+     * This can be updated via the API and the Xero UI (max length = 50)
      *
-     * @property date AccountNumber
+     * @property string AccountNumber
      */
 
     /**
-     * Current status of a contact – see contact status types 
+     * Current status of a contact – see contact status types
      *
-     * @property string[] ContactStatus
+     * @property string ContactStatus
      */
 
     /**
-     * Name of contact organisation (max length = 500) 
+     * Name of contact organisation (max length = 500)
      *
      * @property string Name
      */
 
     /**
-     * First name of contact person (max length = 255) 
+     * First name of contact person (max length = 255)
      *
      * @property string FirstName
      */
 
     /**
-     * Last name of contact person (max length = 255) 
+     * Last name of contact person (max length = 255)
      *
      * @property string LastName
      */
 
     /**
-     * Email address of contact person (umlauts not supported) (max length = 500) 
+     * Email address of contact person (umlauts not supported) (max length = 500)
      *
      * @property string EmailAddress
      */
 
     /**
-     * Skype user name of contact 
+     * Skype user name of contact
      *
      * @property string SkypeUserName
      */
 
     /**
-     * See contact persons 
+     * See contact persons
      *
-     * @property string[] ContactPersons
+     * @property ContactPerson[] ContactPersons
      */
 
     /**
-     * Bank account number of contact 
+     * Bank account number of contact
      *
      * @property string[] BankAccountDetails
      */
 
     /**
-     * Tax number of contact – this is also known as the ABN (Australia), GST Number (New Zealand), VAT Number 
-     * (UK) or Tax ID Number (US and global) in the Xero UI depending on which regionalized version of Xero 
-     * you are using (max length = 50) 
+     * Tax number of contact – this is also known as the ABN (Australia), GST Number (New Zealand), VAT
+     * Number (UK) or Tax ID Number (US and global) in the Xero UI depending on which regionalized version
+     * of Xero you are using (max length = 50)
      *
-     * @property int TaxNumber
+     * @property string TaxNumber
      */
 
     /**
-     * Default tax type used for contact on AR invoices 
+     * Default tax type used for contact on AR invoices
      *
      * @property string AccountsReceivableTaxType
      */
 
     /**
-     * Default tax type used for contact on AP invoices 
+     * Default tax type used for contact on AP invoices
      *
      * @property string AccountsPayableTaxType
      */
 
     /**
-     * Store certain address types for a contact – see address types 
+     * Store certain address types for a contact – see address types
      *
-     * @property string[] Addresses
+     * @property string Addresses
      */
 
     /**
-     * Store certain phone types for a contact – see phone types 
+     * Store certain phone types for a contact – see phone types
      *
-     * @property string[] Phones
+     * @property string Phones
      */
 
     /**
-     * UTC timestamp of last update to contact 
+     * UTC timestamp of last update to contact
      *
-     * @property date UpdatedDateUTC
+     * @property \DateTime UpdatedDateUTC
      */
 
     /**
-     * true or false – Boolean that describes if a contact that has any AP invoices entered against them. 
-     * Cannot be set via PUT or POST – it is automatically set when an accounts payable invoice is generated 
-     * against this contact. 
+     * true or false – Boolean that describes if a contact that has any AP invoices entered against them.
+     * Cannot be set via PUT or POST – it is automatically set when an accounts payable invoice is
+     * generated against this contact.
      *
-     * @property string IsSupplier
+     * @property bool IsSupplier
      */
 
     /**
-     * true or false – Boolean that describes if a contact has any AR invoices entered against them. Cannot 
-     * be set via PUT or POST – it is automatically set when an accounts receivable invoice is generated against 
-     * this contact. 
+     * true or false – Boolean that describes if a contact has any AR invoices entered against them.
+     * Cannot be set via PUT or POST – it is automatically set when an accounts receivable invoice is
+     * generated against this contact.
      *
-     * @property string IsCustomer
+     * @property bool IsCustomer
      */
 
     /**
-     * Default currency for raising invoices against contact 
+     * Default currency for raising invoices against contact
      *
      * @property string DefaultCurrency
      */
 
     /**
-     * Store XeroNetworkKey for contacts. 
+     * Store XeroNetworkKey for contacts.
      *
      * @property string XeroNetworkKey
      */
 
     /**
-     * The default sales account code for contacts 
+     * The default sales account code for contacts
      *
      * @property string SalesDefaultAccountCode
      */
 
     /**
-     * The default purchases account code for contacts 
+     * The default purchases account code for contacts
      *
      * @property string PurchasesDefaultAccountCode
      */
 
     /**
-     * The default sales tracking categories for contacts 
+     * The default sales tracking categories for contacts
      *
-     * @property string[] SalesTrackingCategories
+     * @property TrackingCategory[] SalesTrackingCategories
      */
 
     /**
-     * The default purchases tracking categories for contacts 
+     * The default purchases tracking categories for contacts
      *
-     * @property string[] PurchasesTrackingCategories
+     * @property TrackingCategory[] PurchasesTrackingCategories
      */
 
     /**
-     * Displays which contact groups a contact is included in 
+     * Displays which contact groups a contact is included in
      *
      * @property string[] ContactGroups
      */
 
     /**
-     * Website address for contact (read only) 
+     * Website address for contact (read only)
      *
      * @property string Website
      */
 
     /**
-     * Default branding theme for contact (read only) – see Branding Themes 
+     * Default branding theme for contact (read only) – see Branding Themes
      *
-     * @property string BrandingTheme
+     * @property BrandingTheme BrandingTheme
      */
 
     /**
-     * batch payment details for contact (read only) 
+     * batch payment details for contact (read only)
      *
      * @property string[] BatchPayments
      */
 
     /**
-     * The default discount rate for the contact (read only) 
+     * The default discount rate for the contact (read only)
      *
-     * @property string Discount
+     * @property float Discount
      */
 
     /**
-     * The AccountsReceivable(sales invoices) and AccountsPayable(bills) outstanding and overdue amounts (read 
-     * only) 
+     * The AccountsReceivable(sales invoices) and AccountsPayable(bills) outstanding and overdue amounts
+     * (read only)
      *
-     * @property float[] Balances
+     * @property string[] Balances
      */
 
     /**
-     * The default payment terms for the contact (read only)  – see Payment Terms 
+     * The default payment terms for the contact (read only)  – see Payment Terms
      *
-     * @property object[] PaymentTerms
+     * @property PaymentTerm[] PaymentTerms
      */
 
     /**
-     * A boolean to indicate if a contact has an attachment 
+     * A boolean to indicate if a contact has an attachment
      *
-     * @property string[] HasAttachments
+     * @property bool HasAttachments
      */
 
 
+    const CONTACT_STATUS_CODE_ACTIVE   = 'ACTIVE'; 
+    const CONTACT_STATUS_CODE_ARCHIVED = 'ARCHIVED'; 
+
+
+    /*
+    * Get the resource uri of the class (Contacts) etc
+    */
+    public static function getResourceURI(){
+        return 'Contacts';
+    }
+
+
+    /*
+    * Get the stem of the API (core.xro) etc
+    */
+    public static function getAPIStem(){
+        return Remote\URL::API_CORE;
+    }
+
+
+    /*
+    * Get the supported methods
+    */
+    public static function getSupportedMethods(){
+        return array(
+            Remote\Request::METHOD_POST,
+            Remote\Request::METHOD_PUT,
+            Remote\Request::METHOD_GET
+        );
+    }
+
+    public static function getProperties(){
+            return array(
+                'ContactID',
+                'ContactNumber',
+                'AccountNumber',
+                'ContactStatus',
+                'Name',
+                'FirstName',
+                'LastName',
+                'EmailAddress',
+                'SkypeUserName',
+                'ContactPersons',
+                'BankAccountDetails',
+                'TaxNumber',
+                'AccountsReceivableTaxType',
+                'AccountsPayableTaxType',
+                'Addresses',
+                'Phones',
+                'UpdatedDateUTC',
+                'IsSupplier',
+                'IsCustomer',
+                'DefaultCurrency',
+                'XeroNetworkKey',
+                'SalesDefaultAccountCode',
+                'PurchasesDefaultAccountCode',
+                'SalesTrackingCategories',
+                'PurchasesTrackingCategories',
+                'ContactGroups',
+                'Website',
+                'BrandingTheme',
+                'BatchPayments',
+                'Discount',
+                'Balances',
+                'PaymentTerms',
+                'HasAttachments'
+        );
+    }
+
+
     /**
-     * @return guid
+     * @return string
      */
     public function getContactID(){
         return $this->_data['ContactID'];
     }
 
     /**
-     * @param guid $value
+     * @param string $value
      * @return Contact
      */
     public function setContactID($value){
@@ -230,14 +305,14 @@ class Contact extends RemoteObject {
     }
 
     /**
-     * @return date
+     * @return string
      */
     public function getContactNumber(){
         return $this->_data['ContactNumber'];
     }
 
     /**
-     * @param date $value
+     * @param string $value
      * @return Contact
      */
     public function setContactNumber($value){
@@ -246,14 +321,14 @@ class Contact extends RemoteObject {
     }
 
     /**
-     * @return date
+     * @return string
      */
     public function getAccountNumber(){
         return $this->_data['AccountNumber'];
     }
 
     /**
-     * @param date $value
+     * @param string $value
      * @return Contact
      */
     public function setAccountNumber($value){
@@ -269,11 +344,11 @@ class Contact extends RemoteObject {
     }
 
     /**
-     * @param string[] $value
+     * @param string $value
      * @return Contact
      */
-    public function addContactStatu($value){
-        $this->_data['ContactStatus'][] = $value;
+    public function setContactStatu($value){
+        $this->_data['ContactStatus'] = $value;
         return $this;
     }
 
@@ -358,17 +433,17 @@ class Contact extends RemoteObject {
     }
 
     /**
-     * @return string
+     * @return ContactPerson
      */
     public function getContactPersons(){
         return $this->_data['ContactPersons'];
     }
 
     /**
-     * @param string[] $value
+     * @param ContactPerson[] $value
      * @return Contact
      */
-    public function addContactPerson($value){
+    public function addContactPerson(ContactPerson $value){
         $this->_data['ContactPersons'][] = $value;
         return $this;
     }
@@ -390,14 +465,14 @@ class Contact extends RemoteObject {
     }
 
     /**
-     * @return int
+     * @return string
      */
     public function getTaxNumber(){
         return $this->_data['TaxNumber'];
     }
 
     /**
-     * @param int $value
+     * @param string $value
      * @return Contact
      */
     public function setTaxNumber($value){
@@ -445,11 +520,11 @@ class Contact extends RemoteObject {
     }
 
     /**
-     * @param string[] $value
+     * @param string $value
      * @return Contact
      */
-    public function addAddresse($value){
-        $this->_data['Addresses'][] = $value;
+    public function setAddress($value){
+        $this->_data['Addresses'] = $value;
         return $this;
     }
 
@@ -461,39 +536,39 @@ class Contact extends RemoteObject {
     }
 
     /**
-     * @param string[] $value
+     * @param string $value
      * @return Contact
      */
-    public function addPhone($value){
-        $this->_data['Phones'][] = $value;
+    public function setPhone($value){
+        $this->_data['Phones'] = $value;
         return $this;
     }
 
     /**
-     * @return date
+     * @return \DateTime
      */
     public function getUpdatedDateUTC(){
         return $this->_data['UpdatedDateUTC'];
     }
 
     /**
-     * @param date $value
+     * @param \DateTime $value
      * @return Contact
      */
-    public function setUpdatedDateUTC($value){
+    public function setUpdatedDateUTC(\DateTime $value){
         $this->_data['UpdatedDateUTC'] = $value;
         return $this;
     }
 
     /**
-     * @return string
+     * @return bool
      */
     public function getIsSupplier(){
         return $this->_data['IsSupplier'];
     }
 
     /**
-     * @param string $value
+     * @param bool $value
      * @return Contact
      */
     public function setIsSupplier($value){
@@ -502,14 +577,14 @@ class Contact extends RemoteObject {
     }
 
     /**
-     * @return string
+     * @return bool
      */
     public function getIsCustomer(){
         return $this->_data['IsCustomer'];
     }
 
     /**
-     * @param string $value
+     * @param bool $value
      * @return Contact
      */
     public function setIsCustomer($value){
@@ -582,33 +657,33 @@ class Contact extends RemoteObject {
     }
 
     /**
-     * @return string
+     * @return TrackingCategory
      */
     public function getSalesTrackingCategories(){
         return $this->_data['SalesTrackingCategories'];
     }
 
     /**
-     * @param string[] $value
+     * @param TrackingCategory[] $value
      * @return Contact
      */
-    public function addSalesTrackingCategory($value){
+    public function addSalesTrackingCategory(TrackingCategory $value){
         $this->_data['SalesTrackingCategories'][] = $value;
         return $this;
     }
 
     /**
-     * @return string
+     * @return TrackingCategory
      */
     public function getPurchasesTrackingCategories(){
         return $this->_data['PurchasesTrackingCategories'];
     }
 
     /**
-     * @param string[] $value
+     * @param TrackingCategory[] $value
      * @return Contact
      */
-    public function addPurchasesTrackingCategory($value){
+    public function addPurchasesTrackingCategory(TrackingCategory $value){
         $this->_data['PurchasesTrackingCategories'][] = $value;
         return $this;
     }
@@ -646,17 +721,17 @@ class Contact extends RemoteObject {
     }
 
     /**
-     * @return string
+     * @return BrandingTheme
      */
     public function getBrandingTheme(){
         return $this->_data['BrandingTheme'];
     }
 
     /**
-     * @param string $value
+     * @param BrandingTheme $value
      * @return Contact
      */
-    public function setBrandingTheme($value){
+    public function setBrandingTheme(BrandingTheme $value){
         $this->_data['BrandingTheme'] = $value;
         return $this;
     }
@@ -678,14 +753,14 @@ class Contact extends RemoteObject {
     }
 
     /**
-     * @return string
+     * @return float
      */
     public function getDiscount(){
         return $this->_data['Discount'];
     }
 
     /**
-     * @param string $value
+     * @param float $value
      * @return Contact
      */
     public function setDiscount($value){
@@ -694,14 +769,14 @@ class Contact extends RemoteObject {
     }
 
     /**
-     * @return float
+     * @return string
      */
     public function getBalances(){
         return $this->_data['Balances'];
     }
 
     /**
-     * @param float[] $value
+     * @param string[] $value
      * @return Contact
      */
     public function addBalance($value){
@@ -710,37 +785,36 @@ class Contact extends RemoteObject {
     }
 
     /**
-     * @return object
+     * @return PaymentTerm
      */
     public function getPaymentTerms(){
         return $this->_data['PaymentTerms'];
     }
 
     /**
-     * @param object[] $value
+     * @param PaymentTerm[] $value
      * @return Contact
      */
-    public function addPaymentTerm($value){
+    public function addPaymentTerm(PaymentTerm $value){
         $this->_data['PaymentTerms'][] = $value;
         return $this;
     }
 
     /**
-     * @return string
+     * @return bool
      */
     public function getHasAttachments(){
         return $this->_data['HasAttachments'];
     }
 
     /**
-     * @param string[] $value
+     * @param bool $value
      * @return Contact
      */
-    public function addHasAttachment($value){
-        $this->_data['HasAttachments'][] = $value;
+    public function setHasAttachment($value){
+        $this->_data['HasAttachments'] = $value;
         return $this;
     }
-
 
 
 }

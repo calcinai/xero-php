@@ -2,56 +2,96 @@
 
 namespace XeroPHP\Models\Accounting;
 
-use XeroPHP\Remote\Object as RemoteObject;
+use XeroPHP\Remote;
 
-class Journal extends RemoteObject {
+use XeroPHP\Models\Accounting\Journal\JournalLine;
+
+class Journal extends Remote\Object {
 
     /**
-     * Xero identifier 
+     * Xero identifier
      *
-     * @property guid JournalID
+     * @property string JournalID
      */
 
     /**
-     * Date the journal was posted 
+     * Date the journal was posted
      *
-     * @property date JournalDate
+     * @property \DateTime JournalDate
      */
 
     /**
-     * Xero generated journal number 
+     * Xero generated journal number
      *
-     * @property int JournalNumber
+     * @property string JournalNumber
      */
 
     /**
-     * Created date UTC format 
+     * Created date UTC format
      *
-     * @property date CreatedDateUTC
+     * @property \DateTime CreatedDateUTC
      */
 
     /**
-     *   
+     *  
      *
      * @property string Reference
      */
 
     /**
-     * See JournalLines 
+     * See JournalLines
      *
-     * @property object[] JournalLines
+     * @property JournalLine[] JournalLines
      */
 
 
+
+    /*
+    * Get the resource uri of the class (Contacts) etc
+    */
+    public static function getResourceURI(){
+        return 'Journals';
+    }
+
+
+    /*
+    * Get the stem of the API (core.xro) etc
+    */
+    public static function getAPIStem(){
+        return Remote\URL::API_CORE;
+    }
+
+
+    /*
+    * Get the supported methods
+    */
+    public static function getSupportedMethods(){
+        return array(
+            Remote\Request::METHOD_GET
+        );
+    }
+
+    public static function getProperties(){
+            return array(
+                'JournalID',
+                'JournalDate',
+                'JournalNumber',
+                'CreatedDateUTC',
+                'Reference',
+                'JournalLines'
+        );
+    }
+
+
     /**
-     * @return guid
+     * @return string
      */
     public function getJournalID(){
         return $this->_data['JournalID'];
     }
 
     /**
-     * @param guid $value
+     * @param string $value
      * @return Journal
      */
     public function setJournalID($value){
@@ -60,30 +100,30 @@ class Journal extends RemoteObject {
     }
 
     /**
-     * @return date
+     * @return \DateTime
      */
     public function getJournalDate(){
         return $this->_data['JournalDate'];
     }
 
     /**
-     * @param date $value
+     * @param \DateTime $value
      * @return Journal
      */
-    public function setJournalDate($value){
+    public function setJournalDate(\DateTime $value){
         $this->_data['JournalDate'] = $value;
         return $this;
     }
 
     /**
-     * @return int
+     * @return string
      */
     public function getJournalNumber(){
         return $this->_data['JournalNumber'];
     }
 
     /**
-     * @param int $value
+     * @param string $value
      * @return Journal
      */
     public function setJournalNumber($value){
@@ -92,17 +132,17 @@ class Journal extends RemoteObject {
     }
 
     /**
-     * @return date
+     * @return \DateTime
      */
     public function getCreatedDateUTC(){
         return $this->_data['CreatedDateUTC'];
     }
 
     /**
-     * @param date $value
+     * @param \DateTime $value
      * @return Journal
      */
-    public function setCreatedDateUTC($value){
+    public function setCreatedDateUTC(\DateTime $value){
         $this->_data['CreatedDateUTC'] = $value;
         return $this;
     }
@@ -124,21 +164,20 @@ class Journal extends RemoteObject {
     }
 
     /**
-     * @return object
+     * @return JournalLine
      */
     public function getJournalLines(){
         return $this->_data['JournalLines'];
     }
 
     /**
-     * @param object[] $value
+     * @param JournalLine[] $value
      * @return Journal
      */
-    public function addJournalLine($value){
+    public function addJournalLine(JournalLine $value){
         $this->_data['JournalLines'][] = $value;
         return $this;
     }
-
 
 
 }

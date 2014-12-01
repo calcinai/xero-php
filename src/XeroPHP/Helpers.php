@@ -49,8 +49,16 @@ class Helpers {
      */
     public static function singularize($string){
         $singular = array(
-            '/([^aeiouy]|qu)ies$/i' => "$1y",
-            '/([^s])s$/i'           => "$1"
+            '/(vert|ind)ices$/i'        => "$1ex",
+            '/(alias)es$/i'             => "$1",
+            '/(x|ch|ss|sh)es$/i'        => "$1",
+            '/(s)eries$/i'              => "$1eries",
+            '/([^aeiouy]|qu)ies$/i'     => "$1y",
+            '/([lr])ves$/i'             => "$1f",
+            '/([ti])a$/i'               => "$1um",
+            '/(us)es$/i'                => "$1",
+            '/(basis)$/i'               => "$1",
+            '/([^s])s$/i'               => "$1"
         );
 
         // check for matches using regular expressions

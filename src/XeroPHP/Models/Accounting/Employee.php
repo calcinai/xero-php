@@ -2,53 +2,93 @@
 
 namespace XeroPHP\Models\Accounting;
 
-use XeroPHP\Remote\Object as RemoteObject;
+use XeroPHP\Remote;
 
-class Employee extends RemoteObject {
+
+class Employee extends Remote\Object {
 
     /**
-     * Xero identifier 
+     * Xero identifier
      *
-     * @property guid EmployeeID
+     * @property string EmployeeID
      */
 
     /**
-     * Current status of an employee – see contact status types 
+     * Current status of an employee – see contact status types
      *
-     * @property string[] Status
+     * @property string Status
      */
 
     /**
-     * First name of an employee (max length = 255) 
+     * First name of an employee (max length = 255)
      *
      * @property string FirstName
      */
 
     /**
-     * Last name of an employee (max length = 255) 
+     * Last name of an employee (max length = 255)
      *
      * @property string LastName
      */
 
     /**
-     * Link to an external resource, for example, an employee record in an external system. You can specify 
+     * Link to an external resource, for example, an employee record in an external system. You can specify
      * the URL element.
-The description of the link is auto-generated in the form “Go to <App name>”. <App 
-     * name> refers to the Xero application name that is making the API call. 
+The description of the link is auto-generated in the form “Go to <App name>”.
+     * <App name> refers to the Xero application name that is making the API call.
      *
      * @property string ExternalLink
      */
 
 
+
+    /*
+    * Get the resource uri of the class (Contacts) etc
+    */
+    public static function getResourceURI(){
+        return 'Employees';
+    }
+
+
+    /*
+    * Get the stem of the API (core.xro) etc
+    */
+    public static function getAPIStem(){
+        return Remote\URL::API_CORE;
+    }
+
+
+    /*
+    * Get the supported methods
+    */
+    public static function getSupportedMethods(){
+        return array(
+            Remote\Request::METHOD_POST,
+            Remote\Request::METHOD_PUT,
+            Remote\Request::METHOD_GET
+        );
+    }
+
+    public static function getProperties(){
+            return array(
+                'EmployeeID',
+                'Status',
+                'FirstName',
+                'LastName',
+                'ExternalLink'
+        );
+    }
+
+
     /**
-     * @return guid
+     * @return string
      */
     public function getEmployeeID(){
         return $this->_data['EmployeeID'];
     }
 
     /**
-     * @param guid $value
+     * @param string $value
      * @return Employee
      */
     public function setEmployeeID($value){
@@ -64,11 +104,11 @@ The description of the link is auto-generated in the form “Go to <App name>”
     }
 
     /**
-     * @param string[] $value
+     * @param string $value
      * @return Employee
      */
-    public function addStatu($value){
-        $this->_data['Status'][] = $value;
+    public function setStatu($value){
+        $this->_data['Status'] = $value;
         return $this;
     }
 
@@ -119,7 +159,6 @@ The description of the link is auto-generated in the form “Go to <App name>”
         $this->_data['ExternalLink'] = $value;
         return $this;
     }
-
 
 
 }

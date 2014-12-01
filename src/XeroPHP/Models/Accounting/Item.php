@@ -2,33 +2,74 @@
 
 namespace XeroPHP\Models\Accounting;
 
-use XeroPHP\Remote\Object as RemoteObject;
+use XeroPHP\Remote;
 
-class Item extends RemoteObject {
+use XeroPHP\Models\Accounting\Item\Purchase;
+use XeroPHP\Models\Accounting\Organisation\Sale;
+
+class Item extends Remote\Object {
 
     /**
-     * User defined item code (max length = 30) 
+     * User defined item code (max length = 30)
      *
      * @property string Code
      */
 
     /**
-     * Description of item 
+     * Description of item
      *
      * @property string Description
      */
 
     /**
-     * See Purchases & Sales 
+     * See Purchases & Sales
      *
-     * @property string[] PurchaseDetails
+     * @property Purchase[] PurchaseDetails
      */
 
     /**
-     * See Purchases & Sales 
+     * See Purchases & Sales
      *
-     * @property string[] SalesDetails
+     * @property Sale[] SalesDetails
      */
+
+
+
+    /*
+    * Get the resource uri of the class (Contacts) etc
+    */
+    public static function getResourceURI(){
+        return 'Items';
+    }
+
+
+    /*
+    * Get the stem of the API (core.xro) etc
+    */
+    public static function getAPIStem(){
+        return Remote\URL::API_CORE;
+    }
+
+
+    /*
+    * Get the supported methods
+    */
+    public static function getSupportedMethods(){
+        return array(
+            Remote\Request::METHOD_GET,
+            Remote\Request::METHOD_PUT,
+            Remote\Request::METHOD_POST
+        );
+    }
+
+    public static function getProperties(){
+            return array(
+                'Code',
+                'Description',
+                'PurchaseDetails',
+                'SalesDetails'
+        );
+    }
 
 
     /**
@@ -64,37 +105,36 @@ class Item extends RemoteObject {
     }
 
     /**
-     * @return string
+     * @return Purchase
      */
     public function getPurchaseDetails(){
         return $this->_data['PurchaseDetails'];
     }
 
     /**
-     * @param string[] $value
+     * @param Purchase[] $value
      * @return Item
      */
-    public function addPurchaseDetail($value){
+    public function addPurchaseDetail(Purchase $value){
         $this->_data['PurchaseDetails'][] = $value;
         return $this;
     }
 
     /**
-     * @return string
+     * @return Sale
      */
     public function getSalesDetails(){
         return $this->_data['SalesDetails'];
     }
 
     /**
-     * @param string[] $value
+     * @param Sale[] $value
      * @return Item
      */
-    public function addSalesDetail($value){
+    public function addSalesDetail(Sale $value){
         $this->_data['SalesDetails'][] = $value;
         return $this;
     }
-
 
 
 }

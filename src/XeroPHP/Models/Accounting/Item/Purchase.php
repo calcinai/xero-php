@@ -1,28 +1,64 @@
 <?php
 
-namespace XeroPHP\Models\Accounting;
+namespace XeroPHP\Models\Accounting\Item;
 
-use XeroPHP\Remote\Object as RemoteObject;
+use XeroPHP\Remote;
 
-class PurchasesAndSale extends RemoteObject {
+
+class Purchase extends Remote\Object {
 
     /**
-     * Unit Price of item 
+     * Unit Price of item
      *
      * @property string UnitPrice
      */
 
     /**
-     * Account code to be used for purchased item 
+     * Account code to be used for purchased item
      *
      * @property string AccountCode
      */
 
     /**
-     * Used as an override if the default Tax Code for the selected <AccountCode> is not correct – see TaxTypes. 
+     * Used as an override if the default Tax Code for the selected <AccountCode> is not correct – see
+     * TaxTypes.
      *
      * @property string TaxType
      */
+
+
+
+    /*
+    * Get the resource uri of the class (Contacts) etc
+    */
+    public static function getResourceURI(){
+        return null;
+    }
+
+
+    /*
+    * Get the stem of the API (core.xro) etc
+    */
+    public static function getAPIStem(){
+        return Remote\URL::API_CORE;
+    }
+
+
+    /*
+    * Get the supported methods
+    */
+    public static function getSupportedMethods(){
+        return array(
+        );
+    }
+
+    public static function getProperties(){
+            return array(
+                'UnitPrice',
+                'AccountCode',
+                'TaxType'
+        );
+    }
 
 
     /**
@@ -34,7 +70,7 @@ class PurchasesAndSale extends RemoteObject {
 
     /**
      * @param string $value
-     * @return PurchasesAndSale
+     * @return Purchase
      */
     public function setUnitPrice($value){
         $this->_data['UnitPrice'] = $value;
@@ -50,7 +86,7 @@ class PurchasesAndSale extends RemoteObject {
 
     /**
      * @param string $value
-     * @return PurchasesAndSale
+     * @return Purchase
      */
     public function setAccountCode($value){
         $this->_data['AccountCode'] = $value;
@@ -66,13 +102,12 @@ class PurchasesAndSale extends RemoteObject {
 
     /**
      * @param string $value
-     * @return PurchasesAndSale
+     * @return Purchase
      */
     public function setTaxType($value){
         $this->_data['TaxType'] = $value;
         return $this;
     }
-
 
 
 }

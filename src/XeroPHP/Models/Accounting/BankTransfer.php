@@ -2,93 +2,138 @@
 
 namespace XeroPHP\Models\Accounting;
 
-use XeroPHP\Remote\Object as RemoteObject;
+use XeroPHP\Remote;
 
-class BankTransfer extends RemoteObject {
+use XeroPHP\Models\Accounting\BankTransfer\FromBankAccount;
+use XeroPHP\Models\Accounting\BankTransfer\ToBankAccount;
+
+class BankTransfer extends Remote\Object {
 
     /**
-     * See FromBankAccount 
+     * See FromBankAccount
      *
-     * @property string FromBankAccount
+     * @property FromBankAccount FromBankAccount
      */
 
     /**
-     * See ToBankAccount 
+     * See ToBankAccount
      *
-     * @property string ToBankAccount
+     * @property ToBankAccount ToBankAccount
      */
 
     /**
-     *  
+     * 
      *
      * @property string Amount
      */
 
     /**
-     * The date of the Transfer YYYY-MM-DD 
+     * The date of the Transfer YYYY-MM-DD
      *
-     * @property date Date
+     * @property \DateTime Date
      */
 
     /**
-     * The identifier of the Bank Transfer 
+     * The identifier of the Bank Transfer
      *
      * @property string BankTransferID
      */
 
     /**
-     * The currency rate 
+     * The currency rate
      *
-     * @property string CurrencyRate
+     * @property float CurrencyRate
      */
 
     /**
-     * The Bank Transaction ID for the source account 
+     * The Bank Transaction ID for the source account
      *
      * @property string FromBankTransactionID
      */
 
     /**
-     * The Bank Transaction ID for the destination account 
+     * The Bank Transaction ID for the destination account
      *
      * @property string ToBankTransactionID
      */
 
     /**
-     * Boolean to indicate if a Bank Transfer has an attachment 
+     * Boolean to indicate if a Bank Transfer has an attachment
      *
-     * @property bool[] HasAttachments
+     * @property bool HasAttachments
      */
 
 
+
+    /*
+    * Get the resource uri of the class (Contacts) etc
+    */
+    public static function getResourceURI(){
+        return 'BankTransfers';
+    }
+
+
+    /*
+    * Get the stem of the API (core.xro) etc
+    */
+    public static function getAPIStem(){
+        return Remote\URL::API_CORE;
+    }
+
+
+    /*
+    * Get the supported methods
+    */
+    public static function getSupportedMethods(){
+        return array(
+            Remote\Request::METHOD_GET,
+            Remote\Request::METHOD_PUT
+        );
+    }
+
+    public static function getProperties(){
+            return array(
+                'FromBankAccount',
+                'ToBankAccount',
+                'Amount',
+                'Date',
+                'BankTransferID',
+                'CurrencyRate',
+                'FromBankTransactionID',
+                'ToBankTransactionID',
+                'HasAttachments'
+        );
+    }
+
+
     /**
-     * @return string
+     * @return FromBankAccount
      */
     public function getFromBankAccount(){
         return $this->_data['FromBankAccount'];
     }
 
     /**
-     * @param string $value
+     * @param FromBankAccount $value
      * @return BankTransfer
      */
-    public function setFromBankAccount($value){
+    public function setFromBankAccount(FromBankAccount $value){
         $this->_data['FromBankAccount'] = $value;
         return $this;
     }
 
     /**
-     * @return string
+     * @return ToBankAccount
      */
     public function getToBankAccount(){
         return $this->_data['ToBankAccount'];
     }
 
     /**
-     * @param string $value
+     * @param ToBankAccount $value
      * @return BankTransfer
      */
-    public function setToBankAccount($value){
+    public function setToBankAccount(ToBankAccount $value){
         $this->_data['ToBankAccount'] = $value;
         return $this;
     }
@@ -110,17 +155,17 @@ class BankTransfer extends RemoteObject {
     }
 
     /**
-     * @return date
+     * @return \DateTime
      */
     public function getDate(){
         return $this->_data['Date'];
     }
 
     /**
-     * @param date $value
+     * @param \DateTime $value
      * @return BankTransfer
      */
-    public function setDate($value){
+    public function setDate(\DateTime $value){
         $this->_data['Date'] = $value;
         return $this;
     }
@@ -142,14 +187,14 @@ class BankTransfer extends RemoteObject {
     }
 
     /**
-     * @return string
+     * @return float
      */
     public function getCurrencyRate(){
         return $this->_data['CurrencyRate'];
     }
 
     /**
-     * @param string $value
+     * @param float $value
      * @return BankTransfer
      */
     public function setCurrencyRate($value){
@@ -197,14 +242,13 @@ class BankTransfer extends RemoteObject {
     }
 
     /**
-     * @param bool[] $value
+     * @param bool $value
      * @return BankTransfer
      */
-    public function addHasAttachment($value){
-        $this->_data['HasAttachments'][] = $value;
+    public function setHasAttachment($value){
+        $this->_data['HasAttachments'] = $value;
         return $this;
     }
-
 
 
 }

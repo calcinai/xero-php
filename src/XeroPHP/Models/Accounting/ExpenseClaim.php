@@ -2,105 +2,153 @@
 
 namespace XeroPHP\Models\Accounting;
 
-use XeroPHP\Remote\Object as RemoteObject;
+use XeroPHP\Remote;
 
-class ExpenseClaim extends RemoteObject {
+use XeroPHP\Models\Accounting\User;
+use XeroPHP\Models\Accounting\Receipt;
+
+class ExpenseClaim extends Remote\Object {
 
     /**
-     * See Users 
+     * See Users
      *
-     * @property string User
+     * @property User User
      */
 
     /**
-     * See Receipts 
+     * See Receipts
      *
-     * @property string[] Receipts
+     * @property Receipt[] Receipts
      */
 
     /**
-     * Xero generated unique identifier for an expense claim 
+     * Xero generated unique identifier for an expense claim
      *
      * @property string ExpenseClaimID
      */
 
     /**
-     * Current status of an expense claim – see status types 
+     * Current status of an expense claim – see status types
      *
-     * @property string[] Status
+     * @property string Status
      */
 
     /**
-     * Last modified date UTC format 
+     * Last modified date UTC format
      *
-     * @property date UpdatedDateUTC
+     * @property \DateTime UpdatedDateUTC
      */
 
     /**
-     * The total of an expense claim being paid 
+     * The total of an expense claim being paid
      *
-     * @property string Total
+     * @property float Total
      */
 
     /**
-     * The amount due to be paid for an expense claim 
+     * The amount due to be paid for an expense claim
      *
      * @property float AmountDue
      */
 
     /**
-     * The amount still to pay for an expense claim 
+     * The amount still to pay for an expense claim
      *
      * @property float AmountPaid
      */
 
     /**
-     * The date when the expense claim is due to be paid YYYY-MM-DD 
+     * The date when the expense claim is due to be paid YYYY-MM-DD
      *
-     * @property date PaymentDueDate
+     * @property \DateTime PaymentDueDate
      */
 
     /**
-     * The date the expense claim will be reported in Xero YYYY-MM-DD 
+     * The date the expense claim will be reported in Xero YYYY-MM-DD
      *
-     * @property date ReportingDate
+     * @property \DateTime ReportingDate
      */
 
     /**
-     * The Xero identifier for the Receipt e.g. e59a2c7f-1306-4078-a0f3-73537afcbba9 
+     * The Xero identifier for the Receipt e.g. e59a2c7f-1306-4078-a0f3-73537afcbba9
      *
-     * @property guid ReceiptID
+     * @property string ReceiptID
      */
 
 
+
+    /*
+    * Get the resource uri of the class (Contacts) etc
+    */
+    public static function getResourceURI(){
+        return 'ExpenseClaims';
+    }
+
+
+    /*
+    * Get the stem of the API (core.xro) etc
+    */
+    public static function getAPIStem(){
+        return Remote\URL::API_CORE;
+    }
+
+
+    /*
+    * Get the supported methods
+    */
+    public static function getSupportedMethods(){
+        return array(
+            Remote\Request::METHOD_GET,
+            Remote\Request::METHOD_PUT,
+            Remote\Request::METHOD_POST
+        );
+    }
+
+    public static function getProperties(){
+            return array(
+                'User',
+                'Receipts',
+                'ExpenseClaimID',
+                'Status',
+                'UpdatedDateUTC',
+                'Total',
+                'AmountDue',
+                'AmountPaid',
+                'PaymentDueDate',
+                'ReportingDate',
+                'ReceiptID'
+        );
+    }
+
+
     /**
-     * @return string
+     * @return User
      */
     public function getUser(){
         return $this->_data['User'];
     }
 
     /**
-     * @param string $value
+     * @param User $value
      * @return ExpenseClaim
      */
-    public function setUser($value){
+    public function setUser(User $value){
         $this->_data['User'] = $value;
         return $this;
     }
 
     /**
-     * @return string
+     * @return Receipt
      */
     public function getReceipts(){
         return $this->_data['Receipts'];
     }
 
     /**
-     * @param string[] $value
+     * @param Receipt[] $value
      * @return ExpenseClaim
      */
-    public function addReceipt($value){
+    public function addReceipt(Receipt $value){
         $this->_data['Receipts'][] = $value;
         return $this;
     }
@@ -129,39 +177,39 @@ class ExpenseClaim extends RemoteObject {
     }
 
     /**
-     * @param string[] $value
+     * @param string $value
      * @return ExpenseClaim
      */
-    public function addStatu($value){
-        $this->_data['Status'][] = $value;
+    public function setStatu($value){
+        $this->_data['Status'] = $value;
         return $this;
     }
 
     /**
-     * @return date
+     * @return \DateTime
      */
     public function getUpdatedDateUTC(){
         return $this->_data['UpdatedDateUTC'];
     }
 
     /**
-     * @param date $value
+     * @param \DateTime $value
      * @return ExpenseClaim
      */
-    public function setUpdatedDateUTC($value){
+    public function setUpdatedDateUTC(\DateTime $value){
         $this->_data['UpdatedDateUTC'] = $value;
         return $this;
     }
 
     /**
-     * @return string
+     * @return float
      */
     public function getTotal(){
         return $this->_data['Total'];
     }
 
     /**
-     * @param string $value
+     * @param float $value
      * @return ExpenseClaim
      */
     public function setTotal($value){
@@ -202,53 +250,52 @@ class ExpenseClaim extends RemoteObject {
     }
 
     /**
-     * @return date
+     * @return \DateTime
      */
     public function getPaymentDueDate(){
         return $this->_data['PaymentDueDate'];
     }
 
     /**
-     * @param date $value
+     * @param \DateTime $value
      * @return ExpenseClaim
      */
-    public function setPaymentDueDate($value){
+    public function setPaymentDueDate(\DateTime $value){
         $this->_data['PaymentDueDate'] = $value;
         return $this;
     }
 
     /**
-     * @return date
+     * @return \DateTime
      */
     public function getReportingDate(){
         return $this->_data['ReportingDate'];
     }
 
     /**
-     * @param date $value
+     * @param \DateTime $value
      * @return ExpenseClaim
      */
-    public function setReportingDate($value){
+    public function setReportingDate(\DateTime $value){
         $this->_data['ReportingDate'] = $value;
         return $this;
     }
 
     /**
-     * @return guid
+     * @return string
      */
     public function getReceiptID(){
         return $this->_data['ReceiptID'];
     }
 
     /**
-     * @param guid $value
+     * @param string $value
      * @return ExpenseClaim
      */
     public function setReceiptID($value){
         $this->_data['ReceiptID'] = $value;
         return $this;
     }
-
 
 
 }

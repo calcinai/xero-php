@@ -2,167 +2,244 @@
 
 namespace XeroPHP\Models\Accounting;
 
-use XeroPHP\Remote\Object as RemoteObject;
+use XeroPHP\Remote;
 
-class Organisation extends RemoteObject {
+
+class Organisation extends Remote\Object {
 
     /**
-     * Display a unique key used for Xero-to-Xero transactions 
+     * Display a unique key used for Xero-to-Xero transactions
      *
      * @property string APIKey
      */
 
     /**
-     * Display name of organisation shown in Xero 
+     * Display name of organisation shown in Xero
      *
      * @property string Name
      */
 
     /**
-     * Organisation name shown on Reports 
+     * Organisation name shown on Reports
      *
      * @property string LegalName
      */
 
     /**
-     * Boolean to describe if organisation is registered with a local tax authority i.e. true, false 
+     * Boolean to describe if organisation is registered with a local tax authority i.e. true, false
      *
      * @property bool PaysTax
      */
 
     /**
-     * See Version Types 
+     * See Version Types
      *
-     * @property enum Version
+     * @property string Version
      */
 
     /**
-     * Default currency for organisation. See ISO 4217 Currency Codes 
+     * Default currency for organisation. See ISO 4217 Currency Codes
      *
      * @property string BaseCurrency
      */
 
     /**
-     * Country code for organisation. See ISO 3166-2 Country Codes 
+     * Country code for organisation. See ISO 3166-2 Country Codes
      *
      * @property string CountryCode
      */
 
     /**
-     * Boolean to describe if organisation is a demo company. 
+     * Boolean to describe if organisation is a demo company.
      *
      * @property bool IsDemoCompany
      */
 
     /**
-     * Will be set to ACTIVE if you can connect to organisation via the Xero API 
+     * Will be set to ACTIVE if you can connect to organisation via the Xero API
      *
-     * @property string[] OrganisationStatus
+     * @property string OrganisationStatus
      */
 
     /**
-     * Shows for New Zealand, Australian and UK organisations 
+     * Shows for New Zealand, Australian and UK organisations
      *
-     * @property int RegistrationNumber
+     * @property string RegistrationNumber
      */
 
     /**
-     * Shown if set 
+     * Shown if set
      *
-     * @property int TaxNumber
+     * @property string TaxNumber
      */
 
     /**
-     * Calendar day e.g. 0-31 
+     * Calendar day e.g. 0-31
      *
      * @property string FinancialYearEndDay
      */
 
     /**
-     * Calendar Month e.g. 1-12 
+     * Calendar Month e.g. 1-12
      *
      * @property string FinancialYearEndMonth
      */
 
     /**
-     * The accounting basis used for tax returns. See Sales Tax Basis 
+     * The accounting basis used for tax returns. See Sales Tax Basis
      *
-     * @property string[] SalesTaxBasis
+     * @property string SalesTaxBasis
      */
 
     /**
-     * The frequency with which tax returns are processed. See Sales Tax Period 
+     * The frequency with which tax returns are processed. See Sales Tax Period
      *
      * @property string SalesTaxPeriod
      */
 
     /**
-     * Shown if set. See lock dates 
+     * Shown if set. See lock dates
      *
-     * @property date PeriodLockDate
+     * @property string PeriodLockDate
      */
 
     /**
-     * Shown if set. See lock dates 
+     * Shown if set. See lock dates
      *
-     * @property date EndOfYearLockDate
+     * @property string EndOfYearLockDate
      */
 
     /**
-     * Timestamp when the organisation was created in Xero 
+     * Timestamp when the organisation was created in Xero
      *
-     * @property date CreatedDateUTC
+     * @property \DateTime CreatedDateUTC
      */
 
     /**
-     * Organisation Type 
+     * Organisation Type
      *
      * @property string OrganisationEntityType
      */
 
     /**
-     * Timezone specifications 
+     * Timezone specifications
      *
      * @property string Timezone
      */
 
     /**
-     * A unique identifier for the organisation. Potential uses. 
+     * A unique identifier for the organisation. Potential uses.
      *
      * @property string ShortCode
      */
 
     /**
-     * Description of business type as defined in Organisation settings 
+     * Description of business type as defined in Organisation settings
      *
      * @property string LineOfBusiness
      */
 
     /**
-     * Address details for organisation – see Addresses 
+     * Address details for organisation – see Addresses
      *
-     * @property enum[] Addresses
+     * @property string Addresses
      */
 
     /**
-     * Phones details for organisation – see Phones 
+     * Phones details for organisation – see Phones
      *
-     * @property enum[] Phones
+     * @property string Phones
      */
 
     /**
-     * Organisation profile links for popular services such as Facebook, Twitter, GooglePlus and LinkedIn. You 
-     * can also add link to your website here. Shown if Organisation settings  is updated in Xero. See ExternalLinks 
-     * below 
+     * Organisation profile links for popular services such as Facebook, Twitter, GooglePlus and LinkedIn.
+     * You can also add link to your website here. Shown if Organisation settings  is updated in Xero. See
+     * ExternalLinks below
      *
-     * @property date[] ExternalLinks
+     * @property string[] ExternalLinks
      */
 
     /**
-     * Default payment terms for the organisation if set – See Payment Terms below 
+     * Default payment terms for the organisation if set – See Payment Terms below
      *
      * @property string[] PaymentTerms
      */
+
+
+    const VERSION_TYPE_AU           = 'AU'; 
+    const VERSION_TYPE_NZ           = 'NZ'; 
+    const VERSION_TYPE_GLOBAL       = 'GLOBAL'; 
+    const VERSION_TYPE_UK           = 'UK'; 
+    const VERSION_TYPE_US           = 'US'; 
+    const VERSION_TYPE_AUONRAMP     = 'AUONRAMP'; 
+    const VERSION_TYPE_NZONRAMP     = 'NZONRAMP'; 
+    const VERSION_TYPE_GLOBALONRAMP = 'GLOBALONRAMP'; 
+    const VERSION_TYPE_UKONRAMP     = 'UKONRAMP'; 
+    const VERSION_TYPE_USONRAMP     = 'USONRAMP'; 
+
+    const ORGANISATION_TYPE_COMPANY     = 'COMPANY'; 
+    const ORGANISATION_TYPE_CHARITY     = 'CHARITY'; 
+    const ORGANISATION_TYPE_CLUBSOCIETY = 'CLUBSOCIETY'; 
+    const ORGANISATION_TYPE_PARTNERSHIP = 'PARTNERSHIP'; 
+    const ORGANISATION_TYPE_PERSON      = 'PERSON'; 
+    const ORGANISATION_TYPE_SOLETRADER  = 'SOLETRADER'; 
+    const ORGANISATION_TYPE_TRUST       = 'TRUST'; 
+
+
+    /*
+    * Get the resource uri of the class (Contacts) etc
+    */
+    public static function getResourceURI(){
+        return null;
+    }
+
+
+    /*
+    * Get the stem of the API (core.xro) etc
+    */
+    public static function getAPIStem(){
+        return Remote\URL::API_CORE;
+    }
+
+
+    /*
+    * Get the supported methods
+    */
+    public static function getSupportedMethods(){
+        return array(
+        );
+    }
+
+    public static function getProperties(){
+            return array(
+                'APIKey',
+                'Name',
+                'LegalName',
+                'PaysTax',
+                'Version',
+                'BaseCurrency',
+                'CountryCode',
+                'IsDemoCompany',
+                'OrganisationStatus',
+                'RegistrationNumber',
+                'TaxNumber',
+                'FinancialYearEndDay',
+                'FinancialYearEndMonth',
+                'SalesTaxBasis',
+                'SalesTaxPeriod',
+                'PeriodLockDate',
+                'EndOfYearLockDate',
+                'CreatedDateUTC',
+                'OrganisationEntityType',
+                'Timezone',
+                'ShortCode',
+                'LineOfBusiness',
+                'Addresses',
+                'Phones',
+                'ExternalLinks',
+                'PaymentTerms'
+        );
+    }
 
 
     /**
@@ -230,14 +307,14 @@ class Organisation extends RemoteObject {
     }
 
     /**
-     * @return enum
+     * @return string
      */
     public function getVersion(){
         return $this->_data['Version'];
     }
 
     /**
-     * @param enum $value
+     * @param string $value
      * @return Organisation
      */
     public function setVersion($value){
@@ -301,23 +378,23 @@ class Organisation extends RemoteObject {
     }
 
     /**
-     * @param string[] $value
+     * @param string $value
      * @return Organisation
      */
-    public function addOrganisationStatu($value){
-        $this->_data['OrganisationStatus'][] = $value;
+    public function setOrganisationStatu($value){
+        $this->_data['OrganisationStatus'] = $value;
         return $this;
     }
 
     /**
-     * @return int
+     * @return string
      */
     public function getRegistrationNumber(){
         return $this->_data['RegistrationNumber'];
     }
 
     /**
-     * @param int $value
+     * @param string $value
      * @return Organisation
      */
     public function setRegistrationNumber($value){
@@ -326,14 +403,14 @@ class Organisation extends RemoteObject {
     }
 
     /**
-     * @return int
+     * @return string
      */
     public function getTaxNumber(){
         return $this->_data['TaxNumber'];
     }
 
     /**
-     * @param int $value
+     * @param string $value
      * @return Organisation
      */
     public function setTaxNumber($value){
@@ -381,11 +458,11 @@ class Organisation extends RemoteObject {
     }
 
     /**
-     * @param string[] $value
+     * @param string $value
      * @return Organisation
      */
-    public function addSalesTaxBasi($value){
-        $this->_data['SalesTaxBasis'][] = $value;
+    public function setSalesTaxBasis($value){
+        $this->_data['SalesTaxBasis'] = $value;
         return $this;
     }
 
@@ -406,14 +483,14 @@ class Organisation extends RemoteObject {
     }
 
     /**
-     * @return date
+     * @return string
      */
     public function getPeriodLockDate(){
         return $this->_data['PeriodLockDate'];
     }
 
     /**
-     * @param date $value
+     * @param string $value
      * @return Organisation
      */
     public function setPeriodLockDate($value){
@@ -422,14 +499,14 @@ class Organisation extends RemoteObject {
     }
 
     /**
-     * @return date
+     * @return string
      */
     public function getEndOfYearLockDate(){
         return $this->_data['EndOfYearLockDate'];
     }
 
     /**
-     * @param date $value
+     * @param string $value
      * @return Organisation
      */
     public function setEndOfYearLockDate($value){
@@ -438,17 +515,17 @@ class Organisation extends RemoteObject {
     }
 
     /**
-     * @return date
+     * @return \DateTime
      */
     public function getCreatedDateUTC(){
         return $this->_data['CreatedDateUTC'];
     }
 
     /**
-     * @param date $value
+     * @param \DateTime $value
      * @return Organisation
      */
-    public function setCreatedDateUTC($value){
+    public function setCreatedDateUTC(\DateTime $value){
         $this->_data['CreatedDateUTC'] = $value;
         return $this;
     }
@@ -518,46 +595,46 @@ class Organisation extends RemoteObject {
     }
 
     /**
-     * @return enum
+     * @return string
      */
     public function getAddresses(){
         return $this->_data['Addresses'];
     }
 
     /**
-     * @param enum[] $value
+     * @param string $value
      * @return Organisation
      */
-    public function addAddresse($value){
-        $this->_data['Addresses'][] = $value;
+    public function setAddress($value){
+        $this->_data['Addresses'] = $value;
         return $this;
     }
 
     /**
-     * @return enum
+     * @return string
      */
     public function getPhones(){
         return $this->_data['Phones'];
     }
 
     /**
-     * @param enum[] $value
+     * @param string $value
      * @return Organisation
      */
-    public function addPhone($value){
-        $this->_data['Phones'][] = $value;
+    public function setPhone($value){
+        $this->_data['Phones'] = $value;
         return $this;
     }
 
     /**
-     * @return date
+     * @return string
      */
     public function getExternalLinks(){
         return $this->_data['ExternalLinks'];
     }
 
     /**
-     * @param date[] $value
+     * @param string[] $value
      * @return Organisation
      */
     public function addExternalLink($value){
@@ -580,7 +657,6 @@ class Organisation extends RemoteObject {
         $this->_data['PaymentTerms'][] = $value;
         return $this;
     }
-
 
 
 }

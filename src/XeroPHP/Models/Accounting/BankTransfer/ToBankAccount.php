@@ -1,28 +1,63 @@
 <?php
 
-namespace XeroPHP\Models\Accounting;
+namespace XeroPHP\Models\Accounting\BankTransfer;
 
-use XeroPHP\Remote\Object as RemoteObject;
+use XeroPHP\Remote;
 
-class FromBankAccountAndToBankAccount extends RemoteObject {
+
+class ToBankAccount extends Remote\Object {
 
     /**
-     * The Account Code of the Bank Account 
+     * The Account Code of the Bank Account
      *
      * @property string Code
      */
 
     /**
-     * The ID of the Bank Account 
+     * The ID of the Bank Account
      *
      * @property string AccountID
      */
 
     /**
-     * The Name Bank Account 
+     * The Name Bank Account
      *
      * @property string Name
      */
+
+
+
+    /*
+    * Get the resource uri of the class (Contacts) etc
+    */
+    public static function getResourceURI(){
+        return null;
+    }
+
+
+    /*
+    * Get the stem of the API (core.xro) etc
+    */
+    public static function getAPIStem(){
+        return Remote\URL::API_CORE;
+    }
+
+
+    /*
+    * Get the supported methods
+    */
+    public static function getSupportedMethods(){
+        return array(
+        );
+    }
+
+    public static function getProperties(){
+            return array(
+                'Code',
+                'AccountID',
+                'Name'
+        );
+    }
 
 
     /**
@@ -34,7 +69,7 @@ class FromBankAccountAndToBankAccount extends RemoteObject {
 
     /**
      * @param string $value
-     * @return FromBankAccountAndToBankAccount
+     * @return ToBankAccount
      */
     public function setCode($value){
         $this->_data['Code'] = $value;
@@ -50,7 +85,7 @@ class FromBankAccountAndToBankAccount extends RemoteObject {
 
     /**
      * @param string $value
-     * @return FromBankAccountAndToBankAccount
+     * @return ToBankAccount
      */
     public function setAccountID($value){
         $this->_data['AccountID'] = $value;
@@ -66,13 +101,12 @@ class FromBankAccountAndToBankAccount extends RemoteObject {
 
     /**
      * @param string $value
-     * @return FromBankAccountAndToBankAccount
+     * @return ToBankAccount
      */
     public function setName($value){
         $this->_data['Name'] = $value;
         return $this;
     }
-
 
 
 }

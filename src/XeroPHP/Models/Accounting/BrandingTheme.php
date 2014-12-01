@@ -2,44 +2,81 @@
 
 namespace XeroPHP\Models\Accounting;
 
-use XeroPHP\Remote\Object as RemoteObject;
+use XeroPHP\Remote;
 
-class BrandingTheme extends RemoteObject {
+
+class BrandingTheme extends Remote\Object {
 
     /**
-     * Xero identifier 
+     * Xero identifier
      *
-     * @property guid BrandingThemeID
+     * @property string BrandingThemeID
      */
 
     /**
-     * Name of branding theme 
+     * Name of branding theme
      *
      * @property string Name
      */
 
     /**
-     * Integer – ranked order of branding theme. The default branding theme has a value of 0 
+     * Integer – ranked order of branding theme. The default branding theme has a value of 0
      *
-     * @property string SortOrder
+     * @property int SortOrder
      */
 
     /**
-     * UTC timestamp of creation date of branding theme 
+     * UTC timestamp of creation date of branding theme
      *
-     * @property date CreatedDateUTC
+     * @property \DateTime CreatedDateUTC
      */
 
 
+
+    /*
+    * Get the resource uri of the class (Contacts) etc
+    */
+    public static function getResourceURI(){
+        return 'BrandingThemes';
+    }
+
+
+    /*
+    * Get the stem of the API (core.xro) etc
+    */
+    public static function getAPIStem(){
+        return Remote\URL::API_CORE;
+    }
+
+
+    /*
+    * Get the supported methods
+    */
+    public static function getSupportedMethods(){
+        return array(
+            Remote\Request::METHOD_GET
+        );
+    }
+
+    public static function getProperties(){
+            return array(
+                'BrandingThemeID',
+                'Name',
+                'SortOrder',
+                'CreatedDateUTC'
+        );
+    }
+
+
     /**
-     * @return guid
+     * @return string
      */
     public function getBrandingThemeID(){
         return $this->_data['BrandingThemeID'];
     }
 
     /**
-     * @param guid $value
+     * @param string $value
      * @return BrandingTheme
      */
     public function setBrandingThemeID($value){
@@ -64,14 +101,14 @@ class BrandingTheme extends RemoteObject {
     }
 
     /**
-     * @return string
+     * @return int
      */
     public function getSortOrder(){
         return $this->_data['SortOrder'];
     }
 
     /**
-     * @param string $value
+     * @param int $value
      * @return BrandingTheme
      */
     public function setSortOrder($value){
@@ -80,21 +117,20 @@ class BrandingTheme extends RemoteObject {
     }
 
     /**
-     * @return date
+     * @return \DateTime
      */
     public function getCreatedDateUTC(){
         return $this->_data['CreatedDateUTC'];
     }
 
     /**
-     * @param date $value
+     * @param \DateTime $value
      * @return BrandingTheme
      */
-    public function setCreatedDateUTC($value){
+    public function setCreatedDateUTC(\DateTime $value){
         $this->_data['CreatedDateUTC'] = $value;
         return $this;
     }
-
 
 
 }

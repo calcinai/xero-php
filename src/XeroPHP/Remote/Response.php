@@ -27,6 +27,11 @@ class Response {
             case self::STATUS_NO_AUTH:
             case self::STATUS_NOT_FOUND:
             case self::STATUS_ERROR:
+                foreach($this->response_parsed->Elements as $element)
+                    if(isset($element->HasValidationErrors) && $element->HasValidationErrors == true)
+                        throw new Exception($element->ValidationErrors[0]->Message, $this->response_parsed->ErrorNumber);
+                    //This can be improved.  There doesn't seem to be a lot of documentation on what makes up errors
+
                 throw new Exception($this->response_parsed->Message, $this->response_parsed->ErrorNumber);
         }
 

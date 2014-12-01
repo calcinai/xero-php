@@ -1,0 +1,112 @@
+<?php
+
+namespace XeroPHP\Models\Accounting\BankTransfer;
+
+use XeroPHP\Remote;
+
+
+class FromBankAccount extends Remote\Object {
+
+    /**
+     * The Account Code of the Bank Account
+     *
+     * @property string Code
+     */
+
+    /**
+     * The ID of the Bank Account
+     *
+     * @property string AccountID
+     */
+
+    /**
+     * The Name Bank Account
+     *
+     * @property string Name
+     */
+
+
+
+    /*
+    * Get the resource uri of the class (Contacts) etc
+    */
+    public static function getResourceURI(){
+        return null;
+    }
+
+
+    /*
+    * Get the stem of the API (core.xro) etc
+    */
+    public static function getAPIStem(){
+        return Remote\URL::API_CORE;
+    }
+
+
+    /*
+    * Get the supported methods
+    */
+    public static function getSupportedMethods(){
+        return array(
+        );
+    }
+
+    public static function getProperties(){
+            return array(
+                'Code',
+                'AccountID',
+                'Name'
+        );
+    }
+
+
+    /**
+     * @return string
+     */
+    public function getCode(){
+        return $this->_data['Code'];
+    }
+
+    /**
+     * @param string $value
+     * @return FromBankAccount
+     */
+    public function setCode($value){
+        $this->_data['Code'] = $value;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getAccountID(){
+        return $this->_data['AccountID'];
+    }
+
+    /**
+     * @param string $value
+     * @return FromBankAccount
+     */
+    public function setAccountID($value){
+        $this->_data['AccountID'] = $value;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getName(){
+        return $this->_data['Name'];
+    }
+
+    /**
+     * @param string $value
+     * @return FromBankAccount
+     */
+    public function setName($value){
+        $this->_data['Name'] = $value;
+        return $this;
+    }
+
+
+}

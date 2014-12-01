@@ -2,135 +2,197 @@
 
 namespace XeroPHP\Models\Accounting;
 
-use XeroPHP\Remote\Object as RemoteObject;
+use XeroPHP\Remote;
 
-class CreditNote extends RemoteObject {
+use XeroPHP\Models\Accounting\Contact;
+use XeroPHP\Models\Accounting\CreditNote\Allocation;
+use XeroPHP\Models\Accounting\BrandingTheme;
+
+class CreditNote extends Remote\Object {
 
     /**
-     * An optional field to store a reference 
+     * An optional field to store a reference
      *
      * @property string Reference
      */
 
     /**
-     * See Credit Note Types 
+     * See Credit Note Types
      *
-     * @property enum Type
+     * @property string Type
      */
 
     /**
-     * See Contacts 
+     * See Contacts
      *
-     * @property string Contact
+     * @property Contact Contact
      */
 
     /**
-     * The date the credit note is created YYYY-MM-DD 
+     * The date the credit note is created YYYY-MM-DD
      *
-     * @property date Date
+     * @property \DateTime Date
      */
 
     /**
-     * See Invoice Status Codes 
+     * See Invoice Status Codes
      *
-     * @property enum[] Status
+     * @property string Status
      */
 
     /**
-     * See Invoice Line Amount Types 
+     * See Invoice Line Amount Types
      *
-     * @property float[] LineAmountTypes
+     * @property string LineAmountTypes
      */
 
     /**
-     * See Invoice Line Items 
+     * See Invoice Line Items
      *
      * @property string[] LineItems
      */
 
     /**
-     * The subtotal of the credit note excluding taxes 
+     * The subtotal of the credit note excluding taxes
      *
-     * @property string SubTotal
+     * @property float SubTotal
      */
 
     /**
-     * The total tax on the credit note 
+     * The total tax on the credit note
      *
-     * @property string TotalTax
+     * @property float TotalTax
      */
 
     /**
-     * The total of the Credit Note(subtotal + total tax) 
+     * The total of the Credit Note(subtotal + total tax)
      *
-     * @property string Total
+     * @property float Total
      */
 
     /**
-     * UTC timestamp of last update to contact 
+     * UTC timestamp of last update to contact
      *
-     * @property date UpdatedDateUTC
+     * @property \DateTime UpdatedDateUTC
      */
 
     /**
-     * Currency used for the Credit Note 
+     * Currency used for the Credit Note
      *
      * @property string CurrencyCode
      */
 
     /**
-     * Date when credit note was fully paid(UTC format) 
+     * Date when credit note was fully paid(UTC format)
      *
-     * @property date FullyPaidOnDate
+     * @property \DateTime FullyPaidOnDate
      */
 
     /**
-     * Xero generated unique identifier 
+     * Xero generated unique identifier
      *
      * @property string CreditNoteID
      */
 
     /**
-     * The user friendly unique identifier for a credit note e.g. CN 1001 
+     * The user friendly unique identifier for a credit note e.g. CN 1001
      *
-     * @property int CreditNoteNumber
+     * @property string CreditNoteNumber
      */
 
     /**
-     * boolean to indicate if a credit note has been sent to a contact via the Xero app 
+     * boolean to indicate if a credit note has been sent to a contact via the Xero app
      *
      * @property bool SentToContact
      */
 
     /**
-     * The currency rate for a multicurrency invoice. If no rate is specified, the XE.com day rate is used 
+     * The currency rate for a multicurrency invoice. If no rate is specified, the XE.com day rate is used
      *
-     * @property string CurrencyRate
+     * @property float CurrencyRate
      */
 
     /**
-     * The remaining credit balance on the Credit Note 
+     * The remaining credit balance on the Credit Note
      *
      * @property string RemainingCredit
      */
 
     /**
-     * See Allocations 
+     * See Allocations
      *
-     * @property object[] Allocations
+     * @property Allocation[] Allocations
      */
 
     /**
-     * See BrandingThemes 
+     * See BrandingThemes
      *
-     * @property string BrandingThemeID
+     * @property BrandingTheme BrandingThemeID
      */
 
     /**
-     * boolean to indicate if a credit note has an attachment 
+     * boolean to indicate if a credit note has an attachment
      *
-     * @property bool[] HasAttachments
+     * @property bool HasAttachments
      */
+
+
+    const CREDIT_NOTE_TYPE_ACCPAYCREDIT = 'ACCPAYCREDIT'; 
+    const CREDIT_NOTE_TYPE_ACCRECCREDIT = 'ACCRECCREDIT'; 
+
+
+    /*
+    * Get the resource uri of the class (Contacts) etc
+    */
+    public static function getResourceURI(){
+        return 'CreditNotes';
+    }
+
+
+    /*
+    * Get the stem of the API (core.xro) etc
+    */
+    public static function getAPIStem(){
+        return Remote\URL::API_CORE;
+    }
+
+
+    /*
+    * Get the supported methods
+    */
+    public static function getSupportedMethods(){
+        return array(
+            Remote\Request::METHOD_POST,
+            Remote\Request::METHOD_PUT,
+            Remote\Request::METHOD_GET
+        );
+    }
+
+    public static function getProperties(){
+            return array(
+                'Reference',
+                'Type',
+                'Contact',
+                'Date',
+                'Status',
+                'LineAmountTypes',
+                'LineItems',
+                'SubTotal',
+                'TotalTax',
+                'Total',
+                'UpdatedDateUTC',
+                'CurrencyCode',
+                'FullyPaidOnDate',
+                'CreditNoteID',
+                'CreditNoteNumber',
+                'SentToContact',
+                'CurrencyRate',
+                'RemainingCredit',
+                'Allocations',
+                'BrandingThemeID',
+                'HasAttachments'
+        );
+    }
 
 
     /**
@@ -150,14 +212,14 @@ class CreditNote extends RemoteObject {
     }
 
     /**
-     * @return enum
+     * @return string
      */
     public function getType(){
         return $this->_data['Type'];
     }
 
     /**
-     * @param enum $value
+     * @param string $value
      * @return CreditNote
      */
     public function setType($value){
@@ -166,66 +228,66 @@ class CreditNote extends RemoteObject {
     }
 
     /**
-     * @return string
+     * @return Contact
      */
     public function getContact(){
         return $this->_data['Contact'];
     }
 
     /**
-     * @param string $value
+     * @param Contact $value
      * @return CreditNote
      */
-    public function setContact($value){
+    public function setContact(Contact $value){
         $this->_data['Contact'] = $value;
         return $this;
     }
 
     /**
-     * @return date
+     * @return \DateTime
      */
     public function getDate(){
         return $this->_data['Date'];
     }
 
     /**
-     * @param date $value
+     * @param \DateTime $value
      * @return CreditNote
      */
-    public function setDate($value){
+    public function setDate(\DateTime $value){
         $this->_data['Date'] = $value;
         return $this;
     }
 
     /**
-     * @return enum
+     * @return string
      */
     public function getStatus(){
         return $this->_data['Status'];
     }
 
     /**
-     * @param enum[] $value
+     * @param string $value
      * @return CreditNote
      */
-    public function addStatu($value){
-        $this->_data['Status'][] = $value;
+    public function setStatu($value){
+        $this->_data['Status'] = $value;
         return $this;
     }
 
     /**
-     * @return float
+     * @return string
      */
     public function getLineAmountTypes(){
         return $this->_data['LineAmountTypes'];
     }
 
     /**
-     * @param float[] $value
+     * @param string $value
      * @return CreditNote
      */
-    public function addLineAmountType($value){
-        $this->_data['LineAmountTypes'][] = $value;
+    public function setLineAmountType($value){
+        $this->_data['LineAmountTypes'] = $value;
         return $this;
     }
 
@@ -246,14 +308,14 @@ class CreditNote extends RemoteObject {
     }
 
     /**
-     * @return string
+     * @return float
      */
     public function getSubTotal(){
         return $this->_data['SubTotal'];
     }
 
     /**
-     * @param string $value
+     * @param float $value
      * @return CreditNote
      */
     public function setSubTotal($value){
@@ -262,14 +324,14 @@ class CreditNote extends RemoteObject {
     }
 
     /**
-     * @return string
+     * @return float
      */
     public function getTotalTax(){
         return $this->_data['TotalTax'];
     }
 
     /**
-     * @param string $value
+     * @param float $value
      * @return CreditNote
      */
     public function setTotalTax($value){
@@ -278,14 +340,14 @@ class CreditNote extends RemoteObject {
     }
 
     /**
-     * @return string
+     * @return float
      */
     public function getTotal(){
         return $this->_data['Total'];
     }
 
     /**
-     * @param string $value
+     * @param float $value
      * @return CreditNote
      */
     public function setTotal($value){
@@ -294,17 +356,17 @@ class CreditNote extends RemoteObject {
     }
 
     /**
-     * @return date
+     * @return \DateTime
      */
     public function getUpdatedDateUTC(){
         return $this->_data['UpdatedDateUTC'];
     }
 
     /**
-     * @param date $value
+     * @param \DateTime $value
      * @return CreditNote
      */
-    public function setUpdatedDateUTC($value){
+    public function setUpdatedDateUTC(\DateTime $value){
         $this->_data['UpdatedDateUTC'] = $value;
         return $this;
     }
@@ -326,17 +388,17 @@ class CreditNote extends RemoteObject {
     }
 
     /**
-     * @return date
+     * @return \DateTime
      */
     public function getFullyPaidOnDate(){
         return $this->_data['FullyPaidOnDate'];
     }
 
     /**
-     * @param date $value
+     * @param \DateTime $value
      * @return CreditNote
      */
-    public function setFullyPaidOnDate($value){
+    public function setFullyPaidOnDate(\DateTime $value){
         $this->_data['FullyPaidOnDate'] = $value;
         return $this;
     }
@@ -358,14 +420,14 @@ class CreditNote extends RemoteObject {
     }
 
     /**
-     * @return int
+     * @return string
      */
     public function getCreditNoteNumber(){
         return $this->_data['CreditNoteNumber'];
     }
 
     /**
-     * @param int $value
+     * @param string $value
      * @return CreditNote
      */
     public function setCreditNoteNumber($value){
@@ -390,14 +452,14 @@ class CreditNote extends RemoteObject {
     }
 
     /**
-     * @return string
+     * @return float
      */
     public function getCurrencyRate(){
         return $this->_data['CurrencyRate'];
     }
 
     /**
-     * @param string $value
+     * @param float $value
      * @return CreditNote
      */
     public function setCurrencyRate($value){
@@ -422,33 +484,33 @@ class CreditNote extends RemoteObject {
     }
 
     /**
-     * @return object
+     * @return Allocation
      */
     public function getAllocations(){
         return $this->_data['Allocations'];
     }
 
     /**
-     * @param object[] $value
+     * @param Allocation[] $value
      * @return CreditNote
      */
-    public function addAllocation($value){
+    public function addAllocation(Allocation $value){
         $this->_data['Allocations'][] = $value;
         return $this;
     }
 
     /**
-     * @return string
+     * @return BrandingTheme
      */
     public function getBrandingThemeID(){
         return $this->_data['BrandingThemeID'];
     }
 
     /**
-     * @param string $value
+     * @param BrandingTheme $value
      * @return CreditNote
      */
-    public function setBrandingThemeID($value){
+    public function setBrandingThemeID(BrandingTheme $value){
         $this->_data['BrandingThemeID'] = $value;
         return $this;
     }
@@ -461,14 +523,13 @@ class CreditNote extends RemoteObject {
     }
 
     /**
-     * @param bool[] $value
+     * @param bool $value
      * @return CreditNote
      */
-    public function addHasAttachment($value){
-        $this->_data['HasAttachments'][] = $value;
+    public function setHasAttachment($value){
+        $this->_data['HasAttachments'] = $value;
         return $this;
     }
-
 
 
 }

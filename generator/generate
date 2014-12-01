@@ -25,6 +25,7 @@ $scrape_apis = array(
         'uri' => 'api',
         'types' => 'types',
         'namespace' => 'Accounting',
+        'api_stem_constant' => 'API_CORE',
         'model_uris' => array(
             //'attachments',
             'accounts',
@@ -57,17 +58,18 @@ $scrape_apis = array(
         'uri' => 'payroll-api',
         'types' => 'types-and-codes',
         'namespace' => 'PayrollAU',
+        'api_stem_constant' => 'API_PAYROLL',
         'model_uris' => array(
-//            'employees',
-//            'leaveapplications',
-//            'payitems',
-//            'payrollcalendars',
-//            'payruns',
-//            'payslip',
-//            'settings',
-//            'superfunds',
-//            'superfundproducts',
-//            'timesheets'
+            'employees',
+            'leaveapplications',
+            'payitems',
+            'payrollcalendars',
+            'payruns',
+            'payslip',
+            'settings',
+            'superfunds',
+            'superfundproducts',
+            'timesheets'
         )
     )
 );
@@ -78,7 +80,7 @@ $apis = array();
 $client = new Goutte\Client();
 
 foreach($scrape_apis as $scrape_api) {
-    $api = new API($scrape_api['name'], $scrape_api['namespace']);
+    $api = new API($scrape_api['name'], $scrape_api['namespace'], $scrape_api['api_stem_constant']);
 
     //Get the types
     $full_uri = sprintf('%s/%s/%s/', $documentation_base, $scrape_api['uri'], $scrape_api['types']);
@@ -91,11 +93,12 @@ foreach($scrape_apis as $scrape_api) {
         $current_tag = $node->getNode(0)->tagName;
 
         //don't start till there's a section
-        if(!isset($section_name) && $current_tag !== 'h3')
+        if(!isset($section_name) && !in_array($current_tag, array('h3', 'h4')))
             return false;
 
         switch($current_tag){
             case 'h3':
+            case 'h4':
                 $section_name = str_replace(' ', '', $node->text());
                 break;
             case 'p':
@@ -106,7 +109,7 @@ foreach($scrape_apis as $scrape_api) {
                 //Try record the anchor on page for searching
                 $anchor = null;
                 $node->filter('a')->each(function($node) use(&$anchor){ $anchor = $node->attr('name'); });
-                $enum = new Enum($section_name, $subsection_name, $anchor);
+                $enum = new Enum($section_name, $subsection_name, $anchor, $node->text());
                 break;
             case 'table':
                 $node->filter('tr')->each(function($node, $row_index) use($enum){
@@ -153,7 +156,12 @@ foreach($scrape_apis as $scrape_api) {
                 case 'h3':
                 case 'h4':
                     if(false === stripos($node->text(), 'optional'))
-                        $section_name = str_replace("\xc2\xa0", ' ', $node->text());
+                        $section_name = str_replace("\xc2\xa0", ' ', $node->text()); //remove &nbsp;
+                    break;
+                case 'p':
+                    $node->filter('strong')->each(function($node) use (&$section_name){
+                        $section_name = $node->text();
+                    });
                     break;
                 case 'table':
                     //If no section, we're in the overview table.
@@ -162,7 +170,6 @@ foreach($scrape_apis as $scrape_api) {
                         //The primary model
                         $primary_model = new Model();
                         $current_model = $primary_model;
-                        $api->addModel($primary_model);
 
                         $node->filter('tr')->each(function($node) use($primary_model){
                             $columns = $node->children();
@@ -181,20 +188,33 @@ foreach($scrape_apis as $scrape_api) {
                     }
 
                     //try to work out what's next
-                    if(preg_match('/(xml )?elements( returned)? for( an| get)? (?<model_name>[\w\s]+)/i', $section_name, $matches)){
-                        $model_name = str_replace(' ', '', ucwords($matches['model_name']));
+                    if(preg_match('/(xml )?elements( returned)? for( adding)?( an| get| a)? (?<model_name>[\w\s]+)/i', $section_name, $matches)){
+                        //too messy to add to the above regex - juse override model name.  This will pick off any lower case words preceding the actual name.
+                        if(preg_match('/^[a-z\s]+(?<model_name>[A-Z][\w\s]+)/', $matches['model_name'], $uc_words_matches))
+                            $matches = $uc_words_matches;
+
+                        $exploded_name = explode(' and ', $matches['model_name']);
+
+                        $model_name = str_replace(' ', '', ucwords($exploded_name[0]));
                         //if it hasn't been set, set it.
                         if($primary_model->getName() === null){
                             $primary_model->setName($model_name);
+                            $api->addModel($primary_model);
                         }
-                        elseif($primary_model->getName() !== $model_name){
+                        elseif($current_model->getName() !== $model_name){
                             //If its not the same, we've reached a new one
                             //create the sub one and add its parent
                             $current_model = new Model();
                             $current_model->setName($model_name);
                             $api->addModel($current_model);
 
-                            $primary_model->addSubModel($current_model);
+                            $current_model->setParentModel($primary_model);
+
+                            if(isset($exploded_name[1])){
+                                //there are two models with the same format.
+                                //only allow for sub models
+                                $api->addModelAlias($current_model, str_replace(' ', '', ucwords($exploded_name[1])));
+                            }
                         }
                     }
 
@@ -243,6 +263,9 @@ foreach($scrape_apis as $scrape_api) {
                                 return;
                             }
 
+                            if(preg_match('/^(where|order)$/i', $column_name))
+                                return;
+
                             $split = explode('> or <', $column_name);
                             if(isset($split[1])){
                                 //make it into another param
@@ -266,12 +289,16 @@ foreach($scrape_apis as $scrape_api) {
                         }
                     });
                     if($rows_processed){
+                        //fairly ugly little bit of code - just for debug really.
                         $prop_names = array();
                         foreach($current_model->getProperties() as $property){
                             $prop_names[] = $property->getName();
                         }
-                        printf("Parsing: %s\n", $current_model->getName());
-                        printf(" \\-> %d properties: %s \n", count($prop_names), substr(implode(', ',$prop_names), 0, 200));
+                        printf("Parsed: %s\n", $current_model->getName());
+                        printf(" \\> %d properties: %s \n",
+                            count($prop_names),
+                            wordwrap(implode(', ',$prop_names), 100, "\n                   ")
+                        );
                     }
                     unset($section_name);
                     break;
@@ -279,41 +306,41 @@ foreach($scrape_apis as $scrape_api) {
             }
 
         });
-
+    //break;
     }
     $apis[] = $api;
 }
 
-//print_r($apis);
-//exit;
 
 $loader = new Twig_Loader_Filesystem('generator/templates/');
 $twig = new Twig_Environment($loader, array());
-
-$twig->addFilter(new Twig_SimpleFilter('wordwrap', function ($string, $length = 100, $concat = "\n     * ") {
-    $words = explode(' ', $string);
-    $out = $tmp = '';
-    foreach($words as $word){
-        if(strlen($tmp) > $length){
-            $out .= $tmp.$concat;
-            $tmp = '';
-        }
-        $tmp .= "$word ";
-    }
-    return $out.$tmp;;
-}));
+$twig->addFilter(new Twig_SimpleFilter('wordwrap', 'wordwrap'));
 
 
 foreach($apis as $api){
-    $dir = sprintf('%s/output/%s', GEN_ROOT, $api->getNamespace());
-    if(!is_dir($dir))
-        mkdir($dir);
-
     foreach($api->getModels() as $model){
+
+        $dir = sprintf('%s/output/%s', GEN_ROOT, strtr($model->getNamespace(), array('\\' => '/')));
+        if(!is_dir($dir))
+            mkdir($dir);
+
         $template = $twig->render('model.twig', array(
             'model' => $model,
         ));
         $filename = sprintf('%s/%s.php', $dir, $model->getClassName());
         file_put_contents($filename, $template);
+    }
+
+    foreach($api->getStrayEnums() as $class_name => $enums){
+        $dir = sprintf('%s/output/%s', GEN_ROOT, strtr($api->getNamespace(), array('\\' => '/')));
+
+        $template = $twig->render('enum.twig', array(
+            'class_name' => $class_name,
+            'enums' => $enums,
+            'api' => $api
+        ));
+        $filename = sprintf('%s/%s.php', $dir, $class_name);
+        file_put_contents($filename, $template);
+
     }
 }

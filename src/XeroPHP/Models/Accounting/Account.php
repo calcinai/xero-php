@@ -2,105 +2,202 @@
 
 namespace XeroPHP\Models\Accounting;
 
-use XeroPHP\Remote\Object as RemoteObject;
+use XeroPHP\Remote;
 
-class Account extends RemoteObject {
+
+class Account extends Remote\Object {
 
     /**
-     * Customer defined alpha numeric account code e.g 200 or SALES 
+     * Customer defined alpha numeric account code e.g 200 or SALES
      *
      * @property string Code
      */
 
     /**
-     * Name of account 
+     * Name of account
      *
      * @property string Name
      */
 
     /**
-     * See Account Types 
+     * See Account Types
      *
-     * @property enum Type
+     * @property string Type
      */
 
     /**
-     * Description of Account. All accounts except bank accounts return this element 
+     * Description of Account. All accounts except bank accounts return this element
      *
      * @property string Description
      */
 
     /**
-     * See Tax Types 
+     * See Tax Types
      *
      * @property string TaxType
      */
 
     /**
-     * Boolean – describes whether account can have payments applied to it 
+     * Boolean – describes whether account can have payments applied to it
      *
      * @property bool EnablePaymentsToAccount
      */
 
     /**
-     * Boolean – describes whether account code is available for use with expense claims 
+     * Boolean – describes whether account code is available for use with expense claims
      *
-     * @property bool[] ShowInExpenseClaims
+     * @property bool ShowInExpenseClaims
      */
 
     /**
-     * Xero identifier 
+     * The Xero identifier for an account – specified as a string following the endpoint name
+e.g.
+     * /297c2dc5-cc47-4afd-8ec8-74990b8761e9
      *
-     * @property guid AccountID
+     * @property string AccountID
      */
 
     /**
-     * See Account Class Types 
+     * See Account Class Types
      *
-     * @property enum Class
+     * @property string Class
      */
 
     /**
-     * See Account Status Codes 
+     * See Account Status Codes
      *
-     * @property enum[] Status
+     * @property string Status
      */
 
     /**
-     * If this is a system account then this element is returned. See System Account types 
+     * If this is a system account then this element is returned. See System Account types
      *
      * @property string SystemAccount
      */
 
     /**
-     * Shown for bank accounts only 
+     * Shown for bank accounts only
      *
-     * @property int BankAccountNumber
+     * @property string BankAccountNumber
      */
 
     /**
-     * Shown for bank accounts only 
+     * Shown for bank accounts only
      *
      * @property string CurrencyCode
      */
 
     /**
-     * Shown if set 
+     * Shown if set
      *
      * @property string ReportingCode
      */
 
     /**
-     * Shown if set 
+     * Shown if set
      *
      * @property string ReportingCodeName
      */
 
     /**
-     * boolean to indicate if an account has an attachment 
+     * boolean to indicate if an account has an attachment
      *
-     * @property bool[] HasAttachments
+     * @property bool HasAttachments
      */
+
+
+    const ACCOUNT_CLASS_TYPE_ASSET     = 'ASSET'; 
+    const ACCOUNT_CLASS_TYPE_EQUITY    = 'EQUITY'; 
+    const ACCOUNT_CLASS_TYPE_EXPENSE   = 'EXPENSE'; 
+    const ACCOUNT_CLASS_TYPE_LIABILITY = 'LIABILITY'; 
+    const ACCOUNT_CLASS_TYPE_REVENUE   = 'REVENUE'; 
+
+    const ACCOUNT_TYPE_BANK                    = 'BANK'; 
+    const ACCOUNT_TYPE_CURRENT                 = 'CURRENT'; 
+    const ACCOUNT_TYPE_CURRLIAB                = 'CURRLIAB'; 
+    const ACCOUNT_TYPE_DEPRECIATN              = 'DEPRECIATN'; 
+    const ACCOUNT_TYPE_DIRECTCOSTS             = 'DIRECTCOSTS'; 
+    const ACCOUNT_TYPE_EQUITY                  = 'EQUITY'; 
+    const ACCOUNT_TYPE_EXPENSE                 = 'EXPENSE'; 
+    const ACCOUNT_TYPE_FIXED                   = 'FIXED'; 
+    const ACCOUNT_TYPE_LIABILITY               = 'LIABILITY'; 
+    const ACCOUNT_TYPE_NONCURRENT              = 'NONCURRENT'; 
+    const ACCOUNT_TYPE_OTHERINCOME             = 'OTHERINCOME'; 
+    const ACCOUNT_TYPE_OVERHEADS               = 'OVERHEADS'; 
+    const ACCOUNT_TYPE_PREPAYMENT              = 'PREPAYMENT'; 
+    const ACCOUNT_TYPE_REVENUE                 = 'REVENUE'; 
+    const ACCOUNT_TYPE_SALES                   = 'SALES'; 
+    const ACCOUNT_TYPE_TERMLIAB                = 'TERMLIAB'; 
+    const ACCOUNT_TYPE_PAYGLIABILITY           = 'PAYGLIABILITY'; 
+    const ACCOUNT_TYPE_SUPERANNUATIONEXPENSE   = 'SUPERANNUATIONEXPENSE'; 
+    const ACCOUNT_TYPE_SUPERANNUATIONLIABILITY = 'SUPERANNUATIONLIABILITY'; 
+    const ACCOUNT_TYPE_WAGESEXPENSE            = 'WAGESEXPENSE'; 
+    const ACCOUNT_TYPE_WAGESPAYABLELIABILITY   = 'WAGESPAYABLELIABILITY'; 
+
+    const ACCOUNT_STATUS_CODE_ACTIVE   = 'ACTIVE'; 
+    const ACCOUNT_STATUS_CODE_ARCHIVED = 'ARCHIVED'; 
+
+    const SYSTEM_ACCOUNT_DEBTORS                = 'DEBTORS'; 
+    const SYSTEM_ACCOUNT_CREDITORS              = 'CREDITORS'; 
+    const SYSTEM_ACCOUNT_BANKCURRENCYGAIN       = 'BANKCURRENCYGAIN'; 
+    const SYSTEM_ACCOUNT_GST                    = 'GST'; 
+    const SYSTEM_ACCOUNT_GSTONIMPORTS           = 'GSTONIMPORTS'; 
+    const SYSTEM_ACCOUNT_HISTORICAL             = 'HISTORICAL'; 
+    const SYSTEM_ACCOUNT_REALISEDCURRENCYGAIN   = 'REALISEDCURRENCYGAIN'; 
+    const SYSTEM_ACCOUNT_RETAINEDEARNINGS       = 'RETAINEDEARNINGS'; 
+    const SYSTEM_ACCOUNT_ROUNDING               = 'ROUNDING'; 
+    const SYSTEM_ACCOUNT_TRACKINGTRANSFERS      = 'TRACKINGTRANSFERS'; 
+    const SYSTEM_ACCOUNT_UNPAIDEXPCLM           = 'UNPAIDEXPCLM'; 
+    const SYSTEM_ACCOUNT_UNREALISEDCURRENCYGAIN = 'UNREALISEDCURRENCYGAIN'; 
+    const SYSTEM_ACCOUNT_WAGEPAYABLES           = 'WAGEPAYABLES'; 
+
+
+    /*
+    * Get the resource uri of the class (Contacts) etc
+    */
+    public static function getResourceURI(){
+        return 'Accounts';
+    }
+
+
+    /*
+    * Get the stem of the API (core.xro) etc
+    */
+    public static function getAPIStem(){
+        return Remote\URL::API_CORE;
+    }
+
+
+    /*
+    * Get the supported methods
+    */
+    public static function getSupportedMethods(){
+        return array(
+            Remote\Request::METHOD_GET,
+            Remote\Request::METHOD_PUT
+        );
+    }
+
+    public static function getProperties(){
+            return array(
+                'Code',
+                'Name',
+                'Type',
+                'Description',
+                'TaxType',
+                'EnablePaymentsToAccount',
+                'ShowInExpenseClaims',
+                'AccountID',
+                'Class',
+                'Status',
+                'SystemAccount',
+                'BankAccountNumber',
+                'CurrencyCode',
+                'ReportingCode',
+                'ReportingCodeName',
+                'HasAttachments'
+        );
+    }
 
 
     /**
@@ -136,14 +233,14 @@ class Account extends RemoteObject {
     }
 
     /**
-     * @return enum
+     * @return string
      */
     public function getType(){
         return $this->_data['Type'];
     }
 
     /**
-     * @param enum $value
+     * @param string $value
      * @return Account
      */
     public function setType($value){
@@ -207,23 +304,23 @@ class Account extends RemoteObject {
     }
 
     /**
-     * @param bool[] $value
+     * @param bool $value
      * @return Account
      */
-    public function addShowInExpenseClaim($value){
-        $this->_data['ShowInExpenseClaims'][] = $value;
+    public function setShowInExpenseClaim($value){
+        $this->_data['ShowInExpenseClaims'] = $value;
         return $this;
     }
 
     /**
-     * @return guid
+     * @return string
      */
     public function getAccountID(){
         return $this->_data['AccountID'];
     }
 
     /**
-     * @param guid $value
+     * @param string $value
      * @return Account
      */
     public function setAccountID($value){
@@ -232,14 +329,14 @@ class Account extends RemoteObject {
     }
 
     /**
-     * @return enum
+     * @return string
      */
     public function getClass(){
         return $this->_data['Class'];
     }
 
     /**
-     * @param enum $value
+     * @param string $value
      * @return Account
      */
     public function setClass($value){
@@ -248,18 +345,18 @@ class Account extends RemoteObject {
     }
 
     /**
-     * @return enum
+     * @return string
      */
     public function getStatus(){
         return $this->_data['Status'];
     }
 
     /**
-     * @param enum[] $value
+     * @param string $value
      * @return Account
      */
-    public function addStatu($value){
-        $this->_data['Status'][] = $value;
+    public function setStatu($value){
+        $this->_data['Status'] = $value;
         return $this;
     }
 
@@ -280,14 +377,14 @@ class Account extends RemoteObject {
     }
 
     /**
-     * @return int
+     * @return string
      */
     public function getBankAccountNumber(){
         return $this->_data['BankAccountNumber'];
     }
 
     /**
-     * @param int $value
+     * @param string $value
      * @return Account
      */
     public function setBankAccountNumber($value){
@@ -351,14 +448,13 @@ class Account extends RemoteObject {
     }
 
     /**
-     * @param bool[] $value
+     * @param bool $value
      * @return Account
      */
-    public function addHasAttachment($value){
-        $this->_data['HasAttachments'][] = $value;
+    public function setHasAttachment($value){
+        $this->_data['HasAttachments'] = $value;
         return $this;
     }
-
 
 
 }

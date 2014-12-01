@@ -2,104 +2,170 @@
 
 namespace XeroPHP\Models\Accounting;
 
-use XeroPHP\Remote\Object as RemoteObject;
+use XeroPHP\Remote;
 
-class Invoice extends RemoteObject {
+use XeroPHP\Models\Accounting\Contact;
+use XeroPHP\Models\Accounting\Invoice\Schedule;
+use XeroPHP\Models\Accounting\BrandingTheme;
+use XeroPHP\Models\Accounting\Currency;
+
+class Invoice extends Remote\Object {
 
     /**
-     * See Invoice Types 
+     * See Invoice Types
      *
-     * @property enum Type
+     * @property string Type
      */
 
     /**
-     * See Contacts 
+     * See Contacts
      *
-     * @property string Contact
+     * @property Contact Contact
      */
 
     /**
-     * See Schedule 
+     * See Schedule
      *
-     * @property object Schedule
+     * @property Schedule Schedule
      */
 
     /**
-     * See LineItems 
+     * See LineItems
      *
-     * @property object[] LineItems
+     * @property string[] LineItems
      */
 
     /**
-     * Line amounts are exclusive of tax by default if you don’t specify this element. See Line Amount Types 
+     * Line amounts are exclusive of tax by default if you don’t specify this element. See Line Amount
+     * Types
      *
-     * @property enum[] LineAmountTypes
+     * @property string LineAmountTypes
      */
 
     /**
-     * ACCREC only – additional reference number 
+     * ACCREC only – additional reference number
      *
      * @property string Reference
      */
 
     /**
-     * See BrandingThemes 
+     * See BrandingThemes
      *
-     * @property string BrandingThemeID
+     * @property BrandingTheme BrandingThemeID
      */
 
     /**
-     * The currency that invoice has been raised in (see Currencies) 
+     * The currency that invoice has been raised in (see Currencies)
      *
-     * @property string CurrencyCode
+     * @property Currency CurrencyCode
      */
 
     /**
-     * One of the following : DRAFT or AUTHORISED – See Invoice Status Codes 
+     * One of the following : DRAFT or AUTHORISED – See Invoice Status Codes
      *
-     * @property enum[] Status
+     * @property string Status
      */
 
     /**
-     * Total of invoice excluding taxes 
+     * Total of invoice excluding taxes
      *
-     * @property string SubTotal
+     * @property float SubTotal
      */
 
     /**
-     * Total tax on invoice 
+     * Total tax on invoice
      *
-     * @property string TotalTax
+     * @property float TotalTax
      */
 
     /**
-     * Total of Invoice tax inclusive (i.e. SubTotal + TotalTax) 
+     * Total of Invoice tax inclusive (i.e. SubTotal + TotalTax)
      *
-     * @property string Total
+     * @property float Total
      */
 
     /**
-     * Xero generated unique identifier for repeating invoice template 
+     * Xero generated unique identifier for repeating invoice template
      *
      * @property string RepeatingInvoiceID
      */
 
     /**
-     * boolean to indicate if an invoice has an attachment 
+     * boolean to indicate if an invoice has an attachment
      *
-     * @property bool[] HasAttachments
+     * @property bool HasAttachments
      */
 
 
+    const INVOICE_TYPE_ACCPAY = 'ACCPAY'; 
+    const INVOICE_TYPE_ACCREC = 'ACCREC'; 
+
+    const INVOICE_STATUS_CODES_REFER_TO_INVOICES_FOR_DETAILS_OF_USAGE__DRAFT      = 'DRAFT'; 
+    const INVOICE_STATUS_CODES_REFER_TO_INVOICES_FOR_DETAILS_OF_USAGE__SUBMITTED  = 'SUBMITTED'; 
+    const INVOICE_STATUS_CODES_REFER_TO_INVOICES_FOR_DETAILS_OF_USAGE__DELETED    = 'DELETED'; 
+    const INVOICE_STATUS_CODES_REFER_TO_INVOICES_FOR_DETAILS_OF_USAGE__AUTHORISED = 'AUTHORISED'; 
+    const INVOICE_STATUS_CODES_REFER_TO_INVOICES_FOR_DETAILS_OF_USAGE__PAID       = 'PAID'; 
+    const INVOICE_STATUS_CODES_REFER_TO_INVOICES_FOR_DETAILS_OF_USAGE__VOIDED     = 'VOIDED'; 
+
+    const LINEAMOUNT_TYPE_EXCLUSIVE = 'Exclusive'; 
+    const LINEAMOUNT_TYPE_INCLUSIVE = 'Inclusive'; 
+    const LINEAMOUNT_TYPE_NOTAX     = 'NoTax'; 
+
+
+    /*
+    * Get the resource uri of the class (Contacts) etc
+    */
+    public static function getResourceURI(){
+        return 'RepeatingInvoices';
+    }
+
+
+    /*
+    * Get the stem of the API (core.xro) etc
+    */
+    public static function getAPIStem(){
+        return Remote\URL::API_CORE;
+    }
+
+
+    /*
+    * Get the supported methods
+    */
+    public static function getSupportedMethods(){
+        return array(
+            Remote\Request::METHOD_GET
+        );
+    }
+
+    public static function getProperties(){
+            return array(
+                'Type',
+                'Contact',
+                'Schedule',
+                'LineItems',
+                'LineAmountTypes',
+                'Reference',
+                'BrandingThemeID',
+                'CurrencyCode',
+                'Status',
+                'SubTotal',
+                'TotalTax',
+                'Total',
+                'RepeatingInvoiceID',
+                'HasAttachments'
+        );
+    }
+
+
     /**
-     * @return enum
+     * @return string
      */
     public function getType(){
         return $this->_data['Type'];
     }
 
     /**
-     * @param enum $value
+     * @param string $value
      * @return Invoice
      */
     public function setType($value){
@@ -108,46 +174,46 @@ class Invoice extends RemoteObject {
     }
 
     /**
-     * @return string
+     * @return Contact
      */
     public function getContact(){
         return $this->_data['Contact'];
     }
 
     /**
-     * @param string $value
+     * @param Contact $value
      * @return Invoice
      */
-    public function setContact($value){
+    public function setContact(Contact $value){
         $this->_data['Contact'] = $value;
         return $this;
     }
 
     /**
-     * @return object
+     * @return Schedule
      */
     public function getSchedule(){
         return $this->_data['Schedule'];
     }
 
     /**
-     * @param object $value
+     * @param Schedule $value
      * @return Invoice
      */
-    public function setSchedule($value){
+    public function setSchedule(Schedule $value){
         $this->_data['Schedule'] = $value;
         return $this;
     }
 
     /**
-     * @return object
+     * @return string
      */
     public function getLineItems(){
         return $this->_data['LineItems'];
     }
 
     /**
-     * @param object[] $value
+     * @param string[] $value
      * @return Invoice
      */
     public function addLineItem($value){
@@ -156,18 +222,18 @@ class Invoice extends RemoteObject {
     }
 
     /**
-     * @return enum
+     * @return string
      */
     public function getLineAmountTypes(){
         return $this->_data['LineAmountTypes'];
     }
 
     /**
-     * @param enum[] $value
+     * @param string $value
      * @return Invoice
      */
-    public function addLineAmountType($value){
-        $this->_data['LineAmountTypes'][] = $value;
+    public function setLineAmountType($value){
+        $this->_data['LineAmountTypes'] = $value;
         return $this;
     }
 
@@ -188,62 +254,62 @@ class Invoice extends RemoteObject {
     }
 
     /**
-     * @return string
+     * @return BrandingTheme
      */
     public function getBrandingThemeID(){
         return $this->_data['BrandingThemeID'];
     }
 
     /**
-     * @param string $value
+     * @param BrandingTheme $value
      * @return Invoice
      */
-    public function setBrandingThemeID($value){
+    public function setBrandingThemeID(BrandingTheme $value){
         $this->_data['BrandingThemeID'] = $value;
         return $this;
     }
 
     /**
-     * @return string
+     * @return Currency
      */
     public function getCurrencyCode(){
         return $this->_data['CurrencyCode'];
     }
 
     /**
-     * @param string $value
+     * @param Currency $value
      * @return Invoice
      */
-    public function setCurrencyCode($value){
+    public function setCurrencyCode(Currency $value){
         $this->_data['CurrencyCode'] = $value;
-        return $this;
-    }
-
-    /**
-     * @return enum
-     */
-    public function getStatus(){
-        return $this->_data['Status'];
-    }
-
-    /**
-     * @param enum[] $value
-     * @return Invoice
-     */
-    public function addStatu($value){
-        $this->_data['Status'][] = $value;
         return $this;
     }
 
     /**
      * @return string
      */
+    public function getStatus(){
+        return $this->_data['Status'];
+    }
+
+    /**
+     * @param string $value
+     * @return Invoice
+     */
+    public function setStatu($value){
+        $this->_data['Status'] = $value;
+        return $this;
+    }
+
+    /**
+     * @return float
+     */
     public function getSubTotal(){
         return $this->_data['SubTotal'];
     }
 
     /**
-     * @param string $value
+     * @param float $value
      * @return Invoice
      */
     public function setSubTotal($value){
@@ -252,14 +318,14 @@ class Invoice extends RemoteObject {
     }
 
     /**
-     * @return string
+     * @return float
      */
     public function getTotalTax(){
         return $this->_data['TotalTax'];
     }
 
     /**
-     * @param string $value
+     * @param float $value
      * @return Invoice
      */
     public function setTotalTax($value){
@@ -268,14 +334,14 @@ class Invoice extends RemoteObject {
     }
 
     /**
-     * @return string
+     * @return float
      */
     public function getTotal(){
         return $this->_data['Total'];
     }
 
     /**
-     * @param string $value
+     * @param float $value
      * @return Invoice
      */
     public function setTotal($value){
@@ -307,14 +373,13 @@ class Invoice extends RemoteObject {
     }
 
     /**
-     * @param bool[] $value
+     * @param bool $value
      * @return Invoice
      */
-    public function addHasAttachment($value){
-        $this->_data['HasAttachments'][] = $value;
+    public function setHasAttachment($value){
+        $this->_data['HasAttachments'] = $value;
         return $this;
     }
-
 
 
 }

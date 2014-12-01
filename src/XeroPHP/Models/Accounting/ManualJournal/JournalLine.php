@@ -1,41 +1,80 @@
 <?php
 
-namespace XeroPHP\Models\Accounting;
+namespace XeroPHP\Models\Accounting\ManualJournal;
 
-use XeroPHP\Remote\Object as RemoteObject;
+use XeroPHP\Remote;
 
-class JournalLine extends RemoteObject {
+use XeroPHP\Models\Accounting\Account;
+
+class JournalLine extends Remote\Object {
 
     /**
-     * total for line. Debits are positive, credits are negative value 
+     * total for line. Debits are positive, credits are negative value
      *
      * @property string LineAmount
      */
 
     /**
-     * See Accounts 
+     * See Accounts
      *
-     * @property string AccountCode
+     * @property Account AccountCode
      */
 
     /**
-     * Description for journal line 
+     * Description for journal line
      *
      * @property string Description
      */
 
     /**
-     * Used as an override if the default Tax Code for the selected <AccountCode> is not correct – see TaxTypes. 
+     * Used as an override if the default Tax Code for the selected <AccountCode> is not correct – see
+     * TaxTypes.
      *
      * @property string TaxType
      */
 
     /**
-     * Optional Tracking Category – see Tracking.  Any JournalLine can have a maximum of 2 <TrackingCategory> 
-     * elements. 
+     * Optional Tracking Category – see Tracking.  Any JournalLine can have a maximum of 2
+     * <TrackingCategory> elements.
      *
      * @property string Tracking
      */
+
+
+
+    /*
+    * Get the resource uri of the class (Contacts) etc
+    */
+    public static function getResourceURI(){
+        return null;
+    }
+
+
+    /*
+    * Get the stem of the API (core.xro) etc
+    */
+    public static function getAPIStem(){
+        return Remote\URL::API_CORE;
+    }
+
+
+    /*
+    * Get the supported methods
+    */
+    public static function getSupportedMethods(){
+        return array(
+        );
+    }
+
+    public static function getProperties(){
+            return array(
+                'LineAmount',
+                'AccountCode',
+                'Description',
+                'TaxType',
+                'Tracking'
+        );
+    }
 
 
     /**
@@ -55,17 +94,17 @@ class JournalLine extends RemoteObject {
     }
 
     /**
-     * @return string
+     * @return Account
      */
     public function getAccountCode(){
         return $this->_data['AccountCode'];
     }
 
     /**
-     * @param string $value
+     * @param Account $value
      * @return JournalLine
      */
-    public function setAccountCode($value){
+    public function setAccountCode(Account $value){
         $this->_data['AccountCode'] = $value;
         return $this;
     }
@@ -117,7 +156,6 @@ class JournalLine extends RemoteObject {
         $this->_data['Tracking'] = $value;
         return $this;
     }
-
 
 
 }
