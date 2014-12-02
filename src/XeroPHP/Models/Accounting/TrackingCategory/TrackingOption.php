@@ -36,6 +36,22 @@ class TrackingOption extends Remote\Object {
 
 
     /*
+    * Get the root node name.  Just the unqualified classname
+    */
+    public static function getRootNodeName(){
+        return 'TrackingOption';
+    }
+
+
+    /*
+    * Get the guid property
+    */
+    public static function getGUIDProperty(){
+        return 'TrackingOptionID';
+    }
+
+
+    /*
     * Get the stem of the API (core.xro) etc
     */
     public static function getAPIStem(){
@@ -52,10 +68,10 @@ class TrackingOption extends Remote\Object {
     }
 
     public static function getProperties(){
-            return array(
-                'TrackingOptionID',
-                'Name',
-                'Status'
+        return array(
+            'TrackingOptionID',
+            'Name',
+            'Status'
         );
     }
 

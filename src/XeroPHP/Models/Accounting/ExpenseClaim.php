@@ -86,6 +86,22 @@ class ExpenseClaim extends Remote\Object {
 
 
     /*
+    * Get the root node name.  Just the unqualified classname
+    */
+    public static function getRootNodeName(){
+        return 'ExpenseClaim';
+    }
+
+
+    /*
+    * Get the guid property
+    */
+    public static function getGUIDProperty(){
+        return 'ExpenseClaimID';
+    }
+
+
+    /*
     * Get the stem of the API (core.xro) etc
     */
     public static function getAPIStem(){
@@ -105,18 +121,18 @@ class ExpenseClaim extends Remote\Object {
     }
 
     public static function getProperties(){
-            return array(
-                'User',
-                'Receipts',
-                'ExpenseClaimID',
-                'Status',
-                'UpdatedDateUTC',
-                'Total',
-                'AmountDue',
-                'AmountPaid',
-                'PaymentDueDate',
-                'ReportingDate',
-                'ReceiptID'
+        return array(
+            'User',
+            'Receipts',
+            'ExpenseClaimID',
+            'Status',
+            'UpdatedDateUTC',
+            'Total',
+            'AmountDue',
+            'AmountPaid',
+            'PaymentDueDate',
+            'ReportingDate',
+            'ReceiptID'
         );
     }
 

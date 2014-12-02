@@ -65,6 +65,22 @@ class Timesheet extends Remote\Object {
 
 
     /*
+    * Get the root node name.  Just the unqualified classname
+    */
+    public static function getRootNodeName(){
+        return 'Timesheet';
+    }
+
+
+    /*
+    * Get the guid property
+    */
+    public static function getGUIDProperty(){
+        return 'TimesheetID';
+    }
+
+
+    /*
     * Get the stem of the API (core.xro) etc
     */
     public static function getAPIStem(){
@@ -83,14 +99,14 @@ class Timesheet extends Remote\Object {
     }
 
     public static function getProperties(){
-            return array(
-                'EmployeeID',
-                'StartDate',
-                'EndDate',
-                'TimesheetLines',
-                'Status',
-                'Hours',
-                'TimesheetID'
+        return array(
+            'EmployeeID',
+            'StartDate',
+            'EndDate',
+            'TimesheetLines',
+            'Status',
+            'Hours',
+            'TimesheetID'
         );
     }
 

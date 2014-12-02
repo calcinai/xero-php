@@ -161,6 +161,22 @@ e.g.
 
 
     /*
+    * Get the root node name.  Just the unqualified classname
+    */
+    public static function getRootNodeName(){
+        return 'Account';
+    }
+
+
+    /*
+    * Get the guid property
+    */
+    public static function getGUIDProperty(){
+        return 'AccountID';
+    }
+
+
+    /*
     * Get the stem of the API (core.xro) etc
     */
     public static function getAPIStem(){
@@ -179,23 +195,23 @@ e.g.
     }
 
     public static function getProperties(){
-            return array(
-                'Code',
-                'Name',
-                'Type',
-                'Description',
-                'TaxType',
-                'EnablePaymentsToAccount',
-                'ShowInExpenseClaims',
-                'AccountID',
-                'Class',
-                'Status',
-                'SystemAccount',
-                'BankAccountNumber',
-                'CurrencyCode',
-                'ReportingCode',
-                'ReportingCodeName',
-                'HasAttachments'
+        return array(
+            'Code',
+            'Name',
+            'Type',
+            'Description',
+            'TaxType',
+            'EnablePaymentsToAccount',
+            'ShowInExpenseClaims',
+            'AccountID',
+            'Class',
+            'Status',
+            'SystemAccount',
+            'BankAccountNumber',
+            'CurrencyCode',
+            'ReportingCode',
+            'ReportingCodeName',
+            'HasAttachments'
         );
     }
 

@@ -3,6 +3,9 @@
 namespace XeroPHP;
 
 use XeroPHP\Remote\OAuth\Client;
+use XeroPHP\Remote\Object;
+use XeroPHP\Remote\Request;
+use XeroPHP\Remote\URL;
 
 abstract class Application {
 
@@ -52,6 +55,52 @@ abstract class Application {
             throw new Exception("Invalid configuration key [$key]");
 
         return $this->config[$key];
+    }
+
+
+    public function save(Object $object){
+
+        if($object->hasGUID() === false)
+            return $this->create($object);
+        elseif($object->isDirty())
+            return $this->update($object);
+
+
+    }
+
+    public function update(Object $object){
+
+        if(!$object::supportsMethod(Request::METHOD_POST))
+            throw new Exception('%s doesn\'t support updating via API', get_class($object));
+
+        //Put in an array with the first level containing only the 'root node'.
+        $data = array($object::getRootNodeName() => $object->toArray());
+        $url = new URL($this, $object::getResourceURI());
+        $request = new Request($this, $url, Request::METHOD_POST);
+
+        $request->setBody(Helpers::arrayToXML($data));
+
+        return $request->send();
+
+    }
+
+    public function create(Object $object){
+
+        if(!$object::supportsMethod(Request::METHOD_PUT))
+            throw new Exception('%s doesn\'t support creating via API', get_class($object));
+
+        //Put in an array with the first level containing only the 'root node'.
+        $data = array($object::getRootNodeName() => $object->toArray());
+        $url = new URL($this, $object::getResourceURI());
+        $request = new Request($this, $url, Request::METHOD_PUT);
+
+        $request->setBody(Helpers::arrayToXML($data));
+
+        return $request->send();
+    }
+
+    public function delete(Object $object){
+
     }
 
 }

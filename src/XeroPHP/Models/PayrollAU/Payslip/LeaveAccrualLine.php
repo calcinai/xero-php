@@ -36,6 +36,22 @@ class LeaveAccrualLine extends Remote\Object {
 
 
     /*
+    * Get the root node name.  Just the unqualified classname
+    */
+    public static function getRootNodeName(){
+        return 'LeaveAccrualLine';
+    }
+
+
+    /*
+    * Get the guid property
+    */
+    public static function getGUIDProperty(){
+        return 'LeaveTypeID';
+    }
+
+
+    /*
     * Get the stem of the API (core.xro) etc
     */
     public static function getAPIStem(){
@@ -52,10 +68,10 @@ class LeaveAccrualLine extends Remote\Object {
     }
 
     public static function getProperties(){
-            return array(
-                'LeaveTypeID',
-                'NumberOfUnits',
-                'AutoCalculate'
+        return array(
+            'LeaveTypeID',
+            'NumberOfUnits',
+            'AutoCalculate'
         );
     }
 

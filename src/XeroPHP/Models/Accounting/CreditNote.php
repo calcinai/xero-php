@@ -150,6 +150,22 @@ class CreditNote extends Remote\Object {
 
 
     /*
+    * Get the root node name.  Just the unqualified classname
+    */
+    public static function getRootNodeName(){
+        return 'CreditNote';
+    }
+
+
+    /*
+    * Get the guid property
+    */
+    public static function getGUIDProperty(){
+        return 'CreditNoteID';
+    }
+
+
+    /*
     * Get the stem of the API (core.xro) etc
     */
     public static function getAPIStem(){
@@ -169,28 +185,28 @@ class CreditNote extends Remote\Object {
     }
 
     public static function getProperties(){
-            return array(
-                'Reference',
-                'Type',
-                'Contact',
-                'Date',
-                'Status',
-                'LineAmountTypes',
-                'LineItems',
-                'SubTotal',
-                'TotalTax',
-                'Total',
-                'UpdatedDateUTC',
-                'CurrencyCode',
-                'FullyPaidOnDate',
-                'CreditNoteID',
-                'CreditNoteNumber',
-                'SentToContact',
-                'CurrencyRate',
-                'RemainingCredit',
-                'Allocations',
-                'BrandingThemeID',
-                'HasAttachments'
+        return array(
+            'Reference',
+            'Type',
+            'Contact',
+            'Date',
+            'Status',
+            'LineAmountTypes',
+            'LineItems',
+            'SubTotal',
+            'TotalTax',
+            'Total',
+            'UpdatedDateUTC',
+            'CurrencyCode',
+            'FullyPaidOnDate',
+            'CreditNoteID',
+            'CreditNoteNumber',
+            'SentToContact',
+            'CurrencyRate',
+            'RemainingCredit',
+            'Allocations',
+            'BrandingThemeID',
+            'HasAttachments'
         );
     }
 

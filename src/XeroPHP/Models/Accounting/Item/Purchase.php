@@ -37,6 +37,22 @@ class Purchase extends Remote\Object {
 
 
     /*
+    * Get the root node name.  Just the unqualified classname
+    */
+    public static function getRootNodeName(){
+        return 'Purchase';
+    }
+
+
+    /*
+    * Get the guid property
+    */
+    public static function getGUIDProperty(){
+        return '';
+    }
+
+
+    /*
     * Get the stem of the API (core.xro) etc
     */
     public static function getAPIStem(){
@@ -53,10 +69,10 @@ class Purchase extends Remote\Object {
     }
 
     public static function getProperties(){
-            return array(
-                'UnitPrice',
-                'AccountCode',
-                'TaxType'
+        return array(
+            'UnitPrice',
+            'AccountCode',
+            'TaxType'
         );
     }
 

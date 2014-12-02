@@ -60,6 +60,22 @@ class User extends Remote\Object {
 
 
     /*
+    * Get the root node name.  Just the unqualified classname
+    */
+    public static function getRootNodeName(){
+        return 'User';
+    }
+
+
+    /*
+    * Get the guid property
+    */
+    public static function getGUIDProperty(){
+        return 'UserID';
+    }
+
+
+    /*
     * Get the stem of the API (core.xro) etc
     */
     public static function getAPIStem(){
@@ -77,14 +93,14 @@ class User extends Remote\Object {
     }
 
     public static function getProperties(){
-            return array(
-                'UserID',
-                'EmailAddress',
-                'FirstName',
-                'LastName',
-                'UpdatedDateUTC',
-                'IsSubscriber',
-                'OrganisationRole'
+        return array(
+            'UserID',
+            'EmailAddress',
+            'FirstName',
+            'LastName',
+            'UpdatedDateUTC',
+            'IsSubscriber',
+            'OrganisationRole'
         );
     }
 

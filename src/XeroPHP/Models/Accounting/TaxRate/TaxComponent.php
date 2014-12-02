@@ -36,6 +36,22 @@ class TaxComponent extends Remote\Object {
 
 
     /*
+    * Get the root node name.  Just the unqualified classname
+    */
+    public static function getRootNodeName(){
+        return 'TaxComponent';
+    }
+
+
+    /*
+    * Get the guid property
+    */
+    public static function getGUIDProperty(){
+        return '';
+    }
+
+
+    /*
     * Get the stem of the API (core.xro) etc
     */
     public static function getAPIStem(){
@@ -52,10 +68,10 @@ class TaxComponent extends Remote\Object {
     }
 
     public static function getProperties(){
-            return array(
-                'Name',
-                'Rate',
-                'IsCompound'
+        return array(
+            'Name',
+            'Rate',
+            'IsCompound'
         );
     }
 

@@ -86,6 +86,22 @@ class JournalLine extends Remote\Object {
 
 
     /*
+    * Get the root node name.  Just the unqualified classname
+    */
+    public static function getRootNodeName(){
+        return 'JournalLine';
+    }
+
+
+    /*
+    * Get the guid property
+    */
+    public static function getGUIDProperty(){
+        return 'JournalLineID';
+    }
+
+
+    /*
     * Get the stem of the API (core.xro) etc
     */
     public static function getAPIStem(){
@@ -102,18 +118,18 @@ class JournalLine extends Remote\Object {
     }
 
     public static function getProperties(){
-            return array(
-                'JournalLineID',
-                'AccountID',
-                'AccountCode',
-                'AccountType',
-                'AccountName',
-                'NetAmount',
-                'GrossAmount',
-                'TaxAmount',
-                'TaxType',
-                'TaxName',
-                'TrackingCategories'
+        return array(
+            'JournalLineID',
+            'AccountID',
+            'AccountCode',
+            'AccountType',
+            'AccountName',
+            'NetAmount',
+            'GrossAmount',
+            'TaxAmount',
+            'TaxType',
+            'TaxName',
+            'TrackingCategories'
         );
     }
 

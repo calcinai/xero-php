@@ -114,6 +114,22 @@ A UTC timestamp
 
 
     /*
+    * Get the root node name.  Just the unqualified classname
+    */
+    public static function getRootNodeName(){
+        return 'SuperFund';
+    }
+
+
+    /*
+    * Get the guid property
+    */
+    public static function getGUIDProperty(){
+        return 'SuperFundID';
+    }
+
+
+    /*
     * Get the stem of the API (core.xro) etc
     */
     public static function getAPIStem(){
@@ -132,21 +148,21 @@ A UTC timestamp
     }
 
     public static function getProperties(){
-            return array(
-                'Type',
-                'ABN',
-                'USI',
-                'Name',
-                'BSB',
-                'AccountNumber',
-                'AccountName',
-                'SuperFundID',
-                'EmployeeNumber',
-                'SPIN',
-                'Recordfilter',
-                '',
-                'ModifiedAfter',
-                'page'
+        return array(
+            'Type',
+            'ABN',
+            'USI',
+            'Name',
+            'BSB',
+            'AccountNumber',
+            'AccountName',
+            'SuperFundID',
+            'EmployeeNumber',
+            'SPIN',
+            'Recordfilter',
+            '',
+            'ModifiedAfter',
+            'page'
         );
     }
 

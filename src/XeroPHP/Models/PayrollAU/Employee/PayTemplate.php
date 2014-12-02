@@ -168,6 +168,22 @@ class PayTemplate extends Remote\Object {
 
 
     /*
+    * Get the root node name.  Just the unqualified classname
+    */
+    public static function getRootNodeName(){
+        return 'PayTemplate';
+    }
+
+
+    /*
+    * Get the guid property
+    */
+    public static function getGUIDProperty(){
+        return '';
+    }
+
+
+    /*
     * Get the stem of the API (core.xro) etc
     */
     public static function getAPIStem(){
@@ -184,32 +200,32 @@ class PayTemplate extends Remote\Object {
     }
 
     public static function getProperties(){
-            return array(
-                'EarningsLines',
-                'DeductionLines',
-                'SuperLines',
-                'ReimbursementLines',
-                'LeaveLines',
-                'EarningsRateID',
-                'CalculationType',
-                'NumberOfUnitsPerWeek',
-                'AnnualSalary',
-                'RatePerUnit',
-                'NormalNumberOfUnits',
-                'DeductionTypeID',
-                'Percentage',
-                'Amount',
-                'SuperMembershipID',
-                'ContributionType',
-                'ExpenseAccountCode',
-                'LiabilityAccountCode',
-                'MinimumMonthlyEarnings',
-                'ReimbursementTypeID',
-                'Description',
-                'LeaveTypeID',
-                'AnnualNumberOfUnits',
-                'FullTimeNumberOfUnitsPerPeriod',
-                'NumberOfUnits'
+        return array(
+            'EarningsLines',
+            'DeductionLines',
+            'SuperLines',
+            'ReimbursementLines',
+            'LeaveLines',
+            'EarningsRateID',
+            'CalculationType',
+            'NumberOfUnitsPerWeek',
+            'AnnualSalary',
+            'RatePerUnit',
+            'NormalNumberOfUnits',
+            'DeductionTypeID',
+            'Percentage',
+            'Amount',
+            'SuperMembershipID',
+            'ContributionType',
+            'ExpenseAccountCode',
+            'LiabilityAccountCode',
+            'MinimumMonthlyEarnings',
+            'ReimbursementTypeID',
+            'Description',
+            'LeaveTypeID',
+            'AnnualNumberOfUnits',
+            'FullTimeNumberOfUnitsPerPeriod',
+            'NumberOfUnits'
         );
     }
 

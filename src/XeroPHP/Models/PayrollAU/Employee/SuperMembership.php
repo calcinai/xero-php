@@ -65,6 +65,22 @@ class SuperMembership extends Remote\Object {
 
 
     /*
+    * Get the root node name.  Just the unqualified classname
+    */
+    public static function getRootNodeName(){
+        return 'SuperMembership';
+    }
+
+
+    /*
+    * Get the guid property
+    */
+    public static function getGUIDProperty(){
+        return 'SuperMembershipID';
+    }
+
+
+    /*
     * Get the stem of the API (core.xro) etc
     */
     public static function getAPIStem(){
@@ -81,14 +97,14 @@ class SuperMembership extends Remote\Object {
     }
 
     public static function getProperties(){
-            return array(
-                'SuperFundID',
-                'EmployeeNumber',
-                'SuperMembershipID',
-                'Recordfilter',
-                'EmployeeID',
-                'ModifiedAfter',
-                'page'
+        return array(
+            'SuperFundID',
+            'EmployeeNumber',
+            'SuperMembershipID',
+            'Recordfilter',
+            'EmployeeID',
+            'ModifiedAfter',
+            'page'
         );
     }
 

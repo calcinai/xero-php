@@ -36,6 +36,22 @@ class LeaveEarningsLine extends Remote\Object {
 
 
     /*
+    * Get the root node name.  Just the unqualified classname
+    */
+    public static function getRootNodeName(){
+        return 'LeaveEarningsLine';
+    }
+
+
+    /*
+    * Get the guid property
+    */
+    public static function getGUIDProperty(){
+        return 'EarningsRateID';
+    }
+
+
+    /*
     * Get the stem of the API (core.xro) etc
     */
     public static function getAPIStem(){
@@ -52,10 +68,10 @@ class LeaveEarningsLine extends Remote\Object {
     }
 
     public static function getProperties(){
-            return array(
-                'EarningsRateID',
-                'RatePerUnit',
-                'NumberOfUnits'
+        return array(
+            'EarningsRateID',
+            'RatePerUnit',
+            'NumberOfUnits'
         );
     }
 

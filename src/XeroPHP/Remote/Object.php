@@ -11,6 +11,14 @@ class Object {
 
     }
 
+    public function isDirty(){
+        return true;
+    }
+
+    public function hasGUID(){
+        return isset($this->_data[static::getGUIDProperty()]);
+    }
+
     public function toArray(){
         $out = array();
         foreach($this->_data as $key => $value){
@@ -45,6 +53,10 @@ class Object {
             return $this->$setter($value);
 
         trigger_error(sprintf("Undefined property %s::$%s.\n", __CLASS__, $property));
+    }
+
+    public static function supportsMethod($method){
+        return in_array($method, static::getSupportedMethods());
     }
 
 } 

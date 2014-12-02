@@ -76,13 +76,6 @@ class Payment extends Remote\Object {
      * @property \DateTime UpdatedDateUTC
      */
 
-    /**
-     * You must specify an individual record by appending the value to the endpoint, i.e.POST
-     * https://…/Payments/{identifier}
-     *
-     * @property string Resourceidentifier
-     */
-
 
     const PAYMENT_STATUS_CODE_AUTHORISED = 'AUTHORISED'; 
     const PAYMENT_STATUS_CODE_DELETED    = 'DELETED'; 
@@ -107,6 +100,22 @@ class Payment extends Remote\Object {
 
 
     /*
+    * Get the root node name.  Just the unqualified classname
+    */
+    public static function getRootNodeName(){
+        return 'Payment';
+    }
+
+
+    /*
+    * Get the guid property
+    */
+    public static function getGUIDProperty(){
+        return '';
+    }
+
+
+    /*
     * Get the stem of the API (core.xro) etc
     */
     public static function getAPIStem(){
@@ -120,25 +129,23 @@ class Payment extends Remote\Object {
     public static function getSupportedMethods(){
         return array(
             Remote\Request::METHOD_GET,
-            Remote\Request::METHOD_PUT,
-            Remote\Request::METHOD_POST
+            Remote\Request::METHOD_PUT
         );
     }
 
     public static function getProperties(){
-            return array(
-                'CreditNote',
-                'Invoice',
-                'Account',
-                'Date',
-                'CurrencyRate',
-                'Amount',
-                'Reference',
-                'IsReconciled',
-                'Status',
-                'PaymentType',
-                'UpdatedDateUTC',
-                'Resourceidentifier'
+        return array(
+            'CreditNote',
+            'Invoice',
+            'Account',
+            'Date',
+            'CurrencyRate',
+            'Amount',
+            'Reference',
+            'IsReconciled',
+            'Status',
+            'PaymentType',
+            'UpdatedDateUTC'
         );
     }
 
@@ -316,22 +323,6 @@ class Payment extends Remote\Object {
      */
     public function setUpdatedDateUTC(\DateTime $value){
         $this->_data['UpdatedDateUTC'] = $value;
-        return $this;
-    }
-
-    /**
-     * @return string
-     */
-    public function getResourceidentifier(){
-        return $this->_data['Resourceidentifier'];
-    }
-
-    /**
-     * @param string $value
-     * @return Payment
-     */
-    public function setResourceidentifier($value){
-        $this->_data['Resourceidentifier'] = $value;
         return $this;
     }
 

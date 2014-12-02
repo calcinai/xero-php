@@ -231,6 +231,22 @@ class Contact extends Remote\Object {
 
 
     /*
+    * Get the root node name.  Just the unqualified classname
+    */
+    public static function getRootNodeName(){
+        return 'Contact';
+    }
+
+
+    /*
+    * Get the guid property
+    */
+    public static function getGUIDProperty(){
+        return 'ContactID';
+    }
+
+
+    /*
     * Get the stem of the API (core.xro) etc
     */
     public static function getAPIStem(){
@@ -250,40 +266,40 @@ class Contact extends Remote\Object {
     }
 
     public static function getProperties(){
-            return array(
-                'ContactID',
-                'ContactNumber',
-                'AccountNumber',
-                'ContactStatus',
-                'Name',
-                'FirstName',
-                'LastName',
-                'EmailAddress',
-                'SkypeUserName',
-                'ContactPersons',
-                'BankAccountDetails',
-                'TaxNumber',
-                'AccountsReceivableTaxType',
-                'AccountsPayableTaxType',
-                'Addresses',
-                'Phones',
-                'UpdatedDateUTC',
-                'IsSupplier',
-                'IsCustomer',
-                'DefaultCurrency',
-                'XeroNetworkKey',
-                'SalesDefaultAccountCode',
-                'PurchasesDefaultAccountCode',
-                'SalesTrackingCategories',
-                'PurchasesTrackingCategories',
-                'ContactGroups',
-                'Website',
-                'BrandingTheme',
-                'BatchPayments',
-                'Discount',
-                'Balances',
-                'PaymentTerms',
-                'HasAttachments'
+        return array(
+            'ContactID',
+            'ContactNumber',
+            'AccountNumber',
+            'ContactStatus',
+            'Name',
+            'FirstName',
+            'LastName',
+            'EmailAddress',
+            'SkypeUserName',
+            'ContactPersons',
+            'BankAccountDetails',
+            'TaxNumber',
+            'AccountsReceivableTaxType',
+            'AccountsPayableTaxType',
+            'Addresses',
+            'Phones',
+            'UpdatedDateUTC',
+            'IsSupplier',
+            'IsCustomer',
+            'DefaultCurrency',
+            'XeroNetworkKey',
+            'SalesDefaultAccountCode',
+            'PurchasesDefaultAccountCode',
+            'SalesTrackingCategories',
+            'PurchasesTrackingCategories',
+            'ContactGroups',
+            'Website',
+            'BrandingTheme',
+            'BatchPayments',
+            'Discount',
+            'Balances',
+            'PaymentTerms',
+            'HasAttachments'
         );
     }
 

@@ -42,6 +42,22 @@ class BrandingTheme extends Remote\Object {
 
 
     /*
+    * Get the root node name.  Just the unqualified classname
+    */
+    public static function getRootNodeName(){
+        return 'BrandingTheme';
+    }
+
+
+    /*
+    * Get the guid property
+    */
+    public static function getGUIDProperty(){
+        return 'BrandingThemeID';
+    }
+
+
+    /*
     * Get the stem of the API (core.xro) etc
     */
     public static function getAPIStem(){
@@ -59,11 +75,11 @@ class BrandingTheme extends Remote\Object {
     }
 
     public static function getProperties(){
-            return array(
-                'BrandingThemeID',
-                'Name',
-                'SortOrder',
-                'CreatedDateUTC'
+        return array(
+            'BrandingThemeID',
+            'Name',
+            'SortOrder',
+            'CreatedDateUTC'
         );
     }
 

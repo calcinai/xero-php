@@ -55,6 +55,22 @@ class Journal extends Remote\Object {
 
 
     /*
+    * Get the root node name.  Just the unqualified classname
+    */
+    public static function getRootNodeName(){
+        return 'Journal';
+    }
+
+
+    /*
+    * Get the guid property
+    */
+    public static function getGUIDProperty(){
+        return 'JournalID';
+    }
+
+
+    /*
     * Get the stem of the API (core.xro) etc
     */
     public static function getAPIStem(){
@@ -72,13 +88,13 @@ class Journal extends Remote\Object {
     }
 
     public static function getProperties(){
-            return array(
-                'JournalID',
-                'JournalDate',
-                'JournalNumber',
-                'CreatedDateUTC',
-                'Reference',
-                'JournalLines'
+        return array(
+            'JournalID',
+            'JournalDate',
+            'JournalNumber',
+            'CreatedDateUTC',
+            'Reference',
+            'JournalLines'
         );
     }
 

@@ -72,6 +72,22 @@ class ManualJournal extends Remote\Object {
 
 
     /*
+    * Get the root node name.  Just the unqualified classname
+    */
+    public static function getRootNodeName(){
+        return 'ManualJournal';
+    }
+
+
+    /*
+    * Get the guid property
+    */
+    public static function getGUIDProperty(){
+        return '';
+    }
+
+
+    /*
     * Get the stem of the API (core.xro) etc
     */
     public static function getAPIStem(){
@@ -91,15 +107,15 @@ class ManualJournal extends Remote\Object {
     }
 
     public static function getProperties(){
-            return array(
-                'Narration',
-                'JournalLines',
-                'Date',
-                'LineAmountTypes',
-                'Status',
-                'Url',
-                'ShowOnCashBasisReports',
-                'HasAttachments'
+        return array(
+            'Narration',
+            'JournalLines',
+            'Date',
+            'LineAmountTypes',
+            'Status',
+            'Url',
+            'ShowOnCashBasisReports',
+            'HasAttachments'
         );
     }
 

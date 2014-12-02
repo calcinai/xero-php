@@ -62,6 +62,22 @@ class BankAccount extends Remote\Object {
 
 
     /*
+    * Get the root node name.  Just the unqualified classname
+    */
+    public static function getRootNodeName(){
+        return 'BankAccount';
+    }
+
+
+    /*
+    * Get the guid property
+    */
+    public static function getGUIDProperty(){
+        return '';
+    }
+
+
+    /*
     * Get the stem of the API (core.xro) etc
     */
     public static function getAPIStem(){
@@ -78,14 +94,14 @@ class BankAccount extends Remote\Object {
     }
 
     public static function getProperties(){
-            return array(
-                'StatementText',
-                'AccountName',
-                'BSB',
-                'AccountNumber',
-                'Remainder',
-                'Percentage',
-                'Amount'
+        return array(
+            'StatementText',
+            'AccountName',
+            'BSB',
+            'AccountNumber',
+            'Remainder',
+            'Percentage',
+            'Amount'
         );
     }
 

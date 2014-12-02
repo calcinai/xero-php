@@ -189,6 +189,22 @@ class Employee extends Remote\Object {
 
 
     /*
+    * Get the root node name.  Just the unqualified classname
+    */
+    public static function getRootNodeName(){
+        return 'Employee';
+    }
+
+
+    /*
+    * Get the guid property
+    */
+    public static function getGUIDProperty(){
+        return 'EmployeeID';
+    }
+
+
+    /*
     * Get the stem of the API (core.xro) etc
     */
     public static function getAPIStem(){
@@ -207,32 +223,32 @@ class Employee extends Remote\Object {
     }
 
     public static function getProperties(){
-            return array(
-                'FirstName',
-                'LastName',
-                'HomeAddress',
-                'StartDate',
-                'Title',
-                'MiddleNames',
-                'Email',
-                'Gender',
-                'Mobile',
-                'TwitterUserName',
-                'IsAuthorisedToApproveLeave',
-                'IsAuthorisedToApproveTimesheets',
-                'Occupation',
-                'Classification',
-                'OrdinaryEarningsRateID',
-                'PayrollCalendarID',
-                'EmployeeGroupName',
-                'BankAccounts',
-                'PayTemplate',
-                'OpeningBalances',
-                'SuperMemberships',
-                'TerminationDate',
-                'EmployeeID',
-                'Status',
-                'UpdatedDateUTC'
+        return array(
+            'FirstName',
+            'LastName',
+            'HomeAddress',
+            'StartDate',
+            'Title',
+            'MiddleNames',
+            'Email',
+            'Gender',
+            'Mobile',
+            'TwitterUserName',
+            'IsAuthorisedToApproveLeave',
+            'IsAuthorisedToApproveTimesheets',
+            'Occupation',
+            'Classification',
+            'OrdinaryEarningsRateID',
+            'PayrollCalendarID',
+            'EmployeeGroupName',
+            'BankAccounts',
+            'PayTemplate',
+            'OpeningBalances',
+            'SuperMemberships',
+            'TerminationDate',
+            'EmployeeID',
+            'Status',
+            'UpdatedDateUTC'
         );
     }
 

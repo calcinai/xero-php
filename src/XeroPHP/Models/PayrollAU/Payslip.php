@@ -146,6 +146,22 @@ class Payslip extends Remote\Object {
 
 
     /*
+    * Get the root node name.  Just the unqualified classname
+    */
+    public static function getRootNodeName(){
+        return 'Payslip';
+    }
+
+
+    /*
+    * Get the guid property
+    */
+    public static function getGUIDProperty(){
+        return 'PayslipID';
+    }
+
+
+    /*
     * Get the stem of the API (core.xro) etc
     */
     public static function getAPIStem(){
@@ -164,27 +180,27 @@ class Payslip extends Remote\Object {
     }
 
     public static function getProperties(){
-            return array(
-                'EmployeeID',
-                'PayslipID',
-                'EarningsLines',
-                'TimesheetEarningsLines',
-                'DeductionLines',
-                'LeaveAccrualLines',
-                'ReimbursementLines',
-                'SuperannuationLines',
-                'TaxLines',
-                'FirstName',
-                'LastName',
-                'EmployeeGroup',
-                'LastEdited',
-                'Wages',
-                'Deductions',
-                'NetPay',
-                'Tax',
-                'Super',
-                'Reimbursements',
-                'LeaveEarningsLines'
+        return array(
+            'EmployeeID',
+            'PayslipID',
+            'EarningsLines',
+            'TimesheetEarningsLines',
+            'DeductionLines',
+            'LeaveAccrualLines',
+            'ReimbursementLines',
+            'SuperannuationLines',
+            'TaxLines',
+            'FirstName',
+            'LastName',
+            'EmployeeGroup',
+            'LastEdited',
+            'Wages',
+            'Deductions',
+            'NetPay',
+            'Tax',
+            'Super',
+            'Reimbursements',
+            'LeaveEarningsLines'
         );
     }
 

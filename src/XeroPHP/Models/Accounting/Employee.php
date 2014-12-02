@@ -51,6 +51,22 @@ The description of the link is auto-generated in the form “Go to <App name>”
 
 
     /*
+    * Get the root node name.  Just the unqualified classname
+    */
+    public static function getRootNodeName(){
+        return 'Employee';
+    }
+
+
+    /*
+    * Get the guid property
+    */
+    public static function getGUIDProperty(){
+        return 'EmployeeID';
+    }
+
+
+    /*
     * Get the stem of the API (core.xro) etc
     */
     public static function getAPIStem(){
@@ -70,12 +86,12 @@ The description of the link is auto-generated in the form “Go to <App name>”
     }
 
     public static function getProperties(){
-            return array(
-                'EmployeeID',
-                'Status',
-                'FirstName',
-                'LastName',
-                'ExternalLink'
+        return array(
+            'EmployeeID',
+            'Status',
+            'FirstName',
+            'LastName',
+            'ExternalLink'
         );
     }
 

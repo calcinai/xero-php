@@ -253,7 +253,7 @@ foreach($scrape_apis as $scrape_api) {
                                 $mandatory = false;
                             }
 
-                            //Handle tables with rowspans
+                            //Handle tables with rowspansœ
                             if($num_children === 2){
                                 $column_name = trim($children->eq(0)->text(), "<> \n");
                                 $column_description = trim($children->eq(1)->text());

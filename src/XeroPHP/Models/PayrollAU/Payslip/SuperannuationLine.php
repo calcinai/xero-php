@@ -72,6 +72,22 @@ class SuperannuationLine extends Remote\Object {
 
 
     /*
+    * Get the root node name.  Just the unqualified classname
+    */
+    public static function getRootNodeName(){
+        return 'SuperannuationLine';
+    }
+
+
+    /*
+    * Get the guid property
+    */
+    public static function getGUIDProperty(){
+        return 'SuperMembershipID';
+    }
+
+
+    /*
     * Get the stem of the API (core.xro) etc
     */
     public static function getAPIStem(){
@@ -88,16 +104,16 @@ class SuperannuationLine extends Remote\Object {
     }
 
     public static function getProperties(){
-            return array(
-                'SuperMembershipID',
-                'ContributionType',
-                'CalculationType',
-                'MinimumMonthlyEarnings',
-                'ExpenseAccountCode',
-                'LiabilityAccountCode',
-                'PaymentDateForThisPeriod',
-                'Percentage',
-                'Amount'
+        return array(
+            'SuperMembershipID',
+            'ContributionType',
+            'CalculationType',
+            'MinimumMonthlyEarnings',
+            'ExpenseAccountCode',
+            'LiabilityAccountCode',
+            'PaymentDateForThisPeriod',
+            'Percentage',
+            'Amount'
         );
     }
 

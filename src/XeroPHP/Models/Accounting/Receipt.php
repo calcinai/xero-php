@@ -172,6 +172,22 @@ class Receipt extends Remote\Object {
 
 
     /*
+    * Get the root node name.  Just the unqualified classname
+    */
+    public static function getRootNodeName(){
+        return 'Receipt';
+    }
+
+
+    /*
+    * Get the guid property
+    */
+    public static function getGUIDProperty(){
+        return 'ReceiptID';
+    }
+
+
+    /*
     * Get the stem of the API (core.xro) etc
     */
     public static function getAPIStem(){
@@ -191,30 +207,30 @@ class Receipt extends Remote\Object {
     }
 
     public static function getProperties(){
-            return array(
-                'Date',
-                'Contact',
-                'Lineitems',
-                'User',
-                'Reference',
-                'LineAmountTypes',
-                'SubTotal',
-                'TotalTax',
-                'Total',
-                'ReceiptID',
-                'Status',
-                'ReceiptNumber',
-                'UpdatedDateUTC',
-                'HasAttachments',
-                'Url',
-                'Description',
-                'UnitAmount',
-                'AccountCode',
-                'Quantity',
-                'TaxType',
-                'LineAmount',
-                'Tracking',
-                'DiscountRate'
+        return array(
+            'Date',
+            'Contact',
+            'Lineitems',
+            'User',
+            'Reference',
+            'LineAmountTypes',
+            'SubTotal',
+            'TotalTax',
+            'Total',
+            'ReceiptID',
+            'Status',
+            'ReceiptNumber',
+            'UpdatedDateUTC',
+            'HasAttachments',
+            'Url',
+            'Description',
+            'UnitAmount',
+            'AccountCode',
+            'Quantity',
+            'TaxType',
+            'LineAmount',
+            'Tracking',
+            'DiscountRate'
         );
     }
 

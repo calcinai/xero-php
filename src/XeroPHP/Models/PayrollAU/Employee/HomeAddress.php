@@ -54,6 +54,22 @@ class HomeAddress extends Remote\Object {
 
 
     /*
+    * Get the root node name.  Just the unqualified classname
+    */
+    public static function getRootNodeName(){
+        return 'HomeAddress';
+    }
+
+
+    /*
+    * Get the guid property
+    */
+    public static function getGUIDProperty(){
+        return '';
+    }
+
+
+    /*
     * Get the stem of the API (core.xro) etc
     */
     public static function getAPIStem(){
@@ -70,13 +86,13 @@ class HomeAddress extends Remote\Object {
     }
 
     public static function getProperties(){
-            return array(
-                'AddressLine1',
-                'AddressLine2',
-                'City',
-                'Region',
-                'PostalCode',
-                'Country'
+        return array(
+            'AddressLine1',
+            'AddressLine2',
+            'City',
+            'Region',
+            'PostalCode',
+            'Country'
         );
     }
 

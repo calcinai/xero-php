@@ -152,7 +152,6 @@ class Model {
      * @return null
      */
     public function getGUIDProperty(){
-
         if(isset($this->guid_property))
             return $this->guid_property;
 

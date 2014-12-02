@@ -37,6 +37,22 @@ class ReimbursementType extends Remote\Object {
 
 
     /*
+    * Get the root node name.  Just the unqualified classname
+    */
+    public static function getRootNodeName(){
+        return 'ReimbursementType';
+    }
+
+
+    /*
+    * Get the guid property
+    */
+    public static function getGUIDProperty(){
+        return 'ReimbursementTypeID';
+    }
+
+
+    /*
     * Get the stem of the API (core.xro) etc
     */
     public static function getAPIStem(){
@@ -53,10 +69,10 @@ class ReimbursementType extends Remote\Object {
     }
 
     public static function getProperties(){
-            return array(
-                'Name',
-                'AccountCode',
-                'ReimbursementTypeID'
+        return array(
+            'Name',
+            'AccountCode',
+            'ReimbursementTypeID'
         );
     }
 

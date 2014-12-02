@@ -121,6 +121,22 @@ class Invoice extends Remote\Object {
 
 
     /*
+    * Get the root node name.  Just the unqualified classname
+    */
+    public static function getRootNodeName(){
+        return 'Invoice';
+    }
+
+
+    /*
+    * Get the guid property
+    */
+    public static function getGUIDProperty(){
+        return 'RepeatingInvoiceID';
+    }
+
+
+    /*
     * Get the stem of the API (core.xro) etc
     */
     public static function getAPIStem(){
@@ -138,21 +154,21 @@ class Invoice extends Remote\Object {
     }
 
     public static function getProperties(){
-            return array(
-                'Type',
-                'Contact',
-                'Schedule',
-                'LineItems',
-                'LineAmountTypes',
-                'Reference',
-                'BrandingThemeID',
-                'CurrencyCode',
-                'Status',
-                'SubTotal',
-                'TotalTax',
-                'Total',
-                'RepeatingInvoiceID',
-                'HasAttachments'
+        return array(
+            'Type',
+            'Contact',
+            'Schedule',
+            'LineItems',
+            'LineAmountTypes',
+            'Reference',
+            'BrandingThemeID',
+            'CurrencyCode',
+            'Status',
+            'SubTotal',
+            'TotalTax',
+            'Total',
+            'RepeatingInvoiceID',
+            'HasAttachments'
         );
     }
 

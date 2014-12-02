@@ -42,6 +42,22 @@ class DeductionLine extends Remote\Object {
 
 
     /*
+    * Get the root node name.  Just the unqualified classname
+    */
+    public static function getRootNodeName(){
+        return 'DeductionLine';
+    }
+
+
+    /*
+    * Get the guid property
+    */
+    public static function getGUIDProperty(){
+        return 'DeductionTypeID';
+    }
+
+
+    /*
     * Get the stem of the API (core.xro) etc
     */
     public static function getAPIStem(){
@@ -58,11 +74,11 @@ class DeductionLine extends Remote\Object {
     }
 
     public static function getProperties(){
-            return array(
-                'DeductionTypeID',
-                'CalculationType',
-                'Percentage',
-                'NumberOfUnits'
+        return array(
+            'DeductionTypeID',
+            'CalculationType',
+            'Percentage',
+            'NumberOfUnits'
         );
     }
 

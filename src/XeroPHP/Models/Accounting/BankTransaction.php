@@ -201,6 +201,22 @@ class BankTransaction extends Remote\Object {
 
 
     /*
+    * Get the root node name.  Just the unqualified classname
+    */
+    public static function getRootNodeName(){
+        return 'BankTransaction';
+    }
+
+
+    /*
+    * Get the guid property
+    */
+    public static function getGUIDProperty(){
+        return 'BankTransactionID';
+    }
+
+
+    /*
     * Get the stem of the API (core.xro) etc
     */
     public static function getAPIStem(){
@@ -220,33 +236,33 @@ class BankTransaction extends Remote\Object {
     }
 
     public static function getProperties(){
-            return array(
-                'Type',
-                'Contact',
-                'Lineitems',
-                'BankAccount',
-                'IsReconciled',
-                'Date',
-                'Reference',
-                'CurrencyCode',
-                'CurrencyRate',
-                'Url',
-                'Status',
-                'LineAmountTypes',
-                'SubTotal',
-                'TotalTax',
-                'Total',
-                'BankTransactionID',
-                'UpdatedDateUTC',
-                'HasAttachments',
-                'Description',
-                'Quantity',
-                'UnitAmount',
-                'AccountCode',
-                'ItemCode',
-                'TaxType',
-                'LineAmount',
-                'Tracking'
+        return array(
+            'Type',
+            'Contact',
+            'Lineitems',
+            'BankAccount',
+            'IsReconciled',
+            'Date',
+            'Reference',
+            'CurrencyCode',
+            'CurrencyRate',
+            'Url',
+            'Status',
+            'LineAmountTypes',
+            'SubTotal',
+            'TotalTax',
+            'Total',
+            'BankTransactionID',
+            'UpdatedDateUTC',
+            'HasAttachments',
+            'Description',
+            'Quantity',
+            'UnitAmount',
+            'AccountCode',
+            'ItemCode',
+            'TaxType',
+            'LineAmount',
+            'Tracking'
         );
     }
 

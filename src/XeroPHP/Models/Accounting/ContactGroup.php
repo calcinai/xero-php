@@ -47,6 +47,22 @@ e.g.
 
 
     /*
+    * Get the root node name.  Just the unqualified classname
+    */
+    public static function getRootNodeName(){
+        return 'ContactGroup';
+    }
+
+
+    /*
+    * Get the guid property
+    */
+    public static function getGUIDProperty(){
+        return 'ContactGroupID';
+    }
+
+
+    /*
     * Get the stem of the API (core.xro) etc
     */
     public static function getAPIStem(){
@@ -67,11 +83,11 @@ e.g.
     }
 
     public static function getProperties(){
-            return array(
-                'Name',
-                'Status',
-                'ContactGroupID',
-                'Contacts'
+        return array(
+            'Name',
+            'Status',
+            'ContactGroupID',
+            'Contacts'
         );
     }
 

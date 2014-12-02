@@ -104,6 +104,22 @@ class PayRun extends Remote\Object {
 
 
     /*
+    * Get the root node name.  Just the unqualified classname
+    */
+    public static function getRootNodeName(){
+        return 'PayRun';
+    }
+
+
+    /*
+    * Get the guid property
+    */
+    public static function getGUIDProperty(){
+        return 'PayRunID';
+    }
+
+
+    /*
     * Get the stem of the API (core.xro) etc
     */
     public static function getAPIStem(){
@@ -122,21 +138,21 @@ class PayRun extends Remote\Object {
     }
 
     public static function getProperties(){
-            return array(
-                'PayrollCalendarID',
-                'PayRunID',
-                'PayRunPeriodStartDate',
-                'PayRunPeriodEndDate',
-                'PayRunStatus',
-                'PaymentDate',
-                'PayslipMessage',
-                'Payslips',
-                'Wages',
-                'Deductions',
-                'Tax',
-                'Super',
-                'Reimbursement',
-                'NetPay'
+        return array(
+            'PayrollCalendarID',
+            'PayRunID',
+            'PayRunPeriodStartDate',
+            'PayRunPeriodEndDate',
+            'PayRunStatus',
+            'PaymentDate',
+            'PayslipMessage',
+            'Payslips',
+            'Wages',
+            'Deductions',
+            'Tax',
+            'Super',
+            'Reimbursement',
+            'NetPay'
         );
     }
 

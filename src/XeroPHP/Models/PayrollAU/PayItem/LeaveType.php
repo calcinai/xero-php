@@ -62,6 +62,22 @@ class LeaveType extends Remote\Object {
 
 
     /*
+    * Get the root node name.  Just the unqualified classname
+    */
+    public static function getRootNodeName(){
+        return 'LeaveType';
+    }
+
+
+    /*
+    * Get the guid property
+    */
+    public static function getGUIDProperty(){
+        return 'LeaveTypeID';
+    }
+
+
+    /*
     * Get the stem of the API (core.xro) etc
     */
     public static function getAPIStem(){
@@ -78,14 +94,14 @@ class LeaveType extends Remote\Object {
     }
 
     public static function getProperties(){
-            return array(
-                'Name',
-                'TypeOfUnits',
-                'IsPaidLeave',
-                'ShowOnPayslip',
-                'LeaveTypeID',
-                'NormalEntitlement',
-                'LeaveLoadingRate'
+        return array(
+            'Name',
+            'TypeOfUnits',
+            'IsPaidLeave',
+            'ShowOnPayslip',
+            'LeaveTypeID',
+            'NormalEntitlement',
+            'LeaveLoadingRate'
         );
     }
 

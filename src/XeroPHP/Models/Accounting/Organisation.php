@@ -195,6 +195,22 @@ class Organisation extends Remote\Object {
 
 
     /*
+    * Get the root node name.  Just the unqualified classname
+    */
+    public static function getRootNodeName(){
+        return 'Organisation';
+    }
+
+
+    /*
+    * Get the guid property
+    */
+    public static function getGUIDProperty(){
+        return '';
+    }
+
+
+    /*
     * Get the stem of the API (core.xro) etc
     */
     public static function getAPIStem(){
@@ -211,33 +227,33 @@ class Organisation extends Remote\Object {
     }
 
     public static function getProperties(){
-            return array(
-                'APIKey',
-                'Name',
-                'LegalName',
-                'PaysTax',
-                'Version',
-                'BaseCurrency',
-                'CountryCode',
-                'IsDemoCompany',
-                'OrganisationStatus',
-                'RegistrationNumber',
-                'TaxNumber',
-                'FinancialYearEndDay',
-                'FinancialYearEndMonth',
-                'SalesTaxBasis',
-                'SalesTaxPeriod',
-                'PeriodLockDate',
-                'EndOfYearLockDate',
-                'CreatedDateUTC',
-                'OrganisationEntityType',
-                'Timezone',
-                'ShortCode',
-                'LineOfBusiness',
-                'Addresses',
-                'Phones',
-                'ExternalLinks',
-                'PaymentTerms'
+        return array(
+            'APIKey',
+            'Name',
+            'LegalName',
+            'PaysTax',
+            'Version',
+            'BaseCurrency',
+            'CountryCode',
+            'IsDemoCompany',
+            'OrganisationStatus',
+            'RegistrationNumber',
+            'TaxNumber',
+            'FinancialYearEndDay',
+            'FinancialYearEndMonth',
+            'SalesTaxBasis',
+            'SalesTaxPeriod',
+            'PeriodLockDate',
+            'EndOfYearLockDate',
+            'CreatedDateUTC',
+            'OrganisationEntityType',
+            'Timezone',
+            'ShortCode',
+            'LineOfBusiness',
+            'Addresses',
+            'Phones',
+            'ExternalLinks',
+            'PaymentTerms'
         );
     }
 
