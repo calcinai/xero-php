@@ -51,13 +51,15 @@ class Timesheet extends Remote\Object {
      */
 
 
-    const STATUS_CODE_DRAFT     = 'DRAFT'; 
-    const STATUS_CODE_PROCESSED = 'PROCESSED'; 
-    const STATUS_CODE_APPROVED  = 'APPROVED'; 
+    const STATUS_DRAFT     = 'DRAFT'; 
+    const STATUS_PROCESSED = 'PROCESSED'; 
+    const STATUS_APPROVED  = 'APPROVED'; 
 
 
     /*
     * Get the resource uri of the class (Contacts) etc
+    *
+    * @return string
     */
     public static function getResourceURI(){
         return 'Timesheets';
@@ -66,6 +68,8 @@ class Timesheet extends Remote\Object {
 
     /*
     * Get the root node name.  Just the unqualified classname
+    *
+    * @return string
     */
     public static function getRootNodeName(){
         return 'Timesheet';
@@ -74,14 +78,18 @@ class Timesheet extends Remote\Object {
 
     /*
     * Get the guid property
+    *
+    * @return string
     */
     public static function getGUIDProperty(){
         return 'TimesheetID';
     }
 
 
-    /*
+    /**
     * Get the stem of the API (core.xro) etc
+    *
+    * @return string|null
     */
     public static function getAPIStem(){
         return Remote\URL::API_PAYROLL;
@@ -98,15 +106,23 @@ class Timesheet extends Remote\Object {
         );
     }
 
+    /**
+     *
+     * Get the properties of the object.  Indexed by constants
+     *  [0] - Mandatory
+     *  [1] - Hintable type
+     *
+     * @return array
+     */
     public static function getProperties(){
         return array(
-            'EmployeeID',
-            'StartDate',
-            'EndDate',
-            'TimesheetLines',
-            'Status',
-            'Hours',
-            'TimesheetID'
+            'EmployeeID' => array (true, null),
+            'StartDate' => array (true, '\DateTime'),
+            'EndDate' => array (true, '\DateTime'),
+            'TimesheetLines' => array (false, 'PayrollAU\Timesheet\TimesheetLine'),
+            'Status' => array (false, null),
+            'Hours' => array (false, null),
+            'TimesheetID' => array (false, null)
         );
     }
 

@@ -1,0 +1,12 @@
+<?php
+
+namespace XeroPHP\Models\PayrollUS;
+
+class PaystubDeductionLine {
+
+    const CALCULATION_TYPE_STANDARDAMOUNT    = 'STANDARDAMOUNT'; 
+    const CALCULATION_TYPE_FIXEDAMOUNT       = 'FIXEDAMOUNT'; 
+    const CALCULATION_TYPE_PERCENTAGEOFGROSS = 'PERCENTAGEOFGROSS'; 
+
+
+}

@@ -4,7 +4,6 @@ namespace XeroPHP\Models\PayrollAU\PayItem;
 
 use XeroPHP\Remote;
 
-use XeroPHP\Models\PayrollAU\Setting\Account;
 
 class EarningsRate extends Remote\Object {
 
@@ -17,7 +16,7 @@ class EarningsRate extends Remote\Object {
     /**
      * See Accounts
      *
-     * @property Account AccountCode
+     * @property string AccountCode
      */
 
     /**
@@ -95,6 +94,8 @@ class EarningsRate extends Remote\Object {
 
     /*
     * Get the resource uri of the class (Contacts) etc
+    *
+    * @return string
     */
     public static function getResourceURI(){
         return null;
@@ -103,6 +104,8 @@ class EarningsRate extends Remote\Object {
 
     /*
     * Get the root node name.  Just the unqualified classname
+    *
+    * @return string
     */
     public static function getRootNodeName(){
         return 'EarningsRate';
@@ -111,14 +114,18 @@ class EarningsRate extends Remote\Object {
 
     /*
     * Get the guid property
+    *
+    * @return string
     */
     public static function getGUIDProperty(){
         return 'EarningsRateID';
     }
 
 
-    /*
+    /**
     * Get the stem of the API (core.xro) etc
+    *
+    * @return string|null
     */
     public static function getAPIStem(){
         return Remote\URL::API_PAYROLL;
@@ -133,20 +140,28 @@ class EarningsRate extends Remote\Object {
         );
     }
 
+    /**
+     *
+     * Get the properties of the object.  Indexed by constants
+     *  [0] - Mandatory
+     *  [1] - Hintable type
+     *
+     * @return array
+     */
     public static function getProperties(){
         return array(
-            'Name',
-            'AccountCode',
-            'TypeOfUnits',
-            'IsExemptFromTax',
-            'IsExemptFromSuper',
-            'EarningsType',
-            'EarningsRateID',
-            'RateType',
-            'RatePerUnit',
-            'Multiplier',
-            'AccrueLeave',
-            'Amount'
+            'Name' => array (true, null),
+            'AccountCode' => array (true, null),
+            'TypeOfUnits' => array (true, null),
+            'IsExemptFromTax' => array (true, null),
+            'IsExemptFromSuper' => array (true, null),
+            'EarningsType' => array (true, null),
+            'EarningsRateID' => array (false, null),
+            'RateType' => array (false, null),
+            'RatePerUnit' => array (false, null),
+            'Multiplier' => array (false, null),
+            'AccrueLeave' => array (false, null),
+            'Amount' => array (false, null)
         );
     }
 
@@ -168,17 +183,17 @@ class EarningsRate extends Remote\Object {
     }
 
     /**
-     * @return Account
+     * @return string
      */
     public function getAccountCode(){
         return $this->_data['AccountCode'];
     }
 
     /**
-     * @param Account $value
+     * @param string $value
      * @return EarningsRate
      */
-    public function setAccountCode(Account $value){
+    public function setAccountCode($value){
         $this->_data['AccountCode'] = $value;
         return $this;
     }

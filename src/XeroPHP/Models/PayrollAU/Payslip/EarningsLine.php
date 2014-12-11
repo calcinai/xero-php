@@ -28,13 +28,15 @@ class EarningsLine extends Remote\Object {
     /**
      * Earnings rate amount.  Only applicable if the EarningsRate RateType is Fixed
      *
-     * @property string FixedAmount
+     * @property float FixedAmount
      */
 
 
 
     /*
     * Get the resource uri of the class (Contacts) etc
+    *
+    * @return string
     */
     public static function getResourceURI(){
         return null;
@@ -43,6 +45,8 @@ class EarningsLine extends Remote\Object {
 
     /*
     * Get the root node name.  Just the unqualified classname
+    *
+    * @return string
     */
     public static function getRootNodeName(){
         return 'EarningsLine';
@@ -51,14 +55,18 @@ class EarningsLine extends Remote\Object {
 
     /*
     * Get the guid property
+    *
+    * @return string
     */
     public static function getGUIDProperty(){
-        return 'EarningsRateID';
+        return '';
     }
 
 
-    /*
+    /**
     * Get the stem of the API (core.xro) etc
+    *
+    * @return string|null
     */
     public static function getAPIStem(){
         return Remote\URL::API_PAYROLL;
@@ -73,12 +81,20 @@ class EarningsLine extends Remote\Object {
         );
     }
 
+    /**
+     *
+     * Get the properties of the object.  Indexed by constants
+     *  [0] - Mandatory
+     *  [1] - Hintable type
+     *
+     * @return array
+     */
     public static function getProperties(){
         return array(
-            'EarningsRateID',
-            'RatePerUnit',
-            'NumberOfUnits',
-            'FixedAmount'
+            'EarningsRateID' => array (false, null),
+            'RatePerUnit' => array (false, null),
+            'NumberOfUnits' => array (false, null),
+            'FixedAmount' => array (false, null)
         );
     }
 
@@ -132,14 +148,14 @@ class EarningsLine extends Remote\Object {
     }
 
     /**
-     * @return string
+     * @return float
      */
     public function getFixedAmount(){
         return $this->_data['FixedAmount'];
     }
 
     /**
-     * @param string $value
+     * @param float $value
      * @return EarningsLine
      */
     public function setFixedAmount($value){

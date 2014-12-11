@@ -67,6 +67,8 @@ class BankTransfer extends Remote\Object {
 
     /*
     * Get the resource uri of the class (Contacts) etc
+    *
+    * @return string
     */
     public static function getResourceURI(){
         return 'BankTransfers';
@@ -75,6 +77,8 @@ class BankTransfer extends Remote\Object {
 
     /*
     * Get the root node name.  Just the unqualified classname
+    *
+    * @return string
     */
     public static function getRootNodeName(){
         return 'BankTransfer';
@@ -83,14 +87,18 @@ class BankTransfer extends Remote\Object {
 
     /*
     * Get the guid property
+    *
+    * @return string
     */
     public static function getGUIDProperty(){
         return 'BankTransferID';
     }
 
 
-    /*
+    /**
     * Get the stem of the API (core.xro) etc
+    *
+    * @return string|null
     */
     public static function getAPIStem(){
         return Remote\URL::API_CORE;
@@ -107,17 +115,25 @@ class BankTransfer extends Remote\Object {
         );
     }
 
+    /**
+     *
+     * Get the properties of the object.  Indexed by constants
+     *  [0] - Mandatory
+     *  [1] - Hintable type
+     *
+     * @return array
+     */
     public static function getProperties(){
         return array(
-            'FromBankAccount',
-            'ToBankAccount',
-            'Amount',
-            'Date',
-            'BankTransferID',
-            'CurrencyRate',
-            'FromBankTransactionID',
-            'ToBankTransactionID',
-            'HasAttachments'
+            'FromBankAccount' => array (true, 'Accounting\BankTransfer\FromBankAccount'),
+            'ToBankAccount' => array (true, 'Accounting\BankTransfer\ToBankAccount'),
+            'Amount' => array (true, null),
+            'Date' => array (false, '\DateTime'),
+            'BankTransferID' => array (false, null),
+            'CurrencyRate' => array (false, null),
+            'FromBankTransactionID' => array (false, null),
+            'ToBankTransactionID' => array (false, null),
+            'HasAttachments' => array (false, null)
         );
     }
 

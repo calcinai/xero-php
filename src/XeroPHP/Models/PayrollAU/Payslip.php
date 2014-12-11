@@ -8,7 +8,6 @@ use XeroPHP\Models\PayrollAU\Payslip\EarningsLine;
 use XeroPHP\Models\PayrollAU\Payslip\TimesheetEarningsLine;
 use XeroPHP\Models\PayrollAU\Payslip\DeductionLine;
 use XeroPHP\Models\PayrollAU\Payslip\LeaveAccrualLine;
-use XeroPHP\Models\PayrollAU\PayItem;
 use XeroPHP\Models\PayrollAU\Payslip\SuperannuationLine;
 use XeroPHP\Models\PayrollAU\Payslip\TaxLine;
 use XeroPHP\Models\PayrollAU\Payslip\LeaveEarningsLine;
@@ -139,6 +138,8 @@ class Payslip extends Remote\Object {
 
     /*
     * Get the resource uri of the class (Contacts) etc
+    *
+    * @return string
     */
     public static function getResourceURI(){
         return 'Payslip';
@@ -147,6 +148,8 @@ class Payslip extends Remote\Object {
 
     /*
     * Get the root node name.  Just the unqualified classname
+    *
+    * @return string
     */
     public static function getRootNodeName(){
         return 'Payslip';
@@ -155,14 +158,18 @@ class Payslip extends Remote\Object {
 
     /*
     * Get the guid property
+    *
+    * @return string
     */
     public static function getGUIDProperty(){
         return 'PayslipID';
     }
 
 
-    /*
+    /**
     * Get the stem of the API (core.xro) etc
+    *
+    * @return string|null
     */
     public static function getAPIStem(){
         return Remote\URL::API_PAYROLL;
@@ -179,28 +186,36 @@ class Payslip extends Remote\Object {
         );
     }
 
+    /**
+     *
+     * Get the properties of the object.  Indexed by constants
+     *  [0] - Mandatory
+     *  [1] - Hintable type
+     *
+     * @return array
+     */
     public static function getProperties(){
         return array(
-            'EmployeeID',
-            'PayslipID',
-            'EarningsLines',
-            'TimesheetEarningsLines',
-            'DeductionLines',
-            'LeaveAccrualLines',
-            'ReimbursementLines',
-            'SuperannuationLines',
-            'TaxLines',
-            'FirstName',
-            'LastName',
-            'EmployeeGroup',
-            'LastEdited',
-            'Wages',
-            'Deductions',
-            'NetPay',
-            'Tax',
-            'Super',
-            'Reimbursements',
-            'LeaveEarningsLines'
+            'EmployeeID' => array (false, null),
+            'PayslipID' => array (false, null),
+            'EarningsLines' => array (false, 'PayrollAU\Payslip\EarningsLine'),
+            'TimesheetEarningsLines' => array (false, 'PayrollAU\Payslip\TimesheetEarningsLine'),
+            'DeductionLines' => array (false, 'PayrollAU\Payslip\DeductionLine'),
+            'LeaveAccrualLines' => array (false, 'PayrollAU\Payslip\LeaveAccrualLine'),
+            'ReimbursementLines' => array (false, 'PayrollAU\PayItem'),
+            'SuperannuationLines' => array (false, 'PayrollAU\Payslip\SuperannuationLine'),
+            'TaxLines' => array (false, 'PayrollAU\Payslip\TaxLine'),
+            'FirstName' => array (false, null),
+            'LastName' => array (false, null),
+            'EmployeeGroup' => array (false, null),
+            'LastEdited' => array (false, null),
+            'Wages' => array (false, null),
+            'Deductions' => array (false, null),
+            'NetPay' => array (false, null),
+            'Tax' => array (false, null),
+            'Super' => array (false, null),
+            'Reimbursements' => array (false, null),
+            'LeaveEarningsLines' => array (false, 'PayrollAU\Payslip\LeaveEarningsLine')
         );
     }
 

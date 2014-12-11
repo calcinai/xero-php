@@ -7,6 +7,7 @@ use XeroPHP\Exception;
 use XeroPHP\Helpers;
 use XeroPHP\Remote\OAuth\Client;
 
+
 class Request {
 
     const METHOD_GET    = 'GET';
@@ -14,7 +15,7 @@ class Request {
     const METHOD_POST   = 'POST';
     const METHOD_DELETE = 'DELETE';
 
-    const CONTENT_TYPE_XML  = 'application/xml';
+    const CONTENT_TYPE_XML  = 'text/xml';
     const CONTENT_TYPE_JSON = 'application/json';
     const CONTENT_TYPE_PDF  = 'application/pdf';
 
@@ -31,12 +32,21 @@ class Request {
     private $parameters;
     private $body;
 
+    /**
+     * A hint of what the root elements int he response will be.
+     *
+     * @var string
+     */
+    private $resource_hint;
+
+
     public function __construct(Application $app, URL $url, $method = self::METHOD_GET){
 
         $this->app = $app;
         $this->url = $url;
         $this->headers = array();
         $this->parameters = array();
+        $this->resource_hint = null;
 
         switch($method){
             case self::METHOD_GET:
@@ -49,7 +59,8 @@ class Request {
                 throw new Exception("Invalid request method [$method]");
         }
 
-        $this->setHeader(self::HEADER_ACCEPT, self::CONTENT_TYPE_JSON);
+        //Default to XML so you get the  xsi:type attribute in the root node.
+        $this->setHeader(self::HEADER_ACCEPT, self::CONTENT_TYPE_XML);
 
     }
 
@@ -96,7 +107,7 @@ class Request {
             throw new Exception('Curl error: '.curl_error($ch));
         }
 
-        $response = new Response($response, $info);
+        $response = new Response($this, $response, $info);
 
         return $response;
     }
@@ -130,6 +141,8 @@ class Request {
     /**
      * @param $key string Name of the header
      * @param $val string Value of the header
+     *
+     * @return $this
      */
     public function setHeader($key, $val){
         $this->headers[$key] = $val;
@@ -149,6 +162,27 @@ class Request {
      */
     public function getUrl(){
         return $this->url;
+    }
+
+    /**
+     * @return string
+     */
+    public function getResourceHint() {
+
+        if($this->resource_hint !== null)
+            return $this->resource_hint;
+
+        //Else return the singular of the endpoint, as this is what it's commonly names after.
+        return Helpers::singularize($this->url->getEndpoint());
+    }
+
+    /**
+     * Hint what the response is going to contain for parsing objects into.
+     *
+     * @param string $resource_hint
+     */
+    public function setResourceHint($resource_hint) {
+        $this->resource_hint = $resource_hint;
     }
 
     public function setBody($body, $content_type = self::CONTENT_TYPE_XML){

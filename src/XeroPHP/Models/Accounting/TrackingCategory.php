@@ -36,6 +36,8 @@ class TrackingCategory extends Remote\Object {
 
     /*
     * Get the resource uri of the class (Contacts) etc
+    *
+    * @return string
     */
     public static function getResourceURI(){
         return 'TrackingCategories';
@@ -44,6 +46,8 @@ class TrackingCategory extends Remote\Object {
 
     /*
     * Get the root node name.  Just the unqualified classname
+    *
+    * @return string
     */
     public static function getRootNodeName(){
         return 'TrackingCategory';
@@ -52,14 +56,18 @@ class TrackingCategory extends Remote\Object {
 
     /*
     * Get the guid property
+    *
+    * @return string
     */
     public static function getGUIDProperty(){
         return 'TrackingCategoryID';
     }
 
 
-    /*
+    /**
     * Get the stem of the API (core.xro) etc
+    *
+    * @return string|null
     */
     public static function getAPIStem(){
         return Remote\URL::API_CORE;
@@ -77,12 +85,20 @@ class TrackingCategory extends Remote\Object {
         );
     }
 
+    /**
+     *
+     * Get the properties of the object.  Indexed by constants
+     *  [0] - Mandatory
+     *  [1] - Hintable type
+     *
+     * @return array
+     */
     public static function getProperties(){
         return array(
-            'TrackingCategoryID',
-            'Name',
-            'Status',
-            'Options'
+            'TrackingCategoryID' => array (false, null),
+            'Name' => array (false, null),
+            'Status' => array (false, null),
+            'Options' => array (false, 'Accounting\TrackingCategory\TrackingOption')
         );
     }
 

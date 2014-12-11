@@ -4,7 +4,6 @@ namespace XeroPHP\Models\Accounting;
 
 use XeroPHP\Remote;
 
-use XeroPHP\Models\Accounting\Contact;
 
 class ContactGroup extends Remote\Object {
 
@@ -40,6 +39,8 @@ e.g.
 
     /*
     * Get the resource uri of the class (Contacts) etc
+    *
+    * @return string
     */
     public static function getResourceURI(){
         return 'ContactGroups';
@@ -48,6 +49,8 @@ e.g.
 
     /*
     * Get the root node name.  Just the unqualified classname
+    *
+    * @return string
     */
     public static function getRootNodeName(){
         return 'ContactGroup';
@@ -56,14 +59,18 @@ e.g.
 
     /*
     * Get the guid property
+    *
+    * @return string
     */
     public static function getGUIDProperty(){
         return 'ContactGroupID';
     }
 
 
-    /*
+    /**
     * Get the stem of the API (core.xro) etc
+    *
+    * @return string|null
     */
     public static function getAPIStem(){
         return Remote\URL::API_CORE;
@@ -82,12 +89,20 @@ e.g.
         );
     }
 
+    /**
+     *
+     * Get the properties of the object.  Indexed by constants
+     *  [0] - Mandatory
+     *  [1] - Hintable type
+     *
+     * @return array
+     */
     public static function getProperties(){
         return array(
-            'Name',
-            'Status',
-            'ContactGroupID',
-            'Contacts'
+            'Name' => array (false, null),
+            'Status' => array (false, null),
+            'ContactGroupID' => array (false, null),
+            'Contacts' => array (false, 'Accounting\Contact')
         );
     }
 

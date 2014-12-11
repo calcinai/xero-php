@@ -31,6 +31,8 @@ class {{ model.ClassName }} extends Remote\Object {
 
     /*
     * Get the resource uri of the class (Contacts) etc
+    *
+    * @return string
     */
     public static function getResourceURI(){
         return {% if model.ResourceURI %}'{{ model.ResourceURI }}'{% else %}null{% endif %};
@@ -39,6 +41,8 @@ class {{ model.ClassName }} extends Remote\Object {
 
     /*
     * Get the root node name.  Just the unqualified classname
+    *
+    * @return string
     */
     public static function getRootNodeName(){
         return '{{ model.ClassName }}';
@@ -47,14 +51,18 @@ class {{ model.ClassName }} extends Remote\Object {
 
     /*
     * Get the guid property
+    *
+    * @return string
     */
     public static function getGUIDProperty(){
         return '{{ model.GUIDProperty.Name }}';
     }
 
 
-    /*
+    /**
     * Get the stem of the API (core.xro) etc
+    *
+    * @return string|null
     */
     public static function getAPIStem(){
         return {% if model.API.StemConstant %}Remote\URL::{{ model.API.StemConstant }}{% else %}null{% endif %};
@@ -73,10 +81,18 @@ class {{ model.ClassName }} extends Remote\Object {
         );
     }
 
+    /**
+     *
+     * Get the properties of the object.  Indexed by constants
+     *  [0] - Mandatory
+     *  [1] - Hintable type
+     *
+     * @return array
+     */
     public static function getProperties(){
         return array(
 {% for property in model.Properties %}
-            '{{ property.name }}'{% if not loop.last %},{% endif %}
+            '{{ property.name }}' => array ({% if property.isMandatory %}true{% else %}false{% endif %}, {% if property.isHintable %}'{{ property.getPHPType(true) }}'{% else %}null{% endif %}){% if not loop.last %},{% endif %}
 
 {% endfor %}
         );

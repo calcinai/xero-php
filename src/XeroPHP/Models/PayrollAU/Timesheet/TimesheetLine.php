@@ -4,7 +4,6 @@ namespace XeroPHP\Models\PayrollAU\Timesheet;
 
 use XeroPHP\Remote;
 
-use XeroPHP\Models\PayrollAU\Setting\TrackingCategory;
 
 class TimesheetLine extends Remote\Object {
 
@@ -18,7 +17,7 @@ class TimesheetLine extends Remote\Object {
      * The Xero identifier for a Tracking Category <TrackingOptionID>. The <TrackingOptionID> must belong
      * to the TrackingCategory selected as <TimesheetCategories> under Payroll Settings.
      *
-     * @property TrackingCategory TrackingItemID
+     * @property string TrackingItemID
      */
 
     /**
@@ -31,6 +30,8 @@ class TimesheetLine extends Remote\Object {
 
     /*
     * Get the resource uri of the class (Contacts) etc
+    *
+    * @return string
     */
     public static function getResourceURI(){
         return null;
@@ -39,6 +40,8 @@ class TimesheetLine extends Remote\Object {
 
     /*
     * Get the root node name.  Just the unqualified classname
+    *
+    * @return string
     */
     public static function getRootNodeName(){
         return 'TimesheetLine';
@@ -47,14 +50,18 @@ class TimesheetLine extends Remote\Object {
 
     /*
     * Get the guid property
+    *
+    * @return string
     */
     public static function getGUIDProperty(){
-        return 'EarningsRateID';
+        return '';
     }
 
 
-    /*
+    /**
     * Get the stem of the API (core.xro) etc
+    *
+    * @return string|null
     */
     public static function getAPIStem(){
         return Remote\URL::API_PAYROLL;
@@ -69,11 +76,19 @@ class TimesheetLine extends Remote\Object {
         );
     }
 
+    /**
+     *
+     * Get the properties of the object.  Indexed by constants
+     *  [0] - Mandatory
+     *  [1] - Hintable type
+     *
+     * @return array
+     */
     public static function getProperties(){
         return array(
-            'EarningsRateID',
-            'TrackingItemID',
-            'NumberOfUnits'
+            'EarningsRateID' => array (false, null),
+            'TrackingItemID' => array (false, null),
+            'NumberOfUnits' => array (false, null)
         );
     }
 
@@ -95,17 +110,17 @@ class TimesheetLine extends Remote\Object {
     }
 
     /**
-     * @return TrackingCategory
+     * @return string
      */
     public function getTrackingItemID(){
         return $this->_data['TrackingItemID'];
     }
 
     /**
-     * @param TrackingCategory $value
+     * @param string $value
      * @return TimesheetLine
      */
-    public function setTrackingItemID(TrackingCategory $value){
+    public function setTrackingItemID($value){
         $this->_data['TrackingItemID'] = $value;
         return $this;
     }

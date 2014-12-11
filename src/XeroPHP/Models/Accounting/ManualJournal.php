@@ -29,7 +29,7 @@ class ManualJournal extends Remote\Object {
     /**
      * NoTax by default if you don’t specify this element. See Line Amount Types
      *
-     * @property string LineAmountTypes
+     * @property float[] LineAmountTypes
      */
 
     /**
@@ -57,14 +57,16 @@ class ManualJournal extends Remote\Object {
      */
 
 
-    const MANUAL_JOURNAL_STATUS_CODE_DRAFT   = 'DRAFT'; 
-    const MANUAL_JOURNAL_STATUS_CODE_POSTED  = 'POSTED'; 
-    const MANUAL_JOURNAL_STATUS_CODE_DELETED = 'DELETED'; 
-    const MANUAL_JOURNAL_STATUS_CODE_VOIDED  = 'VOIDED'; 
+    const MANUAL_JOURNAL_STATUS_DRAFT   = 'DRAFT'; 
+    const MANUAL_JOURNAL_STATUS_POSTED  = 'POSTED'; 
+    const MANUAL_JOURNAL_STATUS_DELETED = 'DELETED'; 
+    const MANUAL_JOURNAL_STATUS_VOIDED  = 'VOIDED'; 
 
 
     /*
     * Get the resource uri of the class (Contacts) etc
+    *
+    * @return string
     */
     public static function getResourceURI(){
         return 'ManualJournals';
@@ -73,6 +75,8 @@ class ManualJournal extends Remote\Object {
 
     /*
     * Get the root node name.  Just the unqualified classname
+    *
+    * @return string
     */
     public static function getRootNodeName(){
         return 'ManualJournal';
@@ -81,14 +85,18 @@ class ManualJournal extends Remote\Object {
 
     /*
     * Get the guid property
+    *
+    * @return string
     */
     public static function getGUIDProperty(){
         return '';
     }
 
 
-    /*
+    /**
     * Get the stem of the API (core.xro) etc
+    *
+    * @return string|null
     */
     public static function getAPIStem(){
         return Remote\URL::API_CORE;
@@ -106,16 +114,24 @@ class ManualJournal extends Remote\Object {
         );
     }
 
+    /**
+     *
+     * Get the properties of the object.  Indexed by constants
+     *  [0] - Mandatory
+     *  [1] - Hintable type
+     *
+     * @return array
+     */
     public static function getProperties(){
         return array(
-            'Narration',
-            'JournalLines',
-            'Date',
-            'LineAmountTypes',
-            'Status',
-            'Url',
-            'ShowOnCashBasisReports',
-            'HasAttachments'
+            'Narration' => array (true, null),
+            'JournalLines' => array (true, 'Accounting\ManualJournal\JournalLine'),
+            'Date' => array (false, '\DateTime'),
+            'LineAmountTypes' => array (false, null),
+            'Status' => array (false, null),
+            'Url' => array (false, null),
+            'ShowOnCashBasisReports' => array (false, null),
+            'HasAttachments' => array (false, null)
         );
     }
 
@@ -169,18 +185,18 @@ class ManualJournal extends Remote\Object {
     }
 
     /**
-     * @return string
+     * @return float
      */
     public function getLineAmountTypes(){
         return $this->_data['LineAmountTypes'];
     }
 
     /**
-     * @param string $value
+     * @param float[] $value
      * @return ManualJournal
      */
-    public function setLineAmountType($value){
-        $this->_data['LineAmountTypes'] = $value;
+    public function addLineAmountType($value){
+        $this->_data['LineAmountTypes'][] = $value;
         return $this;
     }
 

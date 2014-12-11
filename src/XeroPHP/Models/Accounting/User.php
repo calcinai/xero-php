@@ -53,6 +53,8 @@ class User extends Remote\Object {
 
     /*
     * Get the resource uri of the class (Contacts) etc
+    *
+    * @return string
     */
     public static function getResourceURI(){
         return 'Users';
@@ -61,6 +63,8 @@ class User extends Remote\Object {
 
     /*
     * Get the root node name.  Just the unqualified classname
+    *
+    * @return string
     */
     public static function getRootNodeName(){
         return 'User';
@@ -69,14 +73,18 @@ class User extends Remote\Object {
 
     /*
     * Get the guid property
+    *
+    * @return string
     */
     public static function getGUIDProperty(){
         return 'UserID';
     }
 
 
-    /*
+    /**
     * Get the stem of the API (core.xro) etc
+    *
+    * @return string|null
     */
     public static function getAPIStem(){
         return Remote\URL::API_CORE;
@@ -92,15 +100,23 @@ class User extends Remote\Object {
         );
     }
 
+    /**
+     *
+     * Get the properties of the object.  Indexed by constants
+     *  [0] - Mandatory
+     *  [1] - Hintable type
+     *
+     * @return array
+     */
     public static function getProperties(){
         return array(
-            'UserID',
-            'EmailAddress',
-            'FirstName',
-            'LastName',
-            'UpdatedDateUTC',
-            'IsSubscriber',
-            'OrganisationRole'
+            'UserID' => array (false, null),
+            'EmailAddress' => array (false, null),
+            'FirstName' => array (false, null),
+            'LastName' => array (false, null),
+            'UpdatedDateUTC' => array (false, '\DateTime'),
+            'IsSubscriber' => array (false, null),
+            'OrganisationRole' => array (false, null)
         );
     }
 

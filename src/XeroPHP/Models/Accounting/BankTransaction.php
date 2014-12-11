@@ -4,11 +4,8 @@ namespace XeroPHP\Models\Accounting;
 
 use XeroPHP\Remote;
 
-use XeroPHP\Models\Accounting\Contact;
+use XeroPHP\Models\Accounting\BankTransaction\LineItem;
 use XeroPHP\Models\Accounting\BankTransaction\BankAccount;
-use XeroPHP\Models\Accounting\Currency;
-use XeroPHP\Models\Accounting\Account;
-use XeroPHP\Models\Accounting\Item;
 
 class BankTransaction extends Remote\Object {
 
@@ -27,7 +24,7 @@ class BankTransaction extends Remote\Object {
     /**
      * See LineItems
      *
-     * @property string[] Lineitems
+     * @property LineItem[] Lineitems
      */
 
     /**
@@ -57,7 +54,7 @@ class BankTransaction extends Remote\Object {
     /**
      * The currency that invoice has been raised in (see Currencies)
      *
-     * @property Currency CurrencyCode
+     * @property string CurrencyCode
      */
 
     /**
@@ -84,7 +81,7 @@ class BankTransaction extends Remote\Object {
      * Line amounts are exclusive of tax by default if you don’t specify this element. See Line Amount
      * Types
      *
-     * @property string LineAmountTypes
+     * @property float[] LineAmountTypes
      */
 
     /**
@@ -123,60 +120,6 @@ class BankTransaction extends Remote\Object {
      * @property bool HasAttachments
      */
 
-    /**
-     * Description needs to be at least 1 char long.
-     *
-     * @property string Description
-     */
-
-    /**
-     * Quantity must be >= 0
-     *
-     * @property string Quantity
-     */
-
-    /**
-     * Lineitem unit amount must be > 0. By default, unit amount will be rounded to two decimal places. You
-     * can opt in to use four decimal places by adding the querystring parameter unitdp=4 to your query.
-     * See the Rounding in Xero guide for more information.
-     *
-     * @property float UnitAmount
-     */
-
-    /**
-     * AccountCode must be active for the organisation. See Accounts
-     *
-     * @property Account AccountCode
-     */
-
-    /**
-     * <ItemCode> can only be used when the Bank Transaction <Type> is SPEND or RECEIVE. If <Description>,
-     * <UnitAmount> or <AccountCode> are not specified, then the defaults from the Item will be applied.
-     *
-     * @property Item ItemCode
-     */
-
-    /**
-     * Used as an override if the default Tax Code for the selected <AccountCode> is not correct – see
-     * TaxTypes.
-     *
-     * @property string TaxType
-     */
-
-    /**
-     * If you wish to omit either of the <Quantity> or <UnitAmount> you can provide a LineAmount and Xero
-     * will calculate the missing amount for you
-     *
-     * @property float LineAmount
-     */
-
-    /**
-     * Optional Tracking Category – see Tracking.  Any LineItem can have a maximum of 2
-     * <TrackingCategory> elements.
-     *
-     * @property string Tracking
-     */
-
 
     const TYPE_RECEIVE                                                                  = 'RECEIVE'; 
     const TYPE_RECEIVE_OVERPAYMENT                                                      = 'RECEIVE-OVERPAYMENT'; 
@@ -188,12 +131,14 @@ class BankTransaction extends Remote\Object {
     const TYPE_RECEIVE_TRANSFER                                                         = 'RECEIVE-TRANSFER'; 
     const TYPE_SPEND_TRANSFER                                                           = 'SPEND-TRANSFER'; 
 
-    const BANK_TRANSACTION_STATUS_CODE_AUTHORISED = 'AUTHORISED'; 
-    const BANK_TRANSACTION_STATUS_CODE_DELETED    = 'DELETED'; 
+    const BANK_TRANSACTION_STATUS_AUTHORISED = 'AUTHORISED'; 
+    const BANK_TRANSACTION_STATUS_DELETED    = 'DELETED'; 
 
 
     /*
     * Get the resource uri of the class (Contacts) etc
+    *
+    * @return string
     */
     public static function getResourceURI(){
         return 'BankTransactions';
@@ -202,6 +147,8 @@ class BankTransaction extends Remote\Object {
 
     /*
     * Get the root node name.  Just the unqualified classname
+    *
+    * @return string
     */
     public static function getRootNodeName(){
         return 'BankTransaction';
@@ -210,14 +157,18 @@ class BankTransaction extends Remote\Object {
 
     /*
     * Get the guid property
+    *
+    * @return string
     */
     public static function getGUIDProperty(){
         return 'BankTransactionID';
     }
 
 
-    /*
+    /**
     * Get the stem of the API (core.xro) etc
+    *
+    * @return string|null
     */
     public static function getAPIStem(){
         return Remote\URL::API_CORE;
@@ -235,34 +186,34 @@ class BankTransaction extends Remote\Object {
         );
     }
 
+    /**
+     *
+     * Get the properties of the object.  Indexed by constants
+     *  [0] - Mandatory
+     *  [1] - Hintable type
+     *
+     * @return array
+     */
     public static function getProperties(){
         return array(
-            'Type',
-            'Contact',
-            'Lineitems',
-            'BankAccount',
-            'IsReconciled',
-            'Date',
-            'Reference',
-            'CurrencyCode',
-            'CurrencyRate',
-            'Url',
-            'Status',
-            'LineAmountTypes',
-            'SubTotal',
-            'TotalTax',
-            'Total',
-            'BankTransactionID',
-            'UpdatedDateUTC',
-            'HasAttachments',
-            'Description',
-            'Quantity',
-            'UnitAmount',
-            'AccountCode',
-            'ItemCode',
-            'TaxType',
-            'LineAmount',
-            'Tracking'
+            'Type' => array (true, null),
+            'Contact' => array (true, 'Accounting\Contact'),
+            'Lineitems' => array (true, 'Accounting\BankTransaction\LineItem'),
+            'BankAccount' => array (true, 'Accounting\BankTransaction\BankAccount'),
+            'IsReconciled' => array (false, null),
+            'Date' => array (false, '\DateTime'),
+            'Reference' => array (false, null),
+            'CurrencyCode' => array (false, null),
+            'CurrencyRate' => array (false, null),
+            'Url' => array (false, null),
+            'Status' => array (false, null),
+            'LineAmountTypes' => array (false, null),
+            'SubTotal' => array (false, null),
+            'TotalTax' => array (false, null),
+            'Total' => array (false, null),
+            'BankTransactionID' => array (false, null),
+            'UpdatedDateUTC' => array (false, '\DateTime'),
+            'HasAttachments' => array (false, null)
         );
     }
 
@@ -300,17 +251,17 @@ class BankTransaction extends Remote\Object {
     }
 
     /**
-     * @return string
+     * @return LineItem
      */
     public function getLineitems(){
         return $this->_data['Lineitems'];
     }
 
     /**
-     * @param string[] $value
+     * @param LineItem[] $value
      * @return BankTransaction
      */
-    public function addLineitem($value){
+    public function addLineitem(LineItem $value){
         $this->_data['Lineitems'][] = $value;
         return $this;
     }
@@ -380,17 +331,17 @@ class BankTransaction extends Remote\Object {
     }
 
     /**
-     * @return Currency
+     * @return string
      */
     public function getCurrencyCode(){
         return $this->_data['CurrencyCode'];
     }
 
     /**
-     * @param Currency $value
+     * @param string $value
      * @return BankTransaction
      */
-    public function setCurrencyCode(Currency $value){
+    public function setCurrencyCode($value){
         $this->_data['CurrencyCode'] = $value;
         return $this;
     }
@@ -444,18 +395,18 @@ class BankTransaction extends Remote\Object {
     }
 
     /**
-     * @return string
+     * @return float
      */
     public function getLineAmountTypes(){
         return $this->_data['LineAmountTypes'];
     }
 
     /**
-     * @param string $value
+     * @param float[] $value
      * @return BankTransaction
      */
-    public function setLineAmountType($value){
-        $this->_data['LineAmountTypes'] = $value;
+    public function addLineAmountType($value){
+        $this->_data['LineAmountTypes'][] = $value;
         return $this;
     }
 
@@ -552,134 +503,6 @@ class BankTransaction extends Remote\Object {
      */
     public function setHasAttachment($value){
         $this->_data['HasAttachments'] = $value;
-        return $this;
-    }
-
-    /**
-     * @return string
-     */
-    public function getDescription(){
-        return $this->_data['Description'];
-    }
-
-    /**
-     * @param string $value
-     * @return BankTransaction
-     */
-    public function setDescription($value){
-        $this->_data['Description'] = $value;
-        return $this;
-    }
-
-    /**
-     * @return string
-     */
-    public function getQuantity(){
-        return $this->_data['Quantity'];
-    }
-
-    /**
-     * @param string $value
-     * @return BankTransaction
-     */
-    public function setQuantity($value){
-        $this->_data['Quantity'] = $value;
-        return $this;
-    }
-
-    /**
-     * @return float
-     */
-    public function getUnitAmount(){
-        return $this->_data['UnitAmount'];
-    }
-
-    /**
-     * @param float $value
-     * @return BankTransaction
-     */
-    public function setUnitAmount($value){
-        $this->_data['UnitAmount'] = $value;
-        return $this;
-    }
-
-    /**
-     * @return Account
-     */
-    public function getAccountCode(){
-        return $this->_data['AccountCode'];
-    }
-
-    /**
-     * @param Account $value
-     * @return BankTransaction
-     */
-    public function setAccountCode(Account $value){
-        $this->_data['AccountCode'] = $value;
-        return $this;
-    }
-
-    /**
-     * @return Item
-     */
-    public function getItemCode(){
-        return $this->_data['ItemCode'];
-    }
-
-    /**
-     * @param Item $value
-     * @return BankTransaction
-     */
-    public function setItemCode(Item $value){
-        $this->_data['ItemCode'] = $value;
-        return $this;
-    }
-
-    /**
-     * @return string
-     */
-    public function getTaxType(){
-        return $this->_data['TaxType'];
-    }
-
-    /**
-     * @param string $value
-     * @return BankTransaction
-     */
-    public function setTaxType($value){
-        $this->_data['TaxType'] = $value;
-        return $this;
-    }
-
-    /**
-     * @return float
-     */
-    public function getLineAmount(){
-        return $this->_data['LineAmount'];
-    }
-
-    /**
-     * @param float $value
-     * @return BankTransaction
-     */
-    public function setLineAmount($value){
-        $this->_data['LineAmount'] = $value;
-        return $this;
-    }
-
-    /**
-     * @return string
-     */
-    public function getTracking(){
-        return $this->_data['Tracking'];
-    }
-
-    /**
-     * @param string $value
-     * @return BankTransaction
-     */
-    public function setTracking($value){
-        $this->_data['Tracking'] = $value;
         return $this;
     }
 

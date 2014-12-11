@@ -2,7 +2,12 @@
 
 namespace XeroPHP\Remote;
 
+use XeroPHP\Exception;
+
 class Object {
+
+    const KEY_MANDATORY = 0;
+    const KEY_TYPE      = 1;
 
     protected $_data;
     private $_dirty;
@@ -19,22 +24,81 @@ class Object {
         return isset($this->_data[static::getGUIDProperty()]);
     }
 
+    public function getGUID(){
+        $this->_data[static::getGUIDProperty()];
+    }
+
+    public function fromArray($input_array){
+
+        foreach(static::getProperties() as $property => $meta) {
+            $mandatory = $meta[self::KEY_MANDATORY];
+            $type = $meta[self::KEY_TYPE];
+
+            if(isset($input_array[$property])){
+
+                if($type !== null){
+                    //Append the base model NS
+                    if($type[0] !== '\\'){
+                        $type = sprintf('\XeroPHP\Models\\%s', $type);
+                    }
+
+                }
+
+                //if($input_array[$property])
+            }
+
+        }
+
+    }
+
     public function toArray(){
         $out = array();
         foreach($this->_data as $key => $value){
             //override the value if it
             if($value instanceof Object) {
                 $value = $value->toArray();
-            } elseif(is_array($value)){
+            } elseif($value instanceof \DateTime) {
+                $value = $value->format('c');
+            } elseif (is_array($value)){
                 foreach($value as &$element){
-                    $element = $element->toArray();
+                    if($element instanceof Object)
+                        $element = $element->toArray();
                 }
+            } elseif(!is_scalar($value)) {
+                throw new Exception(sprintf('Unknown value in object property %s::$%s.', get_class($value), $key));
             }
 
-            //then out in.
+            //then put in.
             $out[$key] = $value;
         }
         return $out;
+    }
+
+    public function validate($check_children = true){
+
+        //validate
+        foreach(static::getProperties() as $property => $meta){
+            $mandatory = $meta[self::KEY_MANDATORY];
+
+            if($mandatory){
+                if(!isset($this->_data[$property]) || empty($this->_data[$property]))
+                    throw new Exception(sprintf('%s::$%s is mandatory and is either missing or empty.', get_class($this->_data[$property]), $property));
+
+                if($check_children){
+                    if($this->_data[$property] instanceof Object) {
+                        $this->_data[$property]->validate();
+
+                    } elseif (is_array($this->_data[$property])){
+                        foreach($this->_data[$property] as $element){
+                            if($element instanceof Object)
+                                $element->validate();
+                        }
+                    }
+                }
+            }
+        }
+
+        return true;
     }
 
     public function __get($property){

@@ -27,6 +27,7 @@ class URL {
      * @var string The base API URL for the ap type
      */
     private $base_url;
+    private $endpoint;
 
     /**
      * @var string the path
@@ -66,6 +67,7 @@ class URL {
         //This contains API versions and base URLs
         $xero_config = $app->getConfig('xero');
         $this->base_url = $xero_config['base_url'];
+        $this->endpoint = $endpoint;
 
         //Check here that the URI hasn't been set by one of the OAuth methods and handle as normal
         if(!isset($this->path)){
@@ -83,7 +85,7 @@ class URL {
                     throw new Exception('Invalid API passed to XeroPHP\URL::__construct(). Must be XeroPHP\URL::API_*');
             }
 
-            $this->path = sprintf('%s/%s/%s', $api, $version, $endpoint);
+            $this->path = sprintf('%s/%s/%s', $api, $version, $this->endpoint);
         }
     }
 
@@ -93,7 +95,6 @@ class URL {
     public function getFullURL(){
         return sprintf('%s/%s', $this->base_url, $this->path);
     }
-
 
 
 }

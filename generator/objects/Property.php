@@ -19,16 +19,18 @@ class Property {
     private $links;
 
     private $is_deprecated;
+    private $is_mandatory;
 
     private $related_object;
 
-    public function __construct($name, $description){
+    public function __construct($name, $description, $mandatory = false){
 
         if(strpos($name, '(deprecated)')){
             $name = str_replace('(deprecated)', '', $name);
             $this->is_deprecated = true;
         }
 
+        $this->is_mandatory = $mandatory;
         $this->name = $name;
         $this->description = $description;
         $this->links = array();
@@ -86,6 +88,13 @@ class Property {
     }
 
     /**
+     * @return bool
+     */
+    public function isMandatory(){
+        return $this->is_mandatory;
+    }
+
+    /**
      * @param $text
      * @param $href
      */
@@ -126,7 +135,7 @@ class Property {
     /**
      * @return string
      */
-    public function getPHPType() {
+    public function getPHPType($with_ns = false) {
 
         switch($this->getType()){
             case self::TYPE_INT:
@@ -147,7 +156,7 @@ class Property {
                 return '\DateTime';
 
             case self::TYPE_OBJECT:
-                return $this->related_object->getClassName();
+                return $this->related_object->getClassName($with_ns);
         }
 
     }
@@ -199,26 +208,35 @@ class Property {
             $this->getModel()->setGUIDProperty($this);
         }
 
-        //The ns hint for searching, look for subclasses of this first.
-        $ns_hint = sprintf('%s\\%s', $this->getModel()->getNamespace(), $this->getModel()->getClassName());
+        if(preg_match('/(Code|ID)$/', $this->getName()))
+            $type = self::TYPE_STRING;
 
         $result = null;
-        foreach($this->links as $link) {
-            $search_text = str_replace(' ', '', ucwords($link['text']));
-            $result = $this->getModel()->getAPI()->searchByKey($search_text, $ns_hint);
 
-            //then try anchor
-            if($result === null){
-                if(preg_match('/#(?<anchor>.+)/i', $link['href'], $matches)){
-                    $result = $this->getModel()->getAPI()->searchByKey($matches['anchor'], $ns_hint);
+        if(!isset($type)) {
+            //The ns hint for searching, look for subclasses of this first.
+            $ns_hint = sprintf('%s\\%s', $this->getModel()->getNamespace(), $this->getModel()->getClassName());
+
+            foreach($this->links as $link) {
+                $search_text = str_replace(' ', '', ucwords($link['text']));
+
+                $result = $this->getModel()->getAPI()->searchByKey($search_text, $ns_hint);
+
+                //then try anchor
+                if($result === null) {
+                    if(preg_match('/#(?<anchor>.+)/i', $link['href'], $matches)) {
+                        $result = $this->getModel()->getAPI()->searchByKey($matches['anchor'], $ns_hint);
+                    }
                 }
             }
         }
 
+
         if(!isset($type) && $result === null){
-            if(preg_match('/See (?<model>.+)\.?$/i', $this->getDescription(), $matches))
+            if(preg_match('/see\s(?<model>[^.]+)/i', $this->getDescription(), $matches))
                 $result = $this->getModel()->getAPI()->searchByKey(str_replace(' ', '', ucwords($matches['model'])), $ns_hint);
         }
+
 
         //I have tried very hard to avoid special cases!
         if(!isset($type) && $result === null){

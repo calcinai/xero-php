@@ -4,7 +4,6 @@ namespace XeroPHP\Models\Accounting\Journal;
 
 use XeroPHP\Remote;
 
-use XeroPHP\Models\Accounting\Account;
 use XeroPHP\Models\Accounting\TaxRate;
 
 class JournalLine extends Remote\Object {
@@ -18,13 +17,13 @@ class JournalLine extends Remote\Object {
     /**
      * See Accounts
      *
-     * @property Account AccountID
+     * @property string AccountID
      */
 
     /**
      * See Accounts
      *
-     * @property Account AccountCode
+     * @property string AccountCode
      */
 
     /**
@@ -79,6 +78,8 @@ class JournalLine extends Remote\Object {
 
     /*
     * Get the resource uri of the class (Contacts) etc
+    *
+    * @return string
     */
     public static function getResourceURI(){
         return null;
@@ -87,6 +88,8 @@ class JournalLine extends Remote\Object {
 
     /*
     * Get the root node name.  Just the unqualified classname
+    *
+    * @return string
     */
     public static function getRootNodeName(){
         return 'JournalLine';
@@ -95,14 +98,18 @@ class JournalLine extends Remote\Object {
 
     /*
     * Get the guid property
+    *
+    * @return string
     */
     public static function getGUIDProperty(){
         return 'JournalLineID';
     }
 
 
-    /*
+    /**
     * Get the stem of the API (core.xro) etc
+    *
+    * @return string|null
     */
     public static function getAPIStem(){
         return Remote\URL::API_CORE;
@@ -117,19 +124,27 @@ class JournalLine extends Remote\Object {
         );
     }
 
+    /**
+     *
+     * Get the properties of the object.  Indexed by constants
+     *  [0] - Mandatory
+     *  [1] - Hintable type
+     *
+     * @return array
+     */
     public static function getProperties(){
         return array(
-            'JournalLineID',
-            'AccountID',
-            'AccountCode',
-            'AccountType',
-            'AccountName',
-            'NetAmount',
-            'GrossAmount',
-            'TaxAmount',
-            'TaxType',
-            'TaxName',
-            'TrackingCategories'
+            'JournalLineID' => array (false, null),
+            'AccountID' => array (false, null),
+            'AccountCode' => array (false, null),
+            'AccountType' => array (false, null),
+            'AccountName' => array (false, null),
+            'NetAmount' => array (false, null),
+            'GrossAmount' => array (false, null),
+            'TaxAmount' => array (false, null),
+            'TaxType' => array (false, null),
+            'TaxName' => array (false, 'Accounting\TaxRate'),
+            'TrackingCategories' => array (false, null)
         );
     }
 
@@ -151,33 +166,33 @@ class JournalLine extends Remote\Object {
     }
 
     /**
-     * @return Account
+     * @return string
      */
     public function getAccountID(){
         return $this->_data['AccountID'];
     }
 
     /**
-     * @param Account $value
+     * @param string $value
      * @return JournalLine
      */
-    public function setAccountID(Account $value){
+    public function setAccountID($value){
         $this->_data['AccountID'] = $value;
         return $this;
     }
 
     /**
-     * @return Account
+     * @return string
      */
     public function getAccountCode(){
         return $this->_data['AccountCode'];
     }
 
     /**
-     * @param Account $value
+     * @param string $value
      * @return JournalLine
      */
-    public function setAccountCode(Account $value){
+    public function setAccountCode($value){
         $this->_data['AccountCode'] = $value;
         return $this;
     }

@@ -60,6 +60,8 @@ abstract class Application {
 
     public function save(Object $object){
 
+        $object->validate();
+
         if($object->hasGUID() === false)
             return $this->create($object);
         elseif($object->isDirty())
@@ -68,14 +70,14 @@ abstract class Application {
 
     }
 
-    public function update(Object $object){
+    private function update(Object $object){
 
         if(!$object::supportsMethod(Request::METHOD_POST))
             throw new Exception('%s doesn\'t support updating via API', get_class($object));
 
         //Put in an array with the first level containing only the 'root node'.
         $data = array($object::getRootNodeName() => $object->toArray());
-        $url = new URL($this, $object::getResourceURI());
+        $url = new URL($this, sprintf('%s/%s', $object::getResourceURI(), $object->getGUID()));
         $request = new Request($this, $url, Request::METHOD_POST);
 
         $request->setBody(Helpers::arrayToXML($data));
@@ -84,7 +86,7 @@ abstract class Application {
 
     }
 
-    public function create(Object $object){
+    private function create(Object $object){
 
         if(!$object::supportsMethod(Request::METHOD_PUT))
             throw new Exception('%s doesn\'t support creating via API', get_class($object));
@@ -96,7 +98,8 @@ abstract class Application {
 
         $request->setBody(Helpers::arrayToXML($data));
 
-        return $request->send();
+        $response = $request->send();
+        print_r($response);
     }
 
     public function delete(Object $object){

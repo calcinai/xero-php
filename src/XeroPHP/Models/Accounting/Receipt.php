@@ -4,8 +4,7 @@ namespace XeroPHP\Models\Accounting;
 
 use XeroPHP\Remote;
 
-use XeroPHP\Models\Accounting\Contact;
-use XeroPHP\Models\Accounting\User;
+use XeroPHP\Models\Accounting\Receipt\LineItem;
 
 class Receipt extends Remote\Object {
 
@@ -24,7 +23,7 @@ class Receipt extends Remote\Object {
     /**
      * See LineItems
      *
-     * @property string[] Lineitems
+     * @property LineItem[] Lineitems
      */
 
     /**
@@ -42,7 +41,7 @@ class Receipt extends Remote\Object {
     /**
      * See Line Amount Types
      *
-     * @property string LineAmountTypes
+     * @property float[] LineAmountTypes
      */
 
     /**
@@ -99,72 +98,17 @@ class Receipt extends Remote\Object {
      * @property string Url
      */
 
-    /**
-     * Description needs to be at least 1 char long. A line item with just a description (i.e no unit
-     * amount or quantity) can be created by specifying just a <Description> element that contains at least
-     * 1 character
-     *
-     * @property float Description
-     */
 
-    /**
-     * Lineitem unit amount. By default, unit amount will be rounded to two decimal places. You can opt in
-     * to use four decimal places by adding the querystring parameter unitdp=4 to your query. See the
-     * Rounding in Xero guide for more information.
-     *
-     * @property float UnitAmount
-     */
-
-    /**
-     * AccountCode must be active for the organisation. AccountCodes can only be applied to a receipt when
-     * the ShowInExpenseClaims value is true. Bank Accounts can not be applied to receipts.
-     *
-     * @property string AccountCode
-     */
-
-    /**
-     * LineItem Quantity
-     *
-     * @property string Quantity
-     */
-
-    /**
-     * Used as an override if the default Tax Code for the selected <AccountCode> is not correct – see
-     * TaxTypes.
-     *
-     * @property string TaxType
-     */
-
-    /**
-     * If you wish to omit either of the <Quantity> or <UnitAmount> you can provide a LineAmount and Xero
-     * will calculate the missing amount for you
-     *
-     * @property float LineAmount
-     */
-
-    /**
-     * Optional Tracking Category – see Tracking.  Any LineItem can have a maximum of 2
-     * <TrackingCategory> elements.
-     *
-     * @property string Tracking
-     */
-
-    /**
-     * Percentage discount being applied to a line item. Vote here to be able to create discounts via the
-     * API.
-     *
-     * @property string DiscountRate
-     */
-
-
-    const RECEIPT_STATUS_CODES_REFER_TO_RECEIPTS_FOR_DETAILS_OF_USAGE__DRAFT      = 'DRAFT'; 
-    const RECEIPT_STATUS_CODES_REFER_TO_RECEIPTS_FOR_DETAILS_OF_USAGE__SUBMITTED  = 'SUBMITTED'; 
-    const RECEIPT_STATUS_CODES_REFER_TO_RECEIPTS_FOR_DETAILS_OF_USAGE__AUTHORISED = 'AUTHORISED'; 
-    const RECEIPT_STATUS_CODES_REFER_TO_RECEIPTS_FOR_DETAILS_OF_USAGE__DECLINED   = 'DECLINED'; 
+    const RECEIPT_STATUS_DRAFT      = 'DRAFT'; 
+    const RECEIPT_STATUS_SUBMITTED  = 'SUBMITTED'; 
+    const RECEIPT_STATUS_AUTHORISED = 'AUTHORISED'; 
+    const RECEIPT_STATUS_DECLINED   = 'DECLINED'; 
 
 
     /*
     * Get the resource uri of the class (Contacts) etc
+    *
+    * @return string
     */
     public static function getResourceURI(){
         return 'Receipts';
@@ -173,6 +117,8 @@ class Receipt extends Remote\Object {
 
     /*
     * Get the root node name.  Just the unqualified classname
+    *
+    * @return string
     */
     public static function getRootNodeName(){
         return 'Receipt';
@@ -181,14 +127,18 @@ class Receipt extends Remote\Object {
 
     /*
     * Get the guid property
+    *
+    * @return string
     */
     public static function getGUIDProperty(){
         return 'ReceiptID';
     }
 
 
-    /*
+    /**
     * Get the stem of the API (core.xro) etc
+    *
+    * @return string|null
     */
     public static function getAPIStem(){
         return Remote\URL::API_CORE;
@@ -206,31 +156,31 @@ class Receipt extends Remote\Object {
         );
     }
 
+    /**
+     *
+     * Get the properties of the object.  Indexed by constants
+     *  [0] - Mandatory
+     *  [1] - Hintable type
+     *
+     * @return array
+     */
     public static function getProperties(){
         return array(
-            'Date',
-            'Contact',
-            'Lineitems',
-            'User',
-            'Reference',
-            'LineAmountTypes',
-            'SubTotal',
-            'TotalTax',
-            'Total',
-            'ReceiptID',
-            'Status',
-            'ReceiptNumber',
-            'UpdatedDateUTC',
-            'HasAttachments',
-            'Url',
-            'Description',
-            'UnitAmount',
-            'AccountCode',
-            'Quantity',
-            'TaxType',
-            'LineAmount',
-            'Tracking',
-            'DiscountRate'
+            'Date' => array (true, '\DateTime'),
+            'Contact' => array (true, 'Accounting\Contact'),
+            'Lineitems' => array (true, 'Accounting\Receipt\LineItem'),
+            'User' => array (true, 'Accounting\User'),
+            'Reference' => array (false, null),
+            'LineAmountTypes' => array (false, null),
+            'SubTotal' => array (false, null),
+            'TotalTax' => array (false, null),
+            'Total' => array (false, null),
+            'ReceiptID' => array (false, null),
+            'Status' => array (false, null),
+            'ReceiptNumber' => array (false, null),
+            'UpdatedDateUTC' => array (false, '\DateTime'),
+            'HasAttachments' => array (false, null),
+            'Url' => array (false, null)
         );
     }
 
@@ -268,17 +218,17 @@ class Receipt extends Remote\Object {
     }
 
     /**
-     * @return string
+     * @return LineItem
      */
     public function getLineitems(){
         return $this->_data['Lineitems'];
     }
 
     /**
-     * @param string[] $value
+     * @param LineItem[] $value
      * @return Receipt
      */
-    public function addLineitem($value){
+    public function addLineitem(LineItem $value){
         $this->_data['Lineitems'][] = $value;
         return $this;
     }
@@ -316,18 +266,18 @@ class Receipt extends Remote\Object {
     }
 
     /**
-     * @return string
+     * @return float
      */
     public function getLineAmountTypes(){
         return $this->_data['LineAmountTypes'];
     }
 
     /**
-     * @param string $value
+     * @param float[] $value
      * @return Receipt
      */
-    public function setLineAmountType($value){
-        $this->_data['LineAmountTypes'] = $value;
+    public function addLineAmountType($value){
+        $this->_data['LineAmountTypes'][] = $value;
         return $this;
     }
 
@@ -472,134 +422,6 @@ class Receipt extends Remote\Object {
      */
     public function setUrl($value){
         $this->_data['Url'] = $value;
-        return $this;
-    }
-
-    /**
-     * @return float
-     */
-    public function getDescription(){
-        return $this->_data['Description'];
-    }
-
-    /**
-     * @param float $value
-     * @return Receipt
-     */
-    public function setDescription($value){
-        $this->_data['Description'] = $value;
-        return $this;
-    }
-
-    /**
-     * @return float
-     */
-    public function getUnitAmount(){
-        return $this->_data['UnitAmount'];
-    }
-
-    /**
-     * @param float $value
-     * @return Receipt
-     */
-    public function setUnitAmount($value){
-        $this->_data['UnitAmount'] = $value;
-        return $this;
-    }
-
-    /**
-     * @return string
-     */
-    public function getAccountCode(){
-        return $this->_data['AccountCode'];
-    }
-
-    /**
-     * @param string $value
-     * @return Receipt
-     */
-    public function setAccountCode($value){
-        $this->_data['AccountCode'] = $value;
-        return $this;
-    }
-
-    /**
-     * @return string
-     */
-    public function getQuantity(){
-        return $this->_data['Quantity'];
-    }
-
-    /**
-     * @param string $value
-     * @return Receipt
-     */
-    public function setQuantity($value){
-        $this->_data['Quantity'] = $value;
-        return $this;
-    }
-
-    /**
-     * @return string
-     */
-    public function getTaxType(){
-        return $this->_data['TaxType'];
-    }
-
-    /**
-     * @param string $value
-     * @return Receipt
-     */
-    public function setTaxType($value){
-        $this->_data['TaxType'] = $value;
-        return $this;
-    }
-
-    /**
-     * @return float
-     */
-    public function getLineAmount(){
-        return $this->_data['LineAmount'];
-    }
-
-    /**
-     * @param float $value
-     * @return Receipt
-     */
-    public function setLineAmount($value){
-        $this->_data['LineAmount'] = $value;
-        return $this;
-    }
-
-    /**
-     * @return string
-     */
-    public function getTracking(){
-        return $this->_data['Tracking'];
-    }
-
-    /**
-     * @param string $value
-     * @return Receipt
-     */
-    public function setTracking($value){
-        $this->_data['Tracking'] = $value;
-        return $this;
-    }
-
-    /**
-     * @return string
-     */
-    public function getDiscountRate(){
-        return $this->_data['DiscountRate'];
-    }
-
-    /**
-     * @param string $value
-     * @return Receipt
-     */
-    public function setDiscountRate($value){
-        $this->_data['DiscountRate'] = $value;
         return $this;
     }
 

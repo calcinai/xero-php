@@ -134,8 +134,8 @@ e.g.
     const ACCOUNT_TYPE_WAGESEXPENSE            = 'WAGESEXPENSE'; 
     const ACCOUNT_TYPE_WAGESPAYABLELIABILITY   = 'WAGESPAYABLELIABILITY'; 
 
-    const ACCOUNT_STATUS_CODE_ACTIVE   = 'ACTIVE'; 
-    const ACCOUNT_STATUS_CODE_ARCHIVED = 'ARCHIVED'; 
+    const ACCOUNT_STATUS_ACTIVE   = 'ACTIVE'; 
+    const ACCOUNT_STATUS_ARCHIVED = 'ARCHIVED'; 
 
     const SYSTEM_ACCOUNT_DEBTORS                = 'DEBTORS'; 
     const SYSTEM_ACCOUNT_CREDITORS              = 'CREDITORS'; 
@@ -154,6 +154,8 @@ e.g.
 
     /*
     * Get the resource uri of the class (Contacts) etc
+    *
+    * @return string
     */
     public static function getResourceURI(){
         return 'Accounts';
@@ -162,6 +164,8 @@ e.g.
 
     /*
     * Get the root node name.  Just the unqualified classname
+    *
+    * @return string
     */
     public static function getRootNodeName(){
         return 'Account';
@@ -170,14 +174,18 @@ e.g.
 
     /*
     * Get the guid property
+    *
+    * @return string
     */
     public static function getGUIDProperty(){
         return 'AccountID';
     }
 
 
-    /*
+    /**
     * Get the stem of the API (core.xro) etc
+    *
+    * @return string|null
     */
     public static function getAPIStem(){
         return Remote\URL::API_CORE;
@@ -194,24 +202,32 @@ e.g.
         );
     }
 
+    /**
+     *
+     * Get the properties of the object.  Indexed by constants
+     *  [0] - Mandatory
+     *  [1] - Hintable type
+     *
+     * @return array
+     */
     public static function getProperties(){
         return array(
-            'Code',
-            'Name',
-            'Type',
-            'Description',
-            'TaxType',
-            'EnablePaymentsToAccount',
-            'ShowInExpenseClaims',
-            'AccountID',
-            'Class',
-            'Status',
-            'SystemAccount',
-            'BankAccountNumber',
-            'CurrencyCode',
-            'ReportingCode',
-            'ReportingCodeName',
-            'HasAttachments'
+            'Code' => array (true, null),
+            'Name' => array (true, null),
+            'Type' => array (true, null),
+            'Description' => array (false, null),
+            'TaxType' => array (false, null),
+            'EnablePaymentsToAccount' => array (false, null),
+            'ShowInExpenseClaims' => array (false, null),
+            'AccountID' => array (false, null),
+            'Class' => array (false, null),
+            'Status' => array (false, null),
+            'SystemAccount' => array (false, null),
+            'BankAccountNumber' => array (false, null),
+            'CurrencyCode' => array (false, null),
+            'ReportingCode' => array (false, null),
+            'ReportingCodeName' => array (false, null),
+            'HasAttachments' => array (false, null)
         );
     }
 

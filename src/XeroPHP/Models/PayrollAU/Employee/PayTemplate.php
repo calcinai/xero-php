@@ -40,7 +40,7 @@ class PayTemplate extends Remote\Object {
     /**
      * Xero earnings rate identifier
      *
-     * @property float EarningsRateID
+     * @property string EarningsRateID
      */
 
     /**
@@ -161,6 +161,8 @@ class PayTemplate extends Remote\Object {
 
     /*
     * Get the resource uri of the class (Contacts) etc
+    *
+    * @return string
     */
     public static function getResourceURI(){
         return null;
@@ -169,6 +171,8 @@ class PayTemplate extends Remote\Object {
 
     /*
     * Get the root node name.  Just the unqualified classname
+    *
+    * @return string
     */
     public static function getRootNodeName(){
         return 'PayTemplate';
@@ -177,14 +181,18 @@ class PayTemplate extends Remote\Object {
 
     /*
     * Get the guid property
+    *
+    * @return string
     */
     public static function getGUIDProperty(){
         return '';
     }
 
 
-    /*
+    /**
     * Get the stem of the API (core.xro) etc
+    *
+    * @return string|null
     */
     public static function getAPIStem(){
         return Remote\URL::API_PAYROLL;
@@ -199,33 +207,41 @@ class PayTemplate extends Remote\Object {
         );
     }
 
+    /**
+     *
+     * Get the properties of the object.  Indexed by constants
+     *  [0] - Mandatory
+     *  [1] - Hintable type
+     *
+     * @return array
+     */
     public static function getProperties(){
         return array(
-            'EarningsLines',
-            'DeductionLines',
-            'SuperLines',
-            'ReimbursementLines',
-            'LeaveLines',
-            'EarningsRateID',
-            'CalculationType',
-            'NumberOfUnitsPerWeek',
-            'AnnualSalary',
-            'RatePerUnit',
-            'NormalNumberOfUnits',
-            'DeductionTypeID',
-            'Percentage',
-            'Amount',
-            'SuperMembershipID',
-            'ContributionType',
-            'ExpenseAccountCode',
-            'LiabilityAccountCode',
-            'MinimumMonthlyEarnings',
-            'ReimbursementTypeID',
-            'Description',
-            'LeaveTypeID',
-            'AnnualNumberOfUnits',
-            'FullTimeNumberOfUnitsPerPeriod',
-            'NumberOfUnits'
+            'EarningsLines' => array (false, null),
+            'DeductionLines' => array (false, null),
+            'SuperLines' => array (false, null),
+            'ReimbursementLines' => array (false, null),
+            'LeaveLines' => array (false, null),
+            'EarningsRateID' => array (false, null),
+            'CalculationType' => array (false, null),
+            'NumberOfUnitsPerWeek' => array (false, null),
+            'AnnualSalary' => array (false, null),
+            'RatePerUnit' => array (false, null),
+            'NormalNumberOfUnits' => array (false, null),
+            'DeductionTypeID' => array (false, null),
+            'Percentage' => array (false, null),
+            'Amount' => array (false, null),
+            'SuperMembershipID' => array (false, null),
+            'ContributionType' => array (false, null),
+            'ExpenseAccountCode' => array (false, null),
+            'LiabilityAccountCode' => array (false, null),
+            'MinimumMonthlyEarnings' => array (false, null),
+            'ReimbursementTypeID' => array (false, null),
+            'Description' => array (false, null),
+            'LeaveTypeID' => array (false, null),
+            'AnnualNumberOfUnits' => array (false, null),
+            'FullTimeNumberOfUnitsPerPeriod' => array (false, null),
+            'NumberOfUnits' => array (false, null)
         );
     }
 
@@ -311,14 +327,14 @@ class PayTemplate extends Remote\Object {
     }
 
     /**
-     * @return float
+     * @return string
      */
     public function getEarningsRateID(){
         return $this->_data['EarningsRateID'];
     }
 
     /**
-     * @param float $value
+     * @param string $value
      * @return PayTemplate
      */
     public function setEarningsRateID($value){

@@ -4,9 +4,8 @@ namespace XeroPHP\Models\Accounting;
 
 use XeroPHP\Remote;
 
-use XeroPHP\Models\Accounting\Contact;
+use XeroPHP\Models\Accounting\BankTransaction\LineItem;
 use XeroPHP\Models\Accounting\CreditNote\Allocation;
-use XeroPHP\Models\Accounting\BrandingTheme;
 
 class CreditNote extends Remote\Object {
 
@@ -43,13 +42,13 @@ class CreditNote extends Remote\Object {
     /**
      * See Invoice Line Amount Types
      *
-     * @property string LineAmountTypes
+     * @property float[] LineAmountTypes
      */
 
     /**
      * See Invoice Line Items
      *
-     * @property string[] LineItems
+     * @property LineItem[] LineItems
      */
 
     /**
@@ -127,7 +126,7 @@ class CreditNote extends Remote\Object {
     /**
      * See BrandingThemes
      *
-     * @property BrandingTheme BrandingThemeID
+     * @property string BrandingThemeID
      */
 
     /**
@@ -143,6 +142,8 @@ class CreditNote extends Remote\Object {
 
     /*
     * Get the resource uri of the class (Contacts) etc
+    *
+    * @return string
     */
     public static function getResourceURI(){
         return 'CreditNotes';
@@ -151,6 +152,8 @@ class CreditNote extends Remote\Object {
 
     /*
     * Get the root node name.  Just the unqualified classname
+    *
+    * @return string
     */
     public static function getRootNodeName(){
         return 'CreditNote';
@@ -159,14 +162,18 @@ class CreditNote extends Remote\Object {
 
     /*
     * Get the guid property
+    *
+    * @return string
     */
     public static function getGUIDProperty(){
         return 'CreditNoteID';
     }
 
 
-    /*
+    /**
     * Get the stem of the API (core.xro) etc
+    *
+    * @return string|null
     */
     public static function getAPIStem(){
         return Remote\URL::API_CORE;
@@ -184,29 +191,37 @@ class CreditNote extends Remote\Object {
         );
     }
 
+    /**
+     *
+     * Get the properties of the object.  Indexed by constants
+     *  [0] - Mandatory
+     *  [1] - Hintable type
+     *
+     * @return array
+     */
     public static function getProperties(){
         return array(
-            'Reference',
-            'Type',
-            'Contact',
-            'Date',
-            'Status',
-            'LineAmountTypes',
-            'LineItems',
-            'SubTotal',
-            'TotalTax',
-            'Total',
-            'UpdatedDateUTC',
-            'CurrencyCode',
-            'FullyPaidOnDate',
-            'CreditNoteID',
-            'CreditNoteNumber',
-            'SentToContact',
-            'CurrencyRate',
-            'RemainingCredit',
-            'Allocations',
-            'BrandingThemeID',
-            'HasAttachments'
+            'Reference' => array (false, null),
+            'Type' => array (false, null),
+            'Contact' => array (false, 'Accounting\Contact'),
+            'Date' => array (false, '\DateTime'),
+            'Status' => array (false, null),
+            'LineAmountTypes' => array (false, null),
+            'LineItems' => array (false, 'Accounting\BankTransaction\LineItem'),
+            'SubTotal' => array (false, null),
+            'TotalTax' => array (false, null),
+            'Total' => array (false, null),
+            'UpdatedDateUTC' => array (false, '\DateTime'),
+            'CurrencyCode' => array (false, null),
+            'FullyPaidOnDate' => array (false, '\DateTime'),
+            'CreditNoteID' => array (false, null),
+            'CreditNoteNumber' => array (false, null),
+            'SentToContact' => array (false, null),
+            'CurrencyRate' => array (false, null),
+            'RemainingCredit' => array (false, null),
+            'Allocations' => array (false, 'Accounting\CreditNote\Allocation'),
+            'BrandingThemeID' => array (false, null),
+            'HasAttachments' => array (false, null)
         );
     }
 
@@ -292,33 +307,33 @@ class CreditNote extends Remote\Object {
     }
 
     /**
-     * @return string
+     * @return float
      */
     public function getLineAmountTypes(){
         return $this->_data['LineAmountTypes'];
     }
 
     /**
-     * @param string $value
+     * @param float[] $value
      * @return CreditNote
      */
-    public function setLineAmountType($value){
-        $this->_data['LineAmountTypes'] = $value;
+    public function addLineAmountType($value){
+        $this->_data['LineAmountTypes'][] = $value;
         return $this;
     }
 
     /**
-     * @return string
+     * @return LineItem
      */
     public function getLineItems(){
         return $this->_data['LineItems'];
     }
 
     /**
-     * @param string[] $value
+     * @param LineItem[] $value
      * @return CreditNote
      */
-    public function addLineItem($value){
+    public function addLineItem(LineItem $value){
         $this->_data['LineItems'][] = $value;
         return $this;
     }
@@ -516,17 +531,17 @@ class CreditNote extends Remote\Object {
     }
 
     /**
-     * @return BrandingTheme
+     * @return string
      */
     public function getBrandingThemeID(){
         return $this->_data['BrandingThemeID'];
     }
 
     /**
-     * @param BrandingTheme $value
+     * @param string $value
      * @return CreditNote
      */
-    public function setBrandingThemeID(BrandingTheme $value){
+    public function setBrandingThemeID($value){
         $this->_data['BrandingThemeID'] = $value;
         return $this;
     }

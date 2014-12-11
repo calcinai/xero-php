@@ -52,6 +52,7 @@ class Enum {
      * @return array
      */
     public function getValues(){
+
         $values = array();
         foreach($this->values as $value){
             $values[] = array(
@@ -87,7 +88,8 @@ class Enum {
      * @return mixed
      */
     public function getConstantPrefix(){
-        return \XeroPHP\Helpers::singularize(preg_replace('/(\btype(s)?)$/', '', $this->raw_name));
+        $sane_name = preg_replace('/\([\w\s]+\)/', '', $this->raw_name);
+        return \XeroPHP\Helpers::singularize(preg_replace('/(\b(code)s?)/i', '', trim($sane_name)));
     }
 
     /**

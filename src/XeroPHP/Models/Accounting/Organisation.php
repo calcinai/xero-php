@@ -142,13 +142,13 @@ class Organisation extends Remote\Object {
     /**
      * Address details for organisation – see Addresses
      *
-     * @property string Addresses
+     * @property Address[] Addresses
      */
 
     /**
      * Phones details for organisation – see Phones
      *
-     * @property string Phones
+     * @property Phone[] Phones
      */
 
     /**
@@ -188,6 +188,8 @@ class Organisation extends Remote\Object {
 
     /*
     * Get the resource uri of the class (Contacts) etc
+    *
+    * @return string
     */
     public static function getResourceURI(){
         return null;
@@ -196,6 +198,8 @@ class Organisation extends Remote\Object {
 
     /*
     * Get the root node name.  Just the unqualified classname
+    *
+    * @return string
     */
     public static function getRootNodeName(){
         return 'Organisation';
@@ -204,14 +208,18 @@ class Organisation extends Remote\Object {
 
     /*
     * Get the guid property
+    *
+    * @return string
     */
     public static function getGUIDProperty(){
         return '';
     }
 
 
-    /*
+    /**
     * Get the stem of the API (core.xro) etc
+    *
+    * @return string|null
     */
     public static function getAPIStem(){
         return Remote\URL::API_CORE;
@@ -226,34 +234,42 @@ class Organisation extends Remote\Object {
         );
     }
 
+    /**
+     *
+     * Get the properties of the object.  Indexed by constants
+     *  [0] - Mandatory
+     *  [1] - Hintable type
+     *
+     * @return array
+     */
     public static function getProperties(){
         return array(
-            'APIKey',
-            'Name',
-            'LegalName',
-            'PaysTax',
-            'Version',
-            'BaseCurrency',
-            'CountryCode',
-            'IsDemoCompany',
-            'OrganisationStatus',
-            'RegistrationNumber',
-            'TaxNumber',
-            'FinancialYearEndDay',
-            'FinancialYearEndMonth',
-            'SalesTaxBasis',
-            'SalesTaxPeriod',
-            'PeriodLockDate',
-            'EndOfYearLockDate',
-            'CreatedDateUTC',
-            'OrganisationEntityType',
-            'Timezone',
-            'ShortCode',
-            'LineOfBusiness',
-            'Addresses',
-            'Phones',
-            'ExternalLinks',
-            'PaymentTerms'
+            'APIKey' => array (false, null),
+            'Name' => array (false, null),
+            'LegalName' => array (false, null),
+            'PaysTax' => array (false, null),
+            'Version' => array (false, null),
+            'BaseCurrency' => array (false, null),
+            'CountryCode' => array (false, null),
+            'IsDemoCompany' => array (false, null),
+            'OrganisationStatus' => array (false, null),
+            'RegistrationNumber' => array (false, null),
+            'TaxNumber' => array (false, null),
+            'FinancialYearEndDay' => array (false, null),
+            'FinancialYearEndMonth' => array (false, null),
+            'SalesTaxBasis' => array (false, null),
+            'SalesTaxPeriod' => array (false, null),
+            'PeriodLockDate' => array (false, null),
+            'EndOfYearLockDate' => array (false, null),
+            'CreatedDateUTC' => array (false, '\DateTime'),
+            'OrganisationEntityType' => array (false, null),
+            'Timezone' => array (false, null),
+            'ShortCode' => array (false, null),
+            'LineOfBusiness' => array (false, null),
+            'Addresses' => array (false, 'Accounting\Address'),
+            'Phones' => array (false, 'Accounting\Phone'),
+            'ExternalLinks' => array (false, null),
+            'PaymentTerms' => array (false, null)
         );
     }
 
@@ -611,34 +627,34 @@ class Organisation extends Remote\Object {
     }
 
     /**
-     * @return string
+     * @return Address
      */
     public function getAddresses(){
         return $this->_data['Addresses'];
     }
 
     /**
-     * @param string $value
+     * @param Address[] $value
      * @return Organisation
      */
-    public function setAddress($value){
-        $this->_data['Addresses'] = $value;
+    public function addAddress(Address $value){
+        $this->_data['Addresses'][] = $value;
         return $this;
     }
 
     /**
-     * @return string
+     * @return Phone
      */
     public function getPhones(){
         return $this->_data['Phones'];
     }
 
     /**
-     * @param string $value
+     * @param Phone[] $value
      * @return Organisation
      */
-    public function setPhone($value){
-        $this->_data['Phones'] = $value;
+    public function addPhone(Phone $value){
+        $this->_data['Phones'][] = $value;
         return $this;
     }
 

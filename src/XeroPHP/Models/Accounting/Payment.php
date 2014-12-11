@@ -76,9 +76,15 @@ class Payment extends Remote\Object {
      * @property \DateTime UpdatedDateUTC
      */
 
+    /**
+     * The Xero identifier for an Payment e.g. 297c2dc5-cc47-4afd-8ec8-74990b8761e9
+     *
+     * @property string PaymentID
+     */
 
-    const PAYMENT_STATUS_CODE_AUTHORISED = 'AUTHORISED'; 
-    const PAYMENT_STATUS_CODE_DELETED    = 'DELETED'; 
+
+    const PAYMENT_STATUS_AUTHORISED = 'AUTHORISED'; 
+    const PAYMENT_STATUS_DELETED    = 'DELETED'; 
 
     const PAYMENT_TERM_DAYSAFTERBILLDATE  = 'DAYSAFTERBILLDATE'; 
     const PAYMENT_TERM_DAYSAFTERBILLMONTH = 'DAYSAFTERBILLMONTH'; 
@@ -93,6 +99,8 @@ class Payment extends Remote\Object {
 
     /*
     * Get the resource uri of the class (Contacts) etc
+    *
+    * @return string
     */
     public static function getResourceURI(){
         return 'Payments';
@@ -101,6 +109,8 @@ class Payment extends Remote\Object {
 
     /*
     * Get the root node name.  Just the unqualified classname
+    *
+    * @return string
     */
     public static function getRootNodeName(){
         return 'Payment';
@@ -109,14 +119,18 @@ class Payment extends Remote\Object {
 
     /*
     * Get the guid property
+    *
+    * @return string
     */
     public static function getGUIDProperty(){
-        return '';
+        return 'PaymentID';
     }
 
 
-    /*
+    /**
     * Get the stem of the API (core.xro) etc
+    *
+    * @return string|null
     */
     public static function getAPIStem(){
         return Remote\URL::API_CORE;
@@ -129,23 +143,33 @@ class Payment extends Remote\Object {
     public static function getSupportedMethods(){
         return array(
             Remote\Request::METHOD_GET,
-            Remote\Request::METHOD_PUT
+            Remote\Request::METHOD_PUT,
+            Remote\Request::METHOD_POST
         );
     }
 
+    /**
+     *
+     * Get the properties of the object.  Indexed by constants
+     *  [0] - Mandatory
+     *  [1] - Hintable type
+     *
+     * @return array
+     */
     public static function getProperties(){
         return array(
-            'CreditNote',
-            'Invoice',
-            'Account',
-            'Date',
-            'CurrencyRate',
-            'Amount',
-            'Reference',
-            'IsReconciled',
-            'Status',
-            'PaymentType',
-            'UpdatedDateUTC'
+            'CreditNote' => array (false, null),
+            'Invoice' => array (false, null),
+            'Account' => array (false, null),
+            'Date' => array (false, '\DateTime'),
+            'CurrencyRate' => array (false, null),
+            'Amount' => array (false, null),
+            'Reference' => array (false, null),
+            'IsReconciled' => array (false, null),
+            'Status' => array (false, null),
+            'PaymentType' => array (false, null),
+            'UpdatedDateUTC' => array (false, '\DateTime'),
+            'PaymentID' => array (false, null)
         );
     }
 
@@ -323,6 +347,22 @@ class Payment extends Remote\Object {
      */
     public function setUpdatedDateUTC(\DateTime $value){
         $this->_data['UpdatedDateUTC'] = $value;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getPaymentID(){
+        return $this->_data['PaymentID'];
+    }
+
+    /**
+     * @param string $value
+     * @return Payment
+     */
+    public function setPaymentID($value){
+        $this->_data['PaymentID'] = $value;
         return $this;
     }
 

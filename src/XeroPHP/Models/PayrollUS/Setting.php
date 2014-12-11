@@ -1,0 +1,124 @@
+<?php
+
+namespace XeroPHP\Models\PayrollUS;
+
+use XeroPHP\Remote;
+
+use XeroPHP\Models\PayrollUS\Setting\Account;
+use XeroPHP\Models\PayrollUS\Setting\TrackingCategory;
+
+class Setting extends Remote\Object {
+
+    /**
+     * Payroll Account details for Bank, WagesPayable and WagesExpense. See Accounts
+     *
+     * @property Account[] Accounts
+     */
+
+    /**
+     * Tracking categories for Employees and Timesheets. See Tracking Categories
+     *
+     * @property TrackingCategory[] TrackingCategories
+     */
+
+
+
+    /*
+    * Get the resource uri of the class (Contacts) etc
+    *
+    * @return string
+    */
+    public static function getResourceURI(){
+        return 'Settings';
+    }
+
+
+    /*
+    * Get the root node name.  Just the unqualified classname
+    *
+    * @return string
+    */
+    public static function getRootNodeName(){
+        return 'Setting';
+    }
+
+
+    /*
+    * Get the guid property
+    *
+    * @return string
+    */
+    public static function getGUIDProperty(){
+        return '';
+    }
+
+
+    /**
+    * Get the stem of the API (core.xro) etc
+    *
+    * @return string|null
+    */
+    public static function getAPIStem(){
+        return Remote\URL::API_PAYROLL;
+    }
+
+
+    /*
+    * Get the supported methods
+    */
+    public static function getSupportedMethods(){
+        return array(
+            Remote\Request::METHOD_GET
+        );
+    }
+
+    /**
+     *
+     * Get the properties of the object.  Indexed by constants
+     *  [0] - Mandatory
+     *  [1] - Hintable type
+     *
+     * @return array
+     */
+    public static function getProperties(){
+        return array(
+            'Accounts' => array (false, 'PayrollUS\Setting\Account'),
+            'TrackingCategories' => array (false, 'PayrollUS\Setting\TrackingCategory')
+        );
+    }
+
+
+    /**
+     * @return Account
+     */
+    public function getAccounts(){
+        return $this->_data['Accounts'];
+    }
+
+    /**
+     * @param Account[] $value
+     * @return Setting
+     */
+    public function addAccount(Account $value){
+        $this->_data['Accounts'][] = $value;
+        return $this;
+    }
+
+    /**
+     * @return TrackingCategory
+     */
+    public function getTrackingCategories(){
+        return $this->_data['TrackingCategories'];
+    }
+
+    /**
+     * @param TrackingCategory[] $value
+     * @return Setting
+     */
+    public function addTrackingCategory(TrackingCategory $value){
+        $this->_data['TrackingCategories'][] = $value;
+        return $this;
+    }
+
+
+}

@@ -5,8 +5,6 @@ namespace XeroPHP\Models\Accounting;
 use XeroPHP\Remote;
 
 use XeroPHP\Models\Accounting\Contact\ContactPerson;
-use XeroPHP\Models\Accounting\TrackingCategory;
-use XeroPHP\Models\Accounting\BrandingTheme;
 use XeroPHP\Models\Accounting\Organisation\PaymentTerm;
 
 class Contact extends Remote\Object {
@@ -218,12 +216,14 @@ class Contact extends Remote\Object {
      */
 
 
-    const CONTACT_STATUS_CODE_ACTIVE   = 'ACTIVE'; 
-    const CONTACT_STATUS_CODE_ARCHIVED = 'ARCHIVED'; 
+    const CONTACT_STATUS_ACTIVE   = 'ACTIVE'; 
+    const CONTACT_STATUS_ARCHIVED = 'ARCHIVED'; 
 
 
     /*
     * Get the resource uri of the class (Contacts) etc
+    *
+    * @return string
     */
     public static function getResourceURI(){
         return 'Contacts';
@@ -232,6 +232,8 @@ class Contact extends Remote\Object {
 
     /*
     * Get the root node name.  Just the unqualified classname
+    *
+    * @return string
     */
     public static function getRootNodeName(){
         return 'Contact';
@@ -240,14 +242,18 @@ class Contact extends Remote\Object {
 
     /*
     * Get the guid property
+    *
+    * @return string
     */
     public static function getGUIDProperty(){
         return 'ContactID';
     }
 
 
-    /*
+    /**
     * Get the stem of the API (core.xro) etc
+    *
+    * @return string|null
     */
     public static function getAPIStem(){
         return Remote\URL::API_CORE;
@@ -265,41 +271,49 @@ class Contact extends Remote\Object {
         );
     }
 
+    /**
+     *
+     * Get the properties of the object.  Indexed by constants
+     *  [0] - Mandatory
+     *  [1] - Hintable type
+     *
+     * @return array
+     */
     public static function getProperties(){
         return array(
-            'ContactID',
-            'ContactNumber',
-            'AccountNumber',
-            'ContactStatus',
-            'Name',
-            'FirstName',
-            'LastName',
-            'EmailAddress',
-            'SkypeUserName',
-            'ContactPersons',
-            'BankAccountDetails',
-            'TaxNumber',
-            'AccountsReceivableTaxType',
-            'AccountsPayableTaxType',
-            'Addresses',
-            'Phones',
-            'UpdatedDateUTC',
-            'IsSupplier',
-            'IsCustomer',
-            'DefaultCurrency',
-            'XeroNetworkKey',
-            'SalesDefaultAccountCode',
-            'PurchasesDefaultAccountCode',
-            'SalesTrackingCategories',
-            'PurchasesTrackingCategories',
-            'ContactGroups',
-            'Website',
-            'BrandingTheme',
-            'BatchPayments',
-            'Discount',
-            'Balances',
-            'PaymentTerms',
-            'HasAttachments'
+            'ContactID' => array (false, null),
+            'ContactNumber' => array (false, null),
+            'AccountNumber' => array (false, null),
+            'ContactStatus' => array (false, null),
+            'Name' => array (false, null),
+            'FirstName' => array (false, null),
+            'LastName' => array (false, null),
+            'EmailAddress' => array (false, null),
+            'SkypeUserName' => array (false, null),
+            'ContactPersons' => array (false, 'Accounting\Contact\ContactPerson'),
+            'BankAccountDetails' => array (false, null),
+            'TaxNumber' => array (false, null),
+            'AccountsReceivableTaxType' => array (false, null),
+            'AccountsPayableTaxType' => array (false, null),
+            'Addresses' => array (false, null),
+            'Phones' => array (false, null),
+            'UpdatedDateUTC' => array (false, '\DateTime'),
+            'IsSupplier' => array (false, null),
+            'IsCustomer' => array (false, null),
+            'DefaultCurrency' => array (false, null),
+            'XeroNetworkKey' => array (false, null),
+            'SalesDefaultAccountCode' => array (false, null),
+            'PurchasesDefaultAccountCode' => array (false, null),
+            'SalesTrackingCategories' => array (false, 'Accounting\TrackingCategory'),
+            'PurchasesTrackingCategories' => array (false, 'Accounting\TrackingCategory'),
+            'ContactGroups' => array (false, null),
+            'Website' => array (false, null),
+            'BrandingTheme' => array (false, 'Accounting\BrandingTheme'),
+            'BatchPayments' => array (false, null),
+            'Discount' => array (false, null),
+            'Balances' => array (false, null),
+            'PaymentTerms' => array (false, 'Accounting\Organisation\PaymentTerm'),
+            'HasAttachments' => array (false, null)
         );
     }
 

@@ -4,15 +4,13 @@ namespace XeroPHP\Models\PayrollAU;
 
 use XeroPHP\Remote;
 
-use XeroPHP\Models\PayrollAU\PayrollCalendar;
-use XeroPHP\Models\PayrollAU\Payslip;
 
 class PayRun extends Remote\Object {
 
     /**
      * See PayrollCalendars
      *
-     * @property PayrollCalendar PayrollCalendarID
+     * @property string PayrollCalendarID
      */
 
     /**
@@ -97,6 +95,8 @@ class PayRun extends Remote\Object {
 
     /*
     * Get the resource uri of the class (Contacts) etc
+    *
+    * @return string
     */
     public static function getResourceURI(){
         return 'PayRuns';
@@ -105,6 +105,8 @@ class PayRun extends Remote\Object {
 
     /*
     * Get the root node name.  Just the unqualified classname
+    *
+    * @return string
     */
     public static function getRootNodeName(){
         return 'PayRun';
@@ -113,14 +115,18 @@ class PayRun extends Remote\Object {
 
     /*
     * Get the guid property
+    *
+    * @return string
     */
     public static function getGUIDProperty(){
         return 'PayRunID';
     }
 
 
-    /*
+    /**
     * Get the stem of the API (core.xro) etc
+    *
+    * @return string|null
     */
     public static function getAPIStem(){
         return Remote\URL::API_PAYROLL;
@@ -137,38 +143,46 @@ class PayRun extends Remote\Object {
         );
     }
 
+    /**
+     *
+     * Get the properties of the object.  Indexed by constants
+     *  [0] - Mandatory
+     *  [1] - Hintable type
+     *
+     * @return array
+     */
     public static function getProperties(){
         return array(
-            'PayrollCalendarID',
-            'PayRunID',
-            'PayRunPeriodStartDate',
-            'PayRunPeriodEndDate',
-            'PayRunStatus',
-            'PaymentDate',
-            'PayslipMessage',
-            'Payslips',
-            'Wages',
-            'Deductions',
-            'Tax',
-            'Super',
-            'Reimbursement',
-            'NetPay'
+            'PayrollCalendarID' => array (true, null),
+            'PayRunID' => array (false, null),
+            'PayRunPeriodStartDate' => array (false, '\DateTime'),
+            'PayRunPeriodEndDate' => array (false, '\DateTime'),
+            'PayRunStatus' => array (false, null),
+            'PaymentDate' => array (false, '\DateTime'),
+            'PayslipMessage' => array (false, null),
+            'Payslips' => array (false, 'PayrollAU\Payslip'),
+            'Wages' => array (false, null),
+            'Deductions' => array (false, null),
+            'Tax' => array (false, null),
+            'Super' => array (false, null),
+            'Reimbursement' => array (false, null),
+            'NetPay' => array (false, null)
         );
     }
 
 
     /**
-     * @return PayrollCalendar
+     * @return string
      */
     public function getPayrollCalendarID(){
         return $this->_data['PayrollCalendarID'];
     }
 
     /**
-     * @param PayrollCalendar $value
+     * @param string $value
      * @return PayRun
      */
-    public function setPayrollCalendarID(PayrollCalendar $value){
+    public function setPayrollCalendarID($value){
         $this->_data['PayrollCalendarID'] = $value;
         return $this;
     }

@@ -95,6 +95,8 @@ class TaxDeclaration extends Remote\Object {
 
     /*
     * Get the resource uri of the class (Contacts) etc
+    *
+    * @return string
     */
     public static function getResourceURI(){
         return null;
@@ -103,6 +105,8 @@ class TaxDeclaration extends Remote\Object {
 
     /*
     * Get the root node name.  Just the unqualified classname
+    *
+    * @return string
     */
     public static function getRootNodeName(){
         return 'TaxDeclaration';
@@ -111,14 +115,18 @@ class TaxDeclaration extends Remote\Object {
 
     /*
     * Get the guid property
+    *
+    * @return string
     */
     public static function getGUIDProperty(){
         return '';
     }
 
 
-    /*
+    /**
     * Get the stem of the API (core.xro) etc
+    *
+    * @return string|null
     */
     public static function getAPIStem(){
         return Remote\URL::API_PAYROLL;
@@ -133,20 +141,28 @@ class TaxDeclaration extends Remote\Object {
         );
     }
 
+    /**
+     *
+     * Get the properties of the object.  Indexed by constants
+     *  [0] - Mandatory
+     *  [1] - Hintable type
+     *
+     * @return array
+     */
     public static function getProperties(){
         return array(
-            'EmployeeID',
-            'EmploymentBasis',
-            'TFNExemptionType',
-            'TaxFileNumber',
-            'AustralianResidentForTaxPurposes',
-            'TaxFreeThresholdClaimed',
-            'TaxOffsetEstimatedAmount',
-            'HasHELPDebt',
-            'HasSFSSDebt',
-            'UpwardVariationTaxWithholdingAmount',
-            'EligibleToReceiveLeaveLoading',
-            'ApprovedWithholdingVariationPercentage'
+            'EmployeeID' => array (true, null),
+            'EmploymentBasis' => array (true, null),
+            'TFNExemptionType' => array (false, null),
+            'TaxFileNumber' => array (false, null),
+            'AustralianResidentForTaxPurposes' => array (false, null),
+            'TaxFreeThresholdClaimed' => array (false, null),
+            'TaxOffsetEstimatedAmount' => array (false, null),
+            'HasHELPDebt' => array (false, null),
+            'HasSFSSDebt' => array (false, null),
+            'UpwardVariationTaxWithholdingAmount' => array (false, null),
+            'EligibleToReceiveLeaveLoading' => array (false, null),
+            'ApprovedWithholdingVariationPercentage' => array (false, null)
         );
     }
 

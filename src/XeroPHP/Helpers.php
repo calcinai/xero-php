@@ -19,24 +19,53 @@ class Helpers {
      * @param string $singular_parent_key
      * @return string
      */
-    public static function arrayToXML(array $array, $depth = 0, $singular_parent_key = ''){
+    public static function arrayToXML(array $array, $key_override = null){
 
         $xml = '';
         foreach($array as $key => $element){
             if(is_array($element)){
+
                 //recurse and replace.
-                $element = self::arrayToXML($element, $depth +1, self::singularize($key));
+                if(self::isAssoc($element))
+                    $element = self::arrayToXML($element);
+                else
+                    $element = self::arrayToXML($element, self::singularize($key));
+
             } else {
-                //sanitise
+                //sanitise-ish
                 $element = htmlentities($element);
             }
 
-            if(is_numeric($key))
-                $key = $singular_parent_key;
+            if($key_override !== null)
+                $key = $key_override;
 
             $xml .= sprintf('<%1$s>%2$s</%1$s>', $key, $element);
         }
+
         return $xml;
+    }
+
+    public static function XMLToArray(\SimpleXMLElement $sxml){
+
+        $output = array();
+        $singular_node_name = self::singularize($sxml->getName());
+
+        foreach($sxml->children() as $child_name => $child){
+            if($child->count() > 0){
+                $node = self::XMLToArray($child);
+            } else {
+                $node = (string) $child;
+            }
+
+            //don't make it assoc, as the keys will all be the same
+            if($child_name === $singular_node_name){
+                $output[] = $node;
+            } else {
+                $output[$child_name] = $node;
+            }
+        }
+
+        return $output;
     }
 
 
@@ -69,6 +98,41 @@ class Helpers {
 
         //Else return
         return $string;
+    }
+
+    public static function pluralize($string){
+
+        $plural = array(
+            '/(quiz)$/i'               => "$1zes",
+            '/(matr|vert|ind)ix|ex$/i' => "$1ices",
+            '/(x|ch|ss|sh)$/i'         => "$1es",
+            '/([^aeiouy]|qu)y$/i'      => "$1ies",
+            '/(hive)$/i'               => "$1s",
+            '/(?:([^f])fe|([lr])f)$/i' => "$1$2ves",
+            '/(shea|lea|loa|thie)f$/i' => "$1ves",
+            '/sis$/i'                  => "ses",
+            '/([ti])um$/i'             => "$1a",
+            '/(tomat|potat|ech|her|vet)o$/i'=> "$1oes",
+            '/(bu)s$/i'                => "$1ses",
+            '/(alias)$/i'              => "$1es",
+            '/(ax|test)is$/i'          => "$1es",
+            '/(us)$/i'                 => "$1es",
+            '/s$/i'                    => "s",
+            '/$/'                      => "s"
+        );
+
+        // check for matches using regular expressions
+        foreach ($plural as $pattern => $result){
+            if (preg_match( $pattern, $string))
+                return preg_replace($pattern, $result, $string);
+        }
+
+        return $string;
+    }
+
+
+    public static function isAssoc(array $array){
+        return (bool) count(array_filter(array_keys($array), 'is_string'));
     }
 
     /**

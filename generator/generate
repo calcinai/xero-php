@@ -71,6 +71,23 @@ $scrape_apis = array(
             'superfundproducts',
             'timesheets'
         )
+    ),
+    array(
+        'name' => 'Payroll - US',
+        'uri' => 'payroll-api-us',
+        'types' => 'types-codes',
+        'namespace' => 'PayrollUS',
+        'api_stem_constant' => 'API_PAYROLL',
+        'model_uris' => array(
+            'employees',
+            'pay-items',
+            'pay-runs',
+            'pay-schedules',
+            'pay-stubs',
+            'settings',
+            'timesheets',
+            'work-locations'
+        )
     )
 );
 
@@ -88,7 +105,7 @@ foreach($scrape_apis as $scrape_api) {
 
     $crawler->filter('.entry-content')->children()->each(function($node) use($api){
         //keep static in closure.
-        static $section_name, $enum;
+        static $section_name, $current_object;
 
         $current_tag = $node->getNode(0)->tagName;
 
@@ -104,19 +121,28 @@ foreach($scrape_apis as $scrape_api) {
             case 'p':
 
                 //Skip empty sections
-                if('' == $subsection_name = preg_replace('/\(\w+\)/', '', str_replace(' ', '', $node->text()))) return;
+                if('' == $subsection_name = preg_replace('/\([\s\w]+\)/', '', str_replace(' ', '', $node->text())))
+                    return;
 
                 //Try record the anchor on page for searching
                 $anchor = null;
                 $node->filter('a')->each(function($node) use(&$anchor){ $anchor = $node->attr('name'); });
-                $enum = new Enum($section_name, $subsection_name, $anchor, $node->text());
+
+                //this is to catch the models that are hiding in the types and codes
+                if($section_name === $subsection_name){
+                    $current_object = new Model();
+                    $current_object->setName($section_name);
+                } else {
+                    $current_object = new Enum($section_name, $subsection_name, $anchor, $node->text());
+                }
+
                 break;
             case 'table':
-                $node->filter('tr')->each(function($node, $row_index) use($enum){
+                $node->filter('tr')->each(function($node, $row_index) use($current_object){
 
                     //Why is this table different to every other one in the docs?
-                    $swap_name_description = $enum->getName() == 'SystemAccounts';
-                    $skip_first_row = $enum->getName() == 'SystemAccounts';
+                    $swap_name_description = $current_object->getName() == 'SystemAccounts';
+                    $skip_first_row = $current_object->getName() == 'SystemAccounts';
 
                     if($skip_first_row && $row_index == 0)
                         return false;
@@ -124,18 +150,37 @@ foreach($scrape_apis as $scrape_api) {
                     $children = $node->children();
                     $has_description = count($children) > 1;
 
-
                     $name = $children->eq(0)->text();
                     $description =  $has_description ? $children->eq(1)->text() : null;
 
                     if($swap_name_description)
                         list($name, $description) = array($description, $name);
 
-                    $enum->addValue($name, $description);
+                    if($current_object instanceof Model){
+                        //if there are commas in the name, it needs splitting.  eg. AddressLine 1,2,3,4
+                        if(false !== strpos($name, ',')){
+                            list($name, $suffixes) = explode(' ', $name);
+                            foreach(explode(',', $suffixes) as $suffix){
+                                $current_object->addProperty(new Property($name.$suffix, $description));
+                            }
+                        } else {
+                            //this is the normal case, where there's only one property
+                            $current_object->addProperty(new Property($name, $description));
+                        }
+
+                    } elseif($current_object instanceof Enum) {
+                        $current_object->addValue($name, $description);
+                    }
 
                 });
 
-                $api->addEnum($enum);
+                //Add here
+                if($current_object instanceof Model){
+                    $api->addModel($current_object);
+                } elseif($current_object instanceof Enum) {
+                    $api->addEnum($current_object);
+                }
+
                 break;
         }
     });
@@ -148,19 +193,25 @@ foreach($scrape_apis as $scrape_api) {
 
         $crawler->filter('.entry-content')->children()->each(function ($node) use ($api) {
             //keep static in closure.
-            static $section_name, $primary_model, $current_model;
+            static $page_heading, $section_name, $primary_model, $current_model;
 
             $current_tag = $node->getNode(0)->tagName;
 
             switch($current_tag) {
+                case 'h1':
+                    $h1_parts = explode("\n", $node->text());
+                    $page_heading = trim($h1_parts[0]);
+                    break;
                 case 'h3':
                 case 'h4':
-                    if(false === stripos($node->text(), 'optional'))
+                    if(false === stripos($node->text(), 'optional')){
                         $section_name = str_replace("\xc2\xa0", ' ', $node->text()); //remove &nbsp;
+                    }
                     break;
                 case 'p':
                     $node->filter('strong')->each(function($node) use (&$section_name){
-                        $section_name = $node->text();
+                        if($node->parents()->getNode(0)->tagName != 'em')
+                            $section_name = $node->text();
                     });
                     break;
                 case 'table':
@@ -187,21 +238,23 @@ foreach($scrape_apis as $scrape_api) {
                         return;
                     }
 
+
                     //try to work out what's next
                     if(preg_match('/(xml )?elements( returned)? for( adding)?( an| get| a)? (?<model_name>[\w\s]+)/i', $section_name, $matches)){
+
                         //too messy to add to the above regex - juse override model name.  This will pick off any lower case words preceding the actual name.
                         if(preg_match('/^[a-z\s]+(?<model_name>[A-Z][\w\s]+)/', $matches['model_name'], $uc_words_matches))
                             $matches = $uc_words_matches;
 
-                        $exploded_name = explode(' and ', $matches['model_name']);
-
+                        $exploded_name = preg_split('/\b(and|or)\b/', $matches['model_name']);
                         $model_name = str_replace(' ', '', ucwords($exploded_name[0]));
+
                         //if it hasn't been set, set it.
                         if($primary_model->getName() === null){
-                            $primary_model->setName($model_name);
+                            $primary_model_name = str_replace(' ', '', $page_heading);
+                            $primary_model->setName($primary_model_name);
                             $api->addModel($primary_model);
-                        }
-                        elseif($current_model->getName() !== $model_name){
+                        } elseif($current_model->getName() !== $model_name){
                             //If its not the same, we've reached a new one
                             //create the sub one and add its parent
                             $current_model = new Model();
@@ -269,7 +322,7 @@ foreach($scrape_apis as $scrape_api) {
                             $split = explode('> or <', $column_name);
                             if(isset($split[1])){
                                 //make it into another param
-                                $property = new Property($split[1], $column_description);
+                                $property = new Property($split[1], $column_description, $mandatory);
                                 $current_model->addProperty($property);
                                 $column_name = $split[0];
                             }
@@ -277,7 +330,7 @@ foreach($scrape_apis as $scrape_api) {
                             $column_name = str_replace(' ', '', $column_name);
 
                             //At this point, mandatory is set and there are at least 2 columns
-                            $property = new Property($column_name, $column_description);
+                            $property = new Property($column_name, $column_description, $mandatory);
 
                             //add links to property (for parsing types)
                             $children->eq(1)->filter('a')->each(function($node) use($property){
@@ -311,10 +364,11 @@ foreach($scrape_apis as $scrape_api) {
     $apis[] = $api;
 }
 
-
 $loader = new Twig_Loader_Filesystem('generator/templates/');
 $twig = new Twig_Environment($loader, array());
 $twig->addFilter(new Twig_SimpleFilter('wordwrap', 'wordwrap'));
+
+print_r($apis[0]->getSearchKeys());
 
 
 foreach($apis as $api){

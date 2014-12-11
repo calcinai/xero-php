@@ -50,12 +50,14 @@ class LeaveApplication extends Remote\Object {
      */
 
 
-    const LEAVE_PERIOD_STATUS_CODE_SCHEDULED = 'SCHEDULED'; 
-    const LEAVE_PERIOD_STATUS_CODE_PROCESSED = 'PROCESSED'; 
+    const LEAVE_PERIOD_STATUS_SCHEDULED = 'SCHEDULED'; 
+    const LEAVE_PERIOD_STATUS_PROCESSED = 'PROCESSED'; 
 
 
     /*
     * Get the resource uri of the class (Contacts) etc
+    *
+    * @return string
     */
     public static function getResourceURI(){
         return 'LeaveApplications';
@@ -64,6 +66,8 @@ class LeaveApplication extends Remote\Object {
 
     /*
     * Get the root node name.  Just the unqualified classname
+    *
+    * @return string
     */
     public static function getRootNodeName(){
         return 'LeaveApplication';
@@ -72,14 +76,18 @@ class LeaveApplication extends Remote\Object {
 
     /*
     * Get the guid property
+    *
+    * @return string
     */
     public static function getGUIDProperty(){
-        return 'EmployeeID';
+        return '';
     }
 
 
-    /*
+    /**
     * Get the stem of the API (core.xro) etc
+    *
+    * @return string|null
     */
     public static function getAPIStem(){
         return Remote\URL::API_PAYROLL;
@@ -96,15 +104,23 @@ class LeaveApplication extends Remote\Object {
         );
     }
 
+    /**
+     *
+     * Get the properties of the object.  Indexed by constants
+     *  [0] - Mandatory
+     *  [1] - Hintable type
+     *
+     * @return array
+     */
     public static function getProperties(){
         return array(
-            'EmployeeID',
-            'LeaveTypeID',
-            'Title',
-            'StartDate',
-            'EndDate',
-            'Description',
-            'LeavePeriods'
+            'EmployeeID' => array (true, null),
+            'LeaveTypeID' => array (true, null),
+            'Title' => array (true, null),
+            'StartDate' => array (true, '\DateTime'),
+            'EndDate' => array (true, '\DateTime'),
+            'Description' => array (false, null),
+            'LeavePeriods' => array (false, null)
         );
     }
 

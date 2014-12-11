@@ -208,11 +208,11 @@ class API {
             $this->buildSearchIndex();
 
         //Yuck
-        $plural_key = $key.'s'; //(close enough)
+        $plural_key = Helpers::pluralize($key);
         $singular_key = Helpers::singularize($key);
 
         $ns_key = sprintf('%s\\%s', $namespace_hint, $key);
-        $plural_ns_key = $ns_key.'s';
+        $plural_ns_key = Helpers::pluralize($ns_key);
         $singular_ns_key = Helpers::singularize($ns_key);
 
         if(isset($this->search_keys[$ns_key])) {

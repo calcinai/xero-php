@@ -4,7 +4,6 @@ namespace XeroPHP\Models\PayrollAU\PayItem;
 
 use XeroPHP\Remote;
 
-use XeroPHP\Models\PayrollAU\Setting\Account;
 
 class DeductionType extends Remote\Object {
 
@@ -17,7 +16,7 @@ class DeductionType extends Remote\Object {
     /**
      * See Accounts
      *
-     * @property Account AccountCode
+     * @property string AccountCode
      */
 
     /**
@@ -44,6 +43,8 @@ class DeductionType extends Remote\Object {
 
     /*
     * Get the resource uri of the class (Contacts) etc
+    *
+    * @return string
     */
     public static function getResourceURI(){
         return null;
@@ -52,6 +53,8 @@ class DeductionType extends Remote\Object {
 
     /*
     * Get the root node name.  Just the unqualified classname
+    *
+    * @return string
     */
     public static function getRootNodeName(){
         return 'DeductionType';
@@ -60,14 +63,18 @@ class DeductionType extends Remote\Object {
 
     /*
     * Get the guid property
+    *
+    * @return string
     */
     public static function getGUIDProperty(){
         return 'DeductionTypeID';
     }
 
 
-    /*
+    /**
     * Get the stem of the API (core.xro) etc
+    *
+    * @return string|null
     */
     public static function getAPIStem(){
         return Remote\URL::API_PAYROLL;
@@ -82,13 +89,21 @@ class DeductionType extends Remote\Object {
         );
     }
 
+    /**
+     *
+     * Get the properties of the object.  Indexed by constants
+     *  [0] - Mandatory
+     *  [1] - Hintable type
+     *
+     * @return array
+     */
     public static function getProperties(){
         return array(
-            'Name',
-            'AccountCode',
-            'ReducesTax',
-            'ReducesSuper',
-            'DeductionTypeID'
+            'Name' => array (true, null),
+            'AccountCode' => array (true, null),
+            'ReducesTax' => array (true, null),
+            'ReducesSuper' => array (true, null),
+            'DeductionTypeID' => array (false, null)
         );
     }
 
@@ -110,17 +125,17 @@ class DeductionType extends Remote\Object {
     }
 
     /**
-     * @return Account
+     * @return string
      */
     public function getAccountCode(){
         return $this->_data['AccountCode'];
     }
 
     /**
-     * @param Account $value
+     * @param string $value
      * @return DeductionType
      */
-    public function setAccountCode(Account $value){
+    public function setAccountCode($value){
         $this->_data['AccountCode'] = $value;
         return $this;
     }

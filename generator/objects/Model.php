@@ -74,8 +74,14 @@ class Model {
      *
      * @return mixed
      */
-    public function getClassName(){
-        return \XeroPHP\Helpers::singularize($this->getName());
+    public function getClassName($with_ns = false){
+
+        $class_name = \XeroPHP\Helpers::singularize($this->getName());
+
+        if($with_ns)
+            return sprintf('%s\\%s', $this->getNamespace(), $class_name);
+        else
+            return $class_name;
     }
 
     /**
@@ -101,8 +107,10 @@ class Model {
         $classes = array();
         foreach($this->getProperties() as $property){
             if($property->getType() === Property::TYPE_OBJECT) {
-                $key = sprintf('%s\\%s', $property->getRelatedObject()->getNamespace(), $property->getRelatedObject()->getClassName());
-                $classes[$key] = $key;
+                if($property->getRelatedObject()->getNamespace() !== $this->getNamespace()){
+                    $key = $property->getRelatedObject()->getClassName(true);
+                    $classes[$key] = $key;
+                }
             }
         }
         return $classes;

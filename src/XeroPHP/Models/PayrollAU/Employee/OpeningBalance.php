@@ -52,7 +52,7 @@ class OpeningBalance extends Remote\Object {
     /**
      * Xero earnings rate identifier
      *
-     * @property float EarningsRateID
+     * @property string EarningsRateID
      */
 
     /**
@@ -101,6 +101,8 @@ class OpeningBalance extends Remote\Object {
 
     /*
     * Get the resource uri of the class (Contacts) etc
+    *
+    * @return string
     */
     public static function getResourceURI(){
         return null;
@@ -109,6 +111,8 @@ class OpeningBalance extends Remote\Object {
 
     /*
     * Get the root node name.  Just the unqualified classname
+    *
+    * @return string
     */
     public static function getRootNodeName(){
         return 'OpeningBalance';
@@ -117,14 +121,18 @@ class OpeningBalance extends Remote\Object {
 
     /*
     * Get the guid property
+    *
+    * @return string
     */
     public static function getGUIDProperty(){
         return '';
     }
 
 
-    /*
+    /**
     * Get the stem of the API (core.xro) etc
+    *
+    * @return string|null
     */
     public static function getAPIStem(){
         return Remote\URL::API_PAYROLL;
@@ -139,23 +147,31 @@ class OpeningBalance extends Remote\Object {
         );
     }
 
+    /**
+     *
+     * Get the properties of the object.  Indexed by constants
+     *  [0] - Mandatory
+     *  [1] - Hintable type
+     *
+     * @return array
+     */
     public static function getProperties(){
         return array(
-            'OpeningBalanceDate',
-            'Tax',
-            'EarningsLines',
-            'DeductionLines',
-            'SuperLines',
-            'ReimbursementLines',
-            'LeaveLines',
-            'EarningsRateID',
-            'Amount',
-            'DeductionTypeID',
-            'SuperMembershipID',
-            'CalculationType',
-            'ReimbursementTypeID',
-            'LeaveTypeID',
-            'NumberOfUnits'
+            'OpeningBalanceDate' => array (false, '\DateTime'),
+            'Tax' => array (false, null),
+            'EarningsLines' => array (false, null),
+            'DeductionLines' => array (false, null),
+            'SuperLines' => array (false, null),
+            'ReimbursementLines' => array (false, null),
+            'LeaveLines' => array (false, null),
+            'EarningsRateID' => array (false, null),
+            'Amount' => array (false, null),
+            'DeductionTypeID' => array (false, null),
+            'SuperMembershipID' => array (false, null),
+            'CalculationType' => array (false, null),
+            'ReimbursementTypeID' => array (false, null),
+            'LeaveTypeID' => array (false, null),
+            'NumberOfUnits' => array (false, null)
         );
     }
 
@@ -273,14 +289,14 @@ class OpeningBalance extends Remote\Object {
     }
 
     /**
-     * @return float
+     * @return string
      */
     public function getEarningsRateID(){
         return $this->_data['EarningsRateID'];
     }
 
     /**
-     * @param float $value
+     * @param string $value
      * @return OpeningBalance
      */
     public function setEarningsRateID($value){

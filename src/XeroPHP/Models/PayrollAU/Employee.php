@@ -176,12 +176,14 @@ class Employee extends Remote\Object {
     const STATEABBREVIATION_VIC = 'VIC'; 
     const STATEABBREVIATION_WA  = 'WA'; 
 
-    const STATUS_CODE_ACTIVE     = 'ACTIVE'; 
-    const STATUS_CODE_TERMINATED = 'TERMINATED'; 
+    const STATUS_ACTIVE     = 'ACTIVE'; 
+    const STATUS_TERMINATED = 'TERMINATED'; 
 
 
     /*
     * Get the resource uri of the class (Contacts) etc
+    *
+    * @return string
     */
     public static function getResourceURI(){
         return 'Employees';
@@ -190,6 +192,8 @@ class Employee extends Remote\Object {
 
     /*
     * Get the root node name.  Just the unqualified classname
+    *
+    * @return string
     */
     public static function getRootNodeName(){
         return 'Employee';
@@ -198,14 +202,18 @@ class Employee extends Remote\Object {
 
     /*
     * Get the guid property
+    *
+    * @return string
     */
     public static function getGUIDProperty(){
         return 'EmployeeID';
     }
 
 
-    /*
+    /**
     * Get the stem of the API (core.xro) etc
+    *
+    * @return string|null
     */
     public static function getAPIStem(){
         return Remote\URL::API_PAYROLL;
@@ -222,33 +230,41 @@ class Employee extends Remote\Object {
         );
     }
 
+    /**
+     *
+     * Get the properties of the object.  Indexed by constants
+     *  [0] - Mandatory
+     *  [1] - Hintable type
+     *
+     * @return array
+     */
     public static function getProperties(){
         return array(
-            'FirstName',
-            'LastName',
-            'HomeAddress',
-            'StartDate',
-            'Title',
-            'MiddleNames',
-            'Email',
-            'Gender',
-            'Mobile',
-            'TwitterUserName',
-            'IsAuthorisedToApproveLeave',
-            'IsAuthorisedToApproveTimesheets',
-            'Occupation',
-            'Classification',
-            'OrdinaryEarningsRateID',
-            'PayrollCalendarID',
-            'EmployeeGroupName',
-            'BankAccounts',
-            'PayTemplate',
-            'OpeningBalances',
-            'SuperMemberships',
-            'TerminationDate',
-            'EmployeeID',
-            'Status',
-            'UpdatedDateUTC'
+            'FirstName' => array (true, null),
+            'LastName' => array (true, null),
+            'HomeAddress' => array (true, 'PayrollAU\Employee\HomeAddress'),
+            'StartDate' => array (false, '\DateTime'),
+            'Title' => array (false, null),
+            'MiddleNames' => array (false, null),
+            'Email' => array (false, null),
+            'Gender' => array (false, null),
+            'Mobile' => array (false, null),
+            'TwitterUserName' => array (false, null),
+            'IsAuthorisedToApproveLeave' => array (false, null),
+            'IsAuthorisedToApproveTimesheets' => array (false, null),
+            'Occupation' => array (false, null),
+            'Classification' => array (false, null),
+            'OrdinaryEarningsRateID' => array (false, null),
+            'PayrollCalendarID' => array (false, null),
+            'EmployeeGroupName' => array (false, null),
+            'BankAccounts' => array (false, 'PayrollAU\Employee\BankAccount'),
+            'PayTemplate' => array (false, 'PayrollAU\Employee\PayTemplate'),
+            'OpeningBalances' => array (false, 'PayrollAU\Employee\OpeningBalance'),
+            'SuperMemberships' => array (false, 'PayrollAU\Employee\SuperMembership'),
+            'TerminationDate' => array (false, '\DateTime'),
+            'EmployeeID' => array (false, null),
+            'Status' => array (false, null),
+            'UpdatedDateUTC' => array (false, '\DateTime')
         );
     }
 
