@@ -79,15 +79,17 @@ class TimeOffLine extends Remote\Object {
      *
      * Get the properties of the object.  Indexed by constants
      *  [0] - Mandatory
-     *  [1] - Hintable type
+     *  [1] - Type
+     *  [2] - PHP type
+     *  [3] - Is an Array
      *
      * @return array
      */
     public static function getProperties(){
         return array(
-            'TimeOffTypeID' => array (false, null),
-            'Hours' => array (false, null),
-            'Balance' => array (false, null)
+            'TimeOffTypeID' => array (false, self::PROPERTY_TYPE_STRING, null, false),
+            'Hours' => array (false, self::PROPERTY_TYPE_STRING, null, true),
+            'Balance' => array (false, self::PROPERTY_TYPE_STRING, null, false)
         );
     }
 
@@ -104,6 +106,7 @@ class TimeOffLine extends Remote\Object {
      * @return TimeOffLine
      */
     public function setTimeOffTypeID($value){
+        $this->_dirty['TimeOffTypeID'] = $this->_data['TimeOffTypeID'] != $value;
         $this->_data['TimeOffTypeID'] = $value;
         return $this;
     }
@@ -120,6 +123,7 @@ class TimeOffLine extends Remote\Object {
      * @return TimeOffLine
      */
     public function addHour($value){
+        $this->_dirty['Hours'] = true;
         $this->_data['Hours'][] = $value;
         return $this;
     }
@@ -136,6 +140,7 @@ class TimeOffLine extends Remote\Object {
      * @return TimeOffLine
      */
     public function setBalance($value){
+        $this->_dirty['Balance'] = $this->_data['Balance'] != $value;
         $this->_data['Balance'] = $value;
         return $this;
     }

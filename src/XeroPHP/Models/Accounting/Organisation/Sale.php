@@ -73,14 +73,16 @@ class Sale extends Remote\Object {
      *
      * Get the properties of the object.  Indexed by constants
      *  [0] - Mandatory
-     *  [1] - Hintable type
+     *  [1] - Type
+     *  [2] - PHP type
+     *  [3] - Is an Array
      *
      * @return array
      */
     public static function getProperties(){
         return array(
-            'Day' => array (false, null),
-            'Type' => array (false, null)
+            'Day' => array (false, self::PROPERTY_TYPE_STRING, null, false),
+            'Type' => array (false, self::PROPERTY_TYPE_ENUM, null, false)
         );
     }
 
@@ -97,6 +99,7 @@ class Sale extends Remote\Object {
      * @return Sale
      */
     public function setDay($value){
+        $this->_dirty['Day'] = $this->_data['Day'] != $value;
         $this->_data['Day'] = $value;
         return $this;
     }
@@ -113,6 +116,7 @@ class Sale extends Remote\Object {
      * @return Sale
      */
     public function setType($value){
+        $this->_dirty['Type'] = $this->_data['Type'] != $value;
         $this->_data['Type'] = $value;
         return $this;
     }

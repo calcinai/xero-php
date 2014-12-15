@@ -8,6 +8,7 @@ use XeroPHP\Models\PayrollAU\Payslip\EarningsLine;
 use XeroPHP\Models\PayrollAU\Payslip\TimesheetEarningsLine;
 use XeroPHP\Models\PayrollAU\Payslip\DeductionLine;
 use XeroPHP\Models\PayrollAU\Payslip\LeaveAccrualLine;
+use XeroPHP\Models\PayrollAU\Payslip\ReimbursementLine;
 use XeroPHP\Models\PayrollAU\Payslip\SuperannuationLine;
 use XeroPHP\Models\PayrollAU\Payslip\TaxLine;
 use XeroPHP\Models\PayrollAU\Payslip\LeaveEarningsLine;
@@ -53,7 +54,7 @@ class Payslip extends Remote\Object {
     /**
      * See ReimbursementLine – see PayItems
      *
-     * @property PayItem[] ReimbursementLines
+     * @property ReimbursementLine[] ReimbursementLines
      */
 
     /**
@@ -190,32 +191,34 @@ class Payslip extends Remote\Object {
      *
      * Get the properties of the object.  Indexed by constants
      *  [0] - Mandatory
-     *  [1] - Hintable type
+     *  [1] - Type
+     *  [2] - PHP type
+     *  [3] - Is an Array
      *
      * @return array
      */
     public static function getProperties(){
         return array(
-            'EmployeeID' => array (false, null),
-            'PayslipID' => array (false, null),
-            'EarningsLines' => array (false, 'PayrollAU\Payslip\EarningsLine'),
-            'TimesheetEarningsLines' => array (false, 'PayrollAU\Payslip\TimesheetEarningsLine'),
-            'DeductionLines' => array (false, 'PayrollAU\Payslip\DeductionLine'),
-            'LeaveAccrualLines' => array (false, 'PayrollAU\Payslip\LeaveAccrualLine'),
-            'ReimbursementLines' => array (false, 'PayrollAU\PayItem'),
-            'SuperannuationLines' => array (false, 'PayrollAU\Payslip\SuperannuationLine'),
-            'TaxLines' => array (false, 'PayrollAU\Payslip\TaxLine'),
-            'FirstName' => array (false, null),
-            'LastName' => array (false, null),
-            'EmployeeGroup' => array (false, null),
-            'LastEdited' => array (false, null),
-            'Wages' => array (false, null),
-            'Deductions' => array (false, null),
-            'NetPay' => array (false, null),
-            'Tax' => array (false, null),
-            'Super' => array (false, null),
-            'Reimbursements' => array (false, null),
-            'LeaveEarningsLines' => array (false, 'PayrollAU\Payslip\LeaveEarningsLine')
+            'EmployeeID' => array (false, self::PROPERTY_TYPE_STRING, null, false),
+            'PayslipID' => array (false, self::PROPERTY_TYPE_STRING, null, false),
+            'EarningsLines' => array (false, self::PROPERTY_TYPE_OBJECT, 'PayrollAU\\Payslip\\EarningsLine', true),
+            'TimesheetEarningsLines' => array (false, self::PROPERTY_TYPE_OBJECT, 'PayrollAU\\Payslip\\TimesheetEarningsLine', true),
+            'DeductionLines' => array (false, self::PROPERTY_TYPE_OBJECT, 'PayrollAU\\Payslip\\DeductionLine', true),
+            'LeaveAccrualLines' => array (false, self::PROPERTY_TYPE_OBJECT, 'PayrollAU\\Payslip\\LeaveAccrualLine', true),
+            'ReimbursementLines' => array (false, self::PROPERTY_TYPE_OBJECT, 'PayrollAU\\Payslip\\ReimbursementLine', true),
+            'SuperannuationLines' => array (false, self::PROPERTY_TYPE_OBJECT, 'PayrollAU\\Payslip\\SuperannuationLine', true),
+            'TaxLines' => array (false, self::PROPERTY_TYPE_OBJECT, 'PayrollAU\\Payslip\\TaxLine', true),
+            'FirstName' => array (false, self::PROPERTY_TYPE_STRING, null, false),
+            'LastName' => array (false, self::PROPERTY_TYPE_STRING, null, false),
+            'EmployeeGroup' => array (false, self::PROPERTY_TYPE_STRING, null, false),
+            'LastEdited' => array (false, self::PROPERTY_TYPE_STRING, null, false),
+            'Wages' => array (false, self::PROPERTY_TYPE_FLOAT, null, true),
+            'Deductions' => array (false, self::PROPERTY_TYPE_FLOAT, null, true),
+            'NetPay' => array (false, self::PROPERTY_TYPE_FLOAT, null, false),
+            'Tax' => array (false, self::PROPERTY_TYPE_FLOAT, null, false),
+            'Super' => array (false, self::PROPERTY_TYPE_FLOAT, null, false),
+            'Reimbursements' => array (false, self::PROPERTY_TYPE_FLOAT, null, true),
+            'LeaveEarningsLines' => array (false, self::PROPERTY_TYPE_OBJECT, 'PayrollAU\\Payslip\\LeaveEarningsLine', true)
         );
     }
 
@@ -232,6 +235,7 @@ class Payslip extends Remote\Object {
      * @return Payslip
      */
     public function setEmployeeID($value){
+        $this->_dirty['EmployeeID'] = $this->_data['EmployeeID'] != $value;
         $this->_data['EmployeeID'] = $value;
         return $this;
     }
@@ -248,6 +252,7 @@ class Payslip extends Remote\Object {
      * @return Payslip
      */
     public function setPayslipID($value){
+        $this->_dirty['PayslipID'] = $this->_data['PayslipID'] != $value;
         $this->_data['PayslipID'] = $value;
         return $this;
     }
@@ -264,6 +269,7 @@ class Payslip extends Remote\Object {
      * @return Payslip
      */
     public function addEarningsLine(EarningsLine $value){
+        $this->_dirty['EarningsLines'] = true;
         $this->_data['EarningsLines'][] = $value;
         return $this;
     }
@@ -280,6 +286,7 @@ class Payslip extends Remote\Object {
      * @return Payslip
      */
     public function addTimesheetEarningsLine(TimesheetEarningsLine $value){
+        $this->_dirty['TimesheetEarningsLines'] = true;
         $this->_data['TimesheetEarningsLines'][] = $value;
         return $this;
     }
@@ -296,6 +303,7 @@ class Payslip extends Remote\Object {
      * @return Payslip
      */
     public function addDeductionLine(DeductionLine $value){
+        $this->_dirty['DeductionLines'] = true;
         $this->_data['DeductionLines'][] = $value;
         return $this;
     }
@@ -312,22 +320,24 @@ class Payslip extends Remote\Object {
      * @return Payslip
      */
     public function addLeaveAccrualLine(LeaveAccrualLine $value){
+        $this->_dirty['LeaveAccrualLines'] = true;
         $this->_data['LeaveAccrualLines'][] = $value;
         return $this;
     }
 
     /**
-     * @return PayItem
+     * @return ReimbursementLine
      */
     public function getReimbursementLines(){
         return $this->_data['ReimbursementLines'];
     }
 
     /**
-     * @param PayItem[] $value
+     * @param ReimbursementLine[] $value
      * @return Payslip
      */
-    public function addReimbursementLine(PayItem $value){
+    public function addReimbursementLine(ReimbursementLine $value){
+        $this->_dirty['ReimbursementLines'] = true;
         $this->_data['ReimbursementLines'][] = $value;
         return $this;
     }
@@ -344,6 +354,7 @@ class Payslip extends Remote\Object {
      * @return Payslip
      */
     public function addSuperannuationLine(SuperannuationLine $value){
+        $this->_dirty['SuperannuationLines'] = true;
         $this->_data['SuperannuationLines'][] = $value;
         return $this;
     }
@@ -360,6 +371,7 @@ class Payslip extends Remote\Object {
      * @return Payslip
      */
     public function addTaxLine(TaxLine $value){
+        $this->_dirty['TaxLines'] = true;
         $this->_data['TaxLines'][] = $value;
         return $this;
     }
@@ -376,6 +388,7 @@ class Payslip extends Remote\Object {
      * @return Payslip
      */
     public function setFirstName($value){
+        $this->_dirty['FirstName'] = $this->_data['FirstName'] != $value;
         $this->_data['FirstName'] = $value;
         return $this;
     }
@@ -392,6 +405,7 @@ class Payslip extends Remote\Object {
      * @return Payslip
      */
     public function setLastName($value){
+        $this->_dirty['LastName'] = $this->_data['LastName'] != $value;
         $this->_data['LastName'] = $value;
         return $this;
     }
@@ -408,6 +422,7 @@ class Payslip extends Remote\Object {
      * @return Payslip
      */
     public function setEmployeeGroup($value){
+        $this->_dirty['EmployeeGroup'] = $this->_data['EmployeeGroup'] != $value;
         $this->_data['EmployeeGroup'] = $value;
         return $this;
     }
@@ -424,6 +439,7 @@ class Payslip extends Remote\Object {
      * @return Payslip
      */
     public function setLastEdited($value){
+        $this->_dirty['LastEdited'] = $this->_data['LastEdited'] != $value;
         $this->_data['LastEdited'] = $value;
         return $this;
     }
@@ -440,6 +456,7 @@ class Payslip extends Remote\Object {
      * @return Payslip
      */
     public function addWage($value){
+        $this->_dirty['Wages'] = true;
         $this->_data['Wages'][] = $value;
         return $this;
     }
@@ -456,6 +473,7 @@ class Payslip extends Remote\Object {
      * @return Payslip
      */
     public function addDeduction($value){
+        $this->_dirty['Deductions'] = true;
         $this->_data['Deductions'][] = $value;
         return $this;
     }
@@ -472,6 +490,7 @@ class Payslip extends Remote\Object {
      * @return Payslip
      */
     public function setNetPay($value){
+        $this->_dirty['NetPay'] = $this->_data['NetPay'] != $value;
         $this->_data['NetPay'] = $value;
         return $this;
     }
@@ -488,6 +507,7 @@ class Payslip extends Remote\Object {
      * @return Payslip
      */
     public function setTax($value){
+        $this->_dirty['Tax'] = $this->_data['Tax'] != $value;
         $this->_data['Tax'] = $value;
         return $this;
     }
@@ -504,6 +524,7 @@ class Payslip extends Remote\Object {
      * @return Payslip
      */
     public function setSuper($value){
+        $this->_dirty['Super'] = $this->_data['Super'] != $value;
         $this->_data['Super'] = $value;
         return $this;
     }
@@ -520,6 +541,7 @@ class Payslip extends Remote\Object {
      * @return Payslip
      */
     public function addReimbursement($value){
+        $this->_dirty['Reimbursements'] = true;
         $this->_data['Reimbursements'][] = $value;
         return $this;
     }
@@ -536,6 +558,7 @@ class Payslip extends Remote\Object {
      * @return Payslip
      */
     public function addLeaveEarningsLine(LeaveEarningsLine $value){
+        $this->_dirty['LeaveEarningsLines'] = true;
         $this->_data['LeaveEarningsLines'][] = $value;
         return $this;
     }

@@ -104,19 +104,21 @@ class ContactPerson extends Remote\Object {
      *
      * Get the properties of the object.  Indexed by constants
      *  [0] - Mandatory
-     *  [1] - Hintable type
+     *  [1] - Type
+     *  [2] - PHP type
+     *  [3] - Is an Array
      *
      * @return array
      */
     public static function getProperties(){
         return array(
-            'FirstName' => array (false, null),
-            'LastName' => array (false, null),
-            'EmailAddress' => array (false, null),
-            'IncludeInEmails' => array (false, null),
-            'ContactID' => array (false, null),
-            'ContactNumber' => array (false, null),
-            'Name' => array (false, null)
+            'FirstName' => array (false, self::PROPERTY_TYPE_STRING, null, false),
+            'LastName' => array (false, self::PROPERTY_TYPE_STRING, null, false),
+            'EmailAddress' => array (false, self::PROPERTY_TYPE_STRING, null, false),
+            'IncludeInEmails' => array (false, self::PROPERTY_TYPE_BOOLEAN, null, false),
+            'ContactID' => array (false, self::PROPERTY_TYPE_STRING, null, false),
+            'ContactNumber' => array (false, self::PROPERTY_TYPE_STRING, null, false),
+            'Name' => array (false, self::PROPERTY_TYPE_STRING, null, false)
         );
     }
 
@@ -133,6 +135,7 @@ class ContactPerson extends Remote\Object {
      * @return ContactPerson
      */
     public function setFirstName($value){
+        $this->_dirty['FirstName'] = $this->_data['FirstName'] != $value;
         $this->_data['FirstName'] = $value;
         return $this;
     }
@@ -149,6 +152,7 @@ class ContactPerson extends Remote\Object {
      * @return ContactPerson
      */
     public function setLastName($value){
+        $this->_dirty['LastName'] = $this->_data['LastName'] != $value;
         $this->_data['LastName'] = $value;
         return $this;
     }
@@ -165,6 +169,7 @@ class ContactPerson extends Remote\Object {
      * @return ContactPerson
      */
     public function setEmailAddress($value){
+        $this->_dirty['EmailAddress'] = $this->_data['EmailAddress'] != $value;
         $this->_data['EmailAddress'] = $value;
         return $this;
     }
@@ -181,6 +186,7 @@ class ContactPerson extends Remote\Object {
      * @return ContactPerson
      */
     public function setIncludeInEmail($value){
+        $this->_dirty['IncludeInEmails'] = $this->_data['IncludeInEmails'] != $value;
         $this->_data['IncludeInEmails'] = $value;
         return $this;
     }
@@ -197,6 +203,7 @@ class ContactPerson extends Remote\Object {
      * @return ContactPerson
      */
     public function setContactID($value){
+        $this->_dirty['ContactID'] = $this->_data['ContactID'] != $value;
         $this->_data['ContactID'] = $value;
         return $this;
     }
@@ -213,6 +220,7 @@ class ContactPerson extends Remote\Object {
      * @return ContactPerson
      */
     public function setContactNumber($value){
+        $this->_dirty['ContactNumber'] = $this->_data['ContactNumber'] != $value;
         $this->_data['ContactNumber'] = $value;
         return $this;
     }
@@ -229,6 +237,7 @@ class ContactPerson extends Remote\Object {
      * @return ContactPerson
      */
     public function setName($value){
+        $this->_dirty['Name'] = $this->_data['Name'] != $value;
         $this->_data['Name'] = $value;
         return $this;
     }

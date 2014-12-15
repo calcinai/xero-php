@@ -79,15 +79,17 @@ class LeaveAccrualLine extends Remote\Object {
      *
      * Get the properties of the object.  Indexed by constants
      *  [0] - Mandatory
-     *  [1] - Hintable type
+     *  [1] - Type
+     *  [2] - PHP type
+     *  [3] - Is an Array
      *
      * @return array
      */
     public static function getProperties(){
         return array(
-            'LeaveTypeID' => array (false, null),
-            'NumberOfUnits' => array (false, null),
-            'AutoCalculate' => array (false, null)
+            'LeaveTypeID' => array (false, self::PROPERTY_TYPE_STRING, null, false),
+            'NumberOfUnits' => array (false, self::PROPERTY_TYPE_STRING, null, true),
+            'AutoCalculate' => array (false, self::PROPERTY_TYPE_STRING, null, false)
         );
     }
 
@@ -104,6 +106,7 @@ class LeaveAccrualLine extends Remote\Object {
      * @return LeaveAccrualLine
      */
     public function setLeaveTypeID($value){
+        $this->_dirty['LeaveTypeID'] = $this->_data['LeaveTypeID'] != $value;
         $this->_data['LeaveTypeID'] = $value;
         return $this;
     }
@@ -120,6 +123,7 @@ class LeaveAccrualLine extends Remote\Object {
      * @return LeaveAccrualLine
      */
     public function addNumberOfUnit($value){
+        $this->_dirty['NumberOfUnits'] = true;
         $this->_data['NumberOfUnits'][] = $value;
         return $this;
     }
@@ -136,6 +140,7 @@ class LeaveAccrualLine extends Remote\Object {
      * @return LeaveAccrualLine
      */
     public function setAutoCalculate($value){
+        $this->_dirty['AutoCalculate'] = $this->_data['AutoCalculate'] != $value;
         $this->_data['AutoCalculate'] = $value;
         return $this;
     }

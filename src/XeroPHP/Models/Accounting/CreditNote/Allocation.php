@@ -4,13 +4,14 @@ namespace XeroPHP\Models\Accounting\CreditNote;
 
 use XeroPHP\Remote;
 
+use XeroPHP\Models\Accounting\Invoice;
 
 class Allocation extends Remote\Object {
 
     /**
      * the invoice the credit note is being allocated against
      *
-     * @property string Invoice
+     * @property Invoice Invoice
      */
 
     /**
@@ -79,31 +80,34 @@ class Allocation extends Remote\Object {
      *
      * Get the properties of the object.  Indexed by constants
      *  [0] - Mandatory
-     *  [1] - Hintable type
+     *  [1] - Type
+     *  [2] - PHP type
+     *  [3] - Is an Array
      *
      * @return array
      */
     public static function getProperties(){
         return array(
-            'Invoice' => array (false, null),
-            'AppliedAmount' => array (false, null),
-            'Date' => array (false, '\DateTime')
+            'Invoice' => array (false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Invoice', false),
+            'AppliedAmount' => array (false, self::PROPERTY_TYPE_FLOAT, null, false),
+            'Date' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTime', false)
         );
     }
 
 
     /**
-     * @return string
+     * @return Invoice
      */
     public function getInvoice(){
         return $this->_data['Invoice'];
     }
 
     /**
-     * @param string $value
+     * @param Invoice $value
      * @return Allocation
      */
-    public function setInvoice($value){
+    public function setInvoice(Invoice $value){
+        $this->_dirty['Invoice'] = $this->_data['Invoice'] != $value;
         $this->_data['Invoice'] = $value;
         return $this;
     }
@@ -120,6 +124,7 @@ class Allocation extends Remote\Object {
      * @return Allocation
      */
     public function setAppliedAmount($value){
+        $this->_dirty['AppliedAmount'] = $this->_data['AppliedAmount'] != $value;
         $this->_data['AppliedAmount'] = $value;
         return $this;
     }
@@ -136,6 +141,7 @@ class Allocation extends Remote\Object {
      * @return Allocation
      */
     public function setDate(\DateTime $value){
+        $this->_dirty['Date'] = $this->_data['Date'] != $value;
         $this->_data['Date'] = $value;
         return $this;
     }

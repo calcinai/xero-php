@@ -10,7 +10,7 @@ class BenefitType extends Remote\Object {
     /**
      * Name of the benefit type (max length = 100)
      *
-     * @property string BenefitType
+     * @property BenefitType BenefitType
      */
 
     /**
@@ -131,37 +131,40 @@ class BenefitType extends Remote\Object {
      *
      * Get the properties of the object.  Indexed by constants
      *  [0] - Mandatory
-     *  [1] - Hintable type
+     *  [1] - Type
+     *  [2] - PHP type
+     *  [3] - Is an Array
      *
      * @return array
      */
     public static function getProperties(){
         return array(
-            'BenefitType' => array (true, null),
-            'BenefitCategory' => array (true, null),
-            'LiabilityAccountCode' => array (true, null),
-            'ExpenseAccountCode' => array (true, null),
-            'BenefitTypeID' => array (false, null),
-            'StandardAmount' => array (false, null),
-            'CompanyMax' => array (false, null),
-            'Percentage' => array (false, null),
-            'ShowBalanceOnPaystub' => array (false, null)
+            'BenefitType' => array (true, self::PROPERTY_TYPE_OBJECT, 'PayrollUS\\PayItem\\BenefitType', false),
+            'BenefitCategory' => array (true, self::PROPERTY_TYPE_ENUM, null, false),
+            'LiabilityAccountCode' => array (true, self::PROPERTY_TYPE_STRING, null, false),
+            'ExpenseAccountCode' => array (true, self::PROPERTY_TYPE_STRING, null, false),
+            'BenefitTypeID' => array (false, self::PROPERTY_TYPE_STRING, null, false),
+            'StandardAmount' => array (false, self::PROPERTY_TYPE_FLOAT, null, false),
+            'CompanyMax' => array (false, self::PROPERTY_TYPE_FLOAT, null, false),
+            'Percentage' => array (false, self::PROPERTY_TYPE_STRING, null, false),
+            'ShowBalanceOnPaystub' => array (false, self::PROPERTY_TYPE_FLOAT, null, false)
         );
     }
 
 
     /**
-     * @return string
+     * @return BenefitType
      */
     public function getBenefitType(){
         return $this->_data['BenefitType'];
     }
 
     /**
-     * @param string $value
+     * @param BenefitType $value
      * @return BenefitType
      */
-    public function setBenefitType($value){
+    public function setBenefitType(BenefitType $value){
+        $this->_dirty['BenefitType'] = $this->_data['BenefitType'] != $value;
         $this->_data['BenefitType'] = $value;
         return $this;
     }
@@ -178,6 +181,7 @@ class BenefitType extends Remote\Object {
      * @return BenefitType
      */
     public function setBenefitCategory($value){
+        $this->_dirty['BenefitCategory'] = $this->_data['BenefitCategory'] != $value;
         $this->_data['BenefitCategory'] = $value;
         return $this;
     }
@@ -194,6 +198,7 @@ class BenefitType extends Remote\Object {
      * @return BenefitType
      */
     public function setLiabilityAccountCode($value){
+        $this->_dirty['LiabilityAccountCode'] = $this->_data['LiabilityAccountCode'] != $value;
         $this->_data['LiabilityAccountCode'] = $value;
         return $this;
     }
@@ -210,6 +215,7 @@ class BenefitType extends Remote\Object {
      * @return BenefitType
      */
     public function setExpenseAccountCode($value){
+        $this->_dirty['ExpenseAccountCode'] = $this->_data['ExpenseAccountCode'] != $value;
         $this->_data['ExpenseAccountCode'] = $value;
         return $this;
     }
@@ -226,6 +232,7 @@ class BenefitType extends Remote\Object {
      * @return BenefitType
      */
     public function setBenefitTypeID($value){
+        $this->_dirty['BenefitTypeID'] = $this->_data['BenefitTypeID'] != $value;
         $this->_data['BenefitTypeID'] = $value;
         return $this;
     }
@@ -242,6 +249,7 @@ class BenefitType extends Remote\Object {
      * @return BenefitType
      */
     public function setStandardAmount($value){
+        $this->_dirty['StandardAmount'] = $this->_data['StandardAmount'] != $value;
         $this->_data['StandardAmount'] = $value;
         return $this;
     }
@@ -258,6 +266,7 @@ class BenefitType extends Remote\Object {
      * @return BenefitType
      */
     public function setCompanyMax($value){
+        $this->_dirty['CompanyMax'] = $this->_data['CompanyMax'] != $value;
         $this->_data['CompanyMax'] = $value;
         return $this;
     }
@@ -274,6 +283,7 @@ class BenefitType extends Remote\Object {
      * @return BenefitType
      */
     public function setPercentage($value){
+        $this->_dirty['Percentage'] = $this->_data['Percentage'] != $value;
         $this->_data['Percentage'] = $value;
         return $this;
     }
@@ -290,6 +300,7 @@ class BenefitType extends Remote\Object {
      * @return BenefitType
      */
     public function setShowBalanceOnPaystub($value){
+        $this->_dirty['ShowBalanceOnPaystub'] = $this->_data['ShowBalanceOnPaystub'] != $value;
         $this->_data['ShowBalanceOnPaystub'] = $value;
         return $this;
     }

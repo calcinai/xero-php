@@ -160,27 +160,29 @@ class Receipt extends Remote\Object {
      *
      * Get the properties of the object.  Indexed by constants
      *  [0] - Mandatory
-     *  [1] - Hintable type
+     *  [1] - Type
+     *  [2] - PHP type
+     *  [3] - Is an Array
      *
      * @return array
      */
     public static function getProperties(){
         return array(
-            'Date' => array (true, '\DateTime'),
-            'Contact' => array (true, 'Accounting\Contact'),
-            'Lineitems' => array (true, 'Accounting\Receipt\LineItem'),
-            'User' => array (true, 'Accounting\User'),
-            'Reference' => array (false, null),
-            'LineAmountTypes' => array (false, null),
-            'SubTotal' => array (false, null),
-            'TotalTax' => array (false, null),
-            'Total' => array (false, null),
-            'ReceiptID' => array (false, null),
-            'Status' => array (false, null),
-            'ReceiptNumber' => array (false, null),
-            'UpdatedDateUTC' => array (false, '\DateTime'),
-            'HasAttachments' => array (false, null),
-            'Url' => array (false, null)
+            'Date' => array (true, self::PROPERTY_TYPE_DATE, '\\DateTime', false),
+            'Contact' => array (true, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Contact', false),
+            'Lineitems' => array (true, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Receipt\\LineItem', true),
+            'User' => array (true, self::PROPERTY_TYPE_OBJECT, 'Accounting\\User', false),
+            'Reference' => array (false, self::PROPERTY_TYPE_STRING, null, false),
+            'LineAmountTypes' => array (false, self::PROPERTY_TYPE_FLOAT, null, true),
+            'SubTotal' => array (false, self::PROPERTY_TYPE_FLOAT, null, false),
+            'TotalTax' => array (false, self::PROPERTY_TYPE_FLOAT, null, false),
+            'Total' => array (false, self::PROPERTY_TYPE_FLOAT, null, false),
+            'ReceiptID' => array (false, self::PROPERTY_TYPE_STRING, null, false),
+            'Status' => array (false, self::PROPERTY_TYPE_STRING, null, false),
+            'ReceiptNumber' => array (false, self::PROPERTY_TYPE_STRING, null, false),
+            'UpdatedDateUTC' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTime', false),
+            'HasAttachments' => array (false, self::PROPERTY_TYPE_BOOLEAN, null, false),
+            'Url' => array (false, self::PROPERTY_TYPE_STRING, null, false)
         );
     }
 
@@ -197,6 +199,7 @@ class Receipt extends Remote\Object {
      * @return Receipt
      */
     public function setDate(\DateTime $value){
+        $this->_dirty['Date'] = $this->_data['Date'] != $value;
         $this->_data['Date'] = $value;
         return $this;
     }
@@ -213,6 +216,7 @@ class Receipt extends Remote\Object {
      * @return Receipt
      */
     public function setContact(Contact $value){
+        $this->_dirty['Contact'] = $this->_data['Contact'] != $value;
         $this->_data['Contact'] = $value;
         return $this;
     }
@@ -229,6 +233,7 @@ class Receipt extends Remote\Object {
      * @return Receipt
      */
     public function addLineitem(LineItem $value){
+        $this->_dirty['Lineitems'] = true;
         $this->_data['Lineitems'][] = $value;
         return $this;
     }
@@ -245,6 +250,7 @@ class Receipt extends Remote\Object {
      * @return Receipt
      */
     public function setUser(User $value){
+        $this->_dirty['User'] = $this->_data['User'] != $value;
         $this->_data['User'] = $value;
         return $this;
     }
@@ -261,6 +267,7 @@ class Receipt extends Remote\Object {
      * @return Receipt
      */
     public function setReference($value){
+        $this->_dirty['Reference'] = $this->_data['Reference'] != $value;
         $this->_data['Reference'] = $value;
         return $this;
     }
@@ -277,6 +284,7 @@ class Receipt extends Remote\Object {
      * @return Receipt
      */
     public function addLineAmountType($value){
+        $this->_dirty['LineAmountTypes'] = true;
         $this->_data['LineAmountTypes'][] = $value;
         return $this;
     }
@@ -293,6 +301,7 @@ class Receipt extends Remote\Object {
      * @return Receipt
      */
     public function setSubTotal($value){
+        $this->_dirty['SubTotal'] = $this->_data['SubTotal'] != $value;
         $this->_data['SubTotal'] = $value;
         return $this;
     }
@@ -309,6 +318,7 @@ class Receipt extends Remote\Object {
      * @return Receipt
      */
     public function setTotalTax($value){
+        $this->_dirty['TotalTax'] = $this->_data['TotalTax'] != $value;
         $this->_data['TotalTax'] = $value;
         return $this;
     }
@@ -325,6 +335,7 @@ class Receipt extends Remote\Object {
      * @return Receipt
      */
     public function setTotal($value){
+        $this->_dirty['Total'] = $this->_data['Total'] != $value;
         $this->_data['Total'] = $value;
         return $this;
     }
@@ -341,6 +352,7 @@ class Receipt extends Remote\Object {
      * @return Receipt
      */
     public function setReceiptID($value){
+        $this->_dirty['ReceiptID'] = $this->_data['ReceiptID'] != $value;
         $this->_data['ReceiptID'] = $value;
         return $this;
     }
@@ -357,6 +369,7 @@ class Receipt extends Remote\Object {
      * @return Receipt
      */
     public function setStatu($value){
+        $this->_dirty['Status'] = $this->_data['Status'] != $value;
         $this->_data['Status'] = $value;
         return $this;
     }
@@ -373,6 +386,7 @@ class Receipt extends Remote\Object {
      * @return Receipt
      */
     public function setReceiptNumber($value){
+        $this->_dirty['ReceiptNumber'] = $this->_data['ReceiptNumber'] != $value;
         $this->_data['ReceiptNumber'] = $value;
         return $this;
     }
@@ -389,6 +403,7 @@ class Receipt extends Remote\Object {
      * @return Receipt
      */
     public function setUpdatedDateUTC(\DateTime $value){
+        $this->_dirty['UpdatedDateUTC'] = $this->_data['UpdatedDateUTC'] != $value;
         $this->_data['UpdatedDateUTC'] = $value;
         return $this;
     }
@@ -405,6 +420,7 @@ class Receipt extends Remote\Object {
      * @return Receipt
      */
     public function setHasAttachment($value){
+        $this->_dirty['HasAttachments'] = $this->_data['HasAttachments'] != $value;
         $this->_data['HasAttachments'] = $value;
         return $this;
     }
@@ -421,6 +437,7 @@ class Receipt extends Remote\Object {
      * @return Receipt
      */
     public function setUrl($value){
+        $this->_dirty['Url'] = $this->_data['Url'] != $value;
         $this->_data['Url'] = $value;
         return $this;
     }

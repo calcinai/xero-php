@@ -4,6 +4,7 @@ namespace XeroPHP\Models\Accounting;
 
 use XeroPHP\Remote;
 
+use XeroPHP\Models\Accounting\Organisation\ExternalLink;
 
 class Employee extends Remote\Object {
 
@@ -37,7 +38,7 @@ class Employee extends Remote\Object {
 The description of the link is auto-generated in the form “Go to <App name>”.
      * <App name> refers to the Xero application name that is making the API call.
      *
-     * @property string ExternalLink
+     * @property ExternalLink ExternalLink
      */
 
 
@@ -97,17 +98,19 @@ The description of the link is auto-generated in the form “Go to <App name>”
      *
      * Get the properties of the object.  Indexed by constants
      *  [0] - Mandatory
-     *  [1] - Hintable type
+     *  [1] - Type
+     *  [2] - PHP type
+     *  [3] - Is an Array
      *
      * @return array
      */
     public static function getProperties(){
         return array(
-            'EmployeeID' => array (false, null),
-            'Status' => array (false, null),
-            'FirstName' => array (false, null),
-            'LastName' => array (false, null),
-            'ExternalLink' => array (false, null)
+            'EmployeeID' => array (false, self::PROPERTY_TYPE_STRING, null, false),
+            'Status' => array (false, self::PROPERTY_TYPE_STRING, null, false),
+            'FirstName' => array (false, self::PROPERTY_TYPE_STRING, null, false),
+            'LastName' => array (false, self::PROPERTY_TYPE_STRING, null, false),
+            'ExternalLink' => array (false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Organisation\\ExternalLink', false)
         );
     }
 
@@ -124,6 +127,7 @@ The description of the link is auto-generated in the form “Go to <App name>”
      * @return Employee
      */
     public function setEmployeeID($value){
+        $this->_dirty['EmployeeID'] = $this->_data['EmployeeID'] != $value;
         $this->_data['EmployeeID'] = $value;
         return $this;
     }
@@ -140,6 +144,7 @@ The description of the link is auto-generated in the form “Go to <App name>”
      * @return Employee
      */
     public function setStatu($value){
+        $this->_dirty['Status'] = $this->_data['Status'] != $value;
         $this->_data['Status'] = $value;
         return $this;
     }
@@ -156,6 +161,7 @@ The description of the link is auto-generated in the form “Go to <App name>”
      * @return Employee
      */
     public function setFirstName($value){
+        $this->_dirty['FirstName'] = $this->_data['FirstName'] != $value;
         $this->_data['FirstName'] = $value;
         return $this;
     }
@@ -172,22 +178,24 @@ The description of the link is auto-generated in the form “Go to <App name>”
      * @return Employee
      */
     public function setLastName($value){
+        $this->_dirty['LastName'] = $this->_data['LastName'] != $value;
         $this->_data['LastName'] = $value;
         return $this;
     }
 
     /**
-     * @return string
+     * @return ExternalLink
      */
     public function getExternalLink(){
         return $this->_data['ExternalLink'];
     }
 
     /**
-     * @param string $value
+     * @param ExternalLink $value
      * @return Employee
      */
-    public function setExternalLink($value){
+    public function setExternalLink(ExternalLink $value){
+        $this->_dirty['ExternalLink'] = $this->_data['ExternalLink'] != $value;
         $this->_data['ExternalLink'] = $value;
         return $this;
     }

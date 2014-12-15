@@ -103,19 +103,21 @@ class SalaryAndWage extends Remote\Object {
      *
      * Get the properties of the object.  Indexed by constants
      *  [0] - Mandatory
-     *  [1] - Hintable type
+     *  [1] - Type
+     *  [2] - PHP type
+     *  [3] - Is an Array
      *
      * @return array
      */
     public static function getProperties(){
         return array(
-            'SalaryAndWageID' => array (false, null),
-            'EarningsTypeID' => array (false, null),
-            'SalaryWagesType' => array (false, null),
-            'HourlyRate' => array (false, null),
-            'AnnualSalary' => array (false, null),
-            'StandardHoursPerWeek' => array (false, null),
-            'EffectiveDate' => array (false, '\DateTime')
+            'SalaryAndWageID' => array (false, self::PROPERTY_TYPE_STRING, null, false),
+            'EarningsTypeID' => array (false, self::PROPERTY_TYPE_STRING, null, false),
+            'SalaryWagesType' => array (false, self::PROPERTY_TYPE_ENUM, null, false),
+            'HourlyRate' => array (false, self::PROPERTY_TYPE_FLOAT, null, false),
+            'AnnualSalary' => array (false, self::PROPERTY_TYPE_STRING, null, false),
+            'StandardHoursPerWeek' => array (false, self::PROPERTY_TYPE_STRING, null, false),
+            'EffectiveDate' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTime', false)
         );
     }
 
@@ -132,6 +134,7 @@ class SalaryAndWage extends Remote\Object {
      * @return SalaryAndWage
      */
     public function setSalaryAndWageID($value){
+        $this->_dirty['SalaryAndWageID'] = $this->_data['SalaryAndWageID'] != $value;
         $this->_data['SalaryAndWageID'] = $value;
         return $this;
     }
@@ -148,6 +151,7 @@ class SalaryAndWage extends Remote\Object {
      * @return SalaryAndWage
      */
     public function setEarningsTypeID($value){
+        $this->_dirty['EarningsTypeID'] = $this->_data['EarningsTypeID'] != $value;
         $this->_data['EarningsTypeID'] = $value;
         return $this;
     }
@@ -164,6 +168,7 @@ class SalaryAndWage extends Remote\Object {
      * @return SalaryAndWage
      */
     public function setSalaryWagesType($value){
+        $this->_dirty['SalaryWagesType'] = $this->_data['SalaryWagesType'] != $value;
         $this->_data['SalaryWagesType'] = $value;
         return $this;
     }
@@ -180,6 +185,7 @@ class SalaryAndWage extends Remote\Object {
      * @return SalaryAndWage
      */
     public function setHourlyRate($value){
+        $this->_dirty['HourlyRate'] = $this->_data['HourlyRate'] != $value;
         $this->_data['HourlyRate'] = $value;
         return $this;
     }
@@ -196,6 +202,7 @@ class SalaryAndWage extends Remote\Object {
      * @return SalaryAndWage
      */
     public function setAnnualSalary($value){
+        $this->_dirty['AnnualSalary'] = $this->_data['AnnualSalary'] != $value;
         $this->_data['AnnualSalary'] = $value;
         return $this;
     }
@@ -212,6 +219,7 @@ class SalaryAndWage extends Remote\Object {
      * @return SalaryAndWage
      */
     public function setStandardHoursPerWeek($value){
+        $this->_dirty['StandardHoursPerWeek'] = $this->_data['StandardHoursPerWeek'] != $value;
         $this->_data['StandardHoursPerWeek'] = $value;
         return $this;
     }
@@ -228,6 +236,7 @@ class SalaryAndWage extends Remote\Object {
      * @return SalaryAndWage
      */
     public function setEffectiveDate(\DateTime $value){
+        $this->_dirty['EffectiveDate'] = $this->_data['EffectiveDate'] != $value;
         $this->_data['EffectiveDate'] = $value;
         return $this;
     }

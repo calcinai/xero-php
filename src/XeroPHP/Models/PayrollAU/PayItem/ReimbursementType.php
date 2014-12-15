@@ -79,15 +79,17 @@ class ReimbursementType extends Remote\Object {
      *
      * Get the properties of the object.  Indexed by constants
      *  [0] - Mandatory
-     *  [1] - Hintable type
+     *  [1] - Type
+     *  [2] - PHP type
+     *  [3] - Is an Array
      *
      * @return array
      */
     public static function getProperties(){
         return array(
-            'Name' => array (true, null),
-            'AccountCode' => array (true, null),
-            'ReimbursementTypeID' => array (false, null)
+            'Name' => array (true, self::PROPERTY_TYPE_STRING, null, false),
+            'AccountCode' => array (true, self::PROPERTY_TYPE_STRING, null, false),
+            'ReimbursementTypeID' => array (false, self::PROPERTY_TYPE_STRING, null, false)
         );
     }
 
@@ -104,6 +106,7 @@ class ReimbursementType extends Remote\Object {
      * @return ReimbursementType
      */
     public function setName($value){
+        $this->_dirty['Name'] = $this->_data['Name'] != $value;
         $this->_data['Name'] = $value;
         return $this;
     }
@@ -120,6 +123,7 @@ class ReimbursementType extends Remote\Object {
      * @return ReimbursementType
      */
     public function setAccountCode($value){
+        $this->_dirty['AccountCode'] = $this->_data['AccountCode'] != $value;
         $this->_data['AccountCode'] = $value;
         return $this;
     }
@@ -136,6 +140,7 @@ class ReimbursementType extends Remote\Object {
      * @return ReimbursementType
      */
     public function setReimbursementTypeID($value){
+        $this->_dirty['ReimbursementTypeID'] = $this->_data['ReimbursementTypeID'] != $value;
         $this->_data['ReimbursementTypeID'] = $value;
         return $this;
     }

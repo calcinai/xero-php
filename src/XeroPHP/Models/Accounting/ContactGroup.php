@@ -93,16 +93,18 @@ e.g.
      *
      * Get the properties of the object.  Indexed by constants
      *  [0] - Mandatory
-     *  [1] - Hintable type
+     *  [1] - Type
+     *  [2] - PHP type
+     *  [3] - Is an Array
      *
      * @return array
      */
     public static function getProperties(){
         return array(
-            'Name' => array (false, null),
-            'Status' => array (false, null),
-            'ContactGroupID' => array (false, null),
-            'Contacts' => array (false, 'Accounting\Contact')
+            'Name' => array (false, self::PROPERTY_TYPE_STRING, null, false),
+            'Status' => array (false, self::PROPERTY_TYPE_STRING, null, false),
+            'ContactGroupID' => array (false, self::PROPERTY_TYPE_STRING, null, false),
+            'Contacts' => array (false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Contact', true)
         );
     }
 
@@ -119,6 +121,7 @@ e.g.
      * @return ContactGroup
      */
     public function setName($value){
+        $this->_dirty['Name'] = $this->_data['Name'] != $value;
         $this->_data['Name'] = $value;
         return $this;
     }
@@ -135,6 +138,7 @@ e.g.
      * @return ContactGroup
      */
     public function setStatu($value){
+        $this->_dirty['Status'] = $this->_data['Status'] != $value;
         $this->_data['Status'] = $value;
         return $this;
     }
@@ -151,6 +155,7 @@ e.g.
      * @return ContactGroup
      */
     public function setContactGroupID($value){
+        $this->_dirty['ContactGroupID'] = $this->_data['ContactGroupID'] != $value;
         $this->_data['ContactGroupID'] = $value;
         return $this;
     }
@@ -167,6 +172,7 @@ e.g.
      * @return ContactGroup
      */
     public function addContact(Contact $value){
+        $this->_dirty['Contacts'] = true;
         $this->_data['Contacts'][] = $value;
         return $this;
     }

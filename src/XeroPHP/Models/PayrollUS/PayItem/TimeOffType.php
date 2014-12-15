@@ -102,18 +102,20 @@ If Paid Time Off is selected the employee will get paid when taking this time of
      *
      * Get the properties of the object.  Indexed by constants
      *  [0] - Mandatory
-     *  [1] - Hintable type
+     *  [1] - Type
+     *  [2] - PHP type
+     *  [3] - Is an Array
      *
      * @return array
      */
     public static function getProperties(){
         return array(
-            'TimeOffType' => array (true, null),
-            'TimeOffCategory' => array (true, null),
-            'ExpenseAccountCode' => array (true, null),
-            'LiabilityAccountCode' => array (true, null),
-            'TimeOffTypeID' => array (false, null),
-            'ShowBalanceToEmployee' => array (false, null)
+            'TimeOffType' => array (true, self::PROPERTY_TYPE_ENUM, null, false),
+            'TimeOffCategory' => array (true, self::PROPERTY_TYPE_ENUM, null, false),
+            'ExpenseAccountCode' => array (true, self::PROPERTY_TYPE_STRING, null, false),
+            'LiabilityAccountCode' => array (true, self::PROPERTY_TYPE_STRING, null, false),
+            'TimeOffTypeID' => array (false, self::PROPERTY_TYPE_STRING, null, false),
+            'ShowBalanceToEmployee' => array (false, self::PROPERTY_TYPE_STRING, null, false)
         );
     }
 
@@ -130,6 +132,7 @@ If Paid Time Off is selected the employee will get paid when taking this time of
      * @return TimeOffType
      */
     public function setTimeOffType($value){
+        $this->_dirty['TimeOffType'] = $this->_data['TimeOffType'] != $value;
         $this->_data['TimeOffType'] = $value;
         return $this;
     }
@@ -146,6 +149,7 @@ If Paid Time Off is selected the employee will get paid when taking this time of
      * @return TimeOffType
      */
     public function setTimeOffCategory($value){
+        $this->_dirty['TimeOffCategory'] = $this->_data['TimeOffCategory'] != $value;
         $this->_data['TimeOffCategory'] = $value;
         return $this;
     }
@@ -162,6 +166,7 @@ If Paid Time Off is selected the employee will get paid when taking this time of
      * @return TimeOffType
      */
     public function setExpenseAccountCode($value){
+        $this->_dirty['ExpenseAccountCode'] = $this->_data['ExpenseAccountCode'] != $value;
         $this->_data['ExpenseAccountCode'] = $value;
         return $this;
     }
@@ -178,6 +183,7 @@ If Paid Time Off is selected the employee will get paid when taking this time of
      * @return TimeOffType
      */
     public function setLiabilityAccountCode($value){
+        $this->_dirty['LiabilityAccountCode'] = $this->_data['LiabilityAccountCode'] != $value;
         $this->_data['LiabilityAccountCode'] = $value;
         return $this;
     }
@@ -194,6 +200,7 @@ If Paid Time Off is selected the employee will get paid when taking this time of
      * @return TimeOffType
      */
     public function setTimeOffTypeID($value){
+        $this->_dirty['TimeOffTypeID'] = $this->_data['TimeOffTypeID'] != $value;
         $this->_data['TimeOffTypeID'] = $value;
         return $this;
     }
@@ -210,6 +217,7 @@ If Paid Time Off is selected the employee will get paid when taking this time of
      * @return TimeOffType
      */
     public function setShowBalanceToEmployee($value){
+        $this->_dirty['ShowBalanceToEmployee'] = $this->_data['ShowBalanceToEmployee'] != $value;
         $this->_data['ShowBalanceToEmployee'] = $value;
         return $this;
     }

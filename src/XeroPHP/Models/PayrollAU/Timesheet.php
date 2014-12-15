@@ -110,19 +110,21 @@ class Timesheet extends Remote\Object {
      *
      * Get the properties of the object.  Indexed by constants
      *  [0] - Mandatory
-     *  [1] - Hintable type
+     *  [1] - Type
+     *  [2] - PHP type
+     *  [3] - Is an Array
      *
      * @return array
      */
     public static function getProperties(){
         return array(
-            'EmployeeID' => array (true, null),
-            'StartDate' => array (true, '\DateTime'),
-            'EndDate' => array (true, '\DateTime'),
-            'TimesheetLines' => array (false, 'PayrollAU\Timesheet\TimesheetLine'),
-            'Status' => array (false, null),
-            'Hours' => array (false, null),
-            'TimesheetID' => array (false, null)
+            'EmployeeID' => array (true, self::PROPERTY_TYPE_STRING, null, false),
+            'StartDate' => array (true, self::PROPERTY_TYPE_DATE, '\\DateTime', false),
+            'EndDate' => array (true, self::PROPERTY_TYPE_DATE, '\\DateTime', false),
+            'TimesheetLines' => array (false, self::PROPERTY_TYPE_OBJECT, 'PayrollAU\\Timesheet\\TimesheetLine', true),
+            'Status' => array (false, self::PROPERTY_TYPE_ENUM, null, false),
+            'Hours' => array (false, self::PROPERTY_TYPE_STRING, null, true),
+            'TimesheetID' => array (false, self::PROPERTY_TYPE_STRING, null, false)
         );
     }
 
@@ -139,6 +141,7 @@ class Timesheet extends Remote\Object {
      * @return Timesheet
      */
     public function setEmployeeID($value){
+        $this->_dirty['EmployeeID'] = $this->_data['EmployeeID'] != $value;
         $this->_data['EmployeeID'] = $value;
         return $this;
     }
@@ -155,6 +158,7 @@ class Timesheet extends Remote\Object {
      * @return Timesheet
      */
     public function setStartDate(\DateTime $value){
+        $this->_dirty['StartDate'] = $this->_data['StartDate'] != $value;
         $this->_data['StartDate'] = $value;
         return $this;
     }
@@ -171,6 +175,7 @@ class Timesheet extends Remote\Object {
      * @return Timesheet
      */
     public function setEndDate(\DateTime $value){
+        $this->_dirty['EndDate'] = $this->_data['EndDate'] != $value;
         $this->_data['EndDate'] = $value;
         return $this;
     }
@@ -187,6 +192,7 @@ class Timesheet extends Remote\Object {
      * @return Timesheet
      */
     public function addTimesheetLine(TimesheetLine $value){
+        $this->_dirty['TimesheetLines'] = true;
         $this->_data['TimesheetLines'][] = $value;
         return $this;
     }
@@ -203,6 +209,7 @@ class Timesheet extends Remote\Object {
      * @return Timesheet
      */
     public function setStatu($value){
+        $this->_dirty['Status'] = $this->_data['Status'] != $value;
         $this->_data['Status'] = $value;
         return $this;
     }
@@ -219,6 +226,7 @@ class Timesheet extends Remote\Object {
      * @return Timesheet
      */
     public function addHour($value){
+        $this->_dirty['Hours'] = true;
         $this->_data['Hours'][] = $value;
         return $this;
     }
@@ -235,6 +243,7 @@ class Timesheet extends Remote\Object {
      * @return Timesheet
      */
     public function setTimesheetID($value){
+        $this->_dirty['TimesheetID'] = $this->_data['TimesheetID'] != $value;
         $this->_data['TimesheetID'] = $value;
         return $this;
     }

@@ -4,6 +4,7 @@ namespace XeroPHP\Models\PayrollAU;
 
 use XeroPHP\Remote;
 
+use XeroPHP\Models\PayrollAU\LeaveApplication\LeavePeriod;
 
 class LeaveApplication extends Remote\Object {
 
@@ -46,7 +47,7 @@ class LeaveApplication extends Remote\Object {
     /**
      * The leave period information
      *
-     * @property string[] LeavePeriods
+     * @property LeavePeriod[] LeavePeriods
      */
 
 
@@ -108,19 +109,21 @@ class LeaveApplication extends Remote\Object {
      *
      * Get the properties of the object.  Indexed by constants
      *  [0] - Mandatory
-     *  [1] - Hintable type
+     *  [1] - Type
+     *  [2] - PHP type
+     *  [3] - Is an Array
      *
      * @return array
      */
     public static function getProperties(){
         return array(
-            'EmployeeID' => array (true, null),
-            'LeaveTypeID' => array (true, null),
-            'Title' => array (true, null),
-            'StartDate' => array (true, '\DateTime'),
-            'EndDate' => array (true, '\DateTime'),
-            'Description' => array (false, null),
-            'LeavePeriods' => array (false, null)
+            'EmployeeID' => array (true, self::PROPERTY_TYPE_STRING, null, false),
+            'LeaveTypeID' => array (true, self::PROPERTY_TYPE_STRING, null, false),
+            'Title' => array (true, self::PROPERTY_TYPE_STRING, null, false),
+            'StartDate' => array (true, self::PROPERTY_TYPE_DATE, '\\DateTime', false),
+            'EndDate' => array (true, self::PROPERTY_TYPE_DATE, '\\DateTime', false),
+            'Description' => array (false, self::PROPERTY_TYPE_STRING, null, false),
+            'LeavePeriods' => array (false, self::PROPERTY_TYPE_OBJECT, 'PayrollAU\\LeaveApplication\\LeavePeriod', true)
         );
     }
 
@@ -137,6 +140,7 @@ class LeaveApplication extends Remote\Object {
      * @return LeaveApplication
      */
     public function setEmployeeID($value){
+        $this->_dirty['EmployeeID'] = $this->_data['EmployeeID'] != $value;
         $this->_data['EmployeeID'] = $value;
         return $this;
     }
@@ -153,6 +157,7 @@ class LeaveApplication extends Remote\Object {
      * @return LeaveApplication
      */
     public function setLeaveTypeID($value){
+        $this->_dirty['LeaveTypeID'] = $this->_data['LeaveTypeID'] != $value;
         $this->_data['LeaveTypeID'] = $value;
         return $this;
     }
@@ -169,6 +174,7 @@ class LeaveApplication extends Remote\Object {
      * @return LeaveApplication
      */
     public function setTitle($value){
+        $this->_dirty['Title'] = $this->_data['Title'] != $value;
         $this->_data['Title'] = $value;
         return $this;
     }
@@ -185,6 +191,7 @@ class LeaveApplication extends Remote\Object {
      * @return LeaveApplication
      */
     public function setStartDate(\DateTime $value){
+        $this->_dirty['StartDate'] = $this->_data['StartDate'] != $value;
         $this->_data['StartDate'] = $value;
         return $this;
     }
@@ -201,6 +208,7 @@ class LeaveApplication extends Remote\Object {
      * @return LeaveApplication
      */
     public function setEndDate(\DateTime $value){
+        $this->_dirty['EndDate'] = $this->_data['EndDate'] != $value;
         $this->_data['EndDate'] = $value;
         return $this;
     }
@@ -217,22 +225,24 @@ class LeaveApplication extends Remote\Object {
      * @return LeaveApplication
      */
     public function setDescription($value){
+        $this->_dirty['Description'] = $this->_data['Description'] != $value;
         $this->_data['Description'] = $value;
         return $this;
     }
 
     /**
-     * @return string
+     * @return LeavePeriod
      */
     public function getLeavePeriods(){
         return $this->_data['LeavePeriods'];
     }
 
     /**
-     * @param string[] $value
+     * @param LeavePeriod[] $value
      * @return LeaveApplication
      */
-    public function addLeavePeriod($value){
+    public function addLeavePeriod(LeavePeriod $value){
+        $this->_dirty['LeavePeriods'] = true;
         $this->_data['LeavePeriods'][] = $value;
         return $this;
     }

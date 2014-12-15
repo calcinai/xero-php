@@ -93,17 +93,19 @@ class JournalLine extends Remote\Object {
      *
      * Get the properties of the object.  Indexed by constants
      *  [0] - Mandatory
-     *  [1] - Hintable type
+     *  [1] - Type
+     *  [2] - PHP type
+     *  [3] - Is an Array
      *
      * @return array
      */
     public static function getProperties(){
         return array(
-            'LineAmount' => array (true, null),
-            'AccountCode' => array (true, null),
-            'Description' => array (false, null),
-            'TaxType' => array (false, null),
-            'Tracking' => array (false, null)
+            'LineAmount' => array (true, self::PROPERTY_TYPE_STRING, null, false),
+            'AccountCode' => array (true, self::PROPERTY_TYPE_STRING, null, false),
+            'Description' => array (false, self::PROPERTY_TYPE_STRING, null, false),
+            'TaxType' => array (false, self::PROPERTY_TYPE_ENUM, null, false),
+            'Tracking' => array (false, self::PROPERTY_TYPE_STRING, null, false)
         );
     }
 
@@ -120,6 +122,7 @@ class JournalLine extends Remote\Object {
      * @return JournalLine
      */
     public function setLineAmount($value){
+        $this->_dirty['LineAmount'] = $this->_data['LineAmount'] != $value;
         $this->_data['LineAmount'] = $value;
         return $this;
     }
@@ -136,6 +139,7 @@ class JournalLine extends Remote\Object {
      * @return JournalLine
      */
     public function setAccountCode($value){
+        $this->_dirty['AccountCode'] = $this->_data['AccountCode'] != $value;
         $this->_data['AccountCode'] = $value;
         return $this;
     }
@@ -152,6 +156,7 @@ class JournalLine extends Remote\Object {
      * @return JournalLine
      */
     public function setDescription($value){
+        $this->_dirty['Description'] = $this->_data['Description'] != $value;
         $this->_data['Description'] = $value;
         return $this;
     }
@@ -168,6 +173,7 @@ class JournalLine extends Remote\Object {
      * @return JournalLine
      */
     public function setTaxType($value){
+        $this->_dirty['TaxType'] = $this->_data['TaxType'] != $value;
         $this->_data['TaxType'] = $value;
         return $this;
     }
@@ -184,6 +190,7 @@ class JournalLine extends Remote\Object {
      * @return JournalLine
      */
     public function setTracking($value){
+        $this->_dirty['Tracking'] = $this->_data['Tracking'] != $value;
         $this->_data['Tracking'] = $value;
         return $this;
     }

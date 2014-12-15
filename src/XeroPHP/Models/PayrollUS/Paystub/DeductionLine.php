@@ -85,16 +85,18 @@ class DeductionLine extends Remote\Object {
      *
      * Get the properties of the object.  Indexed by constants
      *  [0] - Mandatory
-     *  [1] - Hintable type
+     *  [1] - Type
+     *  [2] - PHP type
+     *  [3] - Is an Array
      *
      * @return array
      */
     public static function getProperties(){
         return array(
-            'DeductionTypeID' => array (false, null),
-            'CalculationType' => array (false, null),
-            'Percentage' => array (false, null),
-            'Amount' => array (false, null)
+            'DeductionTypeID' => array (false, self::PROPERTY_TYPE_STRING, null, false),
+            'CalculationType' => array (false, self::PROPERTY_TYPE_ENUM, null, false),
+            'Percentage' => array (false, self::PROPERTY_TYPE_STRING, null, false),
+            'Amount' => array (false, self::PROPERTY_TYPE_FLOAT, null, false)
         );
     }
 
@@ -111,6 +113,7 @@ class DeductionLine extends Remote\Object {
      * @return DeductionLine
      */
     public function setDeductionTypeID($value){
+        $this->_dirty['DeductionTypeID'] = $this->_data['DeductionTypeID'] != $value;
         $this->_data['DeductionTypeID'] = $value;
         return $this;
     }
@@ -127,6 +130,7 @@ class DeductionLine extends Remote\Object {
      * @return DeductionLine
      */
     public function setCalculationType($value){
+        $this->_dirty['CalculationType'] = $this->_data['CalculationType'] != $value;
         $this->_data['CalculationType'] = $value;
         return $this;
     }
@@ -143,6 +147,7 @@ class DeductionLine extends Remote\Object {
      * @return DeductionLine
      */
     public function setPercentage($value){
+        $this->_dirty['Percentage'] = $this->_data['Percentage'] != $value;
         $this->_data['Percentage'] = $value;
         return $this;
     }
@@ -159,6 +164,7 @@ class DeductionLine extends Remote\Object {
      * @return DeductionLine
      */
     public function setAmount($value){
+        $this->_dirty['Amount'] = $this->_data['Amount'] != $value;
         $this->_data['Amount'] = $value;
         return $this;
     }

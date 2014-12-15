@@ -85,16 +85,18 @@ class LeavePeriod extends Remote\Object {
      *
      * Get the properties of the object.  Indexed by constants
      *  [0] - Mandatory
-     *  [1] - Hintable type
+     *  [1] - Type
+     *  [2] - PHP type
+     *  [3] - Is an Array
      *
      * @return array
      */
     public static function getProperties(){
         return array(
-            'NumberOfUnits' => array (false, null),
-            'PayPeriodEndDate' => array (false, '\DateTime'),
-            'PayPeriodStartDate' => array (false, '\DateTime'),
-            'LeavePeriodStatus' => array (false, null)
+            'NumberOfUnits' => array (false, self::PROPERTY_TYPE_STRING, null, true),
+            'PayPeriodEndDate' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTime', false),
+            'PayPeriodStartDate' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTime', false),
+            'LeavePeriodStatus' => array (false, self::PROPERTY_TYPE_ENUM, null, false)
         );
     }
 
@@ -111,6 +113,7 @@ class LeavePeriod extends Remote\Object {
      * @return LeavePeriod
      */
     public function addNumberOfUnit($value){
+        $this->_dirty['NumberOfUnits'] = true;
         $this->_data['NumberOfUnits'][] = $value;
         return $this;
     }
@@ -127,6 +130,7 @@ class LeavePeriod extends Remote\Object {
      * @return LeavePeriod
      */
     public function setPayPeriodEndDate(\DateTime $value){
+        $this->_dirty['PayPeriodEndDate'] = $this->_data['PayPeriodEndDate'] != $value;
         $this->_data['PayPeriodEndDate'] = $value;
         return $this;
     }
@@ -143,6 +147,7 @@ class LeavePeriod extends Remote\Object {
      * @return LeavePeriod
      */
     public function setPayPeriodStartDate(\DateTime $value){
+        $this->_dirty['PayPeriodStartDate'] = $this->_data['PayPeriodStartDate'] != $value;
         $this->_data['PayPeriodStartDate'] = $value;
         return $this;
     }
@@ -159,6 +164,7 @@ class LeavePeriod extends Remote\Object {
      * @return LeavePeriod
      */
     public function setLeavePeriodStatu($value){
+        $this->_dirty['LeavePeriodStatus'] = $this->_data['LeavePeriodStatus'] != $value;
         $this->_data['LeavePeriodStatus'] = $value;
         return $this;
     }

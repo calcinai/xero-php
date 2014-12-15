@@ -73,14 +73,16 @@ class TrackingCategory extends Remote\Object {
      *
      * Get the properties of the object.  Indexed by constants
      *  [0] - Mandatory
-     *  [1] - Hintable type
+     *  [1] - Type
+     *  [2] - PHP type
+     *  [3] - Is an Array
      *
      * @return array
      */
     public static function getProperties(){
         return array(
-            'TrackingCategoryID' => array (false, null),
-            'TrackingCategoryName' => array (false, null)
+            'TrackingCategoryID' => array (false, self::PROPERTY_TYPE_STRING, null, false),
+            'TrackingCategoryName' => array (false, self::PROPERTY_TYPE_STRING, null, false)
         );
     }
 
@@ -97,6 +99,7 @@ class TrackingCategory extends Remote\Object {
      * @return TrackingCategory
      */
     public function setTrackingCategoryID($value){
+        $this->_dirty['TrackingCategoryID'] = $this->_data['TrackingCategoryID'] != $value;
         $this->_data['TrackingCategoryID'] = $value;
         return $this;
     }
@@ -113,6 +116,7 @@ class TrackingCategory extends Remote\Object {
      * @return TrackingCategory
      */
     public function setTrackingCategoryName($value){
+        $this->_dirty['TrackingCategoryName'] = $this->_data['TrackingCategoryName'] != $value;
         $this->_data['TrackingCategoryName'] = $value;
         return $this;
     }

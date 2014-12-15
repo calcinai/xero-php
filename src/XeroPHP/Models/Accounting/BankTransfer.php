@@ -119,21 +119,23 @@ class BankTransfer extends Remote\Object {
      *
      * Get the properties of the object.  Indexed by constants
      *  [0] - Mandatory
-     *  [1] - Hintable type
+     *  [1] - Type
+     *  [2] - PHP type
+     *  [3] - Is an Array
      *
      * @return array
      */
     public static function getProperties(){
         return array(
-            'FromBankAccount' => array (true, 'Accounting\BankTransfer\FromBankAccount'),
-            'ToBankAccount' => array (true, 'Accounting\BankTransfer\ToBankAccount'),
-            'Amount' => array (true, null),
-            'Date' => array (false, '\DateTime'),
-            'BankTransferID' => array (false, null),
-            'CurrencyRate' => array (false, null),
-            'FromBankTransactionID' => array (false, null),
-            'ToBankTransactionID' => array (false, null),
-            'HasAttachments' => array (false, null)
+            'FromBankAccount' => array (true, self::PROPERTY_TYPE_OBJECT, 'Accounting\\BankTransfer\\FromBankAccount', false),
+            'ToBankAccount' => array (true, self::PROPERTY_TYPE_OBJECT, 'Accounting\\BankTransfer\\ToBankAccount', false),
+            'Amount' => array (true, self::PROPERTY_TYPE_STRING, null, false),
+            'Date' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTime', false),
+            'BankTransferID' => array (false, self::PROPERTY_TYPE_STRING, null, false),
+            'CurrencyRate' => array (false, self::PROPERTY_TYPE_FLOAT, null, false),
+            'FromBankTransactionID' => array (false, self::PROPERTY_TYPE_STRING, null, false),
+            'ToBankTransactionID' => array (false, self::PROPERTY_TYPE_STRING, null, false),
+            'HasAttachments' => array (false, self::PROPERTY_TYPE_BOOLEAN, null, false)
         );
     }
 
@@ -150,6 +152,7 @@ class BankTransfer extends Remote\Object {
      * @return BankTransfer
      */
     public function setFromBankAccount(FromBankAccount $value){
+        $this->_dirty['FromBankAccount'] = $this->_data['FromBankAccount'] != $value;
         $this->_data['FromBankAccount'] = $value;
         return $this;
     }
@@ -166,6 +169,7 @@ class BankTransfer extends Remote\Object {
      * @return BankTransfer
      */
     public function setToBankAccount(ToBankAccount $value){
+        $this->_dirty['ToBankAccount'] = $this->_data['ToBankAccount'] != $value;
         $this->_data['ToBankAccount'] = $value;
         return $this;
     }
@@ -182,6 +186,7 @@ class BankTransfer extends Remote\Object {
      * @return BankTransfer
      */
     public function setAmount($value){
+        $this->_dirty['Amount'] = $this->_data['Amount'] != $value;
         $this->_data['Amount'] = $value;
         return $this;
     }
@@ -198,6 +203,7 @@ class BankTransfer extends Remote\Object {
      * @return BankTransfer
      */
     public function setDate(\DateTime $value){
+        $this->_dirty['Date'] = $this->_data['Date'] != $value;
         $this->_data['Date'] = $value;
         return $this;
     }
@@ -214,6 +220,7 @@ class BankTransfer extends Remote\Object {
      * @return BankTransfer
      */
     public function setBankTransferID($value){
+        $this->_dirty['BankTransferID'] = $this->_data['BankTransferID'] != $value;
         $this->_data['BankTransferID'] = $value;
         return $this;
     }
@@ -230,6 +237,7 @@ class BankTransfer extends Remote\Object {
      * @return BankTransfer
      */
     public function setCurrencyRate($value){
+        $this->_dirty['CurrencyRate'] = $this->_data['CurrencyRate'] != $value;
         $this->_data['CurrencyRate'] = $value;
         return $this;
     }
@@ -246,6 +254,7 @@ class BankTransfer extends Remote\Object {
      * @return BankTransfer
      */
     public function setFromBankTransactionID($value){
+        $this->_dirty['FromBankTransactionID'] = $this->_data['FromBankTransactionID'] != $value;
         $this->_data['FromBankTransactionID'] = $value;
         return $this;
     }
@@ -262,6 +271,7 @@ class BankTransfer extends Remote\Object {
      * @return BankTransfer
      */
     public function setToBankTransactionID($value){
+        $this->_dirty['ToBankTransactionID'] = $this->_data['ToBankTransactionID'] != $value;
         $this->_data['ToBankTransactionID'] = $value;
         return $this;
     }
@@ -278,6 +288,7 @@ class BankTransfer extends Remote\Object {
      * @return BankTransfer
      */
     public function setHasAttachment($value){
+        $this->_dirty['HasAttachments'] = $this->_data['HasAttachments'] != $value;
         $this->_data['HasAttachments'] = $value;
         return $this;
     }

@@ -86,16 +86,18 @@ class BrandingTheme extends Remote\Object {
      *
      * Get the properties of the object.  Indexed by constants
      *  [0] - Mandatory
-     *  [1] - Hintable type
+     *  [1] - Type
+     *  [2] - PHP type
+     *  [3] - Is an Array
      *
      * @return array
      */
     public static function getProperties(){
         return array(
-            'BrandingThemeID' => array (false, null),
-            'Name' => array (false, null),
-            'SortOrder' => array (false, null),
-            'CreatedDateUTC' => array (false, '\DateTime')
+            'BrandingThemeID' => array (false, self::PROPERTY_TYPE_STRING, null, false),
+            'Name' => array (false, self::PROPERTY_TYPE_STRING, null, false),
+            'SortOrder' => array (false, self::PROPERTY_TYPE_INT, null, false),
+            'CreatedDateUTC' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTime', false)
         );
     }
 
@@ -112,6 +114,7 @@ class BrandingTheme extends Remote\Object {
      * @return BrandingTheme
      */
     public function setBrandingThemeID($value){
+        $this->_dirty['BrandingThemeID'] = $this->_data['BrandingThemeID'] != $value;
         $this->_data['BrandingThemeID'] = $value;
         return $this;
     }
@@ -128,6 +131,7 @@ class BrandingTheme extends Remote\Object {
      * @return BrandingTheme
      */
     public function setName($value){
+        $this->_dirty['Name'] = $this->_data['Name'] != $value;
         $this->_data['Name'] = $value;
         return $this;
     }
@@ -144,6 +148,7 @@ class BrandingTheme extends Remote\Object {
      * @return BrandingTheme
      */
     public function setSortOrder($value){
+        $this->_dirty['SortOrder'] = $this->_data['SortOrder'] != $value;
         $this->_data['SortOrder'] = $value;
         return $this;
     }
@@ -160,6 +165,7 @@ class BrandingTheme extends Remote\Object {
      * @return BrandingTheme
      */
     public function setCreatedDateUTC(\DateTime $value){
+        $this->_dirty['CreatedDateUTC'] = $this->_data['CreatedDateUTC'] != $value;
         $this->_data['CreatedDateUTC'] = $value;
         return $this;
     }

@@ -251,40 +251,42 @@ class Invoice extends Remote\Object {
      *
      * Get the properties of the object.  Indexed by constants
      *  [0] - Mandatory
-     *  [1] - Hintable type
+     *  [1] - Type
+     *  [2] - PHP type
+     *  [3] - Is an Array
      *
      * @return array
      */
     public static function getProperties(){
         return array(
-            'Type' => array (true, null),
-            'Contact' => array (true, 'Accounting\Contact'),
-            'LineItems' => array (true, 'Accounting\Invoice\LineItem'),
-            'Date' => array (false, '\DateTime'),
-            'DueDate' => array (false, '\DateTime'),
-            'LineAmountTypes' => array (false, null),
-            'InvoiceNumber' => array (false, null),
-            'Reference' => array (false, null),
-            'BrandingThemeID' => array (false, null),
-            'Url' => array (false, null),
-            'CurrencyCode' => array (false, null),
-            'CurrencyRate' => array (false, null),
-            'Status' => array (false, null),
-            'SentToContact' => array (false, null),
-            'ExpectedPaymentDate' => array (false, null),
-            'PlannedPaymentDate' => array (false, null),
-            'SubTotal' => array (false, null),
-            'TotalTax' => array (false, null),
-            'Total' => array (false, null),
-            'InvoiceID' => array (false, null),
-            'HasAttachments' => array (false, null),
-            'Payments' => array (false, 'Accounting\Payment'),
-            'AmountDue' => array (false, null),
-            'AmountPaid' => array (false, null),
-            'FullyPaidOnDate' => array (false, '\DateTime'),
-            'AmountCredited' => array (false, null),
-            'UpdatedDateUTC' => array (false, '\DateTime'),
-            'CreditNotes' => array (false, 'Accounting\CreditNote')
+            'Type' => array (true, self::PROPERTY_TYPE_ENUM, null, false),
+            'Contact' => array (true, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Contact', false),
+            'LineItems' => array (true, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Invoice\\LineItem', true),
+            'Date' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTime', false),
+            'DueDate' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTime', false),
+            'LineAmountTypes' => array (false, self::PROPERTY_TYPE_FLOAT, null, true),
+            'InvoiceNumber' => array (false, self::PROPERTY_TYPE_FLOAT, null, false),
+            'Reference' => array (false, self::PROPERTY_TYPE_STRING, null, false),
+            'BrandingThemeID' => array (false, self::PROPERTY_TYPE_STRING, null, false),
+            'Url' => array (false, self::PROPERTY_TYPE_STRING, null, false),
+            'CurrencyCode' => array (false, self::PROPERTY_TYPE_STRING, null, false),
+            'CurrencyRate' => array (false, self::PROPERTY_TYPE_FLOAT, null, false),
+            'Status' => array (false, self::PROPERTY_TYPE_ENUM, null, false),
+            'SentToContact' => array (false, self::PROPERTY_TYPE_BOOLEAN, null, false),
+            'ExpectedPaymentDate' => array (false, self::PROPERTY_TYPE_STRING, null, false),
+            'PlannedPaymentDate' => array (false, self::PROPERTY_TYPE_STRING, null, false),
+            'SubTotal' => array (false, self::PROPERTY_TYPE_FLOAT, null, false),
+            'TotalTax' => array (false, self::PROPERTY_TYPE_FLOAT, null, false),
+            'Total' => array (false, self::PROPERTY_TYPE_FLOAT, null, false),
+            'InvoiceID' => array (false, self::PROPERTY_TYPE_STRING, null, false),
+            'HasAttachments' => array (false, self::PROPERTY_TYPE_BOOLEAN, null, false),
+            'Payments' => array (false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Payment', true),
+            'AmountDue' => array (false, self::PROPERTY_TYPE_FLOAT, null, false),
+            'AmountPaid' => array (false, self::PROPERTY_TYPE_FLOAT, null, false),
+            'FullyPaidOnDate' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTime', false),
+            'AmountCredited' => array (false, self::PROPERTY_TYPE_FLOAT, null, false),
+            'UpdatedDateUTC' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTime', false),
+            'CreditNotes' => array (false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\CreditNote', true)
         );
     }
 
@@ -301,6 +303,7 @@ class Invoice extends Remote\Object {
      * @return Invoice
      */
     public function setType($value){
+        $this->_dirty['Type'] = $this->_data['Type'] != $value;
         $this->_data['Type'] = $value;
         return $this;
     }
@@ -317,6 +320,7 @@ class Invoice extends Remote\Object {
      * @return Invoice
      */
     public function setContact(Contact $value){
+        $this->_dirty['Contact'] = $this->_data['Contact'] != $value;
         $this->_data['Contact'] = $value;
         return $this;
     }
@@ -333,6 +337,7 @@ class Invoice extends Remote\Object {
      * @return Invoice
      */
     public function addLineItem(LineItem $value){
+        $this->_dirty['LineItems'] = true;
         $this->_data['LineItems'][] = $value;
         return $this;
     }
@@ -349,6 +354,7 @@ class Invoice extends Remote\Object {
      * @return Invoice
      */
     public function setDate(\DateTime $value){
+        $this->_dirty['Date'] = $this->_data['Date'] != $value;
         $this->_data['Date'] = $value;
         return $this;
     }
@@ -365,6 +371,7 @@ class Invoice extends Remote\Object {
      * @return Invoice
      */
     public function setDueDate(\DateTime $value){
+        $this->_dirty['DueDate'] = $this->_data['DueDate'] != $value;
         $this->_data['DueDate'] = $value;
         return $this;
     }
@@ -381,6 +388,7 @@ class Invoice extends Remote\Object {
      * @return Invoice
      */
     public function addLineAmountType($value){
+        $this->_dirty['LineAmountTypes'] = true;
         $this->_data['LineAmountTypes'][] = $value;
         return $this;
     }
@@ -397,6 +405,7 @@ class Invoice extends Remote\Object {
      * @return Invoice
      */
     public function setInvoiceNumber($value){
+        $this->_dirty['InvoiceNumber'] = $this->_data['InvoiceNumber'] != $value;
         $this->_data['InvoiceNumber'] = $value;
         return $this;
     }
@@ -413,6 +422,7 @@ class Invoice extends Remote\Object {
      * @return Invoice
      */
     public function setReference($value){
+        $this->_dirty['Reference'] = $this->_data['Reference'] != $value;
         $this->_data['Reference'] = $value;
         return $this;
     }
@@ -429,6 +439,7 @@ class Invoice extends Remote\Object {
      * @return Invoice
      */
     public function setBrandingThemeID($value){
+        $this->_dirty['BrandingThemeID'] = $this->_data['BrandingThemeID'] != $value;
         $this->_data['BrandingThemeID'] = $value;
         return $this;
     }
@@ -445,6 +456,7 @@ class Invoice extends Remote\Object {
      * @return Invoice
      */
     public function setUrl($value){
+        $this->_dirty['Url'] = $this->_data['Url'] != $value;
         $this->_data['Url'] = $value;
         return $this;
     }
@@ -461,6 +473,7 @@ class Invoice extends Remote\Object {
      * @return Invoice
      */
     public function setCurrencyCode($value){
+        $this->_dirty['CurrencyCode'] = $this->_data['CurrencyCode'] != $value;
         $this->_data['CurrencyCode'] = $value;
         return $this;
     }
@@ -477,6 +490,7 @@ class Invoice extends Remote\Object {
      * @return Invoice
      */
     public function setCurrencyRate($value){
+        $this->_dirty['CurrencyRate'] = $this->_data['CurrencyRate'] != $value;
         $this->_data['CurrencyRate'] = $value;
         return $this;
     }
@@ -493,6 +507,7 @@ class Invoice extends Remote\Object {
      * @return Invoice
      */
     public function setStatu($value){
+        $this->_dirty['Status'] = $this->_data['Status'] != $value;
         $this->_data['Status'] = $value;
         return $this;
     }
@@ -509,6 +524,7 @@ class Invoice extends Remote\Object {
      * @return Invoice
      */
     public function setSentToContact($value){
+        $this->_dirty['SentToContact'] = $this->_data['SentToContact'] != $value;
         $this->_data['SentToContact'] = $value;
         return $this;
     }
@@ -525,6 +541,7 @@ class Invoice extends Remote\Object {
      * @return Invoice
      */
     public function setExpectedPaymentDate($value){
+        $this->_dirty['ExpectedPaymentDate'] = $this->_data['ExpectedPaymentDate'] != $value;
         $this->_data['ExpectedPaymentDate'] = $value;
         return $this;
     }
@@ -541,6 +558,7 @@ class Invoice extends Remote\Object {
      * @return Invoice
      */
     public function setPlannedPaymentDate($value){
+        $this->_dirty['PlannedPaymentDate'] = $this->_data['PlannedPaymentDate'] != $value;
         $this->_data['PlannedPaymentDate'] = $value;
         return $this;
     }
@@ -557,6 +575,7 @@ class Invoice extends Remote\Object {
      * @return Invoice
      */
     public function setSubTotal($value){
+        $this->_dirty['SubTotal'] = $this->_data['SubTotal'] != $value;
         $this->_data['SubTotal'] = $value;
         return $this;
     }
@@ -573,6 +592,7 @@ class Invoice extends Remote\Object {
      * @return Invoice
      */
     public function setTotalTax($value){
+        $this->_dirty['TotalTax'] = $this->_data['TotalTax'] != $value;
         $this->_data['TotalTax'] = $value;
         return $this;
     }
@@ -589,6 +609,7 @@ class Invoice extends Remote\Object {
      * @return Invoice
      */
     public function setTotal($value){
+        $this->_dirty['Total'] = $this->_data['Total'] != $value;
         $this->_data['Total'] = $value;
         return $this;
     }
@@ -605,6 +626,7 @@ class Invoice extends Remote\Object {
      * @return Invoice
      */
     public function setInvoiceID($value){
+        $this->_dirty['InvoiceID'] = $this->_data['InvoiceID'] != $value;
         $this->_data['InvoiceID'] = $value;
         return $this;
     }
@@ -621,6 +643,7 @@ class Invoice extends Remote\Object {
      * @return Invoice
      */
     public function setHasAttachment($value){
+        $this->_dirty['HasAttachments'] = $this->_data['HasAttachments'] != $value;
         $this->_data['HasAttachments'] = $value;
         return $this;
     }
@@ -637,6 +660,7 @@ class Invoice extends Remote\Object {
      * @return Invoice
      */
     public function addPayment(Payment $value){
+        $this->_dirty['Payments'] = true;
         $this->_data['Payments'][] = $value;
         return $this;
     }
@@ -653,6 +677,7 @@ class Invoice extends Remote\Object {
      * @return Invoice
      */
     public function setAmountDue($value){
+        $this->_dirty['AmountDue'] = $this->_data['AmountDue'] != $value;
         $this->_data['AmountDue'] = $value;
         return $this;
     }
@@ -669,6 +694,7 @@ class Invoice extends Remote\Object {
      * @return Invoice
      */
     public function setAmountPaid($value){
+        $this->_dirty['AmountPaid'] = $this->_data['AmountPaid'] != $value;
         $this->_data['AmountPaid'] = $value;
         return $this;
     }
@@ -685,6 +711,7 @@ class Invoice extends Remote\Object {
      * @return Invoice
      */
     public function setFullyPaidOnDate(\DateTime $value){
+        $this->_dirty['FullyPaidOnDate'] = $this->_data['FullyPaidOnDate'] != $value;
         $this->_data['FullyPaidOnDate'] = $value;
         return $this;
     }
@@ -701,6 +728,7 @@ class Invoice extends Remote\Object {
      * @return Invoice
      */
     public function setAmountCredited($value){
+        $this->_dirty['AmountCredited'] = $this->_data['AmountCredited'] != $value;
         $this->_data['AmountCredited'] = $value;
         return $this;
     }
@@ -717,6 +745,7 @@ class Invoice extends Remote\Object {
      * @return Invoice
      */
     public function setUpdatedDateUTC(\DateTime $value){
+        $this->_dirty['UpdatedDateUTC'] = $this->_data['UpdatedDateUTC'] != $value;
         $this->_data['UpdatedDateUTC'] = $value;
         return $this;
     }
@@ -733,6 +762,7 @@ class Invoice extends Remote\Object {
      * @return Invoice
      */
     public function addCreditNote(CreditNote $value){
+        $this->_dirty['CreditNotes'] = true;
         $this->_data['CreditNotes'][] = $value;
         return $this;
     }

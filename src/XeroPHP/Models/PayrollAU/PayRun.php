@@ -147,26 +147,28 @@ class PayRun extends Remote\Object {
      *
      * Get the properties of the object.  Indexed by constants
      *  [0] - Mandatory
-     *  [1] - Hintable type
+     *  [1] - Type
+     *  [2] - PHP type
+     *  [3] - Is an Array
      *
      * @return array
      */
     public static function getProperties(){
         return array(
-            'PayrollCalendarID' => array (true, null),
-            'PayRunID' => array (false, null),
-            'PayRunPeriodStartDate' => array (false, '\DateTime'),
-            'PayRunPeriodEndDate' => array (false, '\DateTime'),
-            'PayRunStatus' => array (false, null),
-            'PaymentDate' => array (false, '\DateTime'),
-            'PayslipMessage' => array (false, null),
-            'Payslips' => array (false, 'PayrollAU\Payslip'),
-            'Wages' => array (false, null),
-            'Deductions' => array (false, null),
-            'Tax' => array (false, null),
-            'Super' => array (false, null),
-            'Reimbursement' => array (false, null),
-            'NetPay' => array (false, null)
+            'PayrollCalendarID' => array (true, self::PROPERTY_TYPE_STRING, null, false),
+            'PayRunID' => array (false, self::PROPERTY_TYPE_STRING, null, false),
+            'PayRunPeriodStartDate' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTime', false),
+            'PayRunPeriodEndDate' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTime', false),
+            'PayRunStatus' => array (false, self::PROPERTY_TYPE_ENUM, null, false),
+            'PaymentDate' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTime', false),
+            'PayslipMessage' => array (false, self::PROPERTY_TYPE_STRING, null, false),
+            'Payslips' => array (false, self::PROPERTY_TYPE_OBJECT, 'PayrollAU\\Payslip', true),
+            'Wages' => array (false, self::PROPERTY_TYPE_STRING, null, true),
+            'Deductions' => array (false, self::PROPERTY_TYPE_STRING, null, true),
+            'Tax' => array (false, self::PROPERTY_TYPE_FLOAT, null, false),
+            'Super' => array (false, self::PROPERTY_TYPE_STRING, null, false),
+            'Reimbursement' => array (false, self::PROPERTY_TYPE_STRING, null, false),
+            'NetPay' => array (false, self::PROPERTY_TYPE_STRING, null, false)
         );
     }
 
@@ -183,6 +185,7 @@ class PayRun extends Remote\Object {
      * @return PayRun
      */
     public function setPayrollCalendarID($value){
+        $this->_dirty['PayrollCalendarID'] = $this->_data['PayrollCalendarID'] != $value;
         $this->_data['PayrollCalendarID'] = $value;
         return $this;
     }
@@ -199,6 +202,7 @@ class PayRun extends Remote\Object {
      * @return PayRun
      */
     public function setPayRunID($value){
+        $this->_dirty['PayRunID'] = $this->_data['PayRunID'] != $value;
         $this->_data['PayRunID'] = $value;
         return $this;
     }
@@ -215,6 +219,7 @@ class PayRun extends Remote\Object {
      * @return PayRun
      */
     public function setPayRunPeriodStartDate(\DateTime $value){
+        $this->_dirty['PayRunPeriodStartDate'] = $this->_data['PayRunPeriodStartDate'] != $value;
         $this->_data['PayRunPeriodStartDate'] = $value;
         return $this;
     }
@@ -231,6 +236,7 @@ class PayRun extends Remote\Object {
      * @return PayRun
      */
     public function setPayRunPeriodEndDate(\DateTime $value){
+        $this->_dirty['PayRunPeriodEndDate'] = $this->_data['PayRunPeriodEndDate'] != $value;
         $this->_data['PayRunPeriodEndDate'] = $value;
         return $this;
     }
@@ -247,6 +253,7 @@ class PayRun extends Remote\Object {
      * @return PayRun
      */
     public function setPayRunStatu($value){
+        $this->_dirty['PayRunStatus'] = $this->_data['PayRunStatus'] != $value;
         $this->_data['PayRunStatus'] = $value;
         return $this;
     }
@@ -263,6 +270,7 @@ class PayRun extends Remote\Object {
      * @return PayRun
      */
     public function setPaymentDate(\DateTime $value){
+        $this->_dirty['PaymentDate'] = $this->_data['PaymentDate'] != $value;
         $this->_data['PaymentDate'] = $value;
         return $this;
     }
@@ -279,6 +287,7 @@ class PayRun extends Remote\Object {
      * @return PayRun
      */
     public function setPayslipMessage($value){
+        $this->_dirty['PayslipMessage'] = $this->_data['PayslipMessage'] != $value;
         $this->_data['PayslipMessage'] = $value;
         return $this;
     }
@@ -295,6 +304,7 @@ class PayRun extends Remote\Object {
      * @return PayRun
      */
     public function addPayslip(Payslip $value){
+        $this->_dirty['Payslips'] = true;
         $this->_data['Payslips'][] = $value;
         return $this;
     }
@@ -311,6 +321,7 @@ class PayRun extends Remote\Object {
      * @return PayRun
      */
     public function addWage($value){
+        $this->_dirty['Wages'] = true;
         $this->_data['Wages'][] = $value;
         return $this;
     }
@@ -327,6 +338,7 @@ class PayRun extends Remote\Object {
      * @return PayRun
      */
     public function addDeduction($value){
+        $this->_dirty['Deductions'] = true;
         $this->_data['Deductions'][] = $value;
         return $this;
     }
@@ -343,6 +355,7 @@ class PayRun extends Remote\Object {
      * @return PayRun
      */
     public function setTax($value){
+        $this->_dirty['Tax'] = $this->_data['Tax'] != $value;
         $this->_data['Tax'] = $value;
         return $this;
     }
@@ -359,6 +372,7 @@ class PayRun extends Remote\Object {
      * @return PayRun
      */
     public function setSuper($value){
+        $this->_dirty['Super'] = $this->_data['Super'] != $value;
         $this->_data['Super'] = $value;
         return $this;
     }
@@ -375,6 +389,7 @@ class PayRun extends Remote\Object {
      * @return PayRun
      */
     public function setReimbursement($value){
+        $this->_dirty['Reimbursement'] = $this->_data['Reimbursement'] != $value;
         $this->_data['Reimbursement'] = $value;
         return $this;
     }
@@ -391,6 +406,7 @@ class PayRun extends Remote\Object {
      * @return PayRun
      */
     public function setNetPay($value){
+        $this->_dirty['NetPay'] = $this->_data['NetPay'] != $value;
         $this->_data['NetPay'] = $value;
         return $this;
     }

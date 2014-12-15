@@ -195,33 +195,35 @@ class CreditNote extends Remote\Object {
      *
      * Get the properties of the object.  Indexed by constants
      *  [0] - Mandatory
-     *  [1] - Hintable type
+     *  [1] - Type
+     *  [2] - PHP type
+     *  [3] - Is an Array
      *
      * @return array
      */
     public static function getProperties(){
         return array(
-            'Reference' => array (false, null),
-            'Type' => array (false, null),
-            'Contact' => array (false, 'Accounting\Contact'),
-            'Date' => array (false, '\DateTime'),
-            'Status' => array (false, null),
-            'LineAmountTypes' => array (false, null),
-            'LineItems' => array (false, 'Accounting\BankTransaction\LineItem'),
-            'SubTotal' => array (false, null),
-            'TotalTax' => array (false, null),
-            'Total' => array (false, null),
-            'UpdatedDateUTC' => array (false, '\DateTime'),
-            'CurrencyCode' => array (false, null),
-            'FullyPaidOnDate' => array (false, '\DateTime'),
-            'CreditNoteID' => array (false, null),
-            'CreditNoteNumber' => array (false, null),
-            'SentToContact' => array (false, null),
-            'CurrencyRate' => array (false, null),
-            'RemainingCredit' => array (false, null),
-            'Allocations' => array (false, 'Accounting\CreditNote\Allocation'),
-            'BrandingThemeID' => array (false, null),
-            'HasAttachments' => array (false, null)
+            'Reference' => array (false, self::PROPERTY_TYPE_STRING, null, false),
+            'Type' => array (false, self::PROPERTY_TYPE_ENUM, null, false),
+            'Contact' => array (false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Contact', false),
+            'Date' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTime', false),
+            'Status' => array (false, self::PROPERTY_TYPE_ENUM, null, false),
+            'LineAmountTypes' => array (false, self::PROPERTY_TYPE_FLOAT, null, true),
+            'LineItems' => array (false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\BankTransaction\\LineItem', true),
+            'SubTotal' => array (false, self::PROPERTY_TYPE_FLOAT, null, false),
+            'TotalTax' => array (false, self::PROPERTY_TYPE_FLOAT, null, false),
+            'Total' => array (false, self::PROPERTY_TYPE_FLOAT, null, false),
+            'UpdatedDateUTC' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTime', false),
+            'CurrencyCode' => array (false, self::PROPERTY_TYPE_STRING, null, false),
+            'FullyPaidOnDate' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTime', false),
+            'CreditNoteID' => array (false, self::PROPERTY_TYPE_STRING, null, false),
+            'CreditNoteNumber' => array (false, self::PROPERTY_TYPE_STRING, null, false),
+            'SentToContact' => array (false, self::PROPERTY_TYPE_BOOLEAN, null, false),
+            'CurrencyRate' => array (false, self::PROPERTY_TYPE_FLOAT, null, false),
+            'RemainingCredit' => array (false, self::PROPERTY_TYPE_STRING, null, false),
+            'Allocations' => array (false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\CreditNote\\Allocation', true),
+            'BrandingThemeID' => array (false, self::PROPERTY_TYPE_STRING, null, false),
+            'HasAttachments' => array (false, self::PROPERTY_TYPE_BOOLEAN, null, false)
         );
     }
 
@@ -238,6 +240,7 @@ class CreditNote extends Remote\Object {
      * @return CreditNote
      */
     public function setReference($value){
+        $this->_dirty['Reference'] = $this->_data['Reference'] != $value;
         $this->_data['Reference'] = $value;
         return $this;
     }
@@ -254,6 +257,7 @@ class CreditNote extends Remote\Object {
      * @return CreditNote
      */
     public function setType($value){
+        $this->_dirty['Type'] = $this->_data['Type'] != $value;
         $this->_data['Type'] = $value;
         return $this;
     }
@@ -270,6 +274,7 @@ class CreditNote extends Remote\Object {
      * @return CreditNote
      */
     public function setContact(Contact $value){
+        $this->_dirty['Contact'] = $this->_data['Contact'] != $value;
         $this->_data['Contact'] = $value;
         return $this;
     }
@@ -286,6 +291,7 @@ class CreditNote extends Remote\Object {
      * @return CreditNote
      */
     public function setDate(\DateTime $value){
+        $this->_dirty['Date'] = $this->_data['Date'] != $value;
         $this->_data['Date'] = $value;
         return $this;
     }
@@ -302,6 +308,7 @@ class CreditNote extends Remote\Object {
      * @return CreditNote
      */
     public function setStatu($value){
+        $this->_dirty['Status'] = $this->_data['Status'] != $value;
         $this->_data['Status'] = $value;
         return $this;
     }
@@ -318,6 +325,7 @@ class CreditNote extends Remote\Object {
      * @return CreditNote
      */
     public function addLineAmountType($value){
+        $this->_dirty['LineAmountTypes'] = true;
         $this->_data['LineAmountTypes'][] = $value;
         return $this;
     }
@@ -334,6 +342,7 @@ class CreditNote extends Remote\Object {
      * @return CreditNote
      */
     public function addLineItem(LineItem $value){
+        $this->_dirty['LineItems'] = true;
         $this->_data['LineItems'][] = $value;
         return $this;
     }
@@ -350,6 +359,7 @@ class CreditNote extends Remote\Object {
      * @return CreditNote
      */
     public function setSubTotal($value){
+        $this->_dirty['SubTotal'] = $this->_data['SubTotal'] != $value;
         $this->_data['SubTotal'] = $value;
         return $this;
     }
@@ -366,6 +376,7 @@ class CreditNote extends Remote\Object {
      * @return CreditNote
      */
     public function setTotalTax($value){
+        $this->_dirty['TotalTax'] = $this->_data['TotalTax'] != $value;
         $this->_data['TotalTax'] = $value;
         return $this;
     }
@@ -382,6 +393,7 @@ class CreditNote extends Remote\Object {
      * @return CreditNote
      */
     public function setTotal($value){
+        $this->_dirty['Total'] = $this->_data['Total'] != $value;
         $this->_data['Total'] = $value;
         return $this;
     }
@@ -398,6 +410,7 @@ class CreditNote extends Remote\Object {
      * @return CreditNote
      */
     public function setUpdatedDateUTC(\DateTime $value){
+        $this->_dirty['UpdatedDateUTC'] = $this->_data['UpdatedDateUTC'] != $value;
         $this->_data['UpdatedDateUTC'] = $value;
         return $this;
     }
@@ -414,6 +427,7 @@ class CreditNote extends Remote\Object {
      * @return CreditNote
      */
     public function setCurrencyCode($value){
+        $this->_dirty['CurrencyCode'] = $this->_data['CurrencyCode'] != $value;
         $this->_data['CurrencyCode'] = $value;
         return $this;
     }
@@ -430,6 +444,7 @@ class CreditNote extends Remote\Object {
      * @return CreditNote
      */
     public function setFullyPaidOnDate(\DateTime $value){
+        $this->_dirty['FullyPaidOnDate'] = $this->_data['FullyPaidOnDate'] != $value;
         $this->_data['FullyPaidOnDate'] = $value;
         return $this;
     }
@@ -446,6 +461,7 @@ class CreditNote extends Remote\Object {
      * @return CreditNote
      */
     public function setCreditNoteID($value){
+        $this->_dirty['CreditNoteID'] = $this->_data['CreditNoteID'] != $value;
         $this->_data['CreditNoteID'] = $value;
         return $this;
     }
@@ -462,6 +478,7 @@ class CreditNote extends Remote\Object {
      * @return CreditNote
      */
     public function setCreditNoteNumber($value){
+        $this->_dirty['CreditNoteNumber'] = $this->_data['CreditNoteNumber'] != $value;
         $this->_data['CreditNoteNumber'] = $value;
         return $this;
     }
@@ -478,6 +495,7 @@ class CreditNote extends Remote\Object {
      * @return CreditNote
      */
     public function setSentToContact($value){
+        $this->_dirty['SentToContact'] = $this->_data['SentToContact'] != $value;
         $this->_data['SentToContact'] = $value;
         return $this;
     }
@@ -494,6 +512,7 @@ class CreditNote extends Remote\Object {
      * @return CreditNote
      */
     public function setCurrencyRate($value){
+        $this->_dirty['CurrencyRate'] = $this->_data['CurrencyRate'] != $value;
         $this->_data['CurrencyRate'] = $value;
         return $this;
     }
@@ -510,6 +529,7 @@ class CreditNote extends Remote\Object {
      * @return CreditNote
      */
     public function setRemainingCredit($value){
+        $this->_dirty['RemainingCredit'] = $this->_data['RemainingCredit'] != $value;
         $this->_data['RemainingCredit'] = $value;
         return $this;
     }
@@ -526,6 +546,7 @@ class CreditNote extends Remote\Object {
      * @return CreditNote
      */
     public function addAllocation(Allocation $value){
+        $this->_dirty['Allocations'] = true;
         $this->_data['Allocations'][] = $value;
         return $this;
     }
@@ -542,6 +563,7 @@ class CreditNote extends Remote\Object {
      * @return CreditNote
      */
     public function setBrandingThemeID($value){
+        $this->_dirty['BrandingThemeID'] = $this->_data['BrandingThemeID'] != $value;
         $this->_data['BrandingThemeID'] = $value;
         return $this;
     }
@@ -558,6 +580,7 @@ class CreditNote extends Remote\Object {
      * @return CreditNote
      */
     public function setHasAttachment($value){
+        $this->_dirty['HasAttachments'] = $this->_data['HasAttachments'] != $value;
         $this->_data['HasAttachments'] = $value;
         return $this;
     }

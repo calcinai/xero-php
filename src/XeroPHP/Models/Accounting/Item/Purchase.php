@@ -80,15 +80,17 @@ class Purchase extends Remote\Object {
      *
      * Get the properties of the object.  Indexed by constants
      *  [0] - Mandatory
-     *  [1] - Hintable type
+     *  [1] - Type
+     *  [2] - PHP type
+     *  [3] - Is an Array
      *
      * @return array
      */
     public static function getProperties(){
         return array(
-            'UnitPrice' => array (false, null),
-            'AccountCode' => array (false, null),
-            'TaxType' => array (false, null)
+            'UnitPrice' => array (false, self::PROPERTY_TYPE_STRING, null, false),
+            'AccountCode' => array (false, self::PROPERTY_TYPE_STRING, null, false),
+            'TaxType' => array (false, self::PROPERTY_TYPE_ENUM, null, false)
         );
     }
 
@@ -105,6 +107,7 @@ class Purchase extends Remote\Object {
      * @return Purchase
      */
     public function setUnitPrice($value){
+        $this->_dirty['UnitPrice'] = $this->_data['UnitPrice'] != $value;
         $this->_data['UnitPrice'] = $value;
         return $this;
     }
@@ -121,6 +124,7 @@ class Purchase extends Remote\Object {
      * @return Purchase
      */
     public function setAccountCode($value){
+        $this->_dirty['AccountCode'] = $this->_data['AccountCode'] != $value;
         $this->_data['AccountCode'] = $value;
         return $this;
     }
@@ -137,6 +141,7 @@ class Purchase extends Remote\Object {
      * @return Purchase
      */
     public function setTaxType($value){
+        $this->_dirty['TaxType'] = $this->_data['TaxType'] != $value;
         $this->_data['TaxType'] = $value;
         return $this;
     }

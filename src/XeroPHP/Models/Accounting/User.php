@@ -104,19 +104,21 @@ class User extends Remote\Object {
      *
      * Get the properties of the object.  Indexed by constants
      *  [0] - Mandatory
-     *  [1] - Hintable type
+     *  [1] - Type
+     *  [2] - PHP type
+     *  [3] - Is an Array
      *
      * @return array
      */
     public static function getProperties(){
         return array(
-            'UserID' => array (false, null),
-            'EmailAddress' => array (false, null),
-            'FirstName' => array (false, null),
-            'LastName' => array (false, null),
-            'UpdatedDateUTC' => array (false, '\DateTime'),
-            'IsSubscriber' => array (false, null),
-            'OrganisationRole' => array (false, null)
+            'UserID' => array (false, self::PROPERTY_TYPE_STRING, null, false),
+            'EmailAddress' => array (false, self::PROPERTY_TYPE_STRING, null, false),
+            'FirstName' => array (false, self::PROPERTY_TYPE_STRING, null, false),
+            'LastName' => array (false, self::PROPERTY_TYPE_STRING, null, false),
+            'UpdatedDateUTC' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTime', false),
+            'IsSubscriber' => array (false, self::PROPERTY_TYPE_BOOLEAN, null, false),
+            'OrganisationRole' => array (false, self::PROPERTY_TYPE_ENUM, null, false)
         );
     }
 
@@ -133,6 +135,7 @@ class User extends Remote\Object {
      * @return User
      */
     public function setUserID($value){
+        $this->_dirty['UserID'] = $this->_data['UserID'] != $value;
         $this->_data['UserID'] = $value;
         return $this;
     }
@@ -149,6 +152,7 @@ class User extends Remote\Object {
      * @return User
      */
     public function setEmailAddress($value){
+        $this->_dirty['EmailAddress'] = $this->_data['EmailAddress'] != $value;
         $this->_data['EmailAddress'] = $value;
         return $this;
     }
@@ -165,6 +169,7 @@ class User extends Remote\Object {
      * @return User
      */
     public function setFirstName($value){
+        $this->_dirty['FirstName'] = $this->_data['FirstName'] != $value;
         $this->_data['FirstName'] = $value;
         return $this;
     }
@@ -181,6 +186,7 @@ class User extends Remote\Object {
      * @return User
      */
     public function setLastName($value){
+        $this->_dirty['LastName'] = $this->_data['LastName'] != $value;
         $this->_data['LastName'] = $value;
         return $this;
     }
@@ -197,6 +203,7 @@ class User extends Remote\Object {
      * @return User
      */
     public function setUpdatedDateUTC(\DateTime $value){
+        $this->_dirty['UpdatedDateUTC'] = $this->_data['UpdatedDateUTC'] != $value;
         $this->_data['UpdatedDateUTC'] = $value;
         return $this;
     }
@@ -213,6 +220,7 @@ class User extends Remote\Object {
      * @return User
      */
     public function setIsSubscriber($value){
+        $this->_dirty['IsSubscriber'] = $this->_data['IsSubscriber'] != $value;
         $this->_data['IsSubscriber'] = $value;
         return $this;
     }
@@ -229,6 +237,7 @@ class User extends Remote\Object {
      * @return User
      */
     public function setOrganisationRole($value){
+        $this->_dirty['OrganisationRole'] = $this->_data['OrganisationRole'] != $value;
         $this->_data['OrganisationRole'] = $value;
         return $this;
     }

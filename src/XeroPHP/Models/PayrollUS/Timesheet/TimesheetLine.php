@@ -80,15 +80,17 @@ class TimesheetLine extends Remote\Object {
      *
      * Get the properties of the object.  Indexed by constants
      *  [0] - Mandatory
-     *  [1] - Hintable type
+     *  [1] - Type
+     *  [2] - PHP type
+     *  [3] - Is an Array
      *
      * @return array
      */
     public static function getProperties(){
         return array(
-            'EarningsTypeID' => array (false, null),
-            'TrackingItemID' => array (false, null),
-            'NumberOfUnits' => array (false, null)
+            'EarningsTypeID' => array (false, self::PROPERTY_TYPE_STRING, null, false),
+            'TrackingItemID' => array (false, self::PROPERTY_TYPE_STRING, null, false),
+            'NumberOfUnits' => array (false, self::PROPERTY_TYPE_STRING, null, true)
         );
     }
 
@@ -105,6 +107,7 @@ class TimesheetLine extends Remote\Object {
      * @return TimesheetLine
      */
     public function setEarningsTypeID($value){
+        $this->_dirty['EarningsTypeID'] = $this->_data['EarningsTypeID'] != $value;
         $this->_data['EarningsTypeID'] = $value;
         return $this;
     }
@@ -121,6 +124,7 @@ class TimesheetLine extends Remote\Object {
      * @return TimesheetLine
      */
     public function setTrackingItemID($value){
+        $this->_dirty['TrackingItemID'] = $this->_data['TrackingItemID'] != $value;
         $this->_data['TrackingItemID'] = $value;
         return $this;
     }
@@ -137,6 +141,7 @@ class TimesheetLine extends Remote\Object {
      * @return TimesheetLine
      */
     public function addNumberOfUnit($value){
+        $this->_dirty['NumberOfUnits'] = true;
         $this->_data['NumberOfUnits'][] = $value;
         return $this;
     }

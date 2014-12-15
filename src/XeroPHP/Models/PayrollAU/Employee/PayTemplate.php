@@ -4,6 +4,8 @@ namespace XeroPHP\Models\PayrollAU\Employee;
 
 use XeroPHP\Remote;
 
+use XeroPHP\Models\PayrollAU\Payslip\DeductionLine;
+use XeroPHP\Models\PayrollAU\Payslip\ReimbursementLine;
 
 class PayTemplate extends Remote\Object {
 
@@ -16,7 +18,7 @@ class PayTemplate extends Remote\Object {
     /**
      * The deduction type lines
      *
-     * @property string[] DeductionLines
+     * @property DeductionLine[] DeductionLines
      */
 
     /**
@@ -28,7 +30,7 @@ class PayTemplate extends Remote\Object {
     /**
      * The reimbursement type lines
      *
-     * @property string[] ReimbursementLines
+     * @property ReimbursementLine[] ReimbursementLines
      */
 
     /**
@@ -211,37 +213,39 @@ class PayTemplate extends Remote\Object {
      *
      * Get the properties of the object.  Indexed by constants
      *  [0] - Mandatory
-     *  [1] - Hintable type
+     *  [1] - Type
+     *  [2] - PHP type
+     *  [3] - Is an Array
      *
      * @return array
      */
     public static function getProperties(){
         return array(
-            'EarningsLines' => array (false, null),
-            'DeductionLines' => array (false, null),
-            'SuperLines' => array (false, null),
-            'ReimbursementLines' => array (false, null),
-            'LeaveLines' => array (false, null),
-            'EarningsRateID' => array (false, null),
-            'CalculationType' => array (false, null),
-            'NumberOfUnitsPerWeek' => array (false, null),
-            'AnnualSalary' => array (false, null),
-            'RatePerUnit' => array (false, null),
-            'NormalNumberOfUnits' => array (false, null),
-            'DeductionTypeID' => array (false, null),
-            'Percentage' => array (false, null),
-            'Amount' => array (false, null),
-            'SuperMembershipID' => array (false, null),
-            'ContributionType' => array (false, null),
-            'ExpenseAccountCode' => array (false, null),
-            'LiabilityAccountCode' => array (false, null),
-            'MinimumMonthlyEarnings' => array (false, null),
-            'ReimbursementTypeID' => array (false, null),
-            'Description' => array (false, null),
-            'LeaveTypeID' => array (false, null),
-            'AnnualNumberOfUnits' => array (false, null),
-            'FullTimeNumberOfUnitsPerPeriod' => array (false, null),
-            'NumberOfUnits' => array (false, null)
+            'EarningsLines' => array (false, self::PROPERTY_TYPE_FLOAT, null, true),
+            'DeductionLines' => array (false, self::PROPERTY_TYPE_OBJECT, 'PayrollAU\\Payslip\\DeductionLine', true),
+            'SuperLines' => array (false, self::PROPERTY_TYPE_STRING, null, true),
+            'ReimbursementLines' => array (false, self::PROPERTY_TYPE_OBJECT, 'PayrollAU\\Payslip\\ReimbursementLine', true),
+            'LeaveLines' => array (false, self::PROPERTY_TYPE_STRING, null, true),
+            'EarningsRateID' => array (false, self::PROPERTY_TYPE_STRING, null, false),
+            'CalculationType' => array (false, self::PROPERTY_TYPE_ENUM, null, false),
+            'NumberOfUnitsPerWeek' => array (false, self::PROPERTY_TYPE_ENUM, null, false),
+            'AnnualSalary' => array (false, self::PROPERTY_TYPE_STRING, null, false),
+            'RatePerUnit' => array (false, self::PROPERTY_TYPE_FLOAT, null, false),
+            'NormalNumberOfUnits' => array (false, self::PROPERTY_TYPE_ENUM, null, false),
+            'DeductionTypeID' => array (false, self::PROPERTY_TYPE_STRING, null, false),
+            'Percentage' => array (false, self::PROPERTY_TYPE_STRING, null, false),
+            'Amount' => array (false, self::PROPERTY_TYPE_FLOAT, null, false),
+            'SuperMembershipID' => array (false, self::PROPERTY_TYPE_STRING, null, false),
+            'ContributionType' => array (false, self::PROPERTY_TYPE_ENUM, null, false),
+            'ExpenseAccountCode' => array (false, self::PROPERTY_TYPE_STRING, null, false),
+            'LiabilityAccountCode' => array (false, self::PROPERTY_TYPE_STRING, null, false),
+            'MinimumMonthlyEarnings' => array (false, self::PROPERTY_TYPE_STRING, null, true),
+            'ReimbursementTypeID' => array (false, self::PROPERTY_TYPE_STRING, null, false),
+            'Description' => array (false, self::PROPERTY_TYPE_STRING, null, false),
+            'LeaveTypeID' => array (false, self::PROPERTY_TYPE_STRING, null, false),
+            'AnnualNumberOfUnits' => array (false, self::PROPERTY_TYPE_STRING, null, true),
+            'FullTimeNumberOfUnitsPerPeriod' => array (false, self::PROPERTY_TYPE_STRING, null, false),
+            'NumberOfUnits' => array (false, self::PROPERTY_TYPE_STRING, null, true)
         );
     }
 
@@ -258,22 +262,24 @@ class PayTemplate extends Remote\Object {
      * @return PayTemplate
      */
     public function addEarningsLine($value){
+        $this->_dirty['EarningsLines'] = true;
         $this->_data['EarningsLines'][] = $value;
         return $this;
     }
 
     /**
-     * @return string
+     * @return DeductionLine
      */
     public function getDeductionLines(){
         return $this->_data['DeductionLines'];
     }
 
     /**
-     * @param string[] $value
+     * @param DeductionLine[] $value
      * @return PayTemplate
      */
-    public function addDeductionLine($value){
+    public function addDeductionLine(DeductionLine $value){
+        $this->_dirty['DeductionLines'] = true;
         $this->_data['DeductionLines'][] = $value;
         return $this;
     }
@@ -290,22 +296,24 @@ class PayTemplate extends Remote\Object {
      * @return PayTemplate
      */
     public function addSuperLine($value){
+        $this->_dirty['SuperLines'] = true;
         $this->_data['SuperLines'][] = $value;
         return $this;
     }
 
     /**
-     * @return string
+     * @return ReimbursementLine
      */
     public function getReimbursementLines(){
         return $this->_data['ReimbursementLines'];
     }
 
     /**
-     * @param string[] $value
+     * @param ReimbursementLine[] $value
      * @return PayTemplate
      */
-    public function addReimbursementLine($value){
+    public function addReimbursementLine(ReimbursementLine $value){
+        $this->_dirty['ReimbursementLines'] = true;
         $this->_data['ReimbursementLines'][] = $value;
         return $this;
     }
@@ -322,6 +330,7 @@ class PayTemplate extends Remote\Object {
      * @return PayTemplate
      */
     public function addLeaveLine($value){
+        $this->_dirty['LeaveLines'] = true;
         $this->_data['LeaveLines'][] = $value;
         return $this;
     }
@@ -338,6 +347,7 @@ class PayTemplate extends Remote\Object {
      * @return PayTemplate
      */
     public function setEarningsRateID($value){
+        $this->_dirty['EarningsRateID'] = $this->_data['EarningsRateID'] != $value;
         $this->_data['EarningsRateID'] = $value;
         return $this;
     }
@@ -354,6 +364,7 @@ class PayTemplate extends Remote\Object {
      * @return PayTemplate
      */
     public function setCalculationType($value){
+        $this->_dirty['CalculationType'] = $this->_data['CalculationType'] != $value;
         $this->_data['CalculationType'] = $value;
         return $this;
     }
@@ -370,6 +381,7 @@ class PayTemplate extends Remote\Object {
      * @return PayTemplate
      */
     public function setNumberOfUnitsPerWeek($value){
+        $this->_dirty['NumberOfUnitsPerWeek'] = $this->_data['NumberOfUnitsPerWeek'] != $value;
         $this->_data['NumberOfUnitsPerWeek'] = $value;
         return $this;
     }
@@ -386,6 +398,7 @@ class PayTemplate extends Remote\Object {
      * @return PayTemplate
      */
     public function setAnnualSalary($value){
+        $this->_dirty['AnnualSalary'] = $this->_data['AnnualSalary'] != $value;
         $this->_data['AnnualSalary'] = $value;
         return $this;
     }
@@ -402,6 +415,7 @@ class PayTemplate extends Remote\Object {
      * @return PayTemplate
      */
     public function setRatePerUnit($value){
+        $this->_dirty['RatePerUnit'] = $this->_data['RatePerUnit'] != $value;
         $this->_data['RatePerUnit'] = $value;
         return $this;
     }
@@ -418,6 +432,7 @@ class PayTemplate extends Remote\Object {
      * @return PayTemplate
      */
     public function setNormalNumberOfUnit($value){
+        $this->_dirty['NormalNumberOfUnits'] = $this->_data['NormalNumberOfUnits'] != $value;
         $this->_data['NormalNumberOfUnits'] = $value;
         return $this;
     }
@@ -434,6 +449,7 @@ class PayTemplate extends Remote\Object {
      * @return PayTemplate
      */
     public function setDeductionTypeID($value){
+        $this->_dirty['DeductionTypeID'] = $this->_data['DeductionTypeID'] != $value;
         $this->_data['DeductionTypeID'] = $value;
         return $this;
     }
@@ -450,6 +466,7 @@ class PayTemplate extends Remote\Object {
      * @return PayTemplate
      */
     public function setPercentage($value){
+        $this->_dirty['Percentage'] = $this->_data['Percentage'] != $value;
         $this->_data['Percentage'] = $value;
         return $this;
     }
@@ -466,6 +483,7 @@ class PayTemplate extends Remote\Object {
      * @return PayTemplate
      */
     public function setAmount($value){
+        $this->_dirty['Amount'] = $this->_data['Amount'] != $value;
         $this->_data['Amount'] = $value;
         return $this;
     }
@@ -482,6 +500,7 @@ class PayTemplate extends Remote\Object {
      * @return PayTemplate
      */
     public function setSuperMembershipID($value){
+        $this->_dirty['SuperMembershipID'] = $this->_data['SuperMembershipID'] != $value;
         $this->_data['SuperMembershipID'] = $value;
         return $this;
     }
@@ -498,6 +517,7 @@ class PayTemplate extends Remote\Object {
      * @return PayTemplate
      */
     public function setContributionType($value){
+        $this->_dirty['ContributionType'] = $this->_data['ContributionType'] != $value;
         $this->_data['ContributionType'] = $value;
         return $this;
     }
@@ -514,6 +534,7 @@ class PayTemplate extends Remote\Object {
      * @return PayTemplate
      */
     public function setExpenseAccountCode($value){
+        $this->_dirty['ExpenseAccountCode'] = $this->_data['ExpenseAccountCode'] != $value;
         $this->_data['ExpenseAccountCode'] = $value;
         return $this;
     }
@@ -530,6 +551,7 @@ class PayTemplate extends Remote\Object {
      * @return PayTemplate
      */
     public function setLiabilityAccountCode($value){
+        $this->_dirty['LiabilityAccountCode'] = $this->_data['LiabilityAccountCode'] != $value;
         $this->_data['LiabilityAccountCode'] = $value;
         return $this;
     }
@@ -546,6 +568,7 @@ class PayTemplate extends Remote\Object {
      * @return PayTemplate
      */
     public function addMinimumMonthlyEarning($value){
+        $this->_dirty['MinimumMonthlyEarnings'] = true;
         $this->_data['MinimumMonthlyEarnings'][] = $value;
         return $this;
     }
@@ -562,6 +585,7 @@ class PayTemplate extends Remote\Object {
      * @return PayTemplate
      */
     public function setReimbursementTypeID($value){
+        $this->_dirty['ReimbursementTypeID'] = $this->_data['ReimbursementTypeID'] != $value;
         $this->_data['ReimbursementTypeID'] = $value;
         return $this;
     }
@@ -578,6 +602,7 @@ class PayTemplate extends Remote\Object {
      * @return PayTemplate
      */
     public function setDescription($value){
+        $this->_dirty['Description'] = $this->_data['Description'] != $value;
         $this->_data['Description'] = $value;
         return $this;
     }
@@ -594,6 +619,7 @@ class PayTemplate extends Remote\Object {
      * @return PayTemplate
      */
     public function setLeaveTypeID($value){
+        $this->_dirty['LeaveTypeID'] = $this->_data['LeaveTypeID'] != $value;
         $this->_data['LeaveTypeID'] = $value;
         return $this;
     }
@@ -610,6 +636,7 @@ class PayTemplate extends Remote\Object {
      * @return PayTemplate
      */
     public function addAnnualNumberOfUnit($value){
+        $this->_dirty['AnnualNumberOfUnits'] = true;
         $this->_data['AnnualNumberOfUnits'][] = $value;
         return $this;
     }
@@ -626,6 +653,7 @@ class PayTemplate extends Remote\Object {
      * @return PayTemplate
      */
     public function setFullTimeNumberOfUnitsPerPeriod($value){
+        $this->_dirty['FullTimeNumberOfUnitsPerPeriod'] = $this->_data['FullTimeNumberOfUnitsPerPeriod'] != $value;
         $this->_data['FullTimeNumberOfUnitsPerPeriod'] = $value;
         return $this;
     }
@@ -642,6 +670,7 @@ class PayTemplate extends Remote\Object {
      * @return PayTemplate
      */
     public function addNumberOfUnit($value){
+        $this->_dirty['NumberOfUnits'] = true;
         $this->_data['NumberOfUnits'][] = $value;
         return $this;
     }

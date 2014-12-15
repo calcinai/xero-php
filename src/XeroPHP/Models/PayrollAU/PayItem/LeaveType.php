@@ -105,19 +105,21 @@ class LeaveType extends Remote\Object {
      *
      * Get the properties of the object.  Indexed by constants
      *  [0] - Mandatory
-     *  [1] - Hintable type
+     *  [1] - Type
+     *  [2] - PHP type
+     *  [3] - Is an Array
      *
      * @return array
      */
     public static function getProperties(){
         return array(
-            'Name' => array (true, null),
-            'TypeOfUnits' => array (true, null),
-            'IsPaidLeave' => array (true, null),
-            'ShowOnPayslip' => array (true, null),
-            'LeaveTypeID' => array (false, null),
-            'NormalEntitlement' => array (false, null),
-            'LeaveLoadingRate' => array (false, null)
+            'Name' => array (true, self::PROPERTY_TYPE_STRING, null, false),
+            'TypeOfUnits' => array (true, self::PROPERTY_TYPE_FLOAT, null, true),
+            'IsPaidLeave' => array (true, self::PROPERTY_TYPE_STRING, null, false),
+            'ShowOnPayslip' => array (true, self::PROPERTY_TYPE_STRING, null, false),
+            'LeaveTypeID' => array (false, self::PROPERTY_TYPE_STRING, null, false),
+            'NormalEntitlement' => array (false, self::PROPERTY_TYPE_STRING, null, false),
+            'LeaveLoadingRate' => array (false, self::PROPERTY_TYPE_FLOAT, null, false)
         );
     }
 
@@ -134,6 +136,7 @@ class LeaveType extends Remote\Object {
      * @return LeaveType
      */
     public function setName($value){
+        $this->_dirty['Name'] = $this->_data['Name'] != $value;
         $this->_data['Name'] = $value;
         return $this;
     }
@@ -150,6 +153,7 @@ class LeaveType extends Remote\Object {
      * @return LeaveType
      */
     public function addTypeOfUnit($value){
+        $this->_dirty['TypeOfUnits'] = true;
         $this->_data['TypeOfUnits'][] = $value;
         return $this;
     }
@@ -166,6 +170,7 @@ class LeaveType extends Remote\Object {
      * @return LeaveType
      */
     public function setIsPaidLeave($value){
+        $this->_dirty['IsPaidLeave'] = $this->_data['IsPaidLeave'] != $value;
         $this->_data['IsPaidLeave'] = $value;
         return $this;
     }
@@ -182,6 +187,7 @@ class LeaveType extends Remote\Object {
      * @return LeaveType
      */
     public function setShowOnPayslip($value){
+        $this->_dirty['ShowOnPayslip'] = $this->_data['ShowOnPayslip'] != $value;
         $this->_data['ShowOnPayslip'] = $value;
         return $this;
     }
@@ -198,6 +204,7 @@ class LeaveType extends Remote\Object {
      * @return LeaveType
      */
     public function setLeaveTypeID($value){
+        $this->_dirty['LeaveTypeID'] = $this->_data['LeaveTypeID'] != $value;
         $this->_data['LeaveTypeID'] = $value;
         return $this;
     }
@@ -214,6 +221,7 @@ class LeaveType extends Remote\Object {
      * @return LeaveType
      */
     public function setNormalEntitlement($value){
+        $this->_dirty['NormalEntitlement'] = $this->_data['NormalEntitlement'] != $value;
         $this->_data['NormalEntitlement'] = $value;
         return $this;
     }
@@ -230,6 +238,7 @@ class LeaveType extends Remote\Object {
      * @return LeaveType
      */
     public function setLeaveLoadingRate($value){
+        $this->_dirty['LeaveLoadingRate'] = $this->_data['LeaveLoadingRate'] != $value;
         $this->_data['LeaveLoadingRate'] = $value;
         return $this;
     }

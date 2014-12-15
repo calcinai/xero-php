@@ -79,14 +79,16 @@ class ExternalLink extends Remote\Object {
      *
      * Get the properties of the object.  Indexed by constants
      *  [0] - Mandatory
-     *  [1] - Hintable type
+     *  [1] - Type
+     *  [2] - PHP type
+     *  [3] - Is an Array
      *
      * @return array
      */
     public static function getProperties(){
         return array(
-            'LinkType' => array (false, null),
-            'URL' => array (false, null)
+            'LinkType' => array (false, self::PROPERTY_TYPE_ENUM, null, false),
+            'URL' => array (false, self::PROPERTY_TYPE_STRING, null, false)
         );
     }
 
@@ -103,6 +105,7 @@ class ExternalLink extends Remote\Object {
      * @return ExternalLink
      */
     public function setLinkType($value){
+        $this->_dirty['LinkType'] = $this->_data['LinkType'] != $value;
         $this->_data['LinkType'] = $value;
         return $this;
     }
@@ -119,6 +122,7 @@ class ExternalLink extends Remote\Object {
      * @return ExternalLink
      */
     public function setURL($value){
+        $this->_dirty['URL'] = $this->_data['URL'] != $value;
         $this->_data['URL'] = $value;
         return $this;
     }

@@ -73,14 +73,16 @@ class Currency extends Remote\Object {
      *
      * Get the properties of the object.  Indexed by constants
      *  [0] - Mandatory
-     *  [1] - Hintable type
+     *  [1] - Type
+     *  [2] - PHP type
+     *  [3] - Is an Array
      *
      * @return array
      */
     public static function getProperties(){
         return array(
-            'Code' => array (false, null),
-            'Description' => array (false, null)
+            'Code' => array (false, self::PROPERTY_TYPE_STRING, null, false),
+            'Description' => array (false, self::PROPERTY_TYPE_STRING, null, false)
         );
     }
 
@@ -97,6 +99,7 @@ class Currency extends Remote\Object {
      * @return Currency
      */
     public function setCode($value){
+        $this->_dirty['Code'] = $this->_data['Code'] != $value;
         $this->_data['Code'] = $value;
         return $this;
     }
@@ -113,6 +116,7 @@ class Currency extends Remote\Object {
      * @return Currency
      */
     public function setDescription($value){
+        $this->_dirty['Description'] = $this->_data['Description'] != $value;
         $this->_data['Description'] = $value;
         return $this;
     }

@@ -99,18 +99,20 @@ class Journal extends Remote\Object {
      *
      * Get the properties of the object.  Indexed by constants
      *  [0] - Mandatory
-     *  [1] - Hintable type
+     *  [1] - Type
+     *  [2] - PHP type
+     *  [3] - Is an Array
      *
      * @return array
      */
     public static function getProperties(){
         return array(
-            'JournalID' => array (false, null),
-            'JournalDate' => array (false, '\DateTime'),
-            'JournalNumber' => array (false, null),
-            'CreatedDateUTC' => array (false, '\DateTime'),
-            'Reference' => array (false, null),
-            'JournalLines' => array (false, 'Accounting\Journal\JournalLine')
+            'JournalID' => array (false, self::PROPERTY_TYPE_STRING, null, false),
+            'JournalDate' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTime', false),
+            'JournalNumber' => array (false, self::PROPERTY_TYPE_STRING, null, false),
+            'CreatedDateUTC' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTime', false),
+            'Reference' => array (false, self::PROPERTY_TYPE_STRING, null, false),
+            'JournalLines' => array (false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Journal\\JournalLine', true)
         );
     }
 
@@ -127,6 +129,7 @@ class Journal extends Remote\Object {
      * @return Journal
      */
     public function setJournalID($value){
+        $this->_dirty['JournalID'] = $this->_data['JournalID'] != $value;
         $this->_data['JournalID'] = $value;
         return $this;
     }
@@ -143,6 +146,7 @@ class Journal extends Remote\Object {
      * @return Journal
      */
     public function setJournalDate(\DateTime $value){
+        $this->_dirty['JournalDate'] = $this->_data['JournalDate'] != $value;
         $this->_data['JournalDate'] = $value;
         return $this;
     }
@@ -159,6 +163,7 @@ class Journal extends Remote\Object {
      * @return Journal
      */
     public function setJournalNumber($value){
+        $this->_dirty['JournalNumber'] = $this->_data['JournalNumber'] != $value;
         $this->_data['JournalNumber'] = $value;
         return $this;
     }
@@ -175,6 +180,7 @@ class Journal extends Remote\Object {
      * @return Journal
      */
     public function setCreatedDateUTC(\DateTime $value){
+        $this->_dirty['CreatedDateUTC'] = $this->_data['CreatedDateUTC'] != $value;
         $this->_data['CreatedDateUTC'] = $value;
         return $this;
     }
@@ -191,6 +197,7 @@ class Journal extends Remote\Object {
      * @return Journal
      */
     public function setReference($value){
+        $this->_dirty['Reference'] = $this->_data['Reference'] != $value;
         $this->_data['Reference'] = $value;
         return $this;
     }
@@ -207,6 +214,7 @@ class Journal extends Remote\Object {
      * @return Journal
      */
     public function addJournalLine(JournalLine $value){
+        $this->_dirty['JournalLines'] = true;
         $this->_data['JournalLines'][] = $value;
         return $this;
     }

@@ -85,16 +85,18 @@ class Account extends Remote\Object {
      *
      * Get the properties of the object.  Indexed by constants
      *  [0] - Mandatory
-     *  [1] - Hintable type
+     *  [1] - Type
+     *  [2] - PHP type
+     *  [3] - Is an Array
      *
      * @return array
      */
     public static function getProperties(){
         return array(
-            'AccountID' => array (false, null),
-            'Type' => array (false, null),
-            'Code' => array (false, null),
-            'Name' => array (false, null)
+            'AccountID' => array (false, self::PROPERTY_TYPE_STRING, null, false),
+            'Type' => array (false, self::PROPERTY_TYPE_STRING, null, false),
+            'Code' => array (false, self::PROPERTY_TYPE_STRING, null, false),
+            'Name' => array (false, self::PROPERTY_TYPE_STRING, null, false)
         );
     }
 
@@ -111,6 +113,7 @@ class Account extends Remote\Object {
      * @return Account
      */
     public function setAccountID($value){
+        $this->_dirty['AccountID'] = $this->_data['AccountID'] != $value;
         $this->_data['AccountID'] = $value;
         return $this;
     }
@@ -127,6 +130,7 @@ class Account extends Remote\Object {
      * @return Account
      */
     public function setType($value){
+        $this->_dirty['Type'] = $this->_data['Type'] != $value;
         $this->_data['Type'] = $value;
         return $this;
     }
@@ -143,6 +147,7 @@ class Account extends Remote\Object {
      * @return Account
      */
     public function setCode($value){
+        $this->_dirty['Code'] = $this->_data['Code'] != $value;
         $this->_data['Code'] = $value;
         return $this;
     }
@@ -159,6 +164,7 @@ class Account extends Remote\Object {
      * @return Account
      */
     public function setName($value){
+        $this->_dirty['Name'] = $this->_data['Name'] != $value;
         $this->_data['Name'] = $value;
         return $this;
     }

@@ -104,19 +104,21 @@ class Schedule extends Remote\Object {
      *
      * Get the properties of the object.  Indexed by constants
      *  [0] - Mandatory
-     *  [1] - Hintable type
+     *  [1] - Type
+     *  [2] - PHP type
+     *  [3] - Is an Array
      *
      * @return array
      */
     public static function getProperties(){
         return array(
-            'Period' => array (false, null),
-            'Unit' => array (false, null),
-            'DueDate' => array (false, '\DateTime'),
-            'DueDateType' => array (false, 'Accounting\Organisation\PaymentTerm'),
-            'StartDate' => array (false, '\DateTime'),
-            'NextScheduledDate' => array (false, '\DateTime'),
-            'EndDate' => array (false, '\DateTime')
+            'Period' => array (false, self::PROPERTY_TYPE_INT, null, false),
+            'Unit' => array (false, self::PROPERTY_TYPE_STRING, null, false),
+            'DueDate' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTime', false),
+            'DueDateType' => array (false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Organisation\\PaymentTerm', false),
+            'StartDate' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTime', false),
+            'NextScheduledDate' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTime', false),
+            'EndDate' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTime', false)
         );
     }
 
@@ -133,6 +135,7 @@ class Schedule extends Remote\Object {
      * @return Schedule
      */
     public function setPeriod($value){
+        $this->_dirty['Period'] = $this->_data['Period'] != $value;
         $this->_data['Period'] = $value;
         return $this;
     }
@@ -149,6 +152,7 @@ class Schedule extends Remote\Object {
      * @return Schedule
      */
     public function setUnit($value){
+        $this->_dirty['Unit'] = $this->_data['Unit'] != $value;
         $this->_data['Unit'] = $value;
         return $this;
     }
@@ -165,6 +169,7 @@ class Schedule extends Remote\Object {
      * @return Schedule
      */
     public function setDueDate(\DateTime $value){
+        $this->_dirty['DueDate'] = $this->_data['DueDate'] != $value;
         $this->_data['DueDate'] = $value;
         return $this;
     }
@@ -181,6 +186,7 @@ class Schedule extends Remote\Object {
      * @return Schedule
      */
     public function setDueDateType(PaymentTerm $value){
+        $this->_dirty['DueDateType'] = $this->_data['DueDateType'] != $value;
         $this->_data['DueDateType'] = $value;
         return $this;
     }
@@ -197,6 +203,7 @@ class Schedule extends Remote\Object {
      * @return Schedule
      */
     public function setStartDate(\DateTime $value){
+        $this->_dirty['StartDate'] = $this->_data['StartDate'] != $value;
         $this->_data['StartDate'] = $value;
         return $this;
     }
@@ -213,6 +220,7 @@ class Schedule extends Remote\Object {
      * @return Schedule
      */
     public function setNextScheduledDate(\DateTime $value){
+        $this->_dirty['NextScheduledDate'] = $this->_data['NextScheduledDate'] != $value;
         $this->_data['NextScheduledDate'] = $value;
         return $this;
     }
@@ -229,6 +237,7 @@ class Schedule extends Remote\Object {
      * @return Schedule
      */
     public function setEndDate(\DateTime $value){
+        $this->_dirty['EndDate'] = $this->_data['EndDate'] != $value;
         $this->_data['EndDate'] = $value;
         return $this;
     }

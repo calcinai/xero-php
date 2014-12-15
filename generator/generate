@@ -367,6 +367,7 @@ foreach($scrape_apis as $scrape_api) {
 $loader = new Twig_Loader_Filesystem('generator/templates/');
 $twig = new Twig_Environment($loader, array());
 $twig->addFilter(new Twig_SimpleFilter('wordwrap', 'wordwrap'));
+$twig->addFilter(new Twig_SimpleFilter('addslashes', 'addslashes'));
 
 print_r($apis[0]->getSearchKeys());
 

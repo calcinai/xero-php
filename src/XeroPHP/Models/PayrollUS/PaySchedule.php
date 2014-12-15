@@ -93,17 +93,19 @@ class PaySchedule extends Remote\Object {
      *
      * Get the properties of the object.  Indexed by constants
      *  [0] - Mandatory
-     *  [1] - Hintable type
+     *  [1] - Type
+     *  [2] - PHP type
+     *  [3] - Is an Array
      *
      * @return array
      */
     public static function getProperties(){
         return array(
-            'PayScheduleName' => array (true, null),
-            'PaymentDate' => array (true, '\DateTime'),
-            'StartDate' => array (true, '\DateTime'),
-            'ScheduleType' => array (true, null),
-            'PayScheduleId' => array (false, null)
+            'PayScheduleName' => array (true, self::PROPERTY_TYPE_STRING, null, false),
+            'PaymentDate' => array (true, self::PROPERTY_TYPE_DATE, '\\DateTime', false),
+            'StartDate' => array (true, self::PROPERTY_TYPE_DATE, '\\DateTime', false),
+            'ScheduleType' => array (true, self::PROPERTY_TYPE_ENUM, null, false),
+            'PayScheduleId' => array (false, self::PROPERTY_TYPE_GUID, null, false)
         );
     }
 
@@ -120,6 +122,7 @@ class PaySchedule extends Remote\Object {
      * @return PaySchedule
      */
     public function setPayScheduleName($value){
+        $this->_dirty['PayScheduleName'] = $this->_data['PayScheduleName'] != $value;
         $this->_data['PayScheduleName'] = $value;
         return $this;
     }
@@ -136,6 +139,7 @@ class PaySchedule extends Remote\Object {
      * @return PaySchedule
      */
     public function setPaymentDate(\DateTime $value){
+        $this->_dirty['PaymentDate'] = $this->_data['PaymentDate'] != $value;
         $this->_data['PaymentDate'] = $value;
         return $this;
     }
@@ -152,6 +156,7 @@ class PaySchedule extends Remote\Object {
      * @return PaySchedule
      */
     public function setStartDate(\DateTime $value){
+        $this->_dirty['StartDate'] = $this->_data['StartDate'] != $value;
         $this->_data['StartDate'] = $value;
         return $this;
     }
@@ -168,6 +173,7 @@ class PaySchedule extends Remote\Object {
      * @return PaySchedule
      */
     public function setScheduleType($value){
+        $this->_dirty['ScheduleType'] = $this->_data['ScheduleType'] != $value;
         $this->_data['ScheduleType'] = $value;
         return $this;
     }
@@ -184,6 +190,7 @@ class PaySchedule extends Remote\Object {
      * @return PaySchedule
      */
     public function setPayScheduleId($value){
+        $this->_dirty['PayScheduleId'] = $this->_data['PayScheduleId'] != $value;
         $this->_data['PayScheduleId'] = $value;
         return $this;
     }

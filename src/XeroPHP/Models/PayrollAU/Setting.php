@@ -83,15 +83,17 @@ class Setting extends Remote\Object {
      *
      * Get the properties of the object.  Indexed by constants
      *  [0] - Mandatory
-     *  [1] - Hintable type
+     *  [1] - Type
+     *  [2] - PHP type
+     *  [3] - Is an Array
      *
      * @return array
      */
     public static function getProperties(){
         return array(
-            'Accounts' => array (false, 'PayrollAU\Setting\Account'),
-            'TrackingCategories' => array (false, 'PayrollAU\Setting\TrackingCategory'),
-            'DaysInPayrollYear' => array (false, null)
+            'Accounts' => array (false, self::PROPERTY_TYPE_OBJECT, 'PayrollAU\\Setting\\Account', true),
+            'TrackingCategories' => array (false, self::PROPERTY_TYPE_OBJECT, 'PayrollAU\\Setting\\TrackingCategory', true),
+            'DaysInPayrollYear' => array (false, self::PROPERTY_TYPE_STRING, null, false)
         );
     }
 
@@ -108,6 +110,7 @@ class Setting extends Remote\Object {
      * @return Setting
      */
     public function addAccount(Account $value){
+        $this->_dirty['Accounts'] = true;
         $this->_data['Accounts'][] = $value;
         return $this;
     }
@@ -124,6 +127,7 @@ class Setting extends Remote\Object {
      * @return Setting
      */
     public function addTrackingCategory(TrackingCategory $value){
+        $this->_dirty['TrackingCategories'] = true;
         $this->_data['TrackingCategories'][] = $value;
         return $this;
     }
@@ -140,6 +144,7 @@ class Setting extends Remote\Object {
      * @return Setting
      */
     public function setDaysInPayrollYear($value){
+        $this->_dirty['DaysInPayrollYear'] = $this->_data['DaysInPayrollYear'] != $value;
         $this->_data['DaysInPayrollYear'] = $value;
         return $this;
     }

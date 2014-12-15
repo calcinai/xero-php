@@ -10,13 +10,13 @@ class PaymentTerm extends Remote\Object {
     /**
      * Default payment terms for bills (accounts payable) – see Payment Terms
      *
-     * @property PaymentTerm[] Bills
+     * @property Bill[] Bills
      */
 
     /**
      * Default payment terms for sales invoices(accounts receivable) – see Payment Terms
      *
-     * @property PaymentTerm[] Sales
+     * @property Sale[] Sales
      */
 
 
@@ -73,46 +73,50 @@ class PaymentTerm extends Remote\Object {
      *
      * Get the properties of the object.  Indexed by constants
      *  [0] - Mandatory
-     *  [1] - Hintable type
+     *  [1] - Type
+     *  [2] - PHP type
+     *  [3] - Is an Array
      *
      * @return array
      */
     public static function getProperties(){
         return array(
-            'Bills' => array (false, 'Accounting\Organisation\PaymentTerm'),
-            'Sales' => array (false, 'Accounting\Organisation\PaymentTerm')
+            'Bills' => array (false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Organisation\\Bill', true),
+            'Sales' => array (false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Organisation\\Sale', true)
         );
     }
 
 
     /**
-     * @return PaymentTerm
+     * @return Bill
      */
     public function getBills(){
         return $this->_data['Bills'];
     }
 
     /**
-     * @param PaymentTerm[] $value
+     * @param Bill[] $value
      * @return PaymentTerm
      */
-    public function addBill(PaymentTerm $value){
+    public function addBill(Bill $value){
+        $this->_dirty['Bills'] = true;
         $this->_data['Bills'][] = $value;
         return $this;
     }
 
     /**
-     * @return PaymentTerm
+     * @return Sale
      */
     public function getSales(){
         return $this->_data['Sales'];
     }
 
     /**
-     * @param PaymentTerm[] $value
+     * @param Sale[] $value
      * @return PaymentTerm
      */
-    public function addSale(PaymentTerm $value){
+    public function addSale(Sale $value){
+        $this->_dirty['Sales'] = true;
         $this->_data['Sales'][] = $value;
         return $this;
     }

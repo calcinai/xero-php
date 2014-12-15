@@ -125,22 +125,24 @@ class Address extends Remote\Object {
      *
      * Get the properties of the object.  Indexed by constants
      *  [0] - Mandatory
-     *  [1] - Hintable type
+     *  [1] - Type
+     *  [2] - PHP type
+     *  [3] - Is an Array
      *
      * @return array
      */
     public static function getProperties(){
         return array(
-            'AddressType' => array (false, null),
-            'AddressLine1' => array (false, null),
-            'AddressLine2' => array (false, null),
-            'AddressLine3' => array (false, null),
-            'AddressLine4' => array (false, null),
-            'City' => array (false, null),
-            'Region' => array (false, null),
-            'PostalCode' => array (false, null),
-            'Country' => array (false, null),
-            'AttentionTo' => array (false, null)
+            'AddressType' => array (false, self::PROPERTY_TYPE_ENUM, null, false),
+            'AddressLine1' => array (false, self::PROPERTY_TYPE_STRING, null, false),
+            'AddressLine2' => array (false, self::PROPERTY_TYPE_STRING, null, false),
+            'AddressLine3' => array (false, self::PROPERTY_TYPE_STRING, null, false),
+            'AddressLine4' => array (false, self::PROPERTY_TYPE_STRING, null, false),
+            'City' => array (false, self::PROPERTY_TYPE_STRING, null, false),
+            'Region' => array (false, self::PROPERTY_TYPE_STRING, null, false),
+            'PostalCode' => array (false, self::PROPERTY_TYPE_STRING, null, false),
+            'Country' => array (false, self::PROPERTY_TYPE_STRING, null, false),
+            'AttentionTo' => array (false, self::PROPERTY_TYPE_STRING, null, false)
         );
     }
 
@@ -157,6 +159,7 @@ class Address extends Remote\Object {
      * @return Address
      */
     public function setAddressType($value){
+        $this->_dirty['AddressType'] = $this->_data['AddressType'] != $value;
         $this->_data['AddressType'] = $value;
         return $this;
     }
@@ -173,6 +176,7 @@ class Address extends Remote\Object {
      * @return Address
      */
     public function setAddressLine1($value){
+        $this->_dirty['AddressLine1'] = $this->_data['AddressLine1'] != $value;
         $this->_data['AddressLine1'] = $value;
         return $this;
     }
@@ -189,6 +193,7 @@ class Address extends Remote\Object {
      * @return Address
      */
     public function setAddressLine2($value){
+        $this->_dirty['AddressLine2'] = $this->_data['AddressLine2'] != $value;
         $this->_data['AddressLine2'] = $value;
         return $this;
     }
@@ -205,6 +210,7 @@ class Address extends Remote\Object {
      * @return Address
      */
     public function setAddressLine3($value){
+        $this->_dirty['AddressLine3'] = $this->_data['AddressLine3'] != $value;
         $this->_data['AddressLine3'] = $value;
         return $this;
     }
@@ -221,6 +227,7 @@ class Address extends Remote\Object {
      * @return Address
      */
     public function setAddressLine4($value){
+        $this->_dirty['AddressLine4'] = $this->_data['AddressLine4'] != $value;
         $this->_data['AddressLine4'] = $value;
         return $this;
     }
@@ -237,6 +244,7 @@ class Address extends Remote\Object {
      * @return Address
      */
     public function setCity($value){
+        $this->_dirty['City'] = $this->_data['City'] != $value;
         $this->_data['City'] = $value;
         return $this;
     }
@@ -253,6 +261,7 @@ class Address extends Remote\Object {
      * @return Address
      */
     public function setRegion($value){
+        $this->_dirty['Region'] = $this->_data['Region'] != $value;
         $this->_data['Region'] = $value;
         return $this;
     }
@@ -269,6 +278,7 @@ class Address extends Remote\Object {
      * @return Address
      */
     public function setPostalCode($value){
+        $this->_dirty['PostalCode'] = $this->_data['PostalCode'] != $value;
         $this->_data['PostalCode'] = $value;
         return $this;
     }
@@ -285,6 +295,7 @@ class Address extends Remote\Object {
      * @return Address
      */
     public function setCountry($value){
+        $this->_dirty['Country'] = $this->_data['Country'] != $value;
         $this->_data['Country'] = $value;
         return $this;
     }
@@ -301,6 +312,7 @@ class Address extends Remote\Object {
      * @return Address
      */
     public function setAttentionTo($value){
+        $this->_dirty['AttentionTo'] = $this->_data['AttentionTo'] != $value;
         $this->_data['AttentionTo'] = $value;
         return $this;
     }

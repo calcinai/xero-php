@@ -99,13 +99,13 @@ class Contact extends Remote\Object {
     /**
      * Store certain address types for a contact – see address types
      *
-     * @property string Addresses
+     * @property Address[] Addresses
      */
 
     /**
      * Store certain phone types for a contact – see phone types
      *
-     * @property string Phones
+     * @property Phone[] Phones
      */
 
     /**
@@ -169,7 +169,7 @@ class Contact extends Remote\Object {
     /**
      * Displays which contact groups a contact is included in
      *
-     * @property string[] ContactGroups
+     * @property ContactGroup[] ContactGroups
      */
 
     /**
@@ -275,45 +275,47 @@ class Contact extends Remote\Object {
      *
      * Get the properties of the object.  Indexed by constants
      *  [0] - Mandatory
-     *  [1] - Hintable type
+     *  [1] - Type
+     *  [2] - PHP type
+     *  [3] - Is an Array
      *
      * @return array
      */
     public static function getProperties(){
         return array(
-            'ContactID' => array (false, null),
-            'ContactNumber' => array (false, null),
-            'AccountNumber' => array (false, null),
-            'ContactStatus' => array (false, null),
-            'Name' => array (false, null),
-            'FirstName' => array (false, null),
-            'LastName' => array (false, null),
-            'EmailAddress' => array (false, null),
-            'SkypeUserName' => array (false, null),
-            'ContactPersons' => array (false, 'Accounting\Contact\ContactPerson'),
-            'BankAccountDetails' => array (false, null),
-            'TaxNumber' => array (false, null),
-            'AccountsReceivableTaxType' => array (false, null),
-            'AccountsPayableTaxType' => array (false, null),
-            'Addresses' => array (false, null),
-            'Phones' => array (false, null),
-            'UpdatedDateUTC' => array (false, '\DateTime'),
-            'IsSupplier' => array (false, null),
-            'IsCustomer' => array (false, null),
-            'DefaultCurrency' => array (false, null),
-            'XeroNetworkKey' => array (false, null),
-            'SalesDefaultAccountCode' => array (false, null),
-            'PurchasesDefaultAccountCode' => array (false, null),
-            'SalesTrackingCategories' => array (false, 'Accounting\TrackingCategory'),
-            'PurchasesTrackingCategories' => array (false, 'Accounting\TrackingCategory'),
-            'ContactGroups' => array (false, null),
-            'Website' => array (false, null),
-            'BrandingTheme' => array (false, 'Accounting\BrandingTheme'),
-            'BatchPayments' => array (false, null),
-            'Discount' => array (false, null),
-            'Balances' => array (false, null),
-            'PaymentTerms' => array (false, 'Accounting\Organisation\PaymentTerm'),
-            'HasAttachments' => array (false, null)
+            'ContactID' => array (false, self::PROPERTY_TYPE_STRING, null, false),
+            'ContactNumber' => array (false, self::PROPERTY_TYPE_STRING, null, false),
+            'AccountNumber' => array (false, self::PROPERTY_TYPE_STRING, null, false),
+            'ContactStatus' => array (false, self::PROPERTY_TYPE_ENUM, null, false),
+            'Name' => array (false, self::PROPERTY_TYPE_STRING, null, false),
+            'FirstName' => array (false, self::PROPERTY_TYPE_STRING, null, false),
+            'LastName' => array (false, self::PROPERTY_TYPE_STRING, null, false),
+            'EmailAddress' => array (false, self::PROPERTY_TYPE_STRING, null, false),
+            'SkypeUserName' => array (false, self::PROPERTY_TYPE_STRING, null, false),
+            'ContactPersons' => array (false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Contact\\ContactPerson', true),
+            'BankAccountDetails' => array (false, self::PROPERTY_TYPE_STRING, null, true),
+            'TaxNumber' => array (false, self::PROPERTY_TYPE_STRING, null, false),
+            'AccountsReceivableTaxType' => array (false, self::PROPERTY_TYPE_STRING, null, false),
+            'AccountsPayableTaxType' => array (false, self::PROPERTY_TYPE_STRING, null, false),
+            'Addresses' => array (false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Address', true),
+            'Phones' => array (false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Phone', true),
+            'UpdatedDateUTC' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTime', false),
+            'IsSupplier' => array (false, self::PROPERTY_TYPE_BOOLEAN, null, false),
+            'IsCustomer' => array (false, self::PROPERTY_TYPE_BOOLEAN, null, false),
+            'DefaultCurrency' => array (false, self::PROPERTY_TYPE_STRING, null, false),
+            'XeroNetworkKey' => array (false, self::PROPERTY_TYPE_STRING, null, false),
+            'SalesDefaultAccountCode' => array (false, self::PROPERTY_TYPE_STRING, null, false),
+            'PurchasesDefaultAccountCode' => array (false, self::PROPERTY_TYPE_STRING, null, false),
+            'SalesTrackingCategories' => array (false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\TrackingCategory', true),
+            'PurchasesTrackingCategories' => array (false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\TrackingCategory', true),
+            'ContactGroups' => array (false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\ContactGroup', true),
+            'Website' => array (false, self::PROPERTY_TYPE_STRING, null, false),
+            'BrandingTheme' => array (false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\BrandingTheme', false),
+            'BatchPayments' => array (false, self::PROPERTY_TYPE_STRING, null, true),
+            'Discount' => array (false, self::PROPERTY_TYPE_FLOAT, null, false),
+            'Balances' => array (false, self::PROPERTY_TYPE_STRING, null, true),
+            'PaymentTerms' => array (false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Organisation\\PaymentTerm', true),
+            'HasAttachments' => array (false, self::PROPERTY_TYPE_BOOLEAN, null, false)
         );
     }
 
@@ -330,6 +332,7 @@ class Contact extends Remote\Object {
      * @return Contact
      */
     public function setContactID($value){
+        $this->_dirty['ContactID'] = $this->_data['ContactID'] != $value;
         $this->_data['ContactID'] = $value;
         return $this;
     }
@@ -346,6 +349,7 @@ class Contact extends Remote\Object {
      * @return Contact
      */
     public function setContactNumber($value){
+        $this->_dirty['ContactNumber'] = $this->_data['ContactNumber'] != $value;
         $this->_data['ContactNumber'] = $value;
         return $this;
     }
@@ -362,6 +366,7 @@ class Contact extends Remote\Object {
      * @return Contact
      */
     public function setAccountNumber($value){
+        $this->_dirty['AccountNumber'] = $this->_data['AccountNumber'] != $value;
         $this->_data['AccountNumber'] = $value;
         return $this;
     }
@@ -378,6 +383,7 @@ class Contact extends Remote\Object {
      * @return Contact
      */
     public function setContactStatu($value){
+        $this->_dirty['ContactStatus'] = $this->_data['ContactStatus'] != $value;
         $this->_data['ContactStatus'] = $value;
         return $this;
     }
@@ -394,6 +400,7 @@ class Contact extends Remote\Object {
      * @return Contact
      */
     public function setName($value){
+        $this->_dirty['Name'] = $this->_data['Name'] != $value;
         $this->_data['Name'] = $value;
         return $this;
     }
@@ -410,6 +417,7 @@ class Contact extends Remote\Object {
      * @return Contact
      */
     public function setFirstName($value){
+        $this->_dirty['FirstName'] = $this->_data['FirstName'] != $value;
         $this->_data['FirstName'] = $value;
         return $this;
     }
@@ -426,6 +434,7 @@ class Contact extends Remote\Object {
      * @return Contact
      */
     public function setLastName($value){
+        $this->_dirty['LastName'] = $this->_data['LastName'] != $value;
         $this->_data['LastName'] = $value;
         return $this;
     }
@@ -442,6 +451,7 @@ class Contact extends Remote\Object {
      * @return Contact
      */
     public function setEmailAddress($value){
+        $this->_dirty['EmailAddress'] = $this->_data['EmailAddress'] != $value;
         $this->_data['EmailAddress'] = $value;
         return $this;
     }
@@ -458,6 +468,7 @@ class Contact extends Remote\Object {
      * @return Contact
      */
     public function setSkypeUserName($value){
+        $this->_dirty['SkypeUserName'] = $this->_data['SkypeUserName'] != $value;
         $this->_data['SkypeUserName'] = $value;
         return $this;
     }
@@ -474,6 +485,7 @@ class Contact extends Remote\Object {
      * @return Contact
      */
     public function addContactPerson(ContactPerson $value){
+        $this->_dirty['ContactPersons'] = true;
         $this->_data['ContactPersons'][] = $value;
         return $this;
     }
@@ -490,6 +502,7 @@ class Contact extends Remote\Object {
      * @return Contact
      */
     public function addBankAccountDetail($value){
+        $this->_dirty['BankAccountDetails'] = true;
         $this->_data['BankAccountDetails'][] = $value;
         return $this;
     }
@@ -506,6 +519,7 @@ class Contact extends Remote\Object {
      * @return Contact
      */
     public function setTaxNumber($value){
+        $this->_dirty['TaxNumber'] = $this->_data['TaxNumber'] != $value;
         $this->_data['TaxNumber'] = $value;
         return $this;
     }
@@ -522,6 +536,7 @@ class Contact extends Remote\Object {
      * @return Contact
      */
     public function setAccountsReceivableTaxType($value){
+        $this->_dirty['AccountsReceivableTaxType'] = $this->_data['AccountsReceivableTaxType'] != $value;
         $this->_data['AccountsReceivableTaxType'] = $value;
         return $this;
     }
@@ -538,39 +553,42 @@ class Contact extends Remote\Object {
      * @return Contact
      */
     public function setAccountsPayableTaxType($value){
+        $this->_dirty['AccountsPayableTaxType'] = $this->_data['AccountsPayableTaxType'] != $value;
         $this->_data['AccountsPayableTaxType'] = $value;
         return $this;
     }
 
     /**
-     * @return string
+     * @return Address
      */
     public function getAddresses(){
         return $this->_data['Addresses'];
     }
 
     /**
-     * @param string $value
+     * @param Address[] $value
      * @return Contact
      */
-    public function setAddress($value){
-        $this->_data['Addresses'] = $value;
+    public function addAddress(Address $value){
+        $this->_dirty['Addresses'] = true;
+        $this->_data['Addresses'][] = $value;
         return $this;
     }
 
     /**
-     * @return string
+     * @return Phone
      */
     public function getPhones(){
         return $this->_data['Phones'];
     }
 
     /**
-     * @param string $value
+     * @param Phone[] $value
      * @return Contact
      */
-    public function setPhone($value){
-        $this->_data['Phones'] = $value;
+    public function addPhone(Phone $value){
+        $this->_dirty['Phones'] = true;
+        $this->_data['Phones'][] = $value;
         return $this;
     }
 
@@ -586,6 +604,7 @@ class Contact extends Remote\Object {
      * @return Contact
      */
     public function setUpdatedDateUTC(\DateTime $value){
+        $this->_dirty['UpdatedDateUTC'] = $this->_data['UpdatedDateUTC'] != $value;
         $this->_data['UpdatedDateUTC'] = $value;
         return $this;
     }
@@ -602,6 +621,7 @@ class Contact extends Remote\Object {
      * @return Contact
      */
     public function setIsSupplier($value){
+        $this->_dirty['IsSupplier'] = $this->_data['IsSupplier'] != $value;
         $this->_data['IsSupplier'] = $value;
         return $this;
     }
@@ -618,6 +638,7 @@ class Contact extends Remote\Object {
      * @return Contact
      */
     public function setIsCustomer($value){
+        $this->_dirty['IsCustomer'] = $this->_data['IsCustomer'] != $value;
         $this->_data['IsCustomer'] = $value;
         return $this;
     }
@@ -634,6 +655,7 @@ class Contact extends Remote\Object {
      * @return Contact
      */
     public function setDefaultCurrency($value){
+        $this->_dirty['DefaultCurrency'] = $this->_data['DefaultCurrency'] != $value;
         $this->_data['DefaultCurrency'] = $value;
         return $this;
     }
@@ -650,6 +672,7 @@ class Contact extends Remote\Object {
      * @return Contact
      */
     public function setXeroNetworkKey($value){
+        $this->_dirty['XeroNetworkKey'] = $this->_data['XeroNetworkKey'] != $value;
         $this->_data['XeroNetworkKey'] = $value;
         return $this;
     }
@@ -666,6 +689,7 @@ class Contact extends Remote\Object {
      * @return Contact
      */
     public function setSalesDefaultAccountCode($value){
+        $this->_dirty['SalesDefaultAccountCode'] = $this->_data['SalesDefaultAccountCode'] != $value;
         $this->_data['SalesDefaultAccountCode'] = $value;
         return $this;
     }
@@ -682,6 +706,7 @@ class Contact extends Remote\Object {
      * @return Contact
      */
     public function setPurchasesDefaultAccountCode($value){
+        $this->_dirty['PurchasesDefaultAccountCode'] = $this->_data['PurchasesDefaultAccountCode'] != $value;
         $this->_data['PurchasesDefaultAccountCode'] = $value;
         return $this;
     }
@@ -698,6 +723,7 @@ class Contact extends Remote\Object {
      * @return Contact
      */
     public function addSalesTrackingCategory(TrackingCategory $value){
+        $this->_dirty['SalesTrackingCategories'] = true;
         $this->_data['SalesTrackingCategories'][] = $value;
         return $this;
     }
@@ -714,22 +740,24 @@ class Contact extends Remote\Object {
      * @return Contact
      */
     public function addPurchasesTrackingCategory(TrackingCategory $value){
+        $this->_dirty['PurchasesTrackingCategories'] = true;
         $this->_data['PurchasesTrackingCategories'][] = $value;
         return $this;
     }
 
     /**
-     * @return string
+     * @return ContactGroup
      */
     public function getContactGroups(){
         return $this->_data['ContactGroups'];
     }
 
     /**
-     * @param string[] $value
+     * @param ContactGroup[] $value
      * @return Contact
      */
-    public function addContactGroup($value){
+    public function addContactGroup(ContactGroup $value){
+        $this->_dirty['ContactGroups'] = true;
         $this->_data['ContactGroups'][] = $value;
         return $this;
     }
@@ -746,6 +774,7 @@ class Contact extends Remote\Object {
      * @return Contact
      */
     public function setWebsite($value){
+        $this->_dirty['Website'] = $this->_data['Website'] != $value;
         $this->_data['Website'] = $value;
         return $this;
     }
@@ -762,6 +791,7 @@ class Contact extends Remote\Object {
      * @return Contact
      */
     public function setBrandingTheme(BrandingTheme $value){
+        $this->_dirty['BrandingTheme'] = $this->_data['BrandingTheme'] != $value;
         $this->_data['BrandingTheme'] = $value;
         return $this;
     }
@@ -778,6 +808,7 @@ class Contact extends Remote\Object {
      * @return Contact
      */
     public function addBatchPayment($value){
+        $this->_dirty['BatchPayments'] = true;
         $this->_data['BatchPayments'][] = $value;
         return $this;
     }
@@ -794,6 +825,7 @@ class Contact extends Remote\Object {
      * @return Contact
      */
     public function setDiscount($value){
+        $this->_dirty['Discount'] = $this->_data['Discount'] != $value;
         $this->_data['Discount'] = $value;
         return $this;
     }
@@ -810,6 +842,7 @@ class Contact extends Remote\Object {
      * @return Contact
      */
     public function addBalance($value){
+        $this->_dirty['Balances'] = true;
         $this->_data['Balances'][] = $value;
         return $this;
     }
@@ -826,6 +859,7 @@ class Contact extends Remote\Object {
      * @return Contact
      */
     public function addPaymentTerm(PaymentTerm $value){
+        $this->_dirty['PaymentTerms'] = true;
         $this->_data['PaymentTerms'][] = $value;
         return $this;
     }
@@ -842,6 +876,7 @@ class Contact extends Remote\Object {
      * @return Contact
      */
     public function setHasAttachment($value){
+        $this->_dirty['HasAttachments'] = $this->_data['HasAttachments'] != $value;
         $this->_data['HasAttachments'] = $value;
         return $this;
     }

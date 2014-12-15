@@ -79,15 +79,17 @@ class TaxComponent extends Remote\Object {
      *
      * Get the properties of the object.  Indexed by constants
      *  [0] - Mandatory
-     *  [1] - Hintable type
+     *  [1] - Type
+     *  [2] - PHP type
+     *  [3] - Is an Array
      *
      * @return array
      */
     public static function getProperties(){
         return array(
-            'Name' => array (false, null),
-            'Rate' => array (false, null),
-            'IsCompound' => array (false, null)
+            'Name' => array (false, self::PROPERTY_TYPE_STRING, null, false),
+            'Rate' => array (false, self::PROPERTY_TYPE_FLOAT, null, false),
+            'IsCompound' => array (false, self::PROPERTY_TYPE_FLOAT, null, false)
         );
     }
 
@@ -104,6 +106,7 @@ class TaxComponent extends Remote\Object {
      * @return TaxComponent
      */
     public function setName($value){
+        $this->_dirty['Name'] = $this->_data['Name'] != $value;
         $this->_data['Name'] = $value;
         return $this;
     }
@@ -120,6 +123,7 @@ class TaxComponent extends Remote\Object {
      * @return TaxComponent
      */
     public function setRate($value){
+        $this->_dirty['Rate'] = $this->_data['Rate'] != $value;
         $this->_data['Rate'] = $value;
         return $this;
     }
@@ -136,6 +140,7 @@ class TaxComponent extends Remote\Object {
      * @return TaxComponent
      */
     public function setIsCompound($value){
+        $this->_dirty['IsCompound'] = $this->_data['IsCompound'] != $value;
         $this->_data['IsCompound'] = $value;
         return $this;
     }

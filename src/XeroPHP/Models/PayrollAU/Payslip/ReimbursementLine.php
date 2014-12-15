@@ -85,16 +85,18 @@ class ReimbursementLine extends Remote\Object {
      *
      * Get the properties of the object.  Indexed by constants
      *  [0] - Mandatory
-     *  [1] - Hintable type
+     *  [1] - Type
+     *  [2] - PHP type
+     *  [3] - Is an Array
      *
      * @return array
      */
     public static function getProperties(){
         return array(
-            'ReimbursementTypeID' => array (false, null),
-            'Description' => array (false, null),
-            'ExpenseAccount' => array (false, null),
-            'Amount' => array (false, null)
+            'ReimbursementTypeID' => array (false, self::PROPERTY_TYPE_STRING, null, false),
+            'Description' => array (false, self::PROPERTY_TYPE_STRING, null, false),
+            'ExpenseAccount' => array (false, self::PROPERTY_TYPE_STRING, null, false),
+            'Amount' => array (false, self::PROPERTY_TYPE_FLOAT, null, false)
         );
     }
 
@@ -111,6 +113,7 @@ class ReimbursementLine extends Remote\Object {
      * @return ReimbursementLine
      */
     public function setReimbursementTypeID($value){
+        $this->_dirty['ReimbursementTypeID'] = $this->_data['ReimbursementTypeID'] != $value;
         $this->_data['ReimbursementTypeID'] = $value;
         return $this;
     }
@@ -127,6 +130,7 @@ class ReimbursementLine extends Remote\Object {
      * @return ReimbursementLine
      */
     public function setDescription($value){
+        $this->_dirty['Description'] = $this->_data['Description'] != $value;
         $this->_data['Description'] = $value;
         return $this;
     }
@@ -143,6 +147,7 @@ class ReimbursementLine extends Remote\Object {
      * @return ReimbursementLine
      */
     public function setExpenseAccount($value){
+        $this->_dirty['ExpenseAccount'] = $this->_data['ExpenseAccount'] != $value;
         $this->_data['ExpenseAccount'] = $value;
         return $this;
     }
@@ -159,6 +164,7 @@ class ReimbursementLine extends Remote\Object {
      * @return ReimbursementLine
      */
     public function setAmount($value){
+        $this->_dirty['Amount'] = $this->_data['Amount'] != $value;
         $this->_data['Amount'] = $value;
         return $this;
     }

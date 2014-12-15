@@ -145,24 +145,26 @@ class TaxDeclaration extends Remote\Object {
      *
      * Get the properties of the object.  Indexed by constants
      *  [0] - Mandatory
-     *  [1] - Hintable type
+     *  [1] - Type
+     *  [2] - PHP type
+     *  [3] - Is an Array
      *
      * @return array
      */
     public static function getProperties(){
         return array(
-            'EmployeeID' => array (true, null),
-            'EmploymentBasis' => array (true, null),
-            'TFNExemptionType' => array (false, null),
-            'TaxFileNumber' => array (false, null),
-            'AustralianResidentForTaxPurposes' => array (false, null),
-            'TaxFreeThresholdClaimed' => array (false, null),
-            'TaxOffsetEstimatedAmount' => array (false, null),
-            'HasHELPDebt' => array (false, null),
-            'HasSFSSDebt' => array (false, null),
-            'UpwardVariationTaxWithholdingAmount' => array (false, null),
-            'EligibleToReceiveLeaveLoading' => array (false, null),
-            'ApprovedWithholdingVariationPercentage' => array (false, null)
+            'EmployeeID' => array (true, self::PROPERTY_TYPE_STRING, null, false),
+            'EmploymentBasis' => array (true, self::PROPERTY_TYPE_ENUM, null, false),
+            'TFNExemptionType' => array (false, self::PROPERTY_TYPE_ENUM, null, false),
+            'TaxFileNumber' => array (false, self::PROPERTY_TYPE_STRING, null, false),
+            'AustralianResidentForTaxPurposes' => array (false, self::PROPERTY_TYPE_STRING, null, true),
+            'TaxFreeThresholdClaimed' => array (false, self::PROPERTY_TYPE_STRING, null, false),
+            'TaxOffsetEstimatedAmount' => array (false, self::PROPERTY_TYPE_FLOAT, null, false),
+            'HasHELPDebt' => array (false, self::PROPERTY_TYPE_STRING, null, false),
+            'HasSFSSDebt' => array (false, self::PROPERTY_TYPE_STRING, null, false),
+            'UpwardVariationTaxWithholdingAmount' => array (false, self::PROPERTY_TYPE_STRING, null, false),
+            'EligibleToReceiveLeaveLoading' => array (false, self::PROPERTY_TYPE_STRING, null, false),
+            'ApprovedWithholdingVariationPercentage' => array (false, self::PROPERTY_TYPE_STRING, null, false)
         );
     }
 
@@ -179,6 +181,7 @@ class TaxDeclaration extends Remote\Object {
      * @return TaxDeclaration
      */
     public function setEmployeeID($value){
+        $this->_dirty['EmployeeID'] = $this->_data['EmployeeID'] != $value;
         $this->_data['EmployeeID'] = $value;
         return $this;
     }
@@ -195,6 +198,7 @@ class TaxDeclaration extends Remote\Object {
      * @return TaxDeclaration
      */
     public function setEmploymentBasis($value){
+        $this->_dirty['EmploymentBasis'] = $this->_data['EmploymentBasis'] != $value;
         $this->_data['EmploymentBasis'] = $value;
         return $this;
     }
@@ -211,6 +215,7 @@ class TaxDeclaration extends Remote\Object {
      * @return TaxDeclaration
      */
     public function setTFNExemptionType($value){
+        $this->_dirty['TFNExemptionType'] = $this->_data['TFNExemptionType'] != $value;
         $this->_data['TFNExemptionType'] = $value;
         return $this;
     }
@@ -227,6 +232,7 @@ class TaxDeclaration extends Remote\Object {
      * @return TaxDeclaration
      */
     public function setTaxFileNumber($value){
+        $this->_dirty['TaxFileNumber'] = $this->_data['TaxFileNumber'] != $value;
         $this->_data['TaxFileNumber'] = $value;
         return $this;
     }
@@ -243,6 +249,7 @@ class TaxDeclaration extends Remote\Object {
      * @return TaxDeclaration
      */
     public function addAustralianResidentForTaxPurpose($value){
+        $this->_dirty['AustralianResidentForTaxPurposes'] = true;
         $this->_data['AustralianResidentForTaxPurposes'][] = $value;
         return $this;
     }
@@ -259,6 +266,7 @@ class TaxDeclaration extends Remote\Object {
      * @return TaxDeclaration
      */
     public function setTaxFreeThresholdClaimed($value){
+        $this->_dirty['TaxFreeThresholdClaimed'] = $this->_data['TaxFreeThresholdClaimed'] != $value;
         $this->_data['TaxFreeThresholdClaimed'] = $value;
         return $this;
     }
@@ -275,6 +283,7 @@ class TaxDeclaration extends Remote\Object {
      * @return TaxDeclaration
      */
     public function setTaxOffsetEstimatedAmount($value){
+        $this->_dirty['TaxOffsetEstimatedAmount'] = $this->_data['TaxOffsetEstimatedAmount'] != $value;
         $this->_data['TaxOffsetEstimatedAmount'] = $value;
         return $this;
     }
@@ -291,6 +300,7 @@ class TaxDeclaration extends Remote\Object {
      * @return TaxDeclaration
      */
     public function setHasHELPDebt($value){
+        $this->_dirty['HasHELPDebt'] = $this->_data['HasHELPDebt'] != $value;
         $this->_data['HasHELPDebt'] = $value;
         return $this;
     }
@@ -307,6 +317,7 @@ class TaxDeclaration extends Remote\Object {
      * @return TaxDeclaration
      */
     public function setHasSFSSDebt($value){
+        $this->_dirty['HasSFSSDebt'] = $this->_data['HasSFSSDebt'] != $value;
         $this->_data['HasSFSSDebt'] = $value;
         return $this;
     }
@@ -323,6 +334,7 @@ class TaxDeclaration extends Remote\Object {
      * @return TaxDeclaration
      */
     public function setUpwardVariationTaxWithholdingAmount($value){
+        $this->_dirty['UpwardVariationTaxWithholdingAmount'] = $this->_data['UpwardVariationTaxWithholdingAmount'] != $value;
         $this->_data['UpwardVariationTaxWithholdingAmount'] = $value;
         return $this;
     }
@@ -339,6 +351,7 @@ class TaxDeclaration extends Remote\Object {
      * @return TaxDeclaration
      */
     public function setEligibleToReceiveLeaveLoading($value){
+        $this->_dirty['EligibleToReceiveLeaveLoading'] = $this->_data['EligibleToReceiveLeaveLoading'] != $value;
         $this->_data['EligibleToReceiveLeaveLoading'] = $value;
         return $this;
     }
@@ -355,6 +368,7 @@ class TaxDeclaration extends Remote\Object {
      * @return TaxDeclaration
      */
     public function setApprovedWithholdingVariationPercentage($value){
+        $this->_dirty['ApprovedWithholdingVariationPercentage'] = $this->_data['ApprovedWithholdingVariationPercentage'] != $value;
         $this->_data['ApprovedWithholdingVariationPercentage'] = $value;
         return $this;
     }

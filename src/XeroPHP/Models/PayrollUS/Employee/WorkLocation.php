@@ -73,14 +73,16 @@ class WorkLocation extends Remote\Object {
      *
      * Get the properties of the object.  Indexed by constants
      *  [0] - Mandatory
-     *  [1] - Hintable type
+     *  [1] - Type
+     *  [2] - PHP type
+     *  [3] - Is an Array
      *
      * @return array
      */
     public static function getProperties(){
         return array(
-            'WorkLocationID' => array (false, null),
-            'IsPrimary' => array (false, null)
+            'WorkLocationID' => array (false, self::PROPERTY_TYPE_STRING, null, false),
+            'IsPrimary' => array (false, self::PROPERTY_TYPE_BOOLEAN, null, false)
         );
     }
 
@@ -97,6 +99,7 @@ class WorkLocation extends Remote\Object {
      * @return WorkLocation
      */
     public function setWorkLocationID($value){
+        $this->_dirty['WorkLocationID'] = $this->_data['WorkLocationID'] != $value;
         $this->_data['WorkLocationID'] = $value;
         return $this;
     }
@@ -113,6 +116,7 @@ class WorkLocation extends Remote\Object {
      * @return WorkLocation
      */
     public function setIsPrimary($value){
+        $this->_dirty['IsPrimary'] = $this->_data['IsPrimary'] != $value;
         $this->_data['IsPrimary'] = $value;
         return $this;
     }

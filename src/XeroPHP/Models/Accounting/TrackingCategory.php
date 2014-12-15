@@ -89,16 +89,18 @@ class TrackingCategory extends Remote\Object {
      *
      * Get the properties of the object.  Indexed by constants
      *  [0] - Mandatory
-     *  [1] - Hintable type
+     *  [1] - Type
+     *  [2] - PHP type
+     *  [3] - Is an Array
      *
      * @return array
      */
     public static function getProperties(){
         return array(
-            'TrackingCategoryID' => array (false, null),
-            'Name' => array (false, null),
-            'Status' => array (false, null),
-            'Options' => array (false, 'Accounting\TrackingCategory\TrackingOption')
+            'TrackingCategoryID' => array (false, self::PROPERTY_TYPE_STRING, null, false),
+            'Name' => array (false, self::PROPERTY_TYPE_STRING, null, false),
+            'Status' => array (false, self::PROPERTY_TYPE_STRING, null, false),
+            'Options' => array (false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\TrackingCategory\\TrackingOption', true)
         );
     }
 
@@ -115,6 +117,7 @@ class TrackingCategory extends Remote\Object {
      * @return TrackingCategory
      */
     public function setTrackingCategoryID($value){
+        $this->_dirty['TrackingCategoryID'] = $this->_data['TrackingCategoryID'] != $value;
         $this->_data['TrackingCategoryID'] = $value;
         return $this;
     }
@@ -131,6 +134,7 @@ class TrackingCategory extends Remote\Object {
      * @return TrackingCategory
      */
     public function setName($value){
+        $this->_dirty['Name'] = $this->_data['Name'] != $value;
         $this->_data['Name'] = $value;
         return $this;
     }
@@ -147,6 +151,7 @@ class TrackingCategory extends Remote\Object {
      * @return TrackingCategory
      */
     public function setStatu($value){
+        $this->_dirty['Status'] = $this->_data['Status'] != $value;
         $this->_data['Status'] = $value;
         return $this;
     }
@@ -163,6 +168,7 @@ class TrackingCategory extends Remote\Object {
      * @return TrackingCategory
      */
     public function addOption(TrackingOption $value){
+        $this->_dirty['Options'] = true;
         $this->_data['Options'][] = $value;
         return $this;
     }

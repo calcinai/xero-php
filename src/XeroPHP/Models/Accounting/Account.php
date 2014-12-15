@@ -206,28 +206,30 @@ e.g.
      *
      * Get the properties of the object.  Indexed by constants
      *  [0] - Mandatory
-     *  [1] - Hintable type
+     *  [1] - Type
+     *  [2] - PHP type
+     *  [3] - Is an Array
      *
      * @return array
      */
     public static function getProperties(){
         return array(
-            'Code' => array (true, null),
-            'Name' => array (true, null),
-            'Type' => array (true, null),
-            'Description' => array (false, null),
-            'TaxType' => array (false, null),
-            'EnablePaymentsToAccount' => array (false, null),
-            'ShowInExpenseClaims' => array (false, null),
-            'AccountID' => array (false, null),
-            'Class' => array (false, null),
-            'Status' => array (false, null),
-            'SystemAccount' => array (false, null),
-            'BankAccountNumber' => array (false, null),
-            'CurrencyCode' => array (false, null),
-            'ReportingCode' => array (false, null),
-            'ReportingCodeName' => array (false, null),
-            'HasAttachments' => array (false, null)
+            'Code' => array (true, self::PROPERTY_TYPE_STRING, null, false),
+            'Name' => array (true, self::PROPERTY_TYPE_STRING, null, false),
+            'Type' => array (true, self::PROPERTY_TYPE_ENUM, null, false),
+            'Description' => array (false, self::PROPERTY_TYPE_STRING, null, false),
+            'TaxType' => array (false, self::PROPERTY_TYPE_ENUM, null, false),
+            'EnablePaymentsToAccount' => array (false, self::PROPERTY_TYPE_BOOLEAN, null, false),
+            'ShowInExpenseClaims' => array (false, self::PROPERTY_TYPE_BOOLEAN, null, false),
+            'AccountID' => array (false, self::PROPERTY_TYPE_STRING, null, false),
+            'Class' => array (false, self::PROPERTY_TYPE_ENUM, null, false),
+            'Status' => array (false, self::PROPERTY_TYPE_ENUM, null, false),
+            'SystemAccount' => array (false, self::PROPERTY_TYPE_ENUM, null, false),
+            'BankAccountNumber' => array (false, self::PROPERTY_TYPE_STRING, null, false),
+            'CurrencyCode' => array (false, self::PROPERTY_TYPE_STRING, null, false),
+            'ReportingCode' => array (false, self::PROPERTY_TYPE_STRING, null, false),
+            'ReportingCodeName' => array (false, self::PROPERTY_TYPE_STRING, null, false),
+            'HasAttachments' => array (false, self::PROPERTY_TYPE_BOOLEAN, null, false)
         );
     }
 
@@ -244,6 +246,7 @@ e.g.
      * @return Account
      */
     public function setCode($value){
+        $this->_dirty['Code'] = $this->_data['Code'] != $value;
         $this->_data['Code'] = $value;
         return $this;
     }
@@ -260,6 +263,7 @@ e.g.
      * @return Account
      */
     public function setName($value){
+        $this->_dirty['Name'] = $this->_data['Name'] != $value;
         $this->_data['Name'] = $value;
         return $this;
     }
@@ -276,6 +280,7 @@ e.g.
      * @return Account
      */
     public function setType($value){
+        $this->_dirty['Type'] = $this->_data['Type'] != $value;
         $this->_data['Type'] = $value;
         return $this;
     }
@@ -292,6 +297,7 @@ e.g.
      * @return Account
      */
     public function setDescription($value){
+        $this->_dirty['Description'] = $this->_data['Description'] != $value;
         $this->_data['Description'] = $value;
         return $this;
     }
@@ -308,6 +314,7 @@ e.g.
      * @return Account
      */
     public function setTaxType($value){
+        $this->_dirty['TaxType'] = $this->_data['TaxType'] != $value;
         $this->_data['TaxType'] = $value;
         return $this;
     }
@@ -324,6 +331,7 @@ e.g.
      * @return Account
      */
     public function setEnablePaymentsToAccount($value){
+        $this->_dirty['EnablePaymentsToAccount'] = $this->_data['EnablePaymentsToAccount'] != $value;
         $this->_data['EnablePaymentsToAccount'] = $value;
         return $this;
     }
@@ -340,6 +348,7 @@ e.g.
      * @return Account
      */
     public function setShowInExpenseClaim($value){
+        $this->_dirty['ShowInExpenseClaims'] = $this->_data['ShowInExpenseClaims'] != $value;
         $this->_data['ShowInExpenseClaims'] = $value;
         return $this;
     }
@@ -356,6 +365,7 @@ e.g.
      * @return Account
      */
     public function setAccountID($value){
+        $this->_dirty['AccountID'] = $this->_data['AccountID'] != $value;
         $this->_data['AccountID'] = $value;
         return $this;
     }
@@ -372,6 +382,7 @@ e.g.
      * @return Account
      */
     public function setClass($value){
+        $this->_dirty['Class'] = $this->_data['Class'] != $value;
         $this->_data['Class'] = $value;
         return $this;
     }
@@ -388,6 +399,7 @@ e.g.
      * @return Account
      */
     public function setStatu($value){
+        $this->_dirty['Status'] = $this->_data['Status'] != $value;
         $this->_data['Status'] = $value;
         return $this;
     }
@@ -404,6 +416,7 @@ e.g.
      * @return Account
      */
     public function setSystemAccount($value){
+        $this->_dirty['SystemAccount'] = $this->_data['SystemAccount'] != $value;
         $this->_data['SystemAccount'] = $value;
         return $this;
     }
@@ -420,6 +433,7 @@ e.g.
      * @return Account
      */
     public function setBankAccountNumber($value){
+        $this->_dirty['BankAccountNumber'] = $this->_data['BankAccountNumber'] != $value;
         $this->_data['BankAccountNumber'] = $value;
         return $this;
     }
@@ -436,6 +450,7 @@ e.g.
      * @return Account
      */
     public function setCurrencyCode($value){
+        $this->_dirty['CurrencyCode'] = $this->_data['CurrencyCode'] != $value;
         $this->_data['CurrencyCode'] = $value;
         return $this;
     }
@@ -452,6 +467,7 @@ e.g.
      * @return Account
      */
     public function setReportingCode($value){
+        $this->_dirty['ReportingCode'] = $this->_data['ReportingCode'] != $value;
         $this->_data['ReportingCode'] = $value;
         return $this;
     }
@@ -468,6 +484,7 @@ e.g.
      * @return Account
      */
     public function setReportingCodeName($value){
+        $this->_dirty['ReportingCodeName'] = $this->_data['ReportingCodeName'] != $value;
         $this->_data['ReportingCodeName'] = $value;
         return $this;
     }
@@ -484,6 +501,7 @@ e.g.
      * @return Account
      */
     public function setHasAttachment($value){
+        $this->_dirty['HasAttachments'] = $this->_data['HasAttachments'] != $value;
         $this->_data['HasAttachments'] = $value;
         return $this;
     }

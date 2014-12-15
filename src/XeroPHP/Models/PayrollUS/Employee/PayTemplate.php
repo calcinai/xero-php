@@ -4,6 +4,9 @@ namespace XeroPHP\Models\PayrollUS\Employee;
 
 use XeroPHP\Remote;
 
+use XeroPHP\Models\PayrollUS\Paystub\DeductionLine;
+use XeroPHP\Models\PayrollUS\Paystub\ReimbursementLine;
+use XeroPHP\Models\PayrollUS\Paystub\BenefitLine;
 
 class PayTemplate extends Remote\Object {
 
@@ -16,19 +19,19 @@ class PayTemplate extends Remote\Object {
     /**
      * The deduction type lines
      *
-     * @property string[] DeductionLines
+     * @property DeductionLine[] DeductionLines
      */
 
     /**
      * The reimbursement type lines
      *
-     * @property string[] ReimbursementLines
+     * @property ReimbursementLine[] ReimbursementLines
      */
 
     /**
      * The benefit type lines
      *
-     * @property string[] BenefitLines
+     * @property BenefitLine[] BenefitLines
      */
 
     /**
@@ -158,27 +161,29 @@ class PayTemplate extends Remote\Object {
      *
      * Get the properties of the object.  Indexed by constants
      *  [0] - Mandatory
-     *  [1] - Hintable type
+     *  [1] - Type
+     *  [2] - PHP type
+     *  [3] - Is an Array
      *
      * @return array
      */
     public static function getProperties(){
         return array(
-            'EarningsLines' => array (false, null),
-            'DeductionLines' => array (false, null),
-            'ReimbursementLines' => array (false, null),
-            'BenefitLines' => array (false, null),
-            'EarningsTypeID' => array (false, null),
-            'UnitsOrHours' => array (false, null),
-            'RatePerUnit' => array (false, null),
-            'Amount' => array (false, null),
-            'DeductionTypeID' => array (false, null),
-            'CalculationType' => array (false, null),
-            'EmployeeMax' => array (false, null),
-            'Percentage' => array (false, null),
-            'ReimbursementTypeID' => array (false, null),
-            'Description' => array (false, null),
-            'BenefitTypeID' => array (false, null)
+            'EarningsLines' => array (false, self::PROPERTY_TYPE_FLOAT, null, true),
+            'DeductionLines' => array (false, self::PROPERTY_TYPE_OBJECT, 'PayrollUS\\Paystub\\DeductionLine', true),
+            'ReimbursementLines' => array (false, self::PROPERTY_TYPE_OBJECT, 'PayrollUS\\Paystub\\ReimbursementLine', true),
+            'BenefitLines' => array (false, self::PROPERTY_TYPE_OBJECT, 'PayrollUS\\Paystub\\BenefitLine', true),
+            'EarningsTypeID' => array (false, self::PROPERTY_TYPE_STRING, null, false),
+            'UnitsOrHours' => array (false, self::PROPERTY_TYPE_STRING, null, true),
+            'RatePerUnit' => array (false, self::PROPERTY_TYPE_FLOAT, null, false),
+            'Amount' => array (false, self::PROPERTY_TYPE_FLOAT, null, false),
+            'DeductionTypeID' => array (false, self::PROPERTY_TYPE_STRING, null, false),
+            'CalculationType' => array (false, self::PROPERTY_TYPE_ENUM, null, false),
+            'EmployeeMax' => array (false, self::PROPERTY_TYPE_FLOAT, null, false),
+            'Percentage' => array (false, self::PROPERTY_TYPE_STRING, null, false),
+            'ReimbursementTypeID' => array (false, self::PROPERTY_TYPE_STRING, null, false),
+            'Description' => array (false, self::PROPERTY_TYPE_STRING, null, false),
+            'BenefitTypeID' => array (false, self::PROPERTY_TYPE_STRING, null, false)
         );
     }
 
@@ -195,54 +200,58 @@ class PayTemplate extends Remote\Object {
      * @return PayTemplate
      */
     public function addEarningsLine($value){
+        $this->_dirty['EarningsLines'] = true;
         $this->_data['EarningsLines'][] = $value;
         return $this;
     }
 
     /**
-     * @return string
+     * @return DeductionLine
      */
     public function getDeductionLines(){
         return $this->_data['DeductionLines'];
     }
 
     /**
-     * @param string[] $value
+     * @param DeductionLine[] $value
      * @return PayTemplate
      */
-    public function addDeductionLine($value){
+    public function addDeductionLine(DeductionLine $value){
+        $this->_dirty['DeductionLines'] = true;
         $this->_data['DeductionLines'][] = $value;
         return $this;
     }
 
     /**
-     * @return string
+     * @return ReimbursementLine
      */
     public function getReimbursementLines(){
         return $this->_data['ReimbursementLines'];
     }
 
     /**
-     * @param string[] $value
+     * @param ReimbursementLine[] $value
      * @return PayTemplate
      */
-    public function addReimbursementLine($value){
+    public function addReimbursementLine(ReimbursementLine $value){
+        $this->_dirty['ReimbursementLines'] = true;
         $this->_data['ReimbursementLines'][] = $value;
         return $this;
     }
 
     /**
-     * @return string
+     * @return BenefitLine
      */
     public function getBenefitLines(){
         return $this->_data['BenefitLines'];
     }
 
     /**
-     * @param string[] $value
+     * @param BenefitLine[] $value
      * @return PayTemplate
      */
-    public function addBenefitLine($value){
+    public function addBenefitLine(BenefitLine $value){
+        $this->_dirty['BenefitLines'] = true;
         $this->_data['BenefitLines'][] = $value;
         return $this;
     }
@@ -259,6 +268,7 @@ class PayTemplate extends Remote\Object {
      * @return PayTemplate
      */
     public function setEarningsTypeID($value){
+        $this->_dirty['EarningsTypeID'] = $this->_data['EarningsTypeID'] != $value;
         $this->_data['EarningsTypeID'] = $value;
         return $this;
     }
@@ -275,6 +285,7 @@ class PayTemplate extends Remote\Object {
      * @return PayTemplate
      */
     public function addUnitsOrHour($value){
+        $this->_dirty['UnitsOrHours'] = true;
         $this->_data['UnitsOrHours'][] = $value;
         return $this;
     }
@@ -291,6 +302,7 @@ class PayTemplate extends Remote\Object {
      * @return PayTemplate
      */
     public function setRatePerUnit($value){
+        $this->_dirty['RatePerUnit'] = $this->_data['RatePerUnit'] != $value;
         $this->_data['RatePerUnit'] = $value;
         return $this;
     }
@@ -307,6 +319,7 @@ class PayTemplate extends Remote\Object {
      * @return PayTemplate
      */
     public function setAmount($value){
+        $this->_dirty['Amount'] = $this->_data['Amount'] != $value;
         $this->_data['Amount'] = $value;
         return $this;
     }
@@ -323,6 +336,7 @@ class PayTemplate extends Remote\Object {
      * @return PayTemplate
      */
     public function setDeductionTypeID($value){
+        $this->_dirty['DeductionTypeID'] = $this->_data['DeductionTypeID'] != $value;
         $this->_data['DeductionTypeID'] = $value;
         return $this;
     }
@@ -339,6 +353,7 @@ class PayTemplate extends Remote\Object {
      * @return PayTemplate
      */
     public function setCalculationType($value){
+        $this->_dirty['CalculationType'] = $this->_data['CalculationType'] != $value;
         $this->_data['CalculationType'] = $value;
         return $this;
     }
@@ -355,6 +370,7 @@ class PayTemplate extends Remote\Object {
      * @return PayTemplate
      */
     public function setEmployeeMax($value){
+        $this->_dirty['EmployeeMax'] = $this->_data['EmployeeMax'] != $value;
         $this->_data['EmployeeMax'] = $value;
         return $this;
     }
@@ -371,6 +387,7 @@ class PayTemplate extends Remote\Object {
      * @return PayTemplate
      */
     public function setPercentage($value){
+        $this->_dirty['Percentage'] = $this->_data['Percentage'] != $value;
         $this->_data['Percentage'] = $value;
         return $this;
     }
@@ -387,6 +404,7 @@ class PayTemplate extends Remote\Object {
      * @return PayTemplate
      */
     public function setReimbursementTypeID($value){
+        $this->_dirty['ReimbursementTypeID'] = $this->_data['ReimbursementTypeID'] != $value;
         $this->_data['ReimbursementTypeID'] = $value;
         return $this;
     }
@@ -403,6 +421,7 @@ class PayTemplate extends Remote\Object {
      * @return PayTemplate
      */
     public function setDescription($value){
+        $this->_dirty['Description'] = $this->_data['Description'] != $value;
         $this->_data['Description'] = $value;
         return $this;
     }
@@ -419,6 +438,7 @@ class PayTemplate extends Remote\Object {
      * @return PayTemplate
      */
     public function setBenefitTypeID($value){
+        $this->_dirty['BenefitTypeID'] = $this->_data['BenefitTypeID'] != $value;
         $this->_data['BenefitTypeID'] = $value;
         return $this;
     }

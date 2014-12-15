@@ -10,19 +10,19 @@ class Payment extends Remote\Object {
     /**
      * 
      *
-     * @property string CreditNote
+     * @property CreditNote CreditNote
      */
 
     /**
      * 
      *
-     * @property string Invoice
+     * @property Invoice Invoice
      */
 
     /**
      * 
      *
-     * @property string Account
+     * @property Account Account
      */
 
     /**
@@ -152,72 +152,77 @@ class Payment extends Remote\Object {
      *
      * Get the properties of the object.  Indexed by constants
      *  [0] - Mandatory
-     *  [1] - Hintable type
+     *  [1] - Type
+     *  [2] - PHP type
+     *  [3] - Is an Array
      *
      * @return array
      */
     public static function getProperties(){
         return array(
-            'CreditNote' => array (false, null),
-            'Invoice' => array (false, null),
-            'Account' => array (false, null),
-            'Date' => array (false, '\DateTime'),
-            'CurrencyRate' => array (false, null),
-            'Amount' => array (false, null),
-            'Reference' => array (false, null),
-            'IsReconciled' => array (false, null),
-            'Status' => array (false, null),
-            'PaymentType' => array (false, null),
-            'UpdatedDateUTC' => array (false, '\DateTime'),
-            'PaymentID' => array (false, null)
+            'CreditNote' => array (false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\CreditNote', false),
+            'Invoice' => array (false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Invoice', false),
+            'Account' => array (false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Account', false),
+            'Date' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTime', false),
+            'CurrencyRate' => array (false, self::PROPERTY_TYPE_FLOAT, null, false),
+            'Amount' => array (false, self::PROPERTY_TYPE_FLOAT, null, false),
+            'Reference' => array (false, self::PROPERTY_TYPE_STRING, null, false),
+            'IsReconciled' => array (false, self::PROPERTY_TYPE_STRING, null, false),
+            'Status' => array (false, self::PROPERTY_TYPE_STRING, null, false),
+            'PaymentType' => array (false, self::PROPERTY_TYPE_ENUM, null, false),
+            'UpdatedDateUTC' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTime', false),
+            'PaymentID' => array (false, self::PROPERTY_TYPE_STRING, null, false)
         );
     }
 
 
     /**
-     * @return string
+     * @return CreditNote
      */
     public function getCreditNote(){
         return $this->_data['CreditNote'];
     }
 
     /**
-     * @param string $value
+     * @param CreditNote $value
      * @return Payment
      */
-    public function setCreditNote($value){
+    public function setCreditNote(CreditNote $value){
+        $this->_dirty['CreditNote'] = $this->_data['CreditNote'] != $value;
         $this->_data['CreditNote'] = $value;
         return $this;
     }
 
     /**
-     * @return string
+     * @return Invoice
      */
     public function getInvoice(){
         return $this->_data['Invoice'];
     }
 
     /**
-     * @param string $value
+     * @param Invoice $value
      * @return Payment
      */
-    public function setInvoice($value){
+    public function setInvoice(Invoice $value){
+        $this->_dirty['Invoice'] = $this->_data['Invoice'] != $value;
         $this->_data['Invoice'] = $value;
         return $this;
     }
 
     /**
-     * @return string
+     * @return Account
      */
     public function getAccount(){
         return $this->_data['Account'];
     }
 
     /**
-     * @param string $value
+     * @param Account $value
      * @return Payment
      */
-    public function setAccount($value){
+    public function setAccount(Account $value){
+        $this->_dirty['Account'] = $this->_data['Account'] != $value;
         $this->_data['Account'] = $value;
         return $this;
     }
@@ -234,6 +239,7 @@ class Payment extends Remote\Object {
      * @return Payment
      */
     public function setDate(\DateTime $value){
+        $this->_dirty['Date'] = $this->_data['Date'] != $value;
         $this->_data['Date'] = $value;
         return $this;
     }
@@ -250,6 +256,7 @@ class Payment extends Remote\Object {
      * @return Payment
      */
     public function setCurrencyRate($value){
+        $this->_dirty['CurrencyRate'] = $this->_data['CurrencyRate'] != $value;
         $this->_data['CurrencyRate'] = $value;
         return $this;
     }
@@ -266,6 +273,7 @@ class Payment extends Remote\Object {
      * @return Payment
      */
     public function setAmount($value){
+        $this->_dirty['Amount'] = $this->_data['Amount'] != $value;
         $this->_data['Amount'] = $value;
         return $this;
     }
@@ -282,6 +290,7 @@ class Payment extends Remote\Object {
      * @return Payment
      */
     public function setReference($value){
+        $this->_dirty['Reference'] = $this->_data['Reference'] != $value;
         $this->_data['Reference'] = $value;
         return $this;
     }
@@ -298,6 +307,7 @@ class Payment extends Remote\Object {
      * @return Payment
      */
     public function setIsReconciled($value){
+        $this->_dirty['IsReconciled'] = $this->_data['IsReconciled'] != $value;
         $this->_data['IsReconciled'] = $value;
         return $this;
     }
@@ -314,6 +324,7 @@ class Payment extends Remote\Object {
      * @return Payment
      */
     public function setStatu($value){
+        $this->_dirty['Status'] = $this->_data['Status'] != $value;
         $this->_data['Status'] = $value;
         return $this;
     }
@@ -330,6 +341,7 @@ class Payment extends Remote\Object {
      * @return Payment
      */
     public function setPaymentType($value){
+        $this->_dirty['PaymentType'] = $this->_data['PaymentType'] != $value;
         $this->_data['PaymentType'] = $value;
         return $this;
     }
@@ -346,6 +358,7 @@ class Payment extends Remote\Object {
      * @return Payment
      */
     public function setUpdatedDateUTC(\DateTime $value){
+        $this->_dirty['UpdatedDateUTC'] = $this->_data['UpdatedDateUTC'] != $value;
         $this->_data['UpdatedDateUTC'] = $value;
         return $this;
     }
@@ -362,6 +375,7 @@ class Payment extends Remote\Object {
      * @return Payment
      */
     public function setPaymentID($value){
+        $this->_dirty['PaymentID'] = $this->_data['PaymentID'] != $value;
         $this->_data['PaymentID'] = $value;
         return $this;
     }

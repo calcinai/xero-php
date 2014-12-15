@@ -4,31 +4,35 @@ namespace XeroPHP\Models\PayrollUS\Employee;
 
 use XeroPHP\Remote;
 
+use XeroPHP\Models\PayrollUS\Paystub\EarningsLine;
+use XeroPHP\Models\PayrollUS\Paystub\BenefitLine;
+use XeroPHP\Models\PayrollUS\Paystub\DeductionLine;
+use XeroPHP\Models\PayrollUS\Paystub\ReimbursementLine;
 
 class OpeningBalance extends Remote\Object {
 
     /**
      * The EarningsLines of the OpeningBalance.
      *
-     * @property string[] EarningsLines
+     * @property EarningsLine[] EarningsLines
      */
 
     /**
      * The BenefitLines of the OpeningBalance.
      *
-     * @property string[] BenefitLines
+     * @property BenefitLine[] BenefitLines
      */
 
     /**
      * The DeductionLines of the OpeningBalance.
      *
-     * @property string[] DeductionLines
+     * @property DeductionLine[] DeductionLines
      */
 
     /**
      * The ReimbursementLines of the OpeningBalance.
      *
-     * @property string[] ReimbursementLines
+     * @property ReimbursementLine[] ReimbursementLines
      */
 
     /**
@@ -144,89 +148,95 @@ class OpeningBalance extends Remote\Object {
      *
      * Get the properties of the object.  Indexed by constants
      *  [0] - Mandatory
-     *  [1] - Hintable type
+     *  [1] - Type
+     *  [2] - PHP type
+     *  [3] - Is an Array
      *
      * @return array
      */
     public static function getProperties(){
         return array(
-            'EarningsLines' => array (false, null),
-            'BenefitLines' => array (false, null),
-            'DeductionLines' => array (false, null),
-            'ReimbursementLines' => array (false, null),
-            'EarningsTypeID' => array (false, null),
-            'Amount' => array (false, null),
-            'BenefitTypeID' => array (false, null),
-            'DeductionTypeID' => array (false, null),
-            'ReimbursementTypeID' => array (false, null),
-            'Recordfilter' => array (false, null),
-            'EmployeeID' => array (false, null),
-            'ModifiedAfter' => array (false, '\DateTime'),
-            'page' => array (false, null)
+            'EarningsLines' => array (false, self::PROPERTY_TYPE_OBJECT, 'PayrollUS\\Paystub\\EarningsLine', true),
+            'BenefitLines' => array (false, self::PROPERTY_TYPE_OBJECT, 'PayrollUS\\Paystub\\BenefitLine', true),
+            'DeductionLines' => array (false, self::PROPERTY_TYPE_OBJECT, 'PayrollUS\\Paystub\\DeductionLine', true),
+            'ReimbursementLines' => array (false, self::PROPERTY_TYPE_OBJECT, 'PayrollUS\\Paystub\\ReimbursementLine', true),
+            'EarningsTypeID' => array (false, self::PROPERTY_TYPE_STRING, null, false),
+            'Amount' => array (false, self::PROPERTY_TYPE_FLOAT, null, false),
+            'BenefitTypeID' => array (false, self::PROPERTY_TYPE_STRING, null, false),
+            'DeductionTypeID' => array (false, self::PROPERTY_TYPE_STRING, null, false),
+            'ReimbursementTypeID' => array (false, self::PROPERTY_TYPE_STRING, null, false),
+            'Recordfilter' => array (false, self::PROPERTY_TYPE_STRING, null, false),
+            'EmployeeID' => array (false, self::PROPERTY_TYPE_STRING, null, false),
+            'ModifiedAfter' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTime', false),
+            'page' => array (false, self::PROPERTY_TYPE_STRING, null, false)
         );
     }
 
 
     /**
-     * @return string
+     * @return EarningsLine
      */
     public function getEarningsLines(){
         return $this->_data['EarningsLines'];
     }
 
     /**
-     * @param string[] $value
+     * @param EarningsLine[] $value
      * @return OpeningBalance
      */
-    public function addEarningsLine($value){
+    public function addEarningsLine(EarningsLine $value){
+        $this->_dirty['EarningsLines'] = true;
         $this->_data['EarningsLines'][] = $value;
         return $this;
     }
 
     /**
-     * @return string
+     * @return BenefitLine
      */
     public function getBenefitLines(){
         return $this->_data['BenefitLines'];
     }
 
     /**
-     * @param string[] $value
+     * @param BenefitLine[] $value
      * @return OpeningBalance
      */
-    public function addBenefitLine($value){
+    public function addBenefitLine(BenefitLine $value){
+        $this->_dirty['BenefitLines'] = true;
         $this->_data['BenefitLines'][] = $value;
         return $this;
     }
 
     /**
-     * @return string
+     * @return DeductionLine
      */
     public function getDeductionLines(){
         return $this->_data['DeductionLines'];
     }
 
     /**
-     * @param string[] $value
+     * @param DeductionLine[] $value
      * @return OpeningBalance
      */
-    public function addDeductionLine($value){
+    public function addDeductionLine(DeductionLine $value){
+        $this->_dirty['DeductionLines'] = true;
         $this->_data['DeductionLines'][] = $value;
         return $this;
     }
 
     /**
-     * @return string
+     * @return ReimbursementLine
      */
     public function getReimbursementLines(){
         return $this->_data['ReimbursementLines'];
     }
 
     /**
-     * @param string[] $value
+     * @param ReimbursementLine[] $value
      * @return OpeningBalance
      */
-    public function addReimbursementLine($value){
+    public function addReimbursementLine(ReimbursementLine $value){
+        $this->_dirty['ReimbursementLines'] = true;
         $this->_data['ReimbursementLines'][] = $value;
         return $this;
     }
@@ -243,6 +253,7 @@ class OpeningBalance extends Remote\Object {
      * @return OpeningBalance
      */
     public function setEarningsTypeID($value){
+        $this->_dirty['EarningsTypeID'] = $this->_data['EarningsTypeID'] != $value;
         $this->_data['EarningsTypeID'] = $value;
         return $this;
     }
@@ -259,6 +270,7 @@ class OpeningBalance extends Remote\Object {
      * @return OpeningBalance
      */
     public function setAmount($value){
+        $this->_dirty['Amount'] = $this->_data['Amount'] != $value;
         $this->_data['Amount'] = $value;
         return $this;
     }
@@ -275,6 +287,7 @@ class OpeningBalance extends Remote\Object {
      * @return OpeningBalance
      */
     public function setBenefitTypeID($value){
+        $this->_dirty['BenefitTypeID'] = $this->_data['BenefitTypeID'] != $value;
         $this->_data['BenefitTypeID'] = $value;
         return $this;
     }
@@ -291,6 +304,7 @@ class OpeningBalance extends Remote\Object {
      * @return OpeningBalance
      */
     public function setDeductionTypeID($value){
+        $this->_dirty['DeductionTypeID'] = $this->_data['DeductionTypeID'] != $value;
         $this->_data['DeductionTypeID'] = $value;
         return $this;
     }
@@ -307,6 +321,7 @@ class OpeningBalance extends Remote\Object {
      * @return OpeningBalance
      */
     public function setReimbursementTypeID($value){
+        $this->_dirty['ReimbursementTypeID'] = $this->_data['ReimbursementTypeID'] != $value;
         $this->_data['ReimbursementTypeID'] = $value;
         return $this;
     }
@@ -323,6 +338,7 @@ class OpeningBalance extends Remote\Object {
      * @return OpeningBalance
      */
     public function setRecordfilter($value){
+        $this->_dirty['Recordfilter'] = $this->_data['Recordfilter'] != $value;
         $this->_data['Recordfilter'] = $value;
         return $this;
     }
@@ -339,6 +355,7 @@ class OpeningBalance extends Remote\Object {
      * @return OpeningBalance
      */
     public function setEmployeeID($value){
+        $this->_dirty['EmployeeID'] = $this->_data['EmployeeID'] != $value;
         $this->_data['EmployeeID'] = $value;
         return $this;
     }
@@ -355,6 +372,7 @@ class OpeningBalance extends Remote\Object {
      * @return OpeningBalance
      */
     public function setModifiedAfter(\DateTime $value){
+        $this->_dirty['ModifiedAfter'] = $this->_data['ModifiedAfter'] != $value;
         $this->_data['ModifiedAfter'] = $value;
         return $this;
     }
@@ -371,6 +389,7 @@ class OpeningBalance extends Remote\Object {
      * @return OpeningBalance
      */
     public function setpage($value){
+        $this->_dirty['page'] = $this->_data['page'] != $value;
         $this->_data['page'] = $value;
         return $this;
     }

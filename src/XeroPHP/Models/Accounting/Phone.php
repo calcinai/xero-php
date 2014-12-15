@@ -90,16 +90,18 @@ class Phone extends Remote\Object {
      *
      * Get the properties of the object.  Indexed by constants
      *  [0] - Mandatory
-     *  [1] - Hintable type
+     *  [1] - Type
+     *  [2] - PHP type
+     *  [3] - Is an Array
      *
      * @return array
      */
     public static function getProperties(){
         return array(
-            'PhoneType' => array (false, null),
-            'PhoneNumber' => array (false, null),
-            'PhoneAreaCode' => array (false, null),
-            'PhoneCountryCode' => array (false, null)
+            'PhoneType' => array (false, self::PROPERTY_TYPE_ENUM, null, false),
+            'PhoneNumber' => array (false, self::PROPERTY_TYPE_STRING, null, false),
+            'PhoneAreaCode' => array (false, self::PROPERTY_TYPE_STRING, null, false),
+            'PhoneCountryCode' => array (false, self::PROPERTY_TYPE_STRING, null, false)
         );
     }
 
@@ -116,6 +118,7 @@ class Phone extends Remote\Object {
      * @return Phone
      */
     public function setPhoneType($value){
+        $this->_dirty['PhoneType'] = $this->_data['PhoneType'] != $value;
         $this->_data['PhoneType'] = $value;
         return $this;
     }
@@ -132,6 +135,7 @@ class Phone extends Remote\Object {
      * @return Phone
      */
     public function setPhoneNumber($value){
+        $this->_dirty['PhoneNumber'] = $this->_data['PhoneNumber'] != $value;
         $this->_data['PhoneNumber'] = $value;
         return $this;
     }
@@ -148,6 +152,7 @@ class Phone extends Remote\Object {
      * @return Phone
      */
     public function setPhoneAreaCode($value){
+        $this->_dirty['PhoneAreaCode'] = $this->_data['PhoneAreaCode'] != $value;
         $this->_data['PhoneAreaCode'] = $value;
         return $this;
     }
@@ -164,6 +169,7 @@ class Phone extends Remote\Object {
      * @return Phone
      */
     public function setPhoneCountryCode($value){
+        $this->_dirty['PhoneCountryCode'] = $this->_data['PhoneCountryCode'] != $value;
         $this->_data['PhoneCountryCode'] = $value;
         return $this;
     }

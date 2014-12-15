@@ -93,17 +93,19 @@ class DeductionType extends Remote\Object {
      *
      * Get the properties of the object.  Indexed by constants
      *  [0] - Mandatory
-     *  [1] - Hintable type
+     *  [1] - Type
+     *  [2] - PHP type
+     *  [3] - Is an Array
      *
      * @return array
      */
     public static function getProperties(){
         return array(
-            'Name' => array (true, null),
-            'AccountCode' => array (true, null),
-            'ReducesTax' => array (true, null),
-            'ReducesSuper' => array (true, null),
-            'DeductionTypeID' => array (false, null)
+            'Name' => array (true, self::PROPERTY_TYPE_STRING, null, false),
+            'AccountCode' => array (true, self::PROPERTY_TYPE_STRING, null, false),
+            'ReducesTax' => array (true, self::PROPERTY_TYPE_FLOAT, null, false),
+            'ReducesSuper' => array (true, self::PROPERTY_TYPE_STRING, null, false),
+            'DeductionTypeID' => array (false, self::PROPERTY_TYPE_STRING, null, false)
         );
     }
 
@@ -120,6 +122,7 @@ class DeductionType extends Remote\Object {
      * @return DeductionType
      */
     public function setName($value){
+        $this->_dirty['Name'] = $this->_data['Name'] != $value;
         $this->_data['Name'] = $value;
         return $this;
     }
@@ -136,6 +139,7 @@ class DeductionType extends Remote\Object {
      * @return DeductionType
      */
     public function setAccountCode($value){
+        $this->_dirty['AccountCode'] = $this->_data['AccountCode'] != $value;
         $this->_data['AccountCode'] = $value;
         return $this;
     }
@@ -152,6 +156,7 @@ class DeductionType extends Remote\Object {
      * @return DeductionType
      */
     public function setReducesTax($value){
+        $this->_dirty['ReducesTax'] = $this->_data['ReducesTax'] != $value;
         $this->_data['ReducesTax'] = $value;
         return $this;
     }
@@ -168,6 +173,7 @@ class DeductionType extends Remote\Object {
      * @return DeductionType
      */
     public function setReducesSuper($value){
+        $this->_dirty['ReducesSuper'] = $this->_data['ReducesSuper'] != $value;
         $this->_data['ReducesSuper'] = $value;
         return $this;
     }
@@ -184,6 +190,7 @@ class DeductionType extends Remote\Object {
      * @return DeductionType
      */
     public function setDeductionTypeID($value){
+        $this->_dirty['DeductionTypeID'] = $this->_data['DeductionTypeID'] != $value;
         $this->_data['DeductionTypeID'] = $value;
         return $this;
     }

@@ -1,5 +1,7 @@
 <?php
 
+use XeroPHP\Remote\Object;
+
 class Model {
 
     private $name;
@@ -106,7 +108,7 @@ class Model {
 
         $classes = array();
         foreach($this->getProperties() as $property){
-            if($property->getType() === Property::TYPE_OBJECT) {
+            if($property->getType() === Object::PROPERTY_TYPE_OBJECT) {
                 if($property->getRelatedObject()->getNamespace() !== $this->getNamespace()){
                     $key = $property->getRelatedObject()->getClassName(true);
                     $classes[$key] = $key;
@@ -165,7 +167,7 @@ class Model {
 
         //Otherwise just pick one.  This will only happen if the property isn't called [Model]ID
         foreach($this->properties as $property){
-            if($property->getType() === Property::TYPE_GUID)
+            if($property->getType() === Object::PROPERTY_TYPE_GUID)
                 return $property;
         }
 

@@ -1,15 +1,8 @@
 <?php
 
-class Property {
+use XeroPHP\Remote\Object;
 
-    const TYPE_STRING   = 'string';
-    const TYPE_INT      = 'int';
-    const TYPE_FLOAT    = 'float';
-    const TYPE_BOOLEAN  = 'bool';
-    const TYPE_ENUM     = 'enum';
-    const TYPE_GUID     = 'guid';
-    const TYPE_DATE     = 'date';
-    const TYPE_OBJECT   = 'object';
+class Property {
 
     private $model; //this is required so you can search the other models/enums
 
@@ -112,8 +105,8 @@ class Property {
 
         switch(true){
             case stripos($this->getName(), 'status') !== false:
-            case $this->getType() === self::TYPE_BOOLEAN:
-            case $this->getType() === self::TYPE_ENUM:
+            case $this->getType() === Object::PROPERTY_TYPE_BOOLEAN:
+            case $this->getType() === Object::PROPERTY_TYPE_ENUM:
                 return false;
             default:
                 return $this->getNameSingular() != $this->getName();
@@ -132,30 +125,41 @@ class Property {
         return $this->type;
     }
 
+    public function getTypeConstant(){
+        //Ew.
+        $rc = new ReflectionClass('\\XeroPHP\\Remote\\Object');
+        foreach($rc->getConstants() as $constant_name => $constant_value)
+            if($constant_value === $this->getType())
+                return $constant_name;
+
+        return null;
+
+    }
+
     /**
      * @return string
      */
     public function getPHPType($with_ns = false) {
 
         switch($this->getType()){
-            case self::TYPE_INT:
+            case Object::PROPERTY_TYPE_INT:
                 return 'int';
 
-            case self::TYPE_FLOAT:
+            case Object::PROPERTY_TYPE_FLOAT:
                 return 'float';
 
-            case self::TYPE_BOOLEAN:
+            case Object::PROPERTY_TYPE_BOOLEAN:
                 return 'bool';
 
-            case self::TYPE_STRING:
-            case self::TYPE_GUID:
-            case self::TYPE_ENUM:
+            case Object::PROPERTY_TYPE_STRING:
+            case Object::PROPERTY_TYPE_GUID:
+            case Object::PROPERTY_TYPE_ENUM:
                 return 'string';
 
-            case self::TYPE_DATE:
+            case Object::PROPERTY_TYPE_DATE:
                 return '\DateTime';
 
-            case self::TYPE_OBJECT:
+            case Object::PROPERTY_TYPE_OBJECT:
                 return $this->related_object->getClassName($with_ns);
         }
 
@@ -170,8 +174,8 @@ class Property {
     public function isHintable(){
 
         switch($this->getType()){
-            case self::TYPE_DATE:
-            case self::TYPE_OBJECT:
+            case Object::PROPERTY_TYPE_DATE:
+            case Object::PROPERTY_TYPE_OBJECT:
                 return true;
             default:
                 return false;
@@ -189,27 +193,27 @@ class Property {
 
         //Spelling errors in the docs
         if(preg_match('/^((a\s)?bool|true\b|booelan)/i', $this->description))
-            $type = self::TYPE_BOOLEAN;
+            $type = Object::PROPERTY_TYPE_BOOLEAN;
 
         if(preg_match('/(^sum\b|decimal|the\stotal|total\s(of|tax)|rate\b|amount\b)/i', $this->description))
-            $type = self::TYPE_FLOAT;
+            $type = Object::PROPERTY_TYPE_FLOAT;
 
         if(preg_match('/(^int(eger)?\b)/i', $this->description))
-            $type = self::TYPE_INT;
+            $type = Object::PROPERTY_TYPE_INT;
 
         if(preg_match('/(UTC|timestamp|\bdate\b)/i', $this->description))
-            $type = self::TYPE_DATE;
+            $type = Object::PROPERTY_TYPE_DATE;
 
         if(preg_match('/Xero (generated )?(unique )?identifier/i', $this->description))
-            $type = self::TYPE_GUID;
+            $type = Object::PROPERTY_TYPE_GUID;
 
         if($this->getModel()->getClassName().'ID' == $this->getName()){
-            $type = self::TYPE_GUID;
+            $type = Object::PROPERTY_TYPE_GUID;
             $this->getModel()->setGUIDProperty($this);
         }
 
         if(preg_match('/(Code|ID)$/', $this->getName()))
-            $type = self::TYPE_STRING;
+            $type = Object::PROPERTY_TYPE_STRING;
 
         $result = null;
 
@@ -217,42 +221,47 @@ class Property {
             //The ns hint for searching, look for subclasses of this first.
             $ns_hint = sprintf('%s\\%s', $this->getModel()->getNamespace(), $this->getModel()->getClassName());
 
-            foreach($this->links as $link) {
-                $search_text = str_replace(' ', '', ucwords($link['text']));
+            $result = $this->getModel()->getAPI()->searchByKey($this->getName(), $ns_hint);
 
-                $result = $this->getModel()->getAPI()->searchByKey($search_text, $ns_hint);
+            if($result === null) {
+                foreach($this->links as $link) {
+                    $search_text = str_replace(' ', '', ucwords($link['text']));
 
-                //then try anchor
-                if($result === null) {
-                    if(preg_match('/#(?<anchor>.+)/i', $link['href'], $matches)) {
-                        $result = $this->getModel()->getAPI()->searchByKey($matches['anchor'], $ns_hint);
+                    $result = $this->getModel()->getAPI()->searchByKey($search_text, $ns_hint);
+
+                    //then try anchor
+                    if($result === null) {
+                        if(preg_match('/#(?<anchor>.+)/i', $link['href'], $matches)) {
+                            $result = $this->getModel()->getAPI()->searchByKey($matches['anchor'], $ns_hint);
+                        }
                     }
                 }
             }
+
+            if($result === null){
+                if(preg_match('/see\s(?<model>[^.]+)/i', $this->getDescription(), $matches))
+                    $result = $this->getModel()->getAPI()->searchByKey(str_replace(' ', '', ucwords($matches['model'])), $ns_hint);
+            }
+
+            //I have tried very hard to avoid special cases!
+            if($result === null){
+                if(preg_match('/^(?<model>Purchase|Sale)s?Details/i', $this->getName(), $matches))
+                    $result = $this->getModel()->getAPI()->searchByKey($matches['model'], $ns_hint);
+            }
+
         }
 
 
-        if(!isset($type) && $result === null){
-            if(preg_match('/see\s(?<model>[^.]+)/i', $this->getDescription(), $matches))
-                $result = $this->getModel()->getAPI()->searchByKey(str_replace(' ', '', ucwords($matches['model'])), $ns_hint);
-        }
-
-
-        //I have tried very hard to avoid special cases!
-        if(!isset($type) && $result === null){
-            if(preg_match('/^(?<model>Purchase|Sale)s?Details/i', $this->getName(), $matches))
-                $result = $this->getModel()->getAPI()->searchByKey($matches['model'], $ns_hint);
-        }
 
         if($result instanceof Enum)
-            $type = self::TYPE_ENUM;
+            $type = Object::PROPERTY_TYPE_ENUM;
         elseif($result instanceof Model){
-            $type = self::TYPE_OBJECT;
+            $type = Object::PROPERTY_TYPE_OBJECT;
             $this->related_object = $result;
         }
 
         if(!isset($type))
-            $type = self::TYPE_STRING;
+            $type = Object::PROPERTY_TYPE_STRING;
 
         return $type;
     }

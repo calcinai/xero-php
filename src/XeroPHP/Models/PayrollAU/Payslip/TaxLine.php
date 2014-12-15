@@ -86,16 +86,18 @@ class TaxLine extends Remote\Object {
      *
      * Get the properties of the object.  Indexed by constants
      *  [0] - Mandatory
-     *  [1] - Hintable type
+     *  [1] - Type
+     *  [2] - PHP type
+     *  [3] - Is an Array
      *
      * @return array
      */
     public static function getProperties(){
         return array(
-            'TaxTypeName' => array (false, null),
-            'Description' => array (false, null),
-            'Amount' => array (false, null),
-            'LiabilityAccount' => array (false, null)
+            'TaxTypeName' => array (false, self::PROPERTY_TYPE_STRING, null, false),
+            'Description' => array (false, self::PROPERTY_TYPE_STRING, null, false),
+            'Amount' => array (false, self::PROPERTY_TYPE_FLOAT, null, false),
+            'LiabilityAccount' => array (false, self::PROPERTY_TYPE_STRING, null, false)
         );
     }
 
@@ -112,6 +114,7 @@ class TaxLine extends Remote\Object {
      * @return TaxLine
      */
     public function setTaxTypeName($value){
+        $this->_dirty['TaxTypeName'] = $this->_data['TaxTypeName'] != $value;
         $this->_data['TaxTypeName'] = $value;
         return $this;
     }
@@ -128,6 +131,7 @@ class TaxLine extends Remote\Object {
      * @return TaxLine
      */
     public function setDescription($value){
+        $this->_dirty['Description'] = $this->_data['Description'] != $value;
         $this->_data['Description'] = $value;
         return $this;
     }
@@ -144,6 +148,7 @@ class TaxLine extends Remote\Object {
      * @return TaxLine
      */
     public function setAmount($value){
+        $this->_dirty['Amount'] = $this->_data['Amount'] != $value;
         $this->_data['Amount'] = $value;
         return $this;
     }
@@ -160,6 +165,7 @@ class TaxLine extends Remote\Object {
      * @return TaxLine
      */
     public function setLiabilityAccount($value){
+        $this->_dirty['LiabilityAccount'] = $this->_data['LiabilityAccount'] != $value;
         $this->_data['LiabilityAccount'] = $value;
         return $this;
     }

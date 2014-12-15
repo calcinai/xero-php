@@ -118,20 +118,22 @@ class LineItem extends Remote\Object {
      *
      * Get the properties of the object.  Indexed by constants
      *  [0] - Mandatory
-     *  [1] - Hintable type
+     *  [1] - Type
+     *  [2] - PHP type
+     *  [3] - Is an Array
      *
      * @return array
      */
     public static function getProperties(){
         return array(
-            'Description' => array (true, null),
-            'UnitAmount' => array (true, null),
-            'AccountCode' => array (true, null),
-            'Quantity' => array (false, null),
-            'TaxType' => array (false, null),
-            'LineAmount' => array (false, null),
-            'Tracking' => array (false, null),
-            'DiscountRate' => array (false, null)
+            'Description' => array (true, self::PROPERTY_TYPE_FLOAT, null, false),
+            'UnitAmount' => array (true, self::PROPERTY_TYPE_FLOAT, null, false),
+            'AccountCode' => array (true, self::PROPERTY_TYPE_STRING, null, false),
+            'Quantity' => array (false, self::PROPERTY_TYPE_STRING, null, false),
+            'TaxType' => array (false, self::PROPERTY_TYPE_ENUM, null, false),
+            'LineAmount' => array (false, self::PROPERTY_TYPE_FLOAT, null, false),
+            'Tracking' => array (false, self::PROPERTY_TYPE_STRING, null, false),
+            'DiscountRate' => array (false, self::PROPERTY_TYPE_STRING, null, false)
         );
     }
 
@@ -148,6 +150,7 @@ class LineItem extends Remote\Object {
      * @return LineItem
      */
     public function setDescription($value){
+        $this->_dirty['Description'] = $this->_data['Description'] != $value;
         $this->_data['Description'] = $value;
         return $this;
     }
@@ -164,6 +167,7 @@ class LineItem extends Remote\Object {
      * @return LineItem
      */
     public function setUnitAmount($value){
+        $this->_dirty['UnitAmount'] = $this->_data['UnitAmount'] != $value;
         $this->_data['UnitAmount'] = $value;
         return $this;
     }
@@ -180,6 +184,7 @@ class LineItem extends Remote\Object {
      * @return LineItem
      */
     public function setAccountCode($value){
+        $this->_dirty['AccountCode'] = $this->_data['AccountCode'] != $value;
         $this->_data['AccountCode'] = $value;
         return $this;
     }
@@ -196,6 +201,7 @@ class LineItem extends Remote\Object {
      * @return LineItem
      */
     public function setQuantity($value){
+        $this->_dirty['Quantity'] = $this->_data['Quantity'] != $value;
         $this->_data['Quantity'] = $value;
         return $this;
     }
@@ -212,6 +218,7 @@ class LineItem extends Remote\Object {
      * @return LineItem
      */
     public function setTaxType($value){
+        $this->_dirty['TaxType'] = $this->_data['TaxType'] != $value;
         $this->_data['TaxType'] = $value;
         return $this;
     }
@@ -228,6 +235,7 @@ class LineItem extends Remote\Object {
      * @return LineItem
      */
     public function setLineAmount($value){
+        $this->_dirty['LineAmount'] = $this->_data['LineAmount'] != $value;
         $this->_data['LineAmount'] = $value;
         return $this;
     }
@@ -244,6 +252,7 @@ class LineItem extends Remote\Object {
      * @return LineItem
      */
     public function setTracking($value){
+        $this->_dirty['Tracking'] = $this->_data['Tracking'] != $value;
         $this->_data['Tracking'] = $value;
         return $this;
     }
@@ -260,6 +269,7 @@ class LineItem extends Remote\Object {
      * @return LineItem
      */
     public function setDiscountRate($value){
+        $this->_dirty['DiscountRate'] = $this->_data['DiscountRate'] != $value;
         $this->_data['DiscountRate'] = $value;
         return $this;
     }

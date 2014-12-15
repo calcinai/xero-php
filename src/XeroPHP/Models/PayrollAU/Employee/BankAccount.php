@@ -105,19 +105,21 @@ class BankAccount extends Remote\Object {
      *
      * Get the properties of the object.  Indexed by constants
      *  [0] - Mandatory
-     *  [1] - Hintable type
+     *  [1] - Type
+     *  [2] - PHP type
+     *  [3] - Is an Array
      *
      * @return array
      */
     public static function getProperties(){
         return array(
-            'StatementText' => array (false, null),
-            'AccountName' => array (false, null),
-            'BSB' => array (false, null),
-            'AccountNumber' => array (false, null),
-            'Remainder' => array (false, null),
-            'Percentage' => array (false, null),
-            'Amount' => array (false, null)
+            'StatementText' => array (false, self::PROPERTY_TYPE_STRING, null, false),
+            'AccountName' => array (false, self::PROPERTY_TYPE_STRING, null, false),
+            'BSB' => array (false, self::PROPERTY_TYPE_STRING, null, false),
+            'AccountNumber' => array (false, self::PROPERTY_TYPE_STRING, null, false),
+            'Remainder' => array (false, self::PROPERTY_TYPE_STRING, null, false),
+            'Percentage' => array (false, self::PROPERTY_TYPE_STRING, null, false),
+            'Amount' => array (false, self::PROPERTY_TYPE_FLOAT, null, false)
         );
     }
 
@@ -134,6 +136,7 @@ class BankAccount extends Remote\Object {
      * @return BankAccount
      */
     public function setStatementText($value){
+        $this->_dirty['StatementText'] = $this->_data['StatementText'] != $value;
         $this->_data['StatementText'] = $value;
         return $this;
     }
@@ -150,6 +153,7 @@ class BankAccount extends Remote\Object {
      * @return BankAccount
      */
     public function setAccountName($value){
+        $this->_dirty['AccountName'] = $this->_data['AccountName'] != $value;
         $this->_data['AccountName'] = $value;
         return $this;
     }
@@ -166,6 +170,7 @@ class BankAccount extends Remote\Object {
      * @return BankAccount
      */
     public function setBSB($value){
+        $this->_dirty['BSB'] = $this->_data['BSB'] != $value;
         $this->_data['BSB'] = $value;
         return $this;
     }
@@ -182,6 +187,7 @@ class BankAccount extends Remote\Object {
      * @return BankAccount
      */
     public function setAccountNumber($value){
+        $this->_dirty['AccountNumber'] = $this->_data['AccountNumber'] != $value;
         $this->_data['AccountNumber'] = $value;
         return $this;
     }
@@ -198,6 +204,7 @@ class BankAccount extends Remote\Object {
      * @return BankAccount
      */
     public function setRemainder($value){
+        $this->_dirty['Remainder'] = $this->_data['Remainder'] != $value;
         $this->_data['Remainder'] = $value;
         return $this;
     }
@@ -214,6 +221,7 @@ class BankAccount extends Remote\Object {
      * @return BankAccount
      */
     public function setPercentage($value){
+        $this->_dirty['Percentage'] = $this->_data['Percentage'] != $value;
         $this->_data['Percentage'] = $value;
         return $this;
     }
@@ -230,6 +238,7 @@ class BankAccount extends Remote\Object {
      * @return BankAccount
      */
     public function setAmount($value){
+        $this->_dirty['Amount'] = $this->_data['Amount'] != $value;
         $this->_data['Amount'] = $value;
         return $this;
     }

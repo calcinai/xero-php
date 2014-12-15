@@ -85,16 +85,18 @@ class EarningsLine extends Remote\Object {
      *
      * Get the properties of the object.  Indexed by constants
      *  [0] - Mandatory
-     *  [1] - Hintable type
+     *  [1] - Type
+     *  [2] - PHP type
+     *  [3] - Is an Array
      *
      * @return array
      */
     public static function getProperties(){
         return array(
-            'EarningsRateID' => array (false, null),
-            'RatePerUnit' => array (false, null),
-            'NumberOfUnits' => array (false, null),
-            'FixedAmount' => array (false, null)
+            'EarningsRateID' => array (false, self::PROPERTY_TYPE_STRING, null, false),
+            'RatePerUnit' => array (false, self::PROPERTY_TYPE_FLOAT, null, false),
+            'NumberOfUnits' => array (false, self::PROPERTY_TYPE_FLOAT, null, true),
+            'FixedAmount' => array (false, self::PROPERTY_TYPE_FLOAT, null, false)
         );
     }
 
@@ -111,6 +113,7 @@ class EarningsLine extends Remote\Object {
      * @return EarningsLine
      */
     public function setEarningsRateID($value){
+        $this->_dirty['EarningsRateID'] = $this->_data['EarningsRateID'] != $value;
         $this->_data['EarningsRateID'] = $value;
         return $this;
     }
@@ -127,6 +130,7 @@ class EarningsLine extends Remote\Object {
      * @return EarningsLine
      */
     public function setRatePerUnit($value){
+        $this->_dirty['RatePerUnit'] = $this->_data['RatePerUnit'] != $value;
         $this->_data['RatePerUnit'] = $value;
         return $this;
     }
@@ -143,6 +147,7 @@ class EarningsLine extends Remote\Object {
      * @return EarningsLine
      */
     public function addNumberOfUnit($value){
+        $this->_dirty['NumberOfUnits'] = true;
         $this->_data['NumberOfUnits'][] = $value;
         return $this;
     }
@@ -159,6 +164,7 @@ class EarningsLine extends Remote\Object {
      * @return EarningsLine
      */
     public function setFixedAmount($value){
+        $this->_dirty['FixedAmount'] = $this->_data['FixedAmount'] != $value;
         $this->_data['FixedAmount'] = $value;
         return $this;
     }

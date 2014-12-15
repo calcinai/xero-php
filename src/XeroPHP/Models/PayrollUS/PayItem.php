@@ -98,17 +98,19 @@ class PayItem extends Remote\Object {
      *
      * Get the properties of the object.  Indexed by constants
      *  [0] - Mandatory
-     *  [1] - Hintable type
+     *  [1] - Type
+     *  [2] - PHP type
+     *  [3] - Is an Array
      *
      * @return array
      */
     public static function getProperties(){
         return array(
-            'EarningsTypes' => array (false, 'PayrollUS\PayItem\EarningsType'),
-            'BenefitTypes' => array (false, 'PayrollUS\PayItem\BenefitType'),
-            'DeductionTypes' => array (false, 'PayrollUS\PayItem\DeductionType'),
-            'ReimbursementTypes' => array (false, 'PayrollUS\PayItem\ReimbursementType'),
-            'TimeOffTypes' => array (false, 'PayrollUS\PayItem\TimeOffType')
+            'EarningsTypes' => array (false, self::PROPERTY_TYPE_OBJECT, 'PayrollUS\\PayItem\\EarningsType', true),
+            'BenefitTypes' => array (false, self::PROPERTY_TYPE_OBJECT, 'PayrollUS\\PayItem\\BenefitType', true),
+            'DeductionTypes' => array (false, self::PROPERTY_TYPE_OBJECT, 'PayrollUS\\PayItem\\DeductionType', true),
+            'ReimbursementTypes' => array (false, self::PROPERTY_TYPE_OBJECT, 'PayrollUS\\PayItem\\ReimbursementType', true),
+            'TimeOffTypes' => array (false, self::PROPERTY_TYPE_OBJECT, 'PayrollUS\\PayItem\\TimeOffType', true)
         );
     }
 
@@ -125,6 +127,7 @@ class PayItem extends Remote\Object {
      * @return PayItem
      */
     public function addEarningsType(EarningsType $value){
+        $this->_dirty['EarningsTypes'] = true;
         $this->_data['EarningsTypes'][] = $value;
         return $this;
     }
@@ -141,6 +144,7 @@ class PayItem extends Remote\Object {
      * @return PayItem
      */
     public function addBenefitType(BenefitType $value){
+        $this->_dirty['BenefitTypes'] = true;
         $this->_data['BenefitTypes'][] = $value;
         return $this;
     }
@@ -157,6 +161,7 @@ class PayItem extends Remote\Object {
      * @return PayItem
      */
     public function addDeductionType(DeductionType $value){
+        $this->_dirty['DeductionTypes'] = true;
         $this->_data['DeductionTypes'][] = $value;
         return $this;
     }
@@ -173,6 +178,7 @@ class PayItem extends Remote\Object {
      * @return PayItem
      */
     public function addReimbursementType(ReimbursementType $value){
+        $this->_dirty['ReimbursementTypes'] = true;
         $this->_data['ReimbursementTypes'][] = $value;
         return $this;
     }
@@ -189,6 +195,7 @@ class PayItem extends Remote\Object {
      * @return PayItem
      */
     public function addTimeOffType(TimeOffType $value){
+        $this->_dirty['TimeOffTypes'] = true;
         $this->_data['TimeOffTypes'][] = $value;
         return $this;
     }

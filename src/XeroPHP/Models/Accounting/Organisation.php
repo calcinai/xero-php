@@ -4,6 +4,8 @@ namespace XeroPHP\Models\Accounting;
 
 use XeroPHP\Remote;
 
+use XeroPHP\Models\Accounting\Organisation\ExternalLink;
+use XeroPHP\Models\Accounting\Organisation\PaymentTerm;
 
 class Organisation extends Remote\Object {
 
@@ -156,13 +158,13 @@ class Organisation extends Remote\Object {
      * You can also add link to your website here. Shown if Organisation settings  is updated in Xero. See
      * ExternalLinks below
      *
-     * @property string[] ExternalLinks
+     * @property ExternalLink[] ExternalLinks
      */
 
     /**
      * Default payment terms for the organisation if set – See Payment Terms below
      *
-     * @property string[] PaymentTerms
+     * @property PaymentTerm[] PaymentTerms
      */
 
 
@@ -238,38 +240,40 @@ class Organisation extends Remote\Object {
      *
      * Get the properties of the object.  Indexed by constants
      *  [0] - Mandatory
-     *  [1] - Hintable type
+     *  [1] - Type
+     *  [2] - PHP type
+     *  [3] - Is an Array
      *
      * @return array
      */
     public static function getProperties(){
         return array(
-            'APIKey' => array (false, null),
-            'Name' => array (false, null),
-            'LegalName' => array (false, null),
-            'PaysTax' => array (false, null),
-            'Version' => array (false, null),
-            'BaseCurrency' => array (false, null),
-            'CountryCode' => array (false, null),
-            'IsDemoCompany' => array (false, null),
-            'OrganisationStatus' => array (false, null),
-            'RegistrationNumber' => array (false, null),
-            'TaxNumber' => array (false, null),
-            'FinancialYearEndDay' => array (false, null),
-            'FinancialYearEndMonth' => array (false, null),
-            'SalesTaxBasis' => array (false, null),
-            'SalesTaxPeriod' => array (false, null),
-            'PeriodLockDate' => array (false, null),
-            'EndOfYearLockDate' => array (false, null),
-            'CreatedDateUTC' => array (false, '\DateTime'),
-            'OrganisationEntityType' => array (false, null),
-            'Timezone' => array (false, null),
-            'ShortCode' => array (false, null),
-            'LineOfBusiness' => array (false, null),
-            'Addresses' => array (false, 'Accounting\Address'),
-            'Phones' => array (false, 'Accounting\Phone'),
-            'ExternalLinks' => array (false, null),
-            'PaymentTerms' => array (false, null)
+            'APIKey' => array (false, self::PROPERTY_TYPE_STRING, null, false),
+            'Name' => array (false, self::PROPERTY_TYPE_STRING, null, false),
+            'LegalName' => array (false, self::PROPERTY_TYPE_STRING, null, false),
+            'PaysTax' => array (false, self::PROPERTY_TYPE_BOOLEAN, null, false),
+            'Version' => array (false, self::PROPERTY_TYPE_ENUM, null, false),
+            'BaseCurrency' => array (false, self::PROPERTY_TYPE_STRING, null, false),
+            'CountryCode' => array (false, self::PROPERTY_TYPE_STRING, null, false),
+            'IsDemoCompany' => array (false, self::PROPERTY_TYPE_BOOLEAN, null, false),
+            'OrganisationStatus' => array (false, self::PROPERTY_TYPE_STRING, null, false),
+            'RegistrationNumber' => array (false, self::PROPERTY_TYPE_STRING, null, false),
+            'TaxNumber' => array (false, self::PROPERTY_TYPE_STRING, null, false),
+            'FinancialYearEndDay' => array (false, self::PROPERTY_TYPE_STRING, null, false),
+            'FinancialYearEndMonth' => array (false, self::PROPERTY_TYPE_STRING, null, false),
+            'SalesTaxBasis' => array (false, self::PROPERTY_TYPE_ENUM, null, false),
+            'SalesTaxPeriod' => array (false, self::PROPERTY_TYPE_ENUM, null, false),
+            'PeriodLockDate' => array (false, self::PROPERTY_TYPE_STRING, null, false),
+            'EndOfYearLockDate' => array (false, self::PROPERTY_TYPE_STRING, null, false),
+            'CreatedDateUTC' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTime', false),
+            'OrganisationEntityType' => array (false, self::PROPERTY_TYPE_ENUM, null, false),
+            'Timezone' => array (false, self::PROPERTY_TYPE_STRING, null, false),
+            'ShortCode' => array (false, self::PROPERTY_TYPE_STRING, null, false),
+            'LineOfBusiness' => array (false, self::PROPERTY_TYPE_STRING, null, false),
+            'Addresses' => array (false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Address', true),
+            'Phones' => array (false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Phone', true),
+            'ExternalLinks' => array (false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Organisation\\ExternalLink', true),
+            'PaymentTerms' => array (false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Organisation\\PaymentTerm', true)
         );
     }
 
@@ -286,6 +290,7 @@ class Organisation extends Remote\Object {
      * @return Organisation
      */
     public function setAPIKey($value){
+        $this->_dirty['APIKey'] = $this->_data['APIKey'] != $value;
         $this->_data['APIKey'] = $value;
         return $this;
     }
@@ -302,6 +307,7 @@ class Organisation extends Remote\Object {
      * @return Organisation
      */
     public function setName($value){
+        $this->_dirty['Name'] = $this->_data['Name'] != $value;
         $this->_data['Name'] = $value;
         return $this;
     }
@@ -318,6 +324,7 @@ class Organisation extends Remote\Object {
      * @return Organisation
      */
     public function setLegalName($value){
+        $this->_dirty['LegalName'] = $this->_data['LegalName'] != $value;
         $this->_data['LegalName'] = $value;
         return $this;
     }
@@ -334,6 +341,7 @@ class Organisation extends Remote\Object {
      * @return Organisation
      */
     public function setPaysTax($value){
+        $this->_dirty['PaysTax'] = $this->_data['PaysTax'] != $value;
         $this->_data['PaysTax'] = $value;
         return $this;
     }
@@ -350,6 +358,7 @@ class Organisation extends Remote\Object {
      * @return Organisation
      */
     public function setVersion($value){
+        $this->_dirty['Version'] = $this->_data['Version'] != $value;
         $this->_data['Version'] = $value;
         return $this;
     }
@@ -366,6 +375,7 @@ class Organisation extends Remote\Object {
      * @return Organisation
      */
     public function setBaseCurrency($value){
+        $this->_dirty['BaseCurrency'] = $this->_data['BaseCurrency'] != $value;
         $this->_data['BaseCurrency'] = $value;
         return $this;
     }
@@ -382,6 +392,7 @@ class Organisation extends Remote\Object {
      * @return Organisation
      */
     public function setCountryCode($value){
+        $this->_dirty['CountryCode'] = $this->_data['CountryCode'] != $value;
         $this->_data['CountryCode'] = $value;
         return $this;
     }
@@ -398,6 +409,7 @@ class Organisation extends Remote\Object {
      * @return Organisation
      */
     public function setIsDemoCompany($value){
+        $this->_dirty['IsDemoCompany'] = $this->_data['IsDemoCompany'] != $value;
         $this->_data['IsDemoCompany'] = $value;
         return $this;
     }
@@ -414,6 +426,7 @@ class Organisation extends Remote\Object {
      * @return Organisation
      */
     public function setOrganisationStatu($value){
+        $this->_dirty['OrganisationStatus'] = $this->_data['OrganisationStatus'] != $value;
         $this->_data['OrganisationStatus'] = $value;
         return $this;
     }
@@ -430,6 +443,7 @@ class Organisation extends Remote\Object {
      * @return Organisation
      */
     public function setRegistrationNumber($value){
+        $this->_dirty['RegistrationNumber'] = $this->_data['RegistrationNumber'] != $value;
         $this->_data['RegistrationNumber'] = $value;
         return $this;
     }
@@ -446,6 +460,7 @@ class Organisation extends Remote\Object {
      * @return Organisation
      */
     public function setTaxNumber($value){
+        $this->_dirty['TaxNumber'] = $this->_data['TaxNumber'] != $value;
         $this->_data['TaxNumber'] = $value;
         return $this;
     }
@@ -462,6 +477,7 @@ class Organisation extends Remote\Object {
      * @return Organisation
      */
     public function setFinancialYearEndDay($value){
+        $this->_dirty['FinancialYearEndDay'] = $this->_data['FinancialYearEndDay'] != $value;
         $this->_data['FinancialYearEndDay'] = $value;
         return $this;
     }
@@ -478,6 +494,7 @@ class Organisation extends Remote\Object {
      * @return Organisation
      */
     public function setFinancialYearEndMonth($value){
+        $this->_dirty['FinancialYearEndMonth'] = $this->_data['FinancialYearEndMonth'] != $value;
         $this->_data['FinancialYearEndMonth'] = $value;
         return $this;
     }
@@ -494,6 +511,7 @@ class Organisation extends Remote\Object {
      * @return Organisation
      */
     public function setSalesTaxBasis($value){
+        $this->_dirty['SalesTaxBasis'] = $this->_data['SalesTaxBasis'] != $value;
         $this->_data['SalesTaxBasis'] = $value;
         return $this;
     }
@@ -510,6 +528,7 @@ class Organisation extends Remote\Object {
      * @return Organisation
      */
     public function setSalesTaxPeriod($value){
+        $this->_dirty['SalesTaxPeriod'] = $this->_data['SalesTaxPeriod'] != $value;
         $this->_data['SalesTaxPeriod'] = $value;
         return $this;
     }
@@ -526,6 +545,7 @@ class Organisation extends Remote\Object {
      * @return Organisation
      */
     public function setPeriodLockDate($value){
+        $this->_dirty['PeriodLockDate'] = $this->_data['PeriodLockDate'] != $value;
         $this->_data['PeriodLockDate'] = $value;
         return $this;
     }
@@ -542,6 +562,7 @@ class Organisation extends Remote\Object {
      * @return Organisation
      */
     public function setEndOfYearLockDate($value){
+        $this->_dirty['EndOfYearLockDate'] = $this->_data['EndOfYearLockDate'] != $value;
         $this->_data['EndOfYearLockDate'] = $value;
         return $this;
     }
@@ -558,6 +579,7 @@ class Organisation extends Remote\Object {
      * @return Organisation
      */
     public function setCreatedDateUTC(\DateTime $value){
+        $this->_dirty['CreatedDateUTC'] = $this->_data['CreatedDateUTC'] != $value;
         $this->_data['CreatedDateUTC'] = $value;
         return $this;
     }
@@ -574,6 +596,7 @@ class Organisation extends Remote\Object {
      * @return Organisation
      */
     public function setOrganisationEntityType($value){
+        $this->_dirty['OrganisationEntityType'] = $this->_data['OrganisationEntityType'] != $value;
         $this->_data['OrganisationEntityType'] = $value;
         return $this;
     }
@@ -590,6 +613,7 @@ class Organisation extends Remote\Object {
      * @return Organisation
      */
     public function setTimezone($value){
+        $this->_dirty['Timezone'] = $this->_data['Timezone'] != $value;
         $this->_data['Timezone'] = $value;
         return $this;
     }
@@ -606,6 +630,7 @@ class Organisation extends Remote\Object {
      * @return Organisation
      */
     public function setShortCode($value){
+        $this->_dirty['ShortCode'] = $this->_data['ShortCode'] != $value;
         $this->_data['ShortCode'] = $value;
         return $this;
     }
@@ -622,6 +647,7 @@ class Organisation extends Remote\Object {
      * @return Organisation
      */
     public function setLineOfBusiness($value){
+        $this->_dirty['LineOfBusiness'] = $this->_data['LineOfBusiness'] != $value;
         $this->_data['LineOfBusiness'] = $value;
         return $this;
     }
@@ -638,6 +664,7 @@ class Organisation extends Remote\Object {
      * @return Organisation
      */
     public function addAddress(Address $value){
+        $this->_dirty['Addresses'] = true;
         $this->_data['Addresses'][] = $value;
         return $this;
     }
@@ -654,38 +681,41 @@ class Organisation extends Remote\Object {
      * @return Organisation
      */
     public function addPhone(Phone $value){
+        $this->_dirty['Phones'] = true;
         $this->_data['Phones'][] = $value;
         return $this;
     }
 
     /**
-     * @return string
+     * @return ExternalLink
      */
     public function getExternalLinks(){
         return $this->_data['ExternalLinks'];
     }
 
     /**
-     * @param string[] $value
+     * @param ExternalLink[] $value
      * @return Organisation
      */
-    public function addExternalLink($value){
+    public function addExternalLink(ExternalLink $value){
+        $this->_dirty['ExternalLinks'] = true;
         $this->_data['ExternalLinks'][] = $value;
         return $this;
     }
 
     /**
-     * @return string
+     * @return PaymentTerm
      */
     public function getPaymentTerms(){
         return $this->_data['PaymentTerms'];
     }
 
     /**
-     * @param string[] $value
+     * @param PaymentTerm[] $value
      * @return Organisation
      */
-    public function addPaymentTerm($value){
+    public function addPaymentTerm(PaymentTerm $value){
+        $this->_dirty['PaymentTerms'] = true;
         $this->_data['PaymentTerms'][] = $value;
         return $this;
     }

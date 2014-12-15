@@ -10,7 +10,7 @@ class ReimbursementType extends Remote\Object {
     /**
      * Name of the reimbursement type (max length = 50)
      *
-     * @property string ReimbursementType
+     * @property ReimbursementType ReimbursementType
      */
 
     /**
@@ -79,31 +79,34 @@ class ReimbursementType extends Remote\Object {
      *
      * Get the properties of the object.  Indexed by constants
      *  [0] - Mandatory
-     *  [1] - Hintable type
+     *  [1] - Type
+     *  [2] - PHP type
+     *  [3] - Is an Array
      *
      * @return array
      */
     public static function getProperties(){
         return array(
-            'ReimbursementType' => array (true, null),
-            'ExpenseOrLiabilityAccountCode' => array (true, null),
-            'ReimbursementTypeID' => array (false, null)
+            'ReimbursementType' => array (true, self::PROPERTY_TYPE_OBJECT, 'PayrollUS\\PayItem\\ReimbursementType', false),
+            'ExpenseOrLiabilityAccountCode' => array (true, self::PROPERTY_TYPE_STRING, null, false),
+            'ReimbursementTypeID' => array (false, self::PROPERTY_TYPE_STRING, null, false)
         );
     }
 
 
     /**
-     * @return string
+     * @return ReimbursementType
      */
     public function getReimbursementType(){
         return $this->_data['ReimbursementType'];
     }
 
     /**
-     * @param string $value
+     * @param ReimbursementType $value
      * @return ReimbursementType
      */
-    public function setReimbursementType($value){
+    public function setReimbursementType(ReimbursementType $value){
+        $this->_dirty['ReimbursementType'] = $this->_data['ReimbursementType'] != $value;
         $this->_data['ReimbursementType'] = $value;
         return $this;
     }
@@ -120,6 +123,7 @@ class ReimbursementType extends Remote\Object {
      * @return ReimbursementType
      */
     public function setExpenseOrLiabilityAccountCode($value){
+        $this->_dirty['ExpenseOrLiabilityAccountCode'] = $this->_data['ExpenseOrLiabilityAccountCode'] != $value;
         $this->_data['ExpenseOrLiabilityAccountCode'] = $value;
         return $this;
     }
@@ -136,6 +140,7 @@ class ReimbursementType extends Remote\Object {
      * @return ReimbursementType
      */
     public function setReimbursementTypeID($value){
+        $this->_dirty['ReimbursementTypeID'] = $this->_data['ReimbursementTypeID'] != $value;
         $this->_data['ReimbursementTypeID'] = $value;
         return $this;
     }

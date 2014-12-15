@@ -73,14 +73,16 @@ class BenefitLine extends Remote\Object {
      *
      * Get the properties of the object.  Indexed by constants
      *  [0] - Mandatory
-     *  [1] - Hintable type
+     *  [1] - Type
+     *  [2] - PHP type
+     *  [3] - Is an Array
      *
      * @return array
      */
     public static function getProperties(){
         return array(
-            'BenefitTypeID' => array (false, null),
-            'Amount' => array (false, null)
+            'BenefitTypeID' => array (false, self::PROPERTY_TYPE_STRING, null, false),
+            'Amount' => array (false, self::PROPERTY_TYPE_FLOAT, null, false)
         );
     }
 
@@ -97,6 +99,7 @@ class BenefitLine extends Remote\Object {
      * @return BenefitLine
      */
     public function setBenefitTypeID($value){
+        $this->_dirty['BenefitTypeID'] = $this->_data['BenefitTypeID'] != $value;
         $this->_data['BenefitTypeID'] = $value;
         return $this;
     }
@@ -113,6 +116,7 @@ class BenefitLine extends Remote\Object {
      * @return BenefitLine
      */
     public function setAmount($value){
+        $this->_dirty['Amount'] = $this->_data['Amount'] != $value;
         $this->_data['Amount'] = $value;
         return $this;
     }

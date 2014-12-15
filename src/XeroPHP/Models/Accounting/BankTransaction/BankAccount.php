@@ -73,14 +73,16 @@ class BankAccount extends Remote\Object {
      *
      * Get the properties of the object.  Indexed by constants
      *  [0] - Mandatory
-     *  [1] - Hintable type
+     *  [1] - Type
+     *  [2] - PHP type
+     *  [3] - Is an Array
      *
      * @return array
      */
     public static function getProperties(){
         return array(
-            'Code' => array (true, null),
-            'AccountID' => array (true, null)
+            'Code' => array (true, self::PROPERTY_TYPE_STRING, null, false),
+            'AccountID' => array (true, self::PROPERTY_TYPE_STRING, null, false)
         );
     }
 
@@ -97,6 +99,7 @@ class BankAccount extends Remote\Object {
      * @return BankAccount
      */
     public function setCode($value){
+        $this->_dirty['Code'] = $this->_data['Code'] != $value;
         $this->_data['Code'] = $value;
         return $this;
     }
@@ -113,6 +116,7 @@ class BankAccount extends Remote\Object {
      * @return BankAccount
      */
     public function setAccountID($value){
+        $this->_dirty['AccountID'] = $this->_data['AccountID'] != $value;
         $this->_data['AccountID'] = $value;
         return $this;
     }

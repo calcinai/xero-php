@@ -90,16 +90,18 @@ class Item extends Remote\Object {
      *
      * Get the properties of the object.  Indexed by constants
      *  [0] - Mandatory
-     *  [1] - Hintable type
+     *  [1] - Type
+     *  [2] - PHP type
+     *  [3] - Is an Array
      *
      * @return array
      */
     public static function getProperties(){
         return array(
-            'Code' => array (true, null),
-            'Description' => array (false, null),
-            'PurchaseDetails' => array (false, 'Accounting\Item\Purchase'),
-            'SalesDetails' => array (false, 'Accounting\Organisation\Sale')
+            'Code' => array (true, self::PROPERTY_TYPE_STRING, null, false),
+            'Description' => array (false, self::PROPERTY_TYPE_STRING, null, false),
+            'PurchaseDetails' => array (false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Item\\Purchase', true),
+            'SalesDetails' => array (false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Organisation\\Sale', true)
         );
     }
 
@@ -116,6 +118,7 @@ class Item extends Remote\Object {
      * @return Item
      */
     public function setCode($value){
+        $this->_dirty['Code'] = $this->_data['Code'] != $value;
         $this->_data['Code'] = $value;
         return $this;
     }
@@ -132,6 +135,7 @@ class Item extends Remote\Object {
      * @return Item
      */
     public function setDescription($value){
+        $this->_dirty['Description'] = $this->_data['Description'] != $value;
         $this->_data['Description'] = $value;
         return $this;
     }
@@ -148,6 +152,7 @@ class Item extends Remote\Object {
      * @return Item
      */
     public function addPurchaseDetail(Purchase $value){
+        $this->_dirty['PurchaseDetails'] = true;
         $this->_data['PurchaseDetails'][] = $value;
         return $this;
     }
@@ -164,6 +169,7 @@ class Item extends Remote\Object {
      * @return Item
      */
     public function addSalesDetail(Sale $value){
+        $this->_dirty['SalesDetails'] = true;
         $this->_data['SalesDetails'][] = $value;
         return $this;
     }

@@ -111,20 +111,22 @@ class WorkLocation extends Remote\Object {
      *
      * Get the properties of the object.  Indexed by constants
      *  [0] - Mandatory
-     *  [1] - Hintable type
+     *  [1] - Type
+     *  [2] - PHP type
+     *  [3] - Is an Array
      *
      * @return array
      */
     public static function getProperties(){
         return array(
-            'StreetAddress' => array (true, null),
-            'City' => array (true, null),
-            'State' => array (true, null),
-            'Latitude' => array (true, null),
-            'Longitude' => array (true, null),
-            'WorkLocationID' => array (false, null),
-            'SuitOrAptOrUnit' => array (false, null),
-            'IsPrimary' => array (false, null)
+            'StreetAddress' => array (true, self::PROPERTY_TYPE_STRING, null, false),
+            'City' => array (true, self::PROPERTY_TYPE_STRING, null, false),
+            'State' => array (true, self::PROPERTY_TYPE_STRING, null, false),
+            'Latitude' => array (true, self::PROPERTY_TYPE_STRING, null, false),
+            'Longitude' => array (true, self::PROPERTY_TYPE_STRING, null, false),
+            'WorkLocationID' => array (false, self::PROPERTY_TYPE_STRING, null, false),
+            'SuitOrAptOrUnit' => array (false, self::PROPERTY_TYPE_STRING, null, false),
+            'IsPrimary' => array (false, self::PROPERTY_TYPE_STRING, null, false)
         );
     }
 
@@ -141,6 +143,7 @@ class WorkLocation extends Remote\Object {
      * @return WorkLocation
      */
     public function setStreetAddress($value){
+        $this->_dirty['StreetAddress'] = $this->_data['StreetAddress'] != $value;
         $this->_data['StreetAddress'] = $value;
         return $this;
     }
@@ -157,6 +160,7 @@ class WorkLocation extends Remote\Object {
      * @return WorkLocation
      */
     public function setCity($value){
+        $this->_dirty['City'] = $this->_data['City'] != $value;
         $this->_data['City'] = $value;
         return $this;
     }
@@ -173,6 +177,7 @@ class WorkLocation extends Remote\Object {
      * @return WorkLocation
      */
     public function setState($value){
+        $this->_dirty['State'] = $this->_data['State'] != $value;
         $this->_data['State'] = $value;
         return $this;
     }
@@ -189,6 +194,7 @@ class WorkLocation extends Remote\Object {
      * @return WorkLocation
      */
     public function setLatitude($value){
+        $this->_dirty['Latitude'] = $this->_data['Latitude'] != $value;
         $this->_data['Latitude'] = $value;
         return $this;
     }
@@ -205,6 +211,7 @@ class WorkLocation extends Remote\Object {
      * @return WorkLocation
      */
     public function setLongitude($value){
+        $this->_dirty['Longitude'] = $this->_data['Longitude'] != $value;
         $this->_data['Longitude'] = $value;
         return $this;
     }
@@ -221,6 +228,7 @@ class WorkLocation extends Remote\Object {
      * @return WorkLocation
      */
     public function setWorkLocationID($value){
+        $this->_dirty['WorkLocationID'] = $this->_data['WorkLocationID'] != $value;
         $this->_data['WorkLocationID'] = $value;
         return $this;
     }
@@ -237,6 +245,7 @@ class WorkLocation extends Remote\Object {
      * @return WorkLocation
      */
     public function setSuitOrAptOrUnit($value){
+        $this->_dirty['SuitOrAptOrUnit'] = $this->_data['SuitOrAptOrUnit'] != $value;
         $this->_data['SuitOrAptOrUnit'] = $value;
         return $this;
     }
@@ -253,6 +262,7 @@ class WorkLocation extends Remote\Object {
      * @return WorkLocation
      */
     public function setIsPrimary($value){
+        $this->_dirty['IsPrimary'] = $this->_data['IsPrimary'] != $value;
         $this->_data['IsPrimary'] = $value;
         return $this;
     }

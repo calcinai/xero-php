@@ -85,14 +85,16 @@ class {{ model.ClassName }} extends Remote\Object {
      *
      * Get the properties of the object.  Indexed by constants
      *  [0] - Mandatory
-     *  [1] - Hintable type
+     *  [1] - Type
+     *  [2] - PHP type
+     *  [3] - Is an Array
      *
      * @return array
      */
     public static function getProperties(){
         return array(
 {% for property in model.Properties %}
-            '{{ property.name }}' => array ({% if property.isMandatory %}true{% else %}false{% endif %}, {% if property.isHintable %}'{{ property.getPHPType(true) }}'{% else %}null{% endif %}){% if not loop.last %},{% endif %}
+            '{{ property.name }}' => array ({% if property.isMandatory %}true{% else %}false{% endif %}, self::{{ property.getTypeConstant }}, {% if property.isHintable %}'{{ property.getPHPType(true)|addslashes }}'{% else %}null{% endif %}, {% if property.isArray %}true{% else %}false{% endif %}){% if not loop.last %},{% endif %}
 
 {% endfor %}
         );
@@ -113,6 +115,7 @@ class {{ model.ClassName }} extends Remote\Object {
      * @return {{ model.ClassName }}
      */
     public function {% if property.isArray %}add{% else %}set{% endif %}{{ property.NameSingular }}({% if property.isHintable %}{{ property.PHPType }} {% endif %}$value){
+        $this->_dirty['{{ property.Name }}'] = {% if property.isArray %}true{% else %}$this->_data['{{ property.Name }}'] != $value{% endif %};
         $this->_data['{{ property.Name }}']{% if property.isArray %}[]{% endif %} = $value;
         return $this;
     }

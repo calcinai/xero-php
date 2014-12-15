@@ -80,14 +80,16 @@ class ExpenseClaim extends Remote\Object {
      *
      * Get the properties of the object.  Indexed by constants
      *  [0] - Mandatory
-     *  [1] - Hintable type
+     *  [1] - Type
+     *  [2] - PHP type
+     *  [3] - Is an Array
      *
      * @return array
      */
     public static function getProperties(){
         return array(
-            'User' => array (true, 'Accounting\User'),
-            'Receipts' => array (true, 'Accounting\Receipt')
+            'User' => array (true, self::PROPERTY_TYPE_OBJECT, 'Accounting\\User', false),
+            'Receipts' => array (true, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Receipt', true)
         );
     }
 
@@ -104,6 +106,7 @@ class ExpenseClaim extends Remote\Object {
      * @return ExpenseClaim
      */
     public function setUser(User $value){
+        $this->_dirty['User'] = $this->_data['User'] != $value;
         $this->_data['User'] = $value;
         return $this;
     }
@@ -120,6 +123,7 @@ class ExpenseClaim extends Remote\Object {
      * @return ExpenseClaim
      */
     public function addReceipt(Receipt $value){
+        $this->_dirty['Receipts'] = true;
         $this->_data['Receipts'][] = $value;
         return $this;
     }

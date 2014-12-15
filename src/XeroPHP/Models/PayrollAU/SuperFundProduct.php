@@ -88,16 +88,18 @@ class SuperFundProduct extends Remote\Object {
      *
      * Get the properties of the object.  Indexed by constants
      *  [0] - Mandatory
-     *  [1] - Hintable type
+     *  [1] - Type
+     *  [2] - PHP type
+     *  [3] - Is an Array
      *
      * @return array
      */
     public static function getProperties(){
         return array(
-            'ABN' => array (false, null),
-            'USI' => array (false, null),
-            'SPIN' => array (false, null),
-            'ProductName' => array (false, null)
+            'ABN' => array (false, self::PROPERTY_TYPE_STRING, null, false),
+            'USI' => array (false, self::PROPERTY_TYPE_STRING, null, false),
+            'SPIN' => array (false, self::PROPERTY_TYPE_STRING, null, false),
+            'ProductName' => array (false, self::PROPERTY_TYPE_STRING, null, false)
         );
     }
 
@@ -114,6 +116,7 @@ class SuperFundProduct extends Remote\Object {
      * @return SuperFundProduct
      */
     public function setABN($value){
+        $this->_dirty['ABN'] = $this->_data['ABN'] != $value;
         $this->_data['ABN'] = $value;
         return $this;
     }
@@ -130,6 +133,7 @@ class SuperFundProduct extends Remote\Object {
      * @return SuperFundProduct
      */
     public function setUSI($value){
+        $this->_dirty['USI'] = $this->_data['USI'] != $value;
         $this->_data['USI'] = $value;
         return $this;
     }
@@ -146,6 +150,7 @@ class SuperFundProduct extends Remote\Object {
      * @return SuperFundProduct
      */
     public function setSPIN($value){
+        $this->_dirty['SPIN'] = $this->_data['SPIN'] != $value;
         $this->_data['SPIN'] = $value;
         return $this;
     }
@@ -162,6 +167,7 @@ class SuperFundProduct extends Remote\Object {
      * @return SuperFundProduct
      */
     public function setProductName($value){
+        $this->_dirty['ProductName'] = $this->_data['ProductName'] != $value;
         $this->_data['ProductName'] = $value;
         return $this;
     }

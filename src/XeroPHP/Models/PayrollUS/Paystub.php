@@ -184,31 +184,33 @@ class Paystub extends Remote\Object {
      *
      * Get the properties of the object.  Indexed by constants
      *  [0] - Mandatory
-     *  [1] - Hintable type
+     *  [1] - Type
+     *  [2] - PHP type
+     *  [3] - Is an Array
      *
      * @return array
      */
     public static function getProperties(){
         return array(
-            'EmployeeID' => array (false, null),
-            'PaystubID' => array (false, null),
-            'PayRunID' => array (false, null),
-            'FirstName' => array (false, null),
-            'LastName' => array (false, null),
-            'LastEdited' => array (false, null),
-            'Earnings' => array (false, null),
-            'Deductions' => array (false, null),
-            'Tax' => array (false, null),
-            'Reimbursements' => array (false, null),
-            'NetPay' => array (false, null),
-            'UpdatedDateUTC' => array (false, null),
-            'EarningsLines' => array (false, 'PayrollUS\Paystub\EarningsLine'),
-            'LeaveEarningsLines' => array (false, 'PayrollUS\Paystub\LeaveEarningsLine'),
-            'TimesheetEarningsLines' => array (false, 'PayrollUS\Paystub\TimesheetEarningsLine'),
-            'DeductionLines' => array (false, 'PayrollUS\Paystub\DeductionLine'),
-            'ReimbursementLines' => array (false, 'PayrollUS\Paystub\ReimbursementLine'),
-            'BenefitLines' => array (false, 'PayrollUS\Paystub\BenefitLine'),
-            'TimeOffLines' => array (false, 'PayrollUS\Paystub\TimeOffLine')
+            'EmployeeID' => array (false, self::PROPERTY_TYPE_STRING, null, false),
+            'PaystubID' => array (false, self::PROPERTY_TYPE_STRING, null, false),
+            'PayRunID' => array (false, self::PROPERTY_TYPE_STRING, null, false),
+            'FirstName' => array (false, self::PROPERTY_TYPE_STRING, null, false),
+            'LastName' => array (false, self::PROPERTY_TYPE_STRING, null, false),
+            'LastEdited' => array (false, self::PROPERTY_TYPE_STRING, null, false),
+            'Earnings' => array (false, self::PROPERTY_TYPE_FLOAT, null, true),
+            'Deductions' => array (false, self::PROPERTY_TYPE_FLOAT, null, true),
+            'Tax' => array (false, self::PROPERTY_TYPE_FLOAT, null, false),
+            'Reimbursements' => array (false, self::PROPERTY_TYPE_FLOAT, null, true),
+            'NetPay' => array (false, self::PROPERTY_TYPE_FLOAT, null, false),
+            'UpdatedDateUTC' => array (false, self::PROPERTY_TYPE_STRING, null, false),
+            'EarningsLines' => array (false, self::PROPERTY_TYPE_OBJECT, 'PayrollUS\\Paystub\\EarningsLine', true),
+            'LeaveEarningsLines' => array (false, self::PROPERTY_TYPE_OBJECT, 'PayrollUS\\Paystub\\LeaveEarningsLine', true),
+            'TimesheetEarningsLines' => array (false, self::PROPERTY_TYPE_OBJECT, 'PayrollUS\\Paystub\\TimesheetEarningsLine', true),
+            'DeductionLines' => array (false, self::PROPERTY_TYPE_OBJECT, 'PayrollUS\\Paystub\\DeductionLine', true),
+            'ReimbursementLines' => array (false, self::PROPERTY_TYPE_OBJECT, 'PayrollUS\\Paystub\\ReimbursementLine', true),
+            'BenefitLines' => array (false, self::PROPERTY_TYPE_OBJECT, 'PayrollUS\\Paystub\\BenefitLine', true),
+            'TimeOffLines' => array (false, self::PROPERTY_TYPE_OBJECT, 'PayrollUS\\Paystub\\TimeOffLine', true)
         );
     }
 
@@ -225,6 +227,7 @@ class Paystub extends Remote\Object {
      * @return Paystub
      */
     public function setEmployeeID($value){
+        $this->_dirty['EmployeeID'] = $this->_data['EmployeeID'] != $value;
         $this->_data['EmployeeID'] = $value;
         return $this;
     }
@@ -241,6 +244,7 @@ class Paystub extends Remote\Object {
      * @return Paystub
      */
     public function setPaystubID($value){
+        $this->_dirty['PaystubID'] = $this->_data['PaystubID'] != $value;
         $this->_data['PaystubID'] = $value;
         return $this;
     }
@@ -257,6 +261,7 @@ class Paystub extends Remote\Object {
      * @return Paystub
      */
     public function setPayRunID($value){
+        $this->_dirty['PayRunID'] = $this->_data['PayRunID'] != $value;
         $this->_data['PayRunID'] = $value;
         return $this;
     }
@@ -273,6 +278,7 @@ class Paystub extends Remote\Object {
      * @return Paystub
      */
     public function setFirstName($value){
+        $this->_dirty['FirstName'] = $this->_data['FirstName'] != $value;
         $this->_data['FirstName'] = $value;
         return $this;
     }
@@ -289,6 +295,7 @@ class Paystub extends Remote\Object {
      * @return Paystub
      */
     public function setLastName($value){
+        $this->_dirty['LastName'] = $this->_data['LastName'] != $value;
         $this->_data['LastName'] = $value;
         return $this;
     }
@@ -305,6 +312,7 @@ class Paystub extends Remote\Object {
      * @return Paystub
      */
     public function setLastEdited($value){
+        $this->_dirty['LastEdited'] = $this->_data['LastEdited'] != $value;
         $this->_data['LastEdited'] = $value;
         return $this;
     }
@@ -321,6 +329,7 @@ class Paystub extends Remote\Object {
      * @return Paystub
      */
     public function addEarning($value){
+        $this->_dirty['Earnings'] = true;
         $this->_data['Earnings'][] = $value;
         return $this;
     }
@@ -337,6 +346,7 @@ class Paystub extends Remote\Object {
      * @return Paystub
      */
     public function addDeduction($value){
+        $this->_dirty['Deductions'] = true;
         $this->_data['Deductions'][] = $value;
         return $this;
     }
@@ -353,6 +363,7 @@ class Paystub extends Remote\Object {
      * @return Paystub
      */
     public function setTax($value){
+        $this->_dirty['Tax'] = $this->_data['Tax'] != $value;
         $this->_data['Tax'] = $value;
         return $this;
     }
@@ -369,6 +380,7 @@ class Paystub extends Remote\Object {
      * @return Paystub
      */
     public function addReimbursement($value){
+        $this->_dirty['Reimbursements'] = true;
         $this->_data['Reimbursements'][] = $value;
         return $this;
     }
@@ -385,6 +397,7 @@ class Paystub extends Remote\Object {
      * @return Paystub
      */
     public function setNetPay($value){
+        $this->_dirty['NetPay'] = $this->_data['NetPay'] != $value;
         $this->_data['NetPay'] = $value;
         return $this;
     }
@@ -401,6 +414,7 @@ class Paystub extends Remote\Object {
      * @return Paystub
      */
     public function setUpdatedDateUTC($value){
+        $this->_dirty['UpdatedDateUTC'] = $this->_data['UpdatedDateUTC'] != $value;
         $this->_data['UpdatedDateUTC'] = $value;
         return $this;
     }
@@ -417,6 +431,7 @@ class Paystub extends Remote\Object {
      * @return Paystub
      */
     public function addEarningsLine(EarningsLine $value){
+        $this->_dirty['EarningsLines'] = true;
         $this->_data['EarningsLines'][] = $value;
         return $this;
     }
@@ -433,6 +448,7 @@ class Paystub extends Remote\Object {
      * @return Paystub
      */
     public function addLeaveEarningsLine(LeaveEarningsLine $value){
+        $this->_dirty['LeaveEarningsLines'] = true;
         $this->_data['LeaveEarningsLines'][] = $value;
         return $this;
     }
@@ -449,6 +465,7 @@ class Paystub extends Remote\Object {
      * @return Paystub
      */
     public function addTimesheetEarningsLine(TimesheetEarningsLine $value){
+        $this->_dirty['TimesheetEarningsLines'] = true;
         $this->_data['TimesheetEarningsLines'][] = $value;
         return $this;
     }
@@ -465,6 +482,7 @@ class Paystub extends Remote\Object {
      * @return Paystub
      */
     public function addDeductionLine(DeductionLine $value){
+        $this->_dirty['DeductionLines'] = true;
         $this->_data['DeductionLines'][] = $value;
         return $this;
     }
@@ -481,6 +499,7 @@ class Paystub extends Remote\Object {
      * @return Paystub
      */
     public function addReimbursementLine(ReimbursementLine $value){
+        $this->_dirty['ReimbursementLines'] = true;
         $this->_data['ReimbursementLines'][] = $value;
         return $this;
     }
@@ -497,6 +516,7 @@ class Paystub extends Remote\Object {
      * @return Paystub
      */
     public function addBenefitLine(BenefitLine $value){
+        $this->_dirty['BenefitLines'] = true;
         $this->_data['BenefitLines'][] = $value;
         return $this;
     }
@@ -513,6 +533,7 @@ class Paystub extends Remote\Object {
      * @return Paystub
      */
     public function addTimeOffLine(TimeOffLine $value){
+        $this->_dirty['TimeOffLines'] = true;
         $this->_data['TimeOffLines'][] = $value;
         return $this;
     }

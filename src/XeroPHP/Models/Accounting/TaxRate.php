@@ -137,24 +137,26 @@ class TaxRate extends Remote\Object {
      *
      * Get the properties of the object.  Indexed by constants
      *  [0] - Mandatory
-     *  [1] - Hintable type
+     *  [1] - Type
+     *  [2] - PHP type
+     *  [3] - Is an Array
      *
      * @return array
      */
     public static function getProperties(){
         return array(
-            'Name' => array (false, null),
-            'TaxType' => array (false, null),
-            'TaxComponents' => array (false, 'Accounting\TaxRate\TaxComponent'),
-            'Status' => array (false, null),
-            'ReportTaxType' => array (true, null),
-            'CanApplyToAssets' => array (true, null),
-            'CanApplyToEquity' => array (true, null),
-            'CanApplyToExpenses' => array (true, null),
-            'CanApplyToLiabilities' => array (true, null),
-            'CanApplyToRevenue' => array (true, null),
-            'DisplayTaxRate' => array (true, null),
-            'EffectiveRate' => array (true, null)
+            'Name' => array (false, self::PROPERTY_TYPE_FLOAT, null, false),
+            'TaxType' => array (false, self::PROPERTY_TYPE_ENUM, null, false),
+            'TaxComponents' => array (false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\TaxRate\\TaxComponent', true),
+            'Status' => array (false, self::PROPERTY_TYPE_FLOAT, null, false),
+            'ReportTaxType' => array (true, self::PROPERTY_TYPE_ENUM, null, false),
+            'CanApplyToAssets' => array (true, self::PROPERTY_TYPE_FLOAT, null, true),
+            'CanApplyToEquity' => array (true, self::PROPERTY_TYPE_FLOAT, null, false),
+            'CanApplyToExpenses' => array (true, self::PROPERTY_TYPE_FLOAT, null, true),
+            'CanApplyToLiabilities' => array (true, self::PROPERTY_TYPE_FLOAT, null, true),
+            'CanApplyToRevenue' => array (true, self::PROPERTY_TYPE_FLOAT, null, false),
+            'DisplayTaxRate' => array (true, self::PROPERTY_TYPE_FLOAT, null, false),
+            'EffectiveRate' => array (true, self::PROPERTY_TYPE_FLOAT, null, false)
         );
     }
 
@@ -171,6 +173,7 @@ class TaxRate extends Remote\Object {
      * @return TaxRate
      */
     public function setName($value){
+        $this->_dirty['Name'] = $this->_data['Name'] != $value;
         $this->_data['Name'] = $value;
         return $this;
     }
@@ -187,6 +190,7 @@ class TaxRate extends Remote\Object {
      * @return TaxRate
      */
     public function setTaxType($value){
+        $this->_dirty['TaxType'] = $this->_data['TaxType'] != $value;
         $this->_data['TaxType'] = $value;
         return $this;
     }
@@ -203,6 +207,7 @@ class TaxRate extends Remote\Object {
      * @return TaxRate
      */
     public function addTaxComponent(TaxComponent $value){
+        $this->_dirty['TaxComponents'] = true;
         $this->_data['TaxComponents'][] = $value;
         return $this;
     }
@@ -219,6 +224,7 @@ class TaxRate extends Remote\Object {
      * @return TaxRate
      */
     public function setStatu($value){
+        $this->_dirty['Status'] = $this->_data['Status'] != $value;
         $this->_data['Status'] = $value;
         return $this;
     }
@@ -235,6 +241,7 @@ class TaxRate extends Remote\Object {
      * @return TaxRate
      */
     public function setReportTaxType($value){
+        $this->_dirty['ReportTaxType'] = $this->_data['ReportTaxType'] != $value;
         $this->_data['ReportTaxType'] = $value;
         return $this;
     }
@@ -251,6 +258,7 @@ class TaxRate extends Remote\Object {
      * @return TaxRate
      */
     public function addCanApplyToAsset($value){
+        $this->_dirty['CanApplyToAssets'] = true;
         $this->_data['CanApplyToAssets'][] = $value;
         return $this;
     }
@@ -267,6 +275,7 @@ class TaxRate extends Remote\Object {
      * @return TaxRate
      */
     public function setCanApplyToEquity($value){
+        $this->_dirty['CanApplyToEquity'] = $this->_data['CanApplyToEquity'] != $value;
         $this->_data['CanApplyToEquity'] = $value;
         return $this;
     }
@@ -283,6 +292,7 @@ class TaxRate extends Remote\Object {
      * @return TaxRate
      */
     public function addCanApplyToExpense($value){
+        $this->_dirty['CanApplyToExpenses'] = true;
         $this->_data['CanApplyToExpenses'][] = $value;
         return $this;
     }
@@ -299,6 +309,7 @@ class TaxRate extends Remote\Object {
      * @return TaxRate
      */
     public function addCanApplyToLiability($value){
+        $this->_dirty['CanApplyToLiabilities'] = true;
         $this->_data['CanApplyToLiabilities'][] = $value;
         return $this;
     }
@@ -315,6 +326,7 @@ class TaxRate extends Remote\Object {
      * @return TaxRate
      */
     public function setCanApplyToRevenue($value){
+        $this->_dirty['CanApplyToRevenue'] = $this->_data['CanApplyToRevenue'] != $value;
         $this->_data['CanApplyToRevenue'] = $value;
         return $this;
     }
@@ -331,6 +343,7 @@ class TaxRate extends Remote\Object {
      * @return TaxRate
      */
     public function setDisplayTaxRate($value){
+        $this->_dirty['DisplayTaxRate'] = $this->_data['DisplayTaxRate'] != $value;
         $this->_data['DisplayTaxRate'] = $value;
         return $this;
     }
@@ -347,6 +360,7 @@ class TaxRate extends Remote\Object {
      * @return TaxRate
      */
     public function setEffectiveRate($value){
+        $this->_dirty['EffectiveRate'] = $this->_data['EffectiveRate'] != $value;
         $this->_data['EffectiveRate'] = $value;
         return $this;
     }

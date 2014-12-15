@@ -10,7 +10,7 @@ class DeductionType extends Remote\Object {
     /**
      * Name of the deduction type (max length = 50)
      *
-     * @property string DeductionType
+     * @property DeductionType DeductionType
      */
 
     /**
@@ -134,35 +134,38 @@ SECTION125PLAN
      *
      * Get the properties of the object.  Indexed by constants
      *  [0] - Mandatory
-     *  [1] - Hintable type
+     *  [1] - Type
+     *  [2] - PHP type
+     *  [3] - Is an Array
      *
      * @return array
      */
     public static function getProperties(){
         return array(
-            'DeductionType' => array (true, null),
-            'DeductionCategory' => array (true, null),
-            'CalculationType' => array (true, null),
-            'LiabilityAccountCode' => array (true, null),
-            'DeductionTypeID' => array (false, null),
-            'StandardAmount' => array (false, null),
-            'CompanyMax' => array (false, null)
+            'DeductionType' => array (true, self::PROPERTY_TYPE_OBJECT, 'PayrollUS\\PayItem\\DeductionType', false),
+            'DeductionCategory' => array (true, self::PROPERTY_TYPE_ENUM, null, false),
+            'CalculationType' => array (true, self::PROPERTY_TYPE_FLOAT, null, false),
+            'LiabilityAccountCode' => array (true, self::PROPERTY_TYPE_STRING, null, false),
+            'DeductionTypeID' => array (false, self::PROPERTY_TYPE_STRING, null, false),
+            'StandardAmount' => array (false, self::PROPERTY_TYPE_FLOAT, null, false),
+            'CompanyMax' => array (false, self::PROPERTY_TYPE_FLOAT, null, false)
         );
     }
 
 
     /**
-     * @return string
+     * @return DeductionType
      */
     public function getDeductionType(){
         return $this->_data['DeductionType'];
     }
 
     /**
-     * @param string $value
+     * @param DeductionType $value
      * @return DeductionType
      */
-    public function setDeductionType($value){
+    public function setDeductionType(DeductionType $value){
+        $this->_dirty['DeductionType'] = $this->_data['DeductionType'] != $value;
         $this->_data['DeductionType'] = $value;
         return $this;
     }
@@ -179,6 +182,7 @@ SECTION125PLAN
      * @return DeductionType
      */
     public function setDeductionCategory($value){
+        $this->_dirty['DeductionCategory'] = $this->_data['DeductionCategory'] != $value;
         $this->_data['DeductionCategory'] = $value;
         return $this;
     }
@@ -195,6 +199,7 @@ SECTION125PLAN
      * @return DeductionType
      */
     public function setCalculationType($value){
+        $this->_dirty['CalculationType'] = $this->_data['CalculationType'] != $value;
         $this->_data['CalculationType'] = $value;
         return $this;
     }
@@ -211,6 +216,7 @@ SECTION125PLAN
      * @return DeductionType
      */
     public function setLiabilityAccountCode($value){
+        $this->_dirty['LiabilityAccountCode'] = $this->_data['LiabilityAccountCode'] != $value;
         $this->_data['LiabilityAccountCode'] = $value;
         return $this;
     }
@@ -227,6 +233,7 @@ SECTION125PLAN
      * @return DeductionType
      */
     public function setDeductionTypeID($value){
+        $this->_dirty['DeductionTypeID'] = $this->_data['DeductionTypeID'] != $value;
         $this->_data['DeductionTypeID'] = $value;
         return $this;
     }
@@ -243,6 +250,7 @@ SECTION125PLAN
      * @return DeductionType
      */
     public function setStandardAmount($value){
+        $this->_dirty['StandardAmount'] = $this->_data['StandardAmount'] != $value;
         $this->_data['StandardAmount'] = $value;
         return $this;
     }
@@ -259,6 +267,7 @@ SECTION125PLAN
      * @return DeductionType
      */
     public function setCompanyMax($value){
+        $this->_dirty['CompanyMax'] = $this->_data['CompanyMax'] != $value;
         $this->_data['CompanyMax'] = $value;
         return $this;
     }

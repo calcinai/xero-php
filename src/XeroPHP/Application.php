@@ -4,6 +4,7 @@ namespace XeroPHP;
 
 use XeroPHP\Remote\OAuth\Client;
 use XeroPHP\Remote\Object;
+use XeroPHP\Remote\Query;
 use XeroPHP\Remote\Request;
 use XeroPHP\Remote\URL;
 
@@ -16,7 +17,9 @@ abstract class Application {
 
             'core_version'     => '2.0',
             'payroll_version'  => '1.0',
-            'file_version'     => '1.0'
+            'file_version'     => '1.0',
+
+            'model_namespace'   => '\\XeroPHP\\Models'
         ),
 
         //OAuth config
@@ -58,6 +61,29 @@ abstract class Application {
     }
 
 
+    public function loadByGUID($model, $guid){
+
+        $query = $this->load($model);
+
+        $full_class = $query->getFrom();
+
+        $guid_property = $full_class::getGUIDProperty();
+        if($guid_property === null)
+            throw new Exception("Class does not have GUID property [$full_class]");
+
+        $objects = $query->where(sprintf('%s=Guid("%s")', $guid_property, $guid))->execute();
+        return current($objects);
+
+    }
+
+
+    public function load($model){
+
+        $query = new Query($this);
+        return $query->from($model);
+    }
+
+
     public function save(Object $object){
 
         $object->validate();
@@ -76,7 +102,7 @@ abstract class Application {
             throw new Exception('%s doesn\'t support updating via API', get_class($object));
 
         //Put in an array with the first level containing only the 'root node'.
-        $data = array($object::getRootNodeName() => $object->toArray());
+        $data = array($object::getRootNodeName() => $object->toStringArray());
         $url = new URL($this, sprintf('%s/%s', $object::getResourceURI(), $object->getGUID()));
         $request = new Request($this, $url, Request::METHOD_POST);
 
@@ -92,7 +118,7 @@ abstract class Application {
             throw new Exception('%s doesn\'t support creating via API', get_class($object));
 
         //Put in an array with the first level containing only the 'root node'.
-        $data = array($object::getRootNodeName() => $object->toArray());
+        $data = array($object::getRootNodeName() => $object->toStringArray());
         $url = new URL($this, $object::getResourceURI());
         $request = new Request($this, $url, Request::METHOD_PUT);
 

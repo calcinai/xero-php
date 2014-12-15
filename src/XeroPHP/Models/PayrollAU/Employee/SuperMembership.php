@@ -108,19 +108,21 @@ class SuperMembership extends Remote\Object {
      *
      * Get the properties of the object.  Indexed by constants
      *  [0] - Mandatory
-     *  [1] - Hintable type
+     *  [1] - Type
+     *  [2] - PHP type
+     *  [3] - Is an Array
      *
      * @return array
      */
     public static function getProperties(){
         return array(
-            'SuperFundID' => array (false, null),
-            'EmployeeNumber' => array (false, null),
-            'SuperMembershipID' => array (false, null),
-            'Recordfilter' => array (false, null),
-            'EmployeeID' => array (false, null),
-            'ModifiedAfter' => array (false, '\DateTime'),
-            'page' => array (false, null)
+            'SuperFundID' => array (false, self::PROPERTY_TYPE_STRING, null, false),
+            'EmployeeNumber' => array (false, self::PROPERTY_TYPE_STRING, null, false),
+            'SuperMembershipID' => array (false, self::PROPERTY_TYPE_STRING, null, false),
+            'Recordfilter' => array (false, self::PROPERTY_TYPE_STRING, null, false),
+            'EmployeeID' => array (false, self::PROPERTY_TYPE_STRING, null, false),
+            'ModifiedAfter' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTime', false),
+            'page' => array (false, self::PROPERTY_TYPE_STRING, null, false)
         );
     }
 
@@ -137,6 +139,7 @@ class SuperMembership extends Remote\Object {
      * @return SuperMembership
      */
     public function setSuperFundID($value){
+        $this->_dirty['SuperFundID'] = $this->_data['SuperFundID'] != $value;
         $this->_data['SuperFundID'] = $value;
         return $this;
     }
@@ -153,6 +156,7 @@ class SuperMembership extends Remote\Object {
      * @return SuperMembership
      */
     public function setEmployeeNumber($value){
+        $this->_dirty['EmployeeNumber'] = $this->_data['EmployeeNumber'] != $value;
         $this->_data['EmployeeNumber'] = $value;
         return $this;
     }
@@ -169,6 +173,7 @@ class SuperMembership extends Remote\Object {
      * @return SuperMembership
      */
     public function setSuperMembershipID($value){
+        $this->_dirty['SuperMembershipID'] = $this->_data['SuperMembershipID'] != $value;
         $this->_data['SuperMembershipID'] = $value;
         return $this;
     }
@@ -185,6 +190,7 @@ class SuperMembership extends Remote\Object {
      * @return SuperMembership
      */
     public function setRecordfilter($value){
+        $this->_dirty['Recordfilter'] = $this->_data['Recordfilter'] != $value;
         $this->_data['Recordfilter'] = $value;
         return $this;
     }
@@ -201,6 +207,7 @@ class SuperMembership extends Remote\Object {
      * @return SuperMembership
      */
     public function setEmployeeID($value){
+        $this->_dirty['EmployeeID'] = $this->_data['EmployeeID'] != $value;
         $this->_data['EmployeeID'] = $value;
         return $this;
     }
@@ -217,6 +224,7 @@ class SuperMembership extends Remote\Object {
      * @return SuperMembership
      */
     public function setModifiedAfter(\DateTime $value){
+        $this->_dirty['ModifiedAfter'] = $this->_data['ModifiedAfter'] != $value;
         $this->_data['ModifiedAfter'] = $value;
         return $this;
     }
@@ -233,6 +241,7 @@ class SuperMembership extends Remote\Object {
      * @return SuperMembership
      */
     public function setpage($value){
+        $this->_dirty['page'] = $this->_data['page'] != $value;
         $this->_data['page'] = $value;
         return $this;
     }

@@ -79,15 +79,17 @@ class TrackingOption extends Remote\Object {
      *
      * Get the properties of the object.  Indexed by constants
      *  [0] - Mandatory
-     *  [1] - Hintable type
+     *  [1] - Type
+     *  [2] - PHP type
+     *  [3] - Is an Array
      *
      * @return array
      */
     public static function getProperties(){
         return array(
-            'TrackingOptionID' => array (false, null),
-            'Name' => array (false, null),
-            'Status' => array (false, null)
+            'TrackingOptionID' => array (false, self::PROPERTY_TYPE_STRING, null, false),
+            'Name' => array (false, self::PROPERTY_TYPE_STRING, null, false),
+            'Status' => array (false, self::PROPERTY_TYPE_STRING, null, false)
         );
     }
 
@@ -104,6 +106,7 @@ class TrackingOption extends Remote\Object {
      * @return TrackingOption
      */
     public function setTrackingOptionID($value){
+        $this->_dirty['TrackingOptionID'] = $this->_data['TrackingOptionID'] != $value;
         $this->_data['TrackingOptionID'] = $value;
         return $this;
     }
@@ -120,6 +123,7 @@ class TrackingOption extends Remote\Object {
      * @return TrackingOption
      */
     public function setName($value){
+        $this->_dirty['Name'] = $this->_data['Name'] != $value;
         $this->_data['Name'] = $value;
         return $this;
     }
@@ -136,6 +140,7 @@ class TrackingOption extends Remote\Object {
      * @return TrackingOption
      */
     public function setStatu($value){
+        $this->_dirty['Status'] = $this->_data['Status'] != $value;
         $this->_data['Status'] = $value;
         return $this;
     }

@@ -95,16 +95,18 @@ class PayrollCalendar extends Remote\Object {
      *
      * Get the properties of the object.  Indexed by constants
      *  [0] - Mandatory
-     *  [1] - Hintable type
+     *  [1] - Type
+     *  [2] - PHP type
+     *  [3] - Is an Array
      *
      * @return array
      */
     public static function getProperties(){
         return array(
-            'Name' => array (true, null),
-            'CalendarType' => array (true, null),
-            'StartDate' => array (true, '\DateTime'),
-            'PaymentDate' => array (true, '\DateTime')
+            'Name' => array (true, self::PROPERTY_TYPE_STRING, null, false),
+            'CalendarType' => array (true, self::PROPERTY_TYPE_ENUM, null, false),
+            'StartDate' => array (true, self::PROPERTY_TYPE_DATE, '\\DateTime', false),
+            'PaymentDate' => array (true, self::PROPERTY_TYPE_DATE, '\\DateTime', false)
         );
     }
 
@@ -121,6 +123,7 @@ class PayrollCalendar extends Remote\Object {
      * @return PayrollCalendar
      */
     public function setName($value){
+        $this->_dirty['Name'] = $this->_data['Name'] != $value;
         $this->_data['Name'] = $value;
         return $this;
     }
@@ -137,6 +140,7 @@ class PayrollCalendar extends Remote\Object {
      * @return PayrollCalendar
      */
     public function setCalendarType($value){
+        $this->_dirty['CalendarType'] = $this->_data['CalendarType'] != $value;
         $this->_data['CalendarType'] = $value;
         return $this;
     }
@@ -153,6 +157,7 @@ class PayrollCalendar extends Remote\Object {
      * @return PayrollCalendar
      */
     public function setStartDate(\DateTime $value){
+        $this->_dirty['StartDate'] = $this->_data['StartDate'] != $value;
         $this->_data['StartDate'] = $value;
         return $this;
     }
@@ -169,6 +174,7 @@ class PayrollCalendar extends Remote\Object {
      * @return PayrollCalendar
      */
     public function setPaymentDate(\DateTime $value){
+        $this->_dirty['PaymentDate'] = $this->_data['PaymentDate'] != $value;
         $this->_data['PaymentDate'] = $value;
         return $this;
     }

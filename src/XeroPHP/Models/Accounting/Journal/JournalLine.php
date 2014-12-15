@@ -5,6 +5,7 @@ namespace XeroPHP\Models\Accounting\Journal;
 use XeroPHP\Remote;
 
 use XeroPHP\Models\Accounting\TaxRate;
+use XeroPHP\Models\Accounting\TrackingCategory;
 
 class JournalLine extends Remote\Object {
 
@@ -71,7 +72,7 @@ class JournalLine extends Remote\Object {
     /**
      * see Tracking
      *
-     * @property string[] TrackingCategories
+     * @property TrackingCategory[] TrackingCategories
      */
 
 
@@ -128,23 +129,25 @@ class JournalLine extends Remote\Object {
      *
      * Get the properties of the object.  Indexed by constants
      *  [0] - Mandatory
-     *  [1] - Hintable type
+     *  [1] - Type
+     *  [2] - PHP type
+     *  [3] - Is an Array
      *
      * @return array
      */
     public static function getProperties(){
         return array(
-            'JournalLineID' => array (false, null),
-            'AccountID' => array (false, null),
-            'AccountCode' => array (false, null),
-            'AccountType' => array (false, null),
-            'AccountName' => array (false, null),
-            'NetAmount' => array (false, null),
-            'GrossAmount' => array (false, null),
-            'TaxAmount' => array (false, null),
-            'TaxType' => array (false, null),
-            'TaxName' => array (false, 'Accounting\TaxRate'),
-            'TrackingCategories' => array (false, null)
+            'JournalLineID' => array (false, self::PROPERTY_TYPE_STRING, null, false),
+            'AccountID' => array (false, self::PROPERTY_TYPE_STRING, null, false),
+            'AccountCode' => array (false, self::PROPERTY_TYPE_STRING, null, false),
+            'AccountType' => array (false, self::PROPERTY_TYPE_ENUM, null, false),
+            'AccountName' => array (false, self::PROPERTY_TYPE_STRING, null, false),
+            'NetAmount' => array (false, self::PROPERTY_TYPE_FLOAT, null, false),
+            'GrossAmount' => array (false, self::PROPERTY_TYPE_FLOAT, null, false),
+            'TaxAmount' => array (false, self::PROPERTY_TYPE_FLOAT, null, false),
+            'TaxType' => array (false, self::PROPERTY_TYPE_ENUM, null, false),
+            'TaxName' => array (false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\TaxRate', false),
+            'TrackingCategories' => array (false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\TrackingCategory', true)
         );
     }
 
@@ -161,6 +164,7 @@ class JournalLine extends Remote\Object {
      * @return JournalLine
      */
     public function setJournalLineID($value){
+        $this->_dirty['JournalLineID'] = $this->_data['JournalLineID'] != $value;
         $this->_data['JournalLineID'] = $value;
         return $this;
     }
@@ -177,6 +181,7 @@ class JournalLine extends Remote\Object {
      * @return JournalLine
      */
     public function setAccountID($value){
+        $this->_dirty['AccountID'] = $this->_data['AccountID'] != $value;
         $this->_data['AccountID'] = $value;
         return $this;
     }
@@ -193,6 +198,7 @@ class JournalLine extends Remote\Object {
      * @return JournalLine
      */
     public function setAccountCode($value){
+        $this->_dirty['AccountCode'] = $this->_data['AccountCode'] != $value;
         $this->_data['AccountCode'] = $value;
         return $this;
     }
@@ -209,6 +215,7 @@ class JournalLine extends Remote\Object {
      * @return JournalLine
      */
     public function setAccountType($value){
+        $this->_dirty['AccountType'] = $this->_data['AccountType'] != $value;
         $this->_data['AccountType'] = $value;
         return $this;
     }
@@ -225,6 +232,7 @@ class JournalLine extends Remote\Object {
      * @return JournalLine
      */
     public function setAccountName($value){
+        $this->_dirty['AccountName'] = $this->_data['AccountName'] != $value;
         $this->_data['AccountName'] = $value;
         return $this;
     }
@@ -241,6 +249,7 @@ class JournalLine extends Remote\Object {
      * @return JournalLine
      */
     public function setNetAmount($value){
+        $this->_dirty['NetAmount'] = $this->_data['NetAmount'] != $value;
         $this->_data['NetAmount'] = $value;
         return $this;
     }
@@ -257,6 +266,7 @@ class JournalLine extends Remote\Object {
      * @return JournalLine
      */
     public function setGrossAmount($value){
+        $this->_dirty['GrossAmount'] = $this->_data['GrossAmount'] != $value;
         $this->_data['GrossAmount'] = $value;
         return $this;
     }
@@ -273,6 +283,7 @@ class JournalLine extends Remote\Object {
      * @return JournalLine
      */
     public function setTaxAmount($value){
+        $this->_dirty['TaxAmount'] = $this->_data['TaxAmount'] != $value;
         $this->_data['TaxAmount'] = $value;
         return $this;
     }
@@ -289,6 +300,7 @@ class JournalLine extends Remote\Object {
      * @return JournalLine
      */
     public function setTaxType($value){
+        $this->_dirty['TaxType'] = $this->_data['TaxType'] != $value;
         $this->_data['TaxType'] = $value;
         return $this;
     }
@@ -305,22 +317,24 @@ class JournalLine extends Remote\Object {
      * @return JournalLine
      */
     public function setTaxName(TaxRate $value){
+        $this->_dirty['TaxName'] = $this->_data['TaxName'] != $value;
         $this->_data['TaxName'] = $value;
         return $this;
     }
 
     /**
-     * @return string
+     * @return TrackingCategory
      */
     public function getTrackingCategories(){
         return $this->_data['TrackingCategories'];
     }
 
     /**
-     * @param string[] $value
+     * @param TrackingCategory[] $value
      * @return JournalLine
      */
-    public function addTrackingCategory($value){
+    public function addTrackingCategory(TrackingCategory $value){
+        $this->_dirty['TrackingCategories'] = true;
         $this->_data['TrackingCategories'][] = $value;
         return $this;
     }

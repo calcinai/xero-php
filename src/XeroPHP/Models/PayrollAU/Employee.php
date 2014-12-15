@@ -234,37 +234,39 @@ class Employee extends Remote\Object {
      *
      * Get the properties of the object.  Indexed by constants
      *  [0] - Mandatory
-     *  [1] - Hintable type
+     *  [1] - Type
+     *  [2] - PHP type
+     *  [3] - Is an Array
      *
      * @return array
      */
     public static function getProperties(){
         return array(
-            'FirstName' => array (true, null),
-            'LastName' => array (true, null),
-            'HomeAddress' => array (true, 'PayrollAU\Employee\HomeAddress'),
-            'StartDate' => array (false, '\DateTime'),
-            'Title' => array (false, null),
-            'MiddleNames' => array (false, null),
-            'Email' => array (false, null),
-            'Gender' => array (false, null),
-            'Mobile' => array (false, null),
-            'TwitterUserName' => array (false, null),
-            'IsAuthorisedToApproveLeave' => array (false, null),
-            'IsAuthorisedToApproveTimesheets' => array (false, null),
-            'Occupation' => array (false, null),
-            'Classification' => array (false, null),
-            'OrdinaryEarningsRateID' => array (false, null),
-            'PayrollCalendarID' => array (false, null),
-            'EmployeeGroupName' => array (false, null),
-            'BankAccounts' => array (false, 'PayrollAU\Employee\BankAccount'),
-            'PayTemplate' => array (false, 'PayrollAU\Employee\PayTemplate'),
-            'OpeningBalances' => array (false, 'PayrollAU\Employee\OpeningBalance'),
-            'SuperMemberships' => array (false, 'PayrollAU\Employee\SuperMembership'),
-            'TerminationDate' => array (false, '\DateTime'),
-            'EmployeeID' => array (false, null),
-            'Status' => array (false, null),
-            'UpdatedDateUTC' => array (false, '\DateTime')
+            'FirstName' => array (true, self::PROPERTY_TYPE_STRING, null, false),
+            'LastName' => array (true, self::PROPERTY_TYPE_STRING, null, false),
+            'HomeAddress' => array (true, self::PROPERTY_TYPE_OBJECT, 'PayrollAU\\Employee\\HomeAddress', false),
+            'StartDate' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTime', false),
+            'Title' => array (false, self::PROPERTY_TYPE_STRING, null, false),
+            'MiddleNames' => array (false, self::PROPERTY_TYPE_STRING, null, true),
+            'Email' => array (false, self::PROPERTY_TYPE_STRING, null, false),
+            'Gender' => array (false, self::PROPERTY_TYPE_STRING, null, false),
+            'Mobile' => array (false, self::PROPERTY_TYPE_STRING, null, false),
+            'TwitterUserName' => array (false, self::PROPERTY_TYPE_STRING, null, false),
+            'IsAuthorisedToApproveLeave' => array (false, self::PROPERTY_TYPE_BOOLEAN, null, false),
+            'IsAuthorisedToApproveTimesheets' => array (false, self::PROPERTY_TYPE_BOOLEAN, null, false),
+            'Occupation' => array (false, self::PROPERTY_TYPE_STRING, null, false),
+            'Classification' => array (false, self::PROPERTY_TYPE_STRING, null, false),
+            'OrdinaryEarningsRateID' => array (false, self::PROPERTY_TYPE_STRING, null, false),
+            'PayrollCalendarID' => array (false, self::PROPERTY_TYPE_STRING, null, false),
+            'EmployeeGroupName' => array (false, self::PROPERTY_TYPE_STRING, null, false),
+            'BankAccounts' => array (false, self::PROPERTY_TYPE_OBJECT, 'PayrollAU\\Employee\\BankAccount', true),
+            'PayTemplate' => array (false, self::PROPERTY_TYPE_OBJECT, 'PayrollAU\\Employee\\PayTemplate', false),
+            'OpeningBalances' => array (false, self::PROPERTY_TYPE_OBJECT, 'PayrollAU\\Employee\\OpeningBalance', true),
+            'SuperMemberships' => array (false, self::PROPERTY_TYPE_OBJECT, 'PayrollAU\\Employee\\SuperMembership', true),
+            'TerminationDate' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTime', false),
+            'EmployeeID' => array (false, self::PROPERTY_TYPE_STRING, null, false),
+            'Status' => array (false, self::PROPERTY_TYPE_ENUM, null, false),
+            'UpdatedDateUTC' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTime', false)
         );
     }
 
@@ -281,6 +283,7 @@ class Employee extends Remote\Object {
      * @return Employee
      */
     public function setFirstName($value){
+        $this->_dirty['FirstName'] = $this->_data['FirstName'] != $value;
         $this->_data['FirstName'] = $value;
         return $this;
     }
@@ -297,6 +300,7 @@ class Employee extends Remote\Object {
      * @return Employee
      */
     public function setLastName($value){
+        $this->_dirty['LastName'] = $this->_data['LastName'] != $value;
         $this->_data['LastName'] = $value;
         return $this;
     }
@@ -313,6 +317,7 @@ class Employee extends Remote\Object {
      * @return Employee
      */
     public function setHomeAddress(HomeAddress $value){
+        $this->_dirty['HomeAddress'] = $this->_data['HomeAddress'] != $value;
         $this->_data['HomeAddress'] = $value;
         return $this;
     }
@@ -329,6 +334,7 @@ class Employee extends Remote\Object {
      * @return Employee
      */
     public function setStartDate(\DateTime $value){
+        $this->_dirty['StartDate'] = $this->_data['StartDate'] != $value;
         $this->_data['StartDate'] = $value;
         return $this;
     }
@@ -345,6 +351,7 @@ class Employee extends Remote\Object {
      * @return Employee
      */
     public function setTitle($value){
+        $this->_dirty['Title'] = $this->_data['Title'] != $value;
         $this->_data['Title'] = $value;
         return $this;
     }
@@ -361,6 +368,7 @@ class Employee extends Remote\Object {
      * @return Employee
      */
     public function addMiddleName($value){
+        $this->_dirty['MiddleNames'] = true;
         $this->_data['MiddleNames'][] = $value;
         return $this;
     }
@@ -377,6 +385,7 @@ class Employee extends Remote\Object {
      * @return Employee
      */
     public function setEmail($value){
+        $this->_dirty['Email'] = $this->_data['Email'] != $value;
         $this->_data['Email'] = $value;
         return $this;
     }
@@ -393,6 +402,7 @@ class Employee extends Remote\Object {
      * @return Employee
      */
     public function setGender($value){
+        $this->_dirty['Gender'] = $this->_data['Gender'] != $value;
         $this->_data['Gender'] = $value;
         return $this;
     }
@@ -409,6 +419,7 @@ class Employee extends Remote\Object {
      * @return Employee
      */
     public function setMobile($value){
+        $this->_dirty['Mobile'] = $this->_data['Mobile'] != $value;
         $this->_data['Mobile'] = $value;
         return $this;
     }
@@ -425,6 +436,7 @@ class Employee extends Remote\Object {
      * @return Employee
      */
     public function setTwitterUserName($value){
+        $this->_dirty['TwitterUserName'] = $this->_data['TwitterUserName'] != $value;
         $this->_data['TwitterUserName'] = $value;
         return $this;
     }
@@ -441,6 +453,7 @@ class Employee extends Remote\Object {
      * @return Employee
      */
     public function setIsAuthorisedToApproveLeave($value){
+        $this->_dirty['IsAuthorisedToApproveLeave'] = $this->_data['IsAuthorisedToApproveLeave'] != $value;
         $this->_data['IsAuthorisedToApproveLeave'] = $value;
         return $this;
     }
@@ -457,6 +470,7 @@ class Employee extends Remote\Object {
      * @return Employee
      */
     public function setIsAuthorisedToApproveTimesheet($value){
+        $this->_dirty['IsAuthorisedToApproveTimesheets'] = $this->_data['IsAuthorisedToApproveTimesheets'] != $value;
         $this->_data['IsAuthorisedToApproveTimesheets'] = $value;
         return $this;
     }
@@ -473,6 +487,7 @@ class Employee extends Remote\Object {
      * @return Employee
      */
     public function setOccupation($value){
+        $this->_dirty['Occupation'] = $this->_data['Occupation'] != $value;
         $this->_data['Occupation'] = $value;
         return $this;
     }
@@ -489,6 +504,7 @@ class Employee extends Remote\Object {
      * @return Employee
      */
     public function setClassification($value){
+        $this->_dirty['Classification'] = $this->_data['Classification'] != $value;
         $this->_data['Classification'] = $value;
         return $this;
     }
@@ -505,6 +521,7 @@ class Employee extends Remote\Object {
      * @return Employee
      */
     public function setOrdinaryEarningsRateID($value){
+        $this->_dirty['OrdinaryEarningsRateID'] = $this->_data['OrdinaryEarningsRateID'] != $value;
         $this->_data['OrdinaryEarningsRateID'] = $value;
         return $this;
     }
@@ -521,6 +538,7 @@ class Employee extends Remote\Object {
      * @return Employee
      */
     public function setPayrollCalendarID($value){
+        $this->_dirty['PayrollCalendarID'] = $this->_data['PayrollCalendarID'] != $value;
         $this->_data['PayrollCalendarID'] = $value;
         return $this;
     }
@@ -537,6 +555,7 @@ class Employee extends Remote\Object {
      * @return Employee
      */
     public function setEmployeeGroupName($value){
+        $this->_dirty['EmployeeGroupName'] = $this->_data['EmployeeGroupName'] != $value;
         $this->_data['EmployeeGroupName'] = $value;
         return $this;
     }
@@ -553,6 +572,7 @@ class Employee extends Remote\Object {
      * @return Employee
      */
     public function addBankAccount(BankAccount $value){
+        $this->_dirty['BankAccounts'] = true;
         $this->_data['BankAccounts'][] = $value;
         return $this;
     }
@@ -569,6 +589,7 @@ class Employee extends Remote\Object {
      * @return Employee
      */
     public function setPayTemplate(PayTemplate $value){
+        $this->_dirty['PayTemplate'] = $this->_data['PayTemplate'] != $value;
         $this->_data['PayTemplate'] = $value;
         return $this;
     }
@@ -585,6 +606,7 @@ class Employee extends Remote\Object {
      * @return Employee
      */
     public function addOpeningBalance(OpeningBalance $value){
+        $this->_dirty['OpeningBalances'] = true;
         $this->_data['OpeningBalances'][] = $value;
         return $this;
     }
@@ -601,6 +623,7 @@ class Employee extends Remote\Object {
      * @return Employee
      */
     public function addSuperMembership(SuperMembership $value){
+        $this->_dirty['SuperMemberships'] = true;
         $this->_data['SuperMemberships'][] = $value;
         return $this;
     }
@@ -617,6 +640,7 @@ class Employee extends Remote\Object {
      * @return Employee
      */
     public function setTerminationDate(\DateTime $value){
+        $this->_dirty['TerminationDate'] = $this->_data['TerminationDate'] != $value;
         $this->_data['TerminationDate'] = $value;
         return $this;
     }
@@ -633,6 +657,7 @@ class Employee extends Remote\Object {
      * @return Employee
      */
     public function setEmployeeID($value){
+        $this->_dirty['EmployeeID'] = $this->_data['EmployeeID'] != $value;
         $this->_data['EmployeeID'] = $value;
         return $this;
     }
@@ -649,6 +674,7 @@ class Employee extends Remote\Object {
      * @return Employee
      */
     public function setStatu($value){
+        $this->_dirty['Status'] = $this->_data['Status'] != $value;
         $this->_data['Status'] = $value;
         return $this;
     }
@@ -665,6 +691,7 @@ class Employee extends Remote\Object {
      * @return Employee
      */
     public function setUpdatedDateUTC(\DateTime $value){
+        $this->_dirty['UpdatedDateUTC'] = $this->_data['UpdatedDateUTC'] != $value;
         $this->_data['UpdatedDateUTC'] = $value;
         return $this;
     }
