@@ -29,8 +29,42 @@ This library is still a WIP, I'd love contributions/fixes from anyone that is ke
 
 ## Setup
 
-To follow.
+Using composer:
+
+```
+  "require": {
+  	"php": ">=5.3.3",
+  	"calcinai/xero-php": "dev-master"
+  }
+```
+
+Otherwise just download the package and add it to your autoloader.  Namespaces are PSR-4 compliant.
 
 ## Usage
 
-To follow.
+Create a XeroPHP instance (sample config included):
+
+```
+$xero = new \XeroPHP\Application\PrivateApplication($config);
+```
+
+Load something
+```
+$contact = $xero->loadByGUID('Accounting\\Contact', [GUID]));
+```
+
+Or create & populate it
+```
+$contact = new \XeroPHP\Models\Accounting\Contact();
+$contact->setName('Test Contact')
+			->setFirstName('Test')
+			->setLastName('Contact')
+			->setEmailAddress('test@example.com');
+```
+
+Save it
+```
+$xero->save($contact);
+```
+
+Refer to eaxmples for more complex usage and nested/related objects
