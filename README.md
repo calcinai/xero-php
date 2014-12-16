@@ -18,11 +18,11 @@ This is loosely based on the functional flow of XeroAPI/XeroOAuth-PHP, but is sp
 * Removal of countless semantic issues
 
 
-I've tested with Private apps, but will also support Partner/Public apps with a little more work.  This library is still a WIP, I'd love contributions/fixes from anyone that is keen to join the cause!
+I've tested with Private/Public apps, but should also support Partner apps when configured.  This library is still a WIP, I'd love contributions/fixes from anyone that is keen to join the cause!
 
 ### Model Generation
 
-Any files in the XeroPHP/Models directory is system generated.  Ideally, these shouldn't me modified directly, as it will be difficult to track/update.  Instead, if you notice something wrong with them, have a look at the ```generate/``` folder.  This contains the generation code, which actually just scrapes <http://developer.xero.com/documentation/> and parses out model/property/relation information.
+Any files in the XeroPHP/Models directory is system generated.  Ideally, these shouldn't be modified directly, as it will be difficult to track/update.  Instead, if you notice something wrong with them, have a look at the ```generate/``` folder.  This contains the generation code, which actually just scrapes <http://developer.xero.com/documentation/> and parses out model/property/relation information.
 
 
 ## Requirements
