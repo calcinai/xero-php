@@ -7,15 +7,18 @@ use XeroPHP\Helpers;
 
 class Query {
 
+    const ORDER_ASC  = 'ASC';
+    const ORDER_DESC = 'DESC';
+
     private $app;
     private $from;
     private $where;
-
-    private $elements;
+    private $order;
 
     public function __construct($app){
         $this->app = $app;
         $this->where = array();
+        $this->order = null;
     }
 
     public function from($class){
@@ -36,7 +39,7 @@ class Query {
         $args = func_get_args();
 
         if(func_num_args() === 2){
-            $this->where[] = sprintf('%s="%s"', $args[0], self::escape($args[1]));
+            $this->where[] = sprintf('%s=="%s"', $args[0], self::escape($args[1]));
         } else {
             $this->where[] = $args[0];
         }
@@ -46,6 +49,10 @@ class Query {
 
     public function getWhere(){
         return implode(' AND ', $this->where);
+    }
+
+    public function orderBy($order, $direction = self::ORDER_ASC){
+        $this->order = sprintf('%s %s', $order, $direction);
     }
 
     public function execute(){
@@ -58,9 +65,12 @@ class Query {
         if(!empty($where))
             $request->setParameter('where', $where);
 
-        $response = $request->send();
+        if($this->order !== null)
+            $request->setParameter('order', $this->order);
 
-        foreach($response->getElements() as $element){
+        $request->send();
+
+        foreach($request->getResponse()->getElements() as $element){
             $built_element = new $from_class;
             $built_element->fromStringArray($element);
             $elements[] = $built_element;

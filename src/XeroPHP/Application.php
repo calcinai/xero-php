@@ -46,11 +46,20 @@ abstract class Application {
 
 
     protected $config;
+    protected $oauth_client;
 
     public function __construct(array $user_config){
         //better here for overriding
         $this->config = array_replace_recursive(self::$_config_defaults, static::$_type_config_defaults, $user_config);
+
+        $this->oauth_client = new Client($this->config['oauth']);
     }
+
+    public function getOAuthClient(){
+        return $this->oauth_client;
+    }
+
+
 
     public function getConfig($key){
 
@@ -106,9 +115,10 @@ abstract class Application {
         $url = new URL($this, sprintf('%s/%s', $object::getResourceURI(), $object->getGUID()));
         $request = new Request($this, $url, Request::METHOD_POST);
 
-        $request->setBody(Helpers::arrayToXML($data));
+        $request->setBody(Helpers::arrayToXML($data))
+                ->send();
 
-        return $request->send();
+        return $request->getResponse();
 
     }
 
@@ -122,10 +132,10 @@ abstract class Application {
         $url = new URL($this, $object::getResourceURI());
         $request = new Request($this, $url, Request::METHOD_PUT);
 
-        $request->setBody(Helpers::arrayToXML($data));
+        $request->setBody(Helpers::arrayToXML($data))
+                ->send();
 
-        $response = $request->send();
-        print_r($response);
+        return $request->getResponse();
     }
 
     public function delete(Object $object){

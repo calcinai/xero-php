@@ -15,6 +15,7 @@ class Request {
     const METHOD_POST   = 'POST';
     const METHOD_DELETE = 'DELETE';
 
+    const CONTENT_TYPE_HTML = 'text/html';
     const CONTENT_TYPE_XML  = 'text/xml';
     const CONTENT_TYPE_JSON = 'application/json';
     const CONTENT_TYPE_PDF  = 'application/pdf';
@@ -32,12 +33,12 @@ class Request {
     private $parameters;
     private $body;
 
-    /**
-     * A hint of what the root elements int he response will be.
-     *
-     * @var string
+    private $oauth_client;
+
+    /*
+     * @var XeroPHP\Remote\Response;
      */
-    private $resource_hint;
+    private $response;
 
 
     public function __construct(Application $app, URL $url, $method = self::METHOD_GET){
@@ -46,7 +47,6 @@ class Request {
         $this->url = $url;
         $this->headers = array();
         $this->parameters = array();
-        $this->resource_hint = null;
 
         switch($method){
             case self::METHOD_GET:
@@ -67,9 +67,7 @@ class Request {
     public function send(){
 
         //Sign the request - this just sets the Authorization header
-        $oauth_config = $this->app->getConfig('oauth');
-        $oauth_client = new Client($oauth_config);
-        $oauth_client->sign($this);
+        $this->app->getOAuthClient()->sign($this);
 
         // configure curl
         $ch = curl_init();
@@ -107,9 +105,10 @@ class Request {
             throw new Exception('Curl error: '.curl_error($ch));
         }
 
-        $response = new Response($this, $response, $info);
+        $this->response = new Response($this, $response, $info);
+        $this->response->parse();
 
-        return $response;
+        return $this->response;
     }
 
     public function setParameter($key, $value){
@@ -137,6 +136,15 @@ class Request {
         return $this->headers;
     }
 
+    /*
+     * @return XeroPHP\Remote\Response
+     */
+    public function getResponse(){
+        if(isset($this->response))
+            return $this->response;
+
+        return null;
+    }
 
     /**
      * @param $key string Name of the header
@@ -164,26 +172,6 @@ class Request {
         return $this->url;
     }
 
-    /**
-     * @return string
-     */
-    public function getResourceHint() {
-
-        if($this->resource_hint !== null)
-            return $this->resource_hint;
-
-        //Else return the singular of the endpoint, as this is what it's commonly names after.
-        return Helpers::singularize($this->url->getEndpoint());
-    }
-
-    /**
-     * Hint what the response is going to contain for parsing objects into.
-     *
-     * @param string $resource_hint
-     */
-    public function setResourceHint($resource_hint) {
-        $this->resource_hint = $resource_hint;
-    }
 
     public function setBody($body, $content_type = self::CONTENT_TYPE_XML){
 

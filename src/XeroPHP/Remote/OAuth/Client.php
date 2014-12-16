@@ -36,6 +36,9 @@ class Client {
      */
     private $oauth_params;
 
+    private $token_secret;
+    private $verifier;
+
     /**
      * @param array $config OAuth config
      */
@@ -95,12 +98,19 @@ class Client {
         if(!isset($this->oauth_params)){
             $this->oauth_params = array(
                 'oauth_consumer_key'     => $this->getConsumerKey(),
-                'oauth_token'            => $this->getConsumerKey(), //huh?
                 'oauth_signature_method' => $this->getSignatureMethod(),
                 'oauth_timestamp'        => $this->getTimestamp(),
                 'oauth_nonce'            => $this->getNonce(),
+                'oauth_callback'         => $this->getCallback(),
                 'oauth_version'          => self::OAUTH_VERSION
             );
+
+            if(null !== $token = $this->getToken())
+                $this->oauth_params['oauth_token'] = $token;
+
+            if(null !== $verifier = $this->getVerifier())
+                $this->oauth_params['oauth_verifier'] = $verifier;
+
         }
 
         return $this->oauth_params;
@@ -158,14 +168,17 @@ class Client {
     }
 
     /**
-     * This is the signing secret passed to HMAC and PLAINTEXT signing mechanisms.  For some reason, in the SimpleOAuth
-     * class, this ended up being equivalent to consumer_secret&consumer_secret - if that's a Xero specific thing, it
-     * can be changed back here.
+     * This is the signing secret passed to HMAC and PLAINTEXT signing mechanisms.
      *
      * @return string
      */
     private function getSigningSecret(){
-        return $this->getConsumerSecret();
+        $secret = $this->getConsumerSecret().'&';
+
+        if(null !== $token_secret = $this->getTokenSecret())
+            $secret .= $token_secret;
+
+        return $secret;
     }
 
 
@@ -185,11 +198,25 @@ class Client {
         return $nonce;
     }
 
+
     /**
      * @return int
      */
     private function getTimestamp(){
         return time();
+    }
+
+    public function setToken($token){
+        $this->config['token'] = $token;
+
+        return $this;
+    }
+
+    public function getToken(){
+        if(isset($this->config['token']))
+            return $this->config['token'];
+
+        return null;
     }
 
     /**
@@ -209,8 +236,45 @@ class Client {
     /**
      * @return string
      */
+    private function getCallback(){
+        return $this->config['callback'];
+    }
+
+    /**
+     * @return string
+     */
     private function getSignatureMethod(){
         return $this->config['signature_method'];
     }
+
+
+    //Populated during 3-legged auth
+
+    public function setTokenSecret($secret){
+        $this->token_secret = $secret;
+
+        return $this;
+    }
+
+    public function getTokenSecret(){
+        if(isset($this->token_secret))
+            return $this->token_secret;
+
+        return null;
+    }
+
+    public function setVerifier($verifier){
+        $this->verifier = $verifier;
+
+        return $this;
+    }
+
+    public function getVerifier(){
+        if(isset($this->verifier))
+            return $this->verifier;
+
+        return null;
+    }
+
 
 }

@@ -5,12 +5,14 @@
     "homepage": "https://github.com/calcinai/xero-php",
 
     "require": {
+        "ext-curl": "*",
+        "ext-openssl": "*"
     },
 
     "require-dev": {
         "phpunit/phpunit": "3.7.*",
         "fabpot/goutte": "~2.0",
-        "twig/twig": "1.16.2",
+        "twig/twig": "1.16.2"
     },
 
     "repositories": [

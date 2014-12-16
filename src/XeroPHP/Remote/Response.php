@@ -31,6 +31,8 @@ class Response {
     private $content_type;
     private $response_body;
 
+    private $oauth_response;
+
     private $elements;
 
     private $element_errors;
@@ -45,25 +47,37 @@ class Response {
         $this->status = $curl_info['http_code'];
 
         list($this->content_type) = explode(';', $curl_info['content_type']);
+    }
+
+    public function parse(){
+
         $this->parseBody();
 
         switch($this->status) {
             case Response::STATUS_BAD_REQUEST:
-                $message = sprintf('%s (%s)', $this->root_error['message'], implode(', ', $this->element_errors));
-                throw new BadRequestException($message, $this->root_error['code']);
+                //This catches actual app errors
+                if(isset($this->root_error)){
+                    $message = sprintf('%s (%s)', $this->root_error['message'], implode(', ', $this->element_errors));
+                    throw new BadRequestException($message, $this->root_error['code']);
+                } else {
+                    throw new BadRequestException();
+                }
+
             case Response::STATUS_UNAUTHORISED:
             case Response::STATUS_FORBIDDEN:
                 throw new UnauthorizedException();
+
             case Response::STATUS_NOT_FOUND:
                 throw new NotFoundException();
+
             case Response::STATUS_INTERNAL_ERROR:
             case Response::STATUS_NOT_IMPLEMENTED:
                 throw new InternalErrorException();
+
             case Response::STATUS_RATE_LIMIT_EXCEEDED:
                 throw new RateLimitExceededException();
 
         }
-
     }
 
     public function getElements(){
@@ -82,7 +96,16 @@ class Response {
         return $this->root_error;
     }
 
+    public function getOAuthResponse(){
+        return $this->oauth_response;
+    }
+
     public function parseBody(){
+
+        if($this->request->getUrl()->isOAuth()){
+            parse_str($this->response_body, $this->oauth_response);
+            return;
+        }
 
         $this->elements = array();
         $this->element_errors = array();
