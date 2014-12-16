@@ -18,7 +18,11 @@ This is loosely based on the functional flow of XeroAPI/XeroOAuth-PHP, but is sp
 * Removal of countless semantic issues
 
 
-This library is still a WIP, I'd love contributions/fixes from anyone that is keen to join the cause!
+I've tested with Private apps, but will also support Partner/Public apps with a little more work.  This library is still a WIP, I'd love contributions/fixes from anyone that is keen to join the cause!
+
+### Model Generation
+
+Any files in the XeroPHP/Models directory is system generated.  Ideally, these shouldn't me modified directly, as it will be difficult to track/update.  Instead, if you notice something wrong with them, have a look at the ```generate/``` folder.  This contains the generation code, which actually just scrapes <http://developer.xero.com/documentation/> and parses out model/property/relation information.
 
 
 ## Requirements
@@ -29,8 +33,41 @@ This library is still a WIP, I'd love contributions/fixes from anyone that is ke
 
 ## Setup
 
-To follow.
+Using composer:
+
+```
+  "require": {
+  	"calcinai/xero-php": "dev-master"
+  }
+```
+
+Otherwise just download the package and add it to your autoloader.  Namespaces are PSR-4 compliant.
 
 ## Usage
 
-To follow.
+Create a XeroPHP instance (sample config included):
+
+```
+$xero = new \XeroPHP\Application\PrivateApplication($config);
+```
+
+Load something
+```
+$contact = $xero->loadByGUID('Accounting\\Contact', [GUID]));
+```
+
+Or create & populate it
+```
+$contact = new \XeroPHP\Models\Accounting\Contact();
+$contact->setName('Test Contact')
+			->setFirstName('Test')
+			->setLastName('Contact')
+			->setEmailAddress('test@example.com');
+```
+
+Save it
+```
+$xero->save($contact);
+```
+
+Refer to eaxmples for more complex usage and nested/related objects
