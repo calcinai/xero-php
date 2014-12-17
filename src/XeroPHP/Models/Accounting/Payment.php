@@ -188,7 +188,7 @@ class Payment extends Remote\Object {
      * @return Payment
      */
     public function setCreditNote(CreditNote $value){
-        $this->_dirty['CreditNote'] = $this->_data['CreditNote'] != $value;
+        $this->propertyUpdated('CreditNote', $value);
         $this->_data['CreditNote'] = $value;
         return $this;
     }
@@ -205,7 +205,7 @@ class Payment extends Remote\Object {
      * @return Payment
      */
     public function setInvoice(Invoice $value){
-        $this->_dirty['Invoice'] = $this->_data['Invoice'] != $value;
+        $this->propertyUpdated('Invoice', $value);
         $this->_data['Invoice'] = $value;
         return $this;
     }
@@ -222,7 +222,7 @@ class Payment extends Remote\Object {
      * @return Payment
      */
     public function setAccount(Account $value){
-        $this->_dirty['Account'] = $this->_data['Account'] != $value;
+        $this->propertyUpdated('Account', $value);
         $this->_data['Account'] = $value;
         return $this;
     }
@@ -239,7 +239,7 @@ class Payment extends Remote\Object {
      * @return Payment
      */
     public function setDate(\DateTime $value){
-        $this->_dirty['Date'] = $this->_data['Date'] != $value;
+        $this->propertyUpdated('Date', $value);
         $this->_data['Date'] = $value;
         return $this;
     }
@@ -256,7 +256,7 @@ class Payment extends Remote\Object {
      * @return Payment
      */
     public function setCurrencyRate($value){
-        $this->_dirty['CurrencyRate'] = $this->_data['CurrencyRate'] != $value;
+        $this->propertyUpdated('CurrencyRate', $value);
         $this->_data['CurrencyRate'] = $value;
         return $this;
     }
@@ -273,7 +273,7 @@ class Payment extends Remote\Object {
      * @return Payment
      */
     public function setAmount($value){
-        $this->_dirty['Amount'] = $this->_data['Amount'] != $value;
+        $this->propertyUpdated('Amount', $value);
         $this->_data['Amount'] = $value;
         return $this;
     }
@@ -290,7 +290,7 @@ class Payment extends Remote\Object {
      * @return Payment
      */
     public function setReference($value){
-        $this->_dirty['Reference'] = $this->_data['Reference'] != $value;
+        $this->propertyUpdated('Reference', $value);
         $this->_data['Reference'] = $value;
         return $this;
     }
@@ -307,7 +307,7 @@ class Payment extends Remote\Object {
      * @return Payment
      */
     public function setIsReconciled($value){
-        $this->_dirty['IsReconciled'] = $this->_data['IsReconciled'] != $value;
+        $this->propertyUpdated('IsReconciled', $value);
         $this->_data['IsReconciled'] = $value;
         return $this;
     }
@@ -323,8 +323,8 @@ class Payment extends Remote\Object {
      * @param string $value
      * @return Payment
      */
-    public function setStatu($value){
-        $this->_dirty['Status'] = $this->_data['Status'] != $value;
+    public function setStatus($value){
+        $this->propertyUpdated('Status', $value);
         $this->_data['Status'] = $value;
         return $this;
     }
@@ -341,7 +341,7 @@ class Payment extends Remote\Object {
      * @return Payment
      */
     public function setPaymentType($value){
-        $this->_dirty['PaymentType'] = $this->_data['PaymentType'] != $value;
+        $this->propertyUpdated('PaymentType', $value);
         $this->_data['PaymentType'] = $value;
         return $this;
     }
@@ -358,7 +358,7 @@ class Payment extends Remote\Object {
      * @return Payment
      */
     public function setUpdatedDateUTC(\DateTime $value){
-        $this->_dirty['UpdatedDateUTC'] = $this->_data['UpdatedDateUTC'] != $value;
+        $this->propertyUpdated('UpdatedDateUTC', $value);
         $this->_data['UpdatedDateUTC'] = $value;
         return $this;
     }
@@ -375,7 +375,7 @@ class Payment extends Remote\Object {
      * @return Payment
      */
     public function setPaymentID($value){
-        $this->_dirty['PaymentID'] = $this->_data['PaymentID'] != $value;
+        $this->propertyUpdated('PaymentID', $value);
         $this->_data['PaymentID'] = $value;
         return $this;
     }

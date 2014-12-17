@@ -113,7 +113,7 @@ class Account extends Remote\Object {
      * @return Account
      */
     public function setAccountID($value){
-        $this->_dirty['AccountID'] = $this->_data['AccountID'] != $value;
+        $this->propertyUpdated('AccountID', $value);
         $this->_data['AccountID'] = $value;
         return $this;
     }
@@ -130,7 +130,7 @@ class Account extends Remote\Object {
      * @return Account
      */
     public function setType($value){
-        $this->_dirty['Type'] = $this->_data['Type'] != $value;
+        $this->propertyUpdated('Type', $value);
         $this->_data['Type'] = $value;
         return $this;
     }
@@ -147,7 +147,7 @@ class Account extends Remote\Object {
      * @return Account
      */
     public function setCode($value){
-        $this->_dirty['Code'] = $this->_data['Code'] != $value;
+        $this->propertyUpdated('Code', $value);
         $this->_data['Code'] = $value;
         return $this;
     }
@@ -164,7 +164,7 @@ class Account extends Remote\Object {
      * @return Account
      */
     public function setName($value){
-        $this->_dirty['Name'] = $this->_data['Name'] != $value;
+        $this->propertyUpdated('Name', $value);
         $this->_data['Name'] = $value;
         return $this;
     }

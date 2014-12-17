@@ -232,7 +232,7 @@ class BankTransaction extends Remote\Object {
      * @return BankTransaction
      */
     public function setType($value){
-        $this->_dirty['Type'] = $this->_data['Type'] != $value;
+        $this->propertyUpdated('Type', $value);
         $this->_data['Type'] = $value;
         return $this;
     }
@@ -249,7 +249,7 @@ class BankTransaction extends Remote\Object {
      * @return BankTransaction
      */
     public function setContact(Contact $value){
-        $this->_dirty['Contact'] = $this->_data['Contact'] != $value;
+        $this->propertyUpdated('Contact', $value);
         $this->_data['Contact'] = $value;
         return $this;
     }
@@ -266,7 +266,7 @@ class BankTransaction extends Remote\Object {
      * @return BankTransaction
      */
     public function addLineitem(LineItem $value){
-        $this->_dirty['Lineitems'] = true;
+        $this->propertyUpdated('Lineitems', $value);
         $this->_data['Lineitems'][] = $value;
         return $this;
     }
@@ -283,7 +283,7 @@ class BankTransaction extends Remote\Object {
      * @return BankTransaction
      */
     public function setBankAccount(BankAccount $value){
-        $this->_dirty['BankAccount'] = $this->_data['BankAccount'] != $value;
+        $this->propertyUpdated('BankAccount', $value);
         $this->_data['BankAccount'] = $value;
         return $this;
     }
@@ -300,7 +300,7 @@ class BankTransaction extends Remote\Object {
      * @return BankTransaction
      */
     public function setIsReconciled($value){
-        $this->_dirty['IsReconciled'] = $this->_data['IsReconciled'] != $value;
+        $this->propertyUpdated('IsReconciled', $value);
         $this->_data['IsReconciled'] = $value;
         return $this;
     }
@@ -317,7 +317,7 @@ class BankTransaction extends Remote\Object {
      * @return BankTransaction
      */
     public function setDate(\DateTime $value){
-        $this->_dirty['Date'] = $this->_data['Date'] != $value;
+        $this->propertyUpdated('Date', $value);
         $this->_data['Date'] = $value;
         return $this;
     }
@@ -334,7 +334,7 @@ class BankTransaction extends Remote\Object {
      * @return BankTransaction
      */
     public function setReference($value){
-        $this->_dirty['Reference'] = $this->_data['Reference'] != $value;
+        $this->propertyUpdated('Reference', $value);
         $this->_data['Reference'] = $value;
         return $this;
     }
@@ -351,7 +351,7 @@ class BankTransaction extends Remote\Object {
      * @return BankTransaction
      */
     public function setCurrencyCode($value){
-        $this->_dirty['CurrencyCode'] = $this->_data['CurrencyCode'] != $value;
+        $this->propertyUpdated('CurrencyCode', $value);
         $this->_data['CurrencyCode'] = $value;
         return $this;
     }
@@ -368,7 +368,7 @@ class BankTransaction extends Remote\Object {
      * @return BankTransaction
      */
     public function setCurrencyRate($value){
-        $this->_dirty['CurrencyRate'] = $this->_data['CurrencyRate'] != $value;
+        $this->propertyUpdated('CurrencyRate', $value);
         $this->_data['CurrencyRate'] = $value;
         return $this;
     }
@@ -385,7 +385,7 @@ class BankTransaction extends Remote\Object {
      * @return BankTransaction
      */
     public function setUrl($value){
-        $this->_dirty['Url'] = $this->_data['Url'] != $value;
+        $this->propertyUpdated('Url', $value);
         $this->_data['Url'] = $value;
         return $this;
     }
@@ -401,8 +401,8 @@ class BankTransaction extends Remote\Object {
      * @param string $value
      * @return BankTransaction
      */
-    public function setStatu($value){
-        $this->_dirty['Status'] = $this->_data['Status'] != $value;
+    public function setStatus($value){
+        $this->propertyUpdated('Status', $value);
         $this->_data['Status'] = $value;
         return $this;
     }
@@ -419,7 +419,7 @@ class BankTransaction extends Remote\Object {
      * @return BankTransaction
      */
     public function addLineAmountType($value){
-        $this->_dirty['LineAmountTypes'] = true;
+        $this->propertyUpdated('LineAmountTypes', $value);
         $this->_data['LineAmountTypes'][] = $value;
         return $this;
     }
@@ -436,7 +436,7 @@ class BankTransaction extends Remote\Object {
      * @return BankTransaction
      */
     public function setSubTotal($value){
-        $this->_dirty['SubTotal'] = $this->_data['SubTotal'] != $value;
+        $this->propertyUpdated('SubTotal', $value);
         $this->_data['SubTotal'] = $value;
         return $this;
     }
@@ -453,7 +453,7 @@ class BankTransaction extends Remote\Object {
      * @return BankTransaction
      */
     public function setTotalTax($value){
-        $this->_dirty['TotalTax'] = $this->_data['TotalTax'] != $value;
+        $this->propertyUpdated('TotalTax', $value);
         $this->_data['TotalTax'] = $value;
         return $this;
     }
@@ -470,7 +470,7 @@ class BankTransaction extends Remote\Object {
      * @return BankTransaction
      */
     public function setTotal($value){
-        $this->_dirty['Total'] = $this->_data['Total'] != $value;
+        $this->propertyUpdated('Total', $value);
         $this->_data['Total'] = $value;
         return $this;
     }
@@ -487,7 +487,7 @@ class BankTransaction extends Remote\Object {
      * @return BankTransaction
      */
     public function setBankTransactionID($value){
-        $this->_dirty['BankTransactionID'] = $this->_data['BankTransactionID'] != $value;
+        $this->propertyUpdated('BankTransactionID', $value);
         $this->_data['BankTransactionID'] = $value;
         return $this;
     }
@@ -504,7 +504,7 @@ class BankTransaction extends Remote\Object {
      * @return BankTransaction
      */
     public function setUpdatedDateUTC(\DateTime $value){
-        $this->_dirty['UpdatedDateUTC'] = $this->_data['UpdatedDateUTC'] != $value;
+        $this->propertyUpdated('UpdatedDateUTC', $value);
         $this->_data['UpdatedDateUTC'] = $value;
         return $this;
     }
@@ -521,7 +521,7 @@ class BankTransaction extends Remote\Object {
      * @return BankTransaction
      */
     public function setHasAttachment($value){
-        $this->_dirty['HasAttachments'] = $this->_data['HasAttachments'] != $value;
+        $this->propertyUpdated('HasAttachments', $value);
         $this->_data['HasAttachments'] = $value;
         return $this;
     }

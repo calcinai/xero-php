@@ -187,7 +187,7 @@ class RepeatingInvoice extends Remote\Object {
      * @return RepeatingInvoice
      */
     public function setType($value){
-        $this->_dirty['Type'] = $this->_data['Type'] != $value;
+        $this->propertyUpdated('Type', $value);
         $this->_data['Type'] = $value;
         return $this;
     }
@@ -204,7 +204,7 @@ class RepeatingInvoice extends Remote\Object {
      * @return RepeatingInvoice
      */
     public function setContact(Contact $value){
-        $this->_dirty['Contact'] = $this->_data['Contact'] != $value;
+        $this->propertyUpdated('Contact', $value);
         $this->_data['Contact'] = $value;
         return $this;
     }
@@ -221,7 +221,7 @@ class RepeatingInvoice extends Remote\Object {
      * @return RepeatingInvoice
      */
     public function setSchedule(Schedule $value){
-        $this->_dirty['Schedule'] = $this->_data['Schedule'] != $value;
+        $this->propertyUpdated('Schedule', $value);
         $this->_data['Schedule'] = $value;
         return $this;
     }
@@ -238,7 +238,7 @@ class RepeatingInvoice extends Remote\Object {
      * @return RepeatingInvoice
      */
     public function addLineItem(LineItem $value){
-        $this->_dirty['LineItems'] = true;
+        $this->propertyUpdated('LineItems', $value);
         $this->_data['LineItems'][] = $value;
         return $this;
     }
@@ -255,7 +255,7 @@ class RepeatingInvoice extends Remote\Object {
      * @return RepeatingInvoice
      */
     public function addLineAmountType($value){
-        $this->_dirty['LineAmountTypes'] = true;
+        $this->propertyUpdated('LineAmountTypes', $value);
         $this->_data['LineAmountTypes'][] = $value;
         return $this;
     }
@@ -272,7 +272,7 @@ class RepeatingInvoice extends Remote\Object {
      * @return RepeatingInvoice
      */
     public function setReference($value){
-        $this->_dirty['Reference'] = $this->_data['Reference'] != $value;
+        $this->propertyUpdated('Reference', $value);
         $this->_data['Reference'] = $value;
         return $this;
     }
@@ -289,7 +289,7 @@ class RepeatingInvoice extends Remote\Object {
      * @return RepeatingInvoice
      */
     public function setBrandingThemeID($value){
-        $this->_dirty['BrandingThemeID'] = $this->_data['BrandingThemeID'] != $value;
+        $this->propertyUpdated('BrandingThemeID', $value);
         $this->_data['BrandingThemeID'] = $value;
         return $this;
     }
@@ -306,7 +306,7 @@ class RepeatingInvoice extends Remote\Object {
      * @return RepeatingInvoice
      */
     public function setCurrencyCode($value){
-        $this->_dirty['CurrencyCode'] = $this->_data['CurrencyCode'] != $value;
+        $this->propertyUpdated('CurrencyCode', $value);
         $this->_data['CurrencyCode'] = $value;
         return $this;
     }
@@ -322,8 +322,8 @@ class RepeatingInvoice extends Remote\Object {
      * @param string $value
      * @return RepeatingInvoice
      */
-    public function setStatu($value){
-        $this->_dirty['Status'] = $this->_data['Status'] != $value;
+    public function setStatus($value){
+        $this->propertyUpdated('Status', $value);
         $this->_data['Status'] = $value;
         return $this;
     }
@@ -340,7 +340,7 @@ class RepeatingInvoice extends Remote\Object {
      * @return RepeatingInvoice
      */
     public function setSubTotal($value){
-        $this->_dirty['SubTotal'] = $this->_data['SubTotal'] != $value;
+        $this->propertyUpdated('SubTotal', $value);
         $this->_data['SubTotal'] = $value;
         return $this;
     }
@@ -357,7 +357,7 @@ class RepeatingInvoice extends Remote\Object {
      * @return RepeatingInvoice
      */
     public function setTotalTax($value){
-        $this->_dirty['TotalTax'] = $this->_data['TotalTax'] != $value;
+        $this->propertyUpdated('TotalTax', $value);
         $this->_data['TotalTax'] = $value;
         return $this;
     }
@@ -374,7 +374,7 @@ class RepeatingInvoice extends Remote\Object {
      * @return RepeatingInvoice
      */
     public function setTotal($value){
-        $this->_dirty['Total'] = $this->_data['Total'] != $value;
+        $this->propertyUpdated('Total', $value);
         $this->_data['Total'] = $value;
         return $this;
     }
@@ -391,7 +391,7 @@ class RepeatingInvoice extends Remote\Object {
      * @return RepeatingInvoice
      */
     public function setRepeatingInvoiceID($value){
-        $this->_dirty['RepeatingInvoiceID'] = $this->_data['RepeatingInvoiceID'] != $value;
+        $this->propertyUpdated('RepeatingInvoiceID', $value);
         $this->_data['RepeatingInvoiceID'] = $value;
         return $this;
     }
@@ -408,7 +408,7 @@ class RepeatingInvoice extends Remote\Object {
      * @return RepeatingInvoice
      */
     public function setHasAttachment($value){
-        $this->_dirty['HasAttachments'] = $this->_data['HasAttachments'] != $value;
+        $this->propertyUpdated('HasAttachments', $value);
         $this->_data['HasAttachments'] = $value;
         return $this;
     }

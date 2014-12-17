@@ -240,7 +240,7 @@ class CreditNote extends Remote\Object {
      * @return CreditNote
      */
     public function setReference($value){
-        $this->_dirty['Reference'] = $this->_data['Reference'] != $value;
+        $this->propertyUpdated('Reference', $value);
         $this->_data['Reference'] = $value;
         return $this;
     }
@@ -257,7 +257,7 @@ class CreditNote extends Remote\Object {
      * @return CreditNote
      */
     public function setType($value){
-        $this->_dirty['Type'] = $this->_data['Type'] != $value;
+        $this->propertyUpdated('Type', $value);
         $this->_data['Type'] = $value;
         return $this;
     }
@@ -274,7 +274,7 @@ class CreditNote extends Remote\Object {
      * @return CreditNote
      */
     public function setContact(Contact $value){
-        $this->_dirty['Contact'] = $this->_data['Contact'] != $value;
+        $this->propertyUpdated('Contact', $value);
         $this->_data['Contact'] = $value;
         return $this;
     }
@@ -291,7 +291,7 @@ class CreditNote extends Remote\Object {
      * @return CreditNote
      */
     public function setDate(\DateTime $value){
-        $this->_dirty['Date'] = $this->_data['Date'] != $value;
+        $this->propertyUpdated('Date', $value);
         $this->_data['Date'] = $value;
         return $this;
     }
@@ -307,8 +307,8 @@ class CreditNote extends Remote\Object {
      * @param string $value
      * @return CreditNote
      */
-    public function setStatu($value){
-        $this->_dirty['Status'] = $this->_data['Status'] != $value;
+    public function setStatus($value){
+        $this->propertyUpdated('Status', $value);
         $this->_data['Status'] = $value;
         return $this;
     }
@@ -325,7 +325,7 @@ class CreditNote extends Remote\Object {
      * @return CreditNote
      */
     public function addLineAmountType($value){
-        $this->_dirty['LineAmountTypes'] = true;
+        $this->propertyUpdated('LineAmountTypes', $value);
         $this->_data['LineAmountTypes'][] = $value;
         return $this;
     }
@@ -342,7 +342,7 @@ class CreditNote extends Remote\Object {
      * @return CreditNote
      */
     public function addLineItem(LineItem $value){
-        $this->_dirty['LineItems'] = true;
+        $this->propertyUpdated('LineItems', $value);
         $this->_data['LineItems'][] = $value;
         return $this;
     }
@@ -359,7 +359,7 @@ class CreditNote extends Remote\Object {
      * @return CreditNote
      */
     public function setSubTotal($value){
-        $this->_dirty['SubTotal'] = $this->_data['SubTotal'] != $value;
+        $this->propertyUpdated('SubTotal', $value);
         $this->_data['SubTotal'] = $value;
         return $this;
     }
@@ -376,7 +376,7 @@ class CreditNote extends Remote\Object {
      * @return CreditNote
      */
     public function setTotalTax($value){
-        $this->_dirty['TotalTax'] = $this->_data['TotalTax'] != $value;
+        $this->propertyUpdated('TotalTax', $value);
         $this->_data['TotalTax'] = $value;
         return $this;
     }
@@ -393,7 +393,7 @@ class CreditNote extends Remote\Object {
      * @return CreditNote
      */
     public function setTotal($value){
-        $this->_dirty['Total'] = $this->_data['Total'] != $value;
+        $this->propertyUpdated('Total', $value);
         $this->_data['Total'] = $value;
         return $this;
     }
@@ -410,7 +410,7 @@ class CreditNote extends Remote\Object {
      * @return CreditNote
      */
     public function setUpdatedDateUTC(\DateTime $value){
-        $this->_dirty['UpdatedDateUTC'] = $this->_data['UpdatedDateUTC'] != $value;
+        $this->propertyUpdated('UpdatedDateUTC', $value);
         $this->_data['UpdatedDateUTC'] = $value;
         return $this;
     }
@@ -427,7 +427,7 @@ class CreditNote extends Remote\Object {
      * @return CreditNote
      */
     public function setCurrencyCode($value){
-        $this->_dirty['CurrencyCode'] = $this->_data['CurrencyCode'] != $value;
+        $this->propertyUpdated('CurrencyCode', $value);
         $this->_data['CurrencyCode'] = $value;
         return $this;
     }
@@ -444,7 +444,7 @@ class CreditNote extends Remote\Object {
      * @return CreditNote
      */
     public function setFullyPaidOnDate(\DateTime $value){
-        $this->_dirty['FullyPaidOnDate'] = $this->_data['FullyPaidOnDate'] != $value;
+        $this->propertyUpdated('FullyPaidOnDate', $value);
         $this->_data['FullyPaidOnDate'] = $value;
         return $this;
     }
@@ -461,7 +461,7 @@ class CreditNote extends Remote\Object {
      * @return CreditNote
      */
     public function setCreditNoteID($value){
-        $this->_dirty['CreditNoteID'] = $this->_data['CreditNoteID'] != $value;
+        $this->propertyUpdated('CreditNoteID', $value);
         $this->_data['CreditNoteID'] = $value;
         return $this;
     }
@@ -478,7 +478,7 @@ class CreditNote extends Remote\Object {
      * @return CreditNote
      */
     public function setCreditNoteNumber($value){
-        $this->_dirty['CreditNoteNumber'] = $this->_data['CreditNoteNumber'] != $value;
+        $this->propertyUpdated('CreditNoteNumber', $value);
         $this->_data['CreditNoteNumber'] = $value;
         return $this;
     }
@@ -495,7 +495,7 @@ class CreditNote extends Remote\Object {
      * @return CreditNote
      */
     public function setSentToContact($value){
-        $this->_dirty['SentToContact'] = $this->_data['SentToContact'] != $value;
+        $this->propertyUpdated('SentToContact', $value);
         $this->_data['SentToContact'] = $value;
         return $this;
     }
@@ -512,7 +512,7 @@ class CreditNote extends Remote\Object {
      * @return CreditNote
      */
     public function setCurrencyRate($value){
-        $this->_dirty['CurrencyRate'] = $this->_data['CurrencyRate'] != $value;
+        $this->propertyUpdated('CurrencyRate', $value);
         $this->_data['CurrencyRate'] = $value;
         return $this;
     }
@@ -529,7 +529,7 @@ class CreditNote extends Remote\Object {
      * @return CreditNote
      */
     public function setRemainingCredit($value){
-        $this->_dirty['RemainingCredit'] = $this->_data['RemainingCredit'] != $value;
+        $this->propertyUpdated('RemainingCredit', $value);
         $this->_data['RemainingCredit'] = $value;
         return $this;
     }
@@ -546,7 +546,7 @@ class CreditNote extends Remote\Object {
      * @return CreditNote
      */
     public function addAllocation(Allocation $value){
-        $this->_dirty['Allocations'] = true;
+        $this->propertyUpdated('Allocations', $value);
         $this->_data['Allocations'][] = $value;
         return $this;
     }
@@ -563,7 +563,7 @@ class CreditNote extends Remote\Object {
      * @return CreditNote
      */
     public function setBrandingThemeID($value){
-        $this->_dirty['BrandingThemeID'] = $this->_data['BrandingThemeID'] != $value;
+        $this->propertyUpdated('BrandingThemeID', $value);
         $this->_data['BrandingThemeID'] = $value;
         return $this;
     }
@@ -580,7 +580,7 @@ class CreditNote extends Remote\Object {
      * @return CreditNote
      */
     public function setHasAttachment($value){
-        $this->_dirty['HasAttachments'] = $this->_data['HasAttachments'] != $value;
+        $this->propertyUpdated('HasAttachments', $value);
         $this->_data['HasAttachments'] = $value;
         return $this;
     }

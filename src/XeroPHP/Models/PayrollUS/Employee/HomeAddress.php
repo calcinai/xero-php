@@ -134,7 +134,7 @@ class HomeAddress extends Remote\Object {
      * @return HomeAddress
      */
     public function setStreetAddress($value){
-        $this->_dirty['StreetAddress'] = $this->_data['StreetAddress'] != $value;
+        $this->propertyUpdated('StreetAddress', $value);
         $this->_data['StreetAddress'] = $value;
         return $this;
     }
@@ -151,7 +151,7 @@ class HomeAddress extends Remote\Object {
      * @return HomeAddress
      */
     public function setSuiteOrAptOrUnit($value){
-        $this->_dirty['SuiteOrAptOrUnit'] = $this->_data['SuiteOrAptOrUnit'] != $value;
+        $this->propertyUpdated('SuiteOrAptOrUnit', $value);
         $this->_data['SuiteOrAptOrUnit'] = $value;
         return $this;
     }
@@ -168,7 +168,7 @@ class HomeAddress extends Remote\Object {
      * @return HomeAddress
      */
     public function setCity($value){
-        $this->_dirty['City'] = $this->_data['City'] != $value;
+        $this->propertyUpdated('City', $value);
         $this->_data['City'] = $value;
         return $this;
     }
@@ -185,7 +185,7 @@ class HomeAddress extends Remote\Object {
      * @return HomeAddress
      */
     public function setState($value){
-        $this->_dirty['State'] = $this->_data['State'] != $value;
+        $this->propertyUpdated('State', $value);
         $this->_data['State'] = $value;
         return $this;
     }
@@ -202,7 +202,7 @@ class HomeAddress extends Remote\Object {
      * @return HomeAddress
      */
     public function setZip($value){
-        $this->_dirty['Zip'] = $this->_data['Zip'] != $value;
+        $this->propertyUpdated('Zip', $value);
         $this->_data['Zip'] = $value;
         return $this;
     }
@@ -219,7 +219,7 @@ class HomeAddress extends Remote\Object {
      * @return HomeAddress
      */
     public function setLattitude($value){
-        $this->_dirty['Lattitude'] = $this->_data['Lattitude'] != $value;
+        $this->propertyUpdated('Lattitude', $value);
         $this->_data['Lattitude'] = $value;
         return $this;
     }
@@ -236,7 +236,7 @@ class HomeAddress extends Remote\Object {
      * @return HomeAddress
      */
     public function setLongitude($value){
-        $this->_dirty['Longitude'] = $this->_data['Longitude'] != $value;
+        $this->propertyUpdated('Longitude', $value);
         $this->_data['Longitude'] = $value;
         return $this;
     }

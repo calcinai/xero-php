@@ -283,7 +283,7 @@ class Employee extends Remote\Object {
      * @return Employee
      */
     public function setFirstName($value){
-        $this->_dirty['FirstName'] = $this->_data['FirstName'] != $value;
+        $this->propertyUpdated('FirstName', $value);
         $this->_data['FirstName'] = $value;
         return $this;
     }
@@ -300,7 +300,7 @@ class Employee extends Remote\Object {
      * @return Employee
      */
     public function setLastName($value){
-        $this->_dirty['LastName'] = $this->_data['LastName'] != $value;
+        $this->propertyUpdated('LastName', $value);
         $this->_data['LastName'] = $value;
         return $this;
     }
@@ -317,7 +317,7 @@ class Employee extends Remote\Object {
      * @return Employee
      */
     public function setDateOfBirth(\DateTime $value){
-        $this->_dirty['DateOfBirth'] = $this->_data['DateOfBirth'] != $value;
+        $this->propertyUpdated('DateOfBirth', $value);
         $this->_data['DateOfBirth'] = $value;
         return $this;
     }
@@ -334,7 +334,7 @@ class Employee extends Remote\Object {
      * @return Employee
      */
     public function setHomeAddress(HomeAddress $value){
-        $this->_dirty['HomeAddress'] = $this->_data['HomeAddress'] != $value;
+        $this->propertyUpdated('HomeAddress', $value);
         $this->_data['HomeAddress'] = $value;
         return $this;
     }
@@ -351,7 +351,7 @@ class Employee extends Remote\Object {
      * @return Employee
      */
     public function addMiddleName($value){
-        $this->_dirty['MiddleNames'] = true;
+        $this->propertyUpdated('MiddleNames', $value);
         $this->_data['MiddleNames'][] = $value;
         return $this;
     }
@@ -368,7 +368,7 @@ class Employee extends Remote\Object {
      * @return Employee
      */
     public function setJobTitle($value){
-        $this->_dirty['JobTitle'] = $this->_data['JobTitle'] != $value;
+        $this->propertyUpdated('JobTitle', $value);
         $this->_data['JobTitle'] = $value;
         return $this;
     }
@@ -385,7 +385,7 @@ class Employee extends Remote\Object {
      * @return Employee
      */
     public function setEmail($value){
-        $this->_dirty['Email'] = $this->_data['Email'] != $value;
+        $this->propertyUpdated('Email', $value);
         $this->_data['Email'] = $value;
         return $this;
     }
@@ -402,7 +402,7 @@ class Employee extends Remote\Object {
      * @return Employee
      */
     public function setGender($value){
-        $this->_dirty['Gender'] = $this->_data['Gender'] != $value;
+        $this->propertyUpdated('Gender', $value);
         $this->_data['Gender'] = $value;
         return $this;
     }
@@ -419,7 +419,7 @@ class Employee extends Remote\Object {
      * @return Employee
      */
     public function setMailingAddress(MailingAddress $value){
-        $this->_dirty['MailingAddress'] = $this->_data['MailingAddress'] != $value;
+        $this->propertyUpdated('MailingAddress', $value);
         $this->_data['MailingAddress'] = $value;
         return $this;
     }
@@ -436,7 +436,7 @@ class Employee extends Remote\Object {
      * @return Employee
      */
     public function setPhone($value){
-        $this->_dirty['Phone'] = $this->_data['Phone'] != $value;
+        $this->propertyUpdated('Phone', $value);
         $this->_data['Phone'] = $value;
         return $this;
     }
@@ -453,7 +453,7 @@ class Employee extends Remote\Object {
      * @return Employee
      */
     public function setEmployeeNumber($value){
-        $this->_dirty['EmployeeNumber'] = $this->_data['EmployeeNumber'] != $value;
+        $this->propertyUpdated('EmployeeNumber', $value);
         $this->_data['EmployeeNumber'] = $value;
         return $this;
     }
@@ -470,7 +470,7 @@ class Employee extends Remote\Object {
      * @return Employee
      */
     public function setSocialSecurityNumber($value){
-        $this->_dirty['SocialSecurityNumber'] = $this->_data['SocialSecurityNumber'] != $value;
+        $this->propertyUpdated('SocialSecurityNumber', $value);
         $this->_data['SocialSecurityNumber'] = $value;
         return $this;
     }
@@ -487,7 +487,7 @@ class Employee extends Remote\Object {
      * @return Employee
      */
     public function setStartDate(\DateTime $value){
-        $this->_dirty['StartDate'] = $this->_data['StartDate'] != $value;
+        $this->propertyUpdated('StartDate', $value);
         $this->_data['StartDate'] = $value;
         return $this;
     }
@@ -504,7 +504,7 @@ class Employee extends Remote\Object {
      * @return Employee
      */
     public function setPayScheduleID($value){
-        $this->_dirty['PayScheduleID'] = $this->_data['PayScheduleID'] != $value;
+        $this->propertyUpdated('PayScheduleID', $value);
         $this->_data['PayScheduleID'] = $value;
         return $this;
     }
@@ -521,7 +521,7 @@ class Employee extends Remote\Object {
      * @return Employee
      */
     public function setEmployeeGroupName($value){
-        $this->_dirty['EmployeeGroupName'] = $this->_data['EmployeeGroupName'] != $value;
+        $this->propertyUpdated('EmployeeGroupName', $value);
         $this->_data['EmployeeGroupName'] = $value;
         return $this;
     }
@@ -538,7 +538,7 @@ class Employee extends Remote\Object {
      * @return Employee
      */
     public function setEmploymentBasis($value){
-        $this->_dirty['EmploymentBasis'] = $this->_data['EmploymentBasis'] != $value;
+        $this->propertyUpdated('EmploymentBasis', $value);
         $this->_data['EmploymentBasis'] = $value;
         return $this;
     }
@@ -555,7 +555,7 @@ class Employee extends Remote\Object {
      * @return Employee
      */
     public function setHolidayGroupID($value){
-        $this->_dirty['HolidayGroupID'] = $this->_data['HolidayGroupID'] != $value;
+        $this->propertyUpdated('HolidayGroupID', $value);
         $this->_data['HolidayGroupID'] = $value;
         return $this;
     }
@@ -572,7 +572,7 @@ class Employee extends Remote\Object {
      * @return Employee
      */
     public function setIsAuthorisedToApproveTimeOff($value){
-        $this->_dirty['IsAuthorisedToApproveTimeOff'] = $this->_data['IsAuthorisedToApproveTimeOff'] != $value;
+        $this->propertyUpdated('IsAuthorisedToApproveTimeOff', $value);
         $this->_data['IsAuthorisedToApproveTimeOff'] = $value;
         return $this;
     }
@@ -589,7 +589,7 @@ class Employee extends Remote\Object {
      * @return Employee
      */
     public function setIsAuthorisedToApproveTimesheet($value){
-        $this->_dirty['IsAuthorisedToApproveTimesheets'] = $this->_data['IsAuthorisedToApproveTimesheets'] != $value;
+        $this->propertyUpdated('IsAuthorisedToApproveTimesheets', $value);
         $this->_data['IsAuthorisedToApproveTimesheets'] = $value;
         return $this;
     }
@@ -606,7 +606,7 @@ class Employee extends Remote\Object {
      * @return Employee
      */
     public function addSalaryAndWage(SalaryAndWage $value){
-        $this->_dirty['SalaryAndWages'] = true;
+        $this->propertyUpdated('SalaryAndWages', $value);
         $this->_data['SalaryAndWages'][] = $value;
         return $this;
     }
@@ -623,7 +623,7 @@ class Employee extends Remote\Object {
      * @return Employee
      */
     public function addWorkLocation(WorkLocation $value){
-        $this->_dirty['WorkLocations'] = true;
+        $this->propertyUpdated('WorkLocations', $value);
         $this->_data['WorkLocations'][] = $value;
         return $this;
     }
@@ -640,7 +640,7 @@ class Employee extends Remote\Object {
      * @return Employee
      */
     public function setPaymentMethod(PaymentMethod $value){
-        $this->_dirty['PaymentMethod'] = $this->_data['PaymentMethod'] != $value;
+        $this->propertyUpdated('PaymentMethod', $value);
         $this->_data['PaymentMethod'] = $value;
         return $this;
     }
@@ -657,7 +657,7 @@ class Employee extends Remote\Object {
      * @return Employee
      */
     public function setPayTemplate(PayTemplate $value){
-        $this->_dirty['PayTemplate'] = $this->_data['PayTemplate'] != $value;
+        $this->propertyUpdated('PayTemplate', $value);
         $this->_data['PayTemplate'] = $value;
         return $this;
     }
@@ -674,7 +674,7 @@ class Employee extends Remote\Object {
      * @return Employee
      */
     public function addOpeningBalance(OpeningBalance $value){
-        $this->_dirty['OpeningBalances'] = true;
+        $this->propertyUpdated('OpeningBalances', $value);
         $this->_data['OpeningBalances'][] = $value;
         return $this;
     }
@@ -691,7 +691,7 @@ class Employee extends Remote\Object {
      * @return Employee
      */
     public function setEmployeeID($value){
-        $this->_dirty['EmployeeID'] = $this->_data['EmployeeID'] != $value;
+        $this->propertyUpdated('EmployeeID', $value);
         $this->_data['EmployeeID'] = $value;
         return $this;
     }
@@ -707,8 +707,8 @@ class Employee extends Remote\Object {
      * @param string $value
      * @return Employee
      */
-    public function setStatu($value){
-        $this->_dirty['Status'] = $this->_data['Status'] != $value;
+    public function setStatus($value){
+        $this->propertyUpdated('Status', $value);
         $this->_data['Status'] = $value;
         return $this;
     }
@@ -725,7 +725,7 @@ class Employee extends Remote\Object {
      * @return Employee
      */
     public function setUpdatedDateUTC(\DateTime $value){
-        $this->_dirty['UpdatedDateUTC'] = $this->_data['UpdatedDateUTC'] != $value;
+        $this->propertyUpdated('UpdatedDateUTC', $value);
         $this->_data['UpdatedDateUTC'] = $value;
         return $this;
     }

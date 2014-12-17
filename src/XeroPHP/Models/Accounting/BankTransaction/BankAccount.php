@@ -99,7 +99,7 @@ class BankAccount extends Remote\Object {
      * @return BankAccount
      */
     public function setCode($value){
-        $this->_dirty['Code'] = $this->_data['Code'] != $value;
+        $this->propertyUpdated('Code', $value);
         $this->_data['Code'] = $value;
         return $this;
     }
@@ -116,7 +116,7 @@ class BankAccount extends Remote\Object {
      * @return BankAccount
      */
     public function setAccountID($value){
-        $this->_dirty['AccountID'] = $this->_data['AccountID'] != $value;
+        $this->propertyUpdated('AccountID', $value);
         $this->_data['AccountID'] = $value;
         return $this;
     }

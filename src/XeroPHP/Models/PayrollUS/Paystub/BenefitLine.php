@@ -99,7 +99,7 @@ class BenefitLine extends Remote\Object {
      * @return BenefitLine
      */
     public function setBenefitTypeID($value){
-        $this->_dirty['BenefitTypeID'] = $this->_data['BenefitTypeID'] != $value;
+        $this->propertyUpdated('BenefitTypeID', $value);
         $this->_data['BenefitTypeID'] = $value;
         return $this;
     }
@@ -116,7 +116,7 @@ class BenefitLine extends Remote\Object {
      * @return BenefitLine
      */
     public function setAmount($value){
-        $this->_dirty['Amount'] = $this->_data['Amount'] != $value;
+        $this->propertyUpdated('Amount', $value);
         $this->_data['Amount'] = $value;
         return $this;
     }

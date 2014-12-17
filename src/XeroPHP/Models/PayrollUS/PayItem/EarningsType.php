@@ -177,7 +177,7 @@ class EarningsType extends Remote\Object {
      * @return EarningsType
      */
     public function setEarningsType(EarningsType $value){
-        $this->_dirty['EarningsType'] = $this->_data['EarningsType'] != $value;
+        $this->propertyUpdated('EarningsType', $value);
         $this->_data['EarningsType'] = $value;
         return $this;
     }
@@ -194,7 +194,7 @@ class EarningsType extends Remote\Object {
      * @return EarningsType
      */
     public function setExpenseAccountCode($value){
-        $this->_dirty['ExpenseAccountCode'] = $this->_data['ExpenseAccountCode'] != $value;
+        $this->propertyUpdated('ExpenseAccountCode', $value);
         $this->_data['ExpenseAccountCode'] = $value;
         return $this;
     }
@@ -211,7 +211,7 @@ class EarningsType extends Remote\Object {
      * @return EarningsType
      */
     public function setEarningsCategory($value){
-        $this->_dirty['EarningsCategory'] = $this->_data['EarningsCategory'] != $value;
+        $this->propertyUpdated('EarningsCategory', $value);
         $this->_data['EarningsCategory'] = $value;
         return $this;
     }
@@ -228,7 +228,7 @@ class EarningsType extends Remote\Object {
      * @return EarningsType
      */
     public function setRateType($value){
-        $this->_dirty['RateType'] = $this->_data['RateType'] != $value;
+        $this->propertyUpdated('RateType', $value);
         $this->_data['RateType'] = $value;
         return $this;
     }
@@ -245,7 +245,7 @@ class EarningsType extends Remote\Object {
      * @return EarningsType
      */
     public function setTypeOfUnit($value){
-        $this->_dirty['TypeOfUnits'] = $this->_data['TypeOfUnits'] != $value;
+        $this->propertyUpdated('TypeOfUnits', $value);
         $this->_data['TypeOfUnits'] = $value;
         return $this;
     }
@@ -262,7 +262,7 @@ class EarningsType extends Remote\Object {
      * @return EarningsType
      */
     public function setEarningsRateID($value){
-        $this->_dirty['EarningsRateID'] = $this->_data['EarningsRateID'] != $value;
+        $this->propertyUpdated('EarningsRateID', $value);
         $this->_data['EarningsRateID'] = $value;
         return $this;
     }
@@ -279,7 +279,7 @@ class EarningsType extends Remote\Object {
      * @return EarningsType
      */
     public function setMultiple($value){
-        $this->_dirty['Multiple'] = $this->_data['Multiple'] != $value;
+        $this->propertyUpdated('Multiple', $value);
         $this->_data['Multiple'] = $value;
         return $this;
     }
@@ -296,7 +296,7 @@ class EarningsType extends Remote\Object {
      * @return EarningsType
      */
     public function setDoNotAccrueTimeOff($value){
-        $this->_dirty['DoNotAccrueTimeOff'] = $this->_data['DoNotAccrueTimeOff'] != $value;
+        $this->propertyUpdated('DoNotAccrueTimeOff', $value);
         $this->_data['DoNotAccrueTimeOff'] = $value;
         return $this;
     }
@@ -313,7 +313,7 @@ class EarningsType extends Remote\Object {
      * @return EarningsType
      */
     public function setIsSupplemental($value){
-        $this->_dirty['IsSupplemental'] = $this->_data['IsSupplemental'] != $value;
+        $this->propertyUpdated('IsSupplemental', $value);
         $this->_data['IsSupplemental'] = $value;
         return $this;
     }
@@ -330,7 +330,7 @@ class EarningsType extends Remote\Object {
      * @return EarningsType
      */
     public function setAmount($value){
-        $this->_dirty['Amount'] = $this->_data['Amount'] != $value;
+        $this->propertyUpdated('Amount', $value);
         $this->_data['Amount'] = $value;
         return $this;
     }

@@ -106,7 +106,7 @@ class LeaveEarningsLine extends Remote\Object {
      * @return LeaveEarningsLine
      */
     public function setEarningsRateID($value){
-        $this->_dirty['EarningsRateID'] = $this->_data['EarningsRateID'] != $value;
+        $this->propertyUpdated('EarningsRateID', $value);
         $this->_data['EarningsRateID'] = $value;
         return $this;
     }
@@ -123,7 +123,7 @@ class LeaveEarningsLine extends Remote\Object {
      * @return LeaveEarningsLine
      */
     public function setRatePerUnit($value){
-        $this->_dirty['RatePerUnit'] = $this->_data['RatePerUnit'] != $value;
+        $this->propertyUpdated('RatePerUnit', $value);
         $this->_data['RatePerUnit'] = $value;
         return $this;
     }
@@ -140,7 +140,7 @@ class LeaveEarningsLine extends Remote\Object {
      * @return LeaveEarningsLine
      */
     public function addNumberOfUnit($value){
-        $this->_dirty['NumberOfUnits'] = true;
+        $this->propertyUpdated('NumberOfUnits', $value);
         $this->_data['NumberOfUnits'][] = $value;
         return $this;
     }

@@ -165,7 +165,7 @@ SECTION125PLAN
      * @return DeductionType
      */
     public function setDeductionType(DeductionType $value){
-        $this->_dirty['DeductionType'] = $this->_data['DeductionType'] != $value;
+        $this->propertyUpdated('DeductionType', $value);
         $this->_data['DeductionType'] = $value;
         return $this;
     }
@@ -182,7 +182,7 @@ SECTION125PLAN
      * @return DeductionType
      */
     public function setDeductionCategory($value){
-        $this->_dirty['DeductionCategory'] = $this->_data['DeductionCategory'] != $value;
+        $this->propertyUpdated('DeductionCategory', $value);
         $this->_data['DeductionCategory'] = $value;
         return $this;
     }
@@ -199,7 +199,7 @@ SECTION125PLAN
      * @return DeductionType
      */
     public function setCalculationType($value){
-        $this->_dirty['CalculationType'] = $this->_data['CalculationType'] != $value;
+        $this->propertyUpdated('CalculationType', $value);
         $this->_data['CalculationType'] = $value;
         return $this;
     }
@@ -216,7 +216,7 @@ SECTION125PLAN
      * @return DeductionType
      */
     public function setLiabilityAccountCode($value){
-        $this->_dirty['LiabilityAccountCode'] = $this->_data['LiabilityAccountCode'] != $value;
+        $this->propertyUpdated('LiabilityAccountCode', $value);
         $this->_data['LiabilityAccountCode'] = $value;
         return $this;
     }
@@ -233,7 +233,7 @@ SECTION125PLAN
      * @return DeductionType
      */
     public function setDeductionTypeID($value){
-        $this->_dirty['DeductionTypeID'] = $this->_data['DeductionTypeID'] != $value;
+        $this->propertyUpdated('DeductionTypeID', $value);
         $this->_data['DeductionTypeID'] = $value;
         return $this;
     }
@@ -250,7 +250,7 @@ SECTION125PLAN
      * @return DeductionType
      */
     public function setStandardAmount($value){
-        $this->_dirty['StandardAmount'] = $this->_data['StandardAmount'] != $value;
+        $this->propertyUpdated('StandardAmount', $value);
         $this->_data['StandardAmount'] = $value;
         return $this;
     }
@@ -267,7 +267,7 @@ SECTION125PLAN
      * @return DeductionType
      */
     public function setCompanyMax($value){
-        $this->_dirty['CompanyMax'] = $this->_data['CompanyMax'] != $value;
+        $this->propertyUpdated('CompanyMax', $value);
         $this->_data['CompanyMax'] = $value;
         return $this;
     }

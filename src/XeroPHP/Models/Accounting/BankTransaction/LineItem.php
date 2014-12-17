@@ -147,7 +147,7 @@ class LineItem extends Remote\Object {
      * @return LineItem
      */
     public function setDescription($value){
-        $this->_dirty['Description'] = $this->_data['Description'] != $value;
+        $this->propertyUpdated('Description', $value);
         $this->_data['Description'] = $value;
         return $this;
     }
@@ -164,7 +164,7 @@ class LineItem extends Remote\Object {
      * @return LineItem
      */
     public function setQuantity($value){
-        $this->_dirty['Quantity'] = $this->_data['Quantity'] != $value;
+        $this->propertyUpdated('Quantity', $value);
         $this->_data['Quantity'] = $value;
         return $this;
     }
@@ -181,7 +181,7 @@ class LineItem extends Remote\Object {
      * @return LineItem
      */
     public function setUnitAmount($value){
-        $this->_dirty['UnitAmount'] = $this->_data['UnitAmount'] != $value;
+        $this->propertyUpdated('UnitAmount', $value);
         $this->_data['UnitAmount'] = $value;
         return $this;
     }
@@ -198,7 +198,7 @@ class LineItem extends Remote\Object {
      * @return LineItem
      */
     public function setAccountCode($value){
-        $this->_dirty['AccountCode'] = $this->_data['AccountCode'] != $value;
+        $this->propertyUpdated('AccountCode', $value);
         $this->_data['AccountCode'] = $value;
         return $this;
     }
@@ -215,7 +215,7 @@ class LineItem extends Remote\Object {
      * @return LineItem
      */
     public function setItemCode($value){
-        $this->_dirty['ItemCode'] = $this->_data['ItemCode'] != $value;
+        $this->propertyUpdated('ItemCode', $value);
         $this->_data['ItemCode'] = $value;
         return $this;
     }
@@ -232,7 +232,7 @@ class LineItem extends Remote\Object {
      * @return LineItem
      */
     public function setTaxType($value){
-        $this->_dirty['TaxType'] = $this->_data['TaxType'] != $value;
+        $this->propertyUpdated('TaxType', $value);
         $this->_data['TaxType'] = $value;
         return $this;
     }
@@ -249,7 +249,7 @@ class LineItem extends Remote\Object {
      * @return LineItem
      */
     public function setLineAmount($value){
-        $this->_dirty['LineAmount'] = $this->_data['LineAmount'] != $value;
+        $this->propertyUpdated('LineAmount', $value);
         $this->_data['LineAmount'] = $value;
         return $this;
     }
@@ -266,7 +266,7 @@ class LineItem extends Remote\Object {
      * @return LineItem
      */
     public function setTracking($value){
-        $this->_dirty['Tracking'] = $this->_data['Tracking'] != $value;
+        $this->propertyUpdated('Tracking', $value);
         $this->_data['Tracking'] = $value;
         return $this;
     }

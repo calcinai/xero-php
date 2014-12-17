@@ -114,7 +114,7 @@ class TaxLine extends Remote\Object {
      * @return TaxLine
      */
     public function setTaxTypeName($value){
-        $this->_dirty['TaxTypeName'] = $this->_data['TaxTypeName'] != $value;
+        $this->propertyUpdated('TaxTypeName', $value);
         $this->_data['TaxTypeName'] = $value;
         return $this;
     }
@@ -131,7 +131,7 @@ class TaxLine extends Remote\Object {
      * @return TaxLine
      */
     public function setDescription($value){
-        $this->_dirty['Description'] = $this->_data['Description'] != $value;
+        $this->propertyUpdated('Description', $value);
         $this->_data['Description'] = $value;
         return $this;
     }
@@ -148,7 +148,7 @@ class TaxLine extends Remote\Object {
      * @return TaxLine
      */
     public function setAmount($value){
-        $this->_dirty['Amount'] = $this->_data['Amount'] != $value;
+        $this->propertyUpdated('Amount', $value);
         $this->_data['Amount'] = $value;
         return $this;
     }
@@ -165,7 +165,7 @@ class TaxLine extends Remote\Object {
      * @return TaxLine
      */
     public function setLiabilityAccount($value){
-        $this->_dirty['LiabilityAccount'] = $this->_data['LiabilityAccount'] != $value;
+        $this->propertyUpdated('LiabilityAccount', $value);
         $this->_data['LiabilityAccount'] = $value;
         return $this;
     }

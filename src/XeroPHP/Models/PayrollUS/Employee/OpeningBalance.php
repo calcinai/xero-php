@@ -185,7 +185,7 @@ class OpeningBalance extends Remote\Object {
      * @return OpeningBalance
      */
     public function addEarningsLine(EarningsLine $value){
-        $this->_dirty['EarningsLines'] = true;
+        $this->propertyUpdated('EarningsLines', $value);
         $this->_data['EarningsLines'][] = $value;
         return $this;
     }
@@ -202,7 +202,7 @@ class OpeningBalance extends Remote\Object {
      * @return OpeningBalance
      */
     public function addBenefitLine(BenefitLine $value){
-        $this->_dirty['BenefitLines'] = true;
+        $this->propertyUpdated('BenefitLines', $value);
         $this->_data['BenefitLines'][] = $value;
         return $this;
     }
@@ -219,7 +219,7 @@ class OpeningBalance extends Remote\Object {
      * @return OpeningBalance
      */
     public function addDeductionLine(DeductionLine $value){
-        $this->_dirty['DeductionLines'] = true;
+        $this->propertyUpdated('DeductionLines', $value);
         $this->_data['DeductionLines'][] = $value;
         return $this;
     }
@@ -236,7 +236,7 @@ class OpeningBalance extends Remote\Object {
      * @return OpeningBalance
      */
     public function addReimbursementLine(ReimbursementLine $value){
-        $this->_dirty['ReimbursementLines'] = true;
+        $this->propertyUpdated('ReimbursementLines', $value);
         $this->_data['ReimbursementLines'][] = $value;
         return $this;
     }
@@ -253,7 +253,7 @@ class OpeningBalance extends Remote\Object {
      * @return OpeningBalance
      */
     public function setEarningsTypeID($value){
-        $this->_dirty['EarningsTypeID'] = $this->_data['EarningsTypeID'] != $value;
+        $this->propertyUpdated('EarningsTypeID', $value);
         $this->_data['EarningsTypeID'] = $value;
         return $this;
     }
@@ -270,7 +270,7 @@ class OpeningBalance extends Remote\Object {
      * @return OpeningBalance
      */
     public function setAmount($value){
-        $this->_dirty['Amount'] = $this->_data['Amount'] != $value;
+        $this->propertyUpdated('Amount', $value);
         $this->_data['Amount'] = $value;
         return $this;
     }
@@ -287,7 +287,7 @@ class OpeningBalance extends Remote\Object {
      * @return OpeningBalance
      */
     public function setBenefitTypeID($value){
-        $this->_dirty['BenefitTypeID'] = $this->_data['BenefitTypeID'] != $value;
+        $this->propertyUpdated('BenefitTypeID', $value);
         $this->_data['BenefitTypeID'] = $value;
         return $this;
     }
@@ -304,7 +304,7 @@ class OpeningBalance extends Remote\Object {
      * @return OpeningBalance
      */
     public function setDeductionTypeID($value){
-        $this->_dirty['DeductionTypeID'] = $this->_data['DeductionTypeID'] != $value;
+        $this->propertyUpdated('DeductionTypeID', $value);
         $this->_data['DeductionTypeID'] = $value;
         return $this;
     }
@@ -321,7 +321,7 @@ class OpeningBalance extends Remote\Object {
      * @return OpeningBalance
      */
     public function setReimbursementTypeID($value){
-        $this->_dirty['ReimbursementTypeID'] = $this->_data['ReimbursementTypeID'] != $value;
+        $this->propertyUpdated('ReimbursementTypeID', $value);
         $this->_data['ReimbursementTypeID'] = $value;
         return $this;
     }
@@ -338,7 +338,7 @@ class OpeningBalance extends Remote\Object {
      * @return OpeningBalance
      */
     public function setRecordfilter($value){
-        $this->_dirty['Recordfilter'] = $this->_data['Recordfilter'] != $value;
+        $this->propertyUpdated('Recordfilter', $value);
         $this->_data['Recordfilter'] = $value;
         return $this;
     }
@@ -355,7 +355,7 @@ class OpeningBalance extends Remote\Object {
      * @return OpeningBalance
      */
     public function setEmployeeID($value){
-        $this->_dirty['EmployeeID'] = $this->_data['EmployeeID'] != $value;
+        $this->propertyUpdated('EmployeeID', $value);
         $this->_data['EmployeeID'] = $value;
         return $this;
     }
@@ -372,7 +372,7 @@ class OpeningBalance extends Remote\Object {
      * @return OpeningBalance
      */
     public function setModifiedAfter(\DateTime $value){
-        $this->_dirty['ModifiedAfter'] = $this->_data['ModifiedAfter'] != $value;
+        $this->propertyUpdated('ModifiedAfter', $value);
         $this->_data['ModifiedAfter'] = $value;
         return $this;
     }
@@ -389,7 +389,7 @@ class OpeningBalance extends Remote\Object {
      * @return OpeningBalance
      */
     public function setpage($value){
-        $this->_dirty['page'] = $this->_data['page'] != $value;
+        $this->propertyUpdated('page', $value);
         $this->_data['page'] = $value;
         return $this;
     }

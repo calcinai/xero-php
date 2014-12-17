@@ -1,4 +1,4 @@
-<?php
+{{ '<?php' }}
 
 namespace XeroPHP\Models\{{ model.Namespace }};
 
@@ -115,7 +115,7 @@ class {{ model.ClassName }} extends Remote\Object {
      * @return {{ model.ClassName }}
      */
     public function {% if property.isArray %}add{% else %}set{% endif %}{{ property.NameSingular }}({% if property.isHintable %}{{ property.PHPType }} {% endif %}$value){
-        $this->_dirty['{{ property.Name }}'] = {% if property.isArray %}true{% else %}$this->_data['{{ property.Name }}'] != $value{% endif %};
+        $this->propertyUpdated('{{ property.Name }}', $value);
         $this->_data['{{ property.Name }}']{% if property.isArray %}[]{% endif %} = $value;
         return $this;
     }

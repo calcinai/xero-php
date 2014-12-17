@@ -171,7 +171,7 @@ class PayRun extends Remote\Object {
      * @return PayRun
      */
     public function setPayScheduleID($value){
-        $this->_dirty['PayScheduleID'] = $this->_data['PayScheduleID'] != $value;
+        $this->propertyUpdated('PayScheduleID', $value);
         $this->_data['PayScheduleID'] = $value;
         return $this;
     }
@@ -188,7 +188,7 @@ class PayRun extends Remote\Object {
      * @return PayRun
      */
     public function setPayRunPeriodEndDate(\DateTime $value){
-        $this->_dirty['PayRunPeriodEndDate'] = $this->_data['PayRunPeriodEndDate'] != $value;
+        $this->propertyUpdated('PayRunPeriodEndDate', $value);
         $this->_data['PayRunPeriodEndDate'] = $value;
         return $this;
     }
@@ -204,8 +204,8 @@ class PayRun extends Remote\Object {
      * @param string $value
      * @return PayRun
      */
-    public function setPayRunStatu($value){
-        $this->_dirty['PayRunStatus'] = $this->_data['PayRunStatus'] != $value;
+    public function setPayRunStatus($value){
+        $this->propertyUpdated('PayRunStatus', $value);
         $this->_data['PayRunStatus'] = $value;
         return $this;
     }
@@ -222,7 +222,7 @@ class PayRun extends Remote\Object {
      * @return PayRun
      */
     public function setPayRunID($value){
-        $this->_dirty['PayRunID'] = $this->_data['PayRunID'] != $value;
+        $this->propertyUpdated('PayRunID', $value);
         $this->_data['PayRunID'] = $value;
         return $this;
     }
@@ -239,7 +239,7 @@ class PayRun extends Remote\Object {
      * @return PayRun
      */
     public function setPayRunPeriodStartDate(\DateTime $value){
-        $this->_dirty['PayRunPeriodStartDate'] = $this->_data['PayRunPeriodStartDate'] != $value;
+        $this->propertyUpdated('PayRunPeriodStartDate', $value);
         $this->_data['PayRunPeriodStartDate'] = $value;
         return $this;
     }
@@ -256,7 +256,7 @@ class PayRun extends Remote\Object {
      * @return PayRun
      */
     public function setPaymentDate(\DateTime $value){
-        $this->_dirty['PaymentDate'] = $this->_data['PaymentDate'] != $value;
+        $this->propertyUpdated('PaymentDate', $value);
         $this->_data['PaymentDate'] = $value;
         return $this;
     }
@@ -273,7 +273,7 @@ class PayRun extends Remote\Object {
      * @return PayRun
      */
     public function addEarning($value){
-        $this->_dirty['Earnings'] = true;
+        $this->propertyUpdated('Earnings', $value);
         $this->_data['Earnings'][] = $value;
         return $this;
     }
@@ -290,7 +290,7 @@ class PayRun extends Remote\Object {
      * @return PayRun
      */
     public function addDeduction($value){
-        $this->_dirty['Deductions'] = true;
+        $this->propertyUpdated('Deductions', $value);
         $this->_data['Deductions'][] = $value;
         return $this;
     }
@@ -307,7 +307,7 @@ class PayRun extends Remote\Object {
      * @return PayRun
      */
     public function setReimbursement($value){
-        $this->_dirty['Reimbursement'] = $this->_data['Reimbursement'] != $value;
+        $this->propertyUpdated('Reimbursement', $value);
         $this->_data['Reimbursement'] = $value;
         return $this;
     }
@@ -324,7 +324,7 @@ class PayRun extends Remote\Object {
      * @return PayRun
      */
     public function setNetPay($value){
-        $this->_dirty['NetPay'] = $this->_data['NetPay'] != $value;
+        $this->propertyUpdated('NetPay', $value);
         $this->_data['NetPay'] = $value;
         return $this;
     }
@@ -341,7 +341,7 @@ class PayRun extends Remote\Object {
      * @return PayRun
      */
     public function setUpdateDateUTC(\DateTime $value){
-        $this->_dirty['UpdateDateUTC'] = $this->_data['UpdateDateUTC'] != $value;
+        $this->propertyUpdated('UpdateDateUTC', $value);
         $this->_data['UpdateDateUTC'] = $value;
         return $this;
     }
@@ -358,7 +358,7 @@ class PayRun extends Remote\Object {
      * @return PayRun
      */
     public function addPayStub($value){
-        $this->_dirty['PayStubs'] = true;
+        $this->propertyUpdated('PayStubs', $value);
         $this->_data['PayStubs'][] = $value;
         return $this;
     }

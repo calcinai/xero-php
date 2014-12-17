@@ -185,7 +185,7 @@ class PayRun extends Remote\Object {
      * @return PayRun
      */
     public function setPayrollCalendarID($value){
-        $this->_dirty['PayrollCalendarID'] = $this->_data['PayrollCalendarID'] != $value;
+        $this->propertyUpdated('PayrollCalendarID', $value);
         $this->_data['PayrollCalendarID'] = $value;
         return $this;
     }
@@ -202,7 +202,7 @@ class PayRun extends Remote\Object {
      * @return PayRun
      */
     public function setPayRunID($value){
-        $this->_dirty['PayRunID'] = $this->_data['PayRunID'] != $value;
+        $this->propertyUpdated('PayRunID', $value);
         $this->_data['PayRunID'] = $value;
         return $this;
     }
@@ -219,7 +219,7 @@ class PayRun extends Remote\Object {
      * @return PayRun
      */
     public function setPayRunPeriodStartDate(\DateTime $value){
-        $this->_dirty['PayRunPeriodStartDate'] = $this->_data['PayRunPeriodStartDate'] != $value;
+        $this->propertyUpdated('PayRunPeriodStartDate', $value);
         $this->_data['PayRunPeriodStartDate'] = $value;
         return $this;
     }
@@ -236,7 +236,7 @@ class PayRun extends Remote\Object {
      * @return PayRun
      */
     public function setPayRunPeriodEndDate(\DateTime $value){
-        $this->_dirty['PayRunPeriodEndDate'] = $this->_data['PayRunPeriodEndDate'] != $value;
+        $this->propertyUpdated('PayRunPeriodEndDate', $value);
         $this->_data['PayRunPeriodEndDate'] = $value;
         return $this;
     }
@@ -252,8 +252,8 @@ class PayRun extends Remote\Object {
      * @param string $value
      * @return PayRun
      */
-    public function setPayRunStatu($value){
-        $this->_dirty['PayRunStatus'] = $this->_data['PayRunStatus'] != $value;
+    public function setPayRunStatus($value){
+        $this->propertyUpdated('PayRunStatus', $value);
         $this->_data['PayRunStatus'] = $value;
         return $this;
     }
@@ -270,7 +270,7 @@ class PayRun extends Remote\Object {
      * @return PayRun
      */
     public function setPaymentDate(\DateTime $value){
-        $this->_dirty['PaymentDate'] = $this->_data['PaymentDate'] != $value;
+        $this->propertyUpdated('PaymentDate', $value);
         $this->_data['PaymentDate'] = $value;
         return $this;
     }
@@ -287,7 +287,7 @@ class PayRun extends Remote\Object {
      * @return PayRun
      */
     public function setPayslipMessage($value){
-        $this->_dirty['PayslipMessage'] = $this->_data['PayslipMessage'] != $value;
+        $this->propertyUpdated('PayslipMessage', $value);
         $this->_data['PayslipMessage'] = $value;
         return $this;
     }
@@ -304,7 +304,7 @@ class PayRun extends Remote\Object {
      * @return PayRun
      */
     public function addPayslip(Payslip $value){
-        $this->_dirty['Payslips'] = true;
+        $this->propertyUpdated('Payslips', $value);
         $this->_data['Payslips'][] = $value;
         return $this;
     }
@@ -321,7 +321,7 @@ class PayRun extends Remote\Object {
      * @return PayRun
      */
     public function addWage($value){
-        $this->_dirty['Wages'] = true;
+        $this->propertyUpdated('Wages', $value);
         $this->_data['Wages'][] = $value;
         return $this;
     }
@@ -338,7 +338,7 @@ class PayRun extends Remote\Object {
      * @return PayRun
      */
     public function addDeduction($value){
-        $this->_dirty['Deductions'] = true;
+        $this->propertyUpdated('Deductions', $value);
         $this->_data['Deductions'][] = $value;
         return $this;
     }
@@ -355,7 +355,7 @@ class PayRun extends Remote\Object {
      * @return PayRun
      */
     public function setTax($value){
-        $this->_dirty['Tax'] = $this->_data['Tax'] != $value;
+        $this->propertyUpdated('Tax', $value);
         $this->_data['Tax'] = $value;
         return $this;
     }
@@ -372,7 +372,7 @@ class PayRun extends Remote\Object {
      * @return PayRun
      */
     public function setSuper($value){
-        $this->_dirty['Super'] = $this->_data['Super'] != $value;
+        $this->propertyUpdated('Super', $value);
         $this->_data['Super'] = $value;
         return $this;
     }
@@ -389,7 +389,7 @@ class PayRun extends Remote\Object {
      * @return PayRun
      */
     public function setReimbursement($value){
-        $this->_dirty['Reimbursement'] = $this->_data['Reimbursement'] != $value;
+        $this->propertyUpdated('Reimbursement', $value);
         $this->_data['Reimbursement'] = $value;
         return $this;
     }
@@ -406,7 +406,7 @@ class PayRun extends Remote\Object {
      * @return PayRun
      */
     public function setNetPay($value){
-        $this->_dirty['NetPay'] = $this->_data['NetPay'] != $value;
+        $this->propertyUpdated('NetPay', $value);
         $this->_data['NetPay'] = $value;
         return $this;
     }

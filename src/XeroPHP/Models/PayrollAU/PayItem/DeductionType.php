@@ -122,7 +122,7 @@ class DeductionType extends Remote\Object {
      * @return DeductionType
      */
     public function setName($value){
-        $this->_dirty['Name'] = $this->_data['Name'] != $value;
+        $this->propertyUpdated('Name', $value);
         $this->_data['Name'] = $value;
         return $this;
     }
@@ -139,7 +139,7 @@ class DeductionType extends Remote\Object {
      * @return DeductionType
      */
     public function setAccountCode($value){
-        $this->_dirty['AccountCode'] = $this->_data['AccountCode'] != $value;
+        $this->propertyUpdated('AccountCode', $value);
         $this->_data['AccountCode'] = $value;
         return $this;
     }
@@ -156,7 +156,7 @@ class DeductionType extends Remote\Object {
      * @return DeductionType
      */
     public function setReducesTax($value){
-        $this->_dirty['ReducesTax'] = $this->_data['ReducesTax'] != $value;
+        $this->propertyUpdated('ReducesTax', $value);
         $this->_data['ReducesTax'] = $value;
         return $this;
     }
@@ -173,7 +173,7 @@ class DeductionType extends Remote\Object {
      * @return DeductionType
      */
     public function setReducesSuper($value){
-        $this->_dirty['ReducesSuper'] = $this->_data['ReducesSuper'] != $value;
+        $this->propertyUpdated('ReducesSuper', $value);
         $this->_data['ReducesSuper'] = $value;
         return $this;
     }
@@ -190,7 +190,7 @@ class DeductionType extends Remote\Object {
      * @return DeductionType
      */
     public function setDeductionTypeID($value){
-        $this->_dirty['DeductionTypeID'] = $this->_data['DeductionTypeID'] != $value;
+        $this->propertyUpdated('DeductionTypeID', $value);
         $this->_data['DeductionTypeID'] = $value;
         return $this;
     }

@@ -200,7 +200,7 @@ class PayTemplate extends Remote\Object {
      * @return PayTemplate
      */
     public function addEarningsLine($value){
-        $this->_dirty['EarningsLines'] = true;
+        $this->propertyUpdated('EarningsLines', $value);
         $this->_data['EarningsLines'][] = $value;
         return $this;
     }
@@ -217,7 +217,7 @@ class PayTemplate extends Remote\Object {
      * @return PayTemplate
      */
     public function addDeductionLine(DeductionLine $value){
-        $this->_dirty['DeductionLines'] = true;
+        $this->propertyUpdated('DeductionLines', $value);
         $this->_data['DeductionLines'][] = $value;
         return $this;
     }
@@ -234,7 +234,7 @@ class PayTemplate extends Remote\Object {
      * @return PayTemplate
      */
     public function addReimbursementLine(ReimbursementLine $value){
-        $this->_dirty['ReimbursementLines'] = true;
+        $this->propertyUpdated('ReimbursementLines', $value);
         $this->_data['ReimbursementLines'][] = $value;
         return $this;
     }
@@ -251,7 +251,7 @@ class PayTemplate extends Remote\Object {
      * @return PayTemplate
      */
     public function addBenefitLine(BenefitLine $value){
-        $this->_dirty['BenefitLines'] = true;
+        $this->propertyUpdated('BenefitLines', $value);
         $this->_data['BenefitLines'][] = $value;
         return $this;
     }
@@ -268,7 +268,7 @@ class PayTemplate extends Remote\Object {
      * @return PayTemplate
      */
     public function setEarningsTypeID($value){
-        $this->_dirty['EarningsTypeID'] = $this->_data['EarningsTypeID'] != $value;
+        $this->propertyUpdated('EarningsTypeID', $value);
         $this->_data['EarningsTypeID'] = $value;
         return $this;
     }
@@ -285,7 +285,7 @@ class PayTemplate extends Remote\Object {
      * @return PayTemplate
      */
     public function addUnitsOrHour($value){
-        $this->_dirty['UnitsOrHours'] = true;
+        $this->propertyUpdated('UnitsOrHours', $value);
         $this->_data['UnitsOrHours'][] = $value;
         return $this;
     }
@@ -302,7 +302,7 @@ class PayTemplate extends Remote\Object {
      * @return PayTemplate
      */
     public function setRatePerUnit($value){
-        $this->_dirty['RatePerUnit'] = $this->_data['RatePerUnit'] != $value;
+        $this->propertyUpdated('RatePerUnit', $value);
         $this->_data['RatePerUnit'] = $value;
         return $this;
     }
@@ -319,7 +319,7 @@ class PayTemplate extends Remote\Object {
      * @return PayTemplate
      */
     public function setAmount($value){
-        $this->_dirty['Amount'] = $this->_data['Amount'] != $value;
+        $this->propertyUpdated('Amount', $value);
         $this->_data['Amount'] = $value;
         return $this;
     }
@@ -336,7 +336,7 @@ class PayTemplate extends Remote\Object {
      * @return PayTemplate
      */
     public function setDeductionTypeID($value){
-        $this->_dirty['DeductionTypeID'] = $this->_data['DeductionTypeID'] != $value;
+        $this->propertyUpdated('DeductionTypeID', $value);
         $this->_data['DeductionTypeID'] = $value;
         return $this;
     }
@@ -353,7 +353,7 @@ class PayTemplate extends Remote\Object {
      * @return PayTemplate
      */
     public function setCalculationType($value){
-        $this->_dirty['CalculationType'] = $this->_data['CalculationType'] != $value;
+        $this->propertyUpdated('CalculationType', $value);
         $this->_data['CalculationType'] = $value;
         return $this;
     }
@@ -370,7 +370,7 @@ class PayTemplate extends Remote\Object {
      * @return PayTemplate
      */
     public function setEmployeeMax($value){
-        $this->_dirty['EmployeeMax'] = $this->_data['EmployeeMax'] != $value;
+        $this->propertyUpdated('EmployeeMax', $value);
         $this->_data['EmployeeMax'] = $value;
         return $this;
     }
@@ -387,7 +387,7 @@ class PayTemplate extends Remote\Object {
      * @return PayTemplate
      */
     public function setPercentage($value){
-        $this->_dirty['Percentage'] = $this->_data['Percentage'] != $value;
+        $this->propertyUpdated('Percentage', $value);
         $this->_data['Percentage'] = $value;
         return $this;
     }
@@ -404,7 +404,7 @@ class PayTemplate extends Remote\Object {
      * @return PayTemplate
      */
     public function setReimbursementTypeID($value){
-        $this->_dirty['ReimbursementTypeID'] = $this->_data['ReimbursementTypeID'] != $value;
+        $this->propertyUpdated('ReimbursementTypeID', $value);
         $this->_data['ReimbursementTypeID'] = $value;
         return $this;
     }
@@ -421,7 +421,7 @@ class PayTemplate extends Remote\Object {
      * @return PayTemplate
      */
     public function setDescription($value){
-        $this->_dirty['Description'] = $this->_data['Description'] != $value;
+        $this->propertyUpdated('Description', $value);
         $this->_data['Description'] = $value;
         return $this;
     }
@@ -438,7 +438,7 @@ class PayTemplate extends Remote\Object {
      * @return PayTemplate
      */
     public function setBenefitTypeID($value){
-        $this->_dirty['BenefitTypeID'] = $this->_data['BenefitTypeID'] != $value;
+        $this->propertyUpdated('BenefitTypeID', $value);
         $this->_data['BenefitTypeID'] = $value;
         return $this;
     }

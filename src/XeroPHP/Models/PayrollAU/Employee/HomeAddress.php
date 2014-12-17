@@ -127,7 +127,7 @@ class HomeAddress extends Remote\Object {
      * @return HomeAddress
      */
     public function setAddressLine1($value){
-        $this->_dirty['AddressLine1'] = $this->_data['AddressLine1'] != $value;
+        $this->propertyUpdated('AddressLine1', $value);
         $this->_data['AddressLine1'] = $value;
         return $this;
     }
@@ -144,7 +144,7 @@ class HomeAddress extends Remote\Object {
      * @return HomeAddress
      */
     public function setAddressLine2($value){
-        $this->_dirty['AddressLine2'] = $this->_data['AddressLine2'] != $value;
+        $this->propertyUpdated('AddressLine2', $value);
         $this->_data['AddressLine2'] = $value;
         return $this;
     }
@@ -161,7 +161,7 @@ class HomeAddress extends Remote\Object {
      * @return HomeAddress
      */
     public function setCity($value){
-        $this->_dirty['City'] = $this->_data['City'] != $value;
+        $this->propertyUpdated('City', $value);
         $this->_data['City'] = $value;
         return $this;
     }
@@ -178,7 +178,7 @@ class HomeAddress extends Remote\Object {
      * @return HomeAddress
      */
     public function setRegion($value){
-        $this->_dirty['Region'] = $this->_data['Region'] != $value;
+        $this->propertyUpdated('Region', $value);
         $this->_data['Region'] = $value;
         return $this;
     }
@@ -195,7 +195,7 @@ class HomeAddress extends Remote\Object {
      * @return HomeAddress
      */
     public function setPostalCode($value){
-        $this->_dirty['PostalCode'] = $this->_data['PostalCode'] != $value;
+        $this->propertyUpdated('PostalCode', $value);
         $this->_data['PostalCode'] = $value;
         return $this;
     }
@@ -212,7 +212,7 @@ class HomeAddress extends Remote\Object {
      * @return HomeAddress
      */
     public function setCountry($value){
-        $this->_dirty['Country'] = $this->_data['Country'] != $value;
+        $this->propertyUpdated('Country', $value);
         $this->_data['Country'] = $value;
         return $this;
     }

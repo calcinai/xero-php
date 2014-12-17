@@ -113,7 +113,7 @@ class LeavePeriod extends Remote\Object {
      * @return LeavePeriod
      */
     public function addNumberOfUnit($value){
-        $this->_dirty['NumberOfUnits'] = true;
+        $this->propertyUpdated('NumberOfUnits', $value);
         $this->_data['NumberOfUnits'][] = $value;
         return $this;
     }
@@ -130,7 +130,7 @@ class LeavePeriod extends Remote\Object {
      * @return LeavePeriod
      */
     public function setPayPeriodEndDate(\DateTime $value){
-        $this->_dirty['PayPeriodEndDate'] = $this->_data['PayPeriodEndDate'] != $value;
+        $this->propertyUpdated('PayPeriodEndDate', $value);
         $this->_data['PayPeriodEndDate'] = $value;
         return $this;
     }
@@ -147,7 +147,7 @@ class LeavePeriod extends Remote\Object {
      * @return LeavePeriod
      */
     public function setPayPeriodStartDate(\DateTime $value){
-        $this->_dirty['PayPeriodStartDate'] = $this->_data['PayPeriodStartDate'] != $value;
+        $this->propertyUpdated('PayPeriodStartDate', $value);
         $this->_data['PayPeriodStartDate'] = $value;
         return $this;
     }
@@ -163,8 +163,8 @@ class LeavePeriod extends Remote\Object {
      * @param string $value
      * @return LeavePeriod
      */
-    public function setLeavePeriodStatu($value){
-        $this->_dirty['LeavePeriodStatus'] = $this->_data['LeavePeriodStatus'] != $value;
+    public function setLeavePeriodStatus($value){
+        $this->propertyUpdated('LeavePeriodStatus', $value);
         $this->_data['LeavePeriodStatus'] = $value;
         return $this;
     }

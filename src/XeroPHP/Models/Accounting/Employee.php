@@ -127,7 +127,7 @@ The description of the link is auto-generated in the form “Go to <App name>”
      * @return Employee
      */
     public function setEmployeeID($value){
-        $this->_dirty['EmployeeID'] = $this->_data['EmployeeID'] != $value;
+        $this->propertyUpdated('EmployeeID', $value);
         $this->_data['EmployeeID'] = $value;
         return $this;
     }
@@ -143,8 +143,8 @@ The description of the link is auto-generated in the form “Go to <App name>”
      * @param string $value
      * @return Employee
      */
-    public function setStatu($value){
-        $this->_dirty['Status'] = $this->_data['Status'] != $value;
+    public function setStatus($value){
+        $this->propertyUpdated('Status', $value);
         $this->_data['Status'] = $value;
         return $this;
     }
@@ -161,7 +161,7 @@ The description of the link is auto-generated in the form “Go to <App name>”
      * @return Employee
      */
     public function setFirstName($value){
-        $this->_dirty['FirstName'] = $this->_data['FirstName'] != $value;
+        $this->propertyUpdated('FirstName', $value);
         $this->_data['FirstName'] = $value;
         return $this;
     }
@@ -178,7 +178,7 @@ The description of the link is auto-generated in the form “Go to <App name>”
      * @return Employee
      */
     public function setLastName($value){
-        $this->_dirty['LastName'] = $this->_data['LastName'] != $value;
+        $this->propertyUpdated('LastName', $value);
         $this->_data['LastName'] = $value;
         return $this;
     }
@@ -195,7 +195,7 @@ The description of the link is auto-generated in the form “Go to <App name>”
      * @return Employee
      */
     public function setExternalLink(ExternalLink $value){
-        $this->_dirty['ExternalLink'] = $this->_data['ExternalLink'] != $value;
+        $this->propertyUpdated('ExternalLink', $value);
         $this->_data['ExternalLink'] = $value;
         return $this;
     }

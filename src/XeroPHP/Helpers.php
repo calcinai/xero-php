@@ -82,6 +82,7 @@ class Helpers {
             '/(alias)es$/i'             => "$1",
             '/(x|ch|ss|sh)es$/i'        => "$1",
             '/(s)eries$/i'              => "$1eries",
+            '/(s)tatus$/i'              => "$1tatus",
             '/([^aeiouy]|qu)ies$/i'     => "$1y",
             '/([lr])ves$/i'             => "$1f",
             '/([ti])a$/i'               => "$1um",

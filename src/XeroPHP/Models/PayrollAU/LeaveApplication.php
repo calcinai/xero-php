@@ -140,7 +140,7 @@ class LeaveApplication extends Remote\Object {
      * @return LeaveApplication
      */
     public function setEmployeeID($value){
-        $this->_dirty['EmployeeID'] = $this->_data['EmployeeID'] != $value;
+        $this->propertyUpdated('EmployeeID', $value);
         $this->_data['EmployeeID'] = $value;
         return $this;
     }
@@ -157,7 +157,7 @@ class LeaveApplication extends Remote\Object {
      * @return LeaveApplication
      */
     public function setLeaveTypeID($value){
-        $this->_dirty['LeaveTypeID'] = $this->_data['LeaveTypeID'] != $value;
+        $this->propertyUpdated('LeaveTypeID', $value);
         $this->_data['LeaveTypeID'] = $value;
         return $this;
     }
@@ -174,7 +174,7 @@ class LeaveApplication extends Remote\Object {
      * @return LeaveApplication
      */
     public function setTitle($value){
-        $this->_dirty['Title'] = $this->_data['Title'] != $value;
+        $this->propertyUpdated('Title', $value);
         $this->_data['Title'] = $value;
         return $this;
     }
@@ -191,7 +191,7 @@ class LeaveApplication extends Remote\Object {
      * @return LeaveApplication
      */
     public function setStartDate(\DateTime $value){
-        $this->_dirty['StartDate'] = $this->_data['StartDate'] != $value;
+        $this->propertyUpdated('StartDate', $value);
         $this->_data['StartDate'] = $value;
         return $this;
     }
@@ -208,7 +208,7 @@ class LeaveApplication extends Remote\Object {
      * @return LeaveApplication
      */
     public function setEndDate(\DateTime $value){
-        $this->_dirty['EndDate'] = $this->_data['EndDate'] != $value;
+        $this->propertyUpdated('EndDate', $value);
         $this->_data['EndDate'] = $value;
         return $this;
     }
@@ -225,7 +225,7 @@ class LeaveApplication extends Remote\Object {
      * @return LeaveApplication
      */
     public function setDescription($value){
-        $this->_dirty['Description'] = $this->_data['Description'] != $value;
+        $this->propertyUpdated('Description', $value);
         $this->_data['Description'] = $value;
         return $this;
     }
@@ -242,7 +242,7 @@ class LeaveApplication extends Remote\Object {
      * @return LeaveApplication
      */
     public function addLeavePeriod(LeavePeriod $value){
-        $this->_dirty['LeavePeriods'] = true;
+        $this->propertyUpdated('LeavePeriods', $value);
         $this->_data['LeavePeriods'][] = $value;
         return $this;
     }

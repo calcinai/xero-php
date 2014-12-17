@@ -106,7 +106,7 @@ class ExpenseClaim extends Remote\Object {
      * @return ExpenseClaim
      */
     public function setUser(User $value){
-        $this->_dirty['User'] = $this->_data['User'] != $value;
+        $this->propertyUpdated('User', $value);
         $this->_data['User'] = $value;
         return $this;
     }
@@ -123,7 +123,7 @@ class ExpenseClaim extends Remote\Object {
      * @return ExpenseClaim
      */
     public function addReceipt(Receipt $value){
-        $this->_dirty['Receipts'] = true;
+        $this->propertyUpdated('Receipts', $value);
         $this->_data['Receipts'][] = $value;
         return $this;
     }

@@ -106,7 +106,7 @@ class ReimbursementType extends Remote\Object {
      * @return ReimbursementType
      */
     public function setReimbursementType(ReimbursementType $value){
-        $this->_dirty['ReimbursementType'] = $this->_data['ReimbursementType'] != $value;
+        $this->propertyUpdated('ReimbursementType', $value);
         $this->_data['ReimbursementType'] = $value;
         return $this;
     }
@@ -123,7 +123,7 @@ class ReimbursementType extends Remote\Object {
      * @return ReimbursementType
      */
     public function setExpenseOrLiabilityAccountCode($value){
-        $this->_dirty['ExpenseOrLiabilityAccountCode'] = $this->_data['ExpenseOrLiabilityAccountCode'] != $value;
+        $this->propertyUpdated('ExpenseOrLiabilityAccountCode', $value);
         $this->_data['ExpenseOrLiabilityAccountCode'] = $value;
         return $this;
     }
@@ -140,7 +140,7 @@ class ReimbursementType extends Remote\Object {
      * @return ReimbursementType
      */
     public function setReimbursementTypeID($value){
-        $this->_dirty['ReimbursementTypeID'] = $this->_data['ReimbursementTypeID'] != $value;
+        $this->propertyUpdated('ReimbursementTypeID', $value);
         $this->_data['ReimbursementTypeID'] = $value;
         return $this;
     }

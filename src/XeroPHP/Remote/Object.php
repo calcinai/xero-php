@@ -48,7 +48,7 @@ class Object {
      *
      * @var array
      */
-    private $_dirty;
+    protected $_dirty;
 
     /**
      * If there have been any properties changed since load
@@ -139,7 +139,7 @@ class Object {
      */
     public static function castToString($type, $value){
 
-        if(empty($value))
+        if($value === '')
             return '';
 
         switch($type){
@@ -190,7 +190,9 @@ class Object {
                 return $instance;
 
             default:
-                return (string) $value;
+                if(is_scalar($value))
+                    return (string) $value;
+                return '';
 
         }
 
@@ -212,7 +214,7 @@ class Object {
 
             if($mandatory){
                 if(!isset($this->_data[$property]) || empty($this->_data[$property]))
-                    throw new Exception(sprintf('%s::$%s is mandatory and is either missing or empty.', get_class($this->_data[$property]), $property));
+                    throw new Exception(sprintf('%s::$%s is mandatory and is either missing or empty.', get_class($this), $property));
 
                 if($check_children){
                     if($this->_data[$property] instanceof Object) {
@@ -260,6 +262,11 @@ class Object {
             return $this->$setter($value);
 
         trigger_error(sprintf("Undefined property %s::$%s.\n", __CLASS__, $property));
+    }
+
+    protected function propertyUpdated($property, $value){
+        if(!isset($this->_data[$property]) || $this->_data[$property] !== $value)
+            $this->_dirty[$property] = true;
     }
 
     /**

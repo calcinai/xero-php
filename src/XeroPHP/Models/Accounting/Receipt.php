@@ -199,7 +199,7 @@ class Receipt extends Remote\Object {
      * @return Receipt
      */
     public function setDate(\DateTime $value){
-        $this->_dirty['Date'] = $this->_data['Date'] != $value;
+        $this->propertyUpdated('Date', $value);
         $this->_data['Date'] = $value;
         return $this;
     }
@@ -216,7 +216,7 @@ class Receipt extends Remote\Object {
      * @return Receipt
      */
     public function setContact(Contact $value){
-        $this->_dirty['Contact'] = $this->_data['Contact'] != $value;
+        $this->propertyUpdated('Contact', $value);
         $this->_data['Contact'] = $value;
         return $this;
     }
@@ -233,7 +233,7 @@ class Receipt extends Remote\Object {
      * @return Receipt
      */
     public function addLineitem(LineItem $value){
-        $this->_dirty['Lineitems'] = true;
+        $this->propertyUpdated('Lineitems', $value);
         $this->_data['Lineitems'][] = $value;
         return $this;
     }
@@ -250,7 +250,7 @@ class Receipt extends Remote\Object {
      * @return Receipt
      */
     public function setUser(User $value){
-        $this->_dirty['User'] = $this->_data['User'] != $value;
+        $this->propertyUpdated('User', $value);
         $this->_data['User'] = $value;
         return $this;
     }
@@ -267,7 +267,7 @@ class Receipt extends Remote\Object {
      * @return Receipt
      */
     public function setReference($value){
-        $this->_dirty['Reference'] = $this->_data['Reference'] != $value;
+        $this->propertyUpdated('Reference', $value);
         $this->_data['Reference'] = $value;
         return $this;
     }
@@ -284,7 +284,7 @@ class Receipt extends Remote\Object {
      * @return Receipt
      */
     public function addLineAmountType($value){
-        $this->_dirty['LineAmountTypes'] = true;
+        $this->propertyUpdated('LineAmountTypes', $value);
         $this->_data['LineAmountTypes'][] = $value;
         return $this;
     }
@@ -301,7 +301,7 @@ class Receipt extends Remote\Object {
      * @return Receipt
      */
     public function setSubTotal($value){
-        $this->_dirty['SubTotal'] = $this->_data['SubTotal'] != $value;
+        $this->propertyUpdated('SubTotal', $value);
         $this->_data['SubTotal'] = $value;
         return $this;
     }
@@ -318,7 +318,7 @@ class Receipt extends Remote\Object {
      * @return Receipt
      */
     public function setTotalTax($value){
-        $this->_dirty['TotalTax'] = $this->_data['TotalTax'] != $value;
+        $this->propertyUpdated('TotalTax', $value);
         $this->_data['TotalTax'] = $value;
         return $this;
     }
@@ -335,7 +335,7 @@ class Receipt extends Remote\Object {
      * @return Receipt
      */
     public function setTotal($value){
-        $this->_dirty['Total'] = $this->_data['Total'] != $value;
+        $this->propertyUpdated('Total', $value);
         $this->_data['Total'] = $value;
         return $this;
     }
@@ -352,7 +352,7 @@ class Receipt extends Remote\Object {
      * @return Receipt
      */
     public function setReceiptID($value){
-        $this->_dirty['ReceiptID'] = $this->_data['ReceiptID'] != $value;
+        $this->propertyUpdated('ReceiptID', $value);
         $this->_data['ReceiptID'] = $value;
         return $this;
     }
@@ -368,8 +368,8 @@ class Receipt extends Remote\Object {
      * @param string $value
      * @return Receipt
      */
-    public function setStatu($value){
-        $this->_dirty['Status'] = $this->_data['Status'] != $value;
+    public function setStatus($value){
+        $this->propertyUpdated('Status', $value);
         $this->_data['Status'] = $value;
         return $this;
     }
@@ -386,7 +386,7 @@ class Receipt extends Remote\Object {
      * @return Receipt
      */
     public function setReceiptNumber($value){
-        $this->_dirty['ReceiptNumber'] = $this->_data['ReceiptNumber'] != $value;
+        $this->propertyUpdated('ReceiptNumber', $value);
         $this->_data['ReceiptNumber'] = $value;
         return $this;
     }
@@ -403,7 +403,7 @@ class Receipt extends Remote\Object {
      * @return Receipt
      */
     public function setUpdatedDateUTC(\DateTime $value){
-        $this->_dirty['UpdatedDateUTC'] = $this->_data['UpdatedDateUTC'] != $value;
+        $this->propertyUpdated('UpdatedDateUTC', $value);
         $this->_data['UpdatedDateUTC'] = $value;
         return $this;
     }
@@ -420,7 +420,7 @@ class Receipt extends Remote\Object {
      * @return Receipt
      */
     public function setHasAttachment($value){
-        $this->_dirty['HasAttachments'] = $this->_data['HasAttachments'] != $value;
+        $this->propertyUpdated('HasAttachments', $value);
         $this->_data['HasAttachments'] = $value;
         return $this;
     }
@@ -437,7 +437,7 @@ class Receipt extends Remote\Object {
      * @return Receipt
      */
     public function setUrl($value){
-        $this->_dirty['Url'] = $this->_data['Url'] != $value;
+        $this->propertyUpdated('Url', $value);
         $this->_data['Url'] = $value;
         return $this;
     }

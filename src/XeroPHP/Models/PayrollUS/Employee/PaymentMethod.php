@@ -103,7 +103,7 @@ class PaymentMethod extends Remote\Object {
      * @return PaymentMethod
      */
     public function setPaymentMethodType($value){
-        $this->_dirty['PaymentMethodType'] = $this->_data['PaymentMethodType'] != $value;
+        $this->propertyUpdated('PaymentMethodType', $value);
         $this->_data['PaymentMethodType'] = $value;
         return $this;
     }
@@ -120,7 +120,7 @@ class PaymentMethod extends Remote\Object {
      * @return PaymentMethod
      */
     public function setBankAccount($value){
-        $this->_dirty['BankAccounts'] = $this->_data['BankAccounts'] != $value;
+        $this->propertyUpdated('BankAccounts', $value);
         $this->_data['BankAccounts'] = $value;
         return $this;
     }

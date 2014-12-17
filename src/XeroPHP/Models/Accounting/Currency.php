@@ -99,7 +99,7 @@ class Currency extends Remote\Object {
      * @return Currency
      */
     public function setCode($value){
-        $this->_dirty['Code'] = $this->_data['Code'] != $value;
+        $this->propertyUpdated('Code', $value);
         $this->_data['Code'] = $value;
         return $this;
     }
@@ -116,7 +116,7 @@ class Currency extends Remote\Object {
      * @return Currency
      */
     public function setDescription($value){
-        $this->_dirty['Description'] = $this->_data['Description'] != $value;
+        $this->propertyUpdated('Description', $value);
         $this->_data['Description'] = $value;
         return $this;
     }

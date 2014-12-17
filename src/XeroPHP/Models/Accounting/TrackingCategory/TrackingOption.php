@@ -106,7 +106,7 @@ class TrackingOption extends Remote\Object {
      * @return TrackingOption
      */
     public function setTrackingOptionID($value){
-        $this->_dirty['TrackingOptionID'] = $this->_data['TrackingOptionID'] != $value;
+        $this->propertyUpdated('TrackingOptionID', $value);
         $this->_data['TrackingOptionID'] = $value;
         return $this;
     }
@@ -123,7 +123,7 @@ class TrackingOption extends Remote\Object {
      * @return TrackingOption
      */
     public function setName($value){
-        $this->_dirty['Name'] = $this->_data['Name'] != $value;
+        $this->propertyUpdated('Name', $value);
         $this->_data['Name'] = $value;
         return $this;
     }
@@ -139,8 +139,8 @@ class TrackingOption extends Remote\Object {
      * @param string $value
      * @return TrackingOption
      */
-    public function setStatu($value){
-        $this->_dirty['Status'] = $this->_data['Status'] != $value;
+    public function setStatus($value){
+        $this->propertyUpdated('Status', $value);
         $this->_data['Status'] = $value;
         return $this;
     }

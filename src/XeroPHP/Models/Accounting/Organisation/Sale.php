@@ -99,7 +99,7 @@ class Sale extends Remote\Object {
      * @return Sale
      */
     public function setDay($value){
-        $this->_dirty['Day'] = $this->_data['Day'] != $value;
+        $this->propertyUpdated('Day', $value);
         $this->_data['Day'] = $value;
         return $this;
     }
@@ -116,7 +116,7 @@ class Sale extends Remote\Object {
      * @return Sale
      */
     public function setType($value){
-        $this->_dirty['Type'] = $this->_data['Type'] != $value;
+        $this->propertyUpdated('Type', $value);
         $this->_data['Type'] = $value;
         return $this;
     }

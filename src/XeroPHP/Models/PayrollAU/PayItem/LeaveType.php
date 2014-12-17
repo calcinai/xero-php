@@ -136,7 +136,7 @@ class LeaveType extends Remote\Object {
      * @return LeaveType
      */
     public function setName($value){
-        $this->_dirty['Name'] = $this->_data['Name'] != $value;
+        $this->propertyUpdated('Name', $value);
         $this->_data['Name'] = $value;
         return $this;
     }
@@ -153,7 +153,7 @@ class LeaveType extends Remote\Object {
      * @return LeaveType
      */
     public function addTypeOfUnit($value){
-        $this->_dirty['TypeOfUnits'] = true;
+        $this->propertyUpdated('TypeOfUnits', $value);
         $this->_data['TypeOfUnits'][] = $value;
         return $this;
     }
@@ -170,7 +170,7 @@ class LeaveType extends Remote\Object {
      * @return LeaveType
      */
     public function setIsPaidLeave($value){
-        $this->_dirty['IsPaidLeave'] = $this->_data['IsPaidLeave'] != $value;
+        $this->propertyUpdated('IsPaidLeave', $value);
         $this->_data['IsPaidLeave'] = $value;
         return $this;
     }
@@ -187,7 +187,7 @@ class LeaveType extends Remote\Object {
      * @return LeaveType
      */
     public function setShowOnPayslip($value){
-        $this->_dirty['ShowOnPayslip'] = $this->_data['ShowOnPayslip'] != $value;
+        $this->propertyUpdated('ShowOnPayslip', $value);
         $this->_data['ShowOnPayslip'] = $value;
         return $this;
     }
@@ -204,7 +204,7 @@ class LeaveType extends Remote\Object {
      * @return LeaveType
      */
     public function setLeaveTypeID($value){
-        $this->_dirty['LeaveTypeID'] = $this->_data['LeaveTypeID'] != $value;
+        $this->propertyUpdated('LeaveTypeID', $value);
         $this->_data['LeaveTypeID'] = $value;
         return $this;
     }
@@ -221,7 +221,7 @@ class LeaveType extends Remote\Object {
      * @return LeaveType
      */
     public function setNormalEntitlement($value){
-        $this->_dirty['NormalEntitlement'] = $this->_data['NormalEntitlement'] != $value;
+        $this->propertyUpdated('NormalEntitlement', $value);
         $this->_data['NormalEntitlement'] = $value;
         return $this;
     }
@@ -238,7 +238,7 @@ class LeaveType extends Remote\Object {
      * @return LeaveType
      */
     public function setLeaveLoadingRate($value){
-        $this->_dirty['LeaveLoadingRate'] = $this->_data['LeaveLoadingRate'] != $value;
+        $this->propertyUpdated('LeaveLoadingRate', $value);
         $this->_data['LeaveLoadingRate'] = $value;
         return $this;
     }

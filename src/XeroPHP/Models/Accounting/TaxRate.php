@@ -173,7 +173,7 @@ class TaxRate extends Remote\Object {
      * @return TaxRate
      */
     public function setName($value){
-        $this->_dirty['Name'] = $this->_data['Name'] != $value;
+        $this->propertyUpdated('Name', $value);
         $this->_data['Name'] = $value;
         return $this;
     }
@@ -190,7 +190,7 @@ class TaxRate extends Remote\Object {
      * @return TaxRate
      */
     public function setTaxType($value){
-        $this->_dirty['TaxType'] = $this->_data['TaxType'] != $value;
+        $this->propertyUpdated('TaxType', $value);
         $this->_data['TaxType'] = $value;
         return $this;
     }
@@ -207,7 +207,7 @@ class TaxRate extends Remote\Object {
      * @return TaxRate
      */
     public function addTaxComponent(TaxComponent $value){
-        $this->_dirty['TaxComponents'] = true;
+        $this->propertyUpdated('TaxComponents', $value);
         $this->_data['TaxComponents'][] = $value;
         return $this;
     }
@@ -223,8 +223,8 @@ class TaxRate extends Remote\Object {
      * @param float $value
      * @return TaxRate
      */
-    public function setStatu($value){
-        $this->_dirty['Status'] = $this->_data['Status'] != $value;
+    public function setStatus($value){
+        $this->propertyUpdated('Status', $value);
         $this->_data['Status'] = $value;
         return $this;
     }
@@ -241,7 +241,7 @@ class TaxRate extends Remote\Object {
      * @return TaxRate
      */
     public function setReportTaxType($value){
-        $this->_dirty['ReportTaxType'] = $this->_data['ReportTaxType'] != $value;
+        $this->propertyUpdated('ReportTaxType', $value);
         $this->_data['ReportTaxType'] = $value;
         return $this;
     }
@@ -258,7 +258,7 @@ class TaxRate extends Remote\Object {
      * @return TaxRate
      */
     public function addCanApplyToAsset($value){
-        $this->_dirty['CanApplyToAssets'] = true;
+        $this->propertyUpdated('CanApplyToAssets', $value);
         $this->_data['CanApplyToAssets'][] = $value;
         return $this;
     }
@@ -275,7 +275,7 @@ class TaxRate extends Remote\Object {
      * @return TaxRate
      */
     public function setCanApplyToEquity($value){
-        $this->_dirty['CanApplyToEquity'] = $this->_data['CanApplyToEquity'] != $value;
+        $this->propertyUpdated('CanApplyToEquity', $value);
         $this->_data['CanApplyToEquity'] = $value;
         return $this;
     }
@@ -292,7 +292,7 @@ class TaxRate extends Remote\Object {
      * @return TaxRate
      */
     public function addCanApplyToExpense($value){
-        $this->_dirty['CanApplyToExpenses'] = true;
+        $this->propertyUpdated('CanApplyToExpenses', $value);
         $this->_data['CanApplyToExpenses'][] = $value;
         return $this;
     }
@@ -309,7 +309,7 @@ class TaxRate extends Remote\Object {
      * @return TaxRate
      */
     public function addCanApplyToLiability($value){
-        $this->_dirty['CanApplyToLiabilities'] = true;
+        $this->propertyUpdated('CanApplyToLiabilities', $value);
         $this->_data['CanApplyToLiabilities'][] = $value;
         return $this;
     }
@@ -326,7 +326,7 @@ class TaxRate extends Remote\Object {
      * @return TaxRate
      */
     public function setCanApplyToRevenue($value){
-        $this->_dirty['CanApplyToRevenue'] = $this->_data['CanApplyToRevenue'] != $value;
+        $this->propertyUpdated('CanApplyToRevenue', $value);
         $this->_data['CanApplyToRevenue'] = $value;
         return $this;
     }
@@ -343,7 +343,7 @@ class TaxRate extends Remote\Object {
      * @return TaxRate
      */
     public function setDisplayTaxRate($value){
-        $this->_dirty['DisplayTaxRate'] = $this->_data['DisplayTaxRate'] != $value;
+        $this->propertyUpdated('DisplayTaxRate', $value);
         $this->_data['DisplayTaxRate'] = $value;
         return $this;
     }
@@ -360,7 +360,7 @@ class TaxRate extends Remote\Object {
      * @return TaxRate
      */
     public function setEffectiveRate($value){
-        $this->_dirty['EffectiveRate'] = $this->_data['EffectiveRate'] != $value;
+        $this->propertyUpdated('EffectiveRate', $value);
         $this->_data['EffectiveRate'] = $value;
         return $this;
     }

@@ -150,7 +150,7 @@ class ManualJournal extends Remote\Object {
      * @return ManualJournal
      */
     public function setNarration($value){
-        $this->_dirty['Narration'] = $this->_data['Narration'] != $value;
+        $this->propertyUpdated('Narration', $value);
         $this->_data['Narration'] = $value;
         return $this;
     }
@@ -167,7 +167,7 @@ class ManualJournal extends Remote\Object {
      * @return ManualJournal
      */
     public function addJournalLine(JournalLine $value){
-        $this->_dirty['JournalLines'] = true;
+        $this->propertyUpdated('JournalLines', $value);
         $this->_data['JournalLines'][] = $value;
         return $this;
     }
@@ -184,7 +184,7 @@ class ManualJournal extends Remote\Object {
      * @return ManualJournal
      */
     public function setDate(\DateTime $value){
-        $this->_dirty['Date'] = $this->_data['Date'] != $value;
+        $this->propertyUpdated('Date', $value);
         $this->_data['Date'] = $value;
         return $this;
     }
@@ -201,7 +201,7 @@ class ManualJournal extends Remote\Object {
      * @return ManualJournal
      */
     public function addLineAmountType($value){
-        $this->_dirty['LineAmountTypes'] = true;
+        $this->propertyUpdated('LineAmountTypes', $value);
         $this->_data['LineAmountTypes'][] = $value;
         return $this;
     }
@@ -217,8 +217,8 @@ class ManualJournal extends Remote\Object {
      * @param string $value
      * @return ManualJournal
      */
-    public function setStatu($value){
-        $this->_dirty['Status'] = $this->_data['Status'] != $value;
+    public function setStatus($value){
+        $this->propertyUpdated('Status', $value);
         $this->_data['Status'] = $value;
         return $this;
     }
@@ -235,7 +235,7 @@ class ManualJournal extends Remote\Object {
      * @return ManualJournal
      */
     public function setUrl($value){
-        $this->_dirty['Url'] = $this->_data['Url'] != $value;
+        $this->propertyUpdated('Url', $value);
         $this->_data['Url'] = $value;
         return $this;
     }
@@ -252,7 +252,7 @@ class ManualJournal extends Remote\Object {
      * @return ManualJournal
      */
     public function setShowOnCashBasisReport($value){
-        $this->_dirty['ShowOnCashBasisReports'] = $this->_data['ShowOnCashBasisReports'] != $value;
+        $this->propertyUpdated('ShowOnCashBasisReports', $value);
         $this->_data['ShowOnCashBasisReports'] = $value;
         return $this;
     }
@@ -269,7 +269,7 @@ class ManualJournal extends Remote\Object {
      * @return ManualJournal
      */
     public function setHasAttachment($value){
-        $this->_dirty['HasAttachments'] = $this->_data['HasAttachments'] != $value;
+        $this->propertyUpdated('HasAttachments', $value);
         $this->_data['HasAttachments'] = $value;
         return $this;
     }

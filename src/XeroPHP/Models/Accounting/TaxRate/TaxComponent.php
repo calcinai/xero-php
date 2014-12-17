@@ -106,7 +106,7 @@ class TaxComponent extends Remote\Object {
      * @return TaxComponent
      */
     public function setName($value){
-        $this->_dirty['Name'] = $this->_data['Name'] != $value;
+        $this->propertyUpdated('Name', $value);
         $this->_data['Name'] = $value;
         return $this;
     }
@@ -123,7 +123,7 @@ class TaxComponent extends Remote\Object {
      * @return TaxComponent
      */
     public function setRate($value){
-        $this->_dirty['Rate'] = $this->_data['Rate'] != $value;
+        $this->propertyUpdated('Rate', $value);
         $this->_data['Rate'] = $value;
         return $this;
     }
@@ -140,7 +140,7 @@ class TaxComponent extends Remote\Object {
      * @return TaxComponent
      */
     public function setIsCompound($value){
-        $this->_dirty['IsCompound'] = $this->_data['IsCompound'] != $value;
+        $this->propertyUpdated('IsCompound', $value);
         $this->_data['IsCompound'] = $value;
         return $this;
     }

@@ -107,7 +107,7 @@ class TimesheetLine extends Remote\Object {
      * @return TimesheetLine
      */
     public function setEarningsRateID($value){
-        $this->_dirty['EarningsRateID'] = $this->_data['EarningsRateID'] != $value;
+        $this->propertyUpdated('EarningsRateID', $value);
         $this->_data['EarningsRateID'] = $value;
         return $this;
     }
@@ -124,7 +124,7 @@ class TimesheetLine extends Remote\Object {
      * @return TimesheetLine
      */
     public function setTrackingItemID($value){
-        $this->_dirty['TrackingItemID'] = $this->_data['TrackingItemID'] != $value;
+        $this->propertyUpdated('TrackingItemID', $value);
         $this->_data['TrackingItemID'] = $value;
         return $this;
     }
@@ -141,7 +141,7 @@ class TimesheetLine extends Remote\Object {
      * @return TimesheetLine
      */
     public function addNumberOfUnit($value){
-        $this->_dirty['NumberOfUnits'] = true;
+        $this->propertyUpdated('NumberOfUnits', $value);
         $this->_data['NumberOfUnits'][] = $value;
         return $this;
     }

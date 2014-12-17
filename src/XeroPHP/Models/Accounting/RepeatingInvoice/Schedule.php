@@ -135,7 +135,7 @@ class Schedule extends Remote\Object {
      * @return Schedule
      */
     public function setPeriod($value){
-        $this->_dirty['Period'] = $this->_data['Period'] != $value;
+        $this->propertyUpdated('Period', $value);
         $this->_data['Period'] = $value;
         return $this;
     }
@@ -152,7 +152,7 @@ class Schedule extends Remote\Object {
      * @return Schedule
      */
     public function setUnit($value){
-        $this->_dirty['Unit'] = $this->_data['Unit'] != $value;
+        $this->propertyUpdated('Unit', $value);
         $this->_data['Unit'] = $value;
         return $this;
     }
@@ -169,7 +169,7 @@ class Schedule extends Remote\Object {
      * @return Schedule
      */
     public function setDueDate(\DateTime $value){
-        $this->_dirty['DueDate'] = $this->_data['DueDate'] != $value;
+        $this->propertyUpdated('DueDate', $value);
         $this->_data['DueDate'] = $value;
         return $this;
     }
@@ -186,7 +186,7 @@ class Schedule extends Remote\Object {
      * @return Schedule
      */
     public function setDueDateType(PaymentTerm $value){
-        $this->_dirty['DueDateType'] = $this->_data['DueDateType'] != $value;
+        $this->propertyUpdated('DueDateType', $value);
         $this->_data['DueDateType'] = $value;
         return $this;
     }
@@ -203,7 +203,7 @@ class Schedule extends Remote\Object {
      * @return Schedule
      */
     public function setStartDate(\DateTime $value){
-        $this->_dirty['StartDate'] = $this->_data['StartDate'] != $value;
+        $this->propertyUpdated('StartDate', $value);
         $this->_data['StartDate'] = $value;
         return $this;
     }
@@ -220,7 +220,7 @@ class Schedule extends Remote\Object {
      * @return Schedule
      */
     public function setNextScheduledDate(\DateTime $value){
-        $this->_dirty['NextScheduledDate'] = $this->_data['NextScheduledDate'] != $value;
+        $this->propertyUpdated('NextScheduledDate', $value);
         $this->_data['NextScheduledDate'] = $value;
         return $this;
     }
@@ -237,7 +237,7 @@ class Schedule extends Remote\Object {
      * @return Schedule
      */
     public function setEndDate(\DateTime $value){
-        $this->_dirty['EndDate'] = $this->_data['EndDate'] != $value;
+        $this->propertyUpdated('EndDate', $value);
         $this->_data['EndDate'] = $value;
         return $this;
     }

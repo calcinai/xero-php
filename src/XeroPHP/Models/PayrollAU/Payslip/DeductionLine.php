@@ -113,7 +113,7 @@ class DeductionLine extends Remote\Object {
      * @return DeductionLine
      */
     public function setDeductionTypeID($value){
-        $this->_dirty['DeductionTypeID'] = $this->_data['DeductionTypeID'] != $value;
+        $this->propertyUpdated('DeductionTypeID', $value);
         $this->_data['DeductionTypeID'] = $value;
         return $this;
     }
@@ -130,7 +130,7 @@ class DeductionLine extends Remote\Object {
      * @return DeductionLine
      */
     public function setCalculationType($value){
-        $this->_dirty['CalculationType'] = $this->_data['CalculationType'] != $value;
+        $this->propertyUpdated('CalculationType', $value);
         $this->_data['CalculationType'] = $value;
         return $this;
     }
@@ -147,7 +147,7 @@ class DeductionLine extends Remote\Object {
      * @return DeductionLine
      */
     public function setPercentage($value){
-        $this->_dirty['Percentage'] = $this->_data['Percentage'] != $value;
+        $this->propertyUpdated('Percentage', $value);
         $this->_data['Percentage'] = $value;
         return $this;
     }
@@ -164,7 +164,7 @@ class DeductionLine extends Remote\Object {
      * @return DeductionLine
      */
     public function addNumberOfUnit($value){
-        $this->_dirty['NumberOfUnits'] = true;
+        $this->propertyUpdated('NumberOfUnits', $value);
         $this->_data['NumberOfUnits'][] = $value;
         return $this;
     }

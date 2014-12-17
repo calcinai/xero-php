@@ -135,7 +135,7 @@ class ContactPerson extends Remote\Object {
      * @return ContactPerson
      */
     public function setFirstName($value){
-        $this->_dirty['FirstName'] = $this->_data['FirstName'] != $value;
+        $this->propertyUpdated('FirstName', $value);
         $this->_data['FirstName'] = $value;
         return $this;
     }
@@ -152,7 +152,7 @@ class ContactPerson extends Remote\Object {
      * @return ContactPerson
      */
     public function setLastName($value){
-        $this->_dirty['LastName'] = $this->_data['LastName'] != $value;
+        $this->propertyUpdated('LastName', $value);
         $this->_data['LastName'] = $value;
         return $this;
     }
@@ -169,7 +169,7 @@ class ContactPerson extends Remote\Object {
      * @return ContactPerson
      */
     public function setEmailAddress($value){
-        $this->_dirty['EmailAddress'] = $this->_data['EmailAddress'] != $value;
+        $this->propertyUpdated('EmailAddress', $value);
         $this->_data['EmailAddress'] = $value;
         return $this;
     }
@@ -186,7 +186,7 @@ class ContactPerson extends Remote\Object {
      * @return ContactPerson
      */
     public function setIncludeInEmail($value){
-        $this->_dirty['IncludeInEmails'] = $this->_data['IncludeInEmails'] != $value;
+        $this->propertyUpdated('IncludeInEmails', $value);
         $this->_data['IncludeInEmails'] = $value;
         return $this;
     }
@@ -203,7 +203,7 @@ class ContactPerson extends Remote\Object {
      * @return ContactPerson
      */
     public function setContactID($value){
-        $this->_dirty['ContactID'] = $this->_data['ContactID'] != $value;
+        $this->propertyUpdated('ContactID', $value);
         $this->_data['ContactID'] = $value;
         return $this;
     }
@@ -220,7 +220,7 @@ class ContactPerson extends Remote\Object {
      * @return ContactPerson
      */
     public function setContactNumber($value){
-        $this->_dirty['ContactNumber'] = $this->_data['ContactNumber'] != $value;
+        $this->propertyUpdated('ContactNumber', $value);
         $this->_data['ContactNumber'] = $value;
         return $this;
     }
@@ -237,7 +237,7 @@ class ContactPerson extends Remote\Object {
      * @return ContactPerson
      */
     public function setName($value){
-        $this->_dirty['Name'] = $this->_data['Name'] != $value;
+        $this->propertyUpdated('Name', $value);
         $this->_data['Name'] = $value;
         return $this;
     }

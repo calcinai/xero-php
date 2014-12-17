@@ -114,7 +114,7 @@ class BrandingTheme extends Remote\Object {
      * @return BrandingTheme
      */
     public function setBrandingThemeID($value){
-        $this->_dirty['BrandingThemeID'] = $this->_data['BrandingThemeID'] != $value;
+        $this->propertyUpdated('BrandingThemeID', $value);
         $this->_data['BrandingThemeID'] = $value;
         return $this;
     }
@@ -131,7 +131,7 @@ class BrandingTheme extends Remote\Object {
      * @return BrandingTheme
      */
     public function setName($value){
-        $this->_dirty['Name'] = $this->_data['Name'] != $value;
+        $this->propertyUpdated('Name', $value);
         $this->_data['Name'] = $value;
         return $this;
     }
@@ -148,7 +148,7 @@ class BrandingTheme extends Remote\Object {
      * @return BrandingTheme
      */
     public function setSortOrder($value){
-        $this->_dirty['SortOrder'] = $this->_data['SortOrder'] != $value;
+        $this->propertyUpdated('SortOrder', $value);
         $this->_data['SortOrder'] = $value;
         return $this;
     }
@@ -165,7 +165,7 @@ class BrandingTheme extends Remote\Object {
      * @return BrandingTheme
      */
     public function setCreatedDateUTC(\DateTime $value){
-        $this->_dirty['CreatedDateUTC'] = $this->_data['CreatedDateUTC'] != $value;
+        $this->propertyUpdated('CreatedDateUTC', $value);
         $this->_data['CreatedDateUTC'] = $value;
         return $this;
     }

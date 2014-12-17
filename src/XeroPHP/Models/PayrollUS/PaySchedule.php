@@ -122,7 +122,7 @@ class PaySchedule extends Remote\Object {
      * @return PaySchedule
      */
     public function setPayScheduleName($value){
-        $this->_dirty['PayScheduleName'] = $this->_data['PayScheduleName'] != $value;
+        $this->propertyUpdated('PayScheduleName', $value);
         $this->_data['PayScheduleName'] = $value;
         return $this;
     }
@@ -139,7 +139,7 @@ class PaySchedule extends Remote\Object {
      * @return PaySchedule
      */
     public function setPaymentDate(\DateTime $value){
-        $this->_dirty['PaymentDate'] = $this->_data['PaymentDate'] != $value;
+        $this->propertyUpdated('PaymentDate', $value);
         $this->_data['PaymentDate'] = $value;
         return $this;
     }
@@ -156,7 +156,7 @@ class PaySchedule extends Remote\Object {
      * @return PaySchedule
      */
     public function setStartDate(\DateTime $value){
-        $this->_dirty['StartDate'] = $this->_data['StartDate'] != $value;
+        $this->propertyUpdated('StartDate', $value);
         $this->_data['StartDate'] = $value;
         return $this;
     }
@@ -173,7 +173,7 @@ class PaySchedule extends Remote\Object {
      * @return PaySchedule
      */
     public function setScheduleType($value){
-        $this->_dirty['ScheduleType'] = $this->_data['ScheduleType'] != $value;
+        $this->propertyUpdated('ScheduleType', $value);
         $this->_data['ScheduleType'] = $value;
         return $this;
     }
@@ -190,7 +190,7 @@ class PaySchedule extends Remote\Object {
      * @return PaySchedule
      */
     public function setPayScheduleId($value){
-        $this->_dirty['PayScheduleId'] = $this->_data['PayScheduleId'] != $value;
+        $this->propertyUpdated('PayScheduleId', $value);
         $this->_data['PayScheduleId'] = $value;
         return $this;
     }

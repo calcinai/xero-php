@@ -118,7 +118,7 @@ class Item extends Remote\Object {
      * @return Item
      */
     public function setCode($value){
-        $this->_dirty['Code'] = $this->_data['Code'] != $value;
+        $this->propertyUpdated('Code', $value);
         $this->_data['Code'] = $value;
         return $this;
     }
@@ -135,7 +135,7 @@ class Item extends Remote\Object {
      * @return Item
      */
     public function setDescription($value){
-        $this->_dirty['Description'] = $this->_data['Description'] != $value;
+        $this->propertyUpdated('Description', $value);
         $this->_data['Description'] = $value;
         return $this;
     }
@@ -152,7 +152,7 @@ class Item extends Remote\Object {
      * @return Item
      */
     public function addPurchaseDetail(Purchase $value){
-        $this->_dirty['PurchaseDetails'] = true;
+        $this->propertyUpdated('PurchaseDetails', $value);
         $this->_data['PurchaseDetails'][] = $value;
         return $this;
     }
@@ -169,7 +169,7 @@ class Item extends Remote\Object {
      * @return Item
      */
     public function addSalesDetail(Sale $value){
-        $this->_dirty['SalesDetails'] = true;
+        $this->propertyUpdated('SalesDetails', $value);
         $this->_data['SalesDetails'][] = $value;
         return $this;
     }

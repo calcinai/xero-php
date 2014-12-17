@@ -107,7 +107,7 @@ class Allocation extends Remote\Object {
      * @return Allocation
      */
     public function setInvoice(Invoice $value){
-        $this->_dirty['Invoice'] = $this->_data['Invoice'] != $value;
+        $this->propertyUpdated('Invoice', $value);
         $this->_data['Invoice'] = $value;
         return $this;
     }
@@ -124,7 +124,7 @@ class Allocation extends Remote\Object {
      * @return Allocation
      */
     public function setAppliedAmount($value){
-        $this->_dirty['AppliedAmount'] = $this->_data['AppliedAmount'] != $value;
+        $this->propertyUpdated('AppliedAmount', $value);
         $this->_data['AppliedAmount'] = $value;
         return $this;
     }
@@ -141,7 +141,7 @@ class Allocation extends Remote\Object {
      * @return Allocation
      */
     public function setDate(\DateTime $value){
-        $this->_dirty['Date'] = $this->_data['Date'] != $value;
+        $this->propertyUpdated('Date', $value);
         $this->_data['Date'] = $value;
         return $this;
     }

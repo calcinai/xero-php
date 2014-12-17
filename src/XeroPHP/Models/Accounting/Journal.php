@@ -129,7 +129,7 @@ class Journal extends Remote\Object {
      * @return Journal
      */
     public function setJournalID($value){
-        $this->_dirty['JournalID'] = $this->_data['JournalID'] != $value;
+        $this->propertyUpdated('JournalID', $value);
         $this->_data['JournalID'] = $value;
         return $this;
     }
@@ -146,7 +146,7 @@ class Journal extends Remote\Object {
      * @return Journal
      */
     public function setJournalDate(\DateTime $value){
-        $this->_dirty['JournalDate'] = $this->_data['JournalDate'] != $value;
+        $this->propertyUpdated('JournalDate', $value);
         $this->_data['JournalDate'] = $value;
         return $this;
     }
@@ -163,7 +163,7 @@ class Journal extends Remote\Object {
      * @return Journal
      */
     public function setJournalNumber($value){
-        $this->_dirty['JournalNumber'] = $this->_data['JournalNumber'] != $value;
+        $this->propertyUpdated('JournalNumber', $value);
         $this->_data['JournalNumber'] = $value;
         return $this;
     }
@@ -180,7 +180,7 @@ class Journal extends Remote\Object {
      * @return Journal
      */
     public function setCreatedDateUTC(\DateTime $value){
-        $this->_dirty['CreatedDateUTC'] = $this->_data['CreatedDateUTC'] != $value;
+        $this->propertyUpdated('CreatedDateUTC', $value);
         $this->_data['CreatedDateUTC'] = $value;
         return $this;
     }
@@ -197,7 +197,7 @@ class Journal extends Remote\Object {
      * @return Journal
      */
     public function setReference($value){
-        $this->_dirty['Reference'] = $this->_data['Reference'] != $value;
+        $this->propertyUpdated('Reference', $value);
         $this->_data['Reference'] = $value;
         return $this;
     }
@@ -214,7 +214,7 @@ class Journal extends Remote\Object {
      * @return Journal
      */
     public function addJournalLine(JournalLine $value){
-        $this->_dirty['JournalLines'] = true;
+        $this->propertyUpdated('JournalLines', $value);
         $this->_data['JournalLines'][] = $value;
         return $this;
     }

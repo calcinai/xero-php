@@ -116,7 +116,7 @@ class SuperFundProduct extends Remote\Object {
      * @return SuperFundProduct
      */
     public function setABN($value){
-        $this->_dirty['ABN'] = $this->_data['ABN'] != $value;
+        $this->propertyUpdated('ABN', $value);
         $this->_data['ABN'] = $value;
         return $this;
     }
@@ -133,7 +133,7 @@ class SuperFundProduct extends Remote\Object {
      * @return SuperFundProduct
      */
     public function setUSI($value){
-        $this->_dirty['USI'] = $this->_data['USI'] != $value;
+        $this->propertyUpdated('USI', $value);
         $this->_data['USI'] = $value;
         return $this;
     }
@@ -150,7 +150,7 @@ class SuperFundProduct extends Remote\Object {
      * @return SuperFundProduct
      */
     public function setSPIN($value){
-        $this->_dirty['SPIN'] = $this->_data['SPIN'] != $value;
+        $this->propertyUpdated('SPIN', $value);
         $this->_data['SPIN'] = $value;
         return $this;
     }
@@ -167,7 +167,7 @@ class SuperFundProduct extends Remote\Object {
      * @return SuperFundProduct
      */
     public function setProductName($value){
-        $this->_dirty['ProductName'] = $this->_data['ProductName'] != $value;
+        $this->propertyUpdated('ProductName', $value);
         $this->_data['ProductName'] = $value;
         return $this;
     }

@@ -110,7 +110,7 @@ class Setting extends Remote\Object {
      * @return Setting
      */
     public function addAccount(Account $value){
-        $this->_dirty['Accounts'] = true;
+        $this->propertyUpdated('Accounts', $value);
         $this->_data['Accounts'][] = $value;
         return $this;
     }
@@ -127,7 +127,7 @@ class Setting extends Remote\Object {
      * @return Setting
      */
     public function addTrackingCategory(TrackingCategory $value){
-        $this->_dirty['TrackingCategories'] = true;
+        $this->propertyUpdated('TrackingCategories', $value);
         $this->_data['TrackingCategories'][] = $value;
         return $this;
     }
@@ -144,7 +144,7 @@ class Setting extends Remote\Object {
      * @return Setting
      */
     public function setDaysInPayrollYear($value){
-        $this->_dirty['DaysInPayrollYear'] = $this->_data['DaysInPayrollYear'] != $value;
+        $this->propertyUpdated('DaysInPayrollYear', $value);
         $this->_data['DaysInPayrollYear'] = $value;
         return $this;
     }

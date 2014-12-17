@@ -99,7 +99,7 @@ class PaymentTerm extends Remote\Object {
      * @return PaymentTerm
      */
     public function addBill(Bill $value){
-        $this->_dirty['Bills'] = true;
+        $this->propertyUpdated('Bills', $value);
         $this->_data['Bills'][] = $value;
         return $this;
     }
@@ -116,7 +116,7 @@ class PaymentTerm extends Remote\Object {
      * @return PaymentTerm
      */
     public function addSale(Sale $value){
-        $this->_dirty['Sales'] = true;
+        $this->propertyUpdated('Sales', $value);
         $this->_data['Sales'][] = $value;
         return $this;
     }

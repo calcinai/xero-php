@@ -134,7 +134,7 @@ class SalaryAndWage extends Remote\Object {
      * @return SalaryAndWage
      */
     public function setSalaryAndWageID($value){
-        $this->_dirty['SalaryAndWageID'] = $this->_data['SalaryAndWageID'] != $value;
+        $this->propertyUpdated('SalaryAndWageID', $value);
         $this->_data['SalaryAndWageID'] = $value;
         return $this;
     }
@@ -151,7 +151,7 @@ class SalaryAndWage extends Remote\Object {
      * @return SalaryAndWage
      */
     public function setEarningsTypeID($value){
-        $this->_dirty['EarningsTypeID'] = $this->_data['EarningsTypeID'] != $value;
+        $this->propertyUpdated('EarningsTypeID', $value);
         $this->_data['EarningsTypeID'] = $value;
         return $this;
     }
@@ -168,7 +168,7 @@ class SalaryAndWage extends Remote\Object {
      * @return SalaryAndWage
      */
     public function setSalaryWagesType($value){
-        $this->_dirty['SalaryWagesType'] = $this->_data['SalaryWagesType'] != $value;
+        $this->propertyUpdated('SalaryWagesType', $value);
         $this->_data['SalaryWagesType'] = $value;
         return $this;
     }
@@ -185,7 +185,7 @@ class SalaryAndWage extends Remote\Object {
      * @return SalaryAndWage
      */
     public function setHourlyRate($value){
-        $this->_dirty['HourlyRate'] = $this->_data['HourlyRate'] != $value;
+        $this->propertyUpdated('HourlyRate', $value);
         $this->_data['HourlyRate'] = $value;
         return $this;
     }
@@ -202,7 +202,7 @@ class SalaryAndWage extends Remote\Object {
      * @return SalaryAndWage
      */
     public function setAnnualSalary($value){
-        $this->_dirty['AnnualSalary'] = $this->_data['AnnualSalary'] != $value;
+        $this->propertyUpdated('AnnualSalary', $value);
         $this->_data['AnnualSalary'] = $value;
         return $this;
     }
@@ -219,7 +219,7 @@ class SalaryAndWage extends Remote\Object {
      * @return SalaryAndWage
      */
     public function setStandardHoursPerWeek($value){
-        $this->_dirty['StandardHoursPerWeek'] = $this->_data['StandardHoursPerWeek'] != $value;
+        $this->propertyUpdated('StandardHoursPerWeek', $value);
         $this->_data['StandardHoursPerWeek'] = $value;
         return $this;
     }
@@ -236,7 +236,7 @@ class SalaryAndWage extends Remote\Object {
      * @return SalaryAndWage
      */
     public function setEffectiveDate(\DateTime $value){
-        $this->_dirty['EffectiveDate'] = $this->_data['EffectiveDate'] != $value;
+        $this->propertyUpdated('EffectiveDate', $value);
         $this->_data['EffectiveDate'] = $value;
         return $this;
     }

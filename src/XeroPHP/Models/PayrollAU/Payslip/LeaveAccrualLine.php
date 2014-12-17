@@ -106,7 +106,7 @@ class LeaveAccrualLine extends Remote\Object {
      * @return LeaveAccrualLine
      */
     public function setLeaveTypeID($value){
-        $this->_dirty['LeaveTypeID'] = $this->_data['LeaveTypeID'] != $value;
+        $this->propertyUpdated('LeaveTypeID', $value);
         $this->_data['LeaveTypeID'] = $value;
         return $this;
     }
@@ -123,7 +123,7 @@ class LeaveAccrualLine extends Remote\Object {
      * @return LeaveAccrualLine
      */
     public function addNumberOfUnit($value){
-        $this->_dirty['NumberOfUnits'] = true;
+        $this->propertyUpdated('NumberOfUnits', $value);
         $this->_data['NumberOfUnits'][] = $value;
         return $this;
     }
@@ -140,7 +140,7 @@ class LeaveAccrualLine extends Remote\Object {
      * @return LeaveAccrualLine
      */
     public function setAutoCalculate($value){
-        $this->_dirty['AutoCalculate'] = $this->_data['AutoCalculate'] != $value;
+        $this->propertyUpdated('AutoCalculate', $value);
         $this->_data['AutoCalculate'] = $value;
         return $this;
     }

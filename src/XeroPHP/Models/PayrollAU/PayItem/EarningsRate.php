@@ -180,7 +180,7 @@ class EarningsRate extends Remote\Object {
      * @return EarningsRate
      */
     public function setName($value){
-        $this->_dirty['Name'] = $this->_data['Name'] != $value;
+        $this->propertyUpdated('Name', $value);
         $this->_data['Name'] = $value;
         return $this;
     }
@@ -197,7 +197,7 @@ class EarningsRate extends Remote\Object {
      * @return EarningsRate
      */
     public function setAccountCode($value){
-        $this->_dirty['AccountCode'] = $this->_data['AccountCode'] != $value;
+        $this->propertyUpdated('AccountCode', $value);
         $this->_data['AccountCode'] = $value;
         return $this;
     }
@@ -214,7 +214,7 @@ class EarningsRate extends Remote\Object {
      * @return EarningsRate
      */
     public function addTypeOfUnit($value){
-        $this->_dirty['TypeOfUnits'] = true;
+        $this->propertyUpdated('TypeOfUnits', $value);
         $this->_data['TypeOfUnits'][] = $value;
         return $this;
     }
@@ -231,7 +231,7 @@ class EarningsRate extends Remote\Object {
      * @return EarningsRate
      */
     public function setIsExemptFromTax($value){
-        $this->_dirty['IsExemptFromTax'] = $this->_data['IsExemptFromTax'] != $value;
+        $this->propertyUpdated('IsExemptFromTax', $value);
         $this->_data['IsExemptFromTax'] = $value;
         return $this;
     }
@@ -248,7 +248,7 @@ class EarningsRate extends Remote\Object {
      * @return EarningsRate
      */
     public function setIsExemptFromSuper($value){
-        $this->_dirty['IsExemptFromSuper'] = $this->_data['IsExemptFromSuper'] != $value;
+        $this->propertyUpdated('IsExemptFromSuper', $value);
         $this->_data['IsExemptFromSuper'] = $value;
         return $this;
     }
@@ -265,7 +265,7 @@ class EarningsRate extends Remote\Object {
      * @return EarningsRate
      */
     public function setEarningsType($value){
-        $this->_dirty['EarningsType'] = $this->_data['EarningsType'] != $value;
+        $this->propertyUpdated('EarningsType', $value);
         $this->_data['EarningsType'] = $value;
         return $this;
     }
@@ -282,7 +282,7 @@ class EarningsRate extends Remote\Object {
      * @return EarningsRate
      */
     public function setEarningsRateID($value){
-        $this->_dirty['EarningsRateID'] = $this->_data['EarningsRateID'] != $value;
+        $this->propertyUpdated('EarningsRateID', $value);
         $this->_data['EarningsRateID'] = $value;
         return $this;
     }
@@ -299,7 +299,7 @@ class EarningsRate extends Remote\Object {
      * @return EarningsRate
      */
     public function setRateType($value){
-        $this->_dirty['RateType'] = $this->_data['RateType'] != $value;
+        $this->propertyUpdated('RateType', $value);
         $this->_data['RateType'] = $value;
         return $this;
     }
@@ -316,7 +316,7 @@ class EarningsRate extends Remote\Object {
      * @return EarningsRate
      */
     public function setRatePerUnit($value){
-        $this->_dirty['RatePerUnit'] = $this->_data['RatePerUnit'] != $value;
+        $this->propertyUpdated('RatePerUnit', $value);
         $this->_data['RatePerUnit'] = $value;
         return $this;
     }
@@ -333,7 +333,7 @@ class EarningsRate extends Remote\Object {
      * @return EarningsRate
      */
     public function setMultiplier($value){
-        $this->_dirty['Multiplier'] = $this->_data['Multiplier'] != $value;
+        $this->propertyUpdated('Multiplier', $value);
         $this->_data['Multiplier'] = $value;
         return $this;
     }
@@ -350,7 +350,7 @@ class EarningsRate extends Remote\Object {
      * @return EarningsRate
      */
     public function setAccrueLeave($value){
-        $this->_dirty['AccrueLeave'] = $this->_data['AccrueLeave'] != $value;
+        $this->propertyUpdated('AccrueLeave', $value);
         $this->_data['AccrueLeave'] = $value;
         return $this;
     }
@@ -367,7 +367,7 @@ class EarningsRate extends Remote\Object {
      * @return EarningsRate
      */
     public function setAmount($value){
-        $this->_dirty['Amount'] = $this->_data['Amount'] != $value;
+        $this->propertyUpdated('Amount', $value);
         $this->_data['Amount'] = $value;
         return $this;
     }

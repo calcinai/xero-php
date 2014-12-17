@@ -99,7 +99,7 @@ class WorkLocation extends Remote\Object {
      * @return WorkLocation
      */
     public function setWorkLocationID($value){
-        $this->_dirty['WorkLocationID'] = $this->_data['WorkLocationID'] != $value;
+        $this->propertyUpdated('WorkLocationID', $value);
         $this->_data['WorkLocationID'] = $value;
         return $this;
     }
@@ -116,7 +116,7 @@ class WorkLocation extends Remote\Object {
      * @return WorkLocation
      */
     public function setIsPrimary($value){
-        $this->_dirty['IsPrimary'] = $this->_data['IsPrimary'] != $value;
+        $this->propertyUpdated('IsPrimary', $value);
         $this->_data['IsPrimary'] = $value;
         return $this;
     }

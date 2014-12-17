@@ -99,7 +99,7 @@ class TrackingCategory extends Remote\Object {
      * @return TrackingCategory
      */
     public function setTrackingCategoryID($value){
-        $this->_dirty['TrackingCategoryID'] = $this->_data['TrackingCategoryID'] != $value;
+        $this->propertyUpdated('TrackingCategoryID', $value);
         $this->_data['TrackingCategoryID'] = $value;
         return $this;
     }
@@ -116,7 +116,7 @@ class TrackingCategory extends Remote\Object {
      * @return TrackingCategory
      */
     public function setTrackingCategoryName($value){
-        $this->_dirty['TrackingCategoryName'] = $this->_data['TrackingCategoryName'] != $value;
+        $this->propertyUpdated('TrackingCategoryName', $value);
         $this->_data['TrackingCategoryName'] = $value;
         return $this;
     }

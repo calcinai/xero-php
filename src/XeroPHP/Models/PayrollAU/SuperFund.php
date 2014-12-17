@@ -108,7 +108,7 @@ class SuperFund extends Remote\Object {
      * @return SuperFund
      */
     public function setType($value){
-        $this->_dirty['Type'] = $this->_data['Type'] != $value;
+        $this->propertyUpdated('Type', $value);
         $this->_data['Type'] = $value;
         return $this;
     }
@@ -125,7 +125,7 @@ class SuperFund extends Remote\Object {
      * @return SuperFund
      */
     public function setABN($value){
-        $this->_dirty['ABN'] = $this->_data['ABN'] != $value;
+        $this->propertyUpdated('ABN', $value);
         $this->_data['ABN'] = $value;
         return $this;
     }
@@ -142,7 +142,7 @@ class SuperFund extends Remote\Object {
      * @return SuperFund
      */
     public function setUSI($value){
-        $this->_dirty['USI'] = $this->_data['USI'] != $value;
+        $this->propertyUpdated('USI', $value);
         $this->_data['USI'] = $value;
         return $this;
     }

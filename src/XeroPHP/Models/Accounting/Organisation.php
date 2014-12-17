@@ -290,7 +290,7 @@ class Organisation extends Remote\Object {
      * @return Organisation
      */
     public function setAPIKey($value){
-        $this->_dirty['APIKey'] = $this->_data['APIKey'] != $value;
+        $this->propertyUpdated('APIKey', $value);
         $this->_data['APIKey'] = $value;
         return $this;
     }
@@ -307,7 +307,7 @@ class Organisation extends Remote\Object {
      * @return Organisation
      */
     public function setName($value){
-        $this->_dirty['Name'] = $this->_data['Name'] != $value;
+        $this->propertyUpdated('Name', $value);
         $this->_data['Name'] = $value;
         return $this;
     }
@@ -324,7 +324,7 @@ class Organisation extends Remote\Object {
      * @return Organisation
      */
     public function setLegalName($value){
-        $this->_dirty['LegalName'] = $this->_data['LegalName'] != $value;
+        $this->propertyUpdated('LegalName', $value);
         $this->_data['LegalName'] = $value;
         return $this;
     }
@@ -341,7 +341,7 @@ class Organisation extends Remote\Object {
      * @return Organisation
      */
     public function setPaysTax($value){
-        $this->_dirty['PaysTax'] = $this->_data['PaysTax'] != $value;
+        $this->propertyUpdated('PaysTax', $value);
         $this->_data['PaysTax'] = $value;
         return $this;
     }
@@ -358,7 +358,7 @@ class Organisation extends Remote\Object {
      * @return Organisation
      */
     public function setVersion($value){
-        $this->_dirty['Version'] = $this->_data['Version'] != $value;
+        $this->propertyUpdated('Version', $value);
         $this->_data['Version'] = $value;
         return $this;
     }
@@ -375,7 +375,7 @@ class Organisation extends Remote\Object {
      * @return Organisation
      */
     public function setBaseCurrency($value){
-        $this->_dirty['BaseCurrency'] = $this->_data['BaseCurrency'] != $value;
+        $this->propertyUpdated('BaseCurrency', $value);
         $this->_data['BaseCurrency'] = $value;
         return $this;
     }
@@ -392,7 +392,7 @@ class Organisation extends Remote\Object {
      * @return Organisation
      */
     public function setCountryCode($value){
-        $this->_dirty['CountryCode'] = $this->_data['CountryCode'] != $value;
+        $this->propertyUpdated('CountryCode', $value);
         $this->_data['CountryCode'] = $value;
         return $this;
     }
@@ -409,7 +409,7 @@ class Organisation extends Remote\Object {
      * @return Organisation
      */
     public function setIsDemoCompany($value){
-        $this->_dirty['IsDemoCompany'] = $this->_data['IsDemoCompany'] != $value;
+        $this->propertyUpdated('IsDemoCompany', $value);
         $this->_data['IsDemoCompany'] = $value;
         return $this;
     }
@@ -425,8 +425,8 @@ class Organisation extends Remote\Object {
      * @param string $value
      * @return Organisation
      */
-    public function setOrganisationStatu($value){
-        $this->_dirty['OrganisationStatus'] = $this->_data['OrganisationStatus'] != $value;
+    public function setOrganisationStatus($value){
+        $this->propertyUpdated('OrganisationStatus', $value);
         $this->_data['OrganisationStatus'] = $value;
         return $this;
     }
@@ -443,7 +443,7 @@ class Organisation extends Remote\Object {
      * @return Organisation
      */
     public function setRegistrationNumber($value){
-        $this->_dirty['RegistrationNumber'] = $this->_data['RegistrationNumber'] != $value;
+        $this->propertyUpdated('RegistrationNumber', $value);
         $this->_data['RegistrationNumber'] = $value;
         return $this;
     }
@@ -460,7 +460,7 @@ class Organisation extends Remote\Object {
      * @return Organisation
      */
     public function setTaxNumber($value){
-        $this->_dirty['TaxNumber'] = $this->_data['TaxNumber'] != $value;
+        $this->propertyUpdated('TaxNumber', $value);
         $this->_data['TaxNumber'] = $value;
         return $this;
     }
@@ -477,7 +477,7 @@ class Organisation extends Remote\Object {
      * @return Organisation
      */
     public function setFinancialYearEndDay($value){
-        $this->_dirty['FinancialYearEndDay'] = $this->_data['FinancialYearEndDay'] != $value;
+        $this->propertyUpdated('FinancialYearEndDay', $value);
         $this->_data['FinancialYearEndDay'] = $value;
         return $this;
     }
@@ -494,7 +494,7 @@ class Organisation extends Remote\Object {
      * @return Organisation
      */
     public function setFinancialYearEndMonth($value){
-        $this->_dirty['FinancialYearEndMonth'] = $this->_data['FinancialYearEndMonth'] != $value;
+        $this->propertyUpdated('FinancialYearEndMonth', $value);
         $this->_data['FinancialYearEndMonth'] = $value;
         return $this;
     }
@@ -511,7 +511,7 @@ class Organisation extends Remote\Object {
      * @return Organisation
      */
     public function setSalesTaxBasis($value){
-        $this->_dirty['SalesTaxBasis'] = $this->_data['SalesTaxBasis'] != $value;
+        $this->propertyUpdated('SalesTaxBasis', $value);
         $this->_data['SalesTaxBasis'] = $value;
         return $this;
     }
@@ -528,7 +528,7 @@ class Organisation extends Remote\Object {
      * @return Organisation
      */
     public function setSalesTaxPeriod($value){
-        $this->_dirty['SalesTaxPeriod'] = $this->_data['SalesTaxPeriod'] != $value;
+        $this->propertyUpdated('SalesTaxPeriod', $value);
         $this->_data['SalesTaxPeriod'] = $value;
         return $this;
     }
@@ -545,7 +545,7 @@ class Organisation extends Remote\Object {
      * @return Organisation
      */
     public function setPeriodLockDate($value){
-        $this->_dirty['PeriodLockDate'] = $this->_data['PeriodLockDate'] != $value;
+        $this->propertyUpdated('PeriodLockDate', $value);
         $this->_data['PeriodLockDate'] = $value;
         return $this;
     }
@@ -562,7 +562,7 @@ class Organisation extends Remote\Object {
      * @return Organisation
      */
     public function setEndOfYearLockDate($value){
-        $this->_dirty['EndOfYearLockDate'] = $this->_data['EndOfYearLockDate'] != $value;
+        $this->propertyUpdated('EndOfYearLockDate', $value);
         $this->_data['EndOfYearLockDate'] = $value;
         return $this;
     }
@@ -579,7 +579,7 @@ class Organisation extends Remote\Object {
      * @return Organisation
      */
     public function setCreatedDateUTC(\DateTime $value){
-        $this->_dirty['CreatedDateUTC'] = $this->_data['CreatedDateUTC'] != $value;
+        $this->propertyUpdated('CreatedDateUTC', $value);
         $this->_data['CreatedDateUTC'] = $value;
         return $this;
     }
@@ -596,7 +596,7 @@ class Organisation extends Remote\Object {
      * @return Organisation
      */
     public function setOrganisationEntityType($value){
-        $this->_dirty['OrganisationEntityType'] = $this->_data['OrganisationEntityType'] != $value;
+        $this->propertyUpdated('OrganisationEntityType', $value);
         $this->_data['OrganisationEntityType'] = $value;
         return $this;
     }
@@ -613,7 +613,7 @@ class Organisation extends Remote\Object {
      * @return Organisation
      */
     public function setTimezone($value){
-        $this->_dirty['Timezone'] = $this->_data['Timezone'] != $value;
+        $this->propertyUpdated('Timezone', $value);
         $this->_data['Timezone'] = $value;
         return $this;
     }
@@ -630,7 +630,7 @@ class Organisation extends Remote\Object {
      * @return Organisation
      */
     public function setShortCode($value){
-        $this->_dirty['ShortCode'] = $this->_data['ShortCode'] != $value;
+        $this->propertyUpdated('ShortCode', $value);
         $this->_data['ShortCode'] = $value;
         return $this;
     }
@@ -647,7 +647,7 @@ class Organisation extends Remote\Object {
      * @return Organisation
      */
     public function setLineOfBusiness($value){
-        $this->_dirty['LineOfBusiness'] = $this->_data['LineOfBusiness'] != $value;
+        $this->propertyUpdated('LineOfBusiness', $value);
         $this->_data['LineOfBusiness'] = $value;
         return $this;
     }
@@ -664,7 +664,7 @@ class Organisation extends Remote\Object {
      * @return Organisation
      */
     public function addAddress(Address $value){
-        $this->_dirty['Addresses'] = true;
+        $this->propertyUpdated('Addresses', $value);
         $this->_data['Addresses'][] = $value;
         return $this;
     }
@@ -681,7 +681,7 @@ class Organisation extends Remote\Object {
      * @return Organisation
      */
     public function addPhone(Phone $value){
-        $this->_dirty['Phones'] = true;
+        $this->propertyUpdated('Phones', $value);
         $this->_data['Phones'][] = $value;
         return $this;
     }
@@ -698,7 +698,7 @@ class Organisation extends Remote\Object {
      * @return Organisation
      */
     public function addExternalLink(ExternalLink $value){
-        $this->_dirty['ExternalLinks'] = true;
+        $this->propertyUpdated('ExternalLinks', $value);
         $this->_data['ExternalLinks'][] = $value;
         return $this;
     }
@@ -715,7 +715,7 @@ class Organisation extends Remote\Object {
      * @return Organisation
      */
     public function addPaymentTerm(PaymentTerm $value){
-        $this->_dirty['PaymentTerms'] = true;
+        $this->propertyUpdated('PaymentTerms', $value);
         $this->_data['PaymentTerms'][] = $value;
         return $this;
     }

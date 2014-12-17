@@ -118,7 +118,7 @@ class Phone extends Remote\Object {
      * @return Phone
      */
     public function setPhoneType($value){
-        $this->_dirty['PhoneType'] = $this->_data['PhoneType'] != $value;
+        $this->propertyUpdated('PhoneType', $value);
         $this->_data['PhoneType'] = $value;
         return $this;
     }
@@ -135,7 +135,7 @@ class Phone extends Remote\Object {
      * @return Phone
      */
     public function setPhoneNumber($value){
-        $this->_dirty['PhoneNumber'] = $this->_data['PhoneNumber'] != $value;
+        $this->propertyUpdated('PhoneNumber', $value);
         $this->_data['PhoneNumber'] = $value;
         return $this;
     }
@@ -152,7 +152,7 @@ class Phone extends Remote\Object {
      * @return Phone
      */
     public function setPhoneAreaCode($value){
-        $this->_dirty['PhoneAreaCode'] = $this->_data['PhoneAreaCode'] != $value;
+        $this->propertyUpdated('PhoneAreaCode', $value);
         $this->_data['PhoneAreaCode'] = $value;
         return $this;
     }
@@ -169,7 +169,7 @@ class Phone extends Remote\Object {
      * @return Phone
      */
     public function setPhoneCountryCode($value){
-        $this->_dirty['PhoneCountryCode'] = $this->_data['PhoneCountryCode'] != $value;
+        $this->propertyUpdated('PhoneCountryCode', $value);
         $this->_data['PhoneCountryCode'] = $value;
         return $this;
     }

@@ -164,7 +164,7 @@ class BenefitType extends Remote\Object {
      * @return BenefitType
      */
     public function setBenefitType(BenefitType $value){
-        $this->_dirty['BenefitType'] = $this->_data['BenefitType'] != $value;
+        $this->propertyUpdated('BenefitType', $value);
         $this->_data['BenefitType'] = $value;
         return $this;
     }
@@ -181,7 +181,7 @@ class BenefitType extends Remote\Object {
      * @return BenefitType
      */
     public function setBenefitCategory($value){
-        $this->_dirty['BenefitCategory'] = $this->_data['BenefitCategory'] != $value;
+        $this->propertyUpdated('BenefitCategory', $value);
         $this->_data['BenefitCategory'] = $value;
         return $this;
     }
@@ -198,7 +198,7 @@ class BenefitType extends Remote\Object {
      * @return BenefitType
      */
     public function setLiabilityAccountCode($value){
-        $this->_dirty['LiabilityAccountCode'] = $this->_data['LiabilityAccountCode'] != $value;
+        $this->propertyUpdated('LiabilityAccountCode', $value);
         $this->_data['LiabilityAccountCode'] = $value;
         return $this;
     }
@@ -215,7 +215,7 @@ class BenefitType extends Remote\Object {
      * @return BenefitType
      */
     public function setExpenseAccountCode($value){
-        $this->_dirty['ExpenseAccountCode'] = $this->_data['ExpenseAccountCode'] != $value;
+        $this->propertyUpdated('ExpenseAccountCode', $value);
         $this->_data['ExpenseAccountCode'] = $value;
         return $this;
     }
@@ -232,7 +232,7 @@ class BenefitType extends Remote\Object {
      * @return BenefitType
      */
     public function setBenefitTypeID($value){
-        $this->_dirty['BenefitTypeID'] = $this->_data['BenefitTypeID'] != $value;
+        $this->propertyUpdated('BenefitTypeID', $value);
         $this->_data['BenefitTypeID'] = $value;
         return $this;
     }
@@ -249,7 +249,7 @@ class BenefitType extends Remote\Object {
      * @return BenefitType
      */
     public function setStandardAmount($value){
-        $this->_dirty['StandardAmount'] = $this->_data['StandardAmount'] != $value;
+        $this->propertyUpdated('StandardAmount', $value);
         $this->_data['StandardAmount'] = $value;
         return $this;
     }
@@ -266,7 +266,7 @@ class BenefitType extends Remote\Object {
      * @return BenefitType
      */
     public function setCompanyMax($value){
-        $this->_dirty['CompanyMax'] = $this->_data['CompanyMax'] != $value;
+        $this->propertyUpdated('CompanyMax', $value);
         $this->_data['CompanyMax'] = $value;
         return $this;
     }
@@ -283,7 +283,7 @@ class BenefitType extends Remote\Object {
      * @return BenefitType
      */
     public function setPercentage($value){
-        $this->_dirty['Percentage'] = $this->_data['Percentage'] != $value;
+        $this->propertyUpdated('Percentage', $value);
         $this->_data['Percentage'] = $value;
         return $this;
     }
@@ -300,7 +300,7 @@ class BenefitType extends Remote\Object {
      * @return BenefitType
      */
     public function setShowBalanceOnPaystub($value){
-        $this->_dirty['ShowBalanceOnPaystub'] = $this->_data['ShowBalanceOnPaystub'] != $value;
+        $this->propertyUpdated('ShowBalanceOnPaystub', $value);
         $this->_data['ShowBalanceOnPaystub'] = $value;
         return $this;
     }

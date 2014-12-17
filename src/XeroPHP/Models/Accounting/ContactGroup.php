@@ -121,7 +121,7 @@ e.g.
      * @return ContactGroup
      */
     public function setName($value){
-        $this->_dirty['Name'] = $this->_data['Name'] != $value;
+        $this->propertyUpdated('Name', $value);
         $this->_data['Name'] = $value;
         return $this;
     }
@@ -137,8 +137,8 @@ e.g.
      * @param string $value
      * @return ContactGroup
      */
-    public function setStatu($value){
-        $this->_dirty['Status'] = $this->_data['Status'] != $value;
+    public function setStatus($value){
+        $this->propertyUpdated('Status', $value);
         $this->_data['Status'] = $value;
         return $this;
     }
@@ -155,7 +155,7 @@ e.g.
      * @return ContactGroup
      */
     public function setContactGroupID($value){
-        $this->_dirty['ContactGroupID'] = $this->_data['ContactGroupID'] != $value;
+        $this->propertyUpdated('ContactGroupID', $value);
         $this->_data['ContactGroupID'] = $value;
         return $this;
     }
@@ -172,7 +172,7 @@ e.g.
      * @return ContactGroup
      */
     public function addContact(Contact $value){
-        $this->_dirty['Contacts'] = true;
+        $this->propertyUpdated('Contacts', $value);
         $this->_data['Contacts'][] = $value;
         return $this;
     }

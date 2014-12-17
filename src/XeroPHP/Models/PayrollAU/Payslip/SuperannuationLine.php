@@ -148,7 +148,7 @@ class SuperannuationLine extends Remote\Object {
      * @return SuperannuationLine
      */
     public function setSuperMembershipID($value){
-        $this->_dirty['SuperMembershipID'] = $this->_data['SuperMembershipID'] != $value;
+        $this->propertyUpdated('SuperMembershipID', $value);
         $this->_data['SuperMembershipID'] = $value;
         return $this;
     }
@@ -165,7 +165,7 @@ class SuperannuationLine extends Remote\Object {
      * @return SuperannuationLine
      */
     public function setContributionType($value){
-        $this->_dirty['ContributionType'] = $this->_data['ContributionType'] != $value;
+        $this->propertyUpdated('ContributionType', $value);
         $this->_data['ContributionType'] = $value;
         return $this;
     }
@@ -182,7 +182,7 @@ class SuperannuationLine extends Remote\Object {
      * @return SuperannuationLine
      */
     public function setCalculationType($value){
-        $this->_dirty['CalculationType'] = $this->_data['CalculationType'] != $value;
+        $this->propertyUpdated('CalculationType', $value);
         $this->_data['CalculationType'] = $value;
         return $this;
     }
@@ -199,7 +199,7 @@ class SuperannuationLine extends Remote\Object {
      * @return SuperannuationLine
      */
     public function addMinimumMonthlyEarning($value){
-        $this->_dirty['MinimumMonthlyEarnings'] = true;
+        $this->propertyUpdated('MinimumMonthlyEarnings', $value);
         $this->_data['MinimumMonthlyEarnings'][] = $value;
         return $this;
     }
@@ -216,7 +216,7 @@ class SuperannuationLine extends Remote\Object {
      * @return SuperannuationLine
      */
     public function setExpenseAccountCode($value){
-        $this->_dirty['ExpenseAccountCode'] = $this->_data['ExpenseAccountCode'] != $value;
+        $this->propertyUpdated('ExpenseAccountCode', $value);
         $this->_data['ExpenseAccountCode'] = $value;
         return $this;
     }
@@ -233,7 +233,7 @@ class SuperannuationLine extends Remote\Object {
      * @return SuperannuationLine
      */
     public function setLiabilityAccountCode($value){
-        $this->_dirty['LiabilityAccountCode'] = $this->_data['LiabilityAccountCode'] != $value;
+        $this->propertyUpdated('LiabilityAccountCode', $value);
         $this->_data['LiabilityAccountCode'] = $value;
         return $this;
     }
@@ -250,7 +250,7 @@ class SuperannuationLine extends Remote\Object {
      * @return SuperannuationLine
      */
     public function setPaymentDateForThisPeriod(\DateTime $value){
-        $this->_dirty['PaymentDateForThisPeriod'] = $this->_data['PaymentDateForThisPeriod'] != $value;
+        $this->propertyUpdated('PaymentDateForThisPeriod', $value);
         $this->_data['PaymentDateForThisPeriod'] = $value;
         return $this;
     }
@@ -267,7 +267,7 @@ class SuperannuationLine extends Remote\Object {
      * @return SuperannuationLine
      */
     public function setPercentage($value){
-        $this->_dirty['Percentage'] = $this->_data['Percentage'] != $value;
+        $this->propertyUpdated('Percentage', $value);
         $this->_data['Percentage'] = $value;
         return $this;
     }
@@ -284,7 +284,7 @@ class SuperannuationLine extends Remote\Object {
      * @return SuperannuationLine
      */
     public function setAmount($value){
-        $this->_dirty['Amount'] = $this->_data['Amount'] != $value;
+        $this->propertyUpdated('Amount', $value);
         $this->_data['Amount'] = $value;
         return $this;
     }

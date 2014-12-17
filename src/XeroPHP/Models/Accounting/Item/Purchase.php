@@ -107,7 +107,7 @@ class Purchase extends Remote\Object {
      * @return Purchase
      */
     public function setUnitPrice($value){
-        $this->_dirty['UnitPrice'] = $this->_data['UnitPrice'] != $value;
+        $this->propertyUpdated('UnitPrice', $value);
         $this->_data['UnitPrice'] = $value;
         return $this;
     }
@@ -124,7 +124,7 @@ class Purchase extends Remote\Object {
      * @return Purchase
      */
     public function setAccountCode($value){
-        $this->_dirty['AccountCode'] = $this->_data['AccountCode'] != $value;
+        $this->propertyUpdated('AccountCode', $value);
         $this->_data['AccountCode'] = $value;
         return $this;
     }
@@ -141,7 +141,7 @@ class Purchase extends Remote\Object {
      * @return Purchase
      */
     public function setTaxType($value){
-        $this->_dirty['TaxType'] = $this->_data['TaxType'] != $value;
+        $this->propertyUpdated('TaxType', $value);
         $this->_data['TaxType'] = $value;
         return $this;
     }

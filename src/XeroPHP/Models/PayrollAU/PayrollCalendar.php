@@ -123,7 +123,7 @@ class PayrollCalendar extends Remote\Object {
      * @return PayrollCalendar
      */
     public function setName($value){
-        $this->_dirty['Name'] = $this->_data['Name'] != $value;
+        $this->propertyUpdated('Name', $value);
         $this->_data['Name'] = $value;
         return $this;
     }
@@ -140,7 +140,7 @@ class PayrollCalendar extends Remote\Object {
      * @return PayrollCalendar
      */
     public function setCalendarType($value){
-        $this->_dirty['CalendarType'] = $this->_data['CalendarType'] != $value;
+        $this->propertyUpdated('CalendarType', $value);
         $this->_data['CalendarType'] = $value;
         return $this;
     }
@@ -157,7 +157,7 @@ class PayrollCalendar extends Remote\Object {
      * @return PayrollCalendar
      */
     public function setStartDate(\DateTime $value){
-        $this->_dirty['StartDate'] = $this->_data['StartDate'] != $value;
+        $this->propertyUpdated('StartDate', $value);
         $this->_data['StartDate'] = $value;
         return $this;
     }
@@ -174,7 +174,7 @@ class PayrollCalendar extends Remote\Object {
      * @return PayrollCalendar
      */
     public function setPaymentDate(\DateTime $value){
-        $this->_dirty['PaymentDate'] = $this->_data['PaymentDate'] != $value;
+        $this->propertyUpdated('PaymentDate', $value);
         $this->_data['PaymentDate'] = $value;
         return $this;
     }

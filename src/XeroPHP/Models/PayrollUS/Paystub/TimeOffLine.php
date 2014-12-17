@@ -106,7 +106,7 @@ class TimeOffLine extends Remote\Object {
      * @return TimeOffLine
      */
     public function setTimeOffTypeID($value){
-        $this->_dirty['TimeOffTypeID'] = $this->_data['TimeOffTypeID'] != $value;
+        $this->propertyUpdated('TimeOffTypeID', $value);
         $this->_data['TimeOffTypeID'] = $value;
         return $this;
     }
@@ -123,7 +123,7 @@ class TimeOffLine extends Remote\Object {
      * @return TimeOffLine
      */
     public function addHour($value){
-        $this->_dirty['Hours'] = true;
+        $this->propertyUpdated('Hours', $value);
         $this->_data['Hours'][] = $value;
         return $this;
     }
@@ -140,7 +140,7 @@ class TimeOffLine extends Remote\Object {
      * @return TimeOffLine
      */
     public function setBalance($value){
-        $this->_dirty['Balance'] = $this->_data['Balance'] != $value;
+        $this->propertyUpdated('Balance', $value);
         $this->_data['Balance'] = $value;
         return $this;
     }

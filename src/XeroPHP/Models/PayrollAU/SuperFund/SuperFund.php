@@ -188,7 +188,7 @@ A UTC timestamp
      * @return SuperFund
      */
     public function setType($value){
-        $this->_dirty['Type'] = $this->_data['Type'] != $value;
+        $this->propertyUpdated('Type', $value);
         $this->_data['Type'] = $value;
         return $this;
     }
@@ -205,7 +205,7 @@ A UTC timestamp
      * @return SuperFund
      */
     public function setName($value){
-        $this->_dirty['Name'] = $this->_data['Name'] != $value;
+        $this->propertyUpdated('Name', $value);
         $this->_data['Name'] = $value;
         return $this;
     }
@@ -222,7 +222,7 @@ A UTC timestamp
      * @return SuperFund
      */
     public function setABN($value){
-        $this->_dirty['ABN'] = $this->_data['ABN'] != $value;
+        $this->propertyUpdated('ABN', $value);
         $this->_data['ABN'] = $value;
         return $this;
     }
@@ -239,7 +239,7 @@ A UTC timestamp
      * @return SuperFund
      */
     public function setBSB($value){
-        $this->_dirty['BSB'] = $this->_data['BSB'] != $value;
+        $this->propertyUpdated('BSB', $value);
         $this->_data['BSB'] = $value;
         return $this;
     }
@@ -256,7 +256,7 @@ A UTC timestamp
      * @return SuperFund
      */
     public function setAccountNumber($value){
-        $this->_dirty['AccountNumber'] = $this->_data['AccountNumber'] != $value;
+        $this->propertyUpdated('AccountNumber', $value);
         $this->_data['AccountNumber'] = $value;
         return $this;
     }
@@ -273,7 +273,7 @@ A UTC timestamp
      * @return SuperFund
      */
     public function setAccountName($value){
-        $this->_dirty['AccountName'] = $this->_data['AccountName'] != $value;
+        $this->propertyUpdated('AccountName', $value);
         $this->_data['AccountName'] = $value;
         return $this;
     }
@@ -290,7 +290,7 @@ A UTC timestamp
      * @return SuperFund
      */
     public function setSuperFundID($value){
-        $this->_dirty['SuperFundID'] = $this->_data['SuperFundID'] != $value;
+        $this->propertyUpdated('SuperFundID', $value);
         $this->_data['SuperFundID'] = $value;
         return $this;
     }
@@ -307,7 +307,7 @@ A UTC timestamp
      * @return SuperFund
      */
     public function setEmployeeNumber($value){
-        $this->_dirty['EmployeeNumber'] = $this->_data['EmployeeNumber'] != $value;
+        $this->propertyUpdated('EmployeeNumber', $value);
         $this->_data['EmployeeNumber'] = $value;
         return $this;
     }
@@ -324,7 +324,7 @@ A UTC timestamp
      * @return SuperFund
      */
     public function setSPIN($value){
-        $this->_dirty['SPIN'] = $this->_data['SPIN'] != $value;
+        $this->propertyUpdated('SPIN', $value);
         $this->_data['SPIN'] = $value;
         return $this;
     }
@@ -341,7 +341,7 @@ A UTC timestamp
      * @return SuperFund
      */
     public function setRecordfilter($value){
-        $this->_dirty['Recordfilter'] = $this->_data['Recordfilter'] != $value;
+        $this->propertyUpdated('Recordfilter', $value);
         $this->_data['Recordfilter'] = $value;
         return $this;
     }
@@ -358,7 +358,7 @@ A UTC timestamp
      * @return SuperFund
      */
     public function set($value){
-        $this->_dirty[''] = $this->_data[''] != $value;
+        $this->propertyUpdated('', $value);
         $this->_data[''] = $value;
         return $this;
     }
@@ -375,7 +375,7 @@ A UTC timestamp
      * @return SuperFund
      */
     public function setModifiedAfter(\DateTime $value){
-        $this->_dirty['ModifiedAfter'] = $this->_data['ModifiedAfter'] != $value;
+        $this->propertyUpdated('ModifiedAfter', $value);
         $this->_data['ModifiedAfter'] = $value;
         return $this;
     }
@@ -392,7 +392,7 @@ A UTC timestamp
      * @return SuperFund
      */
     public function setpage($value){
-        $this->_dirty['page'] = $this->_data['page'] != $value;
+        $this->propertyUpdated('page', $value);
         $this->_data['page'] = $value;
         return $this;
     }

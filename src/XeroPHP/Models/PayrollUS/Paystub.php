@@ -227,7 +227,7 @@ class Paystub extends Remote\Object {
      * @return Paystub
      */
     public function setEmployeeID($value){
-        $this->_dirty['EmployeeID'] = $this->_data['EmployeeID'] != $value;
+        $this->propertyUpdated('EmployeeID', $value);
         $this->_data['EmployeeID'] = $value;
         return $this;
     }
@@ -244,7 +244,7 @@ class Paystub extends Remote\Object {
      * @return Paystub
      */
     public function setPaystubID($value){
-        $this->_dirty['PaystubID'] = $this->_data['PaystubID'] != $value;
+        $this->propertyUpdated('PaystubID', $value);
         $this->_data['PaystubID'] = $value;
         return $this;
     }
@@ -261,7 +261,7 @@ class Paystub extends Remote\Object {
      * @return Paystub
      */
     public function setPayRunID($value){
-        $this->_dirty['PayRunID'] = $this->_data['PayRunID'] != $value;
+        $this->propertyUpdated('PayRunID', $value);
         $this->_data['PayRunID'] = $value;
         return $this;
     }
@@ -278,7 +278,7 @@ class Paystub extends Remote\Object {
      * @return Paystub
      */
     public function setFirstName($value){
-        $this->_dirty['FirstName'] = $this->_data['FirstName'] != $value;
+        $this->propertyUpdated('FirstName', $value);
         $this->_data['FirstName'] = $value;
         return $this;
     }
@@ -295,7 +295,7 @@ class Paystub extends Remote\Object {
      * @return Paystub
      */
     public function setLastName($value){
-        $this->_dirty['LastName'] = $this->_data['LastName'] != $value;
+        $this->propertyUpdated('LastName', $value);
         $this->_data['LastName'] = $value;
         return $this;
     }
@@ -312,7 +312,7 @@ class Paystub extends Remote\Object {
      * @return Paystub
      */
     public function setLastEdited($value){
-        $this->_dirty['LastEdited'] = $this->_data['LastEdited'] != $value;
+        $this->propertyUpdated('LastEdited', $value);
         $this->_data['LastEdited'] = $value;
         return $this;
     }
@@ -329,7 +329,7 @@ class Paystub extends Remote\Object {
      * @return Paystub
      */
     public function addEarning($value){
-        $this->_dirty['Earnings'] = true;
+        $this->propertyUpdated('Earnings', $value);
         $this->_data['Earnings'][] = $value;
         return $this;
     }
@@ -346,7 +346,7 @@ class Paystub extends Remote\Object {
      * @return Paystub
      */
     public function addDeduction($value){
-        $this->_dirty['Deductions'] = true;
+        $this->propertyUpdated('Deductions', $value);
         $this->_data['Deductions'][] = $value;
         return $this;
     }
@@ -363,7 +363,7 @@ class Paystub extends Remote\Object {
      * @return Paystub
      */
     public function setTax($value){
-        $this->_dirty['Tax'] = $this->_data['Tax'] != $value;
+        $this->propertyUpdated('Tax', $value);
         $this->_data['Tax'] = $value;
         return $this;
     }
@@ -380,7 +380,7 @@ class Paystub extends Remote\Object {
      * @return Paystub
      */
     public function addReimbursement($value){
-        $this->_dirty['Reimbursements'] = true;
+        $this->propertyUpdated('Reimbursements', $value);
         $this->_data['Reimbursements'][] = $value;
         return $this;
     }
@@ -397,7 +397,7 @@ class Paystub extends Remote\Object {
      * @return Paystub
      */
     public function setNetPay($value){
-        $this->_dirty['NetPay'] = $this->_data['NetPay'] != $value;
+        $this->propertyUpdated('NetPay', $value);
         $this->_data['NetPay'] = $value;
         return $this;
     }
@@ -414,7 +414,7 @@ class Paystub extends Remote\Object {
      * @return Paystub
      */
     public function setUpdatedDateUTC($value){
-        $this->_dirty['UpdatedDateUTC'] = $this->_data['UpdatedDateUTC'] != $value;
+        $this->propertyUpdated('UpdatedDateUTC', $value);
         $this->_data['UpdatedDateUTC'] = $value;
         return $this;
     }
@@ -431,7 +431,7 @@ class Paystub extends Remote\Object {
      * @return Paystub
      */
     public function addEarningsLine(EarningsLine $value){
-        $this->_dirty['EarningsLines'] = true;
+        $this->propertyUpdated('EarningsLines', $value);
         $this->_data['EarningsLines'][] = $value;
         return $this;
     }
@@ -448,7 +448,7 @@ class Paystub extends Remote\Object {
      * @return Paystub
      */
     public function addLeaveEarningsLine(LeaveEarningsLine $value){
-        $this->_dirty['LeaveEarningsLines'] = true;
+        $this->propertyUpdated('LeaveEarningsLines', $value);
         $this->_data['LeaveEarningsLines'][] = $value;
         return $this;
     }
@@ -465,7 +465,7 @@ class Paystub extends Remote\Object {
      * @return Paystub
      */
     public function addTimesheetEarningsLine(TimesheetEarningsLine $value){
-        $this->_dirty['TimesheetEarningsLines'] = true;
+        $this->propertyUpdated('TimesheetEarningsLines', $value);
         $this->_data['TimesheetEarningsLines'][] = $value;
         return $this;
     }
@@ -482,7 +482,7 @@ class Paystub extends Remote\Object {
      * @return Paystub
      */
     public function addDeductionLine(DeductionLine $value){
-        $this->_dirty['DeductionLines'] = true;
+        $this->propertyUpdated('DeductionLines', $value);
         $this->_data['DeductionLines'][] = $value;
         return $this;
     }
@@ -499,7 +499,7 @@ class Paystub extends Remote\Object {
      * @return Paystub
      */
     public function addReimbursementLine(ReimbursementLine $value){
-        $this->_dirty['ReimbursementLines'] = true;
+        $this->propertyUpdated('ReimbursementLines', $value);
         $this->_data['ReimbursementLines'][] = $value;
         return $this;
     }
@@ -516,7 +516,7 @@ class Paystub extends Remote\Object {
      * @return Paystub
      */
     public function addBenefitLine(BenefitLine $value){
-        $this->_dirty['BenefitLines'] = true;
+        $this->propertyUpdated('BenefitLines', $value);
         $this->_data['BenefitLines'][] = $value;
         return $this;
     }
@@ -533,7 +533,7 @@ class Paystub extends Remote\Object {
      * @return Paystub
      */
     public function addTimeOffLine(TimeOffLine $value){
-        $this->_dirty['TimeOffLines'] = true;
+        $this->propertyUpdated('TimeOffLines', $value);
         $this->_data['TimeOffLines'][] = $value;
         return $this;
     }

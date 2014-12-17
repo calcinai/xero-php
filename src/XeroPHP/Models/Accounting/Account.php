@@ -246,7 +246,7 @@ e.g.
      * @return Account
      */
     public function setCode($value){
-        $this->_dirty['Code'] = $this->_data['Code'] != $value;
+        $this->propertyUpdated('Code', $value);
         $this->_data['Code'] = $value;
         return $this;
     }
@@ -263,7 +263,7 @@ e.g.
      * @return Account
      */
     public function setName($value){
-        $this->_dirty['Name'] = $this->_data['Name'] != $value;
+        $this->propertyUpdated('Name', $value);
         $this->_data['Name'] = $value;
         return $this;
     }
@@ -280,7 +280,7 @@ e.g.
      * @return Account
      */
     public function setType($value){
-        $this->_dirty['Type'] = $this->_data['Type'] != $value;
+        $this->propertyUpdated('Type', $value);
         $this->_data['Type'] = $value;
         return $this;
     }
@@ -297,7 +297,7 @@ e.g.
      * @return Account
      */
     public function setDescription($value){
-        $this->_dirty['Description'] = $this->_data['Description'] != $value;
+        $this->propertyUpdated('Description', $value);
         $this->_data['Description'] = $value;
         return $this;
     }
@@ -314,7 +314,7 @@ e.g.
      * @return Account
      */
     public function setTaxType($value){
-        $this->_dirty['TaxType'] = $this->_data['TaxType'] != $value;
+        $this->propertyUpdated('TaxType', $value);
         $this->_data['TaxType'] = $value;
         return $this;
     }
@@ -331,7 +331,7 @@ e.g.
      * @return Account
      */
     public function setEnablePaymentsToAccount($value){
-        $this->_dirty['EnablePaymentsToAccount'] = $this->_data['EnablePaymentsToAccount'] != $value;
+        $this->propertyUpdated('EnablePaymentsToAccount', $value);
         $this->_data['EnablePaymentsToAccount'] = $value;
         return $this;
     }
@@ -348,7 +348,7 @@ e.g.
      * @return Account
      */
     public function setShowInExpenseClaim($value){
-        $this->_dirty['ShowInExpenseClaims'] = $this->_data['ShowInExpenseClaims'] != $value;
+        $this->propertyUpdated('ShowInExpenseClaims', $value);
         $this->_data['ShowInExpenseClaims'] = $value;
         return $this;
     }
@@ -365,7 +365,7 @@ e.g.
      * @return Account
      */
     public function setAccountID($value){
-        $this->_dirty['AccountID'] = $this->_data['AccountID'] != $value;
+        $this->propertyUpdated('AccountID', $value);
         $this->_data['AccountID'] = $value;
         return $this;
     }
@@ -382,7 +382,7 @@ e.g.
      * @return Account
      */
     public function setClass($value){
-        $this->_dirty['Class'] = $this->_data['Class'] != $value;
+        $this->propertyUpdated('Class', $value);
         $this->_data['Class'] = $value;
         return $this;
     }
@@ -398,8 +398,8 @@ e.g.
      * @param string $value
      * @return Account
      */
-    public function setStatu($value){
-        $this->_dirty['Status'] = $this->_data['Status'] != $value;
+    public function setStatus($value){
+        $this->propertyUpdated('Status', $value);
         $this->_data['Status'] = $value;
         return $this;
     }
@@ -416,7 +416,7 @@ e.g.
      * @return Account
      */
     public function setSystemAccount($value){
-        $this->_dirty['SystemAccount'] = $this->_data['SystemAccount'] != $value;
+        $this->propertyUpdated('SystemAccount', $value);
         $this->_data['SystemAccount'] = $value;
         return $this;
     }
@@ -433,7 +433,7 @@ e.g.
      * @return Account
      */
     public function setBankAccountNumber($value){
-        $this->_dirty['BankAccountNumber'] = $this->_data['BankAccountNumber'] != $value;
+        $this->propertyUpdated('BankAccountNumber', $value);
         $this->_data['BankAccountNumber'] = $value;
         return $this;
     }
@@ -450,7 +450,7 @@ e.g.
      * @return Account
      */
     public function setCurrencyCode($value){
-        $this->_dirty['CurrencyCode'] = $this->_data['CurrencyCode'] != $value;
+        $this->propertyUpdated('CurrencyCode', $value);
         $this->_data['CurrencyCode'] = $value;
         return $this;
     }
@@ -467,7 +467,7 @@ e.g.
      * @return Account
      */
     public function setReportingCode($value){
-        $this->_dirty['ReportingCode'] = $this->_data['ReportingCode'] != $value;
+        $this->propertyUpdated('ReportingCode', $value);
         $this->_data['ReportingCode'] = $value;
         return $this;
     }
@@ -484,7 +484,7 @@ e.g.
      * @return Account
      */
     public function setReportingCodeName($value){
-        $this->_dirty['ReportingCodeName'] = $this->_data['ReportingCodeName'] != $value;
+        $this->propertyUpdated('ReportingCodeName', $value);
         $this->_data['ReportingCodeName'] = $value;
         return $this;
     }
@@ -501,7 +501,7 @@ e.g.
      * @return Account
      */
     public function setHasAttachment($value){
-        $this->_dirty['HasAttachments'] = $this->_data['HasAttachments'] != $value;
+        $this->propertyUpdated('HasAttachments', $value);
         $this->_data['HasAttachments'] = $value;
         return $this;
     }

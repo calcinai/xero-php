@@ -164,7 +164,7 @@ class JournalLine extends Remote\Object {
      * @return JournalLine
      */
     public function setJournalLineID($value){
-        $this->_dirty['JournalLineID'] = $this->_data['JournalLineID'] != $value;
+        $this->propertyUpdated('JournalLineID', $value);
         $this->_data['JournalLineID'] = $value;
         return $this;
     }
@@ -181,7 +181,7 @@ class JournalLine extends Remote\Object {
      * @return JournalLine
      */
     public function setAccountID($value){
-        $this->_dirty['AccountID'] = $this->_data['AccountID'] != $value;
+        $this->propertyUpdated('AccountID', $value);
         $this->_data['AccountID'] = $value;
         return $this;
     }
@@ -198,7 +198,7 @@ class JournalLine extends Remote\Object {
      * @return JournalLine
      */
     public function setAccountCode($value){
-        $this->_dirty['AccountCode'] = $this->_data['AccountCode'] != $value;
+        $this->propertyUpdated('AccountCode', $value);
         $this->_data['AccountCode'] = $value;
         return $this;
     }
@@ -215,7 +215,7 @@ class JournalLine extends Remote\Object {
      * @return JournalLine
      */
     public function setAccountType($value){
-        $this->_dirty['AccountType'] = $this->_data['AccountType'] != $value;
+        $this->propertyUpdated('AccountType', $value);
         $this->_data['AccountType'] = $value;
         return $this;
     }
@@ -232,7 +232,7 @@ class JournalLine extends Remote\Object {
      * @return JournalLine
      */
     public function setAccountName($value){
-        $this->_dirty['AccountName'] = $this->_data['AccountName'] != $value;
+        $this->propertyUpdated('AccountName', $value);
         $this->_data['AccountName'] = $value;
         return $this;
     }
@@ -249,7 +249,7 @@ class JournalLine extends Remote\Object {
      * @return JournalLine
      */
     public function setNetAmount($value){
-        $this->_dirty['NetAmount'] = $this->_data['NetAmount'] != $value;
+        $this->propertyUpdated('NetAmount', $value);
         $this->_data['NetAmount'] = $value;
         return $this;
     }
@@ -266,7 +266,7 @@ class JournalLine extends Remote\Object {
      * @return JournalLine
      */
     public function setGrossAmount($value){
-        $this->_dirty['GrossAmount'] = $this->_data['GrossAmount'] != $value;
+        $this->propertyUpdated('GrossAmount', $value);
         $this->_data['GrossAmount'] = $value;
         return $this;
     }
@@ -283,7 +283,7 @@ class JournalLine extends Remote\Object {
      * @return JournalLine
      */
     public function setTaxAmount($value){
-        $this->_dirty['TaxAmount'] = $this->_data['TaxAmount'] != $value;
+        $this->propertyUpdated('TaxAmount', $value);
         $this->_data['TaxAmount'] = $value;
         return $this;
     }
@@ -300,7 +300,7 @@ class JournalLine extends Remote\Object {
      * @return JournalLine
      */
     public function setTaxType($value){
-        $this->_dirty['TaxType'] = $this->_data['TaxType'] != $value;
+        $this->propertyUpdated('TaxType', $value);
         $this->_data['TaxType'] = $value;
         return $this;
     }
@@ -317,7 +317,7 @@ class JournalLine extends Remote\Object {
      * @return JournalLine
      */
     public function setTaxName(TaxRate $value){
-        $this->_dirty['TaxName'] = $this->_data['TaxName'] != $value;
+        $this->propertyUpdated('TaxName', $value);
         $this->_data['TaxName'] = $value;
         return $this;
     }
@@ -334,7 +334,7 @@ class JournalLine extends Remote\Object {
      * @return JournalLine
      */
     public function addTrackingCategory(TrackingCategory $value){
-        $this->_dirty['TrackingCategories'] = true;
+        $this->propertyUpdated('TrackingCategories', $value);
         $this->_data['TrackingCategories'][] = $value;
         return $this;
     }

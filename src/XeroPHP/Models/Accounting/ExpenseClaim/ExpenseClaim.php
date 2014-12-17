@@ -148,7 +148,7 @@ class ExpenseClaim extends Remote\Object {
      * @return ExpenseClaim
      */
     public function setExpenseClaimID($value){
-        $this->_dirty['ExpenseClaimID'] = $this->_data['ExpenseClaimID'] != $value;
+        $this->propertyUpdated('ExpenseClaimID', $value);
         $this->_data['ExpenseClaimID'] = $value;
         return $this;
     }
@@ -164,8 +164,8 @@ class ExpenseClaim extends Remote\Object {
      * @param string $value
      * @return ExpenseClaim
      */
-    public function setStatu($value){
-        $this->_dirty['Status'] = $this->_data['Status'] != $value;
+    public function setStatus($value){
+        $this->propertyUpdated('Status', $value);
         $this->_data['Status'] = $value;
         return $this;
     }
@@ -182,7 +182,7 @@ class ExpenseClaim extends Remote\Object {
      * @return ExpenseClaim
      */
     public function setUpdatedDateUTC(\DateTime $value){
-        $this->_dirty['UpdatedDateUTC'] = $this->_data['UpdatedDateUTC'] != $value;
+        $this->propertyUpdated('UpdatedDateUTC', $value);
         $this->_data['UpdatedDateUTC'] = $value;
         return $this;
     }
@@ -199,7 +199,7 @@ class ExpenseClaim extends Remote\Object {
      * @return ExpenseClaim
      */
     public function setTotal($value){
-        $this->_dirty['Total'] = $this->_data['Total'] != $value;
+        $this->propertyUpdated('Total', $value);
         $this->_data['Total'] = $value;
         return $this;
     }
@@ -216,7 +216,7 @@ class ExpenseClaim extends Remote\Object {
      * @return ExpenseClaim
      */
     public function setAmountDue($value){
-        $this->_dirty['AmountDue'] = $this->_data['AmountDue'] != $value;
+        $this->propertyUpdated('AmountDue', $value);
         $this->_data['AmountDue'] = $value;
         return $this;
     }
@@ -233,7 +233,7 @@ class ExpenseClaim extends Remote\Object {
      * @return ExpenseClaim
      */
     public function setAmountPaid($value){
-        $this->_dirty['AmountPaid'] = $this->_data['AmountPaid'] != $value;
+        $this->propertyUpdated('AmountPaid', $value);
         $this->_data['AmountPaid'] = $value;
         return $this;
     }
@@ -250,7 +250,7 @@ class ExpenseClaim extends Remote\Object {
      * @return ExpenseClaim
      */
     public function setPaymentDueDate(\DateTime $value){
-        $this->_dirty['PaymentDueDate'] = $this->_data['PaymentDueDate'] != $value;
+        $this->propertyUpdated('PaymentDueDate', $value);
         $this->_data['PaymentDueDate'] = $value;
         return $this;
     }
@@ -267,7 +267,7 @@ class ExpenseClaim extends Remote\Object {
      * @return ExpenseClaim
      */
     public function setReportingDate(\DateTime $value){
-        $this->_dirty['ReportingDate'] = $this->_data['ReportingDate'] != $value;
+        $this->propertyUpdated('ReportingDate', $value);
         $this->_data['ReportingDate'] = $value;
         return $this;
     }
@@ -284,7 +284,7 @@ class ExpenseClaim extends Remote\Object {
      * @return ExpenseClaim
      */
     public function setReceiptID($value){
-        $this->_dirty['ReceiptID'] = $this->_data['ReceiptID'] != $value;
+        $this->propertyUpdated('ReceiptID', $value);
         $this->_data['ReceiptID'] = $value;
         return $this;
     }

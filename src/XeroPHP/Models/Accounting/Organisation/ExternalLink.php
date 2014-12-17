@@ -105,7 +105,7 @@ class ExternalLink extends Remote\Object {
      * @return ExternalLink
      */
     public function setLinkType($value){
-        $this->_dirty['LinkType'] = $this->_data['LinkType'] != $value;
+        $this->propertyUpdated('LinkType', $value);
         $this->_data['LinkType'] = $value;
         return $this;
     }
@@ -122,7 +122,7 @@ class ExternalLink extends Remote\Object {
      * @return ExternalLink
      */
     public function setURL($value){
-        $this->_dirty['URL'] = $this->_data['URL'] != $value;
+        $this->propertyUpdated('URL', $value);
         $this->_data['URL'] = $value;
         return $this;
     }

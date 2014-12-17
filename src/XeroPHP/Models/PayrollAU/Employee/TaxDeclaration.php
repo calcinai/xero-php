@@ -181,7 +181,7 @@ class TaxDeclaration extends Remote\Object {
      * @return TaxDeclaration
      */
     public function setEmployeeID($value){
-        $this->_dirty['EmployeeID'] = $this->_data['EmployeeID'] != $value;
+        $this->propertyUpdated('EmployeeID', $value);
         $this->_data['EmployeeID'] = $value;
         return $this;
     }
@@ -198,7 +198,7 @@ class TaxDeclaration extends Remote\Object {
      * @return TaxDeclaration
      */
     public function setEmploymentBasis($value){
-        $this->_dirty['EmploymentBasis'] = $this->_data['EmploymentBasis'] != $value;
+        $this->propertyUpdated('EmploymentBasis', $value);
         $this->_data['EmploymentBasis'] = $value;
         return $this;
     }
@@ -215,7 +215,7 @@ class TaxDeclaration extends Remote\Object {
      * @return TaxDeclaration
      */
     public function setTFNExemptionType($value){
-        $this->_dirty['TFNExemptionType'] = $this->_data['TFNExemptionType'] != $value;
+        $this->propertyUpdated('TFNExemptionType', $value);
         $this->_data['TFNExemptionType'] = $value;
         return $this;
     }
@@ -232,7 +232,7 @@ class TaxDeclaration extends Remote\Object {
      * @return TaxDeclaration
      */
     public function setTaxFileNumber($value){
-        $this->_dirty['TaxFileNumber'] = $this->_data['TaxFileNumber'] != $value;
+        $this->propertyUpdated('TaxFileNumber', $value);
         $this->_data['TaxFileNumber'] = $value;
         return $this;
     }
@@ -249,7 +249,7 @@ class TaxDeclaration extends Remote\Object {
      * @return TaxDeclaration
      */
     public function addAustralianResidentForTaxPurpose($value){
-        $this->_dirty['AustralianResidentForTaxPurposes'] = true;
+        $this->propertyUpdated('AustralianResidentForTaxPurposes', $value);
         $this->_data['AustralianResidentForTaxPurposes'][] = $value;
         return $this;
     }
@@ -266,7 +266,7 @@ class TaxDeclaration extends Remote\Object {
      * @return TaxDeclaration
      */
     public function setTaxFreeThresholdClaimed($value){
-        $this->_dirty['TaxFreeThresholdClaimed'] = $this->_data['TaxFreeThresholdClaimed'] != $value;
+        $this->propertyUpdated('TaxFreeThresholdClaimed', $value);
         $this->_data['TaxFreeThresholdClaimed'] = $value;
         return $this;
     }
@@ -283,7 +283,7 @@ class TaxDeclaration extends Remote\Object {
      * @return TaxDeclaration
      */
     public function setTaxOffsetEstimatedAmount($value){
-        $this->_dirty['TaxOffsetEstimatedAmount'] = $this->_data['TaxOffsetEstimatedAmount'] != $value;
+        $this->propertyUpdated('TaxOffsetEstimatedAmount', $value);
         $this->_data['TaxOffsetEstimatedAmount'] = $value;
         return $this;
     }
@@ -300,7 +300,7 @@ class TaxDeclaration extends Remote\Object {
      * @return TaxDeclaration
      */
     public function setHasHELPDebt($value){
-        $this->_dirty['HasHELPDebt'] = $this->_data['HasHELPDebt'] != $value;
+        $this->propertyUpdated('HasHELPDebt', $value);
         $this->_data['HasHELPDebt'] = $value;
         return $this;
     }
@@ -317,7 +317,7 @@ class TaxDeclaration extends Remote\Object {
      * @return TaxDeclaration
      */
     public function setHasSFSSDebt($value){
-        $this->_dirty['HasSFSSDebt'] = $this->_data['HasSFSSDebt'] != $value;
+        $this->propertyUpdated('HasSFSSDebt', $value);
         $this->_data['HasSFSSDebt'] = $value;
         return $this;
     }
@@ -334,7 +334,7 @@ class TaxDeclaration extends Remote\Object {
      * @return TaxDeclaration
      */
     public function setUpwardVariationTaxWithholdingAmount($value){
-        $this->_dirty['UpwardVariationTaxWithholdingAmount'] = $this->_data['UpwardVariationTaxWithholdingAmount'] != $value;
+        $this->propertyUpdated('UpwardVariationTaxWithholdingAmount', $value);
         $this->_data['UpwardVariationTaxWithholdingAmount'] = $value;
         return $this;
     }
@@ -351,7 +351,7 @@ class TaxDeclaration extends Remote\Object {
      * @return TaxDeclaration
      */
     public function setEligibleToReceiveLeaveLoading($value){
-        $this->_dirty['EligibleToReceiveLeaveLoading'] = $this->_data['EligibleToReceiveLeaveLoading'] != $value;
+        $this->propertyUpdated('EligibleToReceiveLeaveLoading', $value);
         $this->_data['EligibleToReceiveLeaveLoading'] = $value;
         return $this;
     }
@@ -368,7 +368,7 @@ class TaxDeclaration extends Remote\Object {
      * @return TaxDeclaration
      */
     public function setApprovedWithholdingVariationPercentage($value){
-        $this->_dirty['ApprovedWithholdingVariationPercentage'] = $this->_data['ApprovedWithholdingVariationPercentage'] != $value;
+        $this->propertyUpdated('ApprovedWithholdingVariationPercentage', $value);
         $this->_data['ApprovedWithholdingVariationPercentage'] = $value;
         return $this;
     }

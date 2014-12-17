@@ -119,7 +119,7 @@ class PayItem extends Remote\Object {
      * @return PayItem
      */
     public function addEarningsRate(EarningsRate $value){
-        $this->_dirty['EarningsRates'] = true;
+        $this->propertyUpdated('EarningsRates', $value);
         $this->_data['EarningsRates'][] = $value;
         return $this;
     }
@@ -136,7 +136,7 @@ class PayItem extends Remote\Object {
      * @return PayItem
      */
     public function addDeductionType(DeductionType $value){
-        $this->_dirty['DeductionTypes'] = true;
+        $this->propertyUpdated('DeductionTypes', $value);
         $this->_data['DeductionTypes'][] = $value;
         return $this;
     }
@@ -153,7 +153,7 @@ class PayItem extends Remote\Object {
      * @return PayItem
      */
     public function addLeaveType(LeaveType $value){
-        $this->_dirty['LeaveTypes'] = true;
+        $this->propertyUpdated('LeaveTypes', $value);
         $this->_data['LeaveTypes'][] = $value;
         return $this;
     }
@@ -170,7 +170,7 @@ class PayItem extends Remote\Object {
      * @return PayItem
      */
     public function addReimbursementType(ReimbursementType $value){
-        $this->_dirty['ReimbursementTypes'] = true;
+        $this->propertyUpdated('ReimbursementTypes', $value);
         $this->_data['ReimbursementTypes'][] = $value;
         return $this;
     }

@@ -122,7 +122,7 @@ class JournalLine extends Remote\Object {
      * @return JournalLine
      */
     public function setLineAmount($value){
-        $this->_dirty['LineAmount'] = $this->_data['LineAmount'] != $value;
+        $this->propertyUpdated('LineAmount', $value);
         $this->_data['LineAmount'] = $value;
         return $this;
     }
@@ -139,7 +139,7 @@ class JournalLine extends Remote\Object {
      * @return JournalLine
      */
     public function setAccountCode($value){
-        $this->_dirty['AccountCode'] = $this->_data['AccountCode'] != $value;
+        $this->propertyUpdated('AccountCode', $value);
         $this->_data['AccountCode'] = $value;
         return $this;
     }
@@ -156,7 +156,7 @@ class JournalLine extends Remote\Object {
      * @return JournalLine
      */
     public function setDescription($value){
-        $this->_dirty['Description'] = $this->_data['Description'] != $value;
+        $this->propertyUpdated('Description', $value);
         $this->_data['Description'] = $value;
         return $this;
     }
@@ -173,7 +173,7 @@ class JournalLine extends Remote\Object {
      * @return JournalLine
      */
     public function setTaxType($value){
-        $this->_dirty['TaxType'] = $this->_data['TaxType'] != $value;
+        $this->propertyUpdated('TaxType', $value);
         $this->_data['TaxType'] = $value;
         return $this;
     }
@@ -190,7 +190,7 @@ class JournalLine extends Remote\Object {
      * @return JournalLine
      */
     public function setTracking($value){
-        $this->_dirty['Tracking'] = $this->_data['Tracking'] != $value;
+        $this->propertyUpdated('Tracking', $value);
         $this->_data['Tracking'] = $value;
         return $this;
     }

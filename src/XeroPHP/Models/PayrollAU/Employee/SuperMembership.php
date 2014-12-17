@@ -139,7 +139,7 @@ class SuperMembership extends Remote\Object {
      * @return SuperMembership
      */
     public function setSuperFundID($value){
-        $this->_dirty['SuperFundID'] = $this->_data['SuperFundID'] != $value;
+        $this->propertyUpdated('SuperFundID', $value);
         $this->_data['SuperFundID'] = $value;
         return $this;
     }
@@ -156,7 +156,7 @@ class SuperMembership extends Remote\Object {
      * @return SuperMembership
      */
     public function setEmployeeNumber($value){
-        $this->_dirty['EmployeeNumber'] = $this->_data['EmployeeNumber'] != $value;
+        $this->propertyUpdated('EmployeeNumber', $value);
         $this->_data['EmployeeNumber'] = $value;
         return $this;
     }
@@ -173,7 +173,7 @@ class SuperMembership extends Remote\Object {
      * @return SuperMembership
      */
     public function setSuperMembershipID($value){
-        $this->_dirty['SuperMembershipID'] = $this->_data['SuperMembershipID'] != $value;
+        $this->propertyUpdated('SuperMembershipID', $value);
         $this->_data['SuperMembershipID'] = $value;
         return $this;
     }
@@ -190,7 +190,7 @@ class SuperMembership extends Remote\Object {
      * @return SuperMembership
      */
     public function setRecordfilter($value){
-        $this->_dirty['Recordfilter'] = $this->_data['Recordfilter'] != $value;
+        $this->propertyUpdated('Recordfilter', $value);
         $this->_data['Recordfilter'] = $value;
         return $this;
     }
@@ -207,7 +207,7 @@ class SuperMembership extends Remote\Object {
      * @return SuperMembership
      */
     public function setEmployeeID($value){
-        $this->_dirty['EmployeeID'] = $this->_data['EmployeeID'] != $value;
+        $this->propertyUpdated('EmployeeID', $value);
         $this->_data['EmployeeID'] = $value;
         return $this;
     }
@@ -224,7 +224,7 @@ class SuperMembership extends Remote\Object {
      * @return SuperMembership
      */
     public function setModifiedAfter(\DateTime $value){
-        $this->_dirty['ModifiedAfter'] = $this->_data['ModifiedAfter'] != $value;
+        $this->propertyUpdated('ModifiedAfter', $value);
         $this->_data['ModifiedAfter'] = $value;
         return $this;
     }
@@ -241,7 +241,7 @@ class SuperMembership extends Remote\Object {
      * @return SuperMembership
      */
     public function setpage($value){
-        $this->_dirty['page'] = $this->_data['page'] != $value;
+        $this->propertyUpdated('page', $value);
         $this->_data['page'] = $value;
         return $this;
     }
