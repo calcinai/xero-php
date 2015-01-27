@@ -53,7 +53,7 @@ class SuperFund extends Remote\Object {
     /**
      * Some funds assign a unique number to each employer (max length = 20)
      *
-     * @property string EmployeeNumber
+     * @property string EmployerNumber
      */
 
     /**
@@ -166,7 +166,7 @@ A UTC timestamp
             'AccountNumber' => array (false, self::PROPERTY_TYPE_STRING, null, false),
             'AccountName' => array (false, self::PROPERTY_TYPE_STRING, null, false),
             'SuperFundID' => array (false, self::PROPERTY_TYPE_STRING, null, false),
-            'EmployeeNumber' => array (false, self::PROPERTY_TYPE_STRING, null, false),
+            'EmployerNumber' => array (false, self::PROPERTY_TYPE_STRING, null, false),
             'SPIN' => array (false, self::PROPERTY_TYPE_STRING, null, false),
             'Recordfilter' => array (false, self::PROPERTY_TYPE_STRING, null, false),
             '' => array (false, self::PROPERTY_TYPE_STRING, null, false),
@@ -298,17 +298,17 @@ A UTC timestamp
     /**
      * @return string
      */
-    public function getEmployeeNumber(){
-        return $this->_data['EmployeeNumber'];
+    public function getEmployerNumber(){
+        return $this->_data['EmployerNumber'];
     }
 
     /**
      * @param string $value
      * @return SuperFund
      */
-    public function setEmployeeNumber($value){
-        $this->propertyUpdated('EmployeeNumber', $value);
-        $this->_data['EmployeeNumber'] = $value;
+    public function setEmployerNumber($value){
+        $this->propertyUpdated('EmployerNumber', $value);
+        $this->_data['EmployerNumber'] = $value;
         return $this;
     }
 

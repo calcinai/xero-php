@@ -39,11 +39,44 @@ class Journal extends Remote\Object {
      */
 
     /**
+     * The identifier for the source transaction (e.g. InvoiceID)
+     *
+     * @property string SourceID
+     */
+
+    /**
+     * The journal source type. The type of transaction that created the journal
+     *
+     * @property string SourceType
+     */
+
+    /**
      * See JournalLines
      *
      * @property JournalLine[] JournalLines
      */
 
+
+    const JOURNAL_SOURCE_TYPE_ACCREC          = 'ACCREC'; 
+    const JOURNAL_SOURCE_TYPE_ACCPAY          = 'ACCPAY'; 
+    const JOURNAL_SOURCE_TYPE_ACCRECCREDIT    = 'ACCRECCREDIT'; 
+    const JOURNAL_SOURCE_TYPE_ACCPAYCREDIT    = 'ACCPAYCREDIT'; 
+    const JOURNAL_SOURCE_TYPE_ACCRECPAYMENT   = 'ACCRECPAYMENT'; 
+    const JOURNAL_SOURCE_TYPE_ACCPAYPAYMENT   = 'ACCPAYPAYMENT'; 
+    const JOURNAL_SOURCE_TYPE_ARCREDITPAYMENT = 'ARCREDITPAYMENT'; 
+    const JOURNAL_SOURCE_TYPE_APCREDITPAYMENT = 'APCREDITPAYMENT'; 
+    const JOURNAL_SOURCE_TYPE_CASHREC         = 'CASHREC'; 
+    const JOURNAL_SOURCE_TYPE_CASHPAID        = 'CASHPAID'; 
+    const JOURNAL_SOURCE_TYPE_TRANSFER        = 'TRANSFER'; 
+    const JOURNAL_SOURCE_TYPE_ARPREPAYMENT    = 'ARPREPAYMENT'; 
+    const JOURNAL_SOURCE_TYPE_APPREPAYMENT    = 'APPREPAYMENT'; 
+    const JOURNAL_SOURCE_TYPE_AROVERPAYMENT   = 'AROVERPAYMENT'; 
+    const JOURNAL_SOURCE_TYPE_APOVERPAYMENT   = 'APOVERPAYMENT'; 
+    const JOURNAL_SOURCE_TYPE_EXPCLAIM        = 'EXPCLAIM'; 
+    const JOURNAL_SOURCE_TYPE_EXPPAYMENT      = 'EXPPAYMENT'; 
+    const JOURNAL_SOURCE_TYPE_MANJOURNAL      = 'MANJOURNAL'; 
+    const JOURNAL_SOURCE_TYPE_PAYSLIP         = 'PAYSLIP'; 
+    const JOURNAL_SOURCE_TYPE_WAGEPAYABLE     = 'WAGEPAYABLE'; 
 
 
     /*
@@ -112,6 +145,8 @@ class Journal extends Remote\Object {
             'JournalNumber' => array (false, self::PROPERTY_TYPE_STRING, null, false),
             'CreatedDateUTC' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTime', false),
             'Reference' => array (false, self::PROPERTY_TYPE_STRING, null, false),
+            'SourceID' => array (false, self::PROPERTY_TYPE_STRING, null, false),
+            'SourceType' => array (false, self::PROPERTY_TYPE_ENUM, null, false),
             'JournalLines' => array (false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Journal\\JournalLine', true)
         );
     }
@@ -199,6 +234,40 @@ class Journal extends Remote\Object {
     public function setReference($value){
         $this->propertyUpdated('Reference', $value);
         $this->_data['Reference'] = $value;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getSourceID(){
+        return $this->_data['SourceID'];
+    }
+
+    /**
+     * @param string $value
+     * @return Journal
+     */
+    public function setSourceID($value){
+        $this->propertyUpdated('SourceID', $value);
+        $this->_data['SourceID'] = $value;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getSourceType(){
+        return $this->_data['SourceType'];
+    }
+
+    /**
+     * @param string $value
+     * @return Journal
+     */
+    public function setSourceType($value){
+        $this->propertyUpdated('SourceType', $value);
+        $this->_data['SourceType'] = $value;
         return $this;
     }
 

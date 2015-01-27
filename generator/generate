@@ -169,7 +169,12 @@ foreach($scrape_apis as $scrape_api) {
                         }
 
                     } elseif($current_object instanceof Enum) {
-                        $current_object->addValue($name, $description);
+                        if($children->eq(0)->filter('em')->count()){
+                            //Skip if the first child has an em in it
+                            //echo $name."\n";
+                        } else {
+                            $current_object->addValue($name, $description);
+                        }
                     }
 
                 });
@@ -370,7 +375,6 @@ $twig->addFilter(new Twig_SimpleFilter('wordwrap', 'wordwrap'));
 $twig->addFilter(new Twig_SimpleFilter('addslashes', 'addslashes'));
 
 print_r($apis[0]->getSearchKeys());
-
 
 foreach($apis as $api){
     foreach($api->getModels() as $model){

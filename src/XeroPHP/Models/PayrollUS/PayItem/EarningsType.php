@@ -14,6 +14,13 @@ class EarningsType extends Remote\Object {
      */
 
     /**
+     * DisplayName of the earnings rate, this field is only accessible via the API.  The DisplayName is
+     * shown on the employee’s Payslip. (max length = 50)
+     *
+     * @property string DisplayName
+     */
+
+    /**
      * See Accounts
      *
      * @property string ExpenseAccountCode
@@ -152,6 +159,7 @@ class EarningsType extends Remote\Object {
     public static function getProperties(){
         return array(
             'EarningsType' => array (true, self::PROPERTY_TYPE_OBJECT, 'PayrollUS\\PayItem\\EarningsType', false),
+            'DisplayName' => array (true, self::PROPERTY_TYPE_STRING, null, false),
             'ExpenseAccountCode' => array (true, self::PROPERTY_TYPE_STRING, null, false),
             'EarningsCategory' => array (true, self::PROPERTY_TYPE_ENUM, null, false),
             'RateType' => array (true, self::PROPERTY_TYPE_ENUM, null, false),
@@ -179,6 +187,23 @@ class EarningsType extends Remote\Object {
     public function setEarningsType(EarningsType $value){
         $this->propertyUpdated('EarningsType', $value);
         $this->_data['EarningsType'] = $value;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getDisplayName(){
+        return $this->_data['DisplayName'];
+    }
+
+    /**
+     * @param string $value
+     * @return EarningsType
+     */
+    public function setDisplayName($value){
+        $this->propertyUpdated('DisplayName', $value);
+        $this->_data['DisplayName'] = $value;
         return $this;
     }
 

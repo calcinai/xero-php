@@ -4,7 +4,7 @@ namespace XeroPHP\Models\Accounting;
 
 use XeroPHP\Remote;
 
-use XeroPHP\Models\Accounting\BankTransaction\LineItem;
+use XeroPHP\Models\Accounting\Invoice\LineItem;
 use XeroPHP\Models\Accounting\CreditNote\Allocation;
 
 class CreditNote extends Remote\Object {
@@ -209,7 +209,7 @@ class CreditNote extends Remote\Object {
             'Date' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTime', false),
             'Status' => array (false, self::PROPERTY_TYPE_ENUM, null, false),
             'LineAmountTypes' => array (false, self::PROPERTY_TYPE_FLOAT, null, true),
-            'LineItems' => array (false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\BankTransaction\\LineItem', true),
+            'LineItems' => array (false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Invoice\\LineItem', true),
             'SubTotal' => array (false, self::PROPERTY_TYPE_FLOAT, null, false),
             'TotalTax' => array (false, self::PROPERTY_TYPE_FLOAT, null, false),
             'Total' => array (false, self::PROPERTY_TYPE_FLOAT, null, false),

@@ -195,7 +195,7 @@ class Property {
         if(preg_match('/^((a\s)?bool|true\b|booelan)/i', $this->description))
             $type = Object::PROPERTY_TYPE_BOOLEAN;
 
-        if(preg_match('/(^sum\b|decimal|the\stotal|total\s(of|tax)|rate\b|amount\b)/i', $this->description))
+        if(preg_match('/(^sum\b|decimal|the\stotal|total\s(of|tax)|rate\b|amount\b)/i', $this->description) && stripos($this->name, 'name') === false)
             $type = Object::PROPERTY_TYPE_FLOAT;
 
         if(preg_match('/(^int(eger)?\b)/i', $this->description))
@@ -221,7 +221,24 @@ class Property {
             //The ns hint for searching, look for subclasses of this first.
             $ns_hint = sprintf('%s\\%s', $this->getModel()->getNamespace(), $this->getModel()->getClassName());
 
-            $result = $this->getModel()->getAPI()->searchByKey($this->getName(), $ns_hint);
+            if(preg_match('/see\s(?<model>[^.]+)/i', $this->getDescription(), $matches)){
+
+                //Try NS'ing it with existing models... MNA htis is getting ugly.
+                foreach($this->getModel()->getAPI()->getModels() as $model){
+                    $class_name = $model->getClassName();
+                    $model_name = $matches['model'];
+                    if(strpos($model_name, $class_name) === 0){
+                        //this means it starts with the model name
+                        $search_text = sprintf('%s\\%s', substr($model_name, 0, strlen($class_name)), substr($model_name, strlen($class_name)));
+                        $result = $this->getModel()->getAPI()->searchByKey(str_replace(' ', '', ucwords($search_text)), $this->getModel()->getNamespace());
+
+                    }
+                }
+
+            }
+
+            if($result === null)
+                $result = $this->getModel()->getAPI()->searchByKey($this->getName(), $ns_hint);
 
             if($result === null) {
                 foreach($this->links as $link) {
@@ -238,10 +255,13 @@ class Property {
                 }
             }
 
+            //Otherwise, just have a stab again, this needs to be after other references
             if($result === null){
-                if(preg_match('/see\s(?<model>[^.]+)/i', $this->getDescription(), $matches))
+                if(preg_match('/see\s(?<model>[^.]+)/i', $this->getDescription(), $matches)){
                     $result = $this->getModel()->getAPI()->searchByKey(str_replace(' ', '', ucwords($matches['model'])), $ns_hint);
+                }
             }
+
 
             //I have tried very hard to avoid special cases!
             if($result === null){

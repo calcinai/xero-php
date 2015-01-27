@@ -11,7 +11,7 @@ class TaxRate extends Remote\Object {
     /**
      * Name of tax rate
      *
-     * @property float Name
+     * @property string Name
      */
 
     /**
@@ -145,7 +145,7 @@ class TaxRate extends Remote\Object {
      */
     public static function getProperties(){
         return array(
-            'Name' => array (false, self::PROPERTY_TYPE_FLOAT, null, false),
+            'Name' => array (false, self::PROPERTY_TYPE_STRING, null, false),
             'TaxType' => array (false, self::PROPERTY_TYPE_ENUM, null, false),
             'TaxComponents' => array (false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\TaxRate\\TaxComponent', true),
             'Status' => array (false, self::PROPERTY_TYPE_FLOAT, null, false),
@@ -162,14 +162,14 @@ class TaxRate extends Remote\Object {
 
 
     /**
-     * @return float
+     * @return string
      */
     public function getName(){
         return $this->_data['Name'];
     }
 
     /**
-     * @param float $value
+     * @param string $value
      * @return TaxRate
      */
     public function setName($value){

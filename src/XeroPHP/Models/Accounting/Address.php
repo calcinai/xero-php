@@ -14,55 +14,55 @@ class Address extends Remote\Object {
      */
 
     /**
-     * 
+     *  max length = 500
      *
      * @property string AddressLine1
      */
 
     /**
-     * 
+     *  max length = 500
      *
      * @property string AddressLine2
      */
 
     /**
-     * 
+     *  max length = 500
      *
      * @property string AddressLine3
      */
 
     /**
-     * 
+     *  max length = 500
      *
      * @property string AddressLine4
      */
 
     /**
-     * 
+     *  max length = 255
      *
      * @property string City
      */
 
     /**
-     * 
+     *  max length = 255
      *
      * @property string Region
      */
 
     /**
-     * 
+     *  max length = 50
      *
      * @property string PostalCode
      */
 
     /**
-     * 
+     *  max length = 50
      *
      * @property string Country
      */
 
     /**
-     * 
+     *  max length = 255
      *
      * @property string AttentionTo
      */

@@ -52,7 +52,7 @@ class BankTransaction extends Remote\Object {
      */
 
     /**
-     * The currency that invoice has been raised in (see Currencies)
+     * The currency that bank transaction has been raised in (see Currencies)
      *
      * @property string CurrencyCode
      */
@@ -103,7 +103,7 @@ class BankTransaction extends Remote\Object {
      */
 
     /**
-     * Xero generated unique identifier for invoice
+     * Xero generated unique identifier for bank transaction
      *
      * @property string BankTransactionID
      */
@@ -121,15 +121,14 @@ class BankTransaction extends Remote\Object {
      */
 
 
-    const TYPE_RECEIVE                                                                  = 'RECEIVE'; 
-    const TYPE_RECEIVE_OVERPAYMENT                                                      = 'RECEIVE-OVERPAYMENT'; 
-    const TYPE_RECEIVE_PREPAYMENT                                                       = 'RECEIVE-PREPAYMENT'; 
-    const TYPE_SPEND                                                                    = 'SPEND'; 
-    const TYPE_SPEND_OVERPAYMENT                                                        = 'SPEND-OVERPAYMENT'; 
-    const TYPE_SPEND_PREPAYMENT                                                         = 'SPEND-PREPAYMENT'; 
-    const TYPE_THE_FOLLOWING_VALUES_ARE_ONLY_SUPPORTED_VIA_THE_GET_METHOD_AT_THE_MOMENT = 'The following values are only supported via the GET method at the moment'; 
-    const TYPE_RECEIVE_TRANSFER                                                         = 'RECEIVE-TRANSFER'; 
-    const TYPE_SPEND_TRANSFER                                                           = 'SPEND-TRANSFER'; 
+    const TYPE_RECEIVE             = 'RECEIVE'; 
+    const TYPE_RECEIVE_OVERPAYMENT = 'RECEIVE-OVERPAYMENT'; 
+    const TYPE_RECEIVE_PREPAYMENT  = 'RECEIVE-PREPAYMENT'; 
+    const TYPE_SPEND               = 'SPEND'; 
+    const TYPE_SPEND_OVERPAYMENT   = 'SPEND-OVERPAYMENT'; 
+    const TYPE_SPEND_PREPAYMENT    = 'SPEND-PREPAYMENT'; 
+    const TYPE_RECEIVE_TRANSFER    = 'RECEIVE-TRANSFER'; 
+    const TYPE_SPEND_TRANSFER      = 'SPEND-TRANSFER'; 
 
     const BANK_TRANSACTION_STATUS_AUTHORISED = 'AUTHORISED'; 
     const BANK_TRANSACTION_STATUS_DELETED    = 'DELETED'; 

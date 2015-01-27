@@ -14,19 +14,19 @@ class Phone extends Remote\Object {
      */
 
     /**
-     * 
+     *  max length = 50
      *
      * @property string PhoneNumber
      */
 
     /**
-     * 
+     *  max length = 10
      *
      * @property string PhoneAreaCode
      */
 
     /**
-     * 
+     *  max length = 20
      *
      * @property string PhoneCountryCode
      */

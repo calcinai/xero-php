@@ -10,7 +10,14 @@ class EarningsRate extends Remote\Object {
     /**
      * Name of the earnings rate (max length = 100)
      *
-     * @property float Name
+     * @property string Name
+     */
+
+    /**
+     * DisplayName of the earnings rate, this field is only accessible via the API.  The DisplayName is
+     * shown on the employee’s Payslip. (max length = 50)
+     *
+     * @property string DisplayName
      */
 
     /**
@@ -152,7 +159,8 @@ class EarningsRate extends Remote\Object {
      */
     public static function getProperties(){
         return array(
-            'Name' => array (true, self::PROPERTY_TYPE_FLOAT, null, false),
+            'Name' => array (true, self::PROPERTY_TYPE_STRING, null, false),
+            'DisplayName' => array (true, self::PROPERTY_TYPE_STRING, null, false),
             'AccountCode' => array (true, self::PROPERTY_TYPE_STRING, null, false),
             'TypeOfUnits' => array (true, self::PROPERTY_TYPE_STRING, null, true),
             'IsExemptFromTax' => array (true, self::PROPERTY_TYPE_STRING, null, false),
@@ -169,19 +177,36 @@ class EarningsRate extends Remote\Object {
 
 
     /**
-     * @return float
+     * @return string
      */
     public function getName(){
         return $this->_data['Name'];
     }
 
     /**
-     * @param float $value
+     * @param string $value
      * @return EarningsRate
      */
     public function setName($value){
         $this->propertyUpdated('Name', $value);
         $this->_data['Name'] = $value;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getDisplayName(){
+        return $this->_data['DisplayName'];
+    }
+
+    /**
+     * @param string $value
+     * @return EarningsRate
+     */
+    public function setDisplayName($value){
+        $this->propertyUpdated('DisplayName', $value);
+        $this->_data['DisplayName'] = $value;
         return $this;
     }
 
