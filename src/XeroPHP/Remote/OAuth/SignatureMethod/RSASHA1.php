@@ -4,7 +4,7 @@ namespace XeroPHP\Remote\OAuth\SignatureMethod;
 
 use XeroPHP\Remote\OAuth\Exception;
 
-class RSA_SHA1 implements SignatureMethodInterface {
+class RSASHA1 implements SignatureMethodInterface {
 
 
     public static function generateSignature(array $config, $sbs, $secret){

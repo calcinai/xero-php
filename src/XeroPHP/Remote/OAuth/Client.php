@@ -4,8 +4,8 @@ namespace XeroPHP\Remote\OAuth;
 
 use XeroPHP\Exception;
 use XeroPHP\Helpers;
-use XeroPHP\Remote\OAuth\SignatureMethod\RSA_SHA1;
-use XeroPHP\Remote\OAuth\SignatureMethod\HMAC_SHA1;
+use XeroPHP\Remote\OAuth\SignatureMethod\RSASHA1;
+use XeroPHP\Remote\OAuth\SignatureMethod\HMACSHA1;
 use XeroPHP\Remote\OAuth\SignatureMethod\PLAINTEXT;
 use XeroPHP\Remote\Request;
 
@@ -128,10 +128,10 @@ class Client {
 
         switch ($this->getSignatureMethod()) {
             case self::SIGNATURE_RSA_SHA1:
-                $signature = RSA_SHA1::generateSignature($this->config, $this->getSBS(), $this->getSigningSecret());
+                $signature = RSASHA1::generateSignature($this->config, $this->getSBS(), $this->getSigningSecret());
                 break;
             case self::SIGNATURE_HMAC_SHA1:
-                $signature = HMAC_SHA1::generateSignature($this->config, $this->getSBS(), $this->getSigningSecret());
+                $signature = HMACSHA1::generateSignature($this->config, $this->getSBS(), $this->getSigningSecret());
                 break;
             case self::SIGNATURE_PLAINTEXT:
                 $signature = PLAINTEXT::generateSignature($this->config, $this->getSBS(), $this->getSigningSecret());
