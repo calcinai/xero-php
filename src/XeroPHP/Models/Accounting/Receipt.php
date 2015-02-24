@@ -99,10 +99,10 @@ class Receipt extends Remote\Object {
      */
 
 
-    const RECEIPT_STATUS_DRAFT      = 'DRAFT'; 
-    const RECEIPT_STATUS_SUBMITTED  = 'SUBMITTED'; 
-    const RECEIPT_STATUS_AUTHORISED = 'AUTHORISED'; 
-    const RECEIPT_STATUS_DECLINED   = 'DECLINED'; 
+    const RECEIPT_STATUS_DRAFT      = 'DRAFT';
+    const RECEIPT_STATUS_SUBMITTED  = 'SUBMITTED';
+    const RECEIPT_STATUS_AUTHORISED = 'AUTHORISED';
+    const RECEIPT_STATUS_DECLINED   = 'DECLINED';
 
 
     /*

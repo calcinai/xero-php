@@ -23,7 +23,7 @@ class {{ model.ClassName }} extends Remote\Object {
 
 {% for enum in model.Enums %}
 {% for enum_value in enum.Values %}
-    const {{ enum_value.constant_name }} = '{{ enum_value.value }}'; {% if enum.description %}// {{ enum_value.description }}{% endif %}
+    const {{ enum_value.constant_name }} = '{{ enum_value.value }}';{% if enum.description %} // {{ enum_value.description }}{% endif %}
 
 {% endfor %}
 

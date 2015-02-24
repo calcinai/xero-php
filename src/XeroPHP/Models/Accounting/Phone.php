@@ -32,10 +32,10 @@ class Phone extends Remote\Object {
      */
 
 
-    const PHONE_TYPE_DEFAULT = 'DEFAULT'; 
-    const PHONE_TYPE_DDI     = 'DDI'; 
-    const PHONE_TYPE_MOBILE  = 'MOBILE'; 
-    const PHONE_TYPE_FAX     = 'FAX'; 
+    const PHONE_TYPE_DEFAULT = 'DEFAULT';
+    const PHONE_TYPE_DDI     = 'DDI';
+    const PHONE_TYPE_MOBILE  = 'MOBILE';
+    const PHONE_TYPE_FAX     = 'FAX';
 
 
     /*

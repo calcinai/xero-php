@@ -95,8 +95,8 @@ A UTC timestamp
      */
 
 
-    const TYPE_REGULATED = 'REGULATED'; 
-    const TYPE_SMSF      = 'SMSF'; 
+    const TYPE_REGULATED = 'REGULATED';
+    const TYPE_SMSF      = 'SMSF';
 
 
     /*

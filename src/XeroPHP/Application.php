@@ -69,7 +69,6 @@ abstract class Application {
         return $this->config[$key];
     }
 
-
     public function loadByGUID($model, $guid){
 
         $query = $this->load($model);

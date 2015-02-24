@@ -127,6 +127,12 @@ class Invoice extends Remote\Object {
      */
 
     /**
+     * Total of discounts applied on the invoice line items
+     *
+     * @property float TotalDiscount
+     */
+
+    /**
      * Xero generated unique identifier for invoice
      *
      * @property string InvoiceID
@@ -181,19 +187,19 @@ class Invoice extends Remote\Object {
      */
 
 
-    const INVOICE_TYPE_ACCPAY = 'ACCPAY'; 
-    const INVOICE_TYPE_ACCREC = 'ACCREC'; 
+    const INVOICE_TYPE_ACCPAY = 'ACCPAY';
+    const INVOICE_TYPE_ACCREC = 'ACCREC';
 
-    const INVOICE_STATUS_DRAFT      = 'DRAFT'; 
-    const INVOICE_STATUS_SUBMITTED  = 'SUBMITTED'; 
-    const INVOICE_STATUS_DELETED    = 'DELETED'; 
-    const INVOICE_STATUS_AUTHORISED = 'AUTHORISED'; 
-    const INVOICE_STATUS_PAID       = 'PAID'; 
-    const INVOICE_STATUS_VOIDED     = 'VOIDED'; 
+    const INVOICE_STATUS_DRAFT      = 'DRAFT';
+    const INVOICE_STATUS_SUBMITTED  = 'SUBMITTED';
+    const INVOICE_STATUS_DELETED    = 'DELETED';
+    const INVOICE_STATUS_AUTHORISED = 'AUTHORISED';
+    const INVOICE_STATUS_PAID       = 'PAID';
+    const INVOICE_STATUS_VOIDED     = 'VOIDED';
 
-    const LINEAMOUNT_TYPE_EXCLUSIVE = 'Exclusive'; 
-    const LINEAMOUNT_TYPE_INCLUSIVE = 'Inclusive'; 
-    const LINEAMOUNT_TYPE_NOTAX     = 'NoTax'; 
+    const LINEAMOUNT_TYPE_EXCLUSIVE = 'Exclusive';
+    const LINEAMOUNT_TYPE_INCLUSIVE = 'Inclusive';
+    const LINEAMOUNT_TYPE_NOTAX     = 'NoTax';
 
 
     /*
@@ -278,6 +284,7 @@ class Invoice extends Remote\Object {
             'SubTotal' => array (false, self::PROPERTY_TYPE_FLOAT, null, false),
             'TotalTax' => array (false, self::PROPERTY_TYPE_FLOAT, null, false),
             'Total' => array (false, self::PROPERTY_TYPE_FLOAT, null, false),
+            'TotalDiscount' => array (false, self::PROPERTY_TYPE_FLOAT, null, false),
             'InvoiceID' => array (false, self::PROPERTY_TYPE_STRING, null, false),
             'HasAttachments' => array (false, self::PROPERTY_TYPE_BOOLEAN, null, false),
             'Payments' => array (false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Payment', true),
@@ -611,6 +618,23 @@ class Invoice extends Remote\Object {
     public function setTotal($value){
         $this->propertyUpdated('Total', $value);
         $this->_data['Total'] = $value;
+        return $this;
+    }
+
+    /**
+     * @return float
+     */
+    public function getTotalDiscount(){
+        return $this->_data['TotalDiscount'];
+    }
+
+    /**
+     * @param float $value
+     * @return Invoice
+     */
+    public function setTotalDiscount($value){
+        $this->propertyUpdated('TotalDiscount', $value);
+        $this->_data['TotalDiscount'] = $value;
         return $this;
     }
 

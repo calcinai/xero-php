@@ -20,9 +20,9 @@ class PaymentMethod extends Remote\Object {
      */
 
 
-    const PAYMENT_METHOD_TYPE_CHECK         = 'CHECK'; 
-    const PAYMENT_METHOD_TYPE_MANUAL        = 'MANUAL'; 
-    const PAYMENT_METHOD_TYPE_DIRECTDEPOSIT = 'DIRECTDEPOSIT'; 
+    const PAYMENT_METHOD_TYPE_CHECK         = 'CHECK';
+    const PAYMENT_METHOD_TYPE_MANUAL        = 'MANUAL';
+    const PAYMENT_METHOD_TYPE_DIRECTDEPOSIT = 'DIRECTDEPOSIT';
 
 
     /*

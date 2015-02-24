@@ -20,9 +20,9 @@ class ExpenseClaim extends Remote\Object {
      */
 
 
-    const EXPENSE_CLAIM_STATUS_SUBMITTED  = 'SUBMITTED'; 
-    const EXPENSE_CLAIM_STATUS_AUTHORISED = 'AUTHORISED'; 
-    const EXPENSE_CLAIM_STATUS_PAID       = 'PAID'; 
+    const EXPENSE_CLAIM_STATUS_SUBMITTED  = 'SUBMITTED';
+    const EXPENSE_CLAIM_STATUS_AUTHORISED = 'AUTHORISED';
+    const EXPENSE_CLAIM_STATUS_PAID       = 'PAID';
 
 
     /*

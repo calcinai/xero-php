@@ -51,8 +51,8 @@ class LeaveApplication extends Remote\Object {
      */
 
 
-    const LEAVE_PERIOD_STATUS_SCHEDULED = 'SCHEDULED'; 
-    const LEAVE_PERIOD_STATUS_PROCESSED = 'PROCESSED'; 
+    const LEAVE_PERIOD_STATUS_SCHEDULED = 'SCHEDULED';
+    const LEAVE_PERIOD_STATUS_PROCESSED = 'PROCESSED';
 
 
     /*

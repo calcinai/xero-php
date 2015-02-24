@@ -216,8 +216,8 @@ class Contact extends Remote\Object {
      */
 
 
-    const CONTACT_STATUS_ACTIVE   = 'ACTIVE'; 
-    const CONTACT_STATUS_ARCHIVED = 'ARCHIVED'; 
+    const CONTACT_STATUS_ACTIVE   = 'ACTIVE';
+    const CONTACT_STATUS_ARCHIVED = 'ARCHIVED';
 
 
     /*

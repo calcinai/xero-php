@@ -29,6 +29,8 @@ $xero_base_config = array(
         CURLOPT_USERAGENT   => 'XeroPHP Test App',
 
         //Only for partner apps - unfortunately need to be files on disk only.
+        //CURLOPT_CAINFO          => 'certs/ca-bundle.crt',
+
         //CURLOPT_SSLCERT         => 'certs/entrust-cert-RQ3.pem',
         //CURLOPT_SSLKEYPASSWD    => '1234',
         //CURLOPT_SSLKEY          => 'certs/entrust-private-RQ3.pem'

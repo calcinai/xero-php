@@ -28,7 +28,7 @@ class CreditNote extends Remote\Object {
      */
 
     /**
-     * The date the credit note is created YYYY-MM-DD
+     * The date the credit note is issued YYYY-MM-DD
      *
      * @property \DateTime Date
      */
@@ -136,8 +136,8 @@ class CreditNote extends Remote\Object {
      */
 
 
-    const CREDIT_NOTE_TYPE_ACCPAYCREDIT = 'ACCPAYCREDIT'; 
-    const CREDIT_NOTE_TYPE_ACCRECCREDIT = 'ACCRECCREDIT'; 
+    const CREDIT_NOTE_TYPE_ACCPAYCREDIT = 'ACCPAYCREDIT';
+    const CREDIT_NOTE_TYPE_ACCRECCREDIT = 'ACCRECCREDIT';
 
 
     /*

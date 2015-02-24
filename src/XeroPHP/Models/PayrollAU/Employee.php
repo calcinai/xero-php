@@ -167,17 +167,17 @@ class Employee extends Remote\Object {
      */
 
 
-    const STATEABBREVIATION_ACT = 'ACT'; 
-    const STATEABBREVIATION_NSW = 'NSW'; 
-    const STATEABBREVIATION_NT  = 'NT'; 
-    const STATEABBREVIATION_QLD = 'QLD'; 
-    const STATEABBREVIATION_SA  = 'SA'; 
-    const STATEABBREVIATION_TAS = 'TAS'; 
-    const STATEABBREVIATION_VIC = 'VIC'; 
-    const STATEABBREVIATION_WA  = 'WA'; 
+    const STATEABBREVIATION_ACT = 'ACT';
+    const STATEABBREVIATION_NSW = 'NSW';
+    const STATEABBREVIATION_NT  = 'NT';
+    const STATEABBREVIATION_QLD = 'QLD';
+    const STATEABBREVIATION_SA  = 'SA';
+    const STATEABBREVIATION_TAS = 'TAS';
+    const STATEABBREVIATION_VIC = 'VIC';
+    const STATEABBREVIATION_WA  = 'WA';
 
-    const STATUS_ACTIVE     = 'ACTIVE'; 
-    const STATUS_TERMINATED = 'TERMINATED'; 
+    const STATUS_ACTIVE     = 'ACTIVE';
+    const STATUS_TERMINATED = 'TERMINATED';
 
 
     /*
