@@ -39,12 +39,6 @@ class BankAccount extends Remote\Object {
      */
 
     /**
-     * Percentages of a pay run (for example, a 50/50 split)
-     *
-     * @property string Percentage
-     */
-
-    /**
      * Fixed amounts (for example, if an employee wants to have $100 of their salary transferred to one
      * account, and the remaining amount to another)
      *
@@ -118,7 +112,6 @@ class BankAccount extends Remote\Object {
             'BSB' => array (false, self::PROPERTY_TYPE_STRING, null, false),
             'AccountNumber' => array (false, self::PROPERTY_TYPE_STRING, null, false),
             'Remainder' => array (false, self::PROPERTY_TYPE_STRING, null, false),
-            'Percentage' => array (false, self::PROPERTY_TYPE_STRING, null, false),
             'Amount' => array (false, self::PROPERTY_TYPE_FLOAT, null, false)
         );
     }
@@ -206,23 +199,6 @@ class BankAccount extends Remote\Object {
     public function setRemainder($value){
         $this->propertyUpdated('Remainder', $value);
         $this->_data['Remainder'] = $value;
-        return $this;
-    }
-
-    /**
-     * @return string
-     */
-    public function getPercentage(){
-        return $this->_data['Percentage'];
-    }
-
-    /**
-     * @param string $value
-     * @return BankAccount
-     */
-    public function setPercentage($value){
-        $this->propertyUpdated('Percentage', $value);
-        $this->_data['Percentage'] = $value;
         return $this;
     }
 
