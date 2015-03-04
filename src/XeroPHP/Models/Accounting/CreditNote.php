@@ -70,7 +70,7 @@ class CreditNote extends Remote\Object {
      */
 
     /**
-     * UTC timestamp of last update to contact
+     * UTC timestamp of last update to the credit note
      *
      * @property \DateTime UpdatedDateUTC
      */

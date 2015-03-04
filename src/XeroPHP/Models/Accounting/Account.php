@@ -50,6 +50,12 @@ class Account extends Remote\Object {
      */
 
     /**
+     * See Account Status Codes
+     *
+     * @property string Status
+     */
+
+    /**
      * The Xero identifier for an account – specified as a string following the endpoint name
 e.g.
      * /297c2dc5-cc47-4afd-8ec8-74990b8761e9
@@ -61,12 +67,6 @@ e.g.
      * See Account Class Types
      *
      * @property string Class
-     */
-
-    /**
-     * See Account Status Codes
-     *
-     * @property string Status
      */
 
     /**
@@ -198,7 +198,8 @@ e.g.
     public static function getSupportedMethods(){
         return array(
             Remote\Request::METHOD_GET,
-            Remote\Request::METHOD_PUT
+            Remote\Request::METHOD_PUT,
+            Remote\Request::METHOD_POST
         );
     }
 
@@ -221,9 +222,9 @@ e.g.
             'TaxType' => array (false, self::PROPERTY_TYPE_ENUM, null, false),
             'EnablePaymentsToAccount' => array (false, self::PROPERTY_TYPE_BOOLEAN, null, false),
             'ShowInExpenseClaims' => array (false, self::PROPERTY_TYPE_BOOLEAN, null, false),
+            'Status' => array (false, self::PROPERTY_TYPE_ENUM, null, false),
             'AccountID' => array (false, self::PROPERTY_TYPE_STRING, null, false),
             'Class' => array (false, self::PROPERTY_TYPE_ENUM, null, false),
-            'Status' => array (false, self::PROPERTY_TYPE_ENUM, null, false),
             'SystemAccount' => array (false, self::PROPERTY_TYPE_ENUM, null, false),
             'BankAccountNumber' => array (false, self::PROPERTY_TYPE_STRING, null, false),
             'CurrencyCode' => array (false, self::PROPERTY_TYPE_STRING, null, false),
@@ -356,6 +357,23 @@ e.g.
     /**
      * @return string
      */
+    public function getStatus(){
+        return $this->_data['Status'];
+    }
+
+    /**
+     * @param string $value
+     * @return Account
+     */
+    public function setStatus($value){
+        $this->propertyUpdated('Status', $value);
+        $this->_data['Status'] = $value;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
     public function getAccountID(){
         return $this->_data['AccountID'];
     }
@@ -384,23 +402,6 @@ e.g.
     public function setClass($value){
         $this->propertyUpdated('Class', $value);
         $this->_data['Class'] = $value;
-        return $this;
-    }
-
-    /**
-     * @return string
-     */
-    public function getStatus(){
-        return $this->_data['Status'];
-    }
-
-    /**
-     * @param string $value
-     * @return Account
-     */
-    public function setStatus($value){
-        $this->propertyUpdated('Status', $value);
-        $this->_data['Status'] = $value;
         return $this;
     }
 
