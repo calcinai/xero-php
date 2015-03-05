@@ -195,7 +195,7 @@ class Organisation extends Remote\Object {
     * @return string
     */
     public static function getResourceURI(){
-        return null;
+        return 'Organisation';
     }
 
 
@@ -234,6 +234,7 @@ class Organisation extends Remote\Object {
     */
     public static function getSupportedMethods(){
         return array(
+            Remote\Request::METHOD_GET
         );
     }
 
