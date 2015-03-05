@@ -195,7 +195,8 @@ foreach($scrape_apis as $scrape_api) {
 
         $full_uri = sprintf('%s/%s/%s/', $documentation_base, $scrape_api['uri'], $uri);
         $crawler = $client->request('GET', $full_uri);
-
+        unset($current_model);
+        
         $crawler->filter('.entry-content')->children()->each(function ($node) use ($api) {
             //keep static in closure.
             static $page_heading, $section_name, $primary_model, $current_model;
@@ -221,7 +222,7 @@ foreach($scrape_apis as $scrape_api) {
                     break;
                 case 'table':
                     //If no section, we're in the overview table.
-                    if(!isset($section_name)){
+                    if(!isset($current_model)){
 
                         //The primary model
                         $primary_model = new Model();
