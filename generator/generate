@@ -88,8 +88,21 @@ $scrape_apis = array(
             'timesheets',
             'work-locations'
         )
+    ),
+    array(
+        'name' => 'Files API',
+        'uri' => 'files-api',
+        'types' => 'types',
+        'namespace' => 'Files',
+        'api_stem_constant' => 'API_FILE',
+        'model_uris' => array(
+            'files',
+            'folders',
+            'associations'
+        )
     )
 );
+
 
 
 $apis = array();
@@ -138,7 +151,8 @@ foreach($scrape_apis as $scrape_api) {
 
                 break;
             case 'table':
-                $node->filter('tr')->each(function($node, $row_index) use($current_object){
+                $possible_name_override = null;
+                $node->filter('tr')->each(function($node, $row_index) use($current_object, &$possible_name_override){
 
                     //Why is this table different to every other one in the docs?
                     $swap_name_description = $current_object->getName() == 'SystemAccounts';
@@ -169,6 +183,15 @@ foreach($scrape_apis as $scrape_api) {
                         }
 
                     } elseif($current_object instanceof Enum) {
+
+                        //Override the enum name if it is bold only in the first row (and it's a 2 column table)
+                        if($row_index === 0 && $children->count() === 2 && $children->eq(1)->filter('strong')->count() !== 0){
+                            $possible_name_override = $children->eq(0)->text();
+                        } elseif ($row_index === 1 && $children->eq(1)->filter('strong')->count() === 0 && $possible_name_override !== null){
+                            $current_object->setRawName($possible_name_override);
+                            $current_object->removeValue($possible_name_override);
+                        }
+
                         if($children->eq(0)->filter('em')->count()){
                             //Skip if the first child has an em in it
                             //echo $name."\n";
@@ -182,6 +205,8 @@ foreach($scrape_apis as $scrape_api) {
                 //Add here
                 if($current_object instanceof Model){
                     $api->addModel($current_object);
+                    //debug
+                    $current_object->printPropertyTable();
                 } elseif($current_object instanceof Enum) {
                     $api->addEnum($current_object);
                 }
@@ -195,11 +220,12 @@ foreach($scrape_apis as $scrape_api) {
 
         $full_uri = sprintf('%s/%s/%s/', $documentation_base, $scrape_api['uri'], $uri);
         $crawler = $client->request('GET', $full_uri);
-        unset($current_model);
-        
-        $crawler->filter('.entry-content')->children()->each(function ($node) use ($api) {
+
+        $current_model = null;
+
+        $crawler->filter('.entry-content')->children()->each(function ($node) use ($api, &$current_model) {
             //keep static in closure.
-            static $page_heading, $section_name, $primary_model, $current_model;
+            static $page_heading, $section_name, $primary_model;
 
             $current_tag = $node->getNode(0)->tagName;
 
@@ -222,7 +248,7 @@ foreach($scrape_apis as $scrape_api) {
                     break;
                 case 'table':
                     //If no section, we're in the overview table.
-                    if(!isset($current_model)){
+                    if($current_model === null){
 
                         //The primary model
                         $primary_model = new Model();
@@ -261,6 +287,10 @@ foreach($scrape_apis as $scrape_api) {
                             $primary_model->setName($primary_model_name);
                             $api->addModel($primary_model);
                         } elseif($current_model->getName() !== $model_name){
+
+                            //Debug
+                            $current_model->printPropertyTable();
+
                             //If its not the same, we've reached a new one
                             //create the sub one and add its parent
                             $current_model = new Model();
@@ -287,8 +317,7 @@ foreach($scrape_apis as $scrape_api) {
 
 
                     //At this point, we will have a $current_model, so parse properties
-                    $rows_processed = false;
-                    $node->filter('tr')->each(function($node) use ($current_model, &$rows_processed){
+                    $node->filter('tr')->each(function($node) use ($current_model){
                         static $mandatory, $skip_next;
 
                         //this is for skipping rowspans
@@ -322,7 +351,8 @@ foreach($scrape_apis as $scrape_api) {
                                 return;
                             }
 
-                            if(preg_match('/^(where|order)$/i', $column_name))
+                            //@todo Here should handle making these methods available on the models
+                            if(preg_match('/^(where|order|sort|filter|page|pagesize)$/i', $column_name) || strpos($column_name, '–') !== false)
                                 return;
 
                             $split = explode('> or <', $column_name);
@@ -343,29 +373,31 @@ foreach($scrape_apis as $scrape_api) {
                                $property->addLink($node->text(), $node->attr('href'));
                             });
                             $current_model->addProperty($property);
-                            $rows_processed = true;
 
                         }
                     });
-                    if($rows_processed){
-                        //fairly ugly little bit of code - just for debug really.
-                        $prop_names = array();
-                        foreach($current_model->getProperties() as $property){
-                            $prop_names[] = $property->getName();
-                        }
-                        printf("Parsed: %s\n", $current_model->getName());
-                        printf(" \\> %d properties: %s \n",
-                            count($prop_names),
-                            wordwrap(implode(', ',$prop_names), 100, "\n                   ")
-                        );
-                    }
+//                    if($rows_processed){
+//                        //fairly ugly little bit of code - just for debug really.
+//                        $prop_names = array();
+//                        foreach($current_model->getProperties() as $property){
+//                            $prop_names[] = $property->getName();
+//                        }
+//                        printf("Parsed: %s\n", $current_model->getName());
+//                        printf(" \\> %d properties: %s \n",
+//                            count($prop_names),
+//                            wordwrap(implode(', ',$prop_names), 100, "\n                   ")
+//                        );
+//                    }
                     unset($section_name);
                     break;
                 //END HANDLING FOR TABLE ELEMENT
             }
 
         });
-    //break;
+
+        //Debug
+        if($current_model !== null)
+            $current_model->printPropertyTable();
     }
     $apis[] = $api;
 }
@@ -375,7 +407,7 @@ $twig = new Twig_Environment($loader, array());
 $twig->addFilter(new Twig_SimpleFilter('wordwrap', 'wordwrap'));
 $twig->addFilter(new Twig_SimpleFilter('addslashes', 'addslashes'));
 
-print_r($apis[0]->getSearchKeys());
+//print_r($apis[0]->getSearchKeys());
 
 foreach($apis as $api){
     foreach($api->getModels() as $model){

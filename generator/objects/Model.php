@@ -238,4 +238,36 @@ class Model {
     }
 
 
+    /**
+     * Pretty ugly eh!
+     * For debugging
+     *
+     */
+    public function printPropertyTable(){
+        $rows = array();
+        $column_sizes = array();
+
+        foreach($this->getProperties() as $key => $property){
+            $rows[$key] = array($property->getName(), $string = substr(preg_replace('/[^\w\s.\-\(\)]|\n/', '', $property->getDescription()), 0, 100));
+
+            foreach($rows[$key] as $column_index => $column){
+                $column_sizes[$column_index] = max(isset($column_sizes[$column_index]) ? $column_sizes[$column_index] : 0, iconv_strlen($column));
+            }
+        }
+        //Cannot echo the data types here.  They are lazily calculated after all the models are aware of each other.
+        $total_row_width = array_sum($column_sizes) + count($column_sizes) * 3 + 1;
+        echo str_repeat('-', $total_row_width)."\n";
+        printf("| %-".($total_row_width - 4)."s |\n", $this->getName());
+        echo str_repeat('-', $total_row_width)."\n";
+        foreach($rows as $row){
+            echo '|';
+            foreach($row as $column_index => $column) {
+                printf(' %-' . $column_sizes[$column_index] . 's |', $column);
+            }
+            echo "\n";
+        }
+        echo str_repeat('-', $total_row_width)."\n\n";
+
+
+    }
 } 

@@ -36,7 +36,7 @@ class Enum {
      * @param $description
      */
     public function addValue($name, $description){
-        $this->values[] = array(
+        $this->values[$name] = array(
             'name' => $name,
             'description' => $description
         );
@@ -44,6 +44,16 @@ class Enum {
         $name_length = strlen($name);
         if($name_length > $this->longest_name)
             $this->longest_name = $name_length;
+    }
+
+    /**
+     * Remove an the Enum set.  This requires at least a name
+     *
+     * @param $name
+     * @param $description
+     */
+    public function removeValue($name){
+        unset($this->values[$name]);
     }
 
     /**
@@ -93,6 +103,13 @@ class Enum {
     }
 
     /**
+     * @param The raw name
+     */
+    public function setRawName($name) {
+        $this->raw_name = $name;
+    }
+
+    /**
      * Getter for Enum group
      *
      * @return mixed
@@ -118,5 +135,7 @@ class Enum {
     public function getAnchor(){
         return $this->anchor;
     }
+
+
 
 } 
