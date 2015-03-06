@@ -87,13 +87,6 @@ class OpeningBalance extends Remote\Object {
      * @property \DateTime ModifiedAfter
      */
 
-    /**
-     * By default the number of records returned per call is 100. You can add GET
-     * https://…/Employees?page=2  to get the next set of records.
-     *
-     * @property string page
-     */
-
 
 
     /*
@@ -167,8 +160,7 @@ class OpeningBalance extends Remote\Object {
             'ReimbursementTypeID' => array (false, self::PROPERTY_TYPE_STRING, null, false),
             'Recordfilter' => array (false, self::PROPERTY_TYPE_STRING, null, false),
             'EmployeeID' => array (false, self::PROPERTY_TYPE_STRING, null, false),
-            'ModifiedAfter' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTime', false),
-            'page' => array (false, self::PROPERTY_TYPE_STRING, null, false)
+            'ModifiedAfter' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTime', false)
         );
     }
 
@@ -374,23 +366,6 @@ class OpeningBalance extends Remote\Object {
     public function setModifiedAfter(\DateTime $value){
         $this->propertyUpdated('ModifiedAfter', $value);
         $this->_data['ModifiedAfter'] = $value;
-        return $this;
-    }
-
-    /**
-     * @return string
-     */
-    public function getpage(){
-        return $this->_data['page'];
-    }
-
-    /**
-     * @param string $value
-     * @return OpeningBalance
-     */
-    public function setpage($value){
-        $this->propertyUpdated('page', $value);
-        $this->_data['page'] = $value;
         return $this;
     }
 
