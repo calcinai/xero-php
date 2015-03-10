@@ -32,8 +32,17 @@ class Helpers {
                     $element = self::arrayToXML($element, self::singularize($key));
 
             } else {
-                //sanitise-ish
-                $element = htmlentities($element);
+                //Element escaping for the http://www.w3.org/TR/REC-xml/#sec-predefined-ent
+                //Full DOMDocument not really necessary as we don't use attributes (which are more strict)
+                $element = strtr($element,
+                    array(
+                        '<' => '&lt;',
+                        '>' => '&gt;',
+                        '"' => '&quot;',
+                        "'" => '&apos;',
+                        '&' => '&amp;',
+                    )
+                );
             }
 
             if($key_override !== null)
