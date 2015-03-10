@@ -39,7 +39,7 @@ class Query {
         $args = func_get_args();
 
         if(func_num_args() === 2){
-            $this->where[] = sprintf('%s=="%s"', $args[0], self::escape($args[1]));
+            $this->where[] = sprintf('%s=="%s"', $args[0], $args[1]);
         } else {
             $this->where[] = $args[0];
         }
@@ -82,10 +82,5 @@ class Query {
 
     public function getFrom(){
         return $this->from;
-    }
-
-
-    public static function escape($string){
-        return Helpers::escape($string);
     }
 } 

@@ -87,8 +87,8 @@ class Request {
         curl_setopt($ch, CURLOPT_HTTPHEADER, $header_array);
 
         $full_uri = $this->getUrl()->getFullURL();
-        //build parameter array - the only time there's a post body is with the XML
-        $query_string = Helpers::flattenAssocArray($this->getParameters(), '%s=%s', '&');
+        //build parameter array - the only time there's a post body is with the XML, only escape at this point
+        $query_string = Helpers::flattenAssocArray($this->getParameters(), '%s=%s', '&', true);
 
         if(strlen($query_string) > 0)
             $full_uri .= "?$query_string";
