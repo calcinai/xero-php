@@ -151,6 +151,18 @@ class Invoice extends Remote\Object {
      */
 
     /**
+     * See Prepayments
+     *
+     * @property Prepayment[] Prepayments
+     */
+
+    /**
+     * See Overpayments
+     *
+     * @property Overpayment[] Overpayments
+     */
+
+    /**
      * Amount remaining to be paid on invoice
      *
      * @property float AmountDue
@@ -288,6 +300,8 @@ class Invoice extends Remote\Object {
             'InvoiceID' => array (false, self::PROPERTY_TYPE_STRING, null, false),
             'HasAttachments' => array (false, self::PROPERTY_TYPE_BOOLEAN, null, false),
             'Payments' => array (false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Payment', true),
+            'Prepayments' => array (false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Prepayment', true),
+            'Overpayments' => array (false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Overpayment', true),
             'AmountDue' => array (false, self::PROPERTY_TYPE_FLOAT, null, false),
             'AmountPaid' => array (false, self::PROPERTY_TYPE_FLOAT, null, false),
             'FullyPaidOnDate' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTime', false),
@@ -686,6 +700,40 @@ class Invoice extends Remote\Object {
     public function addPayment(Payment $value){
         $this->propertyUpdated('Payments', $value);
         $this->_data['Payments'][] = $value;
+        return $this;
+    }
+
+    /**
+     * @return Prepayment
+     */
+    public function getPrepayments(){
+        return $this->_data['Prepayments'];
+    }
+
+    /**
+     * @param Prepayment[] $value
+     * @return Invoice
+     */
+    public function addPrepayment(Prepayment $value){
+        $this->propertyUpdated('Prepayments', $value);
+        $this->_data['Prepayments'][] = $value;
+        return $this;
+    }
+
+    /**
+     * @return Overpayment
+     */
+    public function getOverpayments(){
+        return $this->_data['Overpayments'];
+    }
+
+    /**
+     * @param Overpayment[] $value
+     * @return Invoice
+     */
+    public function addOverpayment(Overpayment $value){
+        $this->propertyUpdated('Overpayments', $value);
+        $this->_data['Overpayments'][] = $value;
         return $this;
     }
 

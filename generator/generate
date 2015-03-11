@@ -44,7 +44,9 @@ $scrape_apis = array(
             'journals',
             'manual-journals',
             'organisation',
+            'overpayments',
             'payments',
+            'prepayments',
             'receipts',
             'repeating-invoices',
             //'reports', - this is in a way different format
