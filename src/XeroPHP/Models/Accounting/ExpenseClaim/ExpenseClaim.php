@@ -143,15 +143,6 @@ class ExpenseClaim extends Remote\Object {
         return $this->_data['ExpenseClaimID'];
     }
 
-    /**
-     * @param string $value
-     * @return ExpenseClaim
-     */
-    public function setExpenseClaimID($value){
-        $this->propertyUpdated('ExpenseClaimID', $value);
-        $this->_data['ExpenseClaimID'] = $value;
-        return $this;
-    }
 
     /**
      * @return string
@@ -160,15 +151,6 @@ class ExpenseClaim extends Remote\Object {
         return $this->_data['Status'];
     }
 
-    /**
-     * @param string $value
-     * @return ExpenseClaim
-     */
-    public function setStatus($value){
-        $this->propertyUpdated('Status', $value);
-        $this->_data['Status'] = $value;
-        return $this;
-    }
 
     /**
      * @return \DateTime
@@ -177,15 +159,6 @@ class ExpenseClaim extends Remote\Object {
         return $this->_data['UpdatedDateUTC'];
     }
 
-    /**
-     * @param \DateTime $value
-     * @return ExpenseClaim
-     */
-    public function setUpdatedDateUTC(\DateTime $value){
-        $this->propertyUpdated('UpdatedDateUTC', $value);
-        $this->_data['UpdatedDateUTC'] = $value;
-        return $this;
-    }
 
     /**
      * @return float
@@ -194,15 +167,6 @@ class ExpenseClaim extends Remote\Object {
         return $this->_data['Total'];
     }
 
-    /**
-     * @param float $value
-     * @return ExpenseClaim
-     */
-    public function setTotal($value){
-        $this->propertyUpdated('Total', $value);
-        $this->_data['Total'] = $value;
-        return $this;
-    }
 
     /**
      * @return float
@@ -211,15 +175,6 @@ class ExpenseClaim extends Remote\Object {
         return $this->_data['AmountDue'];
     }
 
-    /**
-     * @param float $value
-     * @return ExpenseClaim
-     */
-    public function setAmountDue($value){
-        $this->propertyUpdated('AmountDue', $value);
-        $this->_data['AmountDue'] = $value;
-        return $this;
-    }
 
     /**
      * @return float
@@ -228,15 +183,6 @@ class ExpenseClaim extends Remote\Object {
         return $this->_data['AmountPaid'];
     }
 
-    /**
-     * @param float $value
-     * @return ExpenseClaim
-     */
-    public function setAmountPaid($value){
-        $this->propertyUpdated('AmountPaid', $value);
-        $this->_data['AmountPaid'] = $value;
-        return $this;
-    }
 
     /**
      * @return \DateTime
@@ -245,15 +191,6 @@ class ExpenseClaim extends Remote\Object {
         return $this->_data['PaymentDueDate'];
     }
 
-    /**
-     * @param \DateTime $value
-     * @return ExpenseClaim
-     */
-    public function setPaymentDueDate(\DateTime $value){
-        $this->propertyUpdated('PaymentDueDate', $value);
-        $this->_data['PaymentDueDate'] = $value;
-        return $this;
-    }
 
     /**
      * @return \DateTime
@@ -262,15 +199,6 @@ class ExpenseClaim extends Remote\Object {
         return $this->_data['ReportingDate'];
     }
 
-    /**
-     * @param \DateTime $value
-     * @return ExpenseClaim
-     */
-    public function setReportingDate(\DateTime $value){
-        $this->propertyUpdated('ReportingDate', $value);
-        $this->_data['ReportingDate'] = $value;
-        return $this;
-    }
 
     /**
      * @return string

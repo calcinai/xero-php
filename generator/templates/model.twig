@@ -110,6 +110,7 @@ class {{ model.ClassName }} extends Remote\Object {
         return $this->_data['{{ property.Name }}'];
     }
 
+{% if property.isReadOnly == false %}
     /**
      * @param {{ property.PHPType }}{% if property.isArray %}[]{% endif %} $value
      * @return {{ model.ClassName }}
@@ -119,6 +120,7 @@ class {{ model.ClassName }} extends Remote\Object {
         $this->_data['{{ property.Name }}']{% if property.isArray %}[]{% endif %} = $value;
         return $this;
     }
+{% endif %}
 
 {% endfor %}
 

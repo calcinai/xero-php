@@ -13,21 +13,23 @@ class Property {
 
     private $is_deprecated;
     private $is_mandatory;
+    private $is_read_only;
 
     private $related_object;
 
-    public function __construct($name, $description, $mandatory = false){
-
+    public function __construct($name, $description, $mandatory = false, $read_only = false){
         if(strpos($name, '(deprecated)')){
             $name = str_replace('(deprecated)', '', $name);
             $this->is_deprecated = true;
         }
 
         $this->is_mandatory = $mandatory;
+        $this->is_read_only = $read_only;
         $this->name = $name;
         $this->description = $description;
         $this->links = array();
         $this->related_object = null;
+
     }
 
     /**
@@ -85,6 +87,10 @@ class Property {
      */
     public function isMandatory(){
         return $this->is_mandatory;
+    }
+
+    public function isReadOnly(){
+        return $this->is_read_only;
     }
 
     /**

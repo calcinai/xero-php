@@ -319,15 +319,6 @@ class Payment extends Remote\Object {
         return $this->_data['Status'];
     }
 
-    /**
-     * @param string $value
-     * @return Payment
-     */
-    public function setStatus($value){
-        $this->propertyUpdated('Status', $value);
-        $this->_data['Status'] = $value;
-        return $this;
-    }
 
     /**
      * @return string
@@ -336,15 +327,6 @@ class Payment extends Remote\Object {
         return $this->_data['PaymentType'];
     }
 
-    /**
-     * @param string $value
-     * @return Payment
-     */
-    public function setPaymentType($value){
-        $this->propertyUpdated('PaymentType', $value);
-        $this->_data['PaymentType'] = $value;
-        return $this;
-    }
 
     /**
      * @return \DateTime
@@ -353,15 +335,6 @@ class Payment extends Remote\Object {
         return $this->_data['UpdatedDateUTC'];
     }
 
-    /**
-     * @param \DateTime $value
-     * @return Payment
-     */
-    public function setUpdatedDateUTC(\DateTime $value){
-        $this->propertyUpdated('UpdatedDateUTC', $value);
-        $this->_data['UpdatedDateUTC'] = $value;
-        return $this;
-    }
 
     /**
      * @return string

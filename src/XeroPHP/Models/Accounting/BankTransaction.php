@@ -481,15 +481,6 @@ class BankTransaction extends Remote\Object {
         return $this->_data['BankTransactionID'];
     }
 
-    /**
-     * @param string $value
-     * @return BankTransaction
-     */
-    public function setBankTransactionID($value){
-        $this->propertyUpdated('BankTransactionID', $value);
-        $this->_data['BankTransactionID'] = $value;
-        return $this;
-    }
 
     /**
      * @return \DateTime
@@ -498,15 +489,6 @@ class BankTransaction extends Remote\Object {
         return $this->_data['UpdatedDateUTC'];
     }
 
-    /**
-     * @param \DateTime $value
-     * @return BankTransaction
-     */
-    public function setUpdatedDateUTC(\DateTime $value){
-        $this->propertyUpdated('UpdatedDateUTC', $value);
-        $this->_data['UpdatedDateUTC'] = $value;
-        return $this;
-    }
 
     /**
      * @return bool
@@ -515,15 +497,6 @@ class BankTransaction extends Remote\Object {
         return $this->_data['HasAttachments'];
     }
 
-    /**
-     * @param bool $value
-     * @return BankTransaction
-     */
-    public function setHasAttachment($value){
-        $this->propertyUpdated('HasAttachments', $value);
-        $this->_data['HasAttachments'] = $value;
-        return $this;
-    }
 
 
 }

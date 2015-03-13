@@ -215,15 +215,6 @@ class BankTransfer extends Remote\Object {
         return $this->_data['BankTransferID'];
     }
 
-    /**
-     * @param string $value
-     * @return BankTransfer
-     */
-    public function setBankTransferID($value){
-        $this->propertyUpdated('BankTransferID', $value);
-        $this->_data['BankTransferID'] = $value;
-        return $this;
-    }
 
     /**
      * @return float
@@ -232,15 +223,6 @@ class BankTransfer extends Remote\Object {
         return $this->_data['CurrencyRate'];
     }
 
-    /**
-     * @param float $value
-     * @return BankTransfer
-     */
-    public function setCurrencyRate($value){
-        $this->propertyUpdated('CurrencyRate', $value);
-        $this->_data['CurrencyRate'] = $value;
-        return $this;
-    }
 
     /**
      * @return string
@@ -249,15 +231,6 @@ class BankTransfer extends Remote\Object {
         return $this->_data['FromBankTransactionID'];
     }
 
-    /**
-     * @param string $value
-     * @return BankTransfer
-     */
-    public function setFromBankTransactionID($value){
-        $this->propertyUpdated('FromBankTransactionID', $value);
-        $this->_data['FromBankTransactionID'] = $value;
-        return $this;
-    }
 
     /**
      * @return string
@@ -266,15 +239,6 @@ class BankTransfer extends Remote\Object {
         return $this->_data['ToBankTransactionID'];
     }
 
-    /**
-     * @param string $value
-     * @return BankTransfer
-     */
-    public function setToBankTransactionID($value){
-        $this->propertyUpdated('ToBankTransactionID', $value);
-        $this->_data['ToBankTransactionID'] = $value;
-        return $this;
-    }
 
     /**
      * @return bool
@@ -283,15 +247,6 @@ class BankTransfer extends Remote\Object {
         return $this->_data['HasAttachments'];
     }
 
-    /**
-     * @param bool $value
-     * @return BankTransfer
-     */
-    public function setHasAttachment($value){
-        $this->propertyUpdated('HasAttachments', $value);
-        $this->_data['HasAttachments'] = $value;
-        return $this;
-    }
 
 
 }
