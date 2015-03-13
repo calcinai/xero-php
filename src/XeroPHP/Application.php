@@ -94,45 +94,59 @@ abstract class Application {
 
     public function save(Object $object){
 
-        $object->validate();
+        if($object->isDirty()) {
+            $object->validate();
 
-        if($object->hasGUID() === false)
-            return $this->create($object);
-        elseif($object->isDirty())
-            return $this->update($object);
+            //In this case it's new
+            if($object->hasGUID()) {
+                $method = Request::METHOD_POST;
+                $uri = sprintf('%s/%s', $object::getResourceURI(), $object->getGUID());
 
+            } else {
+                $method = Request::METHOD_PUT;
+                $uri = $object::getResourceURI();
+            }
 
-    }
+            if(!$object::supportsMethod($method))
+                throw new Exception('%s doesn\'t support [%s] via the API', get_class($object), $method);
 
-    private function update(Object $object){
+            //Put in an array with the first level containing only the 'root node'.
+            $data = array($object::getRootNodeName() => $object->toStringArray());
+            $url = new URL($this, $uri);
+            $request = new Request($this, $url, $method);
 
-        if(!$object::supportsMethod(Request::METHOD_POST))
-            throw new Exception('%s doesn\'t support updating via API', get_class($object));
-
-        //Put in an array with the first level containing only the 'root node'.
-        $data = array($object::getRootNodeName() => $object->toStringArray());
-        $url = new URL($this, sprintf('%s/%s', $object::getResourceURI(), $object->getGUID()));
-        $request = new Request($this, $url, Request::METHOD_POST);
-
-        $request->setBody(Helpers::arrayToXML($data))
+            $request->setBody(Helpers::arrayToXML($data))
                 ->send();
 
-        return $request->getResponse();
+            return $request->getResponse();
+
+        }
 
     }
 
-    private function create(Object $object){
 
-        if(!$object::supportsMethod(Request::METHOD_PUT))
-            throw new Exception('%s doesn\'t support creating via API', get_class($object));
+    public function saveAll(array $objects){
 
-        //Put in an array with the first level containing only the 'root node'.
-        $data = array($object::getRootNodeName() => $object->toStringArray());
-        $url = new URL($this, $object::getResourceURI());
+        //Just get one type to compare with, doesn't matter which.
+        $type = get_class(current($objects));
+        $object_arrays = array();
+
+        foreach($objects as $object) {
+            if($type !== get_class($object))
+                throw new Exception('Array passed to ->saveAll() must be homogeneous.');
+
+            $object_arrays[] = $object->toStringArray();
+        }
+
+        $url = new URL($this, $type::getResourceURI());
         $request = new Request($this, $url, Request::METHOD_PUT);
 
+        //This might need to be parsed and stored some day.
+        $root_node_name = Helpers::pluralize($type::getRootNodeName());
+        $data = array($root_node_name => $object_arrays);
+
         $request->setBody(Helpers::arrayToXML($data))
-                ->send();
+            ->send();
 
         return $request->getResponse();
     }
