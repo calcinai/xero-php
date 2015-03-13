@@ -135,15 +135,6 @@ class FromBankAccount extends Remote\Object {
         return $this->_data['Name'];
     }
 
-    /**
-     * @param string $value
-     * @return FromBankAccount
-     */
-    public function setName($value){
-        $this->propertyUpdated('Name', $value);
-        $this->_data['Name'] = $value;
-        return $this;
-    }
 
 
 }

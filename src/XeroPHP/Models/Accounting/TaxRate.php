@@ -253,15 +253,6 @@ class TaxRate extends Remote\Object {
         return $this->_data['CanApplyToAssets'];
     }
 
-    /**
-     * @param float[] $value
-     * @return TaxRate
-     */
-    public function addCanApplyToAsset($value){
-        $this->propertyUpdated('CanApplyToAssets', $value);
-        $this->_data['CanApplyToAssets'][] = $value;
-        return $this;
-    }
 
     /**
      * @return float
@@ -270,15 +261,6 @@ class TaxRate extends Remote\Object {
         return $this->_data['CanApplyToEquity'];
     }
 
-    /**
-     * @param float $value
-     * @return TaxRate
-     */
-    public function setCanApplyToEquity($value){
-        $this->propertyUpdated('CanApplyToEquity', $value);
-        $this->_data['CanApplyToEquity'] = $value;
-        return $this;
-    }
 
     /**
      * @return float
@@ -287,15 +269,6 @@ class TaxRate extends Remote\Object {
         return $this->_data['CanApplyToExpenses'];
     }
 
-    /**
-     * @param float[] $value
-     * @return TaxRate
-     */
-    public function addCanApplyToExpense($value){
-        $this->propertyUpdated('CanApplyToExpenses', $value);
-        $this->_data['CanApplyToExpenses'][] = $value;
-        return $this;
-    }
 
     /**
      * @return float
@@ -304,15 +277,6 @@ class TaxRate extends Remote\Object {
         return $this->_data['CanApplyToLiabilities'];
     }
 
-    /**
-     * @param float[] $value
-     * @return TaxRate
-     */
-    public function addCanApplyToLiability($value){
-        $this->propertyUpdated('CanApplyToLiabilities', $value);
-        $this->_data['CanApplyToLiabilities'][] = $value;
-        return $this;
-    }
 
     /**
      * @return float
@@ -321,15 +285,6 @@ class TaxRate extends Remote\Object {
         return $this->_data['CanApplyToRevenue'];
     }
 
-    /**
-     * @param float $value
-     * @return TaxRate
-     */
-    public function setCanApplyToRevenue($value){
-        $this->propertyUpdated('CanApplyToRevenue', $value);
-        $this->_data['CanApplyToRevenue'] = $value;
-        return $this;
-    }
 
     /**
      * @return float
@@ -338,15 +293,6 @@ class TaxRate extends Remote\Object {
         return $this->_data['DisplayTaxRate'];
     }
 
-    /**
-     * @param float $value
-     * @return TaxRate
-     */
-    public function setDisplayTaxRate($value){
-        $this->propertyUpdated('DisplayTaxRate', $value);
-        $this->_data['DisplayTaxRate'] = $value;
-        return $this;
-    }
 
     /**
      * @return float
@@ -355,15 +301,6 @@ class TaxRate extends Remote\Object {
         return $this->_data['EffectiveRate'];
     }
 
-    /**
-     * @param float $value
-     * @return TaxRate
-     */
-    public function setEffectiveRate($value){
-        $this->propertyUpdated('EffectiveRate', $value);
-        $this->_data['EffectiveRate'] = $value;
-        return $this;
-    }
 
 
 }

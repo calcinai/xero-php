@@ -320,7 +320,7 @@ foreach($scrape_apis as $scrape_api) {
 
                     //At this point, we will have a $current_model, so parse properties
                     $node->filter('tr')->each(function($node) use ($current_model){
-                        static $mandatory, $skip_next;
+                        static $mandatory, $read_only, $skip_next;
 
                         //this is for skipping rowspans
                         if(isset($skip_next) && $skip_next){
@@ -337,10 +337,16 @@ foreach($scrape_apis as $scrape_api) {
                                 $mandatory = true;
                             } elseif(preg_match('/(optional|recommended)/i', $children->eq(0)->text())){
                                 $mandatory = false;
+                            } elseif(preg_match('/only returned on (a )?GET requests?\.?$/i', $children->eq(0)->text())){
+                                $read_only = true;
                             }
                         } else {
                             if(!isset($mandatory)){
                                 $mandatory = false;
+                            }
+
+                            if(!isset($read_only)){
+                                $read_only = false;
                             }
 
                             //Handle tables with rowspansœ
@@ -360,7 +366,7 @@ foreach($scrape_apis as $scrape_api) {
                             $split = explode('> or <', $column_name);
                             if(isset($split[1])){
                                 //make it into another param
-                                $property = new Property($split[1], $column_description, $mandatory);
+                                $property = new Property($split[1], $column_description, $mandatory, $read_only);
                                 $current_model->addProperty($property);
                                 $column_name = $split[0];
                             }
@@ -368,7 +374,7 @@ foreach($scrape_apis as $scrape_api) {
                             $column_name = str_replace(' ', '', $column_name);
 
                             //At this point, mandatory is set and there are at least 2 columns
-                            $property = new Property($column_name, $column_description, $mandatory);
+                            $property = new Property($column_name, $column_description, $mandatory, $read_only);
 
                             //add links to property (for parsing types)
                             $children->eq(1)->filter('a')->each(function($node) use($property){

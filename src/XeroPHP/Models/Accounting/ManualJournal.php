@@ -264,15 +264,6 @@ class ManualJournal extends Remote\Object {
         return $this->_data['HasAttachments'];
     }
 
-    /**
-     * @param bool $value
-     * @return ManualJournal
-     */
-    public function setHasAttachment($value){
-        $this->propertyUpdated('HasAttachments', $value);
-        $this->_data['HasAttachments'] = $value;
-        return $this;
-    }
 
 
 }

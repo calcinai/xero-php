@@ -591,15 +591,6 @@ class Invoice extends Remote\Object {
         return $this->_data['SubTotal'];
     }
 
-    /**
-     * @param float $value
-     * @return Invoice
-     */
-    public function setSubTotal($value){
-        $this->propertyUpdated('SubTotal', $value);
-        $this->_data['SubTotal'] = $value;
-        return $this;
-    }
 
     /**
      * @return float
@@ -608,15 +599,6 @@ class Invoice extends Remote\Object {
         return $this->_data['TotalTax'];
     }
 
-    /**
-     * @param float $value
-     * @return Invoice
-     */
-    public function setTotalTax($value){
-        $this->propertyUpdated('TotalTax', $value);
-        $this->_data['TotalTax'] = $value;
-        return $this;
-    }
 
     /**
      * @return float
@@ -625,15 +607,6 @@ class Invoice extends Remote\Object {
         return $this->_data['Total'];
     }
 
-    /**
-     * @param float $value
-     * @return Invoice
-     */
-    public function setTotal($value){
-        $this->propertyUpdated('Total', $value);
-        $this->_data['Total'] = $value;
-        return $this;
-    }
 
     /**
      * @return float
@@ -642,15 +615,6 @@ class Invoice extends Remote\Object {
         return $this->_data['TotalDiscount'];
     }
 
-    /**
-     * @param float $value
-     * @return Invoice
-     */
-    public function setTotalDiscount($value){
-        $this->propertyUpdated('TotalDiscount', $value);
-        $this->_data['TotalDiscount'] = $value;
-        return $this;
-    }
 
     /**
      * @return string
@@ -659,15 +623,6 @@ class Invoice extends Remote\Object {
         return $this->_data['InvoiceID'];
     }
 
-    /**
-     * @param string $value
-     * @return Invoice
-     */
-    public function setInvoiceID($value){
-        $this->propertyUpdated('InvoiceID', $value);
-        $this->_data['InvoiceID'] = $value;
-        return $this;
-    }
 
     /**
      * @return bool
@@ -676,15 +631,6 @@ class Invoice extends Remote\Object {
         return $this->_data['HasAttachments'];
     }
 
-    /**
-     * @param bool $value
-     * @return Invoice
-     */
-    public function setHasAttachment($value){
-        $this->propertyUpdated('HasAttachments', $value);
-        $this->_data['HasAttachments'] = $value;
-        return $this;
-    }
 
     /**
      * @return Payment
@@ -693,15 +639,6 @@ class Invoice extends Remote\Object {
         return $this->_data['Payments'];
     }
 
-    /**
-     * @param Payment[] $value
-     * @return Invoice
-     */
-    public function addPayment(Payment $value){
-        $this->propertyUpdated('Payments', $value);
-        $this->_data['Payments'][] = $value;
-        return $this;
-    }
 
     /**
      * @return Prepayment
@@ -710,15 +647,6 @@ class Invoice extends Remote\Object {
         return $this->_data['Prepayments'];
     }
 
-    /**
-     * @param Prepayment[] $value
-     * @return Invoice
-     */
-    public function addPrepayment(Prepayment $value){
-        $this->propertyUpdated('Prepayments', $value);
-        $this->_data['Prepayments'][] = $value;
-        return $this;
-    }
 
     /**
      * @return Overpayment
@@ -727,15 +655,6 @@ class Invoice extends Remote\Object {
         return $this->_data['Overpayments'];
     }
 
-    /**
-     * @param Overpayment[] $value
-     * @return Invoice
-     */
-    public function addOverpayment(Overpayment $value){
-        $this->propertyUpdated('Overpayments', $value);
-        $this->_data['Overpayments'][] = $value;
-        return $this;
-    }
 
     /**
      * @return float
@@ -744,15 +663,6 @@ class Invoice extends Remote\Object {
         return $this->_data['AmountDue'];
     }
 
-    /**
-     * @param float $value
-     * @return Invoice
-     */
-    public function setAmountDue($value){
-        $this->propertyUpdated('AmountDue', $value);
-        $this->_data['AmountDue'] = $value;
-        return $this;
-    }
 
     /**
      * @return float
@@ -761,15 +671,6 @@ class Invoice extends Remote\Object {
         return $this->_data['AmountPaid'];
     }
 
-    /**
-     * @param float $value
-     * @return Invoice
-     */
-    public function setAmountPaid($value){
-        $this->propertyUpdated('AmountPaid', $value);
-        $this->_data['AmountPaid'] = $value;
-        return $this;
-    }
 
     /**
      * @return \DateTime
@@ -778,15 +679,6 @@ class Invoice extends Remote\Object {
         return $this->_data['FullyPaidOnDate'];
     }
 
-    /**
-     * @param \DateTime $value
-     * @return Invoice
-     */
-    public function setFullyPaidOnDate(\DateTime $value){
-        $this->propertyUpdated('FullyPaidOnDate', $value);
-        $this->_data['FullyPaidOnDate'] = $value;
-        return $this;
-    }
 
     /**
      * @return float
@@ -795,15 +687,6 @@ class Invoice extends Remote\Object {
         return $this->_data['AmountCredited'];
     }
 
-    /**
-     * @param float $value
-     * @return Invoice
-     */
-    public function setAmountCredited($value){
-        $this->propertyUpdated('AmountCredited', $value);
-        $this->_data['AmountCredited'] = $value;
-        return $this;
-    }
 
     /**
      * @return \DateTime
@@ -812,15 +695,6 @@ class Invoice extends Remote\Object {
         return $this->_data['UpdatedDateUTC'];
     }
 
-    /**
-     * @param \DateTime $value
-     * @return Invoice
-     */
-    public function setUpdatedDateUTC(\DateTime $value){
-        $this->propertyUpdated('UpdatedDateUTC', $value);
-        $this->_data['UpdatedDateUTC'] = $value;
-        return $this;
-    }
 
     /**
      * @return CreditNote
@@ -829,15 +703,6 @@ class Invoice extends Remote\Object {
         return $this->_data['CreditNotes'];
     }
 
-    /**
-     * @param CreditNote[] $value
-     * @return Invoice
-     */
-    public function addCreditNote(CreditNote $value){
-        $this->propertyUpdated('CreditNotes', $value);
-        $this->_data['CreditNotes'][] = $value;
-        return $this;
-    }
 
 
 }

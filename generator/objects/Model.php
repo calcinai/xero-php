@@ -1,6 +1,7 @@
 <?php
 
 use XeroPHP\Remote\Object;
+use XeroPHP\Remote\Request;
 
 class Model {
 
@@ -235,6 +236,11 @@ class Model {
      */
     public function setParentModel(Model $model){
         $this->parent_model = $model;
+    }
+
+    public function isWritable(){
+        return in_array(Request::METHOD_POST, $this->methods) ||
+            in_array(Request::METHOD_PUT, $this->methods);
     }
 
 

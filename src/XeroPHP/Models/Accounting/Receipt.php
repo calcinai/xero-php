@@ -347,15 +347,6 @@ class Receipt extends Remote\Object {
         return $this->_data['ReceiptID'];
     }
 
-    /**
-     * @param string $value
-     * @return Receipt
-     */
-    public function setReceiptID($value){
-        $this->propertyUpdated('ReceiptID', $value);
-        $this->_data['ReceiptID'] = $value;
-        return $this;
-    }
 
     /**
      * @return string
@@ -364,15 +355,6 @@ class Receipt extends Remote\Object {
         return $this->_data['Status'];
     }
 
-    /**
-     * @param string $value
-     * @return Receipt
-     */
-    public function setStatus($value){
-        $this->propertyUpdated('Status', $value);
-        $this->_data['Status'] = $value;
-        return $this;
-    }
 
     /**
      * @return string
@@ -381,15 +363,6 @@ class Receipt extends Remote\Object {
         return $this->_data['ReceiptNumber'];
     }
 
-    /**
-     * @param string $value
-     * @return Receipt
-     */
-    public function setReceiptNumber($value){
-        $this->propertyUpdated('ReceiptNumber', $value);
-        $this->_data['ReceiptNumber'] = $value;
-        return $this;
-    }
 
     /**
      * @return \DateTime
@@ -398,15 +371,6 @@ class Receipt extends Remote\Object {
         return $this->_data['UpdatedDateUTC'];
     }
 
-    /**
-     * @param \DateTime $value
-     * @return Receipt
-     */
-    public function setUpdatedDateUTC(\DateTime $value){
-        $this->propertyUpdated('UpdatedDateUTC', $value);
-        $this->_data['UpdatedDateUTC'] = $value;
-        return $this;
-    }
 
     /**
      * @return bool
@@ -415,15 +379,6 @@ class Receipt extends Remote\Object {
         return $this->_data['HasAttachments'];
     }
 
-    /**
-     * @param bool $value
-     * @return Receipt
-     */
-    public function setHasAttachment($value){
-        $this->propertyUpdated('HasAttachments', $value);
-        $this->_data['HasAttachments'] = $value;
-        return $this;
-    }
 
     /**
      * @return string
@@ -432,15 +387,6 @@ class Receipt extends Remote\Object {
         return $this->_data['Url'];
     }
 
-    /**
-     * @param string $value
-     * @return Receipt
-     */
-    public function setUrl($value){
-        $this->propertyUpdated('Url', $value);
-        $this->_data['Url'] = $value;
-        return $this;
-    }
 
 
 }
