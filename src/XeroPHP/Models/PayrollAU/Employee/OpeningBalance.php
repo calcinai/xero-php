@@ -216,14 +216,14 @@ class OpeningBalance extends Remote\Object {
     }
 
     /**
-     * @return EarningsLine
+     * @return EarningsLine[]
      */
     public function getEarningsLines(){
         return $this->_data['EarningsLines'];
     }
 
     /**
-     * @param EarningsLine[] $value
+     * @param EarningsLine $value
      * @return OpeningBalance
      */
     public function addEarningsLine(EarningsLine $value){
@@ -233,14 +233,14 @@ class OpeningBalance extends Remote\Object {
     }
 
     /**
-     * @return DeductionLine
+     * @return DeductionLine[]
      */
     public function getDeductionLines(){
         return $this->_data['DeductionLines'];
     }
 
     /**
-     * @param DeductionLine[] $value
+     * @param DeductionLine $value
      * @return OpeningBalance
      */
     public function addDeductionLine(DeductionLine $value){
@@ -250,14 +250,14 @@ class OpeningBalance extends Remote\Object {
     }
 
     /**
-     * @return string
+     * @return string[]
      */
     public function getSuperLines(){
         return $this->_data['SuperLines'];
     }
 
     /**
-     * @param string[] $value
+     * @param string $value
      * @return OpeningBalance
      */
     public function addSuperLine($value){
@@ -267,14 +267,14 @@ class OpeningBalance extends Remote\Object {
     }
 
     /**
-     * @return ReimbursementLine
+     * @return ReimbursementLine[]
      */
     public function getReimbursementLines(){
         return $this->_data['ReimbursementLines'];
     }
 
     /**
-     * @param ReimbursementLine[] $value
+     * @param ReimbursementLine $value
      * @return OpeningBalance
      */
     public function addReimbursementLine(ReimbursementLine $value){
@@ -284,14 +284,14 @@ class OpeningBalance extends Remote\Object {
     }
 
     /**
-     * @return string
+     * @return string[]
      */
     public function getLeaveLines(){
         return $this->_data['LeaveLines'];
     }
 
     /**
-     * @param string[] $value
+     * @param string $value
      * @return OpeningBalance
      */
     public function addLeaveLine($value){
@@ -420,14 +420,14 @@ class OpeningBalance extends Remote\Object {
     }
 
     /**
-     * @return string
+     * @return string[]
      */
     public function getNumberOfUnits(){
         return $this->_data['NumberOfUnits'];
     }
 
     /**
-     * @param string[] $value
+     * @param string $value
      * @return OpeningBalance
      */
     public function addNumberOfUnit($value){

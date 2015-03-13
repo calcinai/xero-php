@@ -104,7 +104,8 @@ class {{ model.ClassName }} extends Remote\Object {
 {#  getters and setters #}
 {% for property in model.properties %}
     /**
-     * @return {{ property.PHPType }}
+     * @return {{ property.PHPType }}{% if property.isArray %}[]{% endif %}
+
      */
     public function get{{ property.Name }}(){
         return $this->_data['{{ property.Name }}'];
@@ -112,7 +113,7 @@ class {{ model.ClassName }} extends Remote\Object {
 
 {% if property.isReadOnly == false %}
     /**
-     * @param {{ property.PHPType }}{% if property.isArray %}[]{% endif %} $value
+     * @param {{ property.PHPType }} $value
      * @return {{ model.ClassName }}
      */
     public function {% if property.isArray %}add{% else %}set{% endif %}{{ property.NameSingular }}({% if property.isHintable %}{{ property.PHPType }} {% endif %}$value){

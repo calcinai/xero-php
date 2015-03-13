@@ -655,14 +655,14 @@ class Organisation extends Remote\Object {
     }
 
     /**
-     * @return Address
+     * @return Address[]
      */
     public function getAddresses(){
         return $this->_data['Addresses'];
     }
 
     /**
-     * @param Address[] $value
+     * @param Address $value
      * @return Organisation
      */
     public function addAddress(Address $value){
@@ -672,14 +672,14 @@ class Organisation extends Remote\Object {
     }
 
     /**
-     * @return Phone
+     * @return Phone[]
      */
     public function getPhones(){
         return $this->_data['Phones'];
     }
 
     /**
-     * @param Phone[] $value
+     * @param Phone $value
      * @return Organisation
      */
     public function addPhone(Phone $value){
@@ -689,14 +689,14 @@ class Organisation extends Remote\Object {
     }
 
     /**
-     * @return ExternalLink
+     * @return ExternalLink[]
      */
     public function getExternalLinks(){
         return $this->_data['ExternalLinks'];
     }
 
     /**
-     * @param ExternalLink[] $value
+     * @param ExternalLink $value
      * @return Organisation
      */
     public function addExternalLink(ExternalLink $value){
@@ -706,14 +706,14 @@ class Organisation extends Remote\Object {
     }
 
     /**
-     * @return PaymentTerm
+     * @return PaymentTerm[]
      */
     public function getPaymentTerms(){
         return $this->_data['PaymentTerms'];
     }
 
     /**
-     * @param PaymentTerm[] $value
+     * @param PaymentTerm $value
      * @return Organisation
      */
     public function addPaymentTerm(PaymentTerm $value){

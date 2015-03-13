@@ -166,14 +166,14 @@ class OpeningBalance extends Remote\Object {
 
 
     /**
-     * @return EarningsLine
+     * @return EarningsLine[]
      */
     public function getEarningsLines(){
         return $this->_data['EarningsLines'];
     }
 
     /**
-     * @param EarningsLine[] $value
+     * @param EarningsLine $value
      * @return OpeningBalance
      */
     public function addEarningsLine(EarningsLine $value){
@@ -183,14 +183,14 @@ class OpeningBalance extends Remote\Object {
     }
 
     /**
-     * @return BenefitLine
+     * @return BenefitLine[]
      */
     public function getBenefitLines(){
         return $this->_data['BenefitLines'];
     }
 
     /**
-     * @param BenefitLine[] $value
+     * @param BenefitLine $value
      * @return OpeningBalance
      */
     public function addBenefitLine(BenefitLine $value){
@@ -200,14 +200,14 @@ class OpeningBalance extends Remote\Object {
     }
 
     /**
-     * @return DeductionLine
+     * @return DeductionLine[]
      */
     public function getDeductionLines(){
         return $this->_data['DeductionLines'];
     }
 
     /**
-     * @param DeductionLine[] $value
+     * @param DeductionLine $value
      * @return OpeningBalance
      */
     public function addDeductionLine(DeductionLine $value){
@@ -217,14 +217,14 @@ class OpeningBalance extends Remote\Object {
     }
 
     /**
-     * @return ReimbursementLine
+     * @return ReimbursementLine[]
      */
     public function getReimbursementLines(){
         return $this->_data['ReimbursementLines'];
     }
 
     /**
-     * @param ReimbursementLine[] $value
+     * @param ReimbursementLine $value
      * @return OpeningBalance
      */
     public function addReimbursementLine(ReimbursementLine $value){

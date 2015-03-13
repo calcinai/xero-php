@@ -227,14 +227,14 @@ class RepeatingInvoice extends Remote\Object {
     }
 
     /**
-     * @return LineItem
+     * @return LineItem[]
      */
     public function getLineItems(){
         return $this->_data['LineItems'];
     }
 
     /**
-     * @param LineItem[] $value
+     * @param LineItem $value
      * @return RepeatingInvoice
      */
     public function addLineItem(LineItem $value){
@@ -244,14 +244,14 @@ class RepeatingInvoice extends Remote\Object {
     }
 
     /**
-     * @return float
+     * @return float[]
      */
     public function getLineAmountTypes(){
         return $this->_data['LineAmountTypes'];
     }
 
     /**
-     * @param float[] $value
+     * @param float $value
      * @return RepeatingInvoice
      */
     public function addLineAmountType($value){

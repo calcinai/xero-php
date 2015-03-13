@@ -102,14 +102,14 @@ class LeavePeriod extends Remote\Object {
 
 
     /**
-     * @return string
+     * @return string[]
      */
     public function getNumberOfUnits(){
         return $this->_data['NumberOfUnits'];
     }
 
     /**
-     * @param string[] $value
+     * @param string $value
      * @return LeavePeriod
      */
     public function addNumberOfUnit($value){

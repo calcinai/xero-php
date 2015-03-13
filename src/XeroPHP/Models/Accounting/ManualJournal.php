@@ -156,14 +156,14 @@ class ManualJournal extends Remote\Object {
     }
 
     /**
-     * @return JournalLine
+     * @return JournalLine[]
      */
     public function getJournalLines(){
         return $this->_data['JournalLines'];
     }
 
     /**
-     * @param JournalLine[] $value
+     * @param JournalLine $value
      * @return ManualJournal
      */
     public function addJournalLine(JournalLine $value){
@@ -190,14 +190,14 @@ class ManualJournal extends Remote\Object {
     }
 
     /**
-     * @return float
+     * @return float[]
      */
     public function getLineAmountTypes(){
         return $this->_data['LineAmountTypes'];
     }
 
     /**
-     * @param float[] $value
+     * @param float $value
      * @return ManualJournal
      */
     public function addLineAmountType($value){

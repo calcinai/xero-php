@@ -222,14 +222,14 @@ class Receipt extends Remote\Object {
     }
 
     /**
-     * @return LineItem
+     * @return LineItem[]
      */
     public function getLineitems(){
         return $this->_data['Lineitems'];
     }
 
     /**
-     * @param LineItem[] $value
+     * @param LineItem $value
      * @return Receipt
      */
     public function addLineitem(LineItem $value){
@@ -273,14 +273,14 @@ class Receipt extends Remote\Object {
     }
 
     /**
-     * @return float
+     * @return float[]
      */
     public function getLineAmountTypes(){
         return $this->_data['LineAmountTypes'];
     }
 
     /**
-     * @param float[] $value
+     * @param float $value
      * @return Receipt
      */
     public function addLineAmountType($value){

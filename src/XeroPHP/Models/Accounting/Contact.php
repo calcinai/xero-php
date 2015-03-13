@@ -474,14 +474,14 @@ class Contact extends Remote\Object {
     }
 
     /**
-     * @return ContactPerson
+     * @return ContactPerson[]
      */
     public function getContactPersons(){
         return $this->_data['ContactPersons'];
     }
 
     /**
-     * @param ContactPerson[] $value
+     * @param ContactPerson $value
      * @return Contact
      */
     public function addContactPerson(ContactPerson $value){
@@ -491,14 +491,14 @@ class Contact extends Remote\Object {
     }
 
     /**
-     * @return string
+     * @return string[]
      */
     public function getBankAccountDetails(){
         return $this->_data['BankAccountDetails'];
     }
 
     /**
-     * @param string[] $value
+     * @param string $value
      * @return Contact
      */
     public function addBankAccountDetail($value){
@@ -559,14 +559,14 @@ class Contact extends Remote\Object {
     }
 
     /**
-     * @return Address
+     * @return Address[]
      */
     public function getAddresses(){
         return $this->_data['Addresses'];
     }
 
     /**
-     * @param Address[] $value
+     * @param Address $value
      * @return Contact
      */
     public function addAddress(Address $value){
@@ -576,14 +576,14 @@ class Contact extends Remote\Object {
     }
 
     /**
-     * @return Phone
+     * @return Phone[]
      */
     public function getPhones(){
         return $this->_data['Phones'];
     }
 
     /**
-     * @param Phone[] $value
+     * @param Phone $value
      * @return Contact
      */
     public function addPhone(Phone $value){
@@ -712,14 +712,14 @@ class Contact extends Remote\Object {
     }
 
     /**
-     * @return TrackingCategory
+     * @return TrackingCategory[]
      */
     public function getSalesTrackingCategories(){
         return $this->_data['SalesTrackingCategories'];
     }
 
     /**
-     * @param TrackingCategory[] $value
+     * @param TrackingCategory $value
      * @return Contact
      */
     public function addSalesTrackingCategory(TrackingCategory $value){
@@ -729,14 +729,14 @@ class Contact extends Remote\Object {
     }
 
     /**
-     * @return TrackingCategory
+     * @return TrackingCategory[]
      */
     public function getPurchasesTrackingCategories(){
         return $this->_data['PurchasesTrackingCategories'];
     }
 
     /**
-     * @param TrackingCategory[] $value
+     * @param TrackingCategory $value
      * @return Contact
      */
     public function addPurchasesTrackingCategory(TrackingCategory $value){
@@ -746,14 +746,14 @@ class Contact extends Remote\Object {
     }
 
     /**
-     * @return ContactGroup
+     * @return ContactGroup[]
      */
     public function getContactGroups(){
         return $this->_data['ContactGroups'];
     }
 
     /**
-     * @param ContactGroup[] $value
+     * @param ContactGroup $value
      * @return Contact
      */
     public function addContactGroup(ContactGroup $value){
@@ -797,14 +797,14 @@ class Contact extends Remote\Object {
     }
 
     /**
-     * @return string
+     * @return string[]
      */
     public function getBatchPayments(){
         return $this->_data['BatchPayments'];
     }
 
     /**
-     * @param string[] $value
+     * @param string $value
      * @return Contact
      */
     public function addBatchPayment($value){
@@ -831,14 +831,14 @@ class Contact extends Remote\Object {
     }
 
     /**
-     * @return string
+     * @return string[]
      */
     public function getBalances(){
         return $this->_data['Balances'];
     }
 
     /**
-     * @param string[] $value
+     * @param string $value
      * @return Contact
      */
     public function addBalance($value){
@@ -848,14 +848,14 @@ class Contact extends Remote\Object {
     }
 
     /**
-     * @return PaymentTerm
+     * @return PaymentTerm[]
      */
     public function getPaymentTerms(){
         return $this->_data['PaymentTerms'];
     }
 
     /**
-     * @param PaymentTerm[] $value
+     * @param PaymentTerm $value
      * @return Contact
      */
     public function addPaymentTerm(PaymentTerm $value){

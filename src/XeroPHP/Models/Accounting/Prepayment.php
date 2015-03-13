@@ -296,14 +296,14 @@ class Prepayment extends Remote\Object {
     }
 
     /**
-     * @return float
+     * @return float[]
      */
     public function getLineAmountTypes(){
         return $this->_data['LineAmountTypes'];
     }
 
     /**
-     * @param float[] $value
+     * @param float $value
      * @return Prepayment
      */
     public function addLineAmountType($value){
@@ -313,14 +313,14 @@ class Prepayment extends Remote\Object {
     }
 
     /**
-     * @return LineItem
+     * @return LineItem[]
      */
     public function getLineItems(){
         return $this->_data['LineItems'];
     }
 
     /**
-     * @param LineItem[] $value
+     * @param LineItem $value
      * @return Prepayment
      */
     public function addLineItem(LineItem $value){
@@ -483,14 +483,14 @@ class Prepayment extends Remote\Object {
     }
 
     /**
-     * @return Allocation
+     * @return Allocation[]
      */
     public function getAllocations(){
         return $this->_data['Allocations'];
     }
 
     /**
-     * @param Allocation[] $value
+     * @param Allocation $value
      * @return Prepayment
      */
     public function addAllocation(Allocation $value){

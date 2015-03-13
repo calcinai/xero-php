@@ -357,14 +357,14 @@ class Employee extends Remote\Object {
     }
 
     /**
-     * @return string
+     * @return string[]
      */
     public function getMiddleNames(){
         return $this->_data['MiddleNames'];
     }
 
     /**
-     * @param string[] $value
+     * @param string $value
      * @return Employee
      */
     public function addMiddleName($value){
@@ -561,14 +561,14 @@ class Employee extends Remote\Object {
     }
 
     /**
-     * @return BankAccount
+     * @return BankAccount[]
      */
     public function getBankAccounts(){
         return $this->_data['BankAccounts'];
     }
 
     /**
-     * @param BankAccount[] $value
+     * @param BankAccount $value
      * @return Employee
      */
     public function addBankAccount(BankAccount $value){
@@ -595,14 +595,14 @@ class Employee extends Remote\Object {
     }
 
     /**
-     * @return OpeningBalance
+     * @return OpeningBalance[]
      */
     public function getOpeningBalances(){
         return $this->_data['OpeningBalances'];
     }
 
     /**
-     * @param OpeningBalance[] $value
+     * @param OpeningBalance $value
      * @return Employee
      */
     public function addOpeningBalance(OpeningBalance $value){
@@ -612,14 +612,14 @@ class Employee extends Remote\Object {
     }
 
     /**
-     * @return SuperMembership
+     * @return SuperMembership[]
      */
     public function getSuperMemberships(){
         return $this->_data['SuperMemberships'];
     }
 
     /**
-     * @param SuperMembership[] $value
+     * @param SuperMembership $value
      * @return Employee
      */
     public function addSuperMembership(SuperMembership $value){

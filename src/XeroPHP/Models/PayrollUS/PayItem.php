@@ -116,14 +116,14 @@ class PayItem extends Remote\Object {
 
 
     /**
-     * @return EarningsType
+     * @return EarningsType[]
      */
     public function getEarningsTypes(){
         return $this->_data['EarningsTypes'];
     }
 
     /**
-     * @param EarningsType[] $value
+     * @param EarningsType $value
      * @return PayItem
      */
     public function addEarningsType(EarningsType $value){
@@ -133,14 +133,14 @@ class PayItem extends Remote\Object {
     }
 
     /**
-     * @return BenefitType
+     * @return BenefitType[]
      */
     public function getBenefitTypes(){
         return $this->_data['BenefitTypes'];
     }
 
     /**
-     * @param BenefitType[] $value
+     * @param BenefitType $value
      * @return PayItem
      */
     public function addBenefitType(BenefitType $value){
@@ -150,14 +150,14 @@ class PayItem extends Remote\Object {
     }
 
     /**
-     * @return DeductionType
+     * @return DeductionType[]
      */
     public function getDeductionTypes(){
         return $this->_data['DeductionTypes'];
     }
 
     /**
-     * @param DeductionType[] $value
+     * @param DeductionType $value
      * @return PayItem
      */
     public function addDeductionType(DeductionType $value){
@@ -167,14 +167,14 @@ class PayItem extends Remote\Object {
     }
 
     /**
-     * @return ReimbursementType
+     * @return ReimbursementType[]
      */
     public function getReimbursementTypes(){
         return $this->_data['ReimbursementTypes'];
     }
 
     /**
-     * @param ReimbursementType[] $value
+     * @param ReimbursementType $value
      * @return PayItem
      */
     public function addReimbursementType(ReimbursementType $value){
@@ -184,14 +184,14 @@ class PayItem extends Remote\Object {
     }
 
     /**
-     * @return TimeOffType
+     * @return TimeOffType[]
      */
     public function getTimeOffTypes(){
         return $this->_data['TimeOffTypes'];
     }
 
     /**
-     * @param TimeOffType[] $value
+     * @param TimeOffType $value
      * @return PayItem
      */
     public function addTimeOffType(TimeOffType $value){

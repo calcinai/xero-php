@@ -272,14 +272,14 @@ class Journal extends Remote\Object {
     }
 
     /**
-     * @return JournalLine
+     * @return JournalLine[]
      */
     public function getJournalLines(){
         return $this->_data['JournalLines'];
     }
 
     /**
-     * @param JournalLine[] $value
+     * @param JournalLine $value
      * @return Journal
      */
     public function addJournalLine(JournalLine $value){

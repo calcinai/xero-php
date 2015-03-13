@@ -112,14 +112,14 @@ class ExpenseClaim extends Remote\Object {
     }
 
     /**
-     * @return Receipt
+     * @return Receipt[]
      */
     public function getReceipts(){
         return $this->_data['Receipts'];
     }
 
     /**
-     * @param Receipt[] $value
+     * @param Receipt $value
      * @return ExpenseClaim
      */
     public function addReceipt(Receipt $value){

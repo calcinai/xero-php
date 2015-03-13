@@ -231,14 +231,14 @@ class LeaveApplication extends Remote\Object {
     }
 
     /**
-     * @return LeavePeriod
+     * @return LeavePeriod[]
      */
     public function getLeavePeriods(){
         return $this->_data['LeavePeriods'];
     }
 
     /**
-     * @param LeavePeriod[] $value
+     * @param LeavePeriod $value
      * @return LeaveApplication
      */
     public function addLeavePeriod(LeavePeriod $value){

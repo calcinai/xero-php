@@ -157,14 +157,14 @@ class TrackingCategory extends Remote\Object {
     }
 
     /**
-     * @return TrackingOption
+     * @return TrackingOption[]
      */
     public function getOptions(){
         return $this->_data['Options'];
     }
 
     /**
-     * @param TrackingOption[] $value
+     * @param TrackingOption $value
      * @return TrackingCategory
      */
     public function addOption(TrackingOption $value){

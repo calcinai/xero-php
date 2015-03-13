@@ -196,14 +196,14 @@ class TaxRate extends Remote\Object {
     }
 
     /**
-     * @return TaxComponent
+     * @return TaxComponent[]
      */
     public function getTaxComponents(){
         return $this->_data['TaxComponents'];
     }
 
     /**
-     * @param TaxComponent[] $value
+     * @param TaxComponent $value
      * @return TaxRate
      */
     public function addTaxComponent(TaxComponent $value){
@@ -247,7 +247,7 @@ class TaxRate extends Remote\Object {
     }
 
     /**
-     * @return float
+     * @return float[]
      */
     public function getCanApplyToAssets(){
         return $this->_data['CanApplyToAssets'];
@@ -263,7 +263,7 @@ class TaxRate extends Remote\Object {
 
 
     /**
-     * @return float
+     * @return float[]
      */
     public function getCanApplyToExpenses(){
         return $this->_data['CanApplyToExpenses'];
@@ -271,7 +271,7 @@ class TaxRate extends Remote\Object {
 
 
     /**
-     * @return float
+     * @return float[]
      */
     public function getCanApplyToLiabilities(){
         return $this->_data['CanApplyToLiabilities'];

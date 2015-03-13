@@ -112,14 +112,14 @@ class TimeOffLine extends Remote\Object {
     }
 
     /**
-     * @return string
+     * @return string[]
      */
     public function getHours(){
         return $this->_data['Hours'];
     }
 
     /**
-     * @param string[] $value
+     * @param string $value
      * @return TimeOffLine
      */
     public function addHour($value){

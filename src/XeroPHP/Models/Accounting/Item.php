@@ -141,14 +141,14 @@ class Item extends Remote\Object {
     }
 
     /**
-     * @return Purchase
+     * @return Purchase[]
      */
     public function getPurchaseDetails(){
         return $this->_data['PurchaseDetails'];
     }
 
     /**
-     * @param Purchase[] $value
+     * @param Purchase $value
      * @return Item
      */
     public function addPurchaseDetail(Purchase $value){
@@ -158,14 +158,14 @@ class Item extends Remote\Object {
     }
 
     /**
-     * @return Sale
+     * @return Sale[]
      */
     public function getSalesDetails(){
         return $this->_data['SalesDetails'];
     }
 
     /**
-     * @param Sale[] $value
+     * @param Sale $value
      * @return Item
      */
     public function addSalesDetail(Sale $value){

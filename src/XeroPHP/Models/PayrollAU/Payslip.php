@@ -258,14 +258,14 @@ class Payslip extends Remote\Object {
     }
 
     /**
-     * @return EarningsLine
+     * @return EarningsLine[]
      */
     public function getEarningsLines(){
         return $this->_data['EarningsLines'];
     }
 
     /**
-     * @param EarningsLine[] $value
+     * @param EarningsLine $value
      * @return Payslip
      */
     public function addEarningsLine(EarningsLine $value){
@@ -275,14 +275,14 @@ class Payslip extends Remote\Object {
     }
 
     /**
-     * @return TimesheetEarningsLine
+     * @return TimesheetEarningsLine[]
      */
     public function getTimesheetEarningsLines(){
         return $this->_data['TimesheetEarningsLines'];
     }
 
     /**
-     * @param TimesheetEarningsLine[] $value
+     * @param TimesheetEarningsLine $value
      * @return Payslip
      */
     public function addTimesheetEarningsLine(TimesheetEarningsLine $value){
@@ -292,14 +292,14 @@ class Payslip extends Remote\Object {
     }
 
     /**
-     * @return DeductionLine
+     * @return DeductionLine[]
      */
     public function getDeductionLines(){
         return $this->_data['DeductionLines'];
     }
 
     /**
-     * @param DeductionLine[] $value
+     * @param DeductionLine $value
      * @return Payslip
      */
     public function addDeductionLine(DeductionLine $value){
@@ -309,14 +309,14 @@ class Payslip extends Remote\Object {
     }
 
     /**
-     * @return LeaveAccrualLine
+     * @return LeaveAccrualLine[]
      */
     public function getLeaveAccrualLines(){
         return $this->_data['LeaveAccrualLines'];
     }
 
     /**
-     * @param LeaveAccrualLine[] $value
+     * @param LeaveAccrualLine $value
      * @return Payslip
      */
     public function addLeaveAccrualLine(LeaveAccrualLine $value){
@@ -326,14 +326,14 @@ class Payslip extends Remote\Object {
     }
 
     /**
-     * @return ReimbursementLine
+     * @return ReimbursementLine[]
      */
     public function getReimbursementLines(){
         return $this->_data['ReimbursementLines'];
     }
 
     /**
-     * @param ReimbursementLine[] $value
+     * @param ReimbursementLine $value
      * @return Payslip
      */
     public function addReimbursementLine(ReimbursementLine $value){
@@ -343,14 +343,14 @@ class Payslip extends Remote\Object {
     }
 
     /**
-     * @return SuperannuationLine
+     * @return SuperannuationLine[]
      */
     public function getSuperannuationLines(){
         return $this->_data['SuperannuationLines'];
     }
 
     /**
-     * @param SuperannuationLine[] $value
+     * @param SuperannuationLine $value
      * @return Payslip
      */
     public function addSuperannuationLine(SuperannuationLine $value){
@@ -360,14 +360,14 @@ class Payslip extends Remote\Object {
     }
 
     /**
-     * @return TaxLine
+     * @return TaxLine[]
      */
     public function getTaxLines(){
         return $this->_data['TaxLines'];
     }
 
     /**
-     * @param TaxLine[] $value
+     * @param TaxLine $value
      * @return Payslip
      */
     public function addTaxLine(TaxLine $value){
@@ -445,14 +445,14 @@ class Payslip extends Remote\Object {
     }
 
     /**
-     * @return float
+     * @return float[]
      */
     public function getWages(){
         return $this->_data['Wages'];
     }
 
     /**
-     * @param float[] $value
+     * @param float $value
      * @return Payslip
      */
     public function addWage($value){
@@ -462,14 +462,14 @@ class Payslip extends Remote\Object {
     }
 
     /**
-     * @return float
+     * @return float[]
      */
     public function getDeductions(){
         return $this->_data['Deductions'];
     }
 
     /**
-     * @param float[] $value
+     * @param float $value
      * @return Payslip
      */
     public function addDeduction($value){
@@ -530,14 +530,14 @@ class Payslip extends Remote\Object {
     }
 
     /**
-     * @return float
+     * @return float[]
      */
     public function getReimbursements(){
         return $this->_data['Reimbursements'];
     }
 
     /**
-     * @param float[] $value
+     * @param float $value
      * @return Payslip
      */
     public function addReimbursement($value){
@@ -547,14 +547,14 @@ class Payslip extends Remote\Object {
     }
 
     /**
-     * @return LeaveEarningsLine
+     * @return LeaveEarningsLine[]
      */
     public function getLeaveEarningsLines(){
         return $this->_data['LeaveEarningsLines'];
     }
 
     /**
-     * @param LeaveEarningsLine[] $value
+     * @param LeaveEarningsLine $value
      * @return Payslip
      */
     public function addLeaveEarningsLine(LeaveEarningsLine $value){

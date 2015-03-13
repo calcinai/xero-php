@@ -318,14 +318,14 @@ class Paystub extends Remote\Object {
     }
 
     /**
-     * @return float
+     * @return float[]
      */
     public function getEarnings(){
         return $this->_data['Earnings'];
     }
 
     /**
-     * @param float[] $value
+     * @param float $value
      * @return Paystub
      */
     public function addEarning($value){
@@ -335,14 +335,14 @@ class Paystub extends Remote\Object {
     }
 
     /**
-     * @return float
+     * @return float[]
      */
     public function getDeductions(){
         return $this->_data['Deductions'];
     }
 
     /**
-     * @param float[] $value
+     * @param float $value
      * @return Paystub
      */
     public function addDeduction($value){
@@ -369,14 +369,14 @@ class Paystub extends Remote\Object {
     }
 
     /**
-     * @return float
+     * @return float[]
      */
     public function getReimbursements(){
         return $this->_data['Reimbursements'];
     }
 
     /**
-     * @param float[] $value
+     * @param float $value
      * @return Paystub
      */
     public function addReimbursement($value){
@@ -420,14 +420,14 @@ class Paystub extends Remote\Object {
     }
 
     /**
-     * @return EarningsLine
+     * @return EarningsLine[]
      */
     public function getEarningsLines(){
         return $this->_data['EarningsLines'];
     }
 
     /**
-     * @param EarningsLine[] $value
+     * @param EarningsLine $value
      * @return Paystub
      */
     public function addEarningsLine(EarningsLine $value){
@@ -437,14 +437,14 @@ class Paystub extends Remote\Object {
     }
 
     /**
-     * @return LeaveEarningsLine
+     * @return LeaveEarningsLine[]
      */
     public function getLeaveEarningsLines(){
         return $this->_data['LeaveEarningsLines'];
     }
 
     /**
-     * @param LeaveEarningsLine[] $value
+     * @param LeaveEarningsLine $value
      * @return Paystub
      */
     public function addLeaveEarningsLine(LeaveEarningsLine $value){
@@ -454,14 +454,14 @@ class Paystub extends Remote\Object {
     }
 
     /**
-     * @return TimesheetEarningsLine
+     * @return TimesheetEarningsLine[]
      */
     public function getTimesheetEarningsLines(){
         return $this->_data['TimesheetEarningsLines'];
     }
 
     /**
-     * @param TimesheetEarningsLine[] $value
+     * @param TimesheetEarningsLine $value
      * @return Paystub
      */
     public function addTimesheetEarningsLine(TimesheetEarningsLine $value){
@@ -471,14 +471,14 @@ class Paystub extends Remote\Object {
     }
 
     /**
-     * @return DeductionLine
+     * @return DeductionLine[]
      */
     public function getDeductionLines(){
         return $this->_data['DeductionLines'];
     }
 
     /**
-     * @param DeductionLine[] $value
+     * @param DeductionLine $value
      * @return Paystub
      */
     public function addDeductionLine(DeductionLine $value){
@@ -488,14 +488,14 @@ class Paystub extends Remote\Object {
     }
 
     /**
-     * @return ReimbursementLine
+     * @return ReimbursementLine[]
      */
     public function getReimbursementLines(){
         return $this->_data['ReimbursementLines'];
     }
 
     /**
-     * @param ReimbursementLine[] $value
+     * @param ReimbursementLine $value
      * @return Paystub
      */
     public function addReimbursementLine(ReimbursementLine $value){
@@ -505,14 +505,14 @@ class Paystub extends Remote\Object {
     }
 
     /**
-     * @return BenefitLine
+     * @return BenefitLine[]
      */
     public function getBenefitLines(){
         return $this->_data['BenefitLines'];
     }
 
     /**
-     * @param BenefitLine[] $value
+     * @param BenefitLine $value
      * @return Paystub
      */
     public function addBenefitLine(BenefitLine $value){
@@ -522,14 +522,14 @@ class Paystub extends Remote\Object {
     }
 
     /**
-     * @return TimeOffLine
+     * @return TimeOffLine[]
      */
     public function getTimeOffLines(){
         return $this->_data['TimeOffLines'];
     }
 
     /**
-     * @param TimeOffLine[] $value
+     * @param TimeOffLine $value
      * @return Paystub
      */
     public function addTimeOffLine(TimeOffLine $value){

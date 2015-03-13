@@ -254,14 +254,14 @@ class BankTransaction extends Remote\Object {
     }
 
     /**
-     * @return LineItem
+     * @return LineItem[]
      */
     public function getLineitems(){
         return $this->_data['Lineitems'];
     }
 
     /**
-     * @param LineItem[] $value
+     * @param LineItem $value
      * @return BankTransaction
      */
     public function addLineitem(LineItem $value){
@@ -407,14 +407,14 @@ class BankTransaction extends Remote\Object {
     }
 
     /**
-     * @return float
+     * @return float[]
      */
     public function getLineAmountTypes(){
         return $this->_data['LineAmountTypes'];
     }
 
     /**
-     * @param float[] $value
+     * @param float $value
      * @return BankTransaction
      */
     public function addLineAmountType($value){
