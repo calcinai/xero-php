@@ -293,14 +293,14 @@ class PayRun extends Remote\Object {
     }
 
     /**
-     * @return Payslip
+     * @return Payslip[]
      */
     public function getPayslips(){
         return $this->_data['Payslips'];
     }
 
     /**
-     * @param Payslip[] $value
+     * @param Payslip $value
      * @return PayRun
      */
     public function addPayslip(Payslip $value){
@@ -310,14 +310,14 @@ class PayRun extends Remote\Object {
     }
 
     /**
-     * @return string
+     * @return string[]
      */
     public function getWages(){
         return $this->_data['Wages'];
     }
 
     /**
-     * @param string[] $value
+     * @param string $value
      * @return PayRun
      */
     public function addWage($value){
@@ -327,14 +327,14 @@ class PayRun extends Remote\Object {
     }
 
     /**
-     * @return string
+     * @return string[]
      */
     public function getDeductions(){
         return $this->_data['Deductions'];
     }
 
     /**
-     * @param string[] $value
+     * @param string $value
      * @return PayRun
      */
     public function addDeduction($value){

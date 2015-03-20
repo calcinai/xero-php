@@ -323,14 +323,14 @@ class JournalLine extends Remote\Object {
     }
 
     /**
-     * @return TrackingCategory
+     * @return TrackingCategory[]
      */
     public function getTrackingCategories(){
         return $this->_data['TrackingCategories'];
     }
 
     /**
-     * @param TrackingCategory[] $value
+     * @param TrackingCategory $value
      * @return JournalLine
      */
     public function addTrackingCategory(TrackingCategory $value){

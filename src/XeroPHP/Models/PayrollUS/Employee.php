@@ -340,14 +340,14 @@ class Employee extends Remote\Object {
     }
 
     /**
-     * @return string
+     * @return string[]
      */
     public function getMiddleNames(){
         return $this->_data['MiddleNames'];
     }
 
     /**
-     * @param string[] $value
+     * @param string $value
      * @return Employee
      */
     public function addMiddleName($value){
@@ -595,14 +595,14 @@ class Employee extends Remote\Object {
     }
 
     /**
-     * @return SalaryAndWage
+     * @return SalaryAndWage[]
      */
     public function getSalaryAndWages(){
         return $this->_data['SalaryAndWages'];
     }
 
     /**
-     * @param SalaryAndWage[] $value
+     * @param SalaryAndWage $value
      * @return Employee
      */
     public function addSalaryAndWage(SalaryAndWage $value){
@@ -612,14 +612,14 @@ class Employee extends Remote\Object {
     }
 
     /**
-     * @return WorkLocation
+     * @return WorkLocation[]
      */
     public function getWorkLocations(){
         return $this->_data['WorkLocations'];
     }
 
     /**
-     * @param WorkLocation[] $value
+     * @param WorkLocation $value
      * @return Employee
      */
     public function addWorkLocation(WorkLocation $value){
@@ -663,14 +663,14 @@ class Employee extends Remote\Object {
     }
 
     /**
-     * @return OpeningBalance
+     * @return OpeningBalance[]
      */
     public function getOpeningBalances(){
         return $this->_data['OpeningBalances'];
     }
 
     /**
-     * @param OpeningBalance[] $value
+     * @param OpeningBalance $value
      * @return Employee
      */
     public function addOpeningBalance(OpeningBalance $value){

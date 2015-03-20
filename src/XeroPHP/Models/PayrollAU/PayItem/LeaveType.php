@@ -142,14 +142,14 @@ class LeaveType extends Remote\Object {
     }
 
     /**
-     * @return float
+     * @return float[]
      */
     public function getTypeOfUnits(){
         return $this->_data['TypeOfUnits'];
     }
 
     /**
-     * @param float[] $value
+     * @param float $value
      * @return LeaveType
      */
     public function addTypeOfUnit($value){

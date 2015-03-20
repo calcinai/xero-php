@@ -129,14 +129,14 @@ class EarningsLine extends Remote\Object {
     }
 
     /**
-     * @return float
+     * @return float[]
      */
     public function getNumberOfUnits(){
         return $this->_data['NumberOfUnits'];
     }
 
     /**
-     * @param float[] $value
+     * @param float $value
      * @return EarningsLine
      */
     public function addNumberOfUnit($value){

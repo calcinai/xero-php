@@ -88,14 +88,14 @@ class PaymentTerm extends Remote\Object {
 
 
     /**
-     * @return Bill
+     * @return Bill[]
      */
     public function getBills(){
         return $this->_data['Bills'];
     }
 
     /**
-     * @param Bill[] $value
+     * @param Bill $value
      * @return PaymentTerm
      */
     public function addBill(Bill $value){
@@ -105,14 +105,14 @@ class PaymentTerm extends Remote\Object {
     }
 
     /**
-     * @return Sale
+     * @return Sale[]
      */
     public function getSales(){
         return $this->_data['Sales'];
     }
 
     /**
-     * @param Sale[] $value
+     * @param Sale $value
      * @return PaymentTerm
      */
     public function addSale(Sale $value){

@@ -181,14 +181,14 @@ class Timesheet extends Remote\Object {
     }
 
     /**
-     * @return TimesheetLine
+     * @return TimesheetLine[]
      */
     public function getTimesheetLines(){
         return $this->_data['TimesheetLines'];
     }
 
     /**
-     * @param TimesheetLine[] $value
+     * @param TimesheetLine $value
      * @return Timesheet
      */
     public function addTimesheetLine(TimesheetLine $value){
@@ -215,14 +215,14 @@ class Timesheet extends Remote\Object {
     }
 
     /**
-     * @return string
+     * @return string[]
      */
     public function getHours(){
         return $this->_data['Hours'];
     }
 
     /**
-     * @param string[] $value
+     * @param string $value
      * @return Timesheet
      */
     public function addHour($value){

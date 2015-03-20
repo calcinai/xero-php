@@ -161,14 +161,14 @@ e.g.
     }
 
     /**
-     * @return Contact
+     * @return Contact[]
      */
     public function getContacts(){
         return $this->_data['Contacts'];
     }
 
     /**
-     * @param Contact[] $value
+     * @param Contact $value
      * @return ContactGroup
      */
     public function addContact(Contact $value){

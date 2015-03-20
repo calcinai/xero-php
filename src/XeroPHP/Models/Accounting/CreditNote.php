@@ -314,14 +314,14 @@ class CreditNote extends Remote\Object {
     }
 
     /**
-     * @return float
+     * @return float[]
      */
     public function getLineAmountTypes(){
         return $this->_data['LineAmountTypes'];
     }
 
     /**
-     * @param float[] $value
+     * @param float $value
      * @return CreditNote
      */
     public function addLineAmountType($value){
@@ -331,14 +331,14 @@ class CreditNote extends Remote\Object {
     }
 
     /**
-     * @return LineItem
+     * @return LineItem[]
      */
     public function getLineItems(){
         return $this->_data['LineItems'];
     }
 
     /**
-     * @param LineItem[] $value
+     * @param LineItem $value
      * @return CreditNote
      */
     public function addLineItem(LineItem $value){
@@ -535,14 +535,14 @@ class CreditNote extends Remote\Object {
     }
 
     /**
-     * @return Allocation
+     * @return Allocation[]
      */
     public function getAllocations(){
         return $this->_data['Allocations'];
     }
 
     /**
-     * @param Allocation[] $value
+     * @param Allocation $value
      * @return CreditNote
      */
     public function addAllocation(Allocation $value){

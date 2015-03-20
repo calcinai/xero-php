@@ -108,14 +108,14 @@ class PayItem extends Remote\Object {
 
 
     /**
-     * @return EarningsRate
+     * @return EarningsRate[]
      */
     public function getEarningsRates(){
         return $this->_data['EarningsRates'];
     }
 
     /**
-     * @param EarningsRate[] $value
+     * @param EarningsRate $value
      * @return PayItem
      */
     public function addEarningsRate(EarningsRate $value){
@@ -125,14 +125,14 @@ class PayItem extends Remote\Object {
     }
 
     /**
-     * @return DeductionType
+     * @return DeductionType[]
      */
     public function getDeductionTypes(){
         return $this->_data['DeductionTypes'];
     }
 
     /**
-     * @param DeductionType[] $value
+     * @param DeductionType $value
      * @return PayItem
      */
     public function addDeductionType(DeductionType $value){
@@ -142,14 +142,14 @@ class PayItem extends Remote\Object {
     }
 
     /**
-     * @return LeaveType
+     * @return LeaveType[]
      */
     public function getLeaveTypes(){
         return $this->_data['LeaveTypes'];
     }
 
     /**
-     * @param LeaveType[] $value
+     * @param LeaveType $value
      * @return PayItem
      */
     public function addLeaveType(LeaveType $value){
@@ -159,14 +159,14 @@ class PayItem extends Remote\Object {
     }
 
     /**
-     * @return ReimbursementType
+     * @return ReimbursementType[]
      */
     public function getReimbursementTypes(){
         return $this->_data['ReimbursementTypes'];
     }
 
     /**
-     * @param ReimbursementType[] $value
+     * @param ReimbursementType $value
      * @return PayItem
      */
     public function addReimbursementType(ReimbursementType $value){

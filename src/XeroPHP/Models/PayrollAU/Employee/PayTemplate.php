@@ -251,14 +251,14 @@ class PayTemplate extends Remote\Object {
 
 
     /**
-     * @return float
+     * @return float[]
      */
     public function getEarningsLines(){
         return $this->_data['EarningsLines'];
     }
 
     /**
-     * @param float[] $value
+     * @param float $value
      * @return PayTemplate
      */
     public function addEarningsLine($value){
@@ -268,14 +268,14 @@ class PayTemplate extends Remote\Object {
     }
 
     /**
-     * @return DeductionLine
+     * @return DeductionLine[]
      */
     public function getDeductionLines(){
         return $this->_data['DeductionLines'];
     }
 
     /**
-     * @param DeductionLine[] $value
+     * @param DeductionLine $value
      * @return PayTemplate
      */
     public function addDeductionLine(DeductionLine $value){
@@ -285,14 +285,14 @@ class PayTemplate extends Remote\Object {
     }
 
     /**
-     * @return string
+     * @return string[]
      */
     public function getSuperLines(){
         return $this->_data['SuperLines'];
     }
 
     /**
-     * @param string[] $value
+     * @param string $value
      * @return PayTemplate
      */
     public function addSuperLine($value){
@@ -302,14 +302,14 @@ class PayTemplate extends Remote\Object {
     }
 
     /**
-     * @return ReimbursementLine
+     * @return ReimbursementLine[]
      */
     public function getReimbursementLines(){
         return $this->_data['ReimbursementLines'];
     }
 
     /**
-     * @param ReimbursementLine[] $value
+     * @param ReimbursementLine $value
      * @return PayTemplate
      */
     public function addReimbursementLine(ReimbursementLine $value){
@@ -319,14 +319,14 @@ class PayTemplate extends Remote\Object {
     }
 
     /**
-     * @return string
+     * @return string[]
      */
     public function getLeaveLines(){
         return $this->_data['LeaveLines'];
     }
 
     /**
-     * @param string[] $value
+     * @param string $value
      * @return PayTemplate
      */
     public function addLeaveLine($value){
@@ -557,14 +557,14 @@ class PayTemplate extends Remote\Object {
     }
 
     /**
-     * @return string
+     * @return string[]
      */
     public function getMinimumMonthlyEarnings(){
         return $this->_data['MinimumMonthlyEarnings'];
     }
 
     /**
-     * @param string[] $value
+     * @param string $value
      * @return PayTemplate
      */
     public function addMinimumMonthlyEarning($value){
@@ -625,14 +625,14 @@ class PayTemplate extends Remote\Object {
     }
 
     /**
-     * @return string
+     * @return string[]
      */
     public function getAnnualNumberOfUnits(){
         return $this->_data['AnnualNumberOfUnits'];
     }
 
     /**
-     * @param string[] $value
+     * @param string $value
      * @return PayTemplate
      */
     public function addAnnualNumberOfUnit($value){
@@ -659,14 +659,14 @@ class PayTemplate extends Remote\Object {
     }
 
     /**
-     * @return string
+     * @return string[]
      */
     public function getNumberOfUnits(){
         return $this->_data['NumberOfUnits'];
     }
 
     /**
-     * @param string[] $value
+     * @param string $value
      * @return PayTemplate
      */
     public function addNumberOfUnit($value){

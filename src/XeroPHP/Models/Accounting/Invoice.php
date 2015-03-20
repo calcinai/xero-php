@@ -347,14 +347,14 @@ class Invoice extends Remote\Object {
     }
 
     /**
-     * @return LineItem
+     * @return LineItem[]
      */
     public function getLineItems(){
         return $this->_data['LineItems'];
     }
 
     /**
-     * @param LineItem[] $value
+     * @param LineItem $value
      * @return Invoice
      */
     public function addLineItem(LineItem $value){
@@ -398,14 +398,14 @@ class Invoice extends Remote\Object {
     }
 
     /**
-     * @return float
+     * @return float[]
      */
     public function getLineAmountTypes(){
         return $this->_data['LineAmountTypes'];
     }
 
     /**
-     * @param float[] $value
+     * @param float $value
      * @return Invoice
      */
     public function addLineAmountType($value){
@@ -633,7 +633,7 @@ class Invoice extends Remote\Object {
 
 
     /**
-     * @return Payment
+     * @return Payment[]
      */
     public function getPayments(){
         return $this->_data['Payments'];
@@ -641,7 +641,7 @@ class Invoice extends Remote\Object {
 
 
     /**
-     * @return Prepayment
+     * @return Prepayment[]
      */
     public function getPrepayments(){
         return $this->_data['Prepayments'];
@@ -649,7 +649,7 @@ class Invoice extends Remote\Object {
 
 
     /**
-     * @return Overpayment
+     * @return Overpayment[]
      */
     public function getOverpayments(){
         return $this->_data['Overpayments'];
@@ -697,7 +697,7 @@ class Invoice extends Remote\Object {
 
 
     /**
-     * @return CreditNote
+     * @return CreditNote[]
      */
     public function getCreditNotes(){
         return $this->_data['CreditNotes'];

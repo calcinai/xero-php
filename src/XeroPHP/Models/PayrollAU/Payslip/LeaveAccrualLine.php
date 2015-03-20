@@ -112,14 +112,14 @@ class LeaveAccrualLine extends Remote\Object {
     }
 
     /**
-     * @return string
+     * @return string[]
      */
     public function getNumberOfUnits(){
         return $this->_data['NumberOfUnits'];
     }
 
     /**
-     * @param string[] $value
+     * @param string $value
      * @return LeaveAccrualLine
      */
     public function addNumberOfUnit($value){

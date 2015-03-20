@@ -262,14 +262,14 @@ class PayRun extends Remote\Object {
     }
 
     /**
-     * @return string
+     * @return string[]
      */
     public function getEarnings(){
         return $this->_data['Earnings'];
     }
 
     /**
-     * @param string[] $value
+     * @param string $value
      * @return PayRun
      */
     public function addEarning($value){
@@ -279,14 +279,14 @@ class PayRun extends Remote\Object {
     }
 
     /**
-     * @return string
+     * @return string[]
      */
     public function getDeductions(){
         return $this->_data['Deductions'];
     }
 
     /**
-     * @param string[] $value
+     * @param string $value
      * @return PayRun
      */
     public function addDeduction($value){
@@ -347,14 +347,14 @@ class PayRun extends Remote\Object {
     }
 
     /**
-     * @return string
+     * @return string[]
      */
     public function getPayStubs(){
         return $this->_data['PayStubs'];
     }
 
     /**
-     * @param string[] $value
+     * @param string $value
      * @return PayRun
      */
     public function addPayStub($value){

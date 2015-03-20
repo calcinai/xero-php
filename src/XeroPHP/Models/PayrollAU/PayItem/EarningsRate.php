@@ -228,14 +228,14 @@ class EarningsRate extends Remote\Object {
     }
 
     /**
-     * @return string
+     * @return string[]
      */
     public function getTypeOfUnits(){
         return $this->_data['TypeOfUnits'];
     }
 
     /**
-     * @param string[] $value
+     * @param string $value
      * @return EarningsRate
      */
     public function addTypeOfUnit($value){

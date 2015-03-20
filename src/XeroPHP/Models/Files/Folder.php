@@ -214,14 +214,14 @@ class Folder extends Remote\Object {
     }
 
     /**
-     * @return File
+     * @return File[]
      */
     public function getFiles(){
         return $this->_data['Files'];
     }
 
     /**
-     * @param File[] $value
+     * @param File $value
      * @return Folder
      */
     public function addFile(File $value){

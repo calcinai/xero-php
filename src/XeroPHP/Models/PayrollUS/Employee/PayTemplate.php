@@ -189,14 +189,14 @@ class PayTemplate extends Remote\Object {
 
 
     /**
-     * @return float
+     * @return float[]
      */
     public function getEarningsLines(){
         return $this->_data['EarningsLines'];
     }
 
     /**
-     * @param float[] $value
+     * @param float $value
      * @return PayTemplate
      */
     public function addEarningsLine($value){
@@ -206,14 +206,14 @@ class PayTemplate extends Remote\Object {
     }
 
     /**
-     * @return DeductionLine
+     * @return DeductionLine[]
      */
     public function getDeductionLines(){
         return $this->_data['DeductionLines'];
     }
 
     /**
-     * @param DeductionLine[] $value
+     * @param DeductionLine $value
      * @return PayTemplate
      */
     public function addDeductionLine(DeductionLine $value){
@@ -223,14 +223,14 @@ class PayTemplate extends Remote\Object {
     }
 
     /**
-     * @return ReimbursementLine
+     * @return ReimbursementLine[]
      */
     public function getReimbursementLines(){
         return $this->_data['ReimbursementLines'];
     }
 
     /**
-     * @param ReimbursementLine[] $value
+     * @param ReimbursementLine $value
      * @return PayTemplate
      */
     public function addReimbursementLine(ReimbursementLine $value){
@@ -240,14 +240,14 @@ class PayTemplate extends Remote\Object {
     }
 
     /**
-     * @return BenefitLine
+     * @return BenefitLine[]
      */
     public function getBenefitLines(){
         return $this->_data['BenefitLines'];
     }
 
     /**
-     * @param BenefitLine[] $value
+     * @param BenefitLine $value
      * @return PayTemplate
      */
     public function addBenefitLine(BenefitLine $value){
@@ -274,14 +274,14 @@ class PayTemplate extends Remote\Object {
     }
 
     /**
-     * @return string
+     * @return string[]
      */
     public function getUnitsOrHours(){
         return $this->_data['UnitsOrHours'];
     }
 
     /**
-     * @param string[] $value
+     * @param string $value
      * @return PayTemplate
      */
     public function addUnitsOrHour($value){

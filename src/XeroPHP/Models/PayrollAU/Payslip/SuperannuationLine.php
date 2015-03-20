@@ -188,14 +188,14 @@ class SuperannuationLine extends Remote\Object {
     }
 
     /**
-     * @return string
+     * @return string[]
      */
     public function getMinimumMonthlyEarnings(){
         return $this->_data['MinimumMonthlyEarnings'];
     }
 
     /**
-     * @param string[] $value
+     * @param string $value
      * @return SuperannuationLine
      */
     public function addMinimumMonthlyEarning($value){

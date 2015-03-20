@@ -238,14 +238,14 @@ class TaxDeclaration extends Remote\Object {
     }
 
     /**
-     * @return string
+     * @return string[]
      */
     public function getAustralianResidentForTaxPurposes(){
         return $this->_data['AustralianResidentForTaxPurposes'];
     }
 
     /**
-     * @param string[] $value
+     * @param string $value
      * @return TaxDeclaration
      */
     public function addAustralianResidentForTaxPurpose($value){

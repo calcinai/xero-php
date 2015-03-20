@@ -297,14 +297,14 @@ class Overpayment extends Remote\Object {
     }
 
     /**
-     * @return float
+     * @return float[]
      */
     public function getLineAmountTypes(){
         return $this->_data['LineAmountTypes'];
     }
 
     /**
-     * @param float[] $value
+     * @param float $value
      * @return Overpayment
      */
     public function addLineAmountType($value){
@@ -314,14 +314,14 @@ class Overpayment extends Remote\Object {
     }
 
     /**
-     * @return LineItem
+     * @return LineItem[]
      */
     public function getLineItems(){
         return $this->_data['LineItems'];
     }
 
     /**
-     * @param LineItem[] $value
+     * @param LineItem $value
      * @return Overpayment
      */
     public function addLineItem(LineItem $value){
@@ -484,14 +484,14 @@ class Overpayment extends Remote\Object {
     }
 
     /**
-     * @return Allocation
+     * @return Allocation[]
      */
     public function getAllocations(){
         return $this->_data['Allocations'];
     }
 
     /**
-     * @param Allocation[] $value
+     * @param Allocation $value
      * @return Overpayment
      */
     public function addAllocation(Allocation $value){

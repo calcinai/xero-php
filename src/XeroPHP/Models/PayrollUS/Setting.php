@@ -91,14 +91,14 @@ class Setting extends Remote\Object {
 
 
     /**
-     * @return Account
+     * @return Account[]
      */
     public function getAccounts(){
         return $this->_data['Accounts'];
     }
 
     /**
-     * @param Account[] $value
+     * @param Account $value
      * @return Setting
      */
     public function addAccount(Account $value){
@@ -108,14 +108,14 @@ class Setting extends Remote\Object {
     }
 
     /**
-     * @return TrackingCategory
+     * @return TrackingCategory[]
      */
     public function getTrackingCategories(){
         return $this->_data['TrackingCategories'];
     }
 
     /**
-     * @param TrackingCategory[] $value
+     * @param TrackingCategory $value
      * @return Setting
      */
     public function addTrackingCategory(TrackingCategory $value){
