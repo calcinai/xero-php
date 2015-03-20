@@ -5,7 +5,6 @@ namespace XeroPHP\Remote;
 use XeroPHP\Application;
 use XeroPHP\Exception;
 use XeroPHP\Helpers;
-use XeroPHP\Remote\OAuth\Client;
 
 
 class Request {

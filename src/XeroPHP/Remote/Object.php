@@ -59,6 +59,10 @@ class Object {
         return count($this->_dirty) > 0;
     }
 
+    public function setClean(){
+        $this->_dirty = array();
+    }
+
     /**
      * This is used to detect if the object has copy at the source
      *
@@ -76,17 +80,28 @@ class Object {
         $this->_data[static::getGUIDProperty()];
     }
 
+
+    public function setGUID($guid){
+        $this->_data[static::getGUIDProperty()] = $guid;
+    }
+
     /**
      * Load an assoc array into the instance of the object $property => $value
+     * $replace_data - replace existing data
      *
      * @param $input_array
+     * @param $replace_data
      * @return Object
      */
-    public function fromStringArray($input_array){
+    public function fromStringArray($input_array, $replace_data = false){
 
         foreach(static::getProperties() as $property => $meta) {
             $type = $meta[self::KEY_TYPE];
             $php_type = $meta[self::KEY_PHP_TYPE];
+
+            //If set and NOT replace data, continue
+            if(!$replace_data && isset($this->_data[$property]))
+                continue;
 
             if(!isset($input_array[$property]))
                 continue;

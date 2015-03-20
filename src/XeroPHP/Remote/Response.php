@@ -64,6 +64,10 @@ class Response {
                 }
 
             case Response::STATUS_UNAUTHORISED:
+                //This is where OAuth errors end up, this could maybe change to an OAuth exception
+                if(isset($this->oauth_response['oauth_problem_advice'])){
+                    throw new UnauthorizedException($this->oauth_response['oauth_problem_advice']);
+                }
             case Response::STATUS_FORBIDDEN:
                 throw new UnauthorizedException();
 
@@ -84,6 +88,14 @@ class Response {
         return $this->elements;
     }
 
+    public function getErrorsForElement($element_id){
+        if(isset($this->element_errors[$element_id])){
+            return $this->element_errors[$element_id];
+        }
+
+        return null;
+    }
+
     public function getElementErrors(){
         return $this->element_errors;
     }
@@ -102,10 +114,8 @@ class Response {
 
     public function parseBody(){
 
-        if($this->request->getUrl()->isOAuth()){
-            parse_str($this->response_body, $this->oauth_response);
-            return;
-        }
+        if($this->request->getUrl()->isOAuth())
+            return $this->parseHTML();
 
         $this->elements = array();
         $this->element_errors = array();
@@ -114,40 +124,45 @@ class Response {
 
         switch($this->content_type){
             case Request::CONTENT_TYPE_XML:
-                self::parseXML();
+                $this->parseXML();
                 break;
+
             case Request::CONTENT_TYPE_JSON:
-                self::parseJSON();
+                $this->parseJSON();
+                break;
+
+            case Request::CONTENT_TYPE_HTML:
+                $this->parseHTML();
                 break;
 
             default:
                 throw new Exception("Parsing method not implemented for [{$this->content_type}]");
         }
 
-        foreach($this->elements as $element)
-            $this->findElementErrors($element);
+        foreach($this->elements as $index => $element)
+            $this->findElementErrors($element, $index);
     }
 
 
-    public function findElementErrors($element){
+    public function findElementErrors($element, $element_index){
         foreach($element as $property => $value){
             switch((string) $property){
                 case 'ValidationErrors':
                     if(is_array($value)){
                         foreach($value as $error)
-                            $this->element_errors[] = trim($error['Message'], '.');
+                            $this->element_errors[$element_index] = trim($error['Message'], '.');
                     }
                     break;
                 case 'Warnings':
                     if(is_array($value)){
                         foreach($value as $warning)
-                            $this->element_warnings[] = trim($warning['Message'], '.');
+                            $this->element_warnings[$element_index] = trim($warning['Message'], '.');
                     }
                     break;
 
                 default:
                     if(is_array($value)){
-                        $this->findElementErrors($value);
+                        $this->findElementErrors($value, $element_index);
                     }
             }
         }
@@ -208,6 +223,11 @@ class Response {
             }
         }
 
+    }
+
+    //Xero sends text/html when it's an oauth response for some reason.
+    public function parseHTML(){
+        parse_str($this->response_body, $this->oauth_response);
     }
 
 

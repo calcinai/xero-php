@@ -70,6 +70,7 @@ class Query {
 
         $request->send();
 
+        $elements = array();
         foreach($request->getResponse()->getElements() as $element){
             $built_element = new $from_class;
             $built_element->fromStringArray($element);

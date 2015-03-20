@@ -48,6 +48,9 @@ abstract class Application {
     protected $config;
     protected $oauth_client;
 
+    /**
+     * @param array $user_config
+     */
     public function __construct(array $user_config){
         //better here for overriding
         $this->config = array_replace_recursive(self::$_config_defaults, static::$_type_config_defaults, $user_config);
@@ -55,12 +58,19 @@ abstract class Application {
         $this->oauth_client = new Client($this->config['oauth']);
     }
 
+    /**
+     * @return Client
+     */
     public function getOAuthClient(){
         return $this->oauth_client;
     }
 
 
-
+    /**
+     * @param $key
+     * @return mixed
+     * @throws Exception
+     */
     public function getConfig($key){
 
         if(!isset($this->config[$key]))
@@ -69,6 +79,12 @@ abstract class Application {
         return $this->config[$key];
     }
 
+    /**
+     * @param $model
+     * @param $guid
+     * @return mixed
+     * @throws Exception
+     */
     public function loadByGUID($model, $guid){
 
         $query = $this->load($model);
@@ -85,6 +101,11 @@ abstract class Application {
     }
 
 
+    /**
+     * @param $model
+     * @return $this
+     * @throws Remote\Exception
+     */
     public function load($model){
 
         $query = new Query($this);
@@ -92,6 +113,11 @@ abstract class Application {
     }
 
 
+    /**
+     * @param Remote\Object $object
+     * @return null
+     * @throws Exception
+     */
     public function save(Object $object){
 
         if($object->isDirty()) {
@@ -115,16 +141,28 @@ abstract class Application {
             $url = new URL($this, $uri);
             $request = new Request($this, $url, $method);
 
-            $request->setBody(Helpers::arrayToXML($data))
-                ->send();
+            $request->setBody(Helpers::arrayToXML($data))->send();
 
-            return $request->getResponse();
+            $response = $request->getResponse();
+
+            if(false !== $element = current($response->getElements())) {
+                $object->fromStringArray($element);
+            }
+            //Mark the object as clean since no exception was thrown
+            $object->setClean();
+
+            return $response;
 
         }
 
     }
 
 
+    /**
+     * @param array $objects
+     * @return null
+     * @throws Exception
+     */
     public function saveAll(array $objects){
 
         //Just get one type to compare with, doesn't matter which.
@@ -145,12 +183,25 @@ abstract class Application {
         $root_node_name = Helpers::pluralize($type::getRootNodeName());
         $data = array($root_node_name => $object_arrays);
 
-        $request->setBody(Helpers::arrayToXML($data))
-            ->send();
+        $request->setBody(Helpers::arrayToXML($data));
+        $request->setParameter('SummarizeErrors', 'false');
+        $request->send();
 
-        return $request->getResponse();
+        $response = $request->getResponse();
+
+        foreach($response->getElements() as $element_index => $element){
+            if($response->getErrorsForElement($element_index) === null){
+                $objects[$element_index]->fromStringArray($element);
+                $objects[$element_index]->setClean();
+            }
+        }
+
+        return $response;
     }
 
+    /**
+     * @param Remote\Object $object
+     */
     public function delete(Object $object){
 
     }
