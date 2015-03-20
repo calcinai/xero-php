@@ -5,7 +5,7 @@ namespace XeroPHP\Models\Accounting;
 use XeroPHP\Remote;
 
 use XeroPHP\Models\Accounting\BankTransaction\LineItem;
-use XeroPHP\Models\Accounting\CreditNote\Allocation;
+use XeroPHP\Models\Accounting\Overpayment\Allocation;
 
 class Overpayment extends Remote\Object {
 
@@ -172,7 +172,8 @@ class Overpayment extends Remote\Object {
     */
     public static function getSupportedMethods(){
         return array(
-            Remote\Request::METHOD_GET
+            Remote\Request::METHOD_GET,
+            Remote\Request::METHOD_PUT
         );
     }
 
@@ -204,7 +205,7 @@ class Overpayment extends Remote\Object {
             'OverpaymentID' => array (false, self::PROPERTY_TYPE_STRING, null, false),
             'CurrencyRate' => array (false, self::PROPERTY_TYPE_FLOAT, null, false),
             'RemainingCredit' => array (false, self::PROPERTY_TYPE_STRING, null, false),
-            'Allocations' => array (false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\CreditNote\\Allocation', true),
+            'Allocations' => array (false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Overpayment\\Allocation', true),
             'HasAttachments' => array (false, self::PROPERTY_TYPE_BOOLEAN, null, false)
         );
     }
