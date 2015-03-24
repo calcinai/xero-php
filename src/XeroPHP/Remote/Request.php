@@ -19,11 +19,11 @@ class Request {
     const CONTENT_TYPE_JSON = 'application/json';
     const CONTENT_TYPE_PDF  = 'application/pdf';
 
-    const HEADER_ACCEPT             = 'Accept';
-    const HEADER_CONTENT_TYPE       = 'Content-Type';
-    const HEADER_CONTENT_LENGTH     = 'Content-Length';
-    const HEADER_AUTHORIZATION      = 'Authorization';
-    const HEADER_IF_MODIFIED_SINCE  = 'If-Modified-Since';
+    const HEADER_ACCEPT            = 'Accept';
+    const HEADER_CONTENT_TYPE      = 'Content-Type';
+    const HEADER_CONTENT_LENGTH    = 'Content-Length';
+    const HEADER_AUTHORIZATION     = 'Authorization';
+    const HEADER_IF_MODIFIED_SINCE = 'If-Modified-Since';
 
     private $app;
     private $url;
@@ -40,14 +40,14 @@ class Request {
     private $response;
 
 
-    public function __construct(Application $app, URL $url, $method = self::METHOD_GET){
+    public function __construct(Application $app, URL $url, $method = self::METHOD_GET) {
 
         $this->app = $app;
         $this->url = $url;
         $this->headers = array();
         $this->parameters = array();
 
-        switch($method){
+        switch($method) {
             case self::METHOD_GET:
             case self::METHOD_PUT:
             case self::METHOD_POST:
@@ -63,7 +63,7 @@ class Request {
 
     }
 
-    public function send(){
+    public function send() {
 
         //Sign the request - this just sets the Authorization header
         $this->app->getOAuthClient()->sign($this);
@@ -76,7 +76,7 @@ class Request {
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($ch, CURLOPT_CUSTOMREQUEST, $this->getMethod());
 
-        if(isset($this->body)){
+        if(isset($this->body)) {
             curl_setopt($ch, CURLOPT_POSTFIELDS, $this->body);
         }
 
@@ -100,8 +100,8 @@ class Request {
         $response = curl_exec($ch);
         $info = curl_getinfo($ch);
 
-        if ($response === false) {
-            throw new Exception('Curl error: '.curl_error($ch));
+        if($response === false) {
+            throw new Exception('Curl error: ' . curl_error($ch));
         }
 
         $this->response = new Response($this, $response, $info);
@@ -110,13 +110,13 @@ class Request {
         return $this->response;
     }
 
-    public function setParameter($key, $value){
+    public function setParameter($key, $value) {
         $this->parameters[$key] = $value;
 
         return $this;
     }
 
-    public function getParameters(){
+    public function getParameters() {
         return $this->parameters;
     }
 
@@ -124,21 +124,21 @@ class Request {
      * @param $key string Name of the header
      * @return null|string Header or null if not defined
      */
-    public function getHeader($key){
+    public function getHeader($key) {
         if(!isset($this->headers[$key]))
             return null;
 
         return $this->headers[$key];
     }
 
-    public function getHeaders(){
+    public function getHeaders() {
         return $this->headers;
     }
 
     /*
      * @return XeroPHP\Remote\Response
      */
-    public function getResponse(){
+    public function getResponse() {
         if(isset($this->response))
             return $this->response;
 
@@ -151,7 +151,7 @@ class Request {
      *
      * @return $this
      */
-    public function setHeader($key, $val){
+    public function setHeader($key, $val) {
         $this->headers[$key] = $val;
 
         return $this;
@@ -160,19 +160,19 @@ class Request {
     /**
      * @return string
      */
-    public function getMethod(){
+    public function getMethod() {
         return $this->method;
     }
 
     /**
      * @return URL
      */
-    public function getUrl(){
+    public function getUrl() {
         return $this->url;
     }
 
 
-    public function setBody($body, $content_type = self::CONTENT_TYPE_XML){
+    public function setBody($body, $content_type = self::CONTENT_TYPE_XML) {
 
         $this->setHeader(self::HEADER_CONTENT_LENGTH, strlen($body));
         $this->setHeader(self::HEADER_CONTENT_TYPE, $content_type);

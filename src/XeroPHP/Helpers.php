@@ -19,11 +19,11 @@ class Helpers {
      * @param string $singular_parent_key
      * @return string
      */
-    public static function arrayToXML(array $array, $key_override = null){
+    public static function arrayToXML(array $array, $key_override = null) {
 
         $xml = '';
-        foreach($array as $key => $element){
-            if(is_array($element)){
+        foreach($array as $key => $element) {
+            if(is_array($element)) {
 
                 //recurse and replace.
                 if(self::isAssoc($element))
@@ -34,7 +34,8 @@ class Helpers {
             } else {
                 //Element escaping for the http://www.w3.org/TR/REC-xml/#sec-predefined-ent
                 //Full DOMDocument not really necessary as we don't use attributes (which are more strict)
-                $element = strtr($element,
+                $element = strtr(
+                    $element,
                     array(
                         '<' => '&lt;',
                         '>' => '&gt;',
@@ -54,20 +55,20 @@ class Helpers {
         return $xml;
     }
 
-    public static function XMLToArray(\SimpleXMLElement $sxml){
+    public static function XMLToArray(\SimpleXMLElement $sxml) {
 
         $output = array();
         $singular_node_name = self::singularize($sxml->getName());
 
-        foreach($sxml->children() as $child_name => $child){
-            if($child->count() > 0){
+        foreach($sxml->children() as $child_name => $child) {
+            if($child->count() > 0) {
                 $node = self::XMLToArray($child);
             } else {
                 $node = (string) $child;
             }
 
             //don't make it assoc, as the keys will all be the same
-            if($child_name === $singular_node_name){
+            if($child_name === $singular_node_name) {
                 $output[] = $node;
             } else {
                 $output[$child_name] = $node;
@@ -85,23 +86,23 @@ class Helpers {
      * @param $string
      * @return mixed
      */
-    public static function singularize($string){
+    public static function singularize($string) {
         $singular = array(
-            '/(vert|ind)ices$/i'        => "$1ex",
-            '/(alias)es$/i'             => "$1",
-            '/(x|ch|ss|sh)es$/i'        => "$1",
-            '/(s)eries$/i'              => "$1eries",
-            '/(s)tatus$/i'              => "$1tatus",
-            '/([^aeiouy]|qu)ies$/i'     => "$1y",
-            '/([lr])ves$/i'             => "$1f",
-            '/([ti])a$/i'               => "$1um",
-            '/(us)es$/i'                => "$1",
-            '/(basis)$/i'               => "$1",
-            '/([^s])s$/i'               => "$1"
+            '/(vert|ind)ices$/i'    => "$1ex",
+            '/(alias)es$/i'         => "$1",
+            '/(x|ch|ss|sh)es$/i'    => "$1",
+            '/(s)eries$/i'          => "$1eries",
+            '/(s)tatus$/i'          => "$1tatus",
+            '/([^aeiouy]|qu)ies$/i' => "$1y",
+            '/([lr])ves$/i'         => "$1f",
+            '/([ti])a$/i'           => "$1um",
+            '/(us)es$/i'            => "$1",
+            '/(basis)$/i'           => "$1",
+            '/([^s])s$/i'           => "$1"
         );
 
         // check for matches using regular expressions
-        foreach($singular as $pattern => $result){
+        foreach($singular as $pattern => $result) {
             if(preg_match($pattern, $string))
                 return preg_replace($pattern, $result, $string);
         }
@@ -110,30 +111,30 @@ class Helpers {
         return $string;
     }
 
-    public static function pluralize($string){
+    public static function pluralize($string) {
 
         $plural = array(
-            '/(quiz)$/i'               => "$1zes",
-            '/(matr|vert|ind)ix|ex$/i' => "$1ices",
-            '/(x|ch|ss|sh)$/i'         => "$1es",
-            '/([^aeiouy]|qu)y$/i'      => "$1ies",
-            '/(hive)$/i'               => "$1s",
-            '/(?:([^f])fe|([lr])f)$/i' => "$1$2ves",
-            '/(shea|lea|loa|thie)f$/i' => "$1ves",
-            '/sis$/i'                  => "ses",
-            '/([ti])um$/i'             => "$1a",
-            '/(tomat|potat|ech|her|vet)o$/i'=> "$1oes",
-            '/(bu)s$/i'                => "$1ses",
-            '/(alias)$/i'              => "$1es",
-            '/(ax|test)is$/i'          => "$1es",
-            '/(us)$/i'                 => "$1es",
-            '/s$/i'                    => "s",
-            '/$/'                      => "s"
+            '/(quiz)$/i'                     => "$1zes",
+            '/(matr|vert|ind)ix|ex$/i'       => "$1ices",
+            '/(x|ch|ss|sh)$/i'               => "$1es",
+            '/([^aeiouy]|qu)y$/i'            => "$1ies",
+            '/(hive)$/i'                     => "$1s",
+            '/(?:([^f])fe|([lr])f)$/i'       => "$1$2ves",
+            '/(shea|lea|loa|thie)f$/i'       => "$1ves",
+            '/sis$/i'                        => "ses",
+            '/([ti])um$/i'                   => "$1a",
+            '/(tomat|potat|ech|her|vet)o$/i' => "$1oes",
+            '/(bu)s$/i'                      => "$1ses",
+            '/(alias)$/i'                    => "$1es",
+            '/(ax|test)is$/i'                => "$1es",
+            '/(us)$/i'                       => "$1es",
+            '/s$/i'                          => "s",
+            '/$/'                            => "s"
         );
 
         // check for matches using regular expressions
-        foreach ($plural as $pattern => $result){
-            if (preg_match( $pattern, $string))
+        foreach($plural as $pattern => $result) {
+            if(preg_match($pattern, $string))
                 return preg_replace($pattern, $result, $string);
         }
 
@@ -141,7 +142,7 @@ class Helpers {
     }
 
 
-    public static function isAssoc(array $array){
+    public static function isAssoc(array $array) {
         return (bool) count(array_filter(array_keys($array), 'is_string'));
     }
 
@@ -154,11 +155,11 @@ class Helpers {
      * @param bool $escape
      * @return string|array If no glue provided, it won't be imploded.
      */
-    public static function flattenAssocArray(array $array, $format, $glue = null, $escape = false){
+    public static function flattenAssocArray(array $array, $format, $glue = null, $escape = false) {
 
         $pairs = array();
-        foreach($array as $key => $val){
-            if($escape){
+        foreach($array as $key => $val) {
+            if($escape) {
                 $key = self::escape($key);
                 $val = self::escape($val);
             }

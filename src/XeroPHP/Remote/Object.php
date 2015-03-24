@@ -31,7 +31,7 @@ class Object {
     const PROPERTY_TYPE_OBJECT  = 'object';
 
 
-    public function __construct(){
+    public function __construct() {
         $this->_dirty = array();
         $this->_data = array();
     }
@@ -55,11 +55,11 @@ class Object {
      *
      * @return bool
      */
-    public function isDirty(){
+    public function isDirty() {
         return count($this->_dirty) > 0;
     }
 
-    public function setClean(){
+    public function setClean() {
         $this->_dirty = array();
     }
 
@@ -68,7 +68,7 @@ class Object {
      *
      * @return bool
      */
-    public function hasGUID(){
+    public function hasGUID() {
         return isset($this->_data[static::getGUIDProperty()]);
     }
 
@@ -76,12 +76,12 @@ class Object {
      *
      * @return string
      */
-    public function getGUID(){
+    public function getGUID() {
         $this->_data[static::getGUIDProperty()];
     }
 
 
-    public function setGUID($guid){
+    public function setGUID($guid) {
         $this->_data[static::getGUIDProperty()] = $guid;
     }
 
@@ -93,7 +93,7 @@ class Object {
      * @param $replace_data
      * @return Object
      */
-    public function fromStringArray($input_array, $replace_data = false){
+    public function fromStringArray($input_array, $replace_data = false) {
 
         foreach(static::getProperties() as $property => $meta) {
             $type = $meta[self::KEY_TYPE];
@@ -106,9 +106,9 @@ class Object {
             if(!isset($input_array[$property]))
                 continue;
 
-            if(is_array($input_array[$property])){
+            if(is_array($input_array[$property])) {
                 $this->_data[$property] = array();
-                foreach($input_array[$property] as $assoc_element){
+                foreach($input_array[$property] as $assoc_element) {
                     $this->_data[$property][] = self::castFromString($type, $assoc_element, $php_type);
                 }
             } else {
@@ -122,7 +122,7 @@ class Object {
      *
      * @return array
      */
-    public function toStringArray(){
+    public function toStringArray() {
         $out = array();
         foreach(static::getProperties() as $property => $meta) {
 
@@ -131,9 +131,9 @@ class Object {
 
             $type = $meta[self::KEY_TYPE];
 
-            if(is_array($this->_data[$property])){
+            if(is_array($this->_data[$property])) {
                 $out[$property] = array();
-                foreach($this->_data[$property] as $assoc_property){
+                foreach($this->_data[$property] as $assoc_property) {
                     $out[$property][] = self::castToString($type, $assoc_property);
                 }
             } else {
@@ -152,12 +152,12 @@ class Object {
      * @param $value
      * @return string
      */
-    public static function castToString($type, $value){
+    public static function castToString($type, $value) {
 
         if($value === '')
             return '';
 
-        switch($type){
+        switch($type) {
             case self::PROPERTY_TYPE_BOOLEAN:
                 return $value ? 'true' : 'false';
 
@@ -180,7 +180,7 @@ class Object {
      * @param $value
      * @return bool|\DateTime|float|int|string
      */
-    public static function castFromString($type, $value, $php_type){
+    public static function castFromString($type, $value, $php_type) {
 
         switch($type) {
 
@@ -221,22 +221,22 @@ class Object {
      * @return bool
      * @throws Exception
      */
-    public function validate($check_children = true){
+    public function validate($check_children = true) {
 
         //validate
-        foreach(static::getProperties() as $property => $meta){
+        foreach(static::getProperties() as $property => $meta) {
             $mandatory = $meta[self::KEY_MANDATORY];
 
-            if($mandatory){
+            if($mandatory) {
                 if(!isset($this->_data[$property]) || empty($this->_data[$property]))
                     throw new Exception(sprintf('%s::$%s is mandatory and is either missing or empty.', get_class($this), $property));
 
-                if($check_children){
+                if($check_children) {
                     if($this->_data[$property] instanceof Object) {
                         $this->_data[$property]->validate();
 
-                    } elseif (is_array($this->_data[$property])){
-                        foreach($this->_data[$property] as $element){
+                    } elseif(is_array($this->_data[$property])) {
+                        foreach($this->_data[$property] as $element) {
                             if($element instanceof Object)
                                 $element->validate();
                         }
@@ -254,7 +254,7 @@ class Object {
      * @param $property
      * @return mixed
      */
-    public function __get($property){
+    public function __get($property) {
         $getter = sprintf('get%s', $property);
 
         if(method_exists($this, $getter))
@@ -270,7 +270,7 @@ class Object {
      * @param $value
      * @return mixed
      */
-    public function __set($property, $value){
+    public function __set($property, $value) {
         $setter = sprintf('set%s', $property);
 
         if(method_exists($this, $setter))
@@ -279,7 +279,7 @@ class Object {
         trigger_error(sprintf("Undefined property %s::$%s.\n", __CLASS__, $property));
     }
 
-    protected function propertyUpdated($property, $value){
+    protected function propertyUpdated($property, $value) {
         if(!isset($this->_data[$property]) || $this->_data[$property] !== $value)
             $this->_dirty[$property] = true;
     }
@@ -290,7 +290,7 @@ class Object {
      * @param $method
      * @return bool
      */
-    public static function supportsMethod($method){
+    public static function supportsMethod($method) {
         return in_array($method, static::getSupportedMethods());
     }
 

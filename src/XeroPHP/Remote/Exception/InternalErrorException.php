@@ -7,7 +7,7 @@ use XeroPHP\Remote\Response;
 
 class InternalErrorException extends Exception {
 
-    public function __construct($message = null, $code = null, $previous = null){
+    public function __construct($message = null, $code = null, $previous = null) {
 
         if($message === null)
             $message = 'Internal Server Error';
