@@ -95,7 +95,7 @@ class API {
     }
 
     /**
-     * @return mixed
+     * @return Model[]
      */
     public function getModels($include_aliases = true) {
         $models = $this->models;

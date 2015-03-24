@@ -10,9 +10,10 @@ use XeroPHP\Models\Accounting\Overpayment\Allocation;
 class Overpayment extends Remote\Object {
 
     /**
-     * An optional field to store a reference
+     * This property has been removed from the Xero API
      *
      * @property string Reference
+     * @deprecated
      */
 
     /**
@@ -213,6 +214,7 @@ class Overpayment extends Remote\Object {
 
     /**
      * @return string
+     * @deprecated
      */
     public function getReference(){
         return $this->_data['Reference'];
@@ -221,6 +223,7 @@ class Overpayment extends Remote\Object {
     /**
      * @param string $value
      * @return Overpayment
+     * @deprecated
      */
     public function setReference($value){
         $this->propertyUpdated('Reference', $value);

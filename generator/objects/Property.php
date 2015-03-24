@@ -17,12 +17,13 @@ class Property {
 
     private $related_object;
 
-    public function __construct($name, $description, $mandatory = false, $read_only = false){
+    public function __construct($name, $description, $mandatory = false, $read_only = false, $deprecated = false){
         if(strpos($name, '(deprecated)')){
             $name = str_replace('(deprecated)', '', $name);
-            $this->is_deprecated = true;
+            $deprecated = true;
         }
 
+        $this->is_deprecated = $deprecated;
         $this->is_mandatory = $mandatory;
         $this->is_read_only = $read_only;
         $this->name = $name;

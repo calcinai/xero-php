@@ -75,6 +75,7 @@ class Model {
     /**
      * Get the class name for the Model. Purely based on the name property.
      *
+     * @param bool $with_ns
      * @return mixed
      */
     public function getClassName($with_ns = false){
@@ -130,12 +131,38 @@ class Model {
 
 
     /**
-     * @param Property $properties
+     * Bit of a messy way to add properties at a position.  Just so it doesn't muck about the generated property order.
+     * As it's an associative array there's not a lot else that can be done.
+     * It's not crucial that the order stays the same either.
+     *
+     * @param Property $property
+     * @param null $insert_position
      */
-    public function addProperty(Property $property) {
+    public function addProperty(Property $property, $insert_position = null) {
         $property->setModel($this);
-        $this->properties[$property->getName()] = $property;
+
+        //This is so it can be retrospectively added in the case of deprecation.
+        if($insert_position !== null){
+            $properties = array();
+            $property_position = 0;
+            foreach($this->properties as $existing_name => $existing_property){
+                if($property_position === $insert_position){
+                    $properties[$property->getName()] = $property;
+                }
+                $properties[$existing_name] = $existing_property;
+            }
+            $this->properties = $properties;
+
+        } else {
+            $this->properties[$property->getName()] = $property;
+        }
     }
+
+
+    public function hasProperty($property_name){
+        return isset($this->properties[$property_name]);
+    }
+
 
     /**
      * @return mixed

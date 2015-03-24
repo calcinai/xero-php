@@ -120,6 +120,7 @@ e.g.
     const ACCOUNT_TYPE_EQUITY                  = 'EQUITY';
     const ACCOUNT_TYPE_EXPENSE                 = 'EXPENSE';
     const ACCOUNT_TYPE_FIXED                   = 'FIXED';
+    const ACCOUNT_TYPE_INVENTORY               = 'INVENTORY';
     const ACCOUNT_TYPE_LIABILITY               = 'LIABILITY';
     const ACCOUNT_TYPE_NONCURRENT              = 'NONCURRENT';
     const ACCOUNT_TYPE_OTHERINCOME             = 'OTHERINCOME';

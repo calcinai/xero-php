@@ -306,6 +306,7 @@ A UTC timestamp
 
     /**
      * @return string
+     * @deprecated
      */
     public function getSPIN(){
         return $this->_data['SPIN'];
@@ -314,6 +315,7 @@ A UTC timestamp
     /**
      * @param string $value
      * @return SuperFund
+     * @deprecated
      */
     public function setSPIN($value){
         $this->propertyUpdated('SPIN', $value);

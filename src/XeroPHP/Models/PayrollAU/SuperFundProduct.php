@@ -140,6 +140,7 @@ class SuperFundProduct extends Remote\Object {
 
     /**
      * @return string
+     * @deprecated
      */
     public function getSPIN(){
         return $this->_data['SPIN'];
@@ -148,6 +149,7 @@ class SuperFundProduct extends Remote\Object {
     /**
      * @param string $value
      * @return SuperFundProduct
+     * @deprecated
      */
     public function setSPIN($value){
         $this->propertyUpdated('SPIN', $value);

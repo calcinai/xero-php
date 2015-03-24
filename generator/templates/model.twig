@@ -106,6 +106,8 @@ class {{ model.ClassName }} extends Remote\Object {
     /**
      * @return {{ property.PHPType }}{% if property.isArray %}[]{% endif %}
 
+{% if property.isDeprecated %}     * @deprecated
+{% endif %}
      */
     public function get{{ property.Name }}(){
         return $this->_data['{{ property.Name }}'];
@@ -115,6 +117,8 @@ class {{ model.ClassName }} extends Remote\Object {
     /**
      * @param {{ property.PHPType }} $value
      * @return {{ model.ClassName }}
+{% if property.isDeprecated %}     * @deprecated
+{% endif %}
      */
     public function {% if property.isArray %}add{% else %}set{% endif %}{{ property.NameSingular }}({% if property.isHintable %}{{ property.PHPType }} {% endif %}$value){
         $this->propertyUpdated('{{ property.Name }}', $value);
