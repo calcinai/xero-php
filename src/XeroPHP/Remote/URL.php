@@ -15,13 +15,13 @@ use XeroPHP\Exception;
  */
 class URL {
 
-    const API_CORE      = 'api.xro';
-    const API_PAYROLL   = 'payroll.xro';
-    const API_FILE      = 'file.xro';
+    const API_CORE    = 'api.xro';
+    const API_PAYROLL = 'payroll.xro';
+    const API_FILE    = 'file.xro';
 
-    const OAUTH_AUTHORIZE       = 'Authorize';
-    const OAUTH_REQUEST_TOKEN   = 'RequestToken';
-    const OAUTH_ACCESS_TOKEN    = 'AccessToken';
+    const OAUTH_AUTHORIZE     = 'Authorize';
+    const OAUTH_REQUEST_TOKEN = 'RequestToken';
+    const OAUTH_ACCESS_TOKEN  = 'AccessToken';
 
     /**
      * @var string The base API URL for the ap type
@@ -42,15 +42,15 @@ class URL {
      * @param null $api
      * @throws \XeroPHP\Exception
      */
-    public function __construct(Application $app, $endpoint, $api = null){
+    public function __construct(Application $app, $endpoint, $api = null) {
 
-        if($api === null){
+        if($api === null) {
             //Assume that it's an OAuth endpoint if no API is given.
             //If this becomes an issue it can just check every time, but it seems a little redundant
             $oauth_endpoints = $app->getConfig('oauth');
             $this->is_oauth = false;
 
-            switch($endpoint){
+            switch($endpoint) {
                 case self::OAUTH_AUTHORIZE:
                     $this->path = $oauth_endpoints['authorize_path'];
                     $this->is_oauth = true;
@@ -76,8 +76,8 @@ class URL {
         $this->endpoint = $endpoint;
 
         //Check here that the URI hasn't been set by one of the OAuth methods and handle as normal
-        if(!isset($this->path)){
-            switch($api){
+        if(!isset($this->path)) {
+            switch($api) {
                 case self::API_CORE:
                     $version = $xero_config['core_version'];
                     break;
@@ -96,14 +96,14 @@ class URL {
     }
 
 
-    public function isOAuth(){
+    public function isOAuth() {
         return $this->is_oauth;
     }
 
     /**
      * @return string
      */
-    public function getFullURL(){
+    public function getFullURL() {
         return sprintf('%s/%s', $this->base_url, $this->path);
     }
 

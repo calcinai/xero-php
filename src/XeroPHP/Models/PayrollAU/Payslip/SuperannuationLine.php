@@ -63,50 +63,50 @@ class SuperannuationLine extends Remote\Object {
 
 
 
-    /*
-    * Get the resource uri of the class (Contacts) etc
-    *
-    * @return string
-    */
+    /**
+     * Get the resource uri of the class (Contacts) etc
+     *
+     * @return string
+     */
     public static function getResourceURI(){
         return null;
     }
 
 
-    /*
-    * Get the root node name.  Just the unqualified classname
-    *
-    * @return string
-    */
+    /**
+     * Get the root node name.  Just the unqualified classname
+     *
+     * @return string
+     */
     public static function getRootNodeName(){
         return 'SuperannuationLine';
     }
 
 
-    /*
-    * Get the guid property
-    *
-    * @return string
-    */
+    /**
+     * Get the guid property
+     *
+     * @return string
+     */
     public static function getGUIDProperty(){
         return '';
     }
 
 
     /**
-    * Get the stem of the API (core.xro) etc
-    *
-    * @return string|null
-    */
+     * Get the stem of the API (core.xro) etc
+     *
+     * @return string|null
+     */
     public static function getAPIStem(){
         return Remote\URL::API_PAYROLL;
     }
 
 
-    /*
-    * Get the supported methods
-    */
-    public static function getSupportedMethods(){
+    /**
+     * Get the supported methods
+     */
+    public static function getSupportedMethods() {
         return array(
         );
     }
@@ -121,7 +121,7 @@ class SuperannuationLine extends Remote\Object {
      *
      * @return array
      */
-    public static function getProperties(){
+    public static function getProperties() {
         return array(
             'SuperMembershipID' => array (false, self::PROPERTY_TYPE_STRING, null, false),
             'ContributionType' => array (false, self::PROPERTY_TYPE_STRING, null, false),
@@ -139,7 +139,7 @@ class SuperannuationLine extends Remote\Object {
     /**
      * @return string
      */
-    public function getSuperMembershipID(){
+    public function getSuperMembershipID() {
         return $this->_data['SuperMembershipID'];
     }
 
@@ -147,7 +147,7 @@ class SuperannuationLine extends Remote\Object {
      * @param string $value
      * @return SuperannuationLine
      */
-    public function setSuperMembershipID($value){
+    public function setSuperMembershipID($value) {
         $this->propertyUpdated('SuperMembershipID', $value);
         $this->_data['SuperMembershipID'] = $value;
         return $this;
@@ -156,7 +156,7 @@ class SuperannuationLine extends Remote\Object {
     /**
      * @return string
      */
-    public function getContributionType(){
+    public function getContributionType() {
         return $this->_data['ContributionType'];
     }
 
@@ -164,7 +164,7 @@ class SuperannuationLine extends Remote\Object {
      * @param string $value
      * @return SuperannuationLine
      */
-    public function setContributionType($value){
+    public function setContributionType($value) {
         $this->propertyUpdated('ContributionType', $value);
         $this->_data['ContributionType'] = $value;
         return $this;
@@ -173,7 +173,7 @@ class SuperannuationLine extends Remote\Object {
     /**
      * @return string
      */
-    public function getCalculationType(){
+    public function getCalculationType() {
         return $this->_data['CalculationType'];
     }
 
@@ -181,7 +181,7 @@ class SuperannuationLine extends Remote\Object {
      * @param string $value
      * @return SuperannuationLine
      */
-    public function setCalculationType($value){
+    public function setCalculationType($value) {
         $this->propertyUpdated('CalculationType', $value);
         $this->_data['CalculationType'] = $value;
         return $this;
@@ -190,7 +190,7 @@ class SuperannuationLine extends Remote\Object {
     /**
      * @return string[]
      */
-    public function getMinimumMonthlyEarnings(){
+    public function getMinimumMonthlyEarnings() {
         return $this->_data['MinimumMonthlyEarnings'];
     }
 
@@ -198,7 +198,7 @@ class SuperannuationLine extends Remote\Object {
      * @param string $value
      * @return SuperannuationLine
      */
-    public function addMinimumMonthlyEarning($value){
+    public function addMinimumMonthlyEarning($value) {
         $this->propertyUpdated('MinimumMonthlyEarnings', $value);
         $this->_data['MinimumMonthlyEarnings'][] = $value;
         return $this;
@@ -207,7 +207,7 @@ class SuperannuationLine extends Remote\Object {
     /**
      * @return string
      */
-    public function getExpenseAccountCode(){
+    public function getExpenseAccountCode() {
         return $this->_data['ExpenseAccountCode'];
     }
 
@@ -215,7 +215,7 @@ class SuperannuationLine extends Remote\Object {
      * @param string $value
      * @return SuperannuationLine
      */
-    public function setExpenseAccountCode($value){
+    public function setExpenseAccountCode($value) {
         $this->propertyUpdated('ExpenseAccountCode', $value);
         $this->_data['ExpenseAccountCode'] = $value;
         return $this;
@@ -224,7 +224,7 @@ class SuperannuationLine extends Remote\Object {
     /**
      * @return string
      */
-    public function getLiabilityAccountCode(){
+    public function getLiabilityAccountCode() {
         return $this->_data['LiabilityAccountCode'];
     }
 
@@ -232,7 +232,7 @@ class SuperannuationLine extends Remote\Object {
      * @param string $value
      * @return SuperannuationLine
      */
-    public function setLiabilityAccountCode($value){
+    public function setLiabilityAccountCode($value) {
         $this->propertyUpdated('LiabilityAccountCode', $value);
         $this->_data['LiabilityAccountCode'] = $value;
         return $this;
@@ -241,7 +241,7 @@ class SuperannuationLine extends Remote\Object {
     /**
      * @return \DateTime
      */
-    public function getPaymentDateForThisPeriod(){
+    public function getPaymentDateForThisPeriod() {
         return $this->_data['PaymentDateForThisPeriod'];
     }
 
@@ -249,7 +249,7 @@ class SuperannuationLine extends Remote\Object {
      * @param \DateTime $value
      * @return SuperannuationLine
      */
-    public function setPaymentDateForThisPeriod(\DateTime $value){
+    public function setPaymentDateForThisPeriod(\DateTime $value) {
         $this->propertyUpdated('PaymentDateForThisPeriod', $value);
         $this->_data['PaymentDateForThisPeriod'] = $value;
         return $this;
@@ -258,7 +258,7 @@ class SuperannuationLine extends Remote\Object {
     /**
      * @return string
      */
-    public function getPercentage(){
+    public function getPercentage() {
         return $this->_data['Percentage'];
     }
 
@@ -266,7 +266,7 @@ class SuperannuationLine extends Remote\Object {
      * @param string $value
      * @return SuperannuationLine
      */
-    public function setPercentage($value){
+    public function setPercentage($value) {
         $this->propertyUpdated('Percentage', $value);
         $this->_data['Percentage'] = $value;
         return $this;
@@ -275,7 +275,7 @@ class SuperannuationLine extends Remote\Object {
     /**
      * @return float
      */
-    public function getAmount(){
+    public function getAmount() {
         return $this->_data['Amount'];
     }
 
@@ -283,7 +283,7 @@ class SuperannuationLine extends Remote\Object {
      * @param float $value
      * @return SuperannuationLine
      */
-    public function setAmount($value){
+    public function setAmount($value) {
         $this->propertyUpdated('Amount', $value);
         $this->_data['Amount'] = $value;
         return $this;

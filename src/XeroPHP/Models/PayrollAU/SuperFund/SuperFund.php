@@ -92,50 +92,50 @@ A UTC timestamp
     const TYPE_SMSF      = 'SMSF';
 
 
-    /*
-    * Get the resource uri of the class (Contacts) etc
-    *
-    * @return string
-    */
+    /**
+     * Get the resource uri of the class (Contacts) etc
+     *
+     * @return string
+     */
     public static function getResourceURI(){
         return null;
     }
 
 
-    /*
-    * Get the root node name.  Just the unqualified classname
-    *
-    * @return string
-    */
+    /**
+     * Get the root node name.  Just the unqualified classname
+     *
+     * @return string
+     */
     public static function getRootNodeName(){
         return 'SuperFund';
     }
 
 
-    /*
-    * Get the guid property
-    *
-    * @return string
-    */
+    /**
+     * Get the guid property
+     *
+     * @return string
+     */
     public static function getGUIDProperty(){
         return 'SuperFundID';
     }
 
 
     /**
-    * Get the stem of the API (core.xro) etc
-    *
-    * @return string|null
-    */
+     * Get the stem of the API (core.xro) etc
+     *
+     * @return string|null
+     */
     public static function getAPIStem(){
         return Remote\URL::API_PAYROLL;
     }
 
 
-    /*
-    * Get the supported methods
-    */
-    public static function getSupportedMethods(){
+    /**
+     * Get the supported methods
+     */
+    public static function getSupportedMethods() {
         return array(
         );
     }
@@ -150,7 +150,7 @@ A UTC timestamp
      *
      * @return array
      */
-    public static function getProperties(){
+    public static function getProperties() {
         return array(
             'Type' => array (false, self::PROPERTY_TYPE_ENUM, null, false),
             'Name' => array (false, self::PROPERTY_TYPE_STRING, null, false),
@@ -171,7 +171,7 @@ A UTC timestamp
     /**
      * @return string
      */
-    public function getType(){
+    public function getType() {
         return $this->_data['Type'];
     }
 
@@ -179,7 +179,7 @@ A UTC timestamp
      * @param string $value
      * @return SuperFund
      */
-    public function setType($value){
+    public function setType($value) {
         $this->propertyUpdated('Type', $value);
         $this->_data['Type'] = $value;
         return $this;
@@ -188,7 +188,7 @@ A UTC timestamp
     /**
      * @return string
      */
-    public function getName(){
+    public function getName() {
         return $this->_data['Name'];
     }
 
@@ -196,7 +196,7 @@ A UTC timestamp
      * @param string $value
      * @return SuperFund
      */
-    public function setName($value){
+    public function setName($value) {
         $this->propertyUpdated('Name', $value);
         $this->_data['Name'] = $value;
         return $this;
@@ -205,7 +205,7 @@ A UTC timestamp
     /**
      * @return string
      */
-    public function getABN(){
+    public function getABN() {
         return $this->_data['ABN'];
     }
 
@@ -213,7 +213,7 @@ A UTC timestamp
      * @param string $value
      * @return SuperFund
      */
-    public function setABN($value){
+    public function setABN($value) {
         $this->propertyUpdated('ABN', $value);
         $this->_data['ABN'] = $value;
         return $this;
@@ -222,7 +222,7 @@ A UTC timestamp
     /**
      * @return string
      */
-    public function getBSB(){
+    public function getBSB() {
         return $this->_data['BSB'];
     }
 
@@ -230,7 +230,7 @@ A UTC timestamp
      * @param string $value
      * @return SuperFund
      */
-    public function setBSB($value){
+    public function setBSB($value) {
         $this->propertyUpdated('BSB', $value);
         $this->_data['BSB'] = $value;
         return $this;
@@ -239,7 +239,7 @@ A UTC timestamp
     /**
      * @return string
      */
-    public function getAccountNumber(){
+    public function getAccountNumber() {
         return $this->_data['AccountNumber'];
     }
 
@@ -247,7 +247,7 @@ A UTC timestamp
      * @param string $value
      * @return SuperFund
      */
-    public function setAccountNumber($value){
+    public function setAccountNumber($value) {
         $this->propertyUpdated('AccountNumber', $value);
         $this->_data['AccountNumber'] = $value;
         return $this;
@@ -256,7 +256,7 @@ A UTC timestamp
     /**
      * @return string
      */
-    public function getAccountName(){
+    public function getAccountName() {
         return $this->_data['AccountName'];
     }
 
@@ -264,7 +264,7 @@ A UTC timestamp
      * @param string $value
      * @return SuperFund
      */
-    public function setAccountName($value){
+    public function setAccountName($value) {
         $this->propertyUpdated('AccountName', $value);
         $this->_data['AccountName'] = $value;
         return $this;
@@ -273,7 +273,7 @@ A UTC timestamp
     /**
      * @return string
      */
-    public function getSuperFundID(){
+    public function getSuperFundID() {
         return $this->_data['SuperFundID'];
     }
 
@@ -281,7 +281,7 @@ A UTC timestamp
      * @param string $value
      * @return SuperFund
      */
-    public function setSuperFundID($value){
+    public function setSuperFundID($value) {
         $this->propertyUpdated('SuperFundID', $value);
         $this->_data['SuperFundID'] = $value;
         return $this;
@@ -290,7 +290,7 @@ A UTC timestamp
     /**
      * @return string
      */
-    public function getEmployerNumber(){
+    public function getEmployerNumber() {
         return $this->_data['EmployerNumber'];
     }
 
@@ -298,7 +298,7 @@ A UTC timestamp
      * @param string $value
      * @return SuperFund
      */
-    public function setEmployerNumber($value){
+    public function setEmployerNumber($value) {
         $this->propertyUpdated('EmployerNumber', $value);
         $this->_data['EmployerNumber'] = $value;
         return $this;
@@ -308,7 +308,7 @@ A UTC timestamp
      * @return string
      * @deprecated
      */
-    public function getSPIN(){
+    public function getSPIN() {
         return $this->_data['SPIN'];
     }
 
@@ -317,7 +317,7 @@ A UTC timestamp
      * @return SuperFund
      * @deprecated
      */
-    public function setSPIN($value){
+    public function setSPIN($value) {
         $this->propertyUpdated('SPIN', $value);
         $this->_data['SPIN'] = $value;
         return $this;
@@ -326,7 +326,7 @@ A UTC timestamp
     /**
      * @return string
      */
-    public function getRecordfilter(){
+    public function getRecordfilter() {
         return $this->_data['Recordfilter'];
     }
 
@@ -334,7 +334,7 @@ A UTC timestamp
      * @param string $value
      * @return SuperFund
      */
-    public function setRecordfilter($value){
+    public function setRecordfilter($value) {
         $this->propertyUpdated('Recordfilter', $value);
         $this->_data['Recordfilter'] = $value;
         return $this;
@@ -343,7 +343,7 @@ A UTC timestamp
     /**
      * @return string
      */
-    public function get(){
+    public function get() {
         return $this->_data[''];
     }
 
@@ -351,7 +351,7 @@ A UTC timestamp
      * @param string $value
      * @return SuperFund
      */
-    public function set($value){
+    public function set($value) {
         $this->propertyUpdated('', $value);
         $this->_data[''] = $value;
         return $this;
@@ -360,7 +360,7 @@ A UTC timestamp
     /**
      * @return \DateTime
      */
-    public function getModifiedAfter(){
+    public function getModifiedAfter() {
         return $this->_data['ModifiedAfter'];
     }
 
@@ -368,7 +368,7 @@ A UTC timestamp
      * @param \DateTime $value
      * @return SuperFund
      */
-    public function setModifiedAfter(\DateTime $value){
+    public function setModifiedAfter(\DateTime $value) {
         $this->propertyUpdated('ModifiedAfter', $value);
         $this->_data['ModifiedAfter'] = $value;
         return $this;

@@ -63,50 +63,50 @@ class ExpenseClaim extends Remote\Object {
 
 
 
-    /*
-    * Get the resource uri of the class (Contacts) etc
-    *
-    * @return string
-    */
+    /**
+     * Get the resource uri of the class (Contacts) etc
+     *
+     * @return string
+     */
     public static function getResourceURI(){
         return null;
     }
 
 
-    /*
-    * Get the root node name.  Just the unqualified classname
-    *
-    * @return string
-    */
+    /**
+     * Get the root node name.  Just the unqualified classname
+     *
+     * @return string
+     */
     public static function getRootNodeName(){
         return 'ExpenseClaim';
     }
 
 
-    /*
-    * Get the guid property
-    *
-    * @return string
-    */
+    /**
+     * Get the guid property
+     *
+     * @return string
+     */
     public static function getGUIDProperty(){
         return 'ExpenseClaimID';
     }
 
 
     /**
-    * Get the stem of the API (core.xro) etc
-    *
-    * @return string|null
-    */
+     * Get the stem of the API (core.xro) etc
+     *
+     * @return string|null
+     */
     public static function getAPIStem(){
         return Remote\URL::API_CORE;
     }
 
 
-    /*
-    * Get the supported methods
-    */
-    public static function getSupportedMethods(){
+    /**
+     * Get the supported methods
+     */
+    public static function getSupportedMethods() {
         return array(
         );
     }
@@ -121,7 +121,7 @@ class ExpenseClaim extends Remote\Object {
      *
      * @return array
      */
-    public static function getProperties(){
+    public static function getProperties() {
         return array(
             'ExpenseClaimID' => array (false, self::PROPERTY_TYPE_STRING, null, false),
             'Status' => array (false, self::PROPERTY_TYPE_STRING, null, false),
@@ -139,7 +139,7 @@ class ExpenseClaim extends Remote\Object {
     /**
      * @return string
      */
-    public function getExpenseClaimID(){
+    public function getExpenseClaimID() {
         return $this->_data['ExpenseClaimID'];
     }
 
@@ -147,7 +147,7 @@ class ExpenseClaim extends Remote\Object {
     /**
      * @return string
      */
-    public function getStatus(){
+    public function getStatus() {
         return $this->_data['Status'];
     }
 
@@ -155,7 +155,7 @@ class ExpenseClaim extends Remote\Object {
     /**
      * @return \DateTime
      */
-    public function getUpdatedDateUTC(){
+    public function getUpdatedDateUTC() {
         return $this->_data['UpdatedDateUTC'];
     }
 
@@ -163,7 +163,7 @@ class ExpenseClaim extends Remote\Object {
     /**
      * @return float
      */
-    public function getTotal(){
+    public function getTotal() {
         return $this->_data['Total'];
     }
 
@@ -171,7 +171,7 @@ class ExpenseClaim extends Remote\Object {
     /**
      * @return float
      */
-    public function getAmountDue(){
+    public function getAmountDue() {
         return $this->_data['AmountDue'];
     }
 
@@ -179,7 +179,7 @@ class ExpenseClaim extends Remote\Object {
     /**
      * @return float
      */
-    public function getAmountPaid(){
+    public function getAmountPaid() {
         return $this->_data['AmountPaid'];
     }
 
@@ -187,7 +187,7 @@ class ExpenseClaim extends Remote\Object {
     /**
      * @return \DateTime
      */
-    public function getPaymentDueDate(){
+    public function getPaymentDueDate() {
         return $this->_data['PaymentDueDate'];
     }
 
@@ -195,7 +195,7 @@ class ExpenseClaim extends Remote\Object {
     /**
      * @return \DateTime
      */
-    public function getReportingDate(){
+    public function getReportingDate() {
         return $this->_data['ReportingDate'];
     }
 
@@ -203,7 +203,7 @@ class ExpenseClaim extends Remote\Object {
     /**
      * @return string
      */
-    public function getReceiptID(){
+    public function getReceiptID() {
         return $this->_data['ReceiptID'];
     }
 
@@ -211,7 +211,7 @@ class ExpenseClaim extends Remote\Object {
      * @param string $value
      * @return ExpenseClaim
      */
-    public function setReceiptID($value){
+    public function setReceiptID($value) {
         $this->propertyUpdated('ReceiptID', $value);
         $this->_data['ReceiptID'] = $value;
         return $this;

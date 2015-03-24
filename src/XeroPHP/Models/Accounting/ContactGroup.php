@@ -37,50 +37,50 @@ e.g.
 
 
 
-    /*
-    * Get the resource uri of the class (Contacts) etc
-    *
-    * @return string
-    */
+    /**
+     * Get the resource uri of the class (Contacts) etc
+     *
+     * @return string
+     */
     public static function getResourceURI(){
         return 'ContactGroups';
     }
 
 
-    /*
-    * Get the root node name.  Just the unqualified classname
-    *
-    * @return string
-    */
+    /**
+     * Get the root node name.  Just the unqualified classname
+     *
+     * @return string
+     */
     public static function getRootNodeName(){
         return 'ContactGroup';
     }
 
 
-    /*
-    * Get the guid property
-    *
-    * @return string
-    */
+    /**
+     * Get the guid property
+     *
+     * @return string
+     */
     public static function getGUIDProperty(){
         return 'ContactGroupID';
     }
 
 
     /**
-    * Get the stem of the API (core.xro) etc
-    *
-    * @return string|null
-    */
+     * Get the stem of the API (core.xro) etc
+     *
+     * @return string|null
+     */
     public static function getAPIStem(){
         return Remote\URL::API_CORE;
     }
 
 
-    /*
-    * Get the supported methods
-    */
-    public static function getSupportedMethods(){
+    /**
+     * Get the supported methods
+     */
+    public static function getSupportedMethods() {
         return array(
             Remote\Request::METHOD_GET,
             Remote\Request::METHOD_PUT,
@@ -99,7 +99,7 @@ e.g.
      *
      * @return array
      */
-    public static function getProperties(){
+    public static function getProperties() {
         return array(
             'Name' => array (false, self::PROPERTY_TYPE_STRING, null, false),
             'Status' => array (false, self::PROPERTY_TYPE_STRING, null, false),
@@ -112,7 +112,7 @@ e.g.
     /**
      * @return string
      */
-    public function getName(){
+    public function getName() {
         return $this->_data['Name'];
     }
 
@@ -120,7 +120,7 @@ e.g.
      * @param string $value
      * @return ContactGroup
      */
-    public function setName($value){
+    public function setName($value) {
         $this->propertyUpdated('Name', $value);
         $this->_data['Name'] = $value;
         return $this;
@@ -129,7 +129,7 @@ e.g.
     /**
      * @return string
      */
-    public function getStatus(){
+    public function getStatus() {
         return $this->_data['Status'];
     }
 
@@ -137,7 +137,7 @@ e.g.
      * @param string $value
      * @return ContactGroup
      */
-    public function setStatus($value){
+    public function setStatus($value) {
         $this->propertyUpdated('Status', $value);
         $this->_data['Status'] = $value;
         return $this;
@@ -146,7 +146,7 @@ e.g.
     /**
      * @return string
      */
-    public function getContactGroupID(){
+    public function getContactGroupID() {
         return $this->_data['ContactGroupID'];
     }
 
@@ -154,7 +154,7 @@ e.g.
      * @param string $value
      * @return ContactGroup
      */
-    public function setContactGroupID($value){
+    public function setContactGroupID($value) {
         $this->propertyUpdated('ContactGroupID', $value);
         $this->_data['ContactGroupID'] = $value;
         return $this;
@@ -163,7 +163,7 @@ e.g.
     /**
      * @return Contact[]
      */
-    public function getContacts(){
+    public function getContacts() {
         return $this->_data['Contacts'];
     }
 
@@ -171,7 +171,7 @@ e.g.
      * @param Contact $value
      * @return ContactGroup
      */
-    public function addContact(Contact $value){
+    public function addContact(Contact $value) {
         $this->propertyUpdated('Contacts', $value);
         $this->_data['Contacts'][] = $value;
         return $this;

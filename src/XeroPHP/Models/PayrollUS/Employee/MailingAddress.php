@@ -51,50 +51,50 @@ class MailingAddress extends Remote\Object {
 
 
 
-    /*
-    * Get the resource uri of the class (Contacts) etc
-    *
-    * @return string
-    */
+    /**
+     * Get the resource uri of the class (Contacts) etc
+     *
+     * @return string
+     */
     public static function getResourceURI(){
         return null;
     }
 
 
-    /*
-    * Get the root node name.  Just the unqualified classname
-    *
-    * @return string
-    */
+    /**
+     * Get the root node name.  Just the unqualified classname
+     *
+     * @return string
+     */
     public static function getRootNodeName(){
         return 'MailingAddress';
     }
 
 
-    /*
-    * Get the guid property
-    *
-    * @return string
-    */
+    /**
+     * Get the guid property
+     *
+     * @return string
+     */
     public static function getGUIDProperty(){
         return '';
     }
 
 
     /**
-    * Get the stem of the API (core.xro) etc
-    *
-    * @return string|null
-    */
+     * Get the stem of the API (core.xro) etc
+     *
+     * @return string|null
+     */
     public static function getAPIStem(){
         return Remote\URL::API_PAYROLL;
     }
 
 
-    /*
-    * Get the supported methods
-    */
-    public static function getSupportedMethods(){
+    /**
+     * Get the supported methods
+     */
+    public static function getSupportedMethods() {
         return array(
         );
     }
@@ -109,7 +109,7 @@ class MailingAddress extends Remote\Object {
      *
      * @return array
      */
-    public static function getProperties(){
+    public static function getProperties() {
         return array(
             'StreetAddress' => array (false, self::PROPERTY_TYPE_STRING, null, false),
             'SuiteOrAptOrUnit' => array (false, self::PROPERTY_TYPE_STRING, null, false),
@@ -125,7 +125,7 @@ class MailingAddress extends Remote\Object {
     /**
      * @return string
      */
-    public function getStreetAddress(){
+    public function getStreetAddress() {
         return $this->_data['StreetAddress'];
     }
 
@@ -133,7 +133,7 @@ class MailingAddress extends Remote\Object {
      * @param string $value
      * @return MailingAddress
      */
-    public function setStreetAddress($value){
+    public function setStreetAddress($value) {
         $this->propertyUpdated('StreetAddress', $value);
         $this->_data['StreetAddress'] = $value;
         return $this;
@@ -142,7 +142,7 @@ class MailingAddress extends Remote\Object {
     /**
      * @return string
      */
-    public function getSuiteOrAptOrUnit(){
+    public function getSuiteOrAptOrUnit() {
         return $this->_data['SuiteOrAptOrUnit'];
     }
 
@@ -150,7 +150,7 @@ class MailingAddress extends Remote\Object {
      * @param string $value
      * @return MailingAddress
      */
-    public function setSuiteOrAptOrUnit($value){
+    public function setSuiteOrAptOrUnit($value) {
         $this->propertyUpdated('SuiteOrAptOrUnit', $value);
         $this->_data['SuiteOrAptOrUnit'] = $value;
         return $this;
@@ -159,7 +159,7 @@ class MailingAddress extends Remote\Object {
     /**
      * @return string
      */
-    public function getCity(){
+    public function getCity() {
         return $this->_data['City'];
     }
 
@@ -167,7 +167,7 @@ class MailingAddress extends Remote\Object {
      * @param string $value
      * @return MailingAddress
      */
-    public function setCity($value){
+    public function setCity($value) {
         $this->propertyUpdated('City', $value);
         $this->_data['City'] = $value;
         return $this;
@@ -176,7 +176,7 @@ class MailingAddress extends Remote\Object {
     /**
      * @return string
      */
-    public function getState(){
+    public function getState() {
         return $this->_data['State'];
     }
 
@@ -184,7 +184,7 @@ class MailingAddress extends Remote\Object {
      * @param string $value
      * @return MailingAddress
      */
-    public function setState($value){
+    public function setState($value) {
         $this->propertyUpdated('State', $value);
         $this->_data['State'] = $value;
         return $this;
@@ -193,7 +193,7 @@ class MailingAddress extends Remote\Object {
     /**
      * @return string
      */
-    public function getZip(){
+    public function getZip() {
         return $this->_data['Zip'];
     }
 
@@ -201,7 +201,7 @@ class MailingAddress extends Remote\Object {
      * @param string $value
      * @return MailingAddress
      */
-    public function setZip($value){
+    public function setZip($value) {
         $this->propertyUpdated('Zip', $value);
         $this->_data['Zip'] = $value;
         return $this;
@@ -210,7 +210,7 @@ class MailingAddress extends Remote\Object {
     /**
      * @return string
      */
-    public function getLattitude(){
+    public function getLattitude() {
         return $this->_data['Lattitude'];
     }
 
@@ -218,7 +218,7 @@ class MailingAddress extends Remote\Object {
      * @param string $value
      * @return MailingAddress
      */
-    public function setLattitude($value){
+    public function setLattitude($value) {
         $this->propertyUpdated('Lattitude', $value);
         $this->_data['Lattitude'] = $value;
         return $this;
@@ -227,7 +227,7 @@ class MailingAddress extends Remote\Object {
     /**
      * @return string
      */
-    public function getLongitude(){
+    public function getLongitude() {
         return $this->_data['Longitude'];
     }
 
@@ -235,7 +235,7 @@ class MailingAddress extends Remote\Object {
      * @param string $value
      * @return MailingAddress
      */
-    public function setLongitude($value){
+    public function setLongitude($value) {
         $this->propertyUpdated('Longitude', $value);
         $this->_data['Longitude'] = $value;
         return $this;

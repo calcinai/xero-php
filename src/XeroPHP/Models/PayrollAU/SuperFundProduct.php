@@ -35,50 +35,50 @@ class SuperFundProduct extends Remote\Object {
 
 
 
-    /*
-    * Get the resource uri of the class (Contacts) etc
-    *
-    * @return string
-    */
+    /**
+     * Get the resource uri of the class (Contacts) etc
+     *
+     * @return string
+     */
     public static function getResourceURI(){
         return 'SuperFundProducts';
     }
 
 
-    /*
-    * Get the root node name.  Just the unqualified classname
-    *
-    * @return string
-    */
+    /**
+     * Get the root node name.  Just the unqualified classname
+     *
+     * @return string
+     */
     public static function getRootNodeName(){
         return 'SuperFundProduct';
     }
 
 
-    /*
-    * Get the guid property
-    *
-    * @return string
-    */
+    /**
+     * Get the guid property
+     *
+     * @return string
+     */
     public static function getGUIDProperty(){
         return '';
     }
 
 
     /**
-    * Get the stem of the API (core.xro) etc
-    *
-    * @return string|null
-    */
+     * Get the stem of the API (core.xro) etc
+     *
+     * @return string|null
+     */
     public static function getAPIStem(){
         return Remote\URL::API_PAYROLL;
     }
 
 
-    /*
-    * Get the supported methods
-    */
-    public static function getSupportedMethods(){
+    /**
+     * Get the supported methods
+     */
+    public static function getSupportedMethods() {
         return array(
             Remote\Request::METHOD_GET
         );
@@ -94,7 +94,7 @@ class SuperFundProduct extends Remote\Object {
      *
      * @return array
      */
-    public static function getProperties(){
+    public static function getProperties() {
         return array(
             'ABN' => array (false, self::PROPERTY_TYPE_STRING, null, false),
             'USI' => array (false, self::PROPERTY_TYPE_STRING, null, false),
@@ -107,7 +107,7 @@ class SuperFundProduct extends Remote\Object {
     /**
      * @return string
      */
-    public function getABN(){
+    public function getABN() {
         return $this->_data['ABN'];
     }
 
@@ -115,7 +115,7 @@ class SuperFundProduct extends Remote\Object {
      * @param string $value
      * @return SuperFundProduct
      */
-    public function setABN($value){
+    public function setABN($value) {
         $this->propertyUpdated('ABN', $value);
         $this->_data['ABN'] = $value;
         return $this;
@@ -124,7 +124,7 @@ class SuperFundProduct extends Remote\Object {
     /**
      * @return string
      */
-    public function getUSI(){
+    public function getUSI() {
         return $this->_data['USI'];
     }
 
@@ -132,7 +132,7 @@ class SuperFundProduct extends Remote\Object {
      * @param string $value
      * @return SuperFundProduct
      */
-    public function setUSI($value){
+    public function setUSI($value) {
         $this->propertyUpdated('USI', $value);
         $this->_data['USI'] = $value;
         return $this;
@@ -142,7 +142,7 @@ class SuperFundProduct extends Remote\Object {
      * @return string
      * @deprecated
      */
-    public function getSPIN(){
+    public function getSPIN() {
         return $this->_data['SPIN'];
     }
 
@@ -151,7 +151,7 @@ class SuperFundProduct extends Remote\Object {
      * @return SuperFundProduct
      * @deprecated
      */
-    public function setSPIN($value){
+    public function setSPIN($value) {
         $this->propertyUpdated('SPIN', $value);
         $this->_data['SPIN'] = $value;
         return $this;
@@ -160,7 +160,7 @@ class SuperFundProduct extends Remote\Object {
     /**
      * @return string
      */
-    public function getProductName(){
+    public function getProductName() {
         return $this->_data['ProductName'];
     }
 
@@ -168,7 +168,7 @@ class SuperFundProduct extends Remote\Object {
      * @param string $value
      * @return SuperFundProduct
      */
-    public function setProductName($value){
+    public function setProductName($value) {
         $this->propertyUpdated('ProductName', $value);
         $this->_data['ProductName'] = $value;
         return $this;

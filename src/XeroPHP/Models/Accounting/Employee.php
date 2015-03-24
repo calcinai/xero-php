@@ -43,50 +43,50 @@ The description of the link is auto-generated in the form “Go to <App name>”
 
 
 
-    /*
-    * Get the resource uri of the class (Contacts) etc
-    *
-    * @return string
-    */
+    /**
+     * Get the resource uri of the class (Contacts) etc
+     *
+     * @return string
+     */
     public static function getResourceURI(){
         return 'Employees';
     }
 
 
-    /*
-    * Get the root node name.  Just the unqualified classname
-    *
-    * @return string
-    */
+    /**
+     * Get the root node name.  Just the unqualified classname
+     *
+     * @return string
+     */
     public static function getRootNodeName(){
         return 'Employee';
     }
 
 
-    /*
-    * Get the guid property
-    *
-    * @return string
-    */
+    /**
+     * Get the guid property
+     *
+     * @return string
+     */
     public static function getGUIDProperty(){
         return 'EmployeeID';
     }
 
 
     /**
-    * Get the stem of the API (core.xro) etc
-    *
-    * @return string|null
-    */
+     * Get the stem of the API (core.xro) etc
+     *
+     * @return string|null
+     */
     public static function getAPIStem(){
         return Remote\URL::API_CORE;
     }
 
 
-    /*
-    * Get the supported methods
-    */
-    public static function getSupportedMethods(){
+    /**
+     * Get the supported methods
+     */
+    public static function getSupportedMethods() {
         return array(
             Remote\Request::METHOD_POST,
             Remote\Request::METHOD_PUT,
@@ -104,7 +104,7 @@ The description of the link is auto-generated in the form “Go to <App name>”
      *
      * @return array
      */
-    public static function getProperties(){
+    public static function getProperties() {
         return array(
             'EmployeeID' => array (false, self::PROPERTY_TYPE_STRING, null, false),
             'Status' => array (false, self::PROPERTY_TYPE_STRING, null, false),
@@ -118,7 +118,7 @@ The description of the link is auto-generated in the form “Go to <App name>”
     /**
      * @return string
      */
-    public function getEmployeeID(){
+    public function getEmployeeID() {
         return $this->_data['EmployeeID'];
     }
 
@@ -126,7 +126,7 @@ The description of the link is auto-generated in the form “Go to <App name>”
      * @param string $value
      * @return Employee
      */
-    public function setEmployeeID($value){
+    public function setEmployeeID($value) {
         $this->propertyUpdated('EmployeeID', $value);
         $this->_data['EmployeeID'] = $value;
         return $this;
@@ -135,7 +135,7 @@ The description of the link is auto-generated in the form “Go to <App name>”
     /**
      * @return string
      */
-    public function getStatus(){
+    public function getStatus() {
         return $this->_data['Status'];
     }
 
@@ -143,7 +143,7 @@ The description of the link is auto-generated in the form “Go to <App name>”
      * @param string $value
      * @return Employee
      */
-    public function setStatus($value){
+    public function setStatus($value) {
         $this->propertyUpdated('Status', $value);
         $this->_data['Status'] = $value;
         return $this;
@@ -152,7 +152,7 @@ The description of the link is auto-generated in the form “Go to <App name>”
     /**
      * @return string
      */
-    public function getFirstName(){
+    public function getFirstName() {
         return $this->_data['FirstName'];
     }
 
@@ -160,7 +160,7 @@ The description of the link is auto-generated in the form “Go to <App name>”
      * @param string $value
      * @return Employee
      */
-    public function setFirstName($value){
+    public function setFirstName($value) {
         $this->propertyUpdated('FirstName', $value);
         $this->_data['FirstName'] = $value;
         return $this;
@@ -169,7 +169,7 @@ The description of the link is auto-generated in the form “Go to <App name>”
     /**
      * @return string
      */
-    public function getLastName(){
+    public function getLastName() {
         return $this->_data['LastName'];
     }
 
@@ -177,7 +177,7 @@ The description of the link is auto-generated in the form “Go to <App name>”
      * @param string $value
      * @return Employee
      */
-    public function setLastName($value){
+    public function setLastName($value) {
         $this->propertyUpdated('LastName', $value);
         $this->_data['LastName'] = $value;
         return $this;
@@ -186,7 +186,7 @@ The description of the link is auto-generated in the form “Go to <App name>”
     /**
      * @return ExternalLink
      */
-    public function getExternalLink(){
+    public function getExternalLink() {
         return $this->_data['ExternalLink'];
     }
 
@@ -194,7 +194,7 @@ The description of the link is auto-generated in the form “Go to <App name>”
      * @param ExternalLink $value
      * @return Employee
      */
-    public function setExternalLink(ExternalLink $value){
+    public function setExternalLink(ExternalLink $value) {
         $this->propertyUpdated('ExternalLink', $value);
         $this->_data['ExternalLink'] = $value;
         return $this;

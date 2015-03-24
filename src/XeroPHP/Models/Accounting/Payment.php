@@ -97,50 +97,50 @@ class Payment extends Remote\Object {
     const PAYMENT_TYPE_APCREDITPAYMENT = 'APCREDITPAYMENT';
 
 
-    /*
-    * Get the resource uri of the class (Contacts) etc
-    *
-    * @return string
-    */
+    /**
+     * Get the resource uri of the class (Contacts) etc
+     *
+     * @return string
+     */
     public static function getResourceURI(){
         return 'Payments';
     }
 
 
-    /*
-    * Get the root node name.  Just the unqualified classname
-    *
-    * @return string
-    */
+    /**
+     * Get the root node name.  Just the unqualified classname
+     *
+     * @return string
+     */
     public static function getRootNodeName(){
         return 'Payment';
     }
 
 
-    /*
-    * Get the guid property
-    *
-    * @return string
-    */
+    /**
+     * Get the guid property
+     *
+     * @return string
+     */
     public static function getGUIDProperty(){
         return 'PaymentID';
     }
 
 
     /**
-    * Get the stem of the API (core.xro) etc
-    *
-    * @return string|null
-    */
+     * Get the stem of the API (core.xro) etc
+     *
+     * @return string|null
+     */
     public static function getAPIStem(){
         return Remote\URL::API_CORE;
     }
 
 
-    /*
-    * Get the supported methods
-    */
-    public static function getSupportedMethods(){
+    /**
+     * Get the supported methods
+     */
+    public static function getSupportedMethods() {
         return array(
             Remote\Request::METHOD_GET,
             Remote\Request::METHOD_PUT,
@@ -158,7 +158,7 @@ class Payment extends Remote\Object {
      *
      * @return array
      */
-    public static function getProperties(){
+    public static function getProperties() {
         return array(
             'CreditNote' => array (false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\CreditNote', false),
             'Invoice' => array (false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Invoice', false),
@@ -179,7 +179,7 @@ class Payment extends Remote\Object {
     /**
      * @return CreditNote
      */
-    public function getCreditNote(){
+    public function getCreditNote() {
         return $this->_data['CreditNote'];
     }
 
@@ -187,7 +187,7 @@ class Payment extends Remote\Object {
      * @param CreditNote $value
      * @return Payment
      */
-    public function setCreditNote(CreditNote $value){
+    public function setCreditNote(CreditNote $value) {
         $this->propertyUpdated('CreditNote', $value);
         $this->_data['CreditNote'] = $value;
         return $this;
@@ -196,7 +196,7 @@ class Payment extends Remote\Object {
     /**
      * @return Invoice
      */
-    public function getInvoice(){
+    public function getInvoice() {
         return $this->_data['Invoice'];
     }
 
@@ -204,7 +204,7 @@ class Payment extends Remote\Object {
      * @param Invoice $value
      * @return Payment
      */
-    public function setInvoice(Invoice $value){
+    public function setInvoice(Invoice $value) {
         $this->propertyUpdated('Invoice', $value);
         $this->_data['Invoice'] = $value;
         return $this;
@@ -213,7 +213,7 @@ class Payment extends Remote\Object {
     /**
      * @return Account
      */
-    public function getAccount(){
+    public function getAccount() {
         return $this->_data['Account'];
     }
 
@@ -221,7 +221,7 @@ class Payment extends Remote\Object {
      * @param Account $value
      * @return Payment
      */
-    public function setAccount(Account $value){
+    public function setAccount(Account $value) {
         $this->propertyUpdated('Account', $value);
         $this->_data['Account'] = $value;
         return $this;
@@ -230,7 +230,7 @@ class Payment extends Remote\Object {
     /**
      * @return \DateTime
      */
-    public function getDate(){
+    public function getDate() {
         return $this->_data['Date'];
     }
 
@@ -238,7 +238,7 @@ class Payment extends Remote\Object {
      * @param \DateTime $value
      * @return Payment
      */
-    public function setDate(\DateTime $value){
+    public function setDate(\DateTime $value) {
         $this->propertyUpdated('Date', $value);
         $this->_data['Date'] = $value;
         return $this;
@@ -247,7 +247,7 @@ class Payment extends Remote\Object {
     /**
      * @return float
      */
-    public function getCurrencyRate(){
+    public function getCurrencyRate() {
         return $this->_data['CurrencyRate'];
     }
 
@@ -255,7 +255,7 @@ class Payment extends Remote\Object {
      * @param float $value
      * @return Payment
      */
-    public function setCurrencyRate($value){
+    public function setCurrencyRate($value) {
         $this->propertyUpdated('CurrencyRate', $value);
         $this->_data['CurrencyRate'] = $value;
         return $this;
@@ -264,7 +264,7 @@ class Payment extends Remote\Object {
     /**
      * @return float
      */
-    public function getAmount(){
+    public function getAmount() {
         return $this->_data['Amount'];
     }
 
@@ -272,7 +272,7 @@ class Payment extends Remote\Object {
      * @param float $value
      * @return Payment
      */
-    public function setAmount($value){
+    public function setAmount($value) {
         $this->propertyUpdated('Amount', $value);
         $this->_data['Amount'] = $value;
         return $this;
@@ -281,7 +281,7 @@ class Payment extends Remote\Object {
     /**
      * @return string
      */
-    public function getReference(){
+    public function getReference() {
         return $this->_data['Reference'];
     }
 
@@ -289,7 +289,7 @@ class Payment extends Remote\Object {
      * @param string $value
      * @return Payment
      */
-    public function setReference($value){
+    public function setReference($value) {
         $this->propertyUpdated('Reference', $value);
         $this->_data['Reference'] = $value;
         return $this;
@@ -298,7 +298,7 @@ class Payment extends Remote\Object {
     /**
      * @return string
      */
-    public function getIsReconciled(){
+    public function getIsReconciled() {
         return $this->_data['IsReconciled'];
     }
 
@@ -306,7 +306,7 @@ class Payment extends Remote\Object {
      * @param string $value
      * @return Payment
      */
-    public function setIsReconciled($value){
+    public function setIsReconciled($value) {
         $this->propertyUpdated('IsReconciled', $value);
         $this->_data['IsReconciled'] = $value;
         return $this;
@@ -315,7 +315,7 @@ class Payment extends Remote\Object {
     /**
      * @return string
      */
-    public function getStatus(){
+    public function getStatus() {
         return $this->_data['Status'];
     }
 
@@ -323,7 +323,7 @@ class Payment extends Remote\Object {
     /**
      * @return string
      */
-    public function getPaymentType(){
+    public function getPaymentType() {
         return $this->_data['PaymentType'];
     }
 
@@ -331,7 +331,7 @@ class Payment extends Remote\Object {
     /**
      * @return \DateTime
      */
-    public function getUpdatedDateUTC(){
+    public function getUpdatedDateUTC() {
         return $this->_data['UpdatedDateUTC'];
     }
 
@@ -339,7 +339,7 @@ class Payment extends Remote\Object {
     /**
      * @return string
      */
-    public function getPaymentID(){
+    public function getPaymentID() {
         return $this->_data['PaymentID'];
     }
 
@@ -347,7 +347,7 @@ class Payment extends Remote\Object {
      * @param string $value
      * @return Payment
      */
-    public function setPaymentID($value){
+    public function setPaymentID($value) {
         $this->propertyUpdated('PaymentID', $value);
         $this->_data['PaymentID'] = $value;
         return $this;

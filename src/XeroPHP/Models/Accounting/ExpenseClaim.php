@@ -25,50 +25,50 @@ class ExpenseClaim extends Remote\Object {
     const EXPENSE_CLAIM_STATUS_PAID       = 'PAID';
 
 
-    /*
-    * Get the resource uri of the class (Contacts) etc
-    *
-    * @return string
-    */
+    /**
+     * Get the resource uri of the class (Contacts) etc
+     *
+     * @return string
+     */
     public static function getResourceURI(){
         return 'ExpenseClaims';
     }
 
 
-    /*
-    * Get the root node name.  Just the unqualified classname
-    *
-    * @return string
-    */
+    /**
+     * Get the root node name.  Just the unqualified classname
+     *
+     * @return string
+     */
     public static function getRootNodeName(){
         return 'ExpenseClaim';
     }
 
 
-    /*
-    * Get the guid property
-    *
-    * @return string
-    */
+    /**
+     * Get the guid property
+     *
+     * @return string
+     */
     public static function getGUIDProperty(){
         return '';
     }
 
 
     /**
-    * Get the stem of the API (core.xro) etc
-    *
-    * @return string|null
-    */
+     * Get the stem of the API (core.xro) etc
+     *
+     * @return string|null
+     */
     public static function getAPIStem(){
         return Remote\URL::API_CORE;
     }
 
 
-    /*
-    * Get the supported methods
-    */
-    public static function getSupportedMethods(){
+    /**
+     * Get the supported methods
+     */
+    public static function getSupportedMethods() {
         return array(
             Remote\Request::METHOD_GET,
             Remote\Request::METHOD_PUT,
@@ -86,7 +86,7 @@ class ExpenseClaim extends Remote\Object {
      *
      * @return array
      */
-    public static function getProperties(){
+    public static function getProperties() {
         return array(
             'User' => array (true, self::PROPERTY_TYPE_OBJECT, 'Accounting\\User', false),
             'Receipts' => array (true, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Receipt', true)
@@ -97,7 +97,7 @@ class ExpenseClaim extends Remote\Object {
     /**
      * @return User
      */
-    public function getUser(){
+    public function getUser() {
         return $this->_data['User'];
     }
 
@@ -105,7 +105,7 @@ class ExpenseClaim extends Remote\Object {
      * @param User $value
      * @return ExpenseClaim
      */
-    public function setUser(User $value){
+    public function setUser(User $value) {
         $this->propertyUpdated('User', $value);
         $this->_data['User'] = $value;
         return $this;
@@ -114,7 +114,7 @@ class ExpenseClaim extends Remote\Object {
     /**
      * @return Receipt[]
      */
-    public function getReceipts(){
+    public function getReceipts() {
         return $this->_data['Receipts'];
     }
 
@@ -122,7 +122,7 @@ class ExpenseClaim extends Remote\Object {
      * @param Receipt $value
      * @return ExpenseClaim
      */
-    public function addReceipt(Receipt $value){
+    public function addReceipt(Receipt $value) {
         $this->propertyUpdated('Receipts', $value);
         $this->_data['Receipts'][] = $value;
         return $this;

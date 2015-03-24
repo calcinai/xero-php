@@ -105,50 +105,50 @@ class Receipt extends Remote\Object {
     const RECEIPT_STATUS_DECLINED   = 'DECLINED';
 
 
-    /*
-    * Get the resource uri of the class (Contacts) etc
-    *
-    * @return string
-    */
+    /**
+     * Get the resource uri of the class (Contacts) etc
+     *
+     * @return string
+     */
     public static function getResourceURI(){
         return 'Receipts';
     }
 
 
-    /*
-    * Get the root node name.  Just the unqualified classname
-    *
-    * @return string
-    */
+    /**
+     * Get the root node name.  Just the unqualified classname
+     *
+     * @return string
+     */
     public static function getRootNodeName(){
         return 'Receipt';
     }
 
 
-    /*
-    * Get the guid property
-    *
-    * @return string
-    */
+    /**
+     * Get the guid property
+     *
+     * @return string
+     */
     public static function getGUIDProperty(){
         return 'ReceiptID';
     }
 
 
     /**
-    * Get the stem of the API (core.xro) etc
-    *
-    * @return string|null
-    */
+     * Get the stem of the API (core.xro) etc
+     *
+     * @return string|null
+     */
     public static function getAPIStem(){
         return Remote\URL::API_CORE;
     }
 
 
-    /*
-    * Get the supported methods
-    */
-    public static function getSupportedMethods(){
+    /**
+     * Get the supported methods
+     */
+    public static function getSupportedMethods() {
         return array(
             Remote\Request::METHOD_GET,
             Remote\Request::METHOD_PUT,
@@ -166,7 +166,7 @@ class Receipt extends Remote\Object {
      *
      * @return array
      */
-    public static function getProperties(){
+    public static function getProperties() {
         return array(
             'Date' => array (true, self::PROPERTY_TYPE_DATE, '\\DateTime', false),
             'Contact' => array (true, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Contact', false),
@@ -190,7 +190,7 @@ class Receipt extends Remote\Object {
     /**
      * @return \DateTime
      */
-    public function getDate(){
+    public function getDate() {
         return $this->_data['Date'];
     }
 
@@ -198,7 +198,7 @@ class Receipt extends Remote\Object {
      * @param \DateTime $value
      * @return Receipt
      */
-    public function setDate(\DateTime $value){
+    public function setDate(\DateTime $value) {
         $this->propertyUpdated('Date', $value);
         $this->_data['Date'] = $value;
         return $this;
@@ -207,7 +207,7 @@ class Receipt extends Remote\Object {
     /**
      * @return Contact
      */
-    public function getContact(){
+    public function getContact() {
         return $this->_data['Contact'];
     }
 
@@ -215,7 +215,7 @@ class Receipt extends Remote\Object {
      * @param Contact $value
      * @return Receipt
      */
-    public function setContact(Contact $value){
+    public function setContact(Contact $value) {
         $this->propertyUpdated('Contact', $value);
         $this->_data['Contact'] = $value;
         return $this;
@@ -224,7 +224,7 @@ class Receipt extends Remote\Object {
     /**
      * @return LineItem[]
      */
-    public function getLineitems(){
+    public function getLineitems() {
         return $this->_data['Lineitems'];
     }
 
@@ -232,7 +232,7 @@ class Receipt extends Remote\Object {
      * @param LineItem $value
      * @return Receipt
      */
-    public function addLineitem(LineItem $value){
+    public function addLineitem(LineItem $value) {
         $this->propertyUpdated('Lineitems', $value);
         $this->_data['Lineitems'][] = $value;
         return $this;
@@ -241,7 +241,7 @@ class Receipt extends Remote\Object {
     /**
      * @return User
      */
-    public function getUser(){
+    public function getUser() {
         return $this->_data['User'];
     }
 
@@ -249,7 +249,7 @@ class Receipt extends Remote\Object {
      * @param User $value
      * @return Receipt
      */
-    public function setUser(User $value){
+    public function setUser(User $value) {
         $this->propertyUpdated('User', $value);
         $this->_data['User'] = $value;
         return $this;
@@ -258,7 +258,7 @@ class Receipt extends Remote\Object {
     /**
      * @return string
      */
-    public function getReference(){
+    public function getReference() {
         return $this->_data['Reference'];
     }
 
@@ -266,7 +266,7 @@ class Receipt extends Remote\Object {
      * @param string $value
      * @return Receipt
      */
-    public function setReference($value){
+    public function setReference($value) {
         $this->propertyUpdated('Reference', $value);
         $this->_data['Reference'] = $value;
         return $this;
@@ -275,7 +275,7 @@ class Receipt extends Remote\Object {
     /**
      * @return float[]
      */
-    public function getLineAmountTypes(){
+    public function getLineAmountTypes() {
         return $this->_data['LineAmountTypes'];
     }
 
@@ -283,7 +283,7 @@ class Receipt extends Remote\Object {
      * @param float $value
      * @return Receipt
      */
-    public function addLineAmountType($value){
+    public function addLineAmountType($value) {
         $this->propertyUpdated('LineAmountTypes', $value);
         $this->_data['LineAmountTypes'][] = $value;
         return $this;
@@ -292,7 +292,7 @@ class Receipt extends Remote\Object {
     /**
      * @return float
      */
-    public function getSubTotal(){
+    public function getSubTotal() {
         return $this->_data['SubTotal'];
     }
 
@@ -300,7 +300,7 @@ class Receipt extends Remote\Object {
      * @param float $value
      * @return Receipt
      */
-    public function setSubTotal($value){
+    public function setSubTotal($value) {
         $this->propertyUpdated('SubTotal', $value);
         $this->_data['SubTotal'] = $value;
         return $this;
@@ -309,7 +309,7 @@ class Receipt extends Remote\Object {
     /**
      * @return float
      */
-    public function getTotalTax(){
+    public function getTotalTax() {
         return $this->_data['TotalTax'];
     }
 
@@ -317,7 +317,7 @@ class Receipt extends Remote\Object {
      * @param float $value
      * @return Receipt
      */
-    public function setTotalTax($value){
+    public function setTotalTax($value) {
         $this->propertyUpdated('TotalTax', $value);
         $this->_data['TotalTax'] = $value;
         return $this;
@@ -326,7 +326,7 @@ class Receipt extends Remote\Object {
     /**
      * @return float
      */
-    public function getTotal(){
+    public function getTotal() {
         return $this->_data['Total'];
     }
 
@@ -334,7 +334,7 @@ class Receipt extends Remote\Object {
      * @param float $value
      * @return Receipt
      */
-    public function setTotal($value){
+    public function setTotal($value) {
         $this->propertyUpdated('Total', $value);
         $this->_data['Total'] = $value;
         return $this;
@@ -343,7 +343,7 @@ class Receipt extends Remote\Object {
     /**
      * @return string
      */
-    public function getReceiptID(){
+    public function getReceiptID() {
         return $this->_data['ReceiptID'];
     }
 
@@ -351,7 +351,7 @@ class Receipt extends Remote\Object {
     /**
      * @return string
      */
-    public function getStatus(){
+    public function getStatus() {
         return $this->_data['Status'];
     }
 
@@ -359,7 +359,7 @@ class Receipt extends Remote\Object {
     /**
      * @return string
      */
-    public function getReceiptNumber(){
+    public function getReceiptNumber() {
         return $this->_data['ReceiptNumber'];
     }
 
@@ -367,7 +367,7 @@ class Receipt extends Remote\Object {
     /**
      * @return \DateTime
      */
-    public function getUpdatedDateUTC(){
+    public function getUpdatedDateUTC() {
         return $this->_data['UpdatedDateUTC'];
     }
 
@@ -375,7 +375,7 @@ class Receipt extends Remote\Object {
     /**
      * @return bool
      */
-    public function getHasAttachments(){
+    public function getHasAttachments() {
         return $this->_data['HasAttachments'];
     }
 
@@ -383,7 +383,7 @@ class Receipt extends Remote\Object {
     /**
      * @return string
      */
-    public function getUrl(){
+    public function getUrl() {
         return $this->_data['Url'];
     }
 

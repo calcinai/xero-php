@@ -34,50 +34,50 @@ class TrackingCategory extends Remote\Object {
 
 
 
-    /*
-    * Get the resource uri of the class (Contacts) etc
-    *
-    * @return string
-    */
+    /**
+     * Get the resource uri of the class (Contacts) etc
+     *
+     * @return string
+     */
     public static function getResourceURI(){
         return 'TrackingCategories';
     }
 
 
-    /*
-    * Get the root node name.  Just the unqualified classname
-    *
-    * @return string
-    */
+    /**
+     * Get the root node name.  Just the unqualified classname
+     *
+     * @return string
+     */
     public static function getRootNodeName(){
         return 'TrackingCategory';
     }
 
 
-    /*
-    * Get the guid property
-    *
-    * @return string
-    */
+    /**
+     * Get the guid property
+     *
+     * @return string
+     */
     public static function getGUIDProperty(){
         return 'TrackingCategoryID';
     }
 
 
     /**
-    * Get the stem of the API (core.xro) etc
-    *
-    * @return string|null
-    */
+     * Get the stem of the API (core.xro) etc
+     *
+     * @return string|null
+     */
     public static function getAPIStem(){
         return Remote\URL::API_CORE;
     }
 
 
-    /*
-    * Get the supported methods
-    */
-    public static function getSupportedMethods(){
+    /**
+     * Get the supported methods
+     */
+    public static function getSupportedMethods() {
         return array(
             Remote\Request::METHOD_GET,
             Remote\Request::METHOD_PUT,
@@ -95,7 +95,7 @@ class TrackingCategory extends Remote\Object {
      *
      * @return array
      */
-    public static function getProperties(){
+    public static function getProperties() {
         return array(
             'TrackingCategoryID' => array (false, self::PROPERTY_TYPE_STRING, null, false),
             'Name' => array (false, self::PROPERTY_TYPE_STRING, null, false),
@@ -108,7 +108,7 @@ class TrackingCategory extends Remote\Object {
     /**
      * @return string
      */
-    public function getTrackingCategoryID(){
+    public function getTrackingCategoryID() {
         return $this->_data['TrackingCategoryID'];
     }
 
@@ -116,7 +116,7 @@ class TrackingCategory extends Remote\Object {
      * @param string $value
      * @return TrackingCategory
      */
-    public function setTrackingCategoryID($value){
+    public function setTrackingCategoryID($value) {
         $this->propertyUpdated('TrackingCategoryID', $value);
         $this->_data['TrackingCategoryID'] = $value;
         return $this;
@@ -125,7 +125,7 @@ class TrackingCategory extends Remote\Object {
     /**
      * @return string
      */
-    public function getName(){
+    public function getName() {
         return $this->_data['Name'];
     }
 
@@ -133,7 +133,7 @@ class TrackingCategory extends Remote\Object {
      * @param string $value
      * @return TrackingCategory
      */
-    public function setName($value){
+    public function setName($value) {
         $this->propertyUpdated('Name', $value);
         $this->_data['Name'] = $value;
         return $this;
@@ -142,7 +142,7 @@ class TrackingCategory extends Remote\Object {
     /**
      * @return string
      */
-    public function getStatus(){
+    public function getStatus() {
         return $this->_data['Status'];
     }
 
@@ -150,7 +150,7 @@ class TrackingCategory extends Remote\Object {
      * @param string $value
      * @return TrackingCategory
      */
-    public function setStatus($value){
+    public function setStatus($value) {
         $this->propertyUpdated('Status', $value);
         $this->_data['Status'] = $value;
         return $this;
@@ -159,7 +159,7 @@ class TrackingCategory extends Remote\Object {
     /**
      * @return TrackingOption[]
      */
-    public function getOptions(){
+    public function getOptions() {
         return $this->_data['Options'];
     }
 
@@ -167,7 +167,7 @@ class TrackingCategory extends Remote\Object {
      * @param TrackingOption $value
      * @return TrackingCategory
      */
-    public function addOption(TrackingOption $value){
+    public function addOption(TrackingOption $value) {
         $this->propertyUpdated('Options', $value);
         $this->_data['Options'][] = $value;
         return $this;

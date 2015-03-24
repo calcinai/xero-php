@@ -3,8 +3,6 @@
 namespace XeroPHP\Remote;
 
 
-use XeroPHP\Helpers;
-
 class Query {
 
     const ORDER_ASC  = 'ASC';
@@ -15,13 +13,13 @@ class Query {
     private $where;
     private $order;
 
-    public function __construct($app){
+    public function __construct($app) {
         $this->app = $app;
         $this->where = array();
         $this->order = null;
     }
 
-    public function from($class){
+    public function from($class) {
         $config = $this->app->getConfig('xero');
 
         if($class[0] !== '\\')
@@ -35,10 +33,10 @@ class Query {
         return $this;
     }
 
-    public function where(){
+    public function where() {
         $args = func_get_args();
 
-        if(func_num_args() === 2){
+        if(func_num_args() === 2) {
             $this->where[] = sprintf('%s=="%s"', $args[0], $args[1]);
         } else {
             $this->where[] = $args[0];
@@ -47,15 +45,15 @@ class Query {
         return $this;
     }
 
-    public function getWhere(){
+    public function getWhere() {
         return implode(' AND ', $this->where);
     }
 
-    public function orderBy($order, $direction = self::ORDER_ASC){
+    public function orderBy($order, $direction = self::ORDER_ASC) {
         $this->order = sprintf('%s %s', $order, $direction);
     }
 
-    public function execute(){
+    public function execute() {
 
         $from_class = $this->from;
         $url = new URL($this->app, $from_class::getResourceURI());
@@ -71,7 +69,7 @@ class Query {
         $request->send();
 
         $elements = array();
-        foreach($request->getResponse()->getElements() as $element){
+        foreach($request->getResponse()->getElements() as $element) {
             $built_element = new $from_class;
             $built_element->fromStringArray($element);
             $elements[] = $built_element;
@@ -81,7 +79,7 @@ class Query {
     }
 
 
-    public function getFrom(){
+    public function getFrom() {
         return $this->from;
     }
 } 

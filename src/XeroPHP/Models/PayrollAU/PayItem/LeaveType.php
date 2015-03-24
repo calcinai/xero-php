@@ -53,50 +53,50 @@ class LeaveType extends Remote\Object {
 
 
 
-    /*
-    * Get the resource uri of the class (Contacts) etc
-    *
-    * @return string
-    */
+    /**
+     * Get the resource uri of the class (Contacts) etc
+     *
+     * @return string
+     */
     public static function getResourceURI(){
         return null;
     }
 
 
-    /*
-    * Get the root node name.  Just the unqualified classname
-    *
-    * @return string
-    */
+    /**
+     * Get the root node name.  Just the unqualified classname
+     *
+     * @return string
+     */
     public static function getRootNodeName(){
         return 'LeaveType';
     }
 
 
-    /*
-    * Get the guid property
-    *
-    * @return string
-    */
+    /**
+     * Get the guid property
+     *
+     * @return string
+     */
     public static function getGUIDProperty(){
         return 'LeaveTypeID';
     }
 
 
     /**
-    * Get the stem of the API (core.xro) etc
-    *
-    * @return string|null
-    */
+     * Get the stem of the API (core.xro) etc
+     *
+     * @return string|null
+     */
     public static function getAPIStem(){
         return Remote\URL::API_PAYROLL;
     }
 
 
-    /*
-    * Get the supported methods
-    */
-    public static function getSupportedMethods(){
+    /**
+     * Get the supported methods
+     */
+    public static function getSupportedMethods() {
         return array(
         );
     }
@@ -111,7 +111,7 @@ class LeaveType extends Remote\Object {
      *
      * @return array
      */
-    public static function getProperties(){
+    public static function getProperties() {
         return array(
             'Name' => array (true, self::PROPERTY_TYPE_STRING, null, false),
             'TypeOfUnits' => array (true, self::PROPERTY_TYPE_FLOAT, null, true),
@@ -127,7 +127,7 @@ class LeaveType extends Remote\Object {
     /**
      * @return string
      */
-    public function getName(){
+    public function getName() {
         return $this->_data['Name'];
     }
 
@@ -135,7 +135,7 @@ class LeaveType extends Remote\Object {
      * @param string $value
      * @return LeaveType
      */
-    public function setName($value){
+    public function setName($value) {
         $this->propertyUpdated('Name', $value);
         $this->_data['Name'] = $value;
         return $this;
@@ -144,7 +144,7 @@ class LeaveType extends Remote\Object {
     /**
      * @return float[]
      */
-    public function getTypeOfUnits(){
+    public function getTypeOfUnits() {
         return $this->_data['TypeOfUnits'];
     }
 
@@ -152,7 +152,7 @@ class LeaveType extends Remote\Object {
      * @param float $value
      * @return LeaveType
      */
-    public function addTypeOfUnit($value){
+    public function addTypeOfUnit($value) {
         $this->propertyUpdated('TypeOfUnits', $value);
         $this->_data['TypeOfUnits'][] = $value;
         return $this;
@@ -161,7 +161,7 @@ class LeaveType extends Remote\Object {
     /**
      * @return string
      */
-    public function getIsPaidLeave(){
+    public function getIsPaidLeave() {
         return $this->_data['IsPaidLeave'];
     }
 
@@ -169,7 +169,7 @@ class LeaveType extends Remote\Object {
      * @param string $value
      * @return LeaveType
      */
-    public function setIsPaidLeave($value){
+    public function setIsPaidLeave($value) {
         $this->propertyUpdated('IsPaidLeave', $value);
         $this->_data['IsPaidLeave'] = $value;
         return $this;
@@ -178,7 +178,7 @@ class LeaveType extends Remote\Object {
     /**
      * @return string
      */
-    public function getShowOnPayslip(){
+    public function getShowOnPayslip() {
         return $this->_data['ShowOnPayslip'];
     }
 
@@ -186,7 +186,7 @@ class LeaveType extends Remote\Object {
      * @param string $value
      * @return LeaveType
      */
-    public function setShowOnPayslip($value){
+    public function setShowOnPayslip($value) {
         $this->propertyUpdated('ShowOnPayslip', $value);
         $this->_data['ShowOnPayslip'] = $value;
         return $this;
@@ -195,7 +195,7 @@ class LeaveType extends Remote\Object {
     /**
      * @return string
      */
-    public function getLeaveTypeID(){
+    public function getLeaveTypeID() {
         return $this->_data['LeaveTypeID'];
     }
 
@@ -203,7 +203,7 @@ class LeaveType extends Remote\Object {
      * @param string $value
      * @return LeaveType
      */
-    public function setLeaveTypeID($value){
+    public function setLeaveTypeID($value) {
         $this->propertyUpdated('LeaveTypeID', $value);
         $this->_data['LeaveTypeID'] = $value;
         return $this;
@@ -212,7 +212,7 @@ class LeaveType extends Remote\Object {
     /**
      * @return string
      */
-    public function getNormalEntitlement(){
+    public function getNormalEntitlement() {
         return $this->_data['NormalEntitlement'];
     }
 
@@ -220,7 +220,7 @@ class LeaveType extends Remote\Object {
      * @param string $value
      * @return LeaveType
      */
-    public function setNormalEntitlement($value){
+    public function setNormalEntitlement($value) {
         $this->propertyUpdated('NormalEntitlement', $value);
         $this->_data['NormalEntitlement'] = $value;
         return $this;
@@ -229,7 +229,7 @@ class LeaveType extends Remote\Object {
     /**
      * @return float
      */
-    public function getLeaveLoadingRate(){
+    public function getLeaveLoadingRate() {
         return $this->_data['LeaveLoadingRate'];
     }
 
@@ -237,7 +237,7 @@ class LeaveType extends Remote\Object {
      * @param float $value
      * @return LeaveType
      */
-    public function setLeaveLoadingRate($value){
+    public function setLeaveLoadingRate($value) {
         $this->propertyUpdated('LeaveLoadingRate', $value);
         $this->_data['LeaveLoadingRate'] = $value;
         return $this;

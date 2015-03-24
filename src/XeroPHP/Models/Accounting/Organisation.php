@@ -189,50 +189,50 @@ class Organisation extends Remote\Object {
     const ORGANISATION_TYPE_TRUST       = 'TRUST';
 
 
-    /*
-    * Get the resource uri of the class (Contacts) etc
-    *
-    * @return string
-    */
+    /**
+     * Get the resource uri of the class (Contacts) etc
+     *
+     * @return string
+     */
     public static function getResourceURI(){
         return 'Organisation';
     }
 
 
-    /*
-    * Get the root node name.  Just the unqualified classname
-    *
-    * @return string
-    */
+    /**
+     * Get the root node name.  Just the unqualified classname
+     *
+     * @return string
+     */
     public static function getRootNodeName(){
         return 'Organisation';
     }
 
 
-    /*
-    * Get the guid property
-    *
-    * @return string
-    */
+    /**
+     * Get the guid property
+     *
+     * @return string
+     */
     public static function getGUIDProperty(){
         return '';
     }
 
 
     /**
-    * Get the stem of the API (core.xro) etc
-    *
-    * @return string|null
-    */
+     * Get the stem of the API (core.xro) etc
+     *
+     * @return string|null
+     */
     public static function getAPIStem(){
         return Remote\URL::API_CORE;
     }
 
 
-    /*
-    * Get the supported methods
-    */
-    public static function getSupportedMethods(){
+    /**
+     * Get the supported methods
+     */
+    public static function getSupportedMethods() {
         return array(
             Remote\Request::METHOD_GET
         );
@@ -248,7 +248,7 @@ class Organisation extends Remote\Object {
      *
      * @return array
      */
-    public static function getProperties(){
+    public static function getProperties() {
         return array(
             'APIKey' => array (false, self::PROPERTY_TYPE_STRING, null, false),
             'Name' => array (false, self::PROPERTY_TYPE_STRING, null, false),
@@ -283,7 +283,7 @@ class Organisation extends Remote\Object {
     /**
      * @return string
      */
-    public function getAPIKey(){
+    public function getAPIKey() {
         return $this->_data['APIKey'];
     }
 
@@ -291,7 +291,7 @@ class Organisation extends Remote\Object {
      * @param string $value
      * @return Organisation
      */
-    public function setAPIKey($value){
+    public function setAPIKey($value) {
         $this->propertyUpdated('APIKey', $value);
         $this->_data['APIKey'] = $value;
         return $this;
@@ -300,7 +300,7 @@ class Organisation extends Remote\Object {
     /**
      * @return string
      */
-    public function getName(){
+    public function getName() {
         return $this->_data['Name'];
     }
 
@@ -308,7 +308,7 @@ class Organisation extends Remote\Object {
      * @param string $value
      * @return Organisation
      */
-    public function setName($value){
+    public function setName($value) {
         $this->propertyUpdated('Name', $value);
         $this->_data['Name'] = $value;
         return $this;
@@ -317,7 +317,7 @@ class Organisation extends Remote\Object {
     /**
      * @return string
      */
-    public function getLegalName(){
+    public function getLegalName() {
         return $this->_data['LegalName'];
     }
 
@@ -325,7 +325,7 @@ class Organisation extends Remote\Object {
      * @param string $value
      * @return Organisation
      */
-    public function setLegalName($value){
+    public function setLegalName($value) {
         $this->propertyUpdated('LegalName', $value);
         $this->_data['LegalName'] = $value;
         return $this;
@@ -334,7 +334,7 @@ class Organisation extends Remote\Object {
     /**
      * @return bool
      */
-    public function getPaysTax(){
+    public function getPaysTax() {
         return $this->_data['PaysTax'];
     }
 
@@ -342,7 +342,7 @@ class Organisation extends Remote\Object {
      * @param bool $value
      * @return Organisation
      */
-    public function setPaysTax($value){
+    public function setPaysTax($value) {
         $this->propertyUpdated('PaysTax', $value);
         $this->_data['PaysTax'] = $value;
         return $this;
@@ -351,7 +351,7 @@ class Organisation extends Remote\Object {
     /**
      * @return string
      */
-    public function getVersion(){
+    public function getVersion() {
         return $this->_data['Version'];
     }
 
@@ -359,7 +359,7 @@ class Organisation extends Remote\Object {
      * @param string $value
      * @return Organisation
      */
-    public function setVersion($value){
+    public function setVersion($value) {
         $this->propertyUpdated('Version', $value);
         $this->_data['Version'] = $value;
         return $this;
@@ -368,7 +368,7 @@ class Organisation extends Remote\Object {
     /**
      * @return string
      */
-    public function getBaseCurrency(){
+    public function getBaseCurrency() {
         return $this->_data['BaseCurrency'];
     }
 
@@ -376,7 +376,7 @@ class Organisation extends Remote\Object {
      * @param string $value
      * @return Organisation
      */
-    public function setBaseCurrency($value){
+    public function setBaseCurrency($value) {
         $this->propertyUpdated('BaseCurrency', $value);
         $this->_data['BaseCurrency'] = $value;
         return $this;
@@ -385,7 +385,7 @@ class Organisation extends Remote\Object {
     /**
      * @return string
      */
-    public function getCountryCode(){
+    public function getCountryCode() {
         return $this->_data['CountryCode'];
     }
 
@@ -393,7 +393,7 @@ class Organisation extends Remote\Object {
      * @param string $value
      * @return Organisation
      */
-    public function setCountryCode($value){
+    public function setCountryCode($value) {
         $this->propertyUpdated('CountryCode', $value);
         $this->_data['CountryCode'] = $value;
         return $this;
@@ -402,7 +402,7 @@ class Organisation extends Remote\Object {
     /**
      * @return bool
      */
-    public function getIsDemoCompany(){
+    public function getIsDemoCompany() {
         return $this->_data['IsDemoCompany'];
     }
 
@@ -410,7 +410,7 @@ class Organisation extends Remote\Object {
      * @param bool $value
      * @return Organisation
      */
-    public function setIsDemoCompany($value){
+    public function setIsDemoCompany($value) {
         $this->propertyUpdated('IsDemoCompany', $value);
         $this->_data['IsDemoCompany'] = $value;
         return $this;
@@ -419,7 +419,7 @@ class Organisation extends Remote\Object {
     /**
      * @return string
      */
-    public function getOrganisationStatus(){
+    public function getOrganisationStatus() {
         return $this->_data['OrganisationStatus'];
     }
 
@@ -427,7 +427,7 @@ class Organisation extends Remote\Object {
      * @param string $value
      * @return Organisation
      */
-    public function setOrganisationStatus($value){
+    public function setOrganisationStatus($value) {
         $this->propertyUpdated('OrganisationStatus', $value);
         $this->_data['OrganisationStatus'] = $value;
         return $this;
@@ -436,7 +436,7 @@ class Organisation extends Remote\Object {
     /**
      * @return string
      */
-    public function getRegistrationNumber(){
+    public function getRegistrationNumber() {
         return $this->_data['RegistrationNumber'];
     }
 
@@ -444,7 +444,7 @@ class Organisation extends Remote\Object {
      * @param string $value
      * @return Organisation
      */
-    public function setRegistrationNumber($value){
+    public function setRegistrationNumber($value) {
         $this->propertyUpdated('RegistrationNumber', $value);
         $this->_data['RegistrationNumber'] = $value;
         return $this;
@@ -453,7 +453,7 @@ class Organisation extends Remote\Object {
     /**
      * @return string
      */
-    public function getTaxNumber(){
+    public function getTaxNumber() {
         return $this->_data['TaxNumber'];
     }
 
@@ -461,7 +461,7 @@ class Organisation extends Remote\Object {
      * @param string $value
      * @return Organisation
      */
-    public function setTaxNumber($value){
+    public function setTaxNumber($value) {
         $this->propertyUpdated('TaxNumber', $value);
         $this->_data['TaxNumber'] = $value;
         return $this;
@@ -470,7 +470,7 @@ class Organisation extends Remote\Object {
     /**
      * @return string
      */
-    public function getFinancialYearEndDay(){
+    public function getFinancialYearEndDay() {
         return $this->_data['FinancialYearEndDay'];
     }
 
@@ -478,7 +478,7 @@ class Organisation extends Remote\Object {
      * @param string $value
      * @return Organisation
      */
-    public function setFinancialYearEndDay($value){
+    public function setFinancialYearEndDay($value) {
         $this->propertyUpdated('FinancialYearEndDay', $value);
         $this->_data['FinancialYearEndDay'] = $value;
         return $this;
@@ -487,7 +487,7 @@ class Organisation extends Remote\Object {
     /**
      * @return string
      */
-    public function getFinancialYearEndMonth(){
+    public function getFinancialYearEndMonth() {
         return $this->_data['FinancialYearEndMonth'];
     }
 
@@ -495,7 +495,7 @@ class Organisation extends Remote\Object {
      * @param string $value
      * @return Organisation
      */
-    public function setFinancialYearEndMonth($value){
+    public function setFinancialYearEndMonth($value) {
         $this->propertyUpdated('FinancialYearEndMonth', $value);
         $this->_data['FinancialYearEndMonth'] = $value;
         return $this;
@@ -504,7 +504,7 @@ class Organisation extends Remote\Object {
     /**
      * @return string
      */
-    public function getSalesTaxBasis(){
+    public function getSalesTaxBasis() {
         return $this->_data['SalesTaxBasis'];
     }
 
@@ -512,7 +512,7 @@ class Organisation extends Remote\Object {
      * @param string $value
      * @return Organisation
      */
-    public function setSalesTaxBasis($value){
+    public function setSalesTaxBasis($value) {
         $this->propertyUpdated('SalesTaxBasis', $value);
         $this->_data['SalesTaxBasis'] = $value;
         return $this;
@@ -521,7 +521,7 @@ class Organisation extends Remote\Object {
     /**
      * @return string
      */
-    public function getSalesTaxPeriod(){
+    public function getSalesTaxPeriod() {
         return $this->_data['SalesTaxPeriod'];
     }
 
@@ -529,7 +529,7 @@ class Organisation extends Remote\Object {
      * @param string $value
      * @return Organisation
      */
-    public function setSalesTaxPeriod($value){
+    public function setSalesTaxPeriod($value) {
         $this->propertyUpdated('SalesTaxPeriod', $value);
         $this->_data['SalesTaxPeriod'] = $value;
         return $this;
@@ -538,7 +538,7 @@ class Organisation extends Remote\Object {
     /**
      * @return string
      */
-    public function getPeriodLockDate(){
+    public function getPeriodLockDate() {
         return $this->_data['PeriodLockDate'];
     }
 
@@ -546,7 +546,7 @@ class Organisation extends Remote\Object {
      * @param string $value
      * @return Organisation
      */
-    public function setPeriodLockDate($value){
+    public function setPeriodLockDate($value) {
         $this->propertyUpdated('PeriodLockDate', $value);
         $this->_data['PeriodLockDate'] = $value;
         return $this;
@@ -555,7 +555,7 @@ class Organisation extends Remote\Object {
     /**
      * @return string
      */
-    public function getEndOfYearLockDate(){
+    public function getEndOfYearLockDate() {
         return $this->_data['EndOfYearLockDate'];
     }
 
@@ -563,7 +563,7 @@ class Organisation extends Remote\Object {
      * @param string $value
      * @return Organisation
      */
-    public function setEndOfYearLockDate($value){
+    public function setEndOfYearLockDate($value) {
         $this->propertyUpdated('EndOfYearLockDate', $value);
         $this->_data['EndOfYearLockDate'] = $value;
         return $this;
@@ -572,7 +572,7 @@ class Organisation extends Remote\Object {
     /**
      * @return \DateTime
      */
-    public function getCreatedDateUTC(){
+    public function getCreatedDateUTC() {
         return $this->_data['CreatedDateUTC'];
     }
 
@@ -580,7 +580,7 @@ class Organisation extends Remote\Object {
      * @param \DateTime $value
      * @return Organisation
      */
-    public function setCreatedDateUTC(\DateTime $value){
+    public function setCreatedDateUTC(\DateTime $value) {
         $this->propertyUpdated('CreatedDateUTC', $value);
         $this->_data['CreatedDateUTC'] = $value;
         return $this;
@@ -589,7 +589,7 @@ class Organisation extends Remote\Object {
     /**
      * @return string
      */
-    public function getOrganisationEntityType(){
+    public function getOrganisationEntityType() {
         return $this->_data['OrganisationEntityType'];
     }
 
@@ -597,7 +597,7 @@ class Organisation extends Remote\Object {
      * @param string $value
      * @return Organisation
      */
-    public function setOrganisationEntityType($value){
+    public function setOrganisationEntityType($value) {
         $this->propertyUpdated('OrganisationEntityType', $value);
         $this->_data['OrganisationEntityType'] = $value;
         return $this;
@@ -606,7 +606,7 @@ class Organisation extends Remote\Object {
     /**
      * @return string
      */
-    public function getTimezone(){
+    public function getTimezone() {
         return $this->_data['Timezone'];
     }
 
@@ -614,7 +614,7 @@ class Organisation extends Remote\Object {
      * @param string $value
      * @return Organisation
      */
-    public function setTimezone($value){
+    public function setTimezone($value) {
         $this->propertyUpdated('Timezone', $value);
         $this->_data['Timezone'] = $value;
         return $this;
@@ -623,7 +623,7 @@ class Organisation extends Remote\Object {
     /**
      * @return string
      */
-    public function getShortCode(){
+    public function getShortCode() {
         return $this->_data['ShortCode'];
     }
 
@@ -631,7 +631,7 @@ class Organisation extends Remote\Object {
      * @param string $value
      * @return Organisation
      */
-    public function setShortCode($value){
+    public function setShortCode($value) {
         $this->propertyUpdated('ShortCode', $value);
         $this->_data['ShortCode'] = $value;
         return $this;
@@ -640,7 +640,7 @@ class Organisation extends Remote\Object {
     /**
      * @return string
      */
-    public function getLineOfBusiness(){
+    public function getLineOfBusiness() {
         return $this->_data['LineOfBusiness'];
     }
 
@@ -648,7 +648,7 @@ class Organisation extends Remote\Object {
      * @param string $value
      * @return Organisation
      */
-    public function setLineOfBusiness($value){
+    public function setLineOfBusiness($value) {
         $this->propertyUpdated('LineOfBusiness', $value);
         $this->_data['LineOfBusiness'] = $value;
         return $this;
@@ -657,7 +657,7 @@ class Organisation extends Remote\Object {
     /**
      * @return Address[]
      */
-    public function getAddresses(){
+    public function getAddresses() {
         return $this->_data['Addresses'];
     }
 
@@ -665,7 +665,7 @@ class Organisation extends Remote\Object {
      * @param Address $value
      * @return Organisation
      */
-    public function addAddress(Address $value){
+    public function addAddress(Address $value) {
         $this->propertyUpdated('Addresses', $value);
         $this->_data['Addresses'][] = $value;
         return $this;
@@ -674,7 +674,7 @@ class Organisation extends Remote\Object {
     /**
      * @return Phone[]
      */
-    public function getPhones(){
+    public function getPhones() {
         return $this->_data['Phones'];
     }
 
@@ -682,7 +682,7 @@ class Organisation extends Remote\Object {
      * @param Phone $value
      * @return Organisation
      */
-    public function addPhone(Phone $value){
+    public function addPhone(Phone $value) {
         $this->propertyUpdated('Phones', $value);
         $this->_data['Phones'][] = $value;
         return $this;
@@ -691,7 +691,7 @@ class Organisation extends Remote\Object {
     /**
      * @return ExternalLink[]
      */
-    public function getExternalLinks(){
+    public function getExternalLinks() {
         return $this->_data['ExternalLinks'];
     }
 
@@ -699,7 +699,7 @@ class Organisation extends Remote\Object {
      * @param ExternalLink $value
      * @return Organisation
      */
-    public function addExternalLink(ExternalLink $value){
+    public function addExternalLink(ExternalLink $value) {
         $this->propertyUpdated('ExternalLinks', $value);
         $this->_data['ExternalLinks'][] = $value;
         return $this;
@@ -708,7 +708,7 @@ class Organisation extends Remote\Object {
     /**
      * @return PaymentTerm[]
      */
-    public function getPaymentTerms(){
+    public function getPaymentTerms() {
         return $this->_data['PaymentTerms'];
     }
 
@@ -716,7 +716,7 @@ class Organisation extends Remote\Object {
      * @param PaymentTerm $value
      * @return Organisation
      */
-    public function addPaymentTerm(PaymentTerm $value){
+    public function addPaymentTerm(PaymentTerm $value) {
         $this->propertyUpdated('PaymentTerms', $value);
         $this->_data['PaymentTerms'][] = $value;
         return $this;

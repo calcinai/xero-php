@@ -29,50 +29,50 @@ class Allocation extends Remote\Object {
 
 
 
-    /*
-    * Get the resource uri of the class (Contacts) etc
-    *
-    * @return string
-    */
+    /**
+     * Get the resource uri of the class (Contacts) etc
+     *
+     * @return string
+     */
     public static function getResourceURI(){
         return null;
     }
 
 
-    /*
-    * Get the root node name.  Just the unqualified classname
-    *
-    * @return string
-    */
+    /**
+     * Get the root node name.  Just the unqualified classname
+     *
+     * @return string
+     */
     public static function getRootNodeName(){
         return 'Allocation';
     }
 
 
-    /*
-    * Get the guid property
-    *
-    * @return string
-    */
+    /**
+     * Get the guid property
+     *
+     * @return string
+     */
     public static function getGUIDProperty(){
         return '';
     }
 
 
     /**
-    * Get the stem of the API (core.xro) etc
-    *
-    * @return string|null
-    */
+     * Get the stem of the API (core.xro) etc
+     *
+     * @return string|null
+     */
     public static function getAPIStem(){
         return Remote\URL::API_CORE;
     }
 
 
-    /*
-    * Get the supported methods
-    */
-    public static function getSupportedMethods(){
+    /**
+     * Get the supported methods
+     */
+    public static function getSupportedMethods() {
         return array(
         );
     }
@@ -87,7 +87,7 @@ class Allocation extends Remote\Object {
      *
      * @return array
      */
-    public static function getProperties(){
+    public static function getProperties() {
         return array(
             'Invoice' => array (false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Invoice', false),
             'AppliedAmount' => array (false, self::PROPERTY_TYPE_FLOAT, null, false),
@@ -99,7 +99,7 @@ class Allocation extends Remote\Object {
     /**
      * @return Invoice
      */
-    public function getInvoice(){
+    public function getInvoice() {
         return $this->_data['Invoice'];
     }
 
@@ -107,7 +107,7 @@ class Allocation extends Remote\Object {
      * @param Invoice $value
      * @return Allocation
      */
-    public function setInvoice(Invoice $value){
+    public function setInvoice(Invoice $value) {
         $this->propertyUpdated('Invoice', $value);
         $this->_data['Invoice'] = $value;
         return $this;
@@ -116,7 +116,7 @@ class Allocation extends Remote\Object {
     /**
      * @return float
      */
-    public function getAppliedAmount(){
+    public function getAppliedAmount() {
         return $this->_data['AppliedAmount'];
     }
 
@@ -124,7 +124,7 @@ class Allocation extends Remote\Object {
      * @param float $value
      * @return Allocation
      */
-    public function setAppliedAmount($value){
+    public function setAppliedAmount($value) {
         $this->propertyUpdated('AppliedAmount', $value);
         $this->_data['AppliedAmount'] = $value;
         return $this;
@@ -133,7 +133,7 @@ class Allocation extends Remote\Object {
     /**
      * @return \DateTime
      */
-    public function getDate(){
+    public function getDate() {
         return $this->_data['Date'];
     }
 
@@ -141,7 +141,7 @@ class Allocation extends Remote\Object {
      * @param \DateTime $value
      * @return Allocation
      */
-    public function setDate(\DateTime $value){
+    public function setDate(\DateTime $value) {
         $this->propertyUpdated('Date', $value);
         $this->_data['Date'] = $value;
         return $this;

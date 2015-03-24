@@ -7,7 +7,7 @@ use XeroPHP\Remote\Response;
 
 class BadRequestException extends Exception {
 
-    public function __construct($message = null, $code = null, $previous = null){
+    public function __construct($message = null, $code = null, $previous = null) {
 
         if($message === null)
             $message = 'Bad Request';

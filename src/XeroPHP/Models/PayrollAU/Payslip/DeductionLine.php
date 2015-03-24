@@ -33,50 +33,50 @@ class DeductionLine extends Remote\Object {
 
 
 
-    /*
-    * Get the resource uri of the class (Contacts) etc
-    *
-    * @return string
-    */
+    /**
+     * Get the resource uri of the class (Contacts) etc
+     *
+     * @return string
+     */
     public static function getResourceURI(){
         return null;
     }
 
 
-    /*
-    * Get the root node name.  Just the unqualified classname
-    *
-    * @return string
-    */
+    /**
+     * Get the root node name.  Just the unqualified classname
+     *
+     * @return string
+     */
     public static function getRootNodeName(){
         return 'DeductionLine';
     }
 
 
-    /*
-    * Get the guid property
-    *
-    * @return string
-    */
+    /**
+     * Get the guid property
+     *
+     * @return string
+     */
     public static function getGUIDProperty(){
         return '';
     }
 
 
     /**
-    * Get the stem of the API (core.xro) etc
-    *
-    * @return string|null
-    */
+     * Get the stem of the API (core.xro) etc
+     *
+     * @return string|null
+     */
     public static function getAPIStem(){
         return Remote\URL::API_PAYROLL;
     }
 
 
-    /*
-    * Get the supported methods
-    */
-    public static function getSupportedMethods(){
+    /**
+     * Get the supported methods
+     */
+    public static function getSupportedMethods() {
         return array(
         );
     }
@@ -91,7 +91,7 @@ class DeductionLine extends Remote\Object {
      *
      * @return array
      */
-    public static function getProperties(){
+    public static function getProperties() {
         return array(
             'DeductionTypeID' => array (false, self::PROPERTY_TYPE_STRING, null, false),
             'CalculationType' => array (false, self::PROPERTY_TYPE_FLOAT, null, false),
@@ -104,7 +104,7 @@ class DeductionLine extends Remote\Object {
     /**
      * @return string
      */
-    public function getDeductionTypeID(){
+    public function getDeductionTypeID() {
         return $this->_data['DeductionTypeID'];
     }
 
@@ -112,7 +112,7 @@ class DeductionLine extends Remote\Object {
      * @param string $value
      * @return DeductionLine
      */
-    public function setDeductionTypeID($value){
+    public function setDeductionTypeID($value) {
         $this->propertyUpdated('DeductionTypeID', $value);
         $this->_data['DeductionTypeID'] = $value;
         return $this;
@@ -121,7 +121,7 @@ class DeductionLine extends Remote\Object {
     /**
      * @return float
      */
-    public function getCalculationType(){
+    public function getCalculationType() {
         return $this->_data['CalculationType'];
     }
 
@@ -129,7 +129,7 @@ class DeductionLine extends Remote\Object {
      * @param float $value
      * @return DeductionLine
      */
-    public function setCalculationType($value){
+    public function setCalculationType($value) {
         $this->propertyUpdated('CalculationType', $value);
         $this->_data['CalculationType'] = $value;
         return $this;
@@ -138,7 +138,7 @@ class DeductionLine extends Remote\Object {
     /**
      * @return string
      */
-    public function getPercentage(){
+    public function getPercentage() {
         return $this->_data['Percentage'];
     }
 
@@ -146,7 +146,7 @@ class DeductionLine extends Remote\Object {
      * @param string $value
      * @return DeductionLine
      */
-    public function setPercentage($value){
+    public function setPercentage($value) {
         $this->propertyUpdated('Percentage', $value);
         $this->_data['Percentage'] = $value;
         return $this;
@@ -155,7 +155,7 @@ class DeductionLine extends Remote\Object {
     /**
      * @return float[]
      */
-    public function getNumberOfUnits(){
+    public function getNumberOfUnits() {
         return $this->_data['NumberOfUnits'];
     }
 
@@ -163,7 +163,7 @@ class DeductionLine extends Remote\Object {
      * @param float $value
      * @return DeductionLine
      */
-    public function addNumberOfUnit($value){
+    public function addNumberOfUnit($value) {
         $this->propertyUpdated('NumberOfUnits', $value);
         $this->_data['NumberOfUnits'][] = $value;
         return $this;

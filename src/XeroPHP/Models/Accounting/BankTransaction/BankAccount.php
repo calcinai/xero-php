@@ -21,50 +21,50 @@ class BankAccount extends Remote\Object {
 
 
 
-    /*
-    * Get the resource uri of the class (Contacts) etc
-    *
-    * @return string
-    */
+    /**
+     * Get the resource uri of the class (Contacts) etc
+     *
+     * @return string
+     */
     public static function getResourceURI(){
         return null;
     }
 
 
-    /*
-    * Get the root node name.  Just the unqualified classname
-    *
-    * @return string
-    */
+    /**
+     * Get the root node name.  Just the unqualified classname
+     *
+     * @return string
+     */
     public static function getRootNodeName(){
         return 'BankAccount';
     }
 
 
-    /*
-    * Get the guid property
-    *
-    * @return string
-    */
+    /**
+     * Get the guid property
+     *
+     * @return string
+     */
     public static function getGUIDProperty(){
         return '';
     }
 
 
     /**
-    * Get the stem of the API (core.xro) etc
-    *
-    * @return string|null
-    */
+     * Get the stem of the API (core.xro) etc
+     *
+     * @return string|null
+     */
     public static function getAPIStem(){
         return Remote\URL::API_CORE;
     }
 
 
-    /*
-    * Get the supported methods
-    */
-    public static function getSupportedMethods(){
+    /**
+     * Get the supported methods
+     */
+    public static function getSupportedMethods() {
         return array(
         );
     }
@@ -79,7 +79,7 @@ class BankAccount extends Remote\Object {
      *
      * @return array
      */
-    public static function getProperties(){
+    public static function getProperties() {
         return array(
             'Code' => array (true, self::PROPERTY_TYPE_STRING, null, false),
             'AccountID' => array (true, self::PROPERTY_TYPE_STRING, null, false)
@@ -90,7 +90,7 @@ class BankAccount extends Remote\Object {
     /**
      * @return string
      */
-    public function getCode(){
+    public function getCode() {
         return $this->_data['Code'];
     }
 
@@ -98,7 +98,7 @@ class BankAccount extends Remote\Object {
      * @param string $value
      * @return BankAccount
      */
-    public function setCode($value){
+    public function setCode($value) {
         $this->propertyUpdated('Code', $value);
         $this->_data['Code'] = $value;
         return $this;
@@ -107,7 +107,7 @@ class BankAccount extends Remote\Object {
     /**
      * @return string
      */
-    public function getAccountID(){
+    public function getAccountID() {
         return $this->_data['AccountID'];
     }
 
@@ -115,7 +115,7 @@ class BankAccount extends Remote\Object {
      * @param string $value
      * @return BankAccount
      */
-    public function setAccountID($value){
+    public function setAccountID($value) {
         $this->propertyUpdated('AccountID', $value);
         $this->_data['AccountID'] = $value;
         return $this;

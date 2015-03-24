@@ -25,50 +25,50 @@ class PaymentMethod extends Remote\Object {
     const PAYMENT_METHOD_TYPE_DIRECTDEPOSIT = 'DIRECTDEPOSIT';
 
 
-    /*
-    * Get the resource uri of the class (Contacts) etc
-    *
-    * @return string
-    */
+    /**
+     * Get the resource uri of the class (Contacts) etc
+     *
+     * @return string
+     */
     public static function getResourceURI(){
         return null;
     }
 
 
-    /*
-    * Get the root node name.  Just the unqualified classname
-    *
-    * @return string
-    */
+    /**
+     * Get the root node name.  Just the unqualified classname
+     *
+     * @return string
+     */
     public static function getRootNodeName(){
         return 'PaymentMethod';
     }
 
 
-    /*
-    * Get the guid property
-    *
-    * @return string
-    */
+    /**
+     * Get the guid property
+     *
+     * @return string
+     */
     public static function getGUIDProperty(){
         return '';
     }
 
 
     /**
-    * Get the stem of the API (core.xro) etc
-    *
-    * @return string|null
-    */
+     * Get the stem of the API (core.xro) etc
+     *
+     * @return string|null
+     */
     public static function getAPIStem(){
         return Remote\URL::API_PAYROLL;
     }
 
 
-    /*
-    * Get the supported methods
-    */
-    public static function getSupportedMethods(){
+    /**
+     * Get the supported methods
+     */
+    public static function getSupportedMethods() {
         return array(
         );
     }
@@ -83,7 +83,7 @@ class PaymentMethod extends Remote\Object {
      *
      * @return array
      */
-    public static function getProperties(){
+    public static function getProperties() {
         return array(
             'PaymentMethodType' => array (false, self::PROPERTY_TYPE_ENUM, null, false),
             'BankAccounts' => array (false, self::PROPERTY_TYPE_ENUM, null, false)
@@ -94,7 +94,7 @@ class PaymentMethod extends Remote\Object {
     /**
      * @return string
      */
-    public function getPaymentMethodType(){
+    public function getPaymentMethodType() {
         return $this->_data['PaymentMethodType'];
     }
 
@@ -102,7 +102,7 @@ class PaymentMethod extends Remote\Object {
      * @param string $value
      * @return PaymentMethod
      */
-    public function setPaymentMethodType($value){
+    public function setPaymentMethodType($value) {
         $this->propertyUpdated('PaymentMethodType', $value);
         $this->_data['PaymentMethodType'] = $value;
         return $this;
@@ -111,7 +111,7 @@ class PaymentMethod extends Remote\Object {
     /**
      * @return string
      */
-    public function getBankAccounts(){
+    public function getBankAccounts() {
         return $this->_data['BankAccounts'];
     }
 
@@ -119,7 +119,7 @@ class PaymentMethod extends Remote\Object {
      * @param string $value
      * @return PaymentMethod
      */
-    public function setBankAccount($value){
+    public function setBankAccount($value) {
         $this->propertyUpdated('BankAccounts', $value);
         $this->_data['BankAccounts'] = $value;
         return $this;

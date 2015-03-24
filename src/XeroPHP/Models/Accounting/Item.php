@@ -35,50 +35,50 @@ class Item extends Remote\Object {
 
 
 
-    /*
-    * Get the resource uri of the class (Contacts) etc
-    *
-    * @return string
-    */
+    /**
+     * Get the resource uri of the class (Contacts) etc
+     *
+     * @return string
+     */
     public static function getResourceURI(){
         return 'Items';
     }
 
 
-    /*
-    * Get the root node name.  Just the unqualified classname
-    *
-    * @return string
-    */
+    /**
+     * Get the root node name.  Just the unqualified classname
+     *
+     * @return string
+     */
     public static function getRootNodeName(){
         return 'Item';
     }
 
 
-    /*
-    * Get the guid property
-    *
-    * @return string
-    */
+    /**
+     * Get the guid property
+     *
+     * @return string
+     */
     public static function getGUIDProperty(){
         return '';
     }
 
 
     /**
-    * Get the stem of the API (core.xro) etc
-    *
-    * @return string|null
-    */
+     * Get the stem of the API (core.xro) etc
+     *
+     * @return string|null
+     */
     public static function getAPIStem(){
         return Remote\URL::API_CORE;
     }
 
 
-    /*
-    * Get the supported methods
-    */
-    public static function getSupportedMethods(){
+    /**
+     * Get the supported methods
+     */
+    public static function getSupportedMethods() {
         return array(
             Remote\Request::METHOD_GET,
             Remote\Request::METHOD_PUT,
@@ -96,7 +96,7 @@ class Item extends Remote\Object {
      *
      * @return array
      */
-    public static function getProperties(){
+    public static function getProperties() {
         return array(
             'Code' => array (true, self::PROPERTY_TYPE_STRING, null, false),
             'Description' => array (false, self::PROPERTY_TYPE_STRING, null, false),
@@ -109,7 +109,7 @@ class Item extends Remote\Object {
     /**
      * @return string
      */
-    public function getCode(){
+    public function getCode() {
         return $this->_data['Code'];
     }
 
@@ -117,7 +117,7 @@ class Item extends Remote\Object {
      * @param string $value
      * @return Item
      */
-    public function setCode($value){
+    public function setCode($value) {
         $this->propertyUpdated('Code', $value);
         $this->_data['Code'] = $value;
         return $this;
@@ -126,7 +126,7 @@ class Item extends Remote\Object {
     /**
      * @return string
      */
-    public function getDescription(){
+    public function getDescription() {
         return $this->_data['Description'];
     }
 
@@ -134,7 +134,7 @@ class Item extends Remote\Object {
      * @param string $value
      * @return Item
      */
-    public function setDescription($value){
+    public function setDescription($value) {
         $this->propertyUpdated('Description', $value);
         $this->_data['Description'] = $value;
         return $this;
@@ -143,7 +143,7 @@ class Item extends Remote\Object {
     /**
      * @return Purchase[]
      */
-    public function getPurchaseDetails(){
+    public function getPurchaseDetails() {
         return $this->_data['PurchaseDetails'];
     }
 
@@ -151,7 +151,7 @@ class Item extends Remote\Object {
      * @param Purchase $value
      * @return Item
      */
-    public function addPurchaseDetail(Purchase $value){
+    public function addPurchaseDetail(Purchase $value) {
         $this->propertyUpdated('PurchaseDetails', $value);
         $this->_data['PurchaseDetails'][] = $value;
         return $this;
@@ -160,7 +160,7 @@ class Item extends Remote\Object {
     /**
      * @return Sale[]
      */
-    public function getSalesDetails(){
+    public function getSalesDetails() {
         return $this->_data['SalesDetails'];
     }
 
@@ -168,7 +168,7 @@ class Item extends Remote\Object {
      * @param Sale $value
      * @return Item
      */
-    public function addSalesDetail(Sale $value){
+    public function addSalesDetail(Sale $value) {
         $this->propertyUpdated('SalesDetails', $value);
         $this->_data['SalesDetails'][] = $value;
         return $this;

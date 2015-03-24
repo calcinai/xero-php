@@ -21,50 +21,50 @@ class PaymentTerm extends Remote\Object {
 
 
 
-    /*
-    * Get the resource uri of the class (Contacts) etc
-    *
-    * @return string
-    */
+    /**
+     * Get the resource uri of the class (Contacts) etc
+     *
+     * @return string
+     */
     public static function getResourceURI(){
         return null;
     }
 
 
-    /*
-    * Get the root node name.  Just the unqualified classname
-    *
-    * @return string
-    */
+    /**
+     * Get the root node name.  Just the unqualified classname
+     *
+     * @return string
+     */
     public static function getRootNodeName(){
         return 'PaymentTerm';
     }
 
 
-    /*
-    * Get the guid property
-    *
-    * @return string
-    */
+    /**
+     * Get the guid property
+     *
+     * @return string
+     */
     public static function getGUIDProperty(){
         return '';
     }
 
 
     /**
-    * Get the stem of the API (core.xro) etc
-    *
-    * @return string|null
-    */
+     * Get the stem of the API (core.xro) etc
+     *
+     * @return string|null
+     */
     public static function getAPIStem(){
         return Remote\URL::API_CORE;
     }
 
 
-    /*
-    * Get the supported methods
-    */
-    public static function getSupportedMethods(){
+    /**
+     * Get the supported methods
+     */
+    public static function getSupportedMethods() {
         return array(
         );
     }
@@ -79,7 +79,7 @@ class PaymentTerm extends Remote\Object {
      *
      * @return array
      */
-    public static function getProperties(){
+    public static function getProperties() {
         return array(
             'Bills' => array (false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Organisation\\Bill', true),
             'Sales' => array (false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Organisation\\Sale', true)
@@ -90,7 +90,7 @@ class PaymentTerm extends Remote\Object {
     /**
      * @return Bill[]
      */
-    public function getBills(){
+    public function getBills() {
         return $this->_data['Bills'];
     }
 
@@ -98,7 +98,7 @@ class PaymentTerm extends Remote\Object {
      * @param Bill $value
      * @return PaymentTerm
      */
-    public function addBill(Bill $value){
+    public function addBill(Bill $value) {
         $this->propertyUpdated('Bills', $value);
         $this->_data['Bills'][] = $value;
         return $this;
@@ -107,7 +107,7 @@ class PaymentTerm extends Remote\Object {
     /**
      * @return Sale[]
      */
-    public function getSales(){
+    public function getSales() {
         return $this->_data['Sales'];
     }
 
@@ -115,7 +115,7 @@ class PaymentTerm extends Remote\Object {
      * @param Sale $value
      * @return PaymentTerm
      */
-    public function addSale(Sale $value){
+    public function addSale(Sale $value) {
         $this->propertyUpdated('Sales', $value);
         $this->_data['Sales'][] = $value;
         return $this;

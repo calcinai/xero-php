@@ -63,50 +63,50 @@ class ManualJournal extends Remote\Object {
     const MANUAL_JOURNAL_STATUS_VOIDED  = 'VOIDED';
 
 
-    /*
-    * Get the resource uri of the class (Contacts) etc
-    *
-    * @return string
-    */
+    /**
+     * Get the resource uri of the class (Contacts) etc
+     *
+     * @return string
+     */
     public static function getResourceURI(){
         return 'ManualJournals';
     }
 
 
-    /*
-    * Get the root node name.  Just the unqualified classname
-    *
-    * @return string
-    */
+    /**
+     * Get the root node name.  Just the unqualified classname
+     *
+     * @return string
+     */
     public static function getRootNodeName(){
         return 'ManualJournal';
     }
 
 
-    /*
-    * Get the guid property
-    *
-    * @return string
-    */
+    /**
+     * Get the guid property
+     *
+     * @return string
+     */
     public static function getGUIDProperty(){
         return '';
     }
 
 
     /**
-    * Get the stem of the API (core.xro) etc
-    *
-    * @return string|null
-    */
+     * Get the stem of the API (core.xro) etc
+     *
+     * @return string|null
+     */
     public static function getAPIStem(){
         return Remote\URL::API_CORE;
     }
 
 
-    /*
-    * Get the supported methods
-    */
-    public static function getSupportedMethods(){
+    /**
+     * Get the supported methods
+     */
+    public static function getSupportedMethods() {
         return array(
             Remote\Request::METHOD_GET,
             Remote\Request::METHOD_PUT,
@@ -124,7 +124,7 @@ class ManualJournal extends Remote\Object {
      *
      * @return array
      */
-    public static function getProperties(){
+    public static function getProperties() {
         return array(
             'Narration' => array (true, self::PROPERTY_TYPE_STRING, null, false),
             'JournalLines' => array (true, self::PROPERTY_TYPE_OBJECT, 'Accounting\\ManualJournal\\JournalLine', true),
@@ -141,7 +141,7 @@ class ManualJournal extends Remote\Object {
     /**
      * @return string
      */
-    public function getNarration(){
+    public function getNarration() {
         return $this->_data['Narration'];
     }
 
@@ -149,7 +149,7 @@ class ManualJournal extends Remote\Object {
      * @param string $value
      * @return ManualJournal
      */
-    public function setNarration($value){
+    public function setNarration($value) {
         $this->propertyUpdated('Narration', $value);
         $this->_data['Narration'] = $value;
         return $this;
@@ -158,7 +158,7 @@ class ManualJournal extends Remote\Object {
     /**
      * @return JournalLine[]
      */
-    public function getJournalLines(){
+    public function getJournalLines() {
         return $this->_data['JournalLines'];
     }
 
@@ -166,7 +166,7 @@ class ManualJournal extends Remote\Object {
      * @param JournalLine $value
      * @return ManualJournal
      */
-    public function addJournalLine(JournalLine $value){
+    public function addJournalLine(JournalLine $value) {
         $this->propertyUpdated('JournalLines', $value);
         $this->_data['JournalLines'][] = $value;
         return $this;
@@ -175,7 +175,7 @@ class ManualJournal extends Remote\Object {
     /**
      * @return \DateTime
      */
-    public function getDate(){
+    public function getDate() {
         return $this->_data['Date'];
     }
 
@@ -183,7 +183,7 @@ class ManualJournal extends Remote\Object {
      * @param \DateTime $value
      * @return ManualJournal
      */
-    public function setDate(\DateTime $value){
+    public function setDate(\DateTime $value) {
         $this->propertyUpdated('Date', $value);
         $this->_data['Date'] = $value;
         return $this;
@@ -192,7 +192,7 @@ class ManualJournal extends Remote\Object {
     /**
      * @return float[]
      */
-    public function getLineAmountTypes(){
+    public function getLineAmountTypes() {
         return $this->_data['LineAmountTypes'];
     }
 
@@ -200,7 +200,7 @@ class ManualJournal extends Remote\Object {
      * @param float $value
      * @return ManualJournal
      */
-    public function addLineAmountType($value){
+    public function addLineAmountType($value) {
         $this->propertyUpdated('LineAmountTypes', $value);
         $this->_data['LineAmountTypes'][] = $value;
         return $this;
@@ -209,7 +209,7 @@ class ManualJournal extends Remote\Object {
     /**
      * @return string
      */
-    public function getStatus(){
+    public function getStatus() {
         return $this->_data['Status'];
     }
 
@@ -217,7 +217,7 @@ class ManualJournal extends Remote\Object {
      * @param string $value
      * @return ManualJournal
      */
-    public function setStatus($value){
+    public function setStatus($value) {
         $this->propertyUpdated('Status', $value);
         $this->_data['Status'] = $value;
         return $this;
@@ -226,7 +226,7 @@ class ManualJournal extends Remote\Object {
     /**
      * @return string
      */
-    public function getUrl(){
+    public function getUrl() {
         return $this->_data['Url'];
     }
 
@@ -234,7 +234,7 @@ class ManualJournal extends Remote\Object {
      * @param string $value
      * @return ManualJournal
      */
-    public function setUrl($value){
+    public function setUrl($value) {
         $this->propertyUpdated('Url', $value);
         $this->_data['Url'] = $value;
         return $this;
@@ -243,7 +243,7 @@ class ManualJournal extends Remote\Object {
     /**
      * @return bool
      */
-    public function getShowOnCashBasisReports(){
+    public function getShowOnCashBasisReports() {
         return $this->_data['ShowOnCashBasisReports'];
     }
 
@@ -251,7 +251,7 @@ class ManualJournal extends Remote\Object {
      * @param bool $value
      * @return ManualJournal
      */
-    public function setShowOnCashBasisReport($value){
+    public function setShowOnCashBasisReport($value) {
         $this->propertyUpdated('ShowOnCashBasisReports', $value);
         $this->_data['ShowOnCashBasisReports'] = $value;
         return $this;
@@ -260,7 +260,7 @@ class ManualJournal extends Remote\Object {
     /**
      * @return bool
      */
-    public function getHasAttachments(){
+    public function getHasAttachments() {
         return $this->_data['HasAttachments'];
     }
 

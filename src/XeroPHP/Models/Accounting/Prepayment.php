@@ -128,50 +128,50 @@ class Prepayment extends Remote\Object {
     const PREPAYMENT_STATUS_VOIDED     = 'VOIDED';
 
 
-    /*
-    * Get the resource uri of the class (Contacts) etc
-    *
-    * @return string
-    */
+    /**
+     * Get the resource uri of the class (Contacts) etc
+     *
+     * @return string
+     */
     public static function getResourceURI(){
         return 'Prepayments';
     }
 
 
-    /*
-    * Get the root node name.  Just the unqualified classname
-    *
-    * @return string
-    */
+    /**
+     * Get the root node name.  Just the unqualified classname
+     *
+     * @return string
+     */
     public static function getRootNodeName(){
         return 'Prepayment';
     }
 
 
-    /*
-    * Get the guid property
-    *
-    * @return string
-    */
+    /**
+     * Get the guid property
+     *
+     * @return string
+     */
     public static function getGUIDProperty(){
         return 'PrepaymentID';
     }
 
 
     /**
-    * Get the stem of the API (core.xro) etc
-    *
-    * @return string|null
-    */
+     * Get the stem of the API (core.xro) etc
+     *
+     * @return string|null
+     */
     public static function getAPIStem(){
         return Remote\URL::API_CORE;
     }
 
 
-    /*
-    * Get the supported methods
-    */
-    public static function getSupportedMethods(){
+    /**
+     * Get the supported methods
+     */
+    public static function getSupportedMethods() {
         return array(
             Remote\Request::METHOD_GET,
             Remote\Request::METHOD_PUT
@@ -188,7 +188,7 @@ class Prepayment extends Remote\Object {
      *
      * @return array
      */
-    public static function getProperties(){
+    public static function getProperties() {
         return array(
             'Reference' => array (false, self::PROPERTY_TYPE_STRING, null, false),
             'Type' => array (false, self::PROPERTY_TYPE_ENUM, null, false),
@@ -216,7 +216,7 @@ class Prepayment extends Remote\Object {
      * @return string
      * @deprecated
      */
-    public function getReference(){
+    public function getReference() {
         return $this->_data['Reference'];
     }
 
@@ -225,7 +225,7 @@ class Prepayment extends Remote\Object {
      * @return Prepayment
      * @deprecated
      */
-    public function setReference($value){
+    public function setReference($value) {
         $this->propertyUpdated('Reference', $value);
         $this->_data['Reference'] = $value;
         return $this;
@@ -234,7 +234,7 @@ class Prepayment extends Remote\Object {
     /**
      * @return string
      */
-    public function getType(){
+    public function getType() {
         return $this->_data['Type'];
     }
 
@@ -242,7 +242,7 @@ class Prepayment extends Remote\Object {
      * @param string $value
      * @return Prepayment
      */
-    public function setType($value){
+    public function setType($value) {
         $this->propertyUpdated('Type', $value);
         $this->_data['Type'] = $value;
         return $this;
@@ -251,7 +251,7 @@ class Prepayment extends Remote\Object {
     /**
      * @return Contact
      */
-    public function getContact(){
+    public function getContact() {
         return $this->_data['Contact'];
     }
 
@@ -259,7 +259,7 @@ class Prepayment extends Remote\Object {
      * @param Contact $value
      * @return Prepayment
      */
-    public function setContact(Contact $value){
+    public function setContact(Contact $value) {
         $this->propertyUpdated('Contact', $value);
         $this->_data['Contact'] = $value;
         return $this;
@@ -268,7 +268,7 @@ class Prepayment extends Remote\Object {
     /**
      * @return \DateTime
      */
-    public function getDate(){
+    public function getDate() {
         return $this->_data['Date'];
     }
 
@@ -276,7 +276,7 @@ class Prepayment extends Remote\Object {
      * @param \DateTime $value
      * @return Prepayment
      */
-    public function setDate(\DateTime $value){
+    public function setDate(\DateTime $value) {
         $this->propertyUpdated('Date', $value);
         $this->_data['Date'] = $value;
         return $this;
@@ -285,7 +285,7 @@ class Prepayment extends Remote\Object {
     /**
      * @return string
      */
-    public function getStatus(){
+    public function getStatus() {
         return $this->_data['Status'];
     }
 
@@ -293,7 +293,7 @@ class Prepayment extends Remote\Object {
      * @param string $value
      * @return Prepayment
      */
-    public function setStatus($value){
+    public function setStatus($value) {
         $this->propertyUpdated('Status', $value);
         $this->_data['Status'] = $value;
         return $this;
@@ -302,7 +302,7 @@ class Prepayment extends Remote\Object {
     /**
      * @return float[]
      */
-    public function getLineAmountTypes(){
+    public function getLineAmountTypes() {
         return $this->_data['LineAmountTypes'];
     }
 
@@ -310,7 +310,7 @@ class Prepayment extends Remote\Object {
      * @param float $value
      * @return Prepayment
      */
-    public function addLineAmountType($value){
+    public function addLineAmountType($value) {
         $this->propertyUpdated('LineAmountTypes', $value);
         $this->_data['LineAmountTypes'][] = $value;
         return $this;
@@ -319,7 +319,7 @@ class Prepayment extends Remote\Object {
     /**
      * @return LineItem[]
      */
-    public function getLineItems(){
+    public function getLineItems() {
         return $this->_data['LineItems'];
     }
 
@@ -327,7 +327,7 @@ class Prepayment extends Remote\Object {
      * @param LineItem $value
      * @return Prepayment
      */
-    public function addLineItem(LineItem $value){
+    public function addLineItem(LineItem $value) {
         $this->propertyUpdated('LineItems', $value);
         $this->_data['LineItems'][] = $value;
         return $this;
@@ -336,7 +336,7 @@ class Prepayment extends Remote\Object {
     /**
      * @return float
      */
-    public function getSubTotal(){
+    public function getSubTotal() {
         return $this->_data['SubTotal'];
     }
 
@@ -344,7 +344,7 @@ class Prepayment extends Remote\Object {
      * @param float $value
      * @return Prepayment
      */
-    public function setSubTotal($value){
+    public function setSubTotal($value) {
         $this->propertyUpdated('SubTotal', $value);
         $this->_data['SubTotal'] = $value;
         return $this;
@@ -353,7 +353,7 @@ class Prepayment extends Remote\Object {
     /**
      * @return float
      */
-    public function getTotalTax(){
+    public function getTotalTax() {
         return $this->_data['TotalTax'];
     }
 
@@ -361,7 +361,7 @@ class Prepayment extends Remote\Object {
      * @param float $value
      * @return Prepayment
      */
-    public function setTotalTax($value){
+    public function setTotalTax($value) {
         $this->propertyUpdated('TotalTax', $value);
         $this->_data['TotalTax'] = $value;
         return $this;
@@ -370,7 +370,7 @@ class Prepayment extends Remote\Object {
     /**
      * @return float
      */
-    public function getTotal(){
+    public function getTotal() {
         return $this->_data['Total'];
     }
 
@@ -378,7 +378,7 @@ class Prepayment extends Remote\Object {
      * @param float $value
      * @return Prepayment
      */
-    public function setTotal($value){
+    public function setTotal($value) {
         $this->propertyUpdated('Total', $value);
         $this->_data['Total'] = $value;
         return $this;
@@ -387,7 +387,7 @@ class Prepayment extends Remote\Object {
     /**
      * @return \DateTime
      */
-    public function getUpdatedDateUTC(){
+    public function getUpdatedDateUTC() {
         return $this->_data['UpdatedDateUTC'];
     }
 
@@ -395,7 +395,7 @@ class Prepayment extends Remote\Object {
      * @param \DateTime $value
      * @return Prepayment
      */
-    public function setUpdatedDateUTC(\DateTime $value){
+    public function setUpdatedDateUTC(\DateTime $value) {
         $this->propertyUpdated('UpdatedDateUTC', $value);
         $this->_data['UpdatedDateUTC'] = $value;
         return $this;
@@ -404,7 +404,7 @@ class Prepayment extends Remote\Object {
     /**
      * @return string
      */
-    public function getCurrencyCode(){
+    public function getCurrencyCode() {
         return $this->_data['CurrencyCode'];
     }
 
@@ -412,7 +412,7 @@ class Prepayment extends Remote\Object {
      * @param string $value
      * @return Prepayment
      */
-    public function setCurrencyCode($value){
+    public function setCurrencyCode($value) {
         $this->propertyUpdated('CurrencyCode', $value);
         $this->_data['CurrencyCode'] = $value;
         return $this;
@@ -421,7 +421,7 @@ class Prepayment extends Remote\Object {
     /**
      * @return \DateTime
      */
-    public function getFullyPaidOnDate(){
+    public function getFullyPaidOnDate() {
         return $this->_data['FullyPaidOnDate'];
     }
 
@@ -429,7 +429,7 @@ class Prepayment extends Remote\Object {
      * @param \DateTime $value
      * @return Prepayment
      */
-    public function setFullyPaidOnDate(\DateTime $value){
+    public function setFullyPaidOnDate(\DateTime $value) {
         $this->propertyUpdated('FullyPaidOnDate', $value);
         $this->_data['FullyPaidOnDate'] = $value;
         return $this;
@@ -438,7 +438,7 @@ class Prepayment extends Remote\Object {
     /**
      * @return string
      */
-    public function getPrepaymentID(){
+    public function getPrepaymentID() {
         return $this->_data['PrepaymentID'];
     }
 
@@ -446,7 +446,7 @@ class Prepayment extends Remote\Object {
      * @param string $value
      * @return Prepayment
      */
-    public function setPrepaymentID($value){
+    public function setPrepaymentID($value) {
         $this->propertyUpdated('PrepaymentID', $value);
         $this->_data['PrepaymentID'] = $value;
         return $this;
@@ -455,7 +455,7 @@ class Prepayment extends Remote\Object {
     /**
      * @return float
      */
-    public function getCurrencyRate(){
+    public function getCurrencyRate() {
         return $this->_data['CurrencyRate'];
     }
 
@@ -463,7 +463,7 @@ class Prepayment extends Remote\Object {
      * @param float $value
      * @return Prepayment
      */
-    public function setCurrencyRate($value){
+    public function setCurrencyRate($value) {
         $this->propertyUpdated('CurrencyRate', $value);
         $this->_data['CurrencyRate'] = $value;
         return $this;
@@ -472,7 +472,7 @@ class Prepayment extends Remote\Object {
     /**
      * @return string
      */
-    public function getRemainingCredit(){
+    public function getRemainingCredit() {
         return $this->_data['RemainingCredit'];
     }
 
@@ -480,7 +480,7 @@ class Prepayment extends Remote\Object {
      * @param string $value
      * @return Prepayment
      */
-    public function setRemainingCredit($value){
+    public function setRemainingCredit($value) {
         $this->propertyUpdated('RemainingCredit', $value);
         $this->_data['RemainingCredit'] = $value;
         return $this;
@@ -489,7 +489,7 @@ class Prepayment extends Remote\Object {
     /**
      * @return Allocation[]
      */
-    public function getAllocations(){
+    public function getAllocations() {
         return $this->_data['Allocations'];
     }
 
@@ -497,7 +497,7 @@ class Prepayment extends Remote\Object {
      * @param Allocation $value
      * @return Prepayment
      */
-    public function addAllocation(Allocation $value){
+    public function addAllocation(Allocation $value) {
         $this->propertyUpdated('Allocations', $value);
         $this->_data['Allocations'][] = $value;
         return $this;
@@ -506,7 +506,7 @@ class Prepayment extends Remote\Object {
     /**
      * @return bool
      */
-    public function getHasAttachments(){
+    public function getHasAttachments() {
         return $this->_data['HasAttachments'];
     }
 
@@ -514,7 +514,7 @@ class Prepayment extends Remote\Object {
      * @param bool $value
      * @return Prepayment
      */
-    public function setHasAttachment($value){
+    public function setHasAttachment($value) {
         $this->propertyUpdated('HasAttachments', $value);
         $this->_data['HasAttachments'] = $value;
         return $this;

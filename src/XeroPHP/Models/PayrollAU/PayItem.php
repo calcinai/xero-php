@@ -37,50 +37,50 @@ class PayItem extends Remote\Object {
 
 
 
-    /*
-    * Get the resource uri of the class (Contacts) etc
-    *
-    * @return string
-    */
+    /**
+     * Get the resource uri of the class (Contacts) etc
+     *
+     * @return string
+     */
     public static function getResourceURI(){
         return 'PayItems';
     }
 
 
-    /*
-    * Get the root node name.  Just the unqualified classname
-    *
-    * @return string
-    */
+    /**
+     * Get the root node name.  Just the unqualified classname
+     *
+     * @return string
+     */
     public static function getRootNodeName(){
         return 'PayItem';
     }
 
 
-    /*
-    * Get the guid property
-    *
-    * @return string
-    */
+    /**
+     * Get the guid property
+     *
+     * @return string
+     */
     public static function getGUIDProperty(){
         return '';
     }
 
 
     /**
-    * Get the stem of the API (core.xro) etc
-    *
-    * @return string|null
-    */
+     * Get the stem of the API (core.xro) etc
+     *
+     * @return string|null
+     */
     public static function getAPIStem(){
         return Remote\URL::API_PAYROLL;
     }
 
 
-    /*
-    * Get the supported methods
-    */
-    public static function getSupportedMethods(){
+    /**
+     * Get the supported methods
+     */
+    public static function getSupportedMethods() {
         return array(
             Remote\Request::METHOD_POST,
             Remote\Request::METHOD_GET
@@ -97,7 +97,7 @@ class PayItem extends Remote\Object {
      *
      * @return array
      */
-    public static function getProperties(){
+    public static function getProperties() {
         return array(
             'EarningsRates' => array (false, self::PROPERTY_TYPE_OBJECT, 'PayrollAU\\PayItem\\EarningsRate', true),
             'DeductionTypes' => array (false, self::PROPERTY_TYPE_OBJECT, 'PayrollAU\\PayItem\\DeductionType', true),
@@ -110,7 +110,7 @@ class PayItem extends Remote\Object {
     /**
      * @return EarningsRate[]
      */
-    public function getEarningsRates(){
+    public function getEarningsRates() {
         return $this->_data['EarningsRates'];
     }
 
@@ -118,7 +118,7 @@ class PayItem extends Remote\Object {
      * @param EarningsRate $value
      * @return PayItem
      */
-    public function addEarningsRate(EarningsRate $value){
+    public function addEarningsRate(EarningsRate $value) {
         $this->propertyUpdated('EarningsRates', $value);
         $this->_data['EarningsRates'][] = $value;
         return $this;
@@ -127,7 +127,7 @@ class PayItem extends Remote\Object {
     /**
      * @return DeductionType[]
      */
-    public function getDeductionTypes(){
+    public function getDeductionTypes() {
         return $this->_data['DeductionTypes'];
     }
 
@@ -135,7 +135,7 @@ class PayItem extends Remote\Object {
      * @param DeductionType $value
      * @return PayItem
      */
-    public function addDeductionType(DeductionType $value){
+    public function addDeductionType(DeductionType $value) {
         $this->propertyUpdated('DeductionTypes', $value);
         $this->_data['DeductionTypes'][] = $value;
         return $this;
@@ -144,7 +144,7 @@ class PayItem extends Remote\Object {
     /**
      * @return LeaveType[]
      */
-    public function getLeaveTypes(){
+    public function getLeaveTypes() {
         return $this->_data['LeaveTypes'];
     }
 
@@ -152,7 +152,7 @@ class PayItem extends Remote\Object {
      * @param LeaveType $value
      * @return PayItem
      */
-    public function addLeaveType(LeaveType $value){
+    public function addLeaveType(LeaveType $value) {
         $this->propertyUpdated('LeaveTypes', $value);
         $this->_data['LeaveTypes'][] = $value;
         return $this;
@@ -161,7 +161,7 @@ class PayItem extends Remote\Object {
     /**
      * @return ReimbursementType[]
      */
-    public function getReimbursementTypes(){
+    public function getReimbursementTypes() {
         return $this->_data['ReimbursementTypes'];
     }
 
@@ -169,7 +169,7 @@ class PayItem extends Remote\Object {
      * @param ReimbursementType $value
      * @return PayItem
      */
-    public function addReimbursementType(ReimbursementType $value){
+    public function addReimbursementType(ReimbursementType $value) {
         $this->propertyUpdated('ReimbursementTypes', $value);
         $this->_data['ReimbursementTypes'][] = $value;
         return $this;

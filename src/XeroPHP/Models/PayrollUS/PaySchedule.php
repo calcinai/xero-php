@@ -39,50 +39,50 @@ class PaySchedule extends Remote\Object {
 
 
 
-    /*
-    * Get the resource uri of the class (Contacts) etc
-    *
-    * @return string
-    */
+    /**
+     * Get the resource uri of the class (Contacts) etc
+     *
+     * @return string
+     */
     public static function getResourceURI(){
         return 'PaySchedules';
     }
 
 
-    /*
-    * Get the root node name.  Just the unqualified classname
-    *
-    * @return string
-    */
+    /**
+     * Get the root node name.  Just the unqualified classname
+     *
+     * @return string
+     */
     public static function getRootNodeName(){
         return 'PaySchedule';
     }
 
 
-    /*
-    * Get the guid property
-    *
-    * @return string
-    */
+    /**
+     * Get the guid property
+     *
+     * @return string
+     */
     public static function getGUIDProperty(){
         return 'PayScheduleId';
     }
 
 
     /**
-    * Get the stem of the API (core.xro) etc
-    *
-    * @return string|null
-    */
+     * Get the stem of the API (core.xro) etc
+     *
+     * @return string|null
+     */
     public static function getAPIStem(){
         return Remote\URL::API_PAYROLL;
     }
 
 
-    /*
-    * Get the supported methods
-    */
-    public static function getSupportedMethods(){
+    /**
+     * Get the supported methods
+     */
+    public static function getSupportedMethods() {
         return array(
             Remote\Request::METHOD_POST,
             Remote\Request::METHOD_GET
@@ -99,7 +99,7 @@ class PaySchedule extends Remote\Object {
      *
      * @return array
      */
-    public static function getProperties(){
+    public static function getProperties() {
         return array(
             'PayScheduleName' => array (true, self::PROPERTY_TYPE_STRING, null, false),
             'PaymentDate' => array (true, self::PROPERTY_TYPE_DATE, '\\DateTime', false),
@@ -113,7 +113,7 @@ class PaySchedule extends Remote\Object {
     /**
      * @return string
      */
-    public function getPayScheduleName(){
+    public function getPayScheduleName() {
         return $this->_data['PayScheduleName'];
     }
 
@@ -121,7 +121,7 @@ class PaySchedule extends Remote\Object {
      * @param string $value
      * @return PaySchedule
      */
-    public function setPayScheduleName($value){
+    public function setPayScheduleName($value) {
         $this->propertyUpdated('PayScheduleName', $value);
         $this->_data['PayScheduleName'] = $value;
         return $this;
@@ -130,7 +130,7 @@ class PaySchedule extends Remote\Object {
     /**
      * @return \DateTime
      */
-    public function getPaymentDate(){
+    public function getPaymentDate() {
         return $this->_data['PaymentDate'];
     }
 
@@ -138,7 +138,7 @@ class PaySchedule extends Remote\Object {
      * @param \DateTime $value
      * @return PaySchedule
      */
-    public function setPaymentDate(\DateTime $value){
+    public function setPaymentDate(\DateTime $value) {
         $this->propertyUpdated('PaymentDate', $value);
         $this->_data['PaymentDate'] = $value;
         return $this;
@@ -147,7 +147,7 @@ class PaySchedule extends Remote\Object {
     /**
      * @return \DateTime
      */
-    public function getStartDate(){
+    public function getStartDate() {
         return $this->_data['StartDate'];
     }
 
@@ -155,7 +155,7 @@ class PaySchedule extends Remote\Object {
      * @param \DateTime $value
      * @return PaySchedule
      */
-    public function setStartDate(\DateTime $value){
+    public function setStartDate(\DateTime $value) {
         $this->propertyUpdated('StartDate', $value);
         $this->_data['StartDate'] = $value;
         return $this;
@@ -164,7 +164,7 @@ class PaySchedule extends Remote\Object {
     /**
      * @return string
      */
-    public function getScheduleType(){
+    public function getScheduleType() {
         return $this->_data['ScheduleType'];
     }
 
@@ -172,7 +172,7 @@ class PaySchedule extends Remote\Object {
      * @param string $value
      * @return PaySchedule
      */
-    public function setScheduleType($value){
+    public function setScheduleType($value) {
         $this->propertyUpdated('ScheduleType', $value);
         $this->_data['ScheduleType'] = $value;
         return $this;
@@ -181,7 +181,7 @@ class PaySchedule extends Remote\Object {
     /**
      * @return string
      */
-    public function getPayScheduleId(){
+    public function getPayScheduleId() {
         return $this->_data['PayScheduleId'];
     }
 
@@ -189,7 +189,7 @@ class PaySchedule extends Remote\Object {
      * @param string $value
      * @return PaySchedule
      */
-    public function setPayScheduleId($value){
+    public function setPayScheduleId($value) {
         $this->propertyUpdated('PayScheduleId', $value);
         $this->_data['PayScheduleId'] = $value;
         return $this;

@@ -41,50 +41,50 @@ class PayrollCalendar extends Remote\Object {
     const CALENDARTYPE_QUARTERLY    = 'QUARTERLY';
 
 
-    /*
-    * Get the resource uri of the class (Contacts) etc
-    *
-    * @return string
-    */
+    /**
+     * Get the resource uri of the class (Contacts) etc
+     *
+     * @return string
+     */
     public static function getResourceURI(){
         return 'PayrollCalendars';
     }
 
 
-    /*
-    * Get the root node name.  Just the unqualified classname
-    *
-    * @return string
-    */
+    /**
+     * Get the root node name.  Just the unqualified classname
+     *
+     * @return string
+     */
     public static function getRootNodeName(){
         return 'PayrollCalendar';
     }
 
 
-    /*
-    * Get the guid property
-    *
-    * @return string
-    */
+    /**
+     * Get the guid property
+     *
+     * @return string
+     */
     public static function getGUIDProperty(){
         return '';
     }
 
 
     /**
-    * Get the stem of the API (core.xro) etc
-    *
-    * @return string|null
-    */
+     * Get the stem of the API (core.xro) etc
+     *
+     * @return string|null
+     */
     public static function getAPIStem(){
         return Remote\URL::API_PAYROLL;
     }
 
 
-    /*
-    * Get the supported methods
-    */
-    public static function getSupportedMethods(){
+    /**
+     * Get the supported methods
+     */
+    public static function getSupportedMethods() {
         return array(
             Remote\Request::METHOD_POST,
             Remote\Request::METHOD_GET
@@ -101,7 +101,7 @@ class PayrollCalendar extends Remote\Object {
      *
      * @return array
      */
-    public static function getProperties(){
+    public static function getProperties() {
         return array(
             'Name' => array (true, self::PROPERTY_TYPE_STRING, null, false),
             'CalendarType' => array (true, self::PROPERTY_TYPE_ENUM, null, false),
@@ -114,7 +114,7 @@ class PayrollCalendar extends Remote\Object {
     /**
      * @return string
      */
-    public function getName(){
+    public function getName() {
         return $this->_data['Name'];
     }
 
@@ -122,7 +122,7 @@ class PayrollCalendar extends Remote\Object {
      * @param string $value
      * @return PayrollCalendar
      */
-    public function setName($value){
+    public function setName($value) {
         $this->propertyUpdated('Name', $value);
         $this->_data['Name'] = $value;
         return $this;
@@ -131,7 +131,7 @@ class PayrollCalendar extends Remote\Object {
     /**
      * @return string
      */
-    public function getCalendarType(){
+    public function getCalendarType() {
         return $this->_data['CalendarType'];
     }
 
@@ -139,7 +139,7 @@ class PayrollCalendar extends Remote\Object {
      * @param string $value
      * @return PayrollCalendar
      */
-    public function setCalendarType($value){
+    public function setCalendarType($value) {
         $this->propertyUpdated('CalendarType', $value);
         $this->_data['CalendarType'] = $value;
         return $this;
@@ -148,7 +148,7 @@ class PayrollCalendar extends Remote\Object {
     /**
      * @return \DateTime
      */
-    public function getStartDate(){
+    public function getStartDate() {
         return $this->_data['StartDate'];
     }
 
@@ -156,7 +156,7 @@ class PayrollCalendar extends Remote\Object {
      * @param \DateTime $value
      * @return PayrollCalendar
      */
-    public function setStartDate(\DateTime $value){
+    public function setStartDate(\DateTime $value) {
         $this->propertyUpdated('StartDate', $value);
         $this->_data['StartDate'] = $value;
         return $this;
@@ -165,7 +165,7 @@ class PayrollCalendar extends Remote\Object {
     /**
      * @return \DateTime
      */
-    public function getPaymentDate(){
+    public function getPaymentDate() {
         return $this->_data['PaymentDate'];
     }
 
@@ -173,7 +173,7 @@ class PayrollCalendar extends Remote\Object {
      * @param \DateTime $value
      * @return PayrollCalendar
      */
-    public function setPaymentDate(\DateTime $value){
+    public function setPaymentDate(\DateTime $value) {
         $this->propertyUpdated('PaymentDate', $value);
         $this->_data['PaymentDate'] = $value;
         return $this;

@@ -49,50 +49,50 @@ class SuperMembership extends Remote\Object {
 
 
 
-    /*
-    * Get the resource uri of the class (Contacts) etc
-    *
-    * @return string
-    */
+    /**
+     * Get the resource uri of the class (Contacts) etc
+     *
+     * @return string
+     */
     public static function getResourceURI(){
         return null;
     }
 
 
-    /*
-    * Get the root node name.  Just the unqualified classname
-    *
-    * @return string
-    */
+    /**
+     * Get the root node name.  Just the unqualified classname
+     *
+     * @return string
+     */
     public static function getRootNodeName(){
         return 'SuperMembership';
     }
 
 
-    /*
-    * Get the guid property
-    *
-    * @return string
-    */
+    /**
+     * Get the guid property
+     *
+     * @return string
+     */
     public static function getGUIDProperty(){
         return 'SuperMembershipID';
     }
 
 
     /**
-    * Get the stem of the API (core.xro) etc
-    *
-    * @return string|null
-    */
+     * Get the stem of the API (core.xro) etc
+     *
+     * @return string|null
+     */
     public static function getAPIStem(){
         return Remote\URL::API_PAYROLL;
     }
 
 
-    /*
-    * Get the supported methods
-    */
-    public static function getSupportedMethods(){
+    /**
+     * Get the supported methods
+     */
+    public static function getSupportedMethods() {
         return array(
         );
     }
@@ -107,7 +107,7 @@ class SuperMembership extends Remote\Object {
      *
      * @return array
      */
-    public static function getProperties(){
+    public static function getProperties() {
         return array(
             'SuperFundID' => array (false, self::PROPERTY_TYPE_STRING, null, false),
             'EmployeeNumber' => array (false, self::PROPERTY_TYPE_STRING, null, false),
@@ -122,7 +122,7 @@ class SuperMembership extends Remote\Object {
     /**
      * @return string
      */
-    public function getSuperFundID(){
+    public function getSuperFundID() {
         return $this->_data['SuperFundID'];
     }
 
@@ -130,7 +130,7 @@ class SuperMembership extends Remote\Object {
      * @param string $value
      * @return SuperMembership
      */
-    public function setSuperFundID($value){
+    public function setSuperFundID($value) {
         $this->propertyUpdated('SuperFundID', $value);
         $this->_data['SuperFundID'] = $value;
         return $this;
@@ -139,7 +139,7 @@ class SuperMembership extends Remote\Object {
     /**
      * @return string
      */
-    public function getEmployeeNumber(){
+    public function getEmployeeNumber() {
         return $this->_data['EmployeeNumber'];
     }
 
@@ -147,7 +147,7 @@ class SuperMembership extends Remote\Object {
      * @param string $value
      * @return SuperMembership
      */
-    public function setEmployeeNumber($value){
+    public function setEmployeeNumber($value) {
         $this->propertyUpdated('EmployeeNumber', $value);
         $this->_data['EmployeeNumber'] = $value;
         return $this;
@@ -156,7 +156,7 @@ class SuperMembership extends Remote\Object {
     /**
      * @return string
      */
-    public function getSuperMembershipID(){
+    public function getSuperMembershipID() {
         return $this->_data['SuperMembershipID'];
     }
 
@@ -164,7 +164,7 @@ class SuperMembership extends Remote\Object {
      * @param string $value
      * @return SuperMembership
      */
-    public function setSuperMembershipID($value){
+    public function setSuperMembershipID($value) {
         $this->propertyUpdated('SuperMembershipID', $value);
         $this->_data['SuperMembershipID'] = $value;
         return $this;
@@ -173,7 +173,7 @@ class SuperMembership extends Remote\Object {
     /**
      * @return string
      */
-    public function getRecordfilter(){
+    public function getRecordfilter() {
         return $this->_data['Recordfilter'];
     }
 
@@ -181,7 +181,7 @@ class SuperMembership extends Remote\Object {
      * @param string $value
      * @return SuperMembership
      */
-    public function setRecordfilter($value){
+    public function setRecordfilter($value) {
         $this->propertyUpdated('Recordfilter', $value);
         $this->_data['Recordfilter'] = $value;
         return $this;
@@ -190,7 +190,7 @@ class SuperMembership extends Remote\Object {
     /**
      * @return string
      */
-    public function getEmployeeID(){
+    public function getEmployeeID() {
         return $this->_data['EmployeeID'];
     }
 
@@ -198,7 +198,7 @@ class SuperMembership extends Remote\Object {
      * @param string $value
      * @return SuperMembership
      */
-    public function setEmployeeID($value){
+    public function setEmployeeID($value) {
         $this->propertyUpdated('EmployeeID', $value);
         $this->_data['EmployeeID'] = $value;
         return $this;
@@ -207,7 +207,7 @@ class SuperMembership extends Remote\Object {
     /**
      * @return \DateTime
      */
-    public function getModifiedAfter(){
+    public function getModifiedAfter() {
         return $this->_data['ModifiedAfter'];
     }
 
@@ -215,7 +215,7 @@ class SuperMembership extends Remote\Object {
      * @param \DateTime $value
      * @return SuperMembership
      */
-    public function setModifiedAfter(\DateTime $value){
+    public function setModifiedAfter(\DateTime $value) {
         $this->propertyUpdated('ModifiedAfter', $value);
         $this->_data['ModifiedAfter'] = $value;
         return $this;

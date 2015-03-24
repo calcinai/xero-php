@@ -7,13 +7,13 @@ use XeroPHP\Remote\OAuth\Exception;
 class RSASHA1 implements SignatureMethodInterface {
 
 
-    public static function generateSignature(array $config, $sbs, $secret){
+    public static function generateSignature(array $config, $sbs, $secret) {
         // Fetch the private key
         if(false === $private_key_id = openssl_pkey_get_private($config['rsa_private_key']))
             throw new Exception('Cannot access private key for signing');
 
         // Sign using the key
-        if(false === openssl_sign($sbs, $signature, $private_key_id)){
+        if(false === openssl_sign($sbs, $signature, $private_key_id)) {
             throw new Exception('Cannot sign signature base string.');
         }
 
@@ -22,10 +22,6 @@ class RSASHA1 implements SignatureMethodInterface {
 
         return base64_encode($signature);
     }
-
-
-
-
 
 
 }

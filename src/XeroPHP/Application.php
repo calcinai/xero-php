@@ -10,37 +10,33 @@ use XeroPHP\Remote\URL;
 
 abstract class Application {
 
-    protected static $_config_defaults = array (
-        'xero' => array(
-            'site'     => 'https://api.xero.com',
-            'base_url' => 'https://api.xero.com',
-
-            'core_version'     => '2.0',
-            'payroll_version'  => '1.0',
-            'file_version'     => '1.0',
-
-            'model_namespace'   => '\\XeroPHP\\Models'
+    protected static $_config_defaults = array(
+        'xero'  => array(
+            'site'            => 'https://api.xero.com',
+            'base_url'        => 'https://api.xero.com',
+            'core_version'    => '2.0',
+            'payroll_version' => '1.0',
+            'file_version'    => '1.0',
+            'model_namespace' => '\\XeroPHP\\Models'
         ),
-
         //OAuth config
         'oauth' => array(
-            'signature_method'      => Client::SIGNATURE_RSA_SHA1,
-            'request_token_path'    => 'oauth/RequestToken',
-            'access_token_path'     => 'oauth/AccessToken',
-            'authorize_path'        => 'oauth/Authorize',
-            'signature_location'    => Client::SIGN_LOCATION_HEADER
+            'signature_method'   => Client::SIGNATURE_RSA_SHA1,
+            'request_token_path' => 'oauth/RequestToken',
+            'access_token_path'  => 'oauth/AccessToken',
+            'authorize_path'     => 'oauth/Authorize',
+            'signature_location' => Client::SIGN_LOCATION_HEADER
         ),
-
-        'curl' => array (
-            CURLOPT_USERAGENT       => 'XeroPHP',
-            CURLOPT_CONNECTTIMEOUT  => 30,
-            CURLOPT_TIMEOUT         => 20,
-            CURLOPT_SSL_VERIFYPEER  => 2,
-            CURLOPT_SSL_VERIFYHOST  => 2,
-            CURLOPT_FOLLOWLOCATION  => false,
-            CURLOPT_PROXY           => false,
-            CURLOPT_PROXYUSERPWD    => false,
-            CURLOPT_ENCODING        => '',
+        'curl'  => array(
+            CURLOPT_USERAGENT      => 'XeroPHP',
+            CURLOPT_CONNECTTIMEOUT => 30,
+            CURLOPT_TIMEOUT        => 20,
+            CURLOPT_SSL_VERIFYPEER => 2,
+            CURLOPT_SSL_VERIFYHOST => 2,
+            CURLOPT_FOLLOWLOCATION => false,
+            CURLOPT_PROXY          => false,
+            CURLOPT_PROXYUSERPWD   => false,
+            CURLOPT_ENCODING       => '',
         )
     );
 
@@ -51,7 +47,7 @@ abstract class Application {
     /**
      * @param array $user_config
      */
-    public function __construct(array $user_config){
+    public function __construct(array $user_config) {
         //better here for overriding
         $this->config = array_replace_recursive(self::$_config_defaults, static::$_type_config_defaults, $user_config);
 
@@ -61,7 +57,7 @@ abstract class Application {
     /**
      * @return Client
      */
-    public function getOAuthClient(){
+    public function getOAuthClient() {
         return $this->oauth_client;
     }
 
@@ -71,7 +67,7 @@ abstract class Application {
      * @return mixed
      * @throws Exception
      */
-    public function getConfig($key){
+    public function getConfig($key) {
 
         if(!isset($this->config[$key]))
             throw new Exception("Invalid configuration key [$key]");
@@ -85,7 +81,7 @@ abstract class Application {
      * @return mixed
      * @throws Exception
      */
-    public function loadByGUID($model, $guid){
+    public function loadByGUID($model, $guid) {
 
         $query = $this->load($model);
 
@@ -106,7 +102,7 @@ abstract class Application {
      * @return $this
      * @throws Remote\Exception
      */
-    public function load($model){
+    public function load($model) {
 
         $query = new Query($this);
         return $query->from($model);
@@ -118,7 +114,7 @@ abstract class Application {
      * @return null
      * @throws Exception
      */
-    public function save(Object $object){
+    public function save(Object $object) {
 
         if($object->isDirty()) {
             $object->validate();
@@ -163,7 +159,7 @@ abstract class Application {
      * @return null
      * @throws Exception
      */
-    public function saveAll(array $objects){
+    public function saveAll(array $objects) {
 
         //Just get one type to compare with, doesn't matter which.
         $type = get_class(current($objects));
@@ -189,8 +185,8 @@ abstract class Application {
 
         $response = $request->getResponse();
 
-        foreach($response->getElements() as $element_index => $element){
-            if($response->getErrorsForElement($element_index) === null){
+        foreach($response->getElements() as $element_index => $element) {
+            if($response->getErrorsForElement($element_index) === null) {
                 $objects[$element_index]->fromStringArray($element);
                 $objects[$element_index]->setClean();
             }
@@ -202,7 +198,7 @@ abstract class Application {
     /**
      * @param Remote\Object $object
      */
-    public function delete(Object $object){
+    public function delete(Object $object) {
 
     }
 

@@ -153,50 +153,50 @@ e.g.
     const SYSTEM_ACCOUNT_WAGEPAYABLES           = 'WAGEPAYABLES';
 
 
-    /*
-    * Get the resource uri of the class (Contacts) etc
-    *
-    * @return string
-    */
+    /**
+     * Get the resource uri of the class (Contacts) etc
+     *
+     * @return string
+     */
     public static function getResourceURI(){
         return 'Accounts';
     }
 
 
-    /*
-    * Get the root node name.  Just the unqualified classname
-    *
-    * @return string
-    */
+    /**
+     * Get the root node name.  Just the unqualified classname
+     *
+     * @return string
+     */
     public static function getRootNodeName(){
         return 'Account';
     }
 
 
-    /*
-    * Get the guid property
-    *
-    * @return string
-    */
+    /**
+     * Get the guid property
+     *
+     * @return string
+     */
     public static function getGUIDProperty(){
         return 'AccountID';
     }
 
 
     /**
-    * Get the stem of the API (core.xro) etc
-    *
-    * @return string|null
-    */
+     * Get the stem of the API (core.xro) etc
+     *
+     * @return string|null
+     */
     public static function getAPIStem(){
         return Remote\URL::API_CORE;
     }
 
 
-    /*
-    * Get the supported methods
-    */
-    public static function getSupportedMethods(){
+    /**
+     * Get the supported methods
+     */
+    public static function getSupportedMethods() {
         return array(
             Remote\Request::METHOD_GET,
             Remote\Request::METHOD_PUT,
@@ -214,7 +214,7 @@ e.g.
      *
      * @return array
      */
-    public static function getProperties(){
+    public static function getProperties() {
         return array(
             'Code' => array (true, self::PROPERTY_TYPE_STRING, null, false),
             'Name' => array (true, self::PROPERTY_TYPE_STRING, null, false),
@@ -239,7 +239,7 @@ e.g.
     /**
      * @return string
      */
-    public function getCode(){
+    public function getCode() {
         return $this->_data['Code'];
     }
 
@@ -247,7 +247,7 @@ e.g.
      * @param string $value
      * @return Account
      */
-    public function setCode($value){
+    public function setCode($value) {
         $this->propertyUpdated('Code', $value);
         $this->_data['Code'] = $value;
         return $this;
@@ -256,7 +256,7 @@ e.g.
     /**
      * @return string
      */
-    public function getName(){
+    public function getName() {
         return $this->_data['Name'];
     }
 
@@ -264,7 +264,7 @@ e.g.
      * @param string $value
      * @return Account
      */
-    public function setName($value){
+    public function setName($value) {
         $this->propertyUpdated('Name', $value);
         $this->_data['Name'] = $value;
         return $this;
@@ -273,7 +273,7 @@ e.g.
     /**
      * @return string
      */
-    public function getType(){
+    public function getType() {
         return $this->_data['Type'];
     }
 
@@ -281,7 +281,7 @@ e.g.
      * @param string $value
      * @return Account
      */
-    public function setType($value){
+    public function setType($value) {
         $this->propertyUpdated('Type', $value);
         $this->_data['Type'] = $value;
         return $this;
@@ -290,7 +290,7 @@ e.g.
     /**
      * @return string
      */
-    public function getDescription(){
+    public function getDescription() {
         return $this->_data['Description'];
     }
 
@@ -298,7 +298,7 @@ e.g.
      * @param string $value
      * @return Account
      */
-    public function setDescription($value){
+    public function setDescription($value) {
         $this->propertyUpdated('Description', $value);
         $this->_data['Description'] = $value;
         return $this;
@@ -307,7 +307,7 @@ e.g.
     /**
      * @return string
      */
-    public function getTaxType(){
+    public function getTaxType() {
         return $this->_data['TaxType'];
     }
 
@@ -315,7 +315,7 @@ e.g.
      * @param string $value
      * @return Account
      */
-    public function setTaxType($value){
+    public function setTaxType($value) {
         $this->propertyUpdated('TaxType', $value);
         $this->_data['TaxType'] = $value;
         return $this;
@@ -324,7 +324,7 @@ e.g.
     /**
      * @return bool
      */
-    public function getEnablePaymentsToAccount(){
+    public function getEnablePaymentsToAccount() {
         return $this->_data['EnablePaymentsToAccount'];
     }
 
@@ -332,7 +332,7 @@ e.g.
      * @param bool $value
      * @return Account
      */
-    public function setEnablePaymentsToAccount($value){
+    public function setEnablePaymentsToAccount($value) {
         $this->propertyUpdated('EnablePaymentsToAccount', $value);
         $this->_data['EnablePaymentsToAccount'] = $value;
         return $this;
@@ -341,7 +341,7 @@ e.g.
     /**
      * @return bool
      */
-    public function getShowInExpenseClaims(){
+    public function getShowInExpenseClaims() {
         return $this->_data['ShowInExpenseClaims'];
     }
 
@@ -349,7 +349,7 @@ e.g.
      * @param bool $value
      * @return Account
      */
-    public function setShowInExpenseClaim($value){
+    public function setShowInExpenseClaim($value) {
         $this->propertyUpdated('ShowInExpenseClaims', $value);
         $this->_data['ShowInExpenseClaims'] = $value;
         return $this;
@@ -358,7 +358,7 @@ e.g.
     /**
      * @return string
      */
-    public function getStatus(){
+    public function getStatus() {
         return $this->_data['Status'];
     }
 
@@ -366,7 +366,7 @@ e.g.
      * @param string $value
      * @return Account
      */
-    public function setStatus($value){
+    public function setStatus($value) {
         $this->propertyUpdated('Status', $value);
         $this->_data['Status'] = $value;
         return $this;
@@ -375,7 +375,7 @@ e.g.
     /**
      * @return string
      */
-    public function getAccountID(){
+    public function getAccountID() {
         return $this->_data['AccountID'];
     }
 
@@ -383,7 +383,7 @@ e.g.
      * @param string $value
      * @return Account
      */
-    public function setAccountID($value){
+    public function setAccountID($value) {
         $this->propertyUpdated('AccountID', $value);
         $this->_data['AccountID'] = $value;
         return $this;
@@ -392,7 +392,7 @@ e.g.
     /**
      * @return string
      */
-    public function getClass(){
+    public function getClass() {
         return $this->_data['Class'];
     }
 
@@ -400,7 +400,7 @@ e.g.
      * @param string $value
      * @return Account
      */
-    public function setClass($value){
+    public function setClass($value) {
         $this->propertyUpdated('Class', $value);
         $this->_data['Class'] = $value;
         return $this;
@@ -409,7 +409,7 @@ e.g.
     /**
      * @return string
      */
-    public function getSystemAccount(){
+    public function getSystemAccount() {
         return $this->_data['SystemAccount'];
     }
 
@@ -417,7 +417,7 @@ e.g.
      * @param string $value
      * @return Account
      */
-    public function setSystemAccount($value){
+    public function setSystemAccount($value) {
         $this->propertyUpdated('SystemAccount', $value);
         $this->_data['SystemAccount'] = $value;
         return $this;
@@ -426,7 +426,7 @@ e.g.
     /**
      * @return string
      */
-    public function getBankAccountNumber(){
+    public function getBankAccountNumber() {
         return $this->_data['BankAccountNumber'];
     }
 
@@ -434,7 +434,7 @@ e.g.
      * @param string $value
      * @return Account
      */
-    public function setBankAccountNumber($value){
+    public function setBankAccountNumber($value) {
         $this->propertyUpdated('BankAccountNumber', $value);
         $this->_data['BankAccountNumber'] = $value;
         return $this;
@@ -443,7 +443,7 @@ e.g.
     /**
      * @return string
      */
-    public function getCurrencyCode(){
+    public function getCurrencyCode() {
         return $this->_data['CurrencyCode'];
     }
 
@@ -451,7 +451,7 @@ e.g.
      * @param string $value
      * @return Account
      */
-    public function setCurrencyCode($value){
+    public function setCurrencyCode($value) {
         $this->propertyUpdated('CurrencyCode', $value);
         $this->_data['CurrencyCode'] = $value;
         return $this;
@@ -460,7 +460,7 @@ e.g.
     /**
      * @return string
      */
-    public function getReportingCode(){
+    public function getReportingCode() {
         return $this->_data['ReportingCode'];
     }
 
@@ -468,7 +468,7 @@ e.g.
      * @param string $value
      * @return Account
      */
-    public function setReportingCode($value){
+    public function setReportingCode($value) {
         $this->propertyUpdated('ReportingCode', $value);
         $this->_data['ReportingCode'] = $value;
         return $this;
@@ -477,7 +477,7 @@ e.g.
     /**
      * @return string
      */
-    public function getReportingCodeName(){
+    public function getReportingCodeName() {
         return $this->_data['ReportingCodeName'];
     }
 
@@ -485,7 +485,7 @@ e.g.
      * @param string $value
      * @return Account
      */
-    public function setReportingCodeName($value){
+    public function setReportingCodeName($value) {
         $this->propertyUpdated('ReportingCodeName', $value);
         $this->_data['ReportingCodeName'] = $value;
         return $this;
@@ -494,7 +494,7 @@ e.g.
     /**
      * @return bool
      */
-    public function getHasAttachments(){
+    public function getHasAttachments() {
         return $this->_data['HasAttachments'];
     }
 
@@ -502,7 +502,7 @@ e.g.
      * @param bool $value
      * @return Account
      */
-    public function setHasAttachment($value){
+    public function setHasAttachment($value) {
         $this->propertyUpdated('HasAttachments', $value);
         $this->_data['HasAttachments'] = $value;
         return $this;

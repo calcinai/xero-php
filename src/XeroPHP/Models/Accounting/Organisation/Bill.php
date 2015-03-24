@@ -21,50 +21,50 @@ class Bill extends Remote\Object {
 
 
 
-    /*
-    * Get the resource uri of the class (Contacts) etc
-    *
-    * @return string
-    */
+    /**
+     * Get the resource uri of the class (Contacts) etc
+     *
+     * @return string
+     */
     public static function getResourceURI(){
         return null;
     }
 
 
-    /*
-    * Get the root node name.  Just the unqualified classname
-    *
-    * @return string
-    */
+    /**
+     * Get the root node name.  Just the unqualified classname
+     *
+     * @return string
+     */
     public static function getRootNodeName(){
         return 'Bill';
     }
 
 
-    /*
-    * Get the guid property
-    *
-    * @return string
-    */
+    /**
+     * Get the guid property
+     *
+     * @return string
+     */
     public static function getGUIDProperty(){
         return '';
     }
 
 
     /**
-    * Get the stem of the API (core.xro) etc
-    *
-    * @return string|null
-    */
+     * Get the stem of the API (core.xro) etc
+     *
+     * @return string|null
+     */
     public static function getAPIStem(){
         return Remote\URL::API_CORE;
     }
 
 
-    /*
-    * Get the supported methods
-    */
-    public static function getSupportedMethods(){
+    /**
+     * Get the supported methods
+     */
+    public static function getSupportedMethods() {
         return array(
         );
     }
@@ -79,7 +79,7 @@ class Bill extends Remote\Object {
      *
      * @return array
      */
-    public static function getProperties(){
+    public static function getProperties() {
         return array(
             'Day' => array (false, self::PROPERTY_TYPE_STRING, null, false),
             'Type' => array (false, self::PROPERTY_TYPE_ENUM, null, false)
@@ -90,7 +90,7 @@ class Bill extends Remote\Object {
     /**
      * @return string
      */
-    public function getDay(){
+    public function getDay() {
         return $this->_data['Day'];
     }
 
@@ -98,7 +98,7 @@ class Bill extends Remote\Object {
      * @param string $value
      * @return Bill
      */
-    public function setDay($value){
+    public function setDay($value) {
         $this->propertyUpdated('Day', $value);
         $this->_data['Day'] = $value;
         return $this;
@@ -107,7 +107,7 @@ class Bill extends Remote\Object {
     /**
      * @return string
      */
-    public function getType(){
+    public function getType() {
         return $this->_data['Type'];
     }
 
@@ -115,7 +115,7 @@ class Bill extends Remote\Object {
      * @param string $value
      * @return Bill
      */
-    public function setType($value){
+    public function setType($value) {
         $this->propertyUpdated('Type', $value);
         $this->_data['Type'] = $value;
         return $this;

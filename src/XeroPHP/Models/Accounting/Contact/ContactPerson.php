@@ -52,50 +52,50 @@ class ContactPerson extends Remote\Object {
 
 
 
-    /*
-    * Get the resource uri of the class (Contacts) etc
-    *
-    * @return string
-    */
+    /**
+     * Get the resource uri of the class (Contacts) etc
+     *
+     * @return string
+     */
     public static function getResourceURI(){
         return null;
     }
 
 
-    /*
-    * Get the root node name.  Just the unqualified classname
-    *
-    * @return string
-    */
+    /**
+     * Get the root node name.  Just the unqualified classname
+     *
+     * @return string
+     */
     public static function getRootNodeName(){
         return 'ContactPerson';
     }
 
 
-    /*
-    * Get the guid property
-    *
-    * @return string
-    */
+    /**
+     * Get the guid property
+     *
+     * @return string
+     */
     public static function getGUIDProperty(){
         return '';
     }
 
 
     /**
-    * Get the stem of the API (core.xro) etc
-    *
-    * @return string|null
-    */
+     * Get the stem of the API (core.xro) etc
+     *
+     * @return string|null
+     */
     public static function getAPIStem(){
         return Remote\URL::API_CORE;
     }
 
 
-    /*
-    * Get the supported methods
-    */
-    public static function getSupportedMethods(){
+    /**
+     * Get the supported methods
+     */
+    public static function getSupportedMethods() {
         return array(
         );
     }
@@ -110,7 +110,7 @@ class ContactPerson extends Remote\Object {
      *
      * @return array
      */
-    public static function getProperties(){
+    public static function getProperties() {
         return array(
             'FirstName' => array (false, self::PROPERTY_TYPE_STRING, null, false),
             'LastName' => array (false, self::PROPERTY_TYPE_STRING, null, false),
@@ -126,7 +126,7 @@ class ContactPerson extends Remote\Object {
     /**
      * @return string
      */
-    public function getFirstName(){
+    public function getFirstName() {
         return $this->_data['FirstName'];
     }
 
@@ -134,7 +134,7 @@ class ContactPerson extends Remote\Object {
      * @param string $value
      * @return ContactPerson
      */
-    public function setFirstName($value){
+    public function setFirstName($value) {
         $this->propertyUpdated('FirstName', $value);
         $this->_data['FirstName'] = $value;
         return $this;
@@ -143,7 +143,7 @@ class ContactPerson extends Remote\Object {
     /**
      * @return string
      */
-    public function getLastName(){
+    public function getLastName() {
         return $this->_data['LastName'];
     }
 
@@ -151,7 +151,7 @@ class ContactPerson extends Remote\Object {
      * @param string $value
      * @return ContactPerson
      */
-    public function setLastName($value){
+    public function setLastName($value) {
         $this->propertyUpdated('LastName', $value);
         $this->_data['LastName'] = $value;
         return $this;
@@ -160,7 +160,7 @@ class ContactPerson extends Remote\Object {
     /**
      * @return string
      */
-    public function getEmailAddress(){
+    public function getEmailAddress() {
         return $this->_data['EmailAddress'];
     }
 
@@ -168,7 +168,7 @@ class ContactPerson extends Remote\Object {
      * @param string $value
      * @return ContactPerson
      */
-    public function setEmailAddress($value){
+    public function setEmailAddress($value) {
         $this->propertyUpdated('EmailAddress', $value);
         $this->_data['EmailAddress'] = $value;
         return $this;
@@ -177,7 +177,7 @@ class ContactPerson extends Remote\Object {
     /**
      * @return bool
      */
-    public function getIncludeInEmails(){
+    public function getIncludeInEmails() {
         return $this->_data['IncludeInEmails'];
     }
 
@@ -185,7 +185,7 @@ class ContactPerson extends Remote\Object {
      * @param bool $value
      * @return ContactPerson
      */
-    public function setIncludeInEmail($value){
+    public function setIncludeInEmail($value) {
         $this->propertyUpdated('IncludeInEmails', $value);
         $this->_data['IncludeInEmails'] = $value;
         return $this;
@@ -194,7 +194,7 @@ class ContactPerson extends Remote\Object {
     /**
      * @return string
      */
-    public function getContactID(){
+    public function getContactID() {
         return $this->_data['ContactID'];
     }
 
@@ -202,7 +202,7 @@ class ContactPerson extends Remote\Object {
      * @param string $value
      * @return ContactPerson
      */
-    public function setContactID($value){
+    public function setContactID($value) {
         $this->propertyUpdated('ContactID', $value);
         $this->_data['ContactID'] = $value;
         return $this;
@@ -211,7 +211,7 @@ class ContactPerson extends Remote\Object {
     /**
      * @return string
      */
-    public function getContactNumber(){
+    public function getContactNumber() {
         return $this->_data['ContactNumber'];
     }
 
@@ -219,7 +219,7 @@ class ContactPerson extends Remote\Object {
      * @param string $value
      * @return ContactPerson
      */
-    public function setContactNumber($value){
+    public function setContactNumber($value) {
         $this->propertyUpdated('ContactNumber', $value);
         $this->_data['ContactNumber'] = $value;
         return $this;
@@ -228,7 +228,7 @@ class ContactPerson extends Remote\Object {
     /**
      * @return string
      */
-    public function getName(){
+    public function getName() {
         return $this->_data['Name'];
     }
 
@@ -236,7 +236,7 @@ class ContactPerson extends Remote\Object {
      * @param string $value
      * @return ContactPerson
      */
-    public function setName($value){
+    public function setName($value) {
         $this->propertyUpdated('Name', $value);
         $this->_data['Name'] = $value;
         return $this;

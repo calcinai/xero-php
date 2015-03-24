@@ -29,50 +29,50 @@ class {{ model.ClassName }} extends Remote\Object {
 
 {% endfor %}
 
-    /*
-    * Get the resource uri of the class (Contacts) etc
-    *
-    * @return string
-    */
+    /**
+     * Get the resource uri of the class (Contacts) etc
+     *
+     * @return string
+     */
     public static function getResourceURI(){
         return {% if model.ResourceURI %}'{{ model.ResourceURI }}'{% else %}null{% endif %};
     }
 
 
-    /*
-    * Get the root node name.  Just the unqualified classname
-    *
-    * @return string
-    */
+    /**
+     * Get the root node name.  Just the unqualified classname
+     *
+     * @return string
+     */
     public static function getRootNodeName(){
         return '{{ model.ClassName }}';
     }
 
 
-    /*
-    * Get the guid property
-    *
-    * @return string
-    */
+    /**
+     * Get the guid property
+     *
+     * @return string
+     */
     public static function getGUIDProperty(){
         return '{{ model.GUIDProperty.Name }}';
     }
 
 
     /**
-    * Get the stem of the API (core.xro) etc
-    *
-    * @return string|null
-    */
+     * Get the stem of the API (core.xro) etc
+     *
+     * @return string|null
+     */
     public static function getAPIStem(){
         return {% if model.API.StemConstant %}Remote\URL::{{ model.API.StemConstant }}{% else %}null{% endif %};
     }
 
 
-    /*
-    * Get the supported methods
-    */
-    public static function getSupportedMethods(){
+    /**
+     * Get the supported methods
+     */
+    public static function getSupportedMethods() {
         return array(
 {% for method in model.Methods %}
             Remote\Request::METHOD_{{ method }}{% if not loop.last %},{% endif %}
@@ -91,7 +91,7 @@ class {{ model.ClassName }} extends Remote\Object {
      *
      * @return array
      */
-    public static function getProperties(){
+    public static function getProperties() {
         return array(
 {% for property in model.Properties %}
             '{{ property.name }}' => array ({% if property.isMandatory %}true{% else %}false{% endif %}, self::{{ property.getTypeConstant }}, {% if property.isHintable %}'{{ property.getPHPType(true)|addslashes }}'{% else %}null{% endif %}, {% if property.isArray %}true{% else %}false{% endif %}){% if not loop.last %},{% endif %}
@@ -109,7 +109,7 @@ class {{ model.ClassName }} extends Remote\Object {
 {% if property.isDeprecated %}     * @deprecated
 {% endif %}
      */
-    public function get{{ property.Name }}(){
+    public function get{{ property.Name }}() {
         return $this->_data['{{ property.Name }}'];
     }
 
@@ -120,7 +120,7 @@ class {{ model.ClassName }} extends Remote\Object {
 {% if property.isDeprecated %}     * @deprecated
 {% endif %}
      */
-    public function {% if property.isArray %}add{% else %}set{% endif %}{{ property.NameSingular }}({% if property.isHintable %}{{ property.PHPType }} {% endif %}$value){
+    public function {% if property.isArray %}add{% else %}set{% endif %}{{ property.NameSingular }}({% if property.isHintable %}{{ property.PHPType }} {% endif %}$value) {
         $this->propertyUpdated('{{ property.Name }}', $value);
         $this->_data['{{ property.Name }}']{% if property.isArray %}[]{% endif %} = $value;
         return $this;
