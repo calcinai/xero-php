@@ -72,7 +72,7 @@ class {{ model.ClassName }} extends Remote\Object {
     /**
      * Get the supported methods
      */
-    public static function getSupportedMethods(){
+    public static function getSupportedMethods() {
         return array(
 {% for method in model.Methods %}
             Remote\Request::METHOD_{{ method }}{% if not loop.last %},{% endif %}
@@ -91,7 +91,7 @@ class {{ model.ClassName }} extends Remote\Object {
      *
      * @return array
      */
-    public static function getProperties(){
+    public static function getProperties() {
         return array(
 {% for property in model.Properties %}
             '{{ property.name }}' => array ({% if property.isMandatory %}true{% else %}false{% endif %}, self::{{ property.getTypeConstant }}, {% if property.isHintable %}'{{ property.getPHPType(true)|addslashes }}'{% else %}null{% endif %}, {% if property.isArray %}true{% else %}false{% endif %}){% if not loop.last %},{% endif %}
@@ -109,7 +109,7 @@ class {{ model.ClassName }} extends Remote\Object {
 {% if property.isDeprecated %}     * @deprecated
 {% endif %}
      */
-    public function get{{ property.Name }}(){
+    public function get{{ property.Name }}() {
         return $this->_data['{{ property.Name }}'];
     }
 
@@ -120,7 +120,7 @@ class {{ model.ClassName }} extends Remote\Object {
 {% if property.isDeprecated %}     * @deprecated
 {% endif %}
      */
-    public function {% if property.isArray %}add{% else %}set{% endif %}{{ property.NameSingular }}({% if property.isHintable %}{{ property.PHPType }} {% endif %}$value){
+    public function {% if property.isArray %}add{% else %}set{% endif %}{{ property.NameSingular }}({% if property.isHintable %}{{ property.PHPType }} {% endif %}$value) {
         $this->propertyUpdated('{{ property.Name }}', $value);
         $this->_data['{{ property.Name }}']{% if property.isArray %}[]{% endif %} = $value;
         return $this;

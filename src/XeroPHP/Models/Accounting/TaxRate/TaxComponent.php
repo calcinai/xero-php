@@ -70,7 +70,7 @@ class TaxComponent extends Remote\Object {
     /**
      * Get the supported methods
      */
-    public static function getSupportedMethods(){
+    public static function getSupportedMethods() {
         return array(
         );
     }
@@ -85,7 +85,7 @@ class TaxComponent extends Remote\Object {
      *
      * @return array
      */
-    public static function getProperties(){
+    public static function getProperties() {
         return array(
             'Name' => array (false, self::PROPERTY_TYPE_STRING, null, false),
             'Rate' => array (false, self::PROPERTY_TYPE_FLOAT, null, false),
@@ -97,7 +97,7 @@ class TaxComponent extends Remote\Object {
     /**
      * @return string
      */
-    public function getName(){
+    public function getName() {
         return $this->_data['Name'];
     }
 
@@ -105,7 +105,7 @@ class TaxComponent extends Remote\Object {
      * @param string $value
      * @return TaxComponent
      */
-    public function setName($value){
+    public function setName($value) {
         $this->propertyUpdated('Name', $value);
         $this->_data['Name'] = $value;
         return $this;
@@ -114,7 +114,7 @@ class TaxComponent extends Remote\Object {
     /**
      * @return float
      */
-    public function getRate(){
+    public function getRate() {
         return $this->_data['Rate'];
     }
 
@@ -122,7 +122,7 @@ class TaxComponent extends Remote\Object {
      * @param float $value
      * @return TaxComponent
      */
-    public function setRate($value){
+    public function setRate($value) {
         $this->propertyUpdated('Rate', $value);
         $this->_data['Rate'] = $value;
         return $this;
@@ -131,7 +131,7 @@ class TaxComponent extends Remote\Object {
     /**
      * @return float
      */
-    public function getIsCompound(){
+    public function getIsCompound() {
         return $this->_data['IsCompound'];
     }
 
@@ -139,7 +139,7 @@ class TaxComponent extends Remote\Object {
      * @param float $value
      * @return TaxComponent
      */
-    public function setIsCompound($value){
+    public function setIsCompound($value) {
         $this->propertyUpdated('IsCompound', $value);
         $this->_data['IsCompound'] = $value;
         return $this;

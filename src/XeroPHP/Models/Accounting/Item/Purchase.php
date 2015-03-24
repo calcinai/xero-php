@@ -71,7 +71,7 @@ class Purchase extends Remote\Object {
     /**
      * Get the supported methods
      */
-    public static function getSupportedMethods(){
+    public static function getSupportedMethods() {
         return array(
         );
     }
@@ -86,7 +86,7 @@ class Purchase extends Remote\Object {
      *
      * @return array
      */
-    public static function getProperties(){
+    public static function getProperties() {
         return array(
             'UnitPrice' => array (false, self::PROPERTY_TYPE_STRING, null, false),
             'AccountCode' => array (false, self::PROPERTY_TYPE_STRING, null, false),
@@ -98,7 +98,7 @@ class Purchase extends Remote\Object {
     /**
      * @return string
      */
-    public function getUnitPrice(){
+    public function getUnitPrice() {
         return $this->_data['UnitPrice'];
     }
 
@@ -106,7 +106,7 @@ class Purchase extends Remote\Object {
      * @param string $value
      * @return Purchase
      */
-    public function setUnitPrice($value){
+    public function setUnitPrice($value) {
         $this->propertyUpdated('UnitPrice', $value);
         $this->_data['UnitPrice'] = $value;
         return $this;
@@ -115,7 +115,7 @@ class Purchase extends Remote\Object {
     /**
      * @return string
      */
-    public function getAccountCode(){
+    public function getAccountCode() {
         return $this->_data['AccountCode'];
     }
 
@@ -123,7 +123,7 @@ class Purchase extends Remote\Object {
      * @param string $value
      * @return Purchase
      */
-    public function setAccountCode($value){
+    public function setAccountCode($value) {
         $this->propertyUpdated('AccountCode', $value);
         $this->_data['AccountCode'] = $value;
         return $this;
@@ -132,7 +132,7 @@ class Purchase extends Remote\Object {
     /**
      * @return string
      */
-    public function getTaxType(){
+    public function getTaxType() {
         return $this->_data['TaxType'];
     }
 
@@ -140,7 +140,7 @@ class Purchase extends Remote\Object {
      * @param string $value
      * @return Purchase
      */
-    public function setTaxType($value){
+    public function setTaxType($value) {
         $this->propertyUpdated('TaxType', $value);
         $this->_data['TaxType'] = $value;
         return $this;

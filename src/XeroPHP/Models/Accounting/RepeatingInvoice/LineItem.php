@@ -120,7 +120,7 @@ class LineItem extends Remote\Object {
     /**
      * Get the supported methods
      */
-    public static function getSupportedMethods(){
+    public static function getSupportedMethods() {
         return array(
         );
     }
@@ -135,7 +135,7 @@ class LineItem extends Remote\Object {
      *
      * @return array
      */
-    public static function getProperties(){
+    public static function getProperties() {
         return array(
             'Description' => array (false, self::PROPERTY_TYPE_FLOAT, null, false),
             'Quantity' => array (false, self::PROPERTY_TYPE_STRING, null, false),
@@ -154,7 +154,7 @@ class LineItem extends Remote\Object {
     /**
      * @return float
      */
-    public function getDescription(){
+    public function getDescription() {
         return $this->_data['Description'];
     }
 
@@ -162,7 +162,7 @@ class LineItem extends Remote\Object {
      * @param float $value
      * @return LineItem
      */
-    public function setDescription($value){
+    public function setDescription($value) {
         $this->propertyUpdated('Description', $value);
         $this->_data['Description'] = $value;
         return $this;
@@ -171,7 +171,7 @@ class LineItem extends Remote\Object {
     /**
      * @return string
      */
-    public function getQuantity(){
+    public function getQuantity() {
         return $this->_data['Quantity'];
     }
 
@@ -179,7 +179,7 @@ class LineItem extends Remote\Object {
      * @param string $value
      * @return LineItem
      */
-    public function setQuantity($value){
+    public function setQuantity($value) {
         $this->propertyUpdated('Quantity', $value);
         $this->_data['Quantity'] = $value;
         return $this;
@@ -188,7 +188,7 @@ class LineItem extends Remote\Object {
     /**
      * @return float
      */
-    public function getUnitAmount(){
+    public function getUnitAmount() {
         return $this->_data['UnitAmount'];
     }
 
@@ -196,7 +196,7 @@ class LineItem extends Remote\Object {
      * @param float $value
      * @return LineItem
      */
-    public function setUnitAmount($value){
+    public function setUnitAmount($value) {
         $this->propertyUpdated('UnitAmount', $value);
         $this->_data['UnitAmount'] = $value;
         return $this;
@@ -205,7 +205,7 @@ class LineItem extends Remote\Object {
     /**
      * @return string
      */
-    public function getItemCode(){
+    public function getItemCode() {
         return $this->_data['ItemCode'];
     }
 
@@ -213,7 +213,7 @@ class LineItem extends Remote\Object {
      * @param string $value
      * @return LineItem
      */
-    public function setItemCode($value){
+    public function setItemCode($value) {
         $this->propertyUpdated('ItemCode', $value);
         $this->_data['ItemCode'] = $value;
         return $this;
@@ -222,7 +222,7 @@ class LineItem extends Remote\Object {
     /**
      * @return string
      */
-    public function getAccountCode(){
+    public function getAccountCode() {
         return $this->_data['AccountCode'];
     }
 
@@ -230,7 +230,7 @@ class LineItem extends Remote\Object {
      * @param string $value
      * @return LineItem
      */
-    public function setAccountCode($value){
+    public function setAccountCode($value) {
         $this->propertyUpdated('AccountCode', $value);
         $this->_data['AccountCode'] = $value;
         return $this;
@@ -239,7 +239,7 @@ class LineItem extends Remote\Object {
     /**
      * @return string
      */
-    public function getTaxType(){
+    public function getTaxType() {
         return $this->_data['TaxType'];
     }
 
@@ -247,7 +247,7 @@ class LineItem extends Remote\Object {
      * @param string $value
      * @return LineItem
      */
-    public function setTaxType($value){
+    public function setTaxType($value) {
         $this->propertyUpdated('TaxType', $value);
         $this->_data['TaxType'] = $value;
         return $this;
@@ -256,7 +256,7 @@ class LineItem extends Remote\Object {
     /**
      * @return float
      */
-    public function getTaxAmount(){
+    public function getTaxAmount() {
         return $this->_data['TaxAmount'];
     }
 
@@ -264,7 +264,7 @@ class LineItem extends Remote\Object {
      * @param float $value
      * @return LineItem
      */
-    public function setTaxAmount($value){
+    public function setTaxAmount($value) {
         $this->propertyUpdated('TaxAmount', $value);
         $this->_data['TaxAmount'] = $value;
         return $this;
@@ -273,7 +273,7 @@ class LineItem extends Remote\Object {
     /**
      * @return float
      */
-    public function getLineAmount(){
+    public function getLineAmount() {
         return $this->_data['LineAmount'];
     }
 
@@ -281,7 +281,7 @@ class LineItem extends Remote\Object {
      * @param float $value
      * @return LineItem
      */
-    public function setLineAmount($value){
+    public function setLineAmount($value) {
         $this->propertyUpdated('LineAmount', $value);
         $this->_data['LineAmount'] = $value;
         return $this;
@@ -290,7 +290,7 @@ class LineItem extends Remote\Object {
     /**
      * @return string
      */
-    public function getTracking(){
+    public function getTracking() {
         return $this->_data['Tracking'];
     }
 
@@ -298,7 +298,7 @@ class LineItem extends Remote\Object {
      * @param string $value
      * @return LineItem
      */
-    public function setTracking($value){
+    public function setTracking($value) {
         $this->propertyUpdated('Tracking', $value);
         $this->_data['Tracking'] = $value;
         return $this;
@@ -307,7 +307,7 @@ class LineItem extends Remote\Object {
     /**
      * @return string
      */
-    public function getDiscountRate(){
+    public function getDiscountRate() {
         return $this->_data['DiscountRate'];
     }
 
@@ -315,7 +315,7 @@ class LineItem extends Remote\Object {
      * @param string $value
      * @return LineItem
      */
-    public function setDiscountRate($value){
+    public function setDiscountRate($value) {
         $this->propertyUpdated('DiscountRate', $value);
         $this->_data['DiscountRate'] = $value;
         return $this;

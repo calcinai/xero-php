@@ -71,7 +71,7 @@ class TimesheetLine extends Remote\Object {
     /**
      * Get the supported methods
      */
-    public static function getSupportedMethods(){
+    public static function getSupportedMethods() {
         return array(
         );
     }
@@ -86,7 +86,7 @@ class TimesheetLine extends Remote\Object {
      *
      * @return array
      */
-    public static function getProperties(){
+    public static function getProperties() {
         return array(
             'EarningsTypeID' => array (false, self::PROPERTY_TYPE_STRING, null, false),
             'TrackingItemID' => array (false, self::PROPERTY_TYPE_STRING, null, false),
@@ -98,7 +98,7 @@ class TimesheetLine extends Remote\Object {
     /**
      * @return string
      */
-    public function getEarningsTypeID(){
+    public function getEarningsTypeID() {
         return $this->_data['EarningsTypeID'];
     }
 
@@ -106,7 +106,7 @@ class TimesheetLine extends Remote\Object {
      * @param string $value
      * @return TimesheetLine
      */
-    public function setEarningsTypeID($value){
+    public function setEarningsTypeID($value) {
         $this->propertyUpdated('EarningsTypeID', $value);
         $this->_data['EarningsTypeID'] = $value;
         return $this;
@@ -115,7 +115,7 @@ class TimesheetLine extends Remote\Object {
     /**
      * @return string
      */
-    public function getTrackingItemID(){
+    public function getTrackingItemID() {
         return $this->_data['TrackingItemID'];
     }
 
@@ -123,7 +123,7 @@ class TimesheetLine extends Remote\Object {
      * @param string $value
      * @return TimesheetLine
      */
-    public function setTrackingItemID($value){
+    public function setTrackingItemID($value) {
         $this->propertyUpdated('TrackingItemID', $value);
         $this->_data['TrackingItemID'] = $value;
         return $this;
@@ -132,7 +132,7 @@ class TimesheetLine extends Remote\Object {
     /**
      * @return string[]
      */
-    public function getNumberOfUnits(){
+    public function getNumberOfUnits() {
         return $this->_data['NumberOfUnits'];
     }
 
@@ -140,7 +140,7 @@ class TimesheetLine extends Remote\Object {
      * @param string $value
      * @return TimesheetLine
      */
-    public function addNumberOfUnit($value){
+    public function addNumberOfUnit($value) {
         $this->propertyUpdated('NumberOfUnits', $value);
         $this->_data['NumberOfUnits'][] = $value;
         return $this;

@@ -100,7 +100,7 @@ class WorkLocation extends Remote\Object {
     /**
      * Get the supported methods
      */
-    public static function getSupportedMethods(){
+    public static function getSupportedMethods() {
         return array(
             Remote\Request::METHOD_POST,
             Remote\Request::METHOD_GET
@@ -117,7 +117,7 @@ class WorkLocation extends Remote\Object {
      *
      * @return array
      */
-    public static function getProperties(){
+    public static function getProperties() {
         return array(
             'StreetAddress' => array (true, self::PROPERTY_TYPE_STRING, null, false),
             'City' => array (true, self::PROPERTY_TYPE_STRING, null, false),
@@ -134,7 +134,7 @@ class WorkLocation extends Remote\Object {
     /**
      * @return string
      */
-    public function getStreetAddress(){
+    public function getStreetAddress() {
         return $this->_data['StreetAddress'];
     }
 
@@ -142,7 +142,7 @@ class WorkLocation extends Remote\Object {
      * @param string $value
      * @return WorkLocation
      */
-    public function setStreetAddress($value){
+    public function setStreetAddress($value) {
         $this->propertyUpdated('StreetAddress', $value);
         $this->_data['StreetAddress'] = $value;
         return $this;
@@ -151,7 +151,7 @@ class WorkLocation extends Remote\Object {
     /**
      * @return string
      */
-    public function getCity(){
+    public function getCity() {
         return $this->_data['City'];
     }
 
@@ -159,7 +159,7 @@ class WorkLocation extends Remote\Object {
      * @param string $value
      * @return WorkLocation
      */
-    public function setCity($value){
+    public function setCity($value) {
         $this->propertyUpdated('City', $value);
         $this->_data['City'] = $value;
         return $this;
@@ -168,7 +168,7 @@ class WorkLocation extends Remote\Object {
     /**
      * @return string
      */
-    public function getState(){
+    public function getState() {
         return $this->_data['State'];
     }
 
@@ -176,7 +176,7 @@ class WorkLocation extends Remote\Object {
      * @param string $value
      * @return WorkLocation
      */
-    public function setState($value){
+    public function setState($value) {
         $this->propertyUpdated('State', $value);
         $this->_data['State'] = $value;
         return $this;
@@ -185,7 +185,7 @@ class WorkLocation extends Remote\Object {
     /**
      * @return string
      */
-    public function getLatitude(){
+    public function getLatitude() {
         return $this->_data['Latitude'];
     }
 
@@ -193,7 +193,7 @@ class WorkLocation extends Remote\Object {
      * @param string $value
      * @return WorkLocation
      */
-    public function setLatitude($value){
+    public function setLatitude($value) {
         $this->propertyUpdated('Latitude', $value);
         $this->_data['Latitude'] = $value;
         return $this;
@@ -202,7 +202,7 @@ class WorkLocation extends Remote\Object {
     /**
      * @return string
      */
-    public function getLongitude(){
+    public function getLongitude() {
         return $this->_data['Longitude'];
     }
 
@@ -210,7 +210,7 @@ class WorkLocation extends Remote\Object {
      * @param string $value
      * @return WorkLocation
      */
-    public function setLongitude($value){
+    public function setLongitude($value) {
         $this->propertyUpdated('Longitude', $value);
         $this->_data['Longitude'] = $value;
         return $this;
@@ -219,7 +219,7 @@ class WorkLocation extends Remote\Object {
     /**
      * @return string
      */
-    public function getWorkLocationID(){
+    public function getWorkLocationID() {
         return $this->_data['WorkLocationID'];
     }
 
@@ -227,7 +227,7 @@ class WorkLocation extends Remote\Object {
      * @param string $value
      * @return WorkLocation
      */
-    public function setWorkLocationID($value){
+    public function setWorkLocationID($value) {
         $this->propertyUpdated('WorkLocationID', $value);
         $this->_data['WorkLocationID'] = $value;
         return $this;
@@ -236,7 +236,7 @@ class WorkLocation extends Remote\Object {
     /**
      * @return string
      */
-    public function getSuitOrAptOrUnit(){
+    public function getSuitOrAptOrUnit() {
         return $this->_data['SuitOrAptOrUnit'];
     }
 
@@ -244,7 +244,7 @@ class WorkLocation extends Remote\Object {
      * @param string $value
      * @return WorkLocation
      */
-    public function setSuitOrAptOrUnit($value){
+    public function setSuitOrAptOrUnit($value) {
         $this->propertyUpdated('SuitOrAptOrUnit', $value);
         $this->_data['SuitOrAptOrUnit'] = $value;
         return $this;
@@ -253,7 +253,7 @@ class WorkLocation extends Remote\Object {
     /**
      * @return string
      */
-    public function getIsPrimary(){
+    public function getIsPrimary() {
         return $this->_data['IsPrimary'];
     }
 
@@ -261,7 +261,7 @@ class WorkLocation extends Remote\Object {
      * @param string $value
      * @return WorkLocation
      */
-    public function setIsPrimary($value){
+    public function setIsPrimary($value) {
         $this->propertyUpdated('IsPrimary', $value);
         $this->_data['IsPrimary'] = $value;
         return $this;

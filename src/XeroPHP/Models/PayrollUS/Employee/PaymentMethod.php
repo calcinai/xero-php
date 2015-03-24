@@ -68,7 +68,7 @@ class PaymentMethod extends Remote\Object {
     /**
      * Get the supported methods
      */
-    public static function getSupportedMethods(){
+    public static function getSupportedMethods() {
         return array(
         );
     }
@@ -83,7 +83,7 @@ class PaymentMethod extends Remote\Object {
      *
      * @return array
      */
-    public static function getProperties(){
+    public static function getProperties() {
         return array(
             'PaymentMethodType' => array (false, self::PROPERTY_TYPE_ENUM, null, false),
             'BankAccounts' => array (false, self::PROPERTY_TYPE_ENUM, null, false)
@@ -94,7 +94,7 @@ class PaymentMethod extends Remote\Object {
     /**
      * @return string
      */
-    public function getPaymentMethodType(){
+    public function getPaymentMethodType() {
         return $this->_data['PaymentMethodType'];
     }
 
@@ -102,7 +102,7 @@ class PaymentMethod extends Remote\Object {
      * @param string $value
      * @return PaymentMethod
      */
-    public function setPaymentMethodType($value){
+    public function setPaymentMethodType($value) {
         $this->propertyUpdated('PaymentMethodType', $value);
         $this->_data['PaymentMethodType'] = $value;
         return $this;
@@ -111,7 +111,7 @@ class PaymentMethod extends Remote\Object {
     /**
      * @return string
      */
-    public function getBankAccounts(){
+    public function getBankAccounts() {
         return $this->_data['BankAccounts'];
     }
 
@@ -119,7 +119,7 @@ class PaymentMethod extends Remote\Object {
      * @param string $value
      * @return PaymentMethod
      */
-    public function setBankAccount($value){
+    public function setBankAccount($value) {
         $this->propertyUpdated('BankAccounts', $value);
         $this->_data['BankAccounts'] = $value;
         return $this;

@@ -72,7 +72,7 @@ class Allocation extends Remote\Object {
     /**
      * Get the supported methods
      */
-    public static function getSupportedMethods(){
+    public static function getSupportedMethods() {
         return array(
         );
     }
@@ -87,7 +87,7 @@ class Allocation extends Remote\Object {
      *
      * @return array
      */
-    public static function getProperties(){
+    public static function getProperties() {
         return array(
             'Invoice' => array (false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Invoice', false),
             'AppliedAmount' => array (false, self::PROPERTY_TYPE_FLOAT, null, false),
@@ -99,7 +99,7 @@ class Allocation extends Remote\Object {
     /**
      * @return Invoice
      */
-    public function getInvoice(){
+    public function getInvoice() {
         return $this->_data['Invoice'];
     }
 
@@ -107,7 +107,7 @@ class Allocation extends Remote\Object {
      * @param Invoice $value
      * @return Allocation
      */
-    public function setInvoice(Invoice $value){
+    public function setInvoice(Invoice $value) {
         $this->propertyUpdated('Invoice', $value);
         $this->_data['Invoice'] = $value;
         return $this;
@@ -116,7 +116,7 @@ class Allocation extends Remote\Object {
     /**
      * @return float
      */
-    public function getAppliedAmount(){
+    public function getAppliedAmount() {
         return $this->_data['AppliedAmount'];
     }
 
@@ -124,7 +124,7 @@ class Allocation extends Remote\Object {
      * @param float $value
      * @return Allocation
      */
-    public function setAppliedAmount($value){
+    public function setAppliedAmount($value) {
         $this->propertyUpdated('AppliedAmount', $value);
         $this->_data['AppliedAmount'] = $value;
         return $this;
@@ -133,7 +133,7 @@ class Allocation extends Remote\Object {
     /**
      * @return \DateTime
      */
-    public function getDate(){
+    public function getDate() {
         return $this->_data['Date'];
     }
 
@@ -141,7 +141,7 @@ class Allocation extends Remote\Object {
      * @param \DateTime $value
      * @return Allocation
      */
-    public function setDate(\DateTime $value){
+    public function setDate(\DateTime $value) {
         $this->propertyUpdated('Date', $value);
         $this->_data['Date'] = $value;
         return $this;

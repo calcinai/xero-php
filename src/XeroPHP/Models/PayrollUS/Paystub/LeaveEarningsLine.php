@@ -70,7 +70,7 @@ class LeaveEarningsLine extends Remote\Object {
     /**
      * Get the supported methods
      */
-    public static function getSupportedMethods(){
+    public static function getSupportedMethods() {
         return array(
         );
     }
@@ -85,7 +85,7 @@ class LeaveEarningsLine extends Remote\Object {
      *
      * @return array
      */
-    public static function getProperties(){
+    public static function getProperties() {
         return array(
             'EarningsTypeID' => array (false, self::PROPERTY_TYPE_STRING, null, false),
             'RatePerUnit' => array (false, self::PROPERTY_TYPE_FLOAT, null, false),
@@ -97,7 +97,7 @@ class LeaveEarningsLine extends Remote\Object {
     /**
      * @return string
      */
-    public function getEarningsTypeID(){
+    public function getEarningsTypeID() {
         return $this->_data['EarningsTypeID'];
     }
 
@@ -105,7 +105,7 @@ class LeaveEarningsLine extends Remote\Object {
      * @param string $value
      * @return LeaveEarningsLine
      */
-    public function setEarningsTypeID($value){
+    public function setEarningsTypeID($value) {
         $this->propertyUpdated('EarningsTypeID', $value);
         $this->_data['EarningsTypeID'] = $value;
         return $this;
@@ -114,7 +114,7 @@ class LeaveEarningsLine extends Remote\Object {
     /**
      * @return float
      */
-    public function getRatePerUnit(){
+    public function getRatePerUnit() {
         return $this->_data['RatePerUnit'];
     }
 
@@ -122,7 +122,7 @@ class LeaveEarningsLine extends Remote\Object {
      * @param float $value
      * @return LeaveEarningsLine
      */
-    public function setRatePerUnit($value){
+    public function setRatePerUnit($value) {
         $this->propertyUpdated('RatePerUnit', $value);
         $this->_data['RatePerUnit'] = $value;
         return $this;
@@ -131,7 +131,7 @@ class LeaveEarningsLine extends Remote\Object {
     /**
      * @return float[]
      */
-    public function getNumberOfUnits(){
+    public function getNumberOfUnits() {
         return $this->_data['NumberOfUnits'];
     }
 
@@ -139,7 +139,7 @@ class LeaveEarningsLine extends Remote\Object {
      * @param float $value
      * @return LeaveEarningsLine
      */
-    public function addNumberOfUnit($value){
+    public function addNumberOfUnit($value) {
         $this->propertyUpdated('NumberOfUnits', $value);
         $this->_data['NumberOfUnits'][] = $value;
         return $this;

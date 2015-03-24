@@ -64,7 +64,7 @@ class WorkLocation extends Remote\Object {
     /**
      * Get the supported methods
      */
-    public static function getSupportedMethods(){
+    public static function getSupportedMethods() {
         return array(
         );
     }
@@ -79,7 +79,7 @@ class WorkLocation extends Remote\Object {
      *
      * @return array
      */
-    public static function getProperties(){
+    public static function getProperties() {
         return array(
             'WorkLocationID' => array (false, self::PROPERTY_TYPE_STRING, null, false),
             'IsPrimary' => array (false, self::PROPERTY_TYPE_BOOLEAN, null, false)
@@ -90,7 +90,7 @@ class WorkLocation extends Remote\Object {
     /**
      * @return string
      */
-    public function getWorkLocationID(){
+    public function getWorkLocationID() {
         return $this->_data['WorkLocationID'];
     }
 
@@ -98,7 +98,7 @@ class WorkLocation extends Remote\Object {
      * @param string $value
      * @return WorkLocation
      */
-    public function setWorkLocationID($value){
+    public function setWorkLocationID($value) {
         $this->propertyUpdated('WorkLocationID', $value);
         $this->_data['WorkLocationID'] = $value;
         return $this;
@@ -107,7 +107,7 @@ class WorkLocation extends Remote\Object {
     /**
      * @return bool
      */
-    public function getIsPrimary(){
+    public function getIsPrimary() {
         return $this->_data['IsPrimary'];
     }
 
@@ -115,7 +115,7 @@ class WorkLocation extends Remote\Object {
      * @param bool $value
      * @return WorkLocation
      */
-    public function setIsPrimary($value){
+    public function setIsPrimary($value) {
         $this->propertyUpdated('IsPrimary', $value);
         $this->_data['IsPrimary'] = $value;
         return $this;

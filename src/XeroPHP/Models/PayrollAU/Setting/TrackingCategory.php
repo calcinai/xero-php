@@ -64,7 +64,7 @@ class TrackingCategory extends Remote\Object {
     /**
      * Get the supported methods
      */
-    public static function getSupportedMethods(){
+    public static function getSupportedMethods() {
         return array(
         );
     }
@@ -79,7 +79,7 @@ class TrackingCategory extends Remote\Object {
      *
      * @return array
      */
-    public static function getProperties(){
+    public static function getProperties() {
         return array(
             'TrackingCategoryID' => array (false, self::PROPERTY_TYPE_STRING, null, false),
             'TrackingCategoryName' => array (false, self::PROPERTY_TYPE_STRING, null, false)
@@ -90,7 +90,7 @@ class TrackingCategory extends Remote\Object {
     /**
      * @return string
      */
-    public function getTrackingCategoryID(){
+    public function getTrackingCategoryID() {
         return $this->_data['TrackingCategoryID'];
     }
 
@@ -98,7 +98,7 @@ class TrackingCategory extends Remote\Object {
      * @param string $value
      * @return TrackingCategory
      */
-    public function setTrackingCategoryID($value){
+    public function setTrackingCategoryID($value) {
         $this->propertyUpdated('TrackingCategoryID', $value);
         $this->_data['TrackingCategoryID'] = $value;
         return $this;
@@ -107,7 +107,7 @@ class TrackingCategory extends Remote\Object {
     /**
      * @return string
      */
-    public function getTrackingCategoryName(){
+    public function getTrackingCategoryName() {
         return $this->_data['TrackingCategoryName'];
     }
 
@@ -115,7 +115,7 @@ class TrackingCategory extends Remote\Object {
      * @param string $value
      * @return TrackingCategory
      */
-    public function setTrackingCategoryName($value){
+    public function setTrackingCategoryName($value) {
         $this->propertyUpdated('TrackingCategoryName', $value);
         $this->_data['TrackingCategoryName'] = $value;
         return $this;

@@ -68,7 +68,7 @@ class ExpenseClaim extends Remote\Object {
     /**
      * Get the supported methods
      */
-    public static function getSupportedMethods(){
+    public static function getSupportedMethods() {
         return array(
             Remote\Request::METHOD_GET,
             Remote\Request::METHOD_PUT,
@@ -86,7 +86,7 @@ class ExpenseClaim extends Remote\Object {
      *
      * @return array
      */
-    public static function getProperties(){
+    public static function getProperties() {
         return array(
             'User' => array (true, self::PROPERTY_TYPE_OBJECT, 'Accounting\\User', false),
             'Receipts' => array (true, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Receipt', true)
@@ -97,7 +97,7 @@ class ExpenseClaim extends Remote\Object {
     /**
      * @return User
      */
-    public function getUser(){
+    public function getUser() {
         return $this->_data['User'];
     }
 
@@ -105,7 +105,7 @@ class ExpenseClaim extends Remote\Object {
      * @param User $value
      * @return ExpenseClaim
      */
-    public function setUser(User $value){
+    public function setUser(User $value) {
         $this->propertyUpdated('User', $value);
         $this->_data['User'] = $value;
         return $this;
@@ -114,7 +114,7 @@ class ExpenseClaim extends Remote\Object {
     /**
      * @return Receipt[]
      */
-    public function getReceipts(){
+    public function getReceipts() {
         return $this->_data['Receipts'];
     }
 
@@ -122,7 +122,7 @@ class ExpenseClaim extends Remote\Object {
      * @param Receipt $value
      * @return ExpenseClaim
      */
-    public function addReceipt(Receipt $value){
+    public function addReceipt(Receipt $value) {
         $this->propertyUpdated('Receipts', $value);
         $this->_data['Receipts'][] = $value;
         return $this;

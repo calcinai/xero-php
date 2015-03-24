@@ -76,7 +76,7 @@ class EarningsLine extends Remote\Object {
     /**
      * Get the supported methods
      */
-    public static function getSupportedMethods(){
+    public static function getSupportedMethods() {
         return array(
         );
     }
@@ -91,7 +91,7 @@ class EarningsLine extends Remote\Object {
      *
      * @return array
      */
-    public static function getProperties(){
+    public static function getProperties() {
         return array(
             'EarningsRateID' => array (false, self::PROPERTY_TYPE_STRING, null, false),
             'RatePerUnit' => array (false, self::PROPERTY_TYPE_FLOAT, null, false),
@@ -104,7 +104,7 @@ class EarningsLine extends Remote\Object {
     /**
      * @return string
      */
-    public function getEarningsRateID(){
+    public function getEarningsRateID() {
         return $this->_data['EarningsRateID'];
     }
 
@@ -112,7 +112,7 @@ class EarningsLine extends Remote\Object {
      * @param string $value
      * @return EarningsLine
      */
-    public function setEarningsRateID($value){
+    public function setEarningsRateID($value) {
         $this->propertyUpdated('EarningsRateID', $value);
         $this->_data['EarningsRateID'] = $value;
         return $this;
@@ -121,7 +121,7 @@ class EarningsLine extends Remote\Object {
     /**
      * @return float
      */
-    public function getRatePerUnit(){
+    public function getRatePerUnit() {
         return $this->_data['RatePerUnit'];
     }
 
@@ -129,7 +129,7 @@ class EarningsLine extends Remote\Object {
      * @param float $value
      * @return EarningsLine
      */
-    public function setRatePerUnit($value){
+    public function setRatePerUnit($value) {
         $this->propertyUpdated('RatePerUnit', $value);
         $this->_data['RatePerUnit'] = $value;
         return $this;
@@ -138,7 +138,7 @@ class EarningsLine extends Remote\Object {
     /**
      * @return float[]
      */
-    public function getNumberOfUnits(){
+    public function getNumberOfUnits() {
         return $this->_data['NumberOfUnits'];
     }
 
@@ -146,7 +146,7 @@ class EarningsLine extends Remote\Object {
      * @param float $value
      * @return EarningsLine
      */
-    public function addNumberOfUnit($value){
+    public function addNumberOfUnit($value) {
         $this->propertyUpdated('NumberOfUnits', $value);
         $this->_data['NumberOfUnits'][] = $value;
         return $this;
@@ -155,7 +155,7 @@ class EarningsLine extends Remote\Object {
     /**
      * @return float
      */
-    public function getFixedAmount(){
+    public function getFixedAmount() {
         return $this->_data['FixedAmount'];
     }
 
@@ -163,7 +163,7 @@ class EarningsLine extends Remote\Object {
      * @param float $value
      * @return EarningsLine
      */
-    public function setFixedAmount($value){
+    public function setFixedAmount($value) {
         $this->propertyUpdated('FixedAmount', $value);
         $this->_data['FixedAmount'] = $value;
         return $this;

@@ -72,7 +72,7 @@ class Association extends Remote\Object {
     /**
      * Get the supported methods
      */
-    public static function getSupportedMethods(){
+    public static function getSupportedMethods() {
         return array(
             Remote\Request::METHOD_POST,
             Remote\Request::METHOD_GET,
@@ -90,7 +90,7 @@ class Association extends Remote\Object {
      *
      * @return array
      */
-    public static function getProperties(){
+    public static function getProperties() {
         return array(
             'ObjectId' => array (true, self::PROPERTY_TYPE_STRING, null, false),
             'ObjectGroup' => array (true, self::PROPERTY_TYPE_STRING, null, false),
@@ -102,7 +102,7 @@ class Association extends Remote\Object {
     /**
      * @return string
      */
-    public function getObjectId(){
+    public function getObjectId() {
         return $this->_data['ObjectId'];
     }
 
@@ -110,7 +110,7 @@ class Association extends Remote\Object {
      * @param string $value
      * @return Association
      */
-    public function setObjectId($value){
+    public function setObjectId($value) {
         $this->propertyUpdated('ObjectId', $value);
         $this->_data['ObjectId'] = $value;
         return $this;
@@ -119,7 +119,7 @@ class Association extends Remote\Object {
     /**
      * @return string
      */
-    public function getObjectGroup(){
+    public function getObjectGroup() {
         return $this->_data['ObjectGroup'];
     }
 
@@ -127,7 +127,7 @@ class Association extends Remote\Object {
      * @param string $value
      * @return Association
      */
-    public function setObjectGroup($value){
+    public function setObjectGroup($value) {
         $this->propertyUpdated('ObjectGroup', $value);
         $this->_data['ObjectGroup'] = $value;
         return $this;
@@ -136,7 +136,7 @@ class Association extends Remote\Object {
     /**
      * @return string
      */
-    public function getObjectType(){
+    public function getObjectType() {
         return $this->_data['ObjectType'];
     }
 
@@ -144,7 +144,7 @@ class Association extends Remote\Object {
      * @param string $value
      * @return Association
      */
-    public function setObjectType($value){
+    public function setObjectType($value) {
         $this->propertyUpdated('ObjectType', $value);
         $this->_data['ObjectType'] = $value;
         return $this;

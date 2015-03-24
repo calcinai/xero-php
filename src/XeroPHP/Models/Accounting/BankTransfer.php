@@ -108,7 +108,7 @@ class BankTransfer extends Remote\Object {
     /**
      * Get the supported methods
      */
-    public static function getSupportedMethods(){
+    public static function getSupportedMethods() {
         return array(
             Remote\Request::METHOD_GET,
             Remote\Request::METHOD_PUT
@@ -125,7 +125,7 @@ class BankTransfer extends Remote\Object {
      *
      * @return array
      */
-    public static function getProperties(){
+    public static function getProperties() {
         return array(
             'FromBankAccount' => array (true, self::PROPERTY_TYPE_OBJECT, 'Accounting\\BankTransfer\\FromBankAccount', false),
             'ToBankAccount' => array (true, self::PROPERTY_TYPE_OBJECT, 'Accounting\\BankTransfer\\ToBankAccount', false),
@@ -143,7 +143,7 @@ class BankTransfer extends Remote\Object {
     /**
      * @return FromBankAccount
      */
-    public function getFromBankAccount(){
+    public function getFromBankAccount() {
         return $this->_data['FromBankAccount'];
     }
 
@@ -151,7 +151,7 @@ class BankTransfer extends Remote\Object {
      * @param FromBankAccount $value
      * @return BankTransfer
      */
-    public function setFromBankAccount(FromBankAccount $value){
+    public function setFromBankAccount(FromBankAccount $value) {
         $this->propertyUpdated('FromBankAccount', $value);
         $this->_data['FromBankAccount'] = $value;
         return $this;
@@ -160,7 +160,7 @@ class BankTransfer extends Remote\Object {
     /**
      * @return ToBankAccount
      */
-    public function getToBankAccount(){
+    public function getToBankAccount() {
         return $this->_data['ToBankAccount'];
     }
 
@@ -168,7 +168,7 @@ class BankTransfer extends Remote\Object {
      * @param ToBankAccount $value
      * @return BankTransfer
      */
-    public function setToBankAccount(ToBankAccount $value){
+    public function setToBankAccount(ToBankAccount $value) {
         $this->propertyUpdated('ToBankAccount', $value);
         $this->_data['ToBankAccount'] = $value;
         return $this;
@@ -177,7 +177,7 @@ class BankTransfer extends Remote\Object {
     /**
      * @return string
      */
-    public function getAmount(){
+    public function getAmount() {
         return $this->_data['Amount'];
     }
 
@@ -185,7 +185,7 @@ class BankTransfer extends Remote\Object {
      * @param string $value
      * @return BankTransfer
      */
-    public function setAmount($value){
+    public function setAmount($value) {
         $this->propertyUpdated('Amount', $value);
         $this->_data['Amount'] = $value;
         return $this;
@@ -194,7 +194,7 @@ class BankTransfer extends Remote\Object {
     /**
      * @return \DateTime
      */
-    public function getDate(){
+    public function getDate() {
         return $this->_data['Date'];
     }
 
@@ -202,7 +202,7 @@ class BankTransfer extends Remote\Object {
      * @param \DateTime $value
      * @return BankTransfer
      */
-    public function setDate(\DateTime $value){
+    public function setDate(\DateTime $value) {
         $this->propertyUpdated('Date', $value);
         $this->_data['Date'] = $value;
         return $this;
@@ -211,7 +211,7 @@ class BankTransfer extends Remote\Object {
     /**
      * @return string
      */
-    public function getBankTransferID(){
+    public function getBankTransferID() {
         return $this->_data['BankTransferID'];
     }
 
@@ -219,7 +219,7 @@ class BankTransfer extends Remote\Object {
     /**
      * @return float
      */
-    public function getCurrencyRate(){
+    public function getCurrencyRate() {
         return $this->_data['CurrencyRate'];
     }
 
@@ -227,7 +227,7 @@ class BankTransfer extends Remote\Object {
     /**
      * @return string
      */
-    public function getFromBankTransactionID(){
+    public function getFromBankTransactionID() {
         return $this->_data['FromBankTransactionID'];
     }
 
@@ -235,7 +235,7 @@ class BankTransfer extends Remote\Object {
     /**
      * @return string
      */
-    public function getToBankTransactionID(){
+    public function getToBankTransactionID() {
         return $this->_data['ToBankTransactionID'];
     }
 
@@ -243,7 +243,7 @@ class BankTransfer extends Remote\Object {
     /**
      * @return bool
      */
-    public function getHasAttachments(){
+    public function getHasAttachments() {
         return $this->_data['HasAttachments'];
     }
 

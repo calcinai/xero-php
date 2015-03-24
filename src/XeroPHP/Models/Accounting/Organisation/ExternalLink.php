@@ -70,7 +70,7 @@ class ExternalLink extends Remote\Object {
     /**
      * Get the supported methods
      */
-    public static function getSupportedMethods(){
+    public static function getSupportedMethods() {
         return array(
         );
     }
@@ -85,7 +85,7 @@ class ExternalLink extends Remote\Object {
      *
      * @return array
      */
-    public static function getProperties(){
+    public static function getProperties() {
         return array(
             'LinkType' => array (false, self::PROPERTY_TYPE_ENUM, null, false),
             'URL' => array (false, self::PROPERTY_TYPE_STRING, null, false)
@@ -96,7 +96,7 @@ class ExternalLink extends Remote\Object {
     /**
      * @return string
      */
-    public function getLinkType(){
+    public function getLinkType() {
         return $this->_data['LinkType'];
     }
 
@@ -104,7 +104,7 @@ class ExternalLink extends Remote\Object {
      * @param string $value
      * @return ExternalLink
      */
-    public function setLinkType($value){
+    public function setLinkType($value) {
         $this->propertyUpdated('LinkType', $value);
         $this->_data['LinkType'] = $value;
         return $this;
@@ -113,7 +113,7 @@ class ExternalLink extends Remote\Object {
     /**
      * @return string
      */
-    public function getURL(){
+    public function getURL() {
         return $this->_data['URL'];
     }
 
@@ -121,7 +121,7 @@ class ExternalLink extends Remote\Object {
      * @param string $value
      * @return ExternalLink
      */
-    public function setURL($value){
+    public function setURL($value) {
         $this->propertyUpdated('URL', $value);
         $this->_data['URL'] = $value;
         return $this;

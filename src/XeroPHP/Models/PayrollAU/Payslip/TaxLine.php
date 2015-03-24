@@ -77,7 +77,7 @@ class TaxLine extends Remote\Object {
     /**
      * Get the supported methods
      */
-    public static function getSupportedMethods(){
+    public static function getSupportedMethods() {
         return array(
         );
     }
@@ -92,7 +92,7 @@ class TaxLine extends Remote\Object {
      *
      * @return array
      */
-    public static function getProperties(){
+    public static function getProperties() {
         return array(
             'TaxTypeName' => array (false, self::PROPERTY_TYPE_STRING, null, false),
             'Description' => array (false, self::PROPERTY_TYPE_STRING, null, false),
@@ -105,7 +105,7 @@ class TaxLine extends Remote\Object {
     /**
      * @return string
      */
-    public function getTaxTypeName(){
+    public function getTaxTypeName() {
         return $this->_data['TaxTypeName'];
     }
 
@@ -113,7 +113,7 @@ class TaxLine extends Remote\Object {
      * @param string $value
      * @return TaxLine
      */
-    public function setTaxTypeName($value){
+    public function setTaxTypeName($value) {
         $this->propertyUpdated('TaxTypeName', $value);
         $this->_data['TaxTypeName'] = $value;
         return $this;
@@ -122,7 +122,7 @@ class TaxLine extends Remote\Object {
     /**
      * @return string
      */
-    public function getDescription(){
+    public function getDescription() {
         return $this->_data['Description'];
     }
 
@@ -130,7 +130,7 @@ class TaxLine extends Remote\Object {
      * @param string $value
      * @return TaxLine
      */
-    public function setDescription($value){
+    public function setDescription($value) {
         $this->propertyUpdated('Description', $value);
         $this->_data['Description'] = $value;
         return $this;
@@ -139,7 +139,7 @@ class TaxLine extends Remote\Object {
     /**
      * @return float
      */
-    public function getAmount(){
+    public function getAmount() {
         return $this->_data['Amount'];
     }
 
@@ -147,7 +147,7 @@ class TaxLine extends Remote\Object {
      * @param float $value
      * @return TaxLine
      */
-    public function setAmount($value){
+    public function setAmount($value) {
         $this->propertyUpdated('Amount', $value);
         $this->_data['Amount'] = $value;
         return $this;
@@ -156,7 +156,7 @@ class TaxLine extends Remote\Object {
     /**
      * @return string
      */
-    public function getLiabilityAccount(){
+    public function getLiabilityAccount() {
         return $this->_data['LiabilityAccount'];
     }
 
@@ -164,7 +164,7 @@ class TaxLine extends Remote\Object {
      * @param string $value
      * @return TaxLine
      */
-    public function setLiabilityAccount($value){
+    public function setLiabilityAccount($value) {
         $this->propertyUpdated('LiabilityAccount', $value);
         $this->_data['LiabilityAccount'] = $value;
         return $this;

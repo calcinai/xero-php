@@ -94,7 +94,7 @@ class SalaryAndWage extends Remote\Object {
     /**
      * Get the supported methods
      */
-    public static function getSupportedMethods(){
+    public static function getSupportedMethods() {
         return array(
         );
     }
@@ -109,7 +109,7 @@ class SalaryAndWage extends Remote\Object {
      *
      * @return array
      */
-    public static function getProperties(){
+    public static function getProperties() {
         return array(
             'SalaryAndWageID' => array (false, self::PROPERTY_TYPE_STRING, null, false),
             'EarningsTypeID' => array (false, self::PROPERTY_TYPE_STRING, null, false),
@@ -125,7 +125,7 @@ class SalaryAndWage extends Remote\Object {
     /**
      * @return string
      */
-    public function getSalaryAndWageID(){
+    public function getSalaryAndWageID() {
         return $this->_data['SalaryAndWageID'];
     }
 
@@ -133,7 +133,7 @@ class SalaryAndWage extends Remote\Object {
      * @param string $value
      * @return SalaryAndWage
      */
-    public function setSalaryAndWageID($value){
+    public function setSalaryAndWageID($value) {
         $this->propertyUpdated('SalaryAndWageID', $value);
         $this->_data['SalaryAndWageID'] = $value;
         return $this;
@@ -142,7 +142,7 @@ class SalaryAndWage extends Remote\Object {
     /**
      * @return string
      */
-    public function getEarningsTypeID(){
+    public function getEarningsTypeID() {
         return $this->_data['EarningsTypeID'];
     }
 
@@ -150,7 +150,7 @@ class SalaryAndWage extends Remote\Object {
      * @param string $value
      * @return SalaryAndWage
      */
-    public function setEarningsTypeID($value){
+    public function setEarningsTypeID($value) {
         $this->propertyUpdated('EarningsTypeID', $value);
         $this->_data['EarningsTypeID'] = $value;
         return $this;
@@ -159,7 +159,7 @@ class SalaryAndWage extends Remote\Object {
     /**
      * @return string
      */
-    public function getSalaryWagesType(){
+    public function getSalaryWagesType() {
         return $this->_data['SalaryWagesType'];
     }
 
@@ -167,7 +167,7 @@ class SalaryAndWage extends Remote\Object {
      * @param string $value
      * @return SalaryAndWage
      */
-    public function setSalaryWagesType($value){
+    public function setSalaryWagesType($value) {
         $this->propertyUpdated('SalaryWagesType', $value);
         $this->_data['SalaryWagesType'] = $value;
         return $this;
@@ -176,7 +176,7 @@ class SalaryAndWage extends Remote\Object {
     /**
      * @return float
      */
-    public function getHourlyRate(){
+    public function getHourlyRate() {
         return $this->_data['HourlyRate'];
     }
 
@@ -184,7 +184,7 @@ class SalaryAndWage extends Remote\Object {
      * @param float $value
      * @return SalaryAndWage
      */
-    public function setHourlyRate($value){
+    public function setHourlyRate($value) {
         $this->propertyUpdated('HourlyRate', $value);
         $this->_data['HourlyRate'] = $value;
         return $this;
@@ -193,7 +193,7 @@ class SalaryAndWage extends Remote\Object {
     /**
      * @return string
      */
-    public function getAnnualSalary(){
+    public function getAnnualSalary() {
         return $this->_data['AnnualSalary'];
     }
 
@@ -201,7 +201,7 @@ class SalaryAndWage extends Remote\Object {
      * @param string $value
      * @return SalaryAndWage
      */
-    public function setAnnualSalary($value){
+    public function setAnnualSalary($value) {
         $this->propertyUpdated('AnnualSalary', $value);
         $this->_data['AnnualSalary'] = $value;
         return $this;
@@ -210,7 +210,7 @@ class SalaryAndWage extends Remote\Object {
     /**
      * @return string
      */
-    public function getStandardHoursPerWeek(){
+    public function getStandardHoursPerWeek() {
         return $this->_data['StandardHoursPerWeek'];
     }
 
@@ -218,7 +218,7 @@ class SalaryAndWage extends Remote\Object {
      * @param string $value
      * @return SalaryAndWage
      */
-    public function setStandardHoursPerWeek($value){
+    public function setStandardHoursPerWeek($value) {
         $this->propertyUpdated('StandardHoursPerWeek', $value);
         $this->_data['StandardHoursPerWeek'] = $value;
         return $this;
@@ -227,7 +227,7 @@ class SalaryAndWage extends Remote\Object {
     /**
      * @return \DateTime
      */
-    public function getEffectiveDate(){
+    public function getEffectiveDate() {
         return $this->_data['EffectiveDate'];
     }
 
@@ -235,7 +235,7 @@ class SalaryAndWage extends Remote\Object {
      * @param \DateTime $value
      * @return SalaryAndWage
      */
-    public function setEffectiveDate(\DateTime $value){
+    public function setEffectiveDate(\DateTime $value) {
         $this->propertyUpdated('EffectiveDate', $value);
         $this->_data['EffectiveDate'] = $value;
         return $this;

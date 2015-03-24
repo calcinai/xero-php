@@ -116,7 +116,7 @@ class Address extends Remote\Object {
     /**
      * Get the supported methods
      */
-    public static function getSupportedMethods(){
+    public static function getSupportedMethods() {
         return array(
         );
     }
@@ -131,7 +131,7 @@ class Address extends Remote\Object {
      *
      * @return array
      */
-    public static function getProperties(){
+    public static function getProperties() {
         return array(
             'AddressType' => array (false, self::PROPERTY_TYPE_ENUM, null, false),
             'AddressLine1' => array (false, self::PROPERTY_TYPE_STRING, null, false),
@@ -150,7 +150,7 @@ class Address extends Remote\Object {
     /**
      * @return string
      */
-    public function getAddressType(){
+    public function getAddressType() {
         return $this->_data['AddressType'];
     }
 
@@ -158,7 +158,7 @@ class Address extends Remote\Object {
      * @param string $value
      * @return Address
      */
-    public function setAddressType($value){
+    public function setAddressType($value) {
         $this->propertyUpdated('AddressType', $value);
         $this->_data['AddressType'] = $value;
         return $this;
@@ -167,7 +167,7 @@ class Address extends Remote\Object {
     /**
      * @return string
      */
-    public function getAddressLine1(){
+    public function getAddressLine1() {
         return $this->_data['AddressLine1'];
     }
 
@@ -175,7 +175,7 @@ class Address extends Remote\Object {
      * @param string $value
      * @return Address
      */
-    public function setAddressLine1($value){
+    public function setAddressLine1($value) {
         $this->propertyUpdated('AddressLine1', $value);
         $this->_data['AddressLine1'] = $value;
         return $this;
@@ -184,7 +184,7 @@ class Address extends Remote\Object {
     /**
      * @return string
      */
-    public function getAddressLine2(){
+    public function getAddressLine2() {
         return $this->_data['AddressLine2'];
     }
 
@@ -192,7 +192,7 @@ class Address extends Remote\Object {
      * @param string $value
      * @return Address
      */
-    public function setAddressLine2($value){
+    public function setAddressLine2($value) {
         $this->propertyUpdated('AddressLine2', $value);
         $this->_data['AddressLine2'] = $value;
         return $this;
@@ -201,7 +201,7 @@ class Address extends Remote\Object {
     /**
      * @return string
      */
-    public function getAddressLine3(){
+    public function getAddressLine3() {
         return $this->_data['AddressLine3'];
     }
 
@@ -209,7 +209,7 @@ class Address extends Remote\Object {
      * @param string $value
      * @return Address
      */
-    public function setAddressLine3($value){
+    public function setAddressLine3($value) {
         $this->propertyUpdated('AddressLine3', $value);
         $this->_data['AddressLine3'] = $value;
         return $this;
@@ -218,7 +218,7 @@ class Address extends Remote\Object {
     /**
      * @return string
      */
-    public function getAddressLine4(){
+    public function getAddressLine4() {
         return $this->_data['AddressLine4'];
     }
 
@@ -226,7 +226,7 @@ class Address extends Remote\Object {
      * @param string $value
      * @return Address
      */
-    public function setAddressLine4($value){
+    public function setAddressLine4($value) {
         $this->propertyUpdated('AddressLine4', $value);
         $this->_data['AddressLine4'] = $value;
         return $this;
@@ -235,7 +235,7 @@ class Address extends Remote\Object {
     /**
      * @return string
      */
-    public function getCity(){
+    public function getCity() {
         return $this->_data['City'];
     }
 
@@ -243,7 +243,7 @@ class Address extends Remote\Object {
      * @param string $value
      * @return Address
      */
-    public function setCity($value){
+    public function setCity($value) {
         $this->propertyUpdated('City', $value);
         $this->_data['City'] = $value;
         return $this;
@@ -252,7 +252,7 @@ class Address extends Remote\Object {
     /**
      * @return string
      */
-    public function getRegion(){
+    public function getRegion() {
         return $this->_data['Region'];
     }
 
@@ -260,7 +260,7 @@ class Address extends Remote\Object {
      * @param string $value
      * @return Address
      */
-    public function setRegion($value){
+    public function setRegion($value) {
         $this->propertyUpdated('Region', $value);
         $this->_data['Region'] = $value;
         return $this;
@@ -269,7 +269,7 @@ class Address extends Remote\Object {
     /**
      * @return string
      */
-    public function getPostalCode(){
+    public function getPostalCode() {
         return $this->_data['PostalCode'];
     }
 
@@ -277,7 +277,7 @@ class Address extends Remote\Object {
      * @param string $value
      * @return Address
      */
-    public function setPostalCode($value){
+    public function setPostalCode($value) {
         $this->propertyUpdated('PostalCode', $value);
         $this->_data['PostalCode'] = $value;
         return $this;
@@ -286,7 +286,7 @@ class Address extends Remote\Object {
     /**
      * @return string
      */
-    public function getCountry(){
+    public function getCountry() {
         return $this->_data['Country'];
     }
 
@@ -294,7 +294,7 @@ class Address extends Remote\Object {
      * @param string $value
      * @return Address
      */
-    public function setCountry($value){
+    public function setCountry($value) {
         $this->propertyUpdated('Country', $value);
         $this->_data['Country'] = $value;
         return $this;
@@ -303,7 +303,7 @@ class Address extends Remote\Object {
     /**
      * @return string
      */
-    public function getAttentionTo(){
+    public function getAttentionTo() {
         return $this->_data['AttentionTo'];
     }
 
@@ -311,7 +311,7 @@ class Address extends Remote\Object {
      * @param string $value
      * @return Address
      */
-    public function setAttentionTo($value){
+    public function setAttentionTo($value) {
         $this->propertyUpdated('AttentionTo', $value);
         $this->_data['AttentionTo'] = $value;
         return $this;

@@ -99,7 +99,7 @@ class Timesheet extends Remote\Object {
     /**
      * Get the supported methods
      */
-    public static function getSupportedMethods(){
+    public static function getSupportedMethods() {
         return array(
             Remote\Request::METHOD_POST,
             Remote\Request::METHOD_GET
@@ -116,7 +116,7 @@ class Timesheet extends Remote\Object {
      *
      * @return array
      */
-    public static function getProperties(){
+    public static function getProperties() {
         return array(
             'EmployeeID' => array (true, self::PROPERTY_TYPE_STRING, null, false),
             'StartDate' => array (true, self::PROPERTY_TYPE_DATE, '\\DateTime', false),
@@ -132,7 +132,7 @@ class Timesheet extends Remote\Object {
     /**
      * @return string
      */
-    public function getEmployeeID(){
+    public function getEmployeeID() {
         return $this->_data['EmployeeID'];
     }
 
@@ -140,7 +140,7 @@ class Timesheet extends Remote\Object {
      * @param string $value
      * @return Timesheet
      */
-    public function setEmployeeID($value){
+    public function setEmployeeID($value) {
         $this->propertyUpdated('EmployeeID', $value);
         $this->_data['EmployeeID'] = $value;
         return $this;
@@ -149,7 +149,7 @@ class Timesheet extends Remote\Object {
     /**
      * @return \DateTime
      */
-    public function getStartDate(){
+    public function getStartDate() {
         return $this->_data['StartDate'];
     }
 
@@ -157,7 +157,7 @@ class Timesheet extends Remote\Object {
      * @param \DateTime $value
      * @return Timesheet
      */
-    public function setStartDate(\DateTime $value){
+    public function setStartDate(\DateTime $value) {
         $this->propertyUpdated('StartDate', $value);
         $this->_data['StartDate'] = $value;
         return $this;
@@ -166,7 +166,7 @@ class Timesheet extends Remote\Object {
     /**
      * @return \DateTime
      */
-    public function getEndDate(){
+    public function getEndDate() {
         return $this->_data['EndDate'];
     }
 
@@ -174,7 +174,7 @@ class Timesheet extends Remote\Object {
      * @param \DateTime $value
      * @return Timesheet
      */
-    public function setEndDate(\DateTime $value){
+    public function setEndDate(\DateTime $value) {
         $this->propertyUpdated('EndDate', $value);
         $this->_data['EndDate'] = $value;
         return $this;
@@ -183,7 +183,7 @@ class Timesheet extends Remote\Object {
     /**
      * @return TimesheetLine[]
      */
-    public function getTimesheetLines(){
+    public function getTimesheetLines() {
         return $this->_data['TimesheetLines'];
     }
 
@@ -191,7 +191,7 @@ class Timesheet extends Remote\Object {
      * @param TimesheetLine $value
      * @return Timesheet
      */
-    public function addTimesheetLine(TimesheetLine $value){
+    public function addTimesheetLine(TimesheetLine $value) {
         $this->propertyUpdated('TimesheetLines', $value);
         $this->_data['TimesheetLines'][] = $value;
         return $this;
@@ -200,7 +200,7 @@ class Timesheet extends Remote\Object {
     /**
      * @return string
      */
-    public function getStatus(){
+    public function getStatus() {
         return $this->_data['Status'];
     }
 
@@ -208,7 +208,7 @@ class Timesheet extends Remote\Object {
      * @param string $value
      * @return Timesheet
      */
-    public function setStatus($value){
+    public function setStatus($value) {
         $this->propertyUpdated('Status', $value);
         $this->_data['Status'] = $value;
         return $this;
@@ -217,7 +217,7 @@ class Timesheet extends Remote\Object {
     /**
      * @return string
      */
-    public function getTimesheetID(){
+    public function getTimesheetID() {
         return $this->_data['TimesheetID'];
     }
 
@@ -225,7 +225,7 @@ class Timesheet extends Remote\Object {
      * @param string $value
      * @return Timesheet
      */
-    public function setTimesheetID($value){
+    public function setTimesheetID($value) {
         $this->propertyUpdated('TimesheetID', $value);
         $this->_data['TimesheetID'] = $value;
         return $this;
@@ -234,7 +234,7 @@ class Timesheet extends Remote\Object {
     /**
      * @return string[]
      */
-    public function getHours(){
+    public function getHours() {
         return $this->_data['Hours'];
     }
 
@@ -242,7 +242,7 @@ class Timesheet extends Remote\Object {
      * @param string $value
      * @return Timesheet
      */
-    public function addHour($value){
+    public function addHour($value) {
         $this->propertyUpdated('Hours', $value);
         $this->_data['Hours'][] = $value;
         return $this;

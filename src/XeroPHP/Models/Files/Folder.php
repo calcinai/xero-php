@@ -96,7 +96,7 @@ class Folder extends Remote\Object {
     /**
      * Get the supported methods
      */
-    public static function getSupportedMethods(){
+    public static function getSupportedMethods() {
         return array(
             Remote\Request::METHOD_GET,
             Remote\Request::METHOD_PUT,
@@ -115,7 +115,7 @@ class Folder extends Remote\Object {
      *
      * @return array
      */
-    public static function getProperties(){
+    public static function getProperties() {
         return array(
             'Name' => array (true, self::PROPERTY_TYPE_STRING, null, false),
             'FileCount' => array (true, self::PROPERTY_TYPE_STRING, null, false),
@@ -131,7 +131,7 @@ class Folder extends Remote\Object {
     /**
      * @return string
      */
-    public function getName(){
+    public function getName() {
         return $this->_data['Name'];
     }
 
@@ -139,7 +139,7 @@ class Folder extends Remote\Object {
      * @param string $value
      * @return Folder
      */
-    public function setName($value){
+    public function setName($value) {
         $this->propertyUpdated('Name', $value);
         $this->_data['Name'] = $value;
         return $this;
@@ -148,7 +148,7 @@ class Folder extends Remote\Object {
     /**
      * @return string
      */
-    public function getFileCount(){
+    public function getFileCount() {
         return $this->_data['FileCount'];
     }
 
@@ -156,7 +156,7 @@ class Folder extends Remote\Object {
      * @param string $value
      * @return Folder
      */
-    public function setFileCount($value){
+    public function setFileCount($value) {
         $this->propertyUpdated('FileCount', $value);
         $this->_data['FileCount'] = $value;
         return $this;
@@ -165,7 +165,7 @@ class Folder extends Remote\Object {
     /**
      * @return string
      */
-    public function getEmail(){
+    public function getEmail() {
         return $this->_data['Email'];
     }
 
@@ -173,7 +173,7 @@ class Folder extends Remote\Object {
      * @param string $value
      * @return Folder
      */
-    public function setEmail($value){
+    public function setEmail($value) {
         $this->propertyUpdated('Email', $value);
         $this->_data['Email'] = $value;
         return $this;
@@ -182,7 +182,7 @@ class Folder extends Remote\Object {
     /**
      * @return bool
      */
-    public function getIsInbox(){
+    public function getIsInbox() {
         return $this->_data['IsInbox'];
     }
 
@@ -190,7 +190,7 @@ class Folder extends Remote\Object {
      * @param bool $value
      * @return Folder
      */
-    public function setIsInbox($value){
+    public function setIsInbox($value) {
         $this->propertyUpdated('IsInbox', $value);
         $this->_data['IsInbox'] = $value;
         return $this;
@@ -199,7 +199,7 @@ class Folder extends Remote\Object {
     /**
      * @return string
      */
-    public function getId(){
+    public function getId() {
         return $this->_data['Id'];
     }
 
@@ -207,7 +207,7 @@ class Folder extends Remote\Object {
      * @param string $value
      * @return Folder
      */
-    public function setId($value){
+    public function setId($value) {
         $this->propertyUpdated('Id', $value);
         $this->_data['Id'] = $value;
         return $this;
@@ -216,7 +216,7 @@ class Folder extends Remote\Object {
     /**
      * @return File[]
      */
-    public function getFiles(){
+    public function getFiles() {
         return $this->_data['Files'];
     }
 
@@ -224,7 +224,7 @@ class Folder extends Remote\Object {
      * @param File $value
      * @return Folder
      */
-    public function addFile(File $value){
+    public function addFile(File $value) {
         $this->propertyUpdated('Files', $value);
         $this->_data['Files'][] = $value;
         return $this;
@@ -233,7 +233,7 @@ class Folder extends Remote\Object {
     /**
      * @return string
      */
-    public function getFolderId(){
+    public function getFolderId() {
         return $this->_data['FolderId'];
     }
 
@@ -241,7 +241,7 @@ class Folder extends Remote\Object {
      * @param string $value
      * @return Folder
      */
-    public function setFolderId($value){
+    public function setFolderId($value) {
         $this->propertyUpdated('FolderId', $value);
         $this->_data['FolderId'] = $value;
         return $this;

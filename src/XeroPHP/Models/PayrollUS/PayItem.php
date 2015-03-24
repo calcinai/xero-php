@@ -87,7 +87,7 @@ class PayItem extends Remote\Object {
     /**
      * Get the supported methods
      */
-    public static function getSupportedMethods(){
+    public static function getSupportedMethods() {
         return array(
             Remote\Request::METHOD_POST,
             Remote\Request::METHOD_GET
@@ -104,7 +104,7 @@ class PayItem extends Remote\Object {
      *
      * @return array
      */
-    public static function getProperties(){
+    public static function getProperties() {
         return array(
             'EarningsTypes' => array (false, self::PROPERTY_TYPE_OBJECT, 'PayrollUS\\PayItem\\EarningsType', true),
             'BenefitTypes' => array (false, self::PROPERTY_TYPE_OBJECT, 'PayrollUS\\PayItem\\BenefitType', true),
@@ -118,7 +118,7 @@ class PayItem extends Remote\Object {
     /**
      * @return EarningsType[]
      */
-    public function getEarningsTypes(){
+    public function getEarningsTypes() {
         return $this->_data['EarningsTypes'];
     }
 
@@ -126,7 +126,7 @@ class PayItem extends Remote\Object {
      * @param EarningsType $value
      * @return PayItem
      */
-    public function addEarningsType(EarningsType $value){
+    public function addEarningsType(EarningsType $value) {
         $this->propertyUpdated('EarningsTypes', $value);
         $this->_data['EarningsTypes'][] = $value;
         return $this;
@@ -135,7 +135,7 @@ class PayItem extends Remote\Object {
     /**
      * @return BenefitType[]
      */
-    public function getBenefitTypes(){
+    public function getBenefitTypes() {
         return $this->_data['BenefitTypes'];
     }
 
@@ -143,7 +143,7 @@ class PayItem extends Remote\Object {
      * @param BenefitType $value
      * @return PayItem
      */
-    public function addBenefitType(BenefitType $value){
+    public function addBenefitType(BenefitType $value) {
         $this->propertyUpdated('BenefitTypes', $value);
         $this->_data['BenefitTypes'][] = $value;
         return $this;
@@ -152,7 +152,7 @@ class PayItem extends Remote\Object {
     /**
      * @return DeductionType[]
      */
-    public function getDeductionTypes(){
+    public function getDeductionTypes() {
         return $this->_data['DeductionTypes'];
     }
 
@@ -160,7 +160,7 @@ class PayItem extends Remote\Object {
      * @param DeductionType $value
      * @return PayItem
      */
-    public function addDeductionType(DeductionType $value){
+    public function addDeductionType(DeductionType $value) {
         $this->propertyUpdated('DeductionTypes', $value);
         $this->_data['DeductionTypes'][] = $value;
         return $this;
@@ -169,7 +169,7 @@ class PayItem extends Remote\Object {
     /**
      * @return ReimbursementType[]
      */
-    public function getReimbursementTypes(){
+    public function getReimbursementTypes() {
         return $this->_data['ReimbursementTypes'];
     }
 
@@ -177,7 +177,7 @@ class PayItem extends Remote\Object {
      * @param ReimbursementType $value
      * @return PayItem
      */
-    public function addReimbursementType(ReimbursementType $value){
+    public function addReimbursementType(ReimbursementType $value) {
         $this->propertyUpdated('ReimbursementTypes', $value);
         $this->_data['ReimbursementTypes'][] = $value;
         return $this;
@@ -186,7 +186,7 @@ class PayItem extends Remote\Object {
     /**
      * @return TimeOffType[]
      */
-    public function getTimeOffTypes(){
+    public function getTimeOffTypes() {
         return $this->_data['TimeOffTypes'];
     }
 
@@ -194,7 +194,7 @@ class PayItem extends Remote\Object {
      * @param TimeOffType $value
      * @return PayItem
      */
-    public function addTimeOffType(TimeOffType $value){
+    public function addTimeOffType(TimeOffType $value) {
         $this->propertyUpdated('TimeOffTypes', $value);
         $this->_data['TimeOffTypes'][] = $value;
         return $this;

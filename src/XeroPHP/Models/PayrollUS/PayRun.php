@@ -124,7 +124,7 @@ class PayRun extends Remote\Object {
     /**
      * Get the supported methods
      */
-    public static function getSupportedMethods(){
+    public static function getSupportedMethods() {
         return array(
             Remote\Request::METHOD_POST,
             Remote\Request::METHOD_GET
@@ -141,7 +141,7 @@ class PayRun extends Remote\Object {
      *
      * @return array
      */
-    public static function getProperties(){
+    public static function getProperties() {
         return array(
             'PayScheduleID' => array (true, self::PROPERTY_TYPE_STRING, null, false),
             'PayRunPeriodEndDate' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTime', false),
@@ -162,7 +162,7 @@ class PayRun extends Remote\Object {
     /**
      * @return string
      */
-    public function getPayScheduleID(){
+    public function getPayScheduleID() {
         return $this->_data['PayScheduleID'];
     }
 
@@ -170,7 +170,7 @@ class PayRun extends Remote\Object {
      * @param string $value
      * @return PayRun
      */
-    public function setPayScheduleID($value){
+    public function setPayScheduleID($value) {
         $this->propertyUpdated('PayScheduleID', $value);
         $this->_data['PayScheduleID'] = $value;
         return $this;
@@ -179,7 +179,7 @@ class PayRun extends Remote\Object {
     /**
      * @return \DateTime
      */
-    public function getPayRunPeriodEndDate(){
+    public function getPayRunPeriodEndDate() {
         return $this->_data['PayRunPeriodEndDate'];
     }
 
@@ -187,7 +187,7 @@ class PayRun extends Remote\Object {
      * @param \DateTime $value
      * @return PayRun
      */
-    public function setPayRunPeriodEndDate(\DateTime $value){
+    public function setPayRunPeriodEndDate(\DateTime $value) {
         $this->propertyUpdated('PayRunPeriodEndDate', $value);
         $this->_data['PayRunPeriodEndDate'] = $value;
         return $this;
@@ -196,7 +196,7 @@ class PayRun extends Remote\Object {
     /**
      * @return string
      */
-    public function getPayRunStatus(){
+    public function getPayRunStatus() {
         return $this->_data['PayRunStatus'];
     }
 
@@ -204,7 +204,7 @@ class PayRun extends Remote\Object {
      * @param string $value
      * @return PayRun
      */
-    public function setPayRunStatus($value){
+    public function setPayRunStatus($value) {
         $this->propertyUpdated('PayRunStatus', $value);
         $this->_data['PayRunStatus'] = $value;
         return $this;
@@ -213,7 +213,7 @@ class PayRun extends Remote\Object {
     /**
      * @return string
      */
-    public function getPayRunID(){
+    public function getPayRunID() {
         return $this->_data['PayRunID'];
     }
 
@@ -221,7 +221,7 @@ class PayRun extends Remote\Object {
      * @param string $value
      * @return PayRun
      */
-    public function setPayRunID($value){
+    public function setPayRunID($value) {
         $this->propertyUpdated('PayRunID', $value);
         $this->_data['PayRunID'] = $value;
         return $this;
@@ -230,7 +230,7 @@ class PayRun extends Remote\Object {
     /**
      * @return \DateTime
      */
-    public function getPayRunPeriodStartDate(){
+    public function getPayRunPeriodStartDate() {
         return $this->_data['PayRunPeriodStartDate'];
     }
 
@@ -238,7 +238,7 @@ class PayRun extends Remote\Object {
      * @param \DateTime $value
      * @return PayRun
      */
-    public function setPayRunPeriodStartDate(\DateTime $value){
+    public function setPayRunPeriodStartDate(\DateTime $value) {
         $this->propertyUpdated('PayRunPeriodStartDate', $value);
         $this->_data['PayRunPeriodStartDate'] = $value;
         return $this;
@@ -247,7 +247,7 @@ class PayRun extends Remote\Object {
     /**
      * @return \DateTime
      */
-    public function getPaymentDate(){
+    public function getPaymentDate() {
         return $this->_data['PaymentDate'];
     }
 
@@ -255,7 +255,7 @@ class PayRun extends Remote\Object {
      * @param \DateTime $value
      * @return PayRun
      */
-    public function setPaymentDate(\DateTime $value){
+    public function setPaymentDate(\DateTime $value) {
         $this->propertyUpdated('PaymentDate', $value);
         $this->_data['PaymentDate'] = $value;
         return $this;
@@ -264,7 +264,7 @@ class PayRun extends Remote\Object {
     /**
      * @return string[]
      */
-    public function getEarnings(){
+    public function getEarnings() {
         return $this->_data['Earnings'];
     }
 
@@ -272,7 +272,7 @@ class PayRun extends Remote\Object {
      * @param string $value
      * @return PayRun
      */
-    public function addEarning($value){
+    public function addEarning($value) {
         $this->propertyUpdated('Earnings', $value);
         $this->_data['Earnings'][] = $value;
         return $this;
@@ -281,7 +281,7 @@ class PayRun extends Remote\Object {
     /**
      * @return string[]
      */
-    public function getDeductions(){
+    public function getDeductions() {
         return $this->_data['Deductions'];
     }
 
@@ -289,7 +289,7 @@ class PayRun extends Remote\Object {
      * @param string $value
      * @return PayRun
      */
-    public function addDeduction($value){
+    public function addDeduction($value) {
         $this->propertyUpdated('Deductions', $value);
         $this->_data['Deductions'][] = $value;
         return $this;
@@ -298,7 +298,7 @@ class PayRun extends Remote\Object {
     /**
      * @return string
      */
-    public function getReimbursement(){
+    public function getReimbursement() {
         return $this->_data['Reimbursement'];
     }
 
@@ -306,7 +306,7 @@ class PayRun extends Remote\Object {
      * @param string $value
      * @return PayRun
      */
-    public function setReimbursement($value){
+    public function setReimbursement($value) {
         $this->propertyUpdated('Reimbursement', $value);
         $this->_data['Reimbursement'] = $value;
         return $this;
@@ -315,7 +315,7 @@ class PayRun extends Remote\Object {
     /**
      * @return string
      */
-    public function getNetPay(){
+    public function getNetPay() {
         return $this->_data['NetPay'];
     }
 
@@ -323,7 +323,7 @@ class PayRun extends Remote\Object {
      * @param string $value
      * @return PayRun
      */
-    public function setNetPay($value){
+    public function setNetPay($value) {
         $this->propertyUpdated('NetPay', $value);
         $this->_data['NetPay'] = $value;
         return $this;
@@ -332,7 +332,7 @@ class PayRun extends Remote\Object {
     /**
      * @return \DateTime
      */
-    public function getUpdateDateUTC(){
+    public function getUpdateDateUTC() {
         return $this->_data['UpdateDateUTC'];
     }
 
@@ -340,7 +340,7 @@ class PayRun extends Remote\Object {
      * @param \DateTime $value
      * @return PayRun
      */
-    public function setUpdateDateUTC(\DateTime $value){
+    public function setUpdateDateUTC(\DateTime $value) {
         $this->propertyUpdated('UpdateDateUTC', $value);
         $this->_data['UpdateDateUTC'] = $value;
         return $this;
@@ -349,7 +349,7 @@ class PayRun extends Remote\Object {
     /**
      * @return string[]
      */
-    public function getPayStubs(){
+    public function getPayStubs() {
         return $this->_data['PayStubs'];
     }
 
@@ -357,7 +357,7 @@ class PayRun extends Remote\Object {
      * @param string $value
      * @return PayRun
      */
-    public function addPayStub($value){
+    public function addPayStub($value) {
         $this->propertyUpdated('PayStubs', $value);
         $this->_data['PayStubs'][] = $value;
         return $this;

@@ -64,7 +64,7 @@ class Sale extends Remote\Object {
     /**
      * Get the supported methods
      */
-    public static function getSupportedMethods(){
+    public static function getSupportedMethods() {
         return array(
         );
     }
@@ -79,7 +79,7 @@ class Sale extends Remote\Object {
      *
      * @return array
      */
-    public static function getProperties(){
+    public static function getProperties() {
         return array(
             'Day' => array (false, self::PROPERTY_TYPE_STRING, null, false),
             'Type' => array (false, self::PROPERTY_TYPE_ENUM, null, false)
@@ -90,7 +90,7 @@ class Sale extends Remote\Object {
     /**
      * @return string
      */
-    public function getDay(){
+    public function getDay() {
         return $this->_data['Day'];
     }
 
@@ -98,7 +98,7 @@ class Sale extends Remote\Object {
      * @param string $value
      * @return Sale
      */
-    public function setDay($value){
+    public function setDay($value) {
         $this->propertyUpdated('Day', $value);
         $this->_data['Day'] = $value;
         return $this;
@@ -107,7 +107,7 @@ class Sale extends Remote\Object {
     /**
      * @return string
      */
-    public function getType(){
+    public function getType() {
         return $this->_data['Type'];
     }
 
@@ -115,7 +115,7 @@ class Sale extends Remote\Object {
      * @param string $value
      * @return Sale
      */
-    public function setType($value){
+    public function setType($value) {
         $this->propertyUpdated('Type', $value);
         $this->_data['Type'] = $value;
         return $this;

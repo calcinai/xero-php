@@ -95,7 +95,7 @@ class Schedule extends Remote\Object {
     /**
      * Get the supported methods
      */
-    public static function getSupportedMethods(){
+    public static function getSupportedMethods() {
         return array(
         );
     }
@@ -110,7 +110,7 @@ class Schedule extends Remote\Object {
      *
      * @return array
      */
-    public static function getProperties(){
+    public static function getProperties() {
         return array(
             'Period' => array (false, self::PROPERTY_TYPE_INT, null, false),
             'Unit' => array (false, self::PROPERTY_TYPE_STRING, null, false),
@@ -126,7 +126,7 @@ class Schedule extends Remote\Object {
     /**
      * @return int
      */
-    public function getPeriod(){
+    public function getPeriod() {
         return $this->_data['Period'];
     }
 
@@ -134,7 +134,7 @@ class Schedule extends Remote\Object {
      * @param int $value
      * @return Schedule
      */
-    public function setPeriod($value){
+    public function setPeriod($value) {
         $this->propertyUpdated('Period', $value);
         $this->_data['Period'] = $value;
         return $this;
@@ -143,7 +143,7 @@ class Schedule extends Remote\Object {
     /**
      * @return string
      */
-    public function getUnit(){
+    public function getUnit() {
         return $this->_data['Unit'];
     }
 
@@ -151,7 +151,7 @@ class Schedule extends Remote\Object {
      * @param string $value
      * @return Schedule
      */
-    public function setUnit($value){
+    public function setUnit($value) {
         $this->propertyUpdated('Unit', $value);
         $this->_data['Unit'] = $value;
         return $this;
@@ -160,7 +160,7 @@ class Schedule extends Remote\Object {
     /**
      * @return \DateTime
      */
-    public function getDueDate(){
+    public function getDueDate() {
         return $this->_data['DueDate'];
     }
 
@@ -168,7 +168,7 @@ class Schedule extends Remote\Object {
      * @param \DateTime $value
      * @return Schedule
      */
-    public function setDueDate(\DateTime $value){
+    public function setDueDate(\DateTime $value) {
         $this->propertyUpdated('DueDate', $value);
         $this->_data['DueDate'] = $value;
         return $this;
@@ -177,7 +177,7 @@ class Schedule extends Remote\Object {
     /**
      * @return PaymentTerm
      */
-    public function getDueDateType(){
+    public function getDueDateType() {
         return $this->_data['DueDateType'];
     }
 
@@ -185,7 +185,7 @@ class Schedule extends Remote\Object {
      * @param PaymentTerm $value
      * @return Schedule
      */
-    public function setDueDateType(PaymentTerm $value){
+    public function setDueDateType(PaymentTerm $value) {
         $this->propertyUpdated('DueDateType', $value);
         $this->_data['DueDateType'] = $value;
         return $this;
@@ -194,7 +194,7 @@ class Schedule extends Remote\Object {
     /**
      * @return \DateTime
      */
-    public function getStartDate(){
+    public function getStartDate() {
         return $this->_data['StartDate'];
     }
 
@@ -202,7 +202,7 @@ class Schedule extends Remote\Object {
      * @param \DateTime $value
      * @return Schedule
      */
-    public function setStartDate(\DateTime $value){
+    public function setStartDate(\DateTime $value) {
         $this->propertyUpdated('StartDate', $value);
         $this->_data['StartDate'] = $value;
         return $this;
@@ -211,7 +211,7 @@ class Schedule extends Remote\Object {
     /**
      * @return \DateTime
      */
-    public function getNextScheduledDate(){
+    public function getNextScheduledDate() {
         return $this->_data['NextScheduledDate'];
     }
 
@@ -219,7 +219,7 @@ class Schedule extends Remote\Object {
      * @param \DateTime $value
      * @return Schedule
      */
-    public function setNextScheduledDate(\DateTime $value){
+    public function setNextScheduledDate(\DateTime $value) {
         $this->propertyUpdated('NextScheduledDate', $value);
         $this->_data['NextScheduledDate'] = $value;
         return $this;
@@ -228,7 +228,7 @@ class Schedule extends Remote\Object {
     /**
      * @return \DateTime
      */
-    public function getEndDate(){
+    public function getEndDate() {
         return $this->_data['EndDate'];
     }
 
@@ -236,7 +236,7 @@ class Schedule extends Remote\Object {
      * @param \DateTime $value
      * @return Schedule
      */
-    public function setEndDate(\DateTime $value){
+    public function setEndDate(\DateTime $value) {
         $this->propertyUpdated('EndDate', $value);
         $this->_data['EndDate'] = $value;
         return $this;

@@ -71,7 +71,7 @@ class Currency extends Remote\Object {
     /**
      * Get the supported methods
      */
-    public static function getSupportedMethods(){
+    public static function getSupportedMethods() {
         return array(
             Remote\Request::METHOD_GET
         );
@@ -87,7 +87,7 @@ class Currency extends Remote\Object {
      *
      * @return array
      */
-    public static function getProperties(){
+    public static function getProperties() {
         return array(
             'ModifiedAfter' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTime', false),
             'Code' => array (false, self::PROPERTY_TYPE_STRING, null, false),
@@ -99,7 +99,7 @@ class Currency extends Remote\Object {
     /**
      * @return \DateTime
      */
-    public function getModifiedAfter(){
+    public function getModifiedAfter() {
         return $this->_data['ModifiedAfter'];
     }
 
@@ -107,7 +107,7 @@ class Currency extends Remote\Object {
      * @param \DateTime $value
      * @return Currency
      */
-    public function setModifiedAfter(\DateTime $value){
+    public function setModifiedAfter(\DateTime $value) {
         $this->propertyUpdated('ModifiedAfter', $value);
         $this->_data['ModifiedAfter'] = $value;
         return $this;
@@ -116,7 +116,7 @@ class Currency extends Remote\Object {
     /**
      * @return string
      */
-    public function getCode(){
+    public function getCode() {
         return $this->_data['Code'];
     }
 
@@ -124,7 +124,7 @@ class Currency extends Remote\Object {
      * @param string $value
      * @return Currency
      */
-    public function setCode($value){
+    public function setCode($value) {
         $this->propertyUpdated('Code', $value);
         $this->_data['Code'] = $value;
         return $this;
@@ -133,7 +133,7 @@ class Currency extends Remote\Object {
     /**
      * @return string
      */
-    public function getDescription(){
+    public function getDescription() {
         return $this->_data['Description'];
     }
 
@@ -141,7 +141,7 @@ class Currency extends Remote\Object {
      * @param string $value
      * @return Currency
      */
-    public function setDescription($value){
+    public function setDescription($value) {
         $this->propertyUpdated('Description', $value);
         $this->_data['Description'] = $value;
         return $this;
