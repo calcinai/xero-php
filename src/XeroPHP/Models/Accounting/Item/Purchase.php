@@ -26,6 +26,12 @@ class Purchase extends Remote\Object {
      * @property string TaxType
      */
 
+    /**
+     * Last modified date in UTC format
+     *
+     * @property \DateTime UpdatedDateUTC
+     */
+
 
 
     /**
@@ -90,7 +96,8 @@ class Purchase extends Remote\Object {
         return array(
             'UnitPrice' => array (false, self::PROPERTY_TYPE_STRING, null, false),
             'AccountCode' => array (false, self::PROPERTY_TYPE_STRING, null, false),
-            'TaxType' => array (false, self::PROPERTY_TYPE_ENUM, null, false)
+            'TaxType' => array (false, self::PROPERTY_TYPE_ENUM, null, false),
+            'UpdatedDateUTC' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTime', false)
         );
     }
 
@@ -145,6 +152,14 @@ class Purchase extends Remote\Object {
         $this->_data['TaxType'] = $value;
         return $this;
     }
+
+    /**
+     * @return \DateTime
+     */
+    public function getUpdatedDateUTC() {
+        return $this->_data['UpdatedDateUTC'];
+    }
+
 
 
 }
