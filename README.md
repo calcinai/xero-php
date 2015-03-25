@@ -37,7 +37,7 @@ Using composer:
 
 ```
   "require": {
-  	"calcinai/xero-php": "dev-master"
+  	"calcinai/xero-php": "1.1.*"
   }
 ```
 
