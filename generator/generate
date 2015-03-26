@@ -363,24 +363,17 @@ foreach($scrape_apis as $scrape_api) {
                             if(preg_match('/^(where|order|sort|filter|page|pagesize)$/i', $column_name) || strpos($column_name, '–') !== false)
                                 return;
 
-                            $split = explode('> or <', $column_name);
-                            if(isset($split[1])){
+                            foreach(preg_split('/>\s*or\s*</', $column_name) as $column_name){
                                 //make it into another param
-                                $property = new Property($split[1], $column_description, $mandatory, $read_only);
+                                $column_name = str_replace(' ', '', $column_name);
+                                $property = new Property($column_name, $column_description, $mandatory, $read_only);
                                 $current_model->addProperty($property);
-                                $column_name = $split[0];
                             }
-
-                            $column_name = str_replace(' ', '', $column_name);
-
-                            //At this point, mandatory is set and there are at least 2 columns
-                            $property = new Property($column_name, $column_description, $mandatory, $read_only);
 
                             //add links to property (for parsing types)
                             $children->eq(1)->filter('a')->each(function($node) use($property){
                                $property->addLink($node->text(), $node->attr('href'));
                             });
-                            $current_model->addProperty($property);
 
                         }
                     });
