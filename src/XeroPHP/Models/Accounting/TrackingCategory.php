@@ -81,7 +81,8 @@ class TrackingCategory extends Remote\Object {
         return array(
             Remote\Request::METHOD_GET,
             Remote\Request::METHOD_PUT,
-            Remote\Request::METHOD_POST
+            Remote\Request::METHOD_POST,
+            Remote\Request::METHOD_DELETE
         );
     }
 

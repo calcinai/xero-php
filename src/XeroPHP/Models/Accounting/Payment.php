@@ -10,13 +10,25 @@ class Payment extends Remote\Object {
     /**
      * 
      *
+     * @property Invoice Invoice
+     */
+
+    /**
+     * 
+     *
      * @property CreditNote CreditNote
      */
 
     /**
      * 
      *
-     * @property Invoice Invoice
+     * @property Prepayment Prepayment
+     */
+
+    /**
+     * 
+     *
+     * @property Overpayment Overpayment
      */
 
     /**
@@ -160,8 +172,10 @@ class Payment extends Remote\Object {
      */
     public static function getProperties() {
         return array(
-            'CreditNote' => array (false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\CreditNote', false),
             'Invoice' => array (false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Invoice', false),
+            'CreditNote' => array (false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\CreditNote', false),
+            'Prepayment' => array (false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Prepayment', false),
+            'Overpayment' => array (false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Overpayment', false),
             'Account' => array (false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Account', false),
             'Date' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTime', false),
             'CurrencyRate' => array (false, self::PROPERTY_TYPE_FLOAT, null, false),
@@ -175,6 +189,23 @@ class Payment extends Remote\Object {
         );
     }
 
+
+    /**
+     * @return Invoice
+     */
+    public function getInvoice() {
+        return $this->_data['Invoice'];
+    }
+
+    /**
+     * @param Invoice $value
+     * @return Payment
+     */
+    public function setInvoice(Invoice $value) {
+        $this->propertyUpdated('Invoice', $value);
+        $this->_data['Invoice'] = $value;
+        return $this;
+    }
 
     /**
      * @return CreditNote
@@ -194,19 +225,36 @@ class Payment extends Remote\Object {
     }
 
     /**
-     * @return Invoice
+     * @return Prepayment
      */
-    public function getInvoice() {
-        return $this->_data['Invoice'];
+    public function getPrepayment() {
+        return $this->_data['Prepayment'];
     }
 
     /**
-     * @param Invoice $value
+     * @param Prepayment $value
      * @return Payment
      */
-    public function setInvoice(Invoice $value) {
-        $this->propertyUpdated('Invoice', $value);
-        $this->_data['Invoice'] = $value;
+    public function setPrepayment(Prepayment $value) {
+        $this->propertyUpdated('Prepayment', $value);
+        $this->_data['Prepayment'] = $value;
+        return $this;
+    }
+
+    /**
+     * @return Overpayment
+     */
+    public function getOverpayment() {
+        return $this->_data['Overpayment'];
+    }
+
+    /**
+     * @param Overpayment $value
+     * @return Payment
+     */
+    public function setOverpayment(Overpayment $value) {
+        $this->propertyUpdated('Overpayment', $value);
+        $this->_data['Overpayment'] = $value;
         return $this;
     }
 
