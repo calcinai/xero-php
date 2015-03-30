@@ -13,10 +13,11 @@ class Object {
     /**
      * Keys for the meta properties array
      */
-    const KEY_MANDATORY = 0;
-    const KEY_TYPE      = 1;
-    const KEY_PHP_TYPE  = 2;
-    const KEY_IS_ARRAY  = 3;
+    const KEY_MANDATORY      = 0;
+    const KEY_TYPE           = 1;
+    const KEY_PHP_TYPE       = 2;
+    const KEY_IS_ARRAY       = 3;
+    const KEY_SAVE_DIRECTLY  = 4;
 
     /**
      *
@@ -55,12 +56,19 @@ class Object {
      *
      * @return bool
      */
-    public function isDirty() {
-        return count($this->_dirty) > 0;
+    public function isDirty($property = null) {
+        if($property === null)
+            return count($this->_dirty) > 0;
+        else
+            return isset($this->_dirty[$property]);
     }
 
-    public function setClean() {
-        $this->_dirty = array();
+    public function setClean($property = null) {
+        if($property === null)
+            $this->_dirty = array();
+        else
+            unset($this->_dirty[$property]);
+
     }
 
     /**

@@ -121,16 +121,6 @@ class Model {
     }
 
     /**
-     * Getter for propertied
-     *
-     * @return array
-     */
-    public function getProperties() {
-        return $this->properties;
-    }
-
-
-    /**
      * Bit of a messy way to add properties at a position.  Just so it doesn't muck about the generated property order.
      * As it's an associative array there's not a lot else that can be done.
      * It's not crucial that the order stays the same either.
@@ -161,6 +151,26 @@ class Model {
 
     public function hasProperty($property_name){
         return isset($this->properties[$property_name]);
+    }
+
+    /**
+     * Getter for property
+     *
+     * @param $property_name
+     * @return Property
+     */
+    public function getProperty($property_name) {
+        return $this->properties[$property_name];
+    }
+
+
+    /**
+     * Getter for properties
+     *
+     * @return array
+     */
+    public function getProperties() {
+        return $this->properties;
     }
 
 

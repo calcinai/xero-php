@@ -116,11 +116,15 @@ abstract class Application {
      */
     public function save(Object $object) {
 
+        //Saves any properties that don't want to be included in the normal loop (special saving endpoints)
+        $this->savePropertiesDirectly($object);
+
         if($object->isDirty()) {
             $object->validate();
 
             //In this case it's new
             if($object->hasGUID()) {
+
                 $method = Request::METHOD_POST;
                 $uri = sprintf('%s/%s', $object::getResourceURI(), $object->getGUID());
 
@@ -138,7 +142,6 @@ abstract class Application {
             $request = new Request($this, $url, $method);
 
             $request->setBody(Helpers::arrayToXML($data))->send();
-
             $response = $request->getResponse();
 
             if(false !== $element = current($response->getElements())) {
@@ -150,7 +153,6 @@ abstract class Application {
             return $response;
 
         }
-
     }
 
 
@@ -194,6 +196,42 @@ abstract class Application {
 
         return $response;
     }
+
+
+    /**
+     * Function to save properties directly which do not update via a POST
+     *
+     * This is called automatically from the save method for things like adding contacts to ContactGroups
+     *
+     * @param Object $object
+     * @throws Exception
+     */
+    private function savePropertiesDirectly(Object $object){
+        foreach($object::getProperties() as $property_name => $meta){
+            if($meta[Object::KEY_SAVE_DIRECTLY] && $object->isDirty($property_name)){
+                //Then actually save
+                $property = $object->$property_name;
+                $property_type = get_class(current($property));
+
+                $url = new URL($this, sprintf('%s/%s/%s', $object::getResourceURI(), $object->getGUID(), $property_type::getResourceURI()));
+                $request = new Request($this, $url, Request::METHOD_PUT);
+
+                $property_array = array();
+                foreach($property as $property_object){
+                    $property_array[] = $property_object->toStringArray();
+                }
+
+                $root_node_name = Helpers::pluralize($property_type::getRootNodeName());
+                $request->setBody(Helpers::arrayToXML(array($root_node_name => $property_array)));
+
+                $request->send();
+
+                //Set it clean so the following save might have nothing to do.
+                $object->setClean($property_name);
+            }
+        }
+    }
+
 
     /**
      * @param Remote\Object $object

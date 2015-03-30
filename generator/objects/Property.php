@@ -17,6 +17,8 @@ class Property {
 
     private $related_object;
 
+    public $save_directly;
+
     public function __construct($name, $description, $mandatory = false, $read_only = false, $deprecated = false){
         if(strpos($name, '(deprecated)')){
             $name = str_replace('(deprecated)', '', $name);
@@ -30,6 +32,8 @@ class Property {
         $this->description = $description;
         $this->links = array();
         $this->related_object = null;
+        $this->save_directly = false;
+
 
     }
 
