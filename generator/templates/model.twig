@@ -88,13 +88,14 @@ class {{ model.ClassName }} extends Remote\Object {
      *  [1] - Type
      *  [2] - PHP type
      *  [3] - Is an Array
+     *  [4] - Saves directly
      *
      * @return array
      */
     public static function getProperties() {
         return array(
 {% for property in model.Properties %}
-            '{{ property.name }}' => array ({% if property.isMandatory %}true{% else %}false{% endif %}, self::{{ property.getTypeConstant }}, {% if property.isHintable %}'{{ property.getPHPType(true)|addslashes }}'{% else %}null{% endif %}, {% if property.isArray %}true{% else %}false{% endif %}){% if not loop.last %},{% endif %}
+            '{{ property.name }}' => array ({% if property.isMandatory %}true{% else %}false{% endif %}, self::{{ property.getTypeConstant }}, {% if property.isHintable %}'{{ property.getPHPType(true)|addslashes }}'{% else %}null{% endif %}, {% if property.isArray %}true{% else %}false{% endif %}, {% if property.save_directly %}true{% else %}false{% endif %}){% if not loop.last %},{% endif %}
 
 {% endfor %}
         );

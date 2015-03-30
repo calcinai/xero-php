@@ -202,7 +202,7 @@ foreach($scrape_apis as $scrape_api) {
                         }
                     }
 
-                });
+                    });
 
                 //Add here
                 if($current_object instanceof Model){
@@ -247,6 +247,15 @@ foreach($scrape_apis as $scrape_api) {
                         if($node->parents()->getNode(0)->tagName != 'em')
                             $section_name = $node->text();
                     });
+
+                    //filtering for properties that have special PUT/DELETE URI
+                    if(preg_match('/PUT\s\/(?<primary_model>[a-z]+)\/[a-z0-9\-]+\/(?<secondary_model>[a-z]+)/i', $node->text(), $matches)){
+                        /** @var Model $primary_model */
+                        if($matches['primary_model'] === $primary_model->getName() && $primary_model->hasProperty($matches['secondary_model'])){
+                            $primary_model->getProperty($matches['secondary_model'])->save_directly = true;
+                        }
+                    }
+
                     break;
                 case 'table':
                     //If no section, we're in the overview table.
@@ -317,7 +326,6 @@ foreach($scrape_apis as $scrape_api) {
                         return;
                     }
 
-
                     //At this point, we will have a $current_model, so parse properties
                     $node->filter('tr')->each(function($node) use ($current_model){
                         static $mandatory, $read_only, $skip_next;
@@ -372,7 +380,7 @@ foreach($scrape_apis as $scrape_api) {
 
                             //add links to property (for parsing types)
                             $children->eq(1)->filter('a')->each(function($node) use($property){
-                               $property->addLink($node->text(), $node->attr('href'));
+                                $property->addLink($node->text(), $node->attr('href'));
                             });
 
                         }
@@ -391,10 +399,10 @@ foreach($scrape_apis as $scrape_api) {
 //                    }
                     unset($section_name);
                     break;
-                //END HANDLING FOR TABLE ELEMENT
-            }
+                    //END HANDLING FOR TABLE ELEMENT
+                }
 
-        });
+            });
 
         //Debug
         if($current_model !== null)
