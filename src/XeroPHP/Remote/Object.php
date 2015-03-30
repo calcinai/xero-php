@@ -77,7 +77,7 @@ class Object {
      * @return string
      */
     public function getGUID() {
-        $this->_data[static::getGUIDProperty()];
+        return $this->_data[static::getGUIDProperty()];
     }
 
 
