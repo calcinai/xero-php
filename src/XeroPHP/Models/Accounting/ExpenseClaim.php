@@ -83,13 +83,14 @@ class ExpenseClaim extends Remote\Object {
      *  [1] - Type
      *  [2] - PHP type
      *  [3] - Is an Array
+     *  [4] - Saves directly
      *
      * @return array
      */
     public static function getProperties() {
         return array(
-            'User' => array (true, self::PROPERTY_TYPE_OBJECT, 'Accounting\\User', false),
-            'Receipts' => array (true, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Receipt', true)
+            'User' => array (true, self::PROPERTY_TYPE_OBJECT, 'Accounting\\User', false, false),
+            'Receipts' => array (true, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Receipt', true, false)
         );
     }
 

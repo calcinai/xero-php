@@ -137,18 +137,19 @@ SECTION125PLAN
      *  [1] - Type
      *  [2] - PHP type
      *  [3] - Is an Array
+     *  [4] - Saves directly
      *
      * @return array
      */
     public static function getProperties() {
         return array(
-            'DeductionType' => array (true, self::PROPERTY_TYPE_OBJECT, 'PayrollUS\\PayItem\\DeductionType', false),
-            'DeductionCategory' => array (true, self::PROPERTY_TYPE_ENUM, null, false),
-            'CalculationType' => array (true, self::PROPERTY_TYPE_FLOAT, null, false),
-            'LiabilityAccountCode' => array (true, self::PROPERTY_TYPE_STRING, null, false),
-            'DeductionTypeID' => array (false, self::PROPERTY_TYPE_STRING, null, false),
-            'StandardAmount' => array (false, self::PROPERTY_TYPE_FLOAT, null, false),
-            'CompanyMax' => array (false, self::PROPERTY_TYPE_FLOAT, null, false)
+            'DeductionType' => array (true, self::PROPERTY_TYPE_OBJECT, 'PayrollUS\\PayItem\\DeductionType', false, false),
+            'DeductionCategory' => array (true, self::PROPERTY_TYPE_ENUM, null, false, false),
+            'CalculationType' => array (true, self::PROPERTY_TYPE_FLOAT, null, false, false),
+            'LiabilityAccountCode' => array (true, self::PROPERTY_TYPE_STRING, null, false, false),
+            'DeductionTypeID' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
+            'StandardAmount' => array (false, self::PROPERTY_TYPE_FLOAT, null, false, false),
+            'CompanyMax' => array (false, self::PROPERTY_TYPE_FLOAT, null, false, false)
         );
     }
 

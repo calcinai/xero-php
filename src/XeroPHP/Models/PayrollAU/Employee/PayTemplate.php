@@ -216,36 +216,37 @@ class PayTemplate extends Remote\Object {
      *  [1] - Type
      *  [2] - PHP type
      *  [3] - Is an Array
+     *  [4] - Saves directly
      *
      * @return array
      */
     public static function getProperties() {
         return array(
-            'EarningsLines' => array (false, self::PROPERTY_TYPE_FLOAT, null, true),
-            'DeductionLines' => array (false, self::PROPERTY_TYPE_OBJECT, 'PayrollAU\\Payslip\\DeductionLine', true),
-            'SuperLines' => array (false, self::PROPERTY_TYPE_STRING, null, true),
-            'ReimbursementLines' => array (false, self::PROPERTY_TYPE_OBJECT, 'PayrollAU\\Payslip\\ReimbursementLine', true),
-            'LeaveLines' => array (false, self::PROPERTY_TYPE_STRING, null, true),
-            'EarningsRateID' => array (false, self::PROPERTY_TYPE_STRING, null, false),
-            'CalculationType' => array (false, self::PROPERTY_TYPE_ENUM, null, false),
-            'NumberOfUnitsPerWeek' => array (false, self::PROPERTY_TYPE_ENUM, null, false),
-            'AnnualSalary' => array (false, self::PROPERTY_TYPE_STRING, null, false),
-            'RatePerUnit' => array (false, self::PROPERTY_TYPE_FLOAT, null, false),
-            'NormalNumberOfUnits' => array (false, self::PROPERTY_TYPE_ENUM, null, false),
-            'DeductionTypeID' => array (false, self::PROPERTY_TYPE_STRING, null, false),
-            'Percentage' => array (false, self::PROPERTY_TYPE_STRING, null, false),
-            'Amount' => array (false, self::PROPERTY_TYPE_FLOAT, null, false),
-            'SuperMembershipID' => array (false, self::PROPERTY_TYPE_STRING, null, false),
-            'ContributionType' => array (false, self::PROPERTY_TYPE_ENUM, null, false),
-            'ExpenseAccountCode' => array (false, self::PROPERTY_TYPE_STRING, null, false),
-            'LiabilityAccountCode' => array (false, self::PROPERTY_TYPE_STRING, null, false),
-            'MinimumMonthlyEarnings' => array (false, self::PROPERTY_TYPE_STRING, null, true),
-            'ReimbursementTypeID' => array (false, self::PROPERTY_TYPE_STRING, null, false),
-            'Description' => array (false, self::PROPERTY_TYPE_STRING, null, false),
-            'LeaveTypeID' => array (false, self::PROPERTY_TYPE_STRING, null, false),
-            'AnnualNumberOfUnits' => array (false, self::PROPERTY_TYPE_STRING, null, true),
-            'FullTimeNumberOfUnitsPerPeriod' => array (false, self::PROPERTY_TYPE_STRING, null, false),
-            'NumberOfUnits' => array (false, self::PROPERTY_TYPE_STRING, null, true)
+            'EarningsLines' => array (false, self::PROPERTY_TYPE_FLOAT, null, true, false),
+            'DeductionLines' => array (false, self::PROPERTY_TYPE_OBJECT, 'PayrollAU\\Payslip\\DeductionLine', true, false),
+            'SuperLines' => array (false, self::PROPERTY_TYPE_STRING, null, true, false),
+            'ReimbursementLines' => array (false, self::PROPERTY_TYPE_OBJECT, 'PayrollAU\\Payslip\\ReimbursementLine', true, false),
+            'LeaveLines' => array (false, self::PROPERTY_TYPE_STRING, null, true, false),
+            'EarningsRateID' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
+            'CalculationType' => array (false, self::PROPERTY_TYPE_ENUM, null, false, false),
+            'NumberOfUnitsPerWeek' => array (false, self::PROPERTY_TYPE_ENUM, null, false, false),
+            'AnnualSalary' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
+            'RatePerUnit' => array (false, self::PROPERTY_TYPE_FLOAT, null, false, false),
+            'NormalNumberOfUnits' => array (false, self::PROPERTY_TYPE_ENUM, null, false, false),
+            'DeductionTypeID' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
+            'Percentage' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
+            'Amount' => array (false, self::PROPERTY_TYPE_FLOAT, null, false, false),
+            'SuperMembershipID' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
+            'ContributionType' => array (false, self::PROPERTY_TYPE_ENUM, null, false, false),
+            'ExpenseAccountCode' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
+            'LiabilityAccountCode' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
+            'MinimumMonthlyEarnings' => array (false, self::PROPERTY_TYPE_STRING, null, true, false),
+            'ReimbursementTypeID' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
+            'Description' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
+            'LeaveTypeID' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
+            'AnnualNumberOfUnits' => array (false, self::PROPERTY_TYPE_STRING, null, true, false),
+            'FullTimeNumberOfUnitsPerPeriod' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
+            'NumberOfUnits' => array (false, self::PROPERTY_TYPE_STRING, null, true, false)
         );
     }
 

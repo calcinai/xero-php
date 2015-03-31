@@ -82,14 +82,15 @@ class TimeOffLine extends Remote\Object {
      *  [1] - Type
      *  [2] - PHP type
      *  [3] - Is an Array
+     *  [4] - Saves directly
      *
      * @return array
      */
     public static function getProperties() {
         return array(
-            'TimeOffTypeID' => array (false, self::PROPERTY_TYPE_STRING, null, false),
-            'Hours' => array (false, self::PROPERTY_TYPE_STRING, null, true),
-            'Balance' => array (false, self::PROPERTY_TYPE_STRING, null, false)
+            'TimeOffTypeID' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
+            'Hours' => array (false, self::PROPERTY_TYPE_STRING, null, true, false),
+            'Balance' => array (false, self::PROPERTY_TYPE_STRING, null, false, false)
         );
     }
 

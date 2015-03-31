@@ -107,18 +107,19 @@ class Schedule extends Remote\Object {
      *  [1] - Type
      *  [2] - PHP type
      *  [3] - Is an Array
+     *  [4] - Saves directly
      *
      * @return array
      */
     public static function getProperties() {
         return array(
-            'Period' => array (false, self::PROPERTY_TYPE_INT, null, false),
-            'Unit' => array (false, self::PROPERTY_TYPE_STRING, null, false),
-            'DueDate' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTime', false),
-            'DueDateType' => array (false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Organisation\\PaymentTerm', false),
-            'StartDate' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTime', false),
-            'NextScheduledDate' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTime', false),
-            'EndDate' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTime', false)
+            'Period' => array (false, self::PROPERTY_TYPE_INT, null, false, false),
+            'Unit' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
+            'DueDate' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTime', false, false),
+            'DueDateType' => array (false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Organisation\\PaymentTerm', false, false),
+            'StartDate' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTime', false, false),
+            'NextScheduledDate' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTime', false, false),
+            'EndDate' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTime', false, false)
         );
     }
 

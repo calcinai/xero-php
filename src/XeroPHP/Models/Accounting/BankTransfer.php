@@ -122,20 +122,21 @@ class BankTransfer extends Remote\Object {
      *  [1] - Type
      *  [2] - PHP type
      *  [3] - Is an Array
+     *  [4] - Saves directly
      *
      * @return array
      */
     public static function getProperties() {
         return array(
-            'FromBankAccount' => array (true, self::PROPERTY_TYPE_OBJECT, 'Accounting\\BankTransfer\\FromBankAccount', false),
-            'ToBankAccount' => array (true, self::PROPERTY_TYPE_OBJECT, 'Accounting\\BankTransfer\\ToBankAccount', false),
-            'Amount' => array (true, self::PROPERTY_TYPE_STRING, null, false),
-            'Date' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTime', false),
-            'BankTransferID' => array (false, self::PROPERTY_TYPE_STRING, null, false),
-            'CurrencyRate' => array (false, self::PROPERTY_TYPE_FLOAT, null, false),
-            'FromBankTransactionID' => array (false, self::PROPERTY_TYPE_STRING, null, false),
-            'ToBankTransactionID' => array (false, self::PROPERTY_TYPE_STRING, null, false),
-            'HasAttachments' => array (false, self::PROPERTY_TYPE_BOOLEAN, null, false)
+            'FromBankAccount' => array (true, self::PROPERTY_TYPE_OBJECT, 'Accounting\\BankTransfer\\FromBankAccount', false, false),
+            'ToBankAccount' => array (true, self::PROPERTY_TYPE_OBJECT, 'Accounting\\BankTransfer\\ToBankAccount', false, false),
+            'Amount' => array (true, self::PROPERTY_TYPE_STRING, null, false, false),
+            'Date' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTime', false, false),
+            'BankTransferID' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
+            'CurrencyRate' => array (false, self::PROPERTY_TYPE_FLOAT, null, false, false),
+            'FromBankTransactionID' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
+            'ToBankTransactionID' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
+            'HasAttachments' => array (false, self::PROPERTY_TYPE_BOOLEAN, null, false, false)
         );
     }
 

@@ -93,15 +93,16 @@ class Item extends Remote\Object {
      *  [1] - Type
      *  [2] - PHP type
      *  [3] - Is an Array
+     *  [4] - Saves directly
      *
      * @return array
      */
     public static function getProperties() {
         return array(
-            'Code' => array (true, self::PROPERTY_TYPE_STRING, null, false),
-            'Description' => array (false, self::PROPERTY_TYPE_STRING, null, false),
-            'PurchaseDetails' => array (false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Item\\Purchase', true),
-            'SalesDetails' => array (false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Organisation\\Sale', true)
+            'Code' => array (true, self::PROPERTY_TYPE_STRING, null, false, false),
+            'Description' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
+            'PurchaseDetails' => array (false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Item\\Purchase', true, false),
+            'SalesDetails' => array (false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Organisation\\Sale', true, false)
         );
     }
 

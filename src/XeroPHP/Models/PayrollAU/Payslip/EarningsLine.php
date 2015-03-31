@@ -88,15 +88,16 @@ class EarningsLine extends Remote\Object {
      *  [1] - Type
      *  [2] - PHP type
      *  [3] - Is an Array
+     *  [4] - Saves directly
      *
      * @return array
      */
     public static function getProperties() {
         return array(
-            'EarningsRateID' => array (false, self::PROPERTY_TYPE_STRING, null, false),
-            'RatePerUnit' => array (false, self::PROPERTY_TYPE_FLOAT, null, false),
-            'NumberOfUnits' => array (false, self::PROPERTY_TYPE_FLOAT, null, true),
-            'FixedAmount' => array (false, self::PROPERTY_TYPE_FLOAT, null, false)
+            'EarningsRateID' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
+            'RatePerUnit' => array (false, self::PROPERTY_TYPE_FLOAT, null, false, false),
+            'NumberOfUnits' => array (false, self::PROPERTY_TYPE_FLOAT, null, true, false),
+            'FixedAmount' => array (false, self::PROPERTY_TYPE_FLOAT, null, false, false)
         );
     }
 

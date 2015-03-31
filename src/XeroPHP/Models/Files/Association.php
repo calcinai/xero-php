@@ -87,14 +87,15 @@ class Association extends Remote\Object {
      *  [1] - Type
      *  [2] - PHP type
      *  [3] - Is an Array
+     *  [4] - Saves directly
      *
      * @return array
      */
     public static function getProperties() {
         return array(
-            'ObjectId' => array (true, self::PROPERTY_TYPE_STRING, null, false),
-            'ObjectGroup' => array (true, self::PROPERTY_TYPE_STRING, null, false),
-            'ObjectType' => array (true, self::PROPERTY_TYPE_ENUM, null, false)
+            'ObjectId' => array (true, self::PROPERTY_TYPE_STRING, null, false, false),
+            'ObjectGroup' => array (true, self::PROPERTY_TYPE_STRING, null, false, false),
+            'ObjectType' => array (true, self::PROPERTY_TYPE_ENUM, null, false, false)
         );
     }
 

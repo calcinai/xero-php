@@ -83,14 +83,15 @@ class TimesheetLine extends Remote\Object {
      *  [1] - Type
      *  [2] - PHP type
      *  [3] - Is an Array
+     *  [4] - Saves directly
      *
      * @return array
      */
     public static function getProperties() {
         return array(
-            'EarningsTypeID' => array (false, self::PROPERTY_TYPE_STRING, null, false),
-            'TrackingItemID' => array (false, self::PROPERTY_TYPE_STRING, null, false),
-            'NumberOfUnits' => array (false, self::PROPERTY_TYPE_STRING, null, true)
+            'EarningsTypeID' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
+            'TrackingItemID' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
+            'NumberOfUnits' => array (false, self::PROPERTY_TYPE_STRING, null, true, false)
         );
     }
 

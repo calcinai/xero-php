@@ -112,18 +112,19 @@ class Folder extends Remote\Object {
      *  [1] - Type
      *  [2] - PHP type
      *  [3] - Is an Array
+     *  [4] - Saves directly
      *
      * @return array
      */
     public static function getProperties() {
         return array(
-            'Name' => array (true, self::PROPERTY_TYPE_STRING, null, false),
-            'FileCount' => array (true, self::PROPERTY_TYPE_STRING, null, false),
-            'Email' => array (true, self::PROPERTY_TYPE_STRING, null, false),
-            'IsInbox' => array (true, self::PROPERTY_TYPE_BOOLEAN, null, false),
-            'Id' => array (true, self::PROPERTY_TYPE_GUID, null, false),
-            'Files' => array (true, self::PROPERTY_TYPE_OBJECT, 'Files\\File', true),
-            'FolderId' => array (false, self::PROPERTY_TYPE_STRING, null, false)
+            'Name' => array (true, self::PROPERTY_TYPE_STRING, null, false, false),
+            'FileCount' => array (true, self::PROPERTY_TYPE_STRING, null, false, false),
+            'Email' => array (true, self::PROPERTY_TYPE_STRING, null, false, false),
+            'IsInbox' => array (true, self::PROPERTY_TYPE_BOOLEAN, null, false, false),
+            'Id' => array (true, self::PROPERTY_TYPE_GUID, null, false, false),
+            'Files' => array (true, self::PROPERTY_TYPE_OBJECT, 'Files\\File', true, false),
+            'FolderId' => array (false, self::PROPERTY_TYPE_STRING, null, false, false)
         );
     }
 

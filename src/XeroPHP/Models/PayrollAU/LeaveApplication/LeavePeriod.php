@@ -88,15 +88,16 @@ class LeavePeriod extends Remote\Object {
      *  [1] - Type
      *  [2] - PHP type
      *  [3] - Is an Array
+     *  [4] - Saves directly
      *
      * @return array
      */
     public static function getProperties() {
         return array(
-            'NumberOfUnits' => array (false, self::PROPERTY_TYPE_STRING, null, true),
-            'PayPeriodEndDate' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTime', false),
-            'PayPeriodStartDate' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTime', false),
-            'LeavePeriodStatus' => array (false, self::PROPERTY_TYPE_ENUM, null, false)
+            'NumberOfUnits' => array (false, self::PROPERTY_TYPE_STRING, null, true, false),
+            'PayPeriodEndDate' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTime', false, false),
+            'PayPeriodStartDate' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTime', false, false),
+            'LeavePeriodStatus' => array (false, self::PROPERTY_TYPE_ENUM, null, false, false)
         );
     }
 

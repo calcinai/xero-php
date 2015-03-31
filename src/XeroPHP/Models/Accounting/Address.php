@@ -128,21 +128,22 @@ class Address extends Remote\Object {
      *  [1] - Type
      *  [2] - PHP type
      *  [3] - Is an Array
+     *  [4] - Saves directly
      *
      * @return array
      */
     public static function getProperties() {
         return array(
-            'AddressType' => array (false, self::PROPERTY_TYPE_ENUM, null, false),
-            'AddressLine1' => array (false, self::PROPERTY_TYPE_STRING, null, false),
-            'AddressLine2' => array (false, self::PROPERTY_TYPE_STRING, null, false),
-            'AddressLine3' => array (false, self::PROPERTY_TYPE_STRING, null, false),
-            'AddressLine4' => array (false, self::PROPERTY_TYPE_STRING, null, false),
-            'City' => array (false, self::PROPERTY_TYPE_STRING, null, false),
-            'Region' => array (false, self::PROPERTY_TYPE_STRING, null, false),
-            'PostalCode' => array (false, self::PROPERTY_TYPE_STRING, null, false),
-            'Country' => array (false, self::PROPERTY_TYPE_STRING, null, false),
-            'AttentionTo' => array (false, self::PROPERTY_TYPE_STRING, null, false)
+            'AddressType' => array (false, self::PROPERTY_TYPE_ENUM, null, false, false),
+            'AddressLine1' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
+            'AddressLine2' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
+            'AddressLine3' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
+            'AddressLine4' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
+            'City' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
+            'Region' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
+            'PostalCode' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
+            'Country' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
+            'AttentionTo' => array (false, self::PROPERTY_TYPE_STRING, null, false, false)
         );
     }
 

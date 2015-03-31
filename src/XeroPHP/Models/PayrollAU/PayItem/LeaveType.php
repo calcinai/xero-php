@@ -108,18 +108,19 @@ class LeaveType extends Remote\Object {
      *  [1] - Type
      *  [2] - PHP type
      *  [3] - Is an Array
+     *  [4] - Saves directly
      *
      * @return array
      */
     public static function getProperties() {
         return array(
-            'Name' => array (true, self::PROPERTY_TYPE_STRING, null, false),
-            'TypeOfUnits' => array (true, self::PROPERTY_TYPE_FLOAT, null, true),
-            'IsPaidLeave' => array (true, self::PROPERTY_TYPE_STRING, null, false),
-            'ShowOnPayslip' => array (true, self::PROPERTY_TYPE_STRING, null, false),
-            'LeaveTypeID' => array (false, self::PROPERTY_TYPE_STRING, null, false),
-            'NormalEntitlement' => array (false, self::PROPERTY_TYPE_STRING, null, false),
-            'LeaveLoadingRate' => array (false, self::PROPERTY_TYPE_FLOAT, null, false)
+            'Name' => array (true, self::PROPERTY_TYPE_STRING, null, false, false),
+            'TypeOfUnits' => array (true, self::PROPERTY_TYPE_FLOAT, null, true, false),
+            'IsPaidLeave' => array (true, self::PROPERTY_TYPE_STRING, null, false, false),
+            'ShowOnPayslip' => array (true, self::PROPERTY_TYPE_STRING, null, false, false),
+            'LeaveTypeID' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
+            'NormalEntitlement' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
+            'LeaveLoadingRate' => array (false, self::PROPERTY_TYPE_FLOAT, null, false, false)
         );
     }
 

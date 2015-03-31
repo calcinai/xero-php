@@ -93,15 +93,16 @@ class Phone extends Remote\Object {
      *  [1] - Type
      *  [2] - PHP type
      *  [3] - Is an Array
+     *  [4] - Saves directly
      *
      * @return array
      */
     public static function getProperties() {
         return array(
-            'PhoneType' => array (false, self::PROPERTY_TYPE_ENUM, null, false),
-            'PhoneNumber' => array (false, self::PROPERTY_TYPE_STRING, null, false),
-            'PhoneAreaCode' => array (false, self::PROPERTY_TYPE_STRING, null, false),
-            'PhoneCountryCode' => array (false, self::PROPERTY_TYPE_STRING, null, false)
+            'PhoneType' => array (false, self::PROPERTY_TYPE_ENUM, null, false, false),
+            'PhoneNumber' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
+            'PhoneAreaCode' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
+            'PhoneCountryCode' => array (false, self::PROPERTY_TYPE_STRING, null, false, false)
         );
     }
 

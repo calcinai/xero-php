@@ -82,14 +82,15 @@ class ReimbursementType extends Remote\Object {
      *  [1] - Type
      *  [2] - PHP type
      *  [3] - Is an Array
+     *  [4] - Saves directly
      *
      * @return array
      */
     public static function getProperties() {
         return array(
-            'ReimbursementType' => array (true, self::PROPERTY_TYPE_OBJECT, 'PayrollUS\\PayItem\\ReimbursementType', false),
-            'ExpenseOrLiabilityAccountCode' => array (true, self::PROPERTY_TYPE_STRING, null, false),
-            'ReimbursementTypeID' => array (false, self::PROPERTY_TYPE_STRING, null, false)
+            'ReimbursementType' => array (true, self::PROPERTY_TYPE_OBJECT, 'PayrollUS\\PayItem\\ReimbursementType', false, false),
+            'ExpenseOrLiabilityAccountCode' => array (true, self::PROPERTY_TYPE_STRING, null, false, false),
+            'ReimbursementTypeID' => array (false, self::PROPERTY_TYPE_STRING, null, false, false)
         );
     }
 

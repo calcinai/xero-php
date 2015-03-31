@@ -150,25 +150,26 @@ class PayRun extends Remote\Object {
      *  [1] - Type
      *  [2] - PHP type
      *  [3] - Is an Array
+     *  [4] - Saves directly
      *
      * @return array
      */
     public static function getProperties() {
         return array(
-            'PayrollCalendarID' => array (true, self::PROPERTY_TYPE_STRING, null, false),
-            'PayRunID' => array (false, self::PROPERTY_TYPE_STRING, null, false),
-            'PayRunPeriodStartDate' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTime', false),
-            'PayRunPeriodEndDate' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTime', false),
-            'PayRunStatus' => array (false, self::PROPERTY_TYPE_ENUM, null, false),
-            'PaymentDate' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTime', false),
-            'PayslipMessage' => array (false, self::PROPERTY_TYPE_STRING, null, false),
-            'Payslips' => array (false, self::PROPERTY_TYPE_OBJECT, 'PayrollAU\\Payslip', true),
-            'Wages' => array (false, self::PROPERTY_TYPE_STRING, null, true),
-            'Deductions' => array (false, self::PROPERTY_TYPE_STRING, null, true),
-            'Tax' => array (false, self::PROPERTY_TYPE_FLOAT, null, false),
-            'Super' => array (false, self::PROPERTY_TYPE_STRING, null, false),
-            'Reimbursement' => array (false, self::PROPERTY_TYPE_STRING, null, false),
-            'NetPay' => array (false, self::PROPERTY_TYPE_STRING, null, false)
+            'PayrollCalendarID' => array (true, self::PROPERTY_TYPE_STRING, null, false, false),
+            'PayRunID' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
+            'PayRunPeriodStartDate' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTime', false, false),
+            'PayRunPeriodEndDate' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTime', false, false),
+            'PayRunStatus' => array (false, self::PROPERTY_TYPE_ENUM, null, false, false),
+            'PaymentDate' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTime', false, false),
+            'PayslipMessage' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
+            'Payslips' => array (false, self::PROPERTY_TYPE_OBJECT, 'PayrollAU\\Payslip', true, false),
+            'Wages' => array (false, self::PROPERTY_TYPE_STRING, null, true, false),
+            'Deductions' => array (false, self::PROPERTY_TYPE_STRING, null, true, false),
+            'Tax' => array (false, self::PROPERTY_TYPE_FLOAT, null, false, false),
+            'Super' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
+            'Reimbursement' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
+            'NetPay' => array (false, self::PROPERTY_TYPE_STRING, null, false, false)
         );
     }
 

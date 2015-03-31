@@ -89,15 +89,16 @@ class TaxLine extends Remote\Object {
      *  [1] - Type
      *  [2] - PHP type
      *  [3] - Is an Array
+     *  [4] - Saves directly
      *
      * @return array
      */
     public static function getProperties() {
         return array(
-            'TaxTypeName' => array (false, self::PROPERTY_TYPE_STRING, null, false),
-            'Description' => array (false, self::PROPERTY_TYPE_STRING, null, false),
-            'Amount' => array (false, self::PROPERTY_TYPE_FLOAT, null, false),
-            'LiabilityAccount' => array (false, self::PROPERTY_TYPE_STRING, null, false)
+            'TaxTypeName' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
+            'Description' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
+            'Amount' => array (false, self::PROPERTY_TYPE_FLOAT, null, false, false),
+            'LiabilityAccount' => array (false, self::PROPERTY_TYPE_STRING, null, false, false)
         );
     }
 

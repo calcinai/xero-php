@@ -185,29 +185,30 @@ class Prepayment extends Remote\Object {
      *  [1] - Type
      *  [2] - PHP type
      *  [3] - Is an Array
+     *  [4] - Saves directly
      *
      * @return array
      */
     public static function getProperties() {
         return array(
-            'Reference' => array (false, self::PROPERTY_TYPE_STRING, null, false),
-            'Type' => array (false, self::PROPERTY_TYPE_ENUM, null, false),
-            'Contact' => array (false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Contact', false),
-            'Date' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTime', false),
-            'Status' => array (false, self::PROPERTY_TYPE_ENUM, null, false),
-            'LineAmountTypes' => array (false, self::PROPERTY_TYPE_FLOAT, null, true),
-            'LineItems' => array (false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\BankTransaction\\LineItem', true),
-            'SubTotal' => array (false, self::PROPERTY_TYPE_FLOAT, null, false),
-            'TotalTax' => array (false, self::PROPERTY_TYPE_FLOAT, null, false),
-            'Total' => array (false, self::PROPERTY_TYPE_FLOAT, null, false),
-            'UpdatedDateUTC' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTime', false),
-            'CurrencyCode' => array (false, self::PROPERTY_TYPE_STRING, null, false),
-            'FullyPaidOnDate' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTime', false),
-            'PrepaymentID' => array (false, self::PROPERTY_TYPE_STRING, null, false),
-            'CurrencyRate' => array (false, self::PROPERTY_TYPE_FLOAT, null, false),
-            'RemainingCredit' => array (false, self::PROPERTY_TYPE_STRING, null, false),
-            'Allocations' => array (false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Prepayment\\Allocation', true),
-            'HasAttachments' => array (false, self::PROPERTY_TYPE_BOOLEAN, null, false)
+            'Reference' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
+            'Type' => array (false, self::PROPERTY_TYPE_ENUM, null, false, false),
+            'Contact' => array (false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Contact', false, false),
+            'Date' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTime', false, false),
+            'Status' => array (false, self::PROPERTY_TYPE_ENUM, null, false, false),
+            'LineAmountTypes' => array (false, self::PROPERTY_TYPE_FLOAT, null, true, false),
+            'LineItems' => array (false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\BankTransaction\\LineItem', true, false),
+            'SubTotal' => array (false, self::PROPERTY_TYPE_FLOAT, null, false, false),
+            'TotalTax' => array (false, self::PROPERTY_TYPE_FLOAT, null, false, false),
+            'Total' => array (false, self::PROPERTY_TYPE_FLOAT, null, false, false),
+            'UpdatedDateUTC' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTime', false, false),
+            'CurrencyCode' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
+            'FullyPaidOnDate' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTime', false, false),
+            'PrepaymentID' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
+            'CurrencyRate' => array (false, self::PROPERTY_TYPE_FLOAT, null, false, false),
+            'RemainingCredit' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
+            'Allocations' => array (false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Prepayment\\Allocation', true, false),
+            'HasAttachments' => array (false, self::PROPERTY_TYPE_BOOLEAN, null, false, false)
         );
     }
 

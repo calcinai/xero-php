@@ -235,38 +235,39 @@ class Employee extends Remote\Object {
      *  [1] - Type
      *  [2] - PHP type
      *  [3] - Is an Array
+     *  [4] - Saves directly
      *
      * @return array
      */
     public static function getProperties() {
         return array(
-            'FirstName' => array (true, self::PROPERTY_TYPE_STRING, null, false),
-            'LastName' => array (true, self::PROPERTY_TYPE_STRING, null, false),
-            'DateOfBirth' => array (true, self::PROPERTY_TYPE_DATE, '\\DateTime', false),
-            'HomeAddress' => array (true, self::PROPERTY_TYPE_OBJECT, 'PayrollUS\\Employee\\HomeAddress', false),
-            'MiddleNames' => array (false, self::PROPERTY_TYPE_STRING, null, true),
-            'JobTitle' => array (false, self::PROPERTY_TYPE_STRING, null, false),
-            'Email' => array (false, self::PROPERTY_TYPE_STRING, null, false),
-            'Gender' => array (false, self::PROPERTY_TYPE_STRING, null, false),
-            'MailingAddress' => array (false, self::PROPERTY_TYPE_OBJECT, 'PayrollUS\\Employee\\MailingAddress', false),
-            'Phone' => array (false, self::PROPERTY_TYPE_STRING, null, false),
-            'EmployeeNumber' => array (false, self::PROPERTY_TYPE_STRING, null, false),
-            'SocialSecurityNumber' => array (false, self::PROPERTY_TYPE_STRING, null, false),
-            'StartDate' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTime', false),
-            'PayScheduleID' => array (false, self::PROPERTY_TYPE_STRING, null, false),
-            'EmployeeGroupName' => array (false, self::PROPERTY_TYPE_STRING, null, false),
-            'EmploymentBasis' => array (false, self::PROPERTY_TYPE_ENUM, null, false),
-            'HolidayGroupID' => array (false, self::PROPERTY_TYPE_STRING, null, false),
-            'IsAuthorisedToApproveTimeOff' => array (false, self::PROPERTY_TYPE_BOOLEAN, null, false),
-            'IsAuthorisedToApproveTimesheets' => array (false, self::PROPERTY_TYPE_BOOLEAN, null, false),
-            'SalaryAndWages' => array (false, self::PROPERTY_TYPE_OBJECT, 'PayrollUS\\Employee\\SalaryAndWage', true),
-            'WorkLocations' => array (false, self::PROPERTY_TYPE_OBJECT, 'PayrollUS\\Employee\\WorkLocation', true),
-            'PaymentMethod' => array (false, self::PROPERTY_TYPE_OBJECT, 'PayrollUS\\Employee\\PaymentMethod', false),
-            'PayTemplate' => array (false, self::PROPERTY_TYPE_OBJECT, 'PayrollUS\\Employee\\PayTemplate', false),
-            'OpeningBalances' => array (false, self::PROPERTY_TYPE_OBJECT, 'PayrollUS\\Employee\\OpeningBalance', true),
-            'EmployeeID' => array (false, self::PROPERTY_TYPE_STRING, null, false),
-            'Status' => array (false, self::PROPERTY_TYPE_ENUM, null, false),
-            'UpdatedDateUTC' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTime', false)
+            'FirstName' => array (true, self::PROPERTY_TYPE_STRING, null, false, false),
+            'LastName' => array (true, self::PROPERTY_TYPE_STRING, null, false, false),
+            'DateOfBirth' => array (true, self::PROPERTY_TYPE_DATE, '\\DateTime', false, false),
+            'HomeAddress' => array (true, self::PROPERTY_TYPE_OBJECT, 'PayrollUS\\Employee\\HomeAddress', false, false),
+            'MiddleNames' => array (false, self::PROPERTY_TYPE_STRING, null, true, false),
+            'JobTitle' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
+            'Email' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
+            'Gender' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
+            'MailingAddress' => array (false, self::PROPERTY_TYPE_OBJECT, 'PayrollUS\\Employee\\MailingAddress', false, false),
+            'Phone' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
+            'EmployeeNumber' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
+            'SocialSecurityNumber' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
+            'StartDate' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTime', false, false),
+            'PayScheduleID' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
+            'EmployeeGroupName' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
+            'EmploymentBasis' => array (false, self::PROPERTY_TYPE_ENUM, null, false, false),
+            'HolidayGroupID' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
+            'IsAuthorisedToApproveTimeOff' => array (false, self::PROPERTY_TYPE_BOOLEAN, null, false, false),
+            'IsAuthorisedToApproveTimesheets' => array (false, self::PROPERTY_TYPE_BOOLEAN, null, false, false),
+            'SalaryAndWages' => array (false, self::PROPERTY_TYPE_OBJECT, 'PayrollUS\\Employee\\SalaryAndWage', true, false),
+            'WorkLocations' => array (false, self::PROPERTY_TYPE_OBJECT, 'PayrollUS\\Employee\\WorkLocation', true, false),
+            'PaymentMethod' => array (false, self::PROPERTY_TYPE_OBJECT, 'PayrollUS\\Employee\\PaymentMethod', false, false),
+            'PayTemplate' => array (false, self::PROPERTY_TYPE_OBJECT, 'PayrollUS\\Employee\\PayTemplate', false, false),
+            'OpeningBalances' => array (false, self::PROPERTY_TYPE_OBJECT, 'PayrollUS\\Employee\\OpeningBalance', true, false),
+            'EmployeeID' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
+            'Status' => array (false, self::PROPERTY_TYPE_ENUM, null, false, false),
+            'UpdatedDateUTC' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTime', false, false)
         );
     }
 

@@ -211,27 +211,28 @@ e.g.
      *  [1] - Type
      *  [2] - PHP type
      *  [3] - Is an Array
+     *  [4] - Saves directly
      *
      * @return array
      */
     public static function getProperties() {
         return array(
-            'Code' => array (true, self::PROPERTY_TYPE_STRING, null, false),
-            'Name' => array (true, self::PROPERTY_TYPE_STRING, null, false),
-            'Type' => array (true, self::PROPERTY_TYPE_ENUM, null, false),
-            'Description' => array (false, self::PROPERTY_TYPE_STRING, null, false),
-            'TaxType' => array (false, self::PROPERTY_TYPE_ENUM, null, false),
-            'EnablePaymentsToAccount' => array (false, self::PROPERTY_TYPE_BOOLEAN, null, false),
-            'ShowInExpenseClaims' => array (false, self::PROPERTY_TYPE_BOOLEAN, null, false),
-            'Status' => array (false, self::PROPERTY_TYPE_ENUM, null, false),
-            'AccountID' => array (false, self::PROPERTY_TYPE_STRING, null, false),
-            'Class' => array (false, self::PROPERTY_TYPE_ENUM, null, false),
-            'SystemAccount' => array (false, self::PROPERTY_TYPE_ENUM, null, false),
-            'BankAccountNumber' => array (false, self::PROPERTY_TYPE_STRING, null, false),
-            'CurrencyCode' => array (false, self::PROPERTY_TYPE_STRING, null, false),
-            'ReportingCode' => array (false, self::PROPERTY_TYPE_STRING, null, false),
-            'ReportingCodeName' => array (false, self::PROPERTY_TYPE_STRING, null, false),
-            'HasAttachments' => array (false, self::PROPERTY_TYPE_BOOLEAN, null, false)
+            'Code' => array (true, self::PROPERTY_TYPE_STRING, null, false, false),
+            'Name' => array (true, self::PROPERTY_TYPE_STRING, null, false, false),
+            'Type' => array (true, self::PROPERTY_TYPE_ENUM, null, false, false),
+            'Description' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
+            'TaxType' => array (false, self::PROPERTY_TYPE_ENUM, null, false, false),
+            'EnablePaymentsToAccount' => array (false, self::PROPERTY_TYPE_BOOLEAN, null, false, false),
+            'ShowInExpenseClaims' => array (false, self::PROPERTY_TYPE_BOOLEAN, null, false, false),
+            'Status' => array (false, self::PROPERTY_TYPE_ENUM, null, false, false),
+            'AccountID' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
+            'Class' => array (false, self::PROPERTY_TYPE_ENUM, null, false, false),
+            'SystemAccount' => array (false, self::PROPERTY_TYPE_ENUM, null, false, false),
+            'BankAccountNumber' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
+            'CurrencyCode' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
+            'ReportingCode' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
+            'ReportingCodeName' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
+            'HasAttachments' => array (false, self::PROPERTY_TYPE_BOOLEAN, null, false, false)
         );
     }
 

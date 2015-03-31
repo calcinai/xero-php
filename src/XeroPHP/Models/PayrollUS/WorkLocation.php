@@ -114,19 +114,20 @@ class WorkLocation extends Remote\Object {
      *  [1] - Type
      *  [2] - PHP type
      *  [3] - Is an Array
+     *  [4] - Saves directly
      *
      * @return array
      */
     public static function getProperties() {
         return array(
-            'StreetAddress' => array (true, self::PROPERTY_TYPE_STRING, null, false),
-            'City' => array (true, self::PROPERTY_TYPE_STRING, null, false),
-            'State' => array (true, self::PROPERTY_TYPE_STRING, null, false),
-            'Latitude' => array (true, self::PROPERTY_TYPE_STRING, null, false),
-            'Longitude' => array (true, self::PROPERTY_TYPE_STRING, null, false),
-            'WorkLocationID' => array (false, self::PROPERTY_TYPE_STRING, null, false),
-            'SuitOrAptOrUnit' => array (false, self::PROPERTY_TYPE_STRING, null, false),
-            'IsPrimary' => array (false, self::PROPERTY_TYPE_STRING, null, false)
+            'StreetAddress' => array (true, self::PROPERTY_TYPE_STRING, null, false, false),
+            'City' => array (true, self::PROPERTY_TYPE_STRING, null, false, false),
+            'State' => array (true, self::PROPERTY_TYPE_STRING, null, false, false),
+            'Latitude' => array (true, self::PROPERTY_TYPE_STRING, null, false, false),
+            'Longitude' => array (true, self::PROPERTY_TYPE_STRING, null, false, false),
+            'WorkLocationID' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
+            'SuitOrAptOrUnit' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
+            'IsPrimary' => array (false, self::PROPERTY_TYPE_STRING, null, false, false)
         );
     }
 

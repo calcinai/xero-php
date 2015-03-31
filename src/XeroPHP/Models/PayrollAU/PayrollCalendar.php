@@ -98,15 +98,16 @@ class PayrollCalendar extends Remote\Object {
      *  [1] - Type
      *  [2] - PHP type
      *  [3] - Is an Array
+     *  [4] - Saves directly
      *
      * @return array
      */
     public static function getProperties() {
         return array(
-            'Name' => array (true, self::PROPERTY_TYPE_STRING, null, false),
-            'CalendarType' => array (true, self::PROPERTY_TYPE_ENUM, null, false),
-            'StartDate' => array (true, self::PROPERTY_TYPE_DATE, '\\DateTime', false),
-            'PaymentDate' => array (true, self::PROPERTY_TYPE_DATE, '\\DateTime', false)
+            'Name' => array (true, self::PROPERTY_TYPE_STRING, null, false, false),
+            'CalendarType' => array (true, self::PROPERTY_TYPE_ENUM, null, false, false),
+            'StartDate' => array (true, self::PROPERTY_TYPE_DATE, '\\DateTime', false, false),
+            'PaymentDate' => array (true, self::PROPERTY_TYPE_DATE, '\\DateTime', false, false)
         );
     }
 

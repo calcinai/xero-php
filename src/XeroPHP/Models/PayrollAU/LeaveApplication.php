@@ -112,18 +112,19 @@ class LeaveApplication extends Remote\Object {
      *  [1] - Type
      *  [2] - PHP type
      *  [3] - Is an Array
+     *  [4] - Saves directly
      *
      * @return array
      */
     public static function getProperties() {
         return array(
-            'EmployeeID' => array (true, self::PROPERTY_TYPE_STRING, null, false),
-            'LeaveTypeID' => array (true, self::PROPERTY_TYPE_STRING, null, false),
-            'Title' => array (true, self::PROPERTY_TYPE_STRING, null, false),
-            'StartDate' => array (true, self::PROPERTY_TYPE_DATE, '\\DateTime', false),
-            'EndDate' => array (true, self::PROPERTY_TYPE_DATE, '\\DateTime', false),
-            'Description' => array (false, self::PROPERTY_TYPE_STRING, null, false),
-            'LeavePeriods' => array (false, self::PROPERTY_TYPE_OBJECT, 'PayrollAU\\LeaveApplication\\LeavePeriod', true)
+            'EmployeeID' => array (true, self::PROPERTY_TYPE_STRING, null, false, false),
+            'LeaveTypeID' => array (true, self::PROPERTY_TYPE_STRING, null, false, false),
+            'Title' => array (true, self::PROPERTY_TYPE_STRING, null, false, false),
+            'StartDate' => array (true, self::PROPERTY_TYPE_DATE, '\\DateTime', false, false),
+            'EndDate' => array (true, self::PROPERTY_TYPE_DATE, '\\DateTime', false, false),
+            'Description' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
+            'LeavePeriods' => array (false, self::PROPERTY_TYPE_OBJECT, 'PayrollAU\\LeaveApplication\\LeavePeriod', true, false)
         );
     }
 

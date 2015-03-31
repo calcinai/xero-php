@@ -106,18 +106,19 @@ class HomeAddress extends Remote\Object {
      *  [1] - Type
      *  [2] - PHP type
      *  [3] - Is an Array
+     *  [4] - Saves directly
      *
      * @return array
      */
     public static function getProperties() {
         return array(
-            'StreetAddress' => array (false, self::PROPERTY_TYPE_STRING, null, false),
-            'SuiteOrAptOrUnit' => array (false, self::PROPERTY_TYPE_STRING, null, false),
-            'City' => array (false, self::PROPERTY_TYPE_STRING, null, false),
-            'State' => array (false, self::PROPERTY_TYPE_STRING, null, false),
-            'Zip' => array (false, self::PROPERTY_TYPE_STRING, null, false),
-            'Lattitude' => array (false, self::PROPERTY_TYPE_STRING, null, false),
-            'Longitude' => array (false, self::PROPERTY_TYPE_STRING, null, false)
+            'StreetAddress' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
+            'SuiteOrAptOrUnit' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
+            'City' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
+            'State' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
+            'Zip' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
+            'Lattitude' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
+            'Longitude' => array (false, self::PROPERTY_TYPE_STRING, null, false, false)
         );
     }
 

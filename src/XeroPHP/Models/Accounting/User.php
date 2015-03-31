@@ -107,18 +107,19 @@ class User extends Remote\Object {
      *  [1] - Type
      *  [2] - PHP type
      *  [3] - Is an Array
+     *  [4] - Saves directly
      *
      * @return array
      */
     public static function getProperties() {
         return array(
-            'UserID' => array (false, self::PROPERTY_TYPE_STRING, null, false),
-            'EmailAddress' => array (false, self::PROPERTY_TYPE_STRING, null, false),
-            'FirstName' => array (false, self::PROPERTY_TYPE_STRING, null, false),
-            'LastName' => array (false, self::PROPERTY_TYPE_STRING, null, false),
-            'UpdatedDateUTC' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTime', false),
-            'IsSubscriber' => array (false, self::PROPERTY_TYPE_BOOLEAN, null, false),
-            'OrganisationRole' => array (false, self::PROPERTY_TYPE_ENUM, null, false)
+            'UserID' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
+            'EmailAddress' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
+            'FirstName' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
+            'LastName' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
+            'UpdatedDateUTC' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTime', false, false),
+            'IsSubscriber' => array (false, self::PROPERTY_TYPE_BOOLEAN, null, false, false),
+            'OrganisationRole' => array (false, self::PROPERTY_TYPE_ENUM, null, false, false)
         );
     }
 

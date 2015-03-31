@@ -96,16 +96,17 @@ class JournalLine extends Remote\Object {
      *  [1] - Type
      *  [2] - PHP type
      *  [3] - Is an Array
+     *  [4] - Saves directly
      *
      * @return array
      */
     public static function getProperties() {
         return array(
-            'LineAmount' => array (true, self::PROPERTY_TYPE_STRING, null, false),
-            'AccountCode' => array (true, self::PROPERTY_TYPE_STRING, null, false),
-            'Description' => array (false, self::PROPERTY_TYPE_STRING, null, false),
-            'TaxType' => array (false, self::PROPERTY_TYPE_ENUM, null, false),
-            'Tracking' => array (false, self::PROPERTY_TYPE_STRING, null, false)
+            'LineAmount' => array (true, self::PROPERTY_TYPE_STRING, null, false, false),
+            'AccountCode' => array (true, self::PROPERTY_TYPE_STRING, null, false, false),
+            'Description' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
+            'TaxType' => array (false, self::PROPERTY_TYPE_ENUM, null, false, false),
+            'Tracking' => array (false, self::PROPERTY_TYPE_STRING, null, false, false)
         );
     }
 

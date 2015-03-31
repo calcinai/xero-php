@@ -118,20 +118,21 @@ class ExpenseClaim extends Remote\Object {
      *  [1] - Type
      *  [2] - PHP type
      *  [3] - Is an Array
+     *  [4] - Saves directly
      *
      * @return array
      */
     public static function getProperties() {
         return array(
-            'ExpenseClaimID' => array (false, self::PROPERTY_TYPE_STRING, null, false),
-            'Status' => array (false, self::PROPERTY_TYPE_STRING, null, false),
-            'UpdatedDateUTC' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTime', false),
-            'Total' => array (false, self::PROPERTY_TYPE_FLOAT, null, false),
-            'AmountDue' => array (false, self::PROPERTY_TYPE_FLOAT, null, false),
-            'AmountPaid' => array (false, self::PROPERTY_TYPE_FLOAT, null, false),
-            'PaymentDueDate' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTime', false),
-            'ReportingDate' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTime', false),
-            'ReceiptID' => array (true, self::PROPERTY_TYPE_STRING, null, false)
+            'ExpenseClaimID' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
+            'Status' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
+            'UpdatedDateUTC' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTime', false, false),
+            'Total' => array (false, self::PROPERTY_TYPE_FLOAT, null, false, false),
+            'AmountDue' => array (false, self::PROPERTY_TYPE_FLOAT, null, false, false),
+            'AmountPaid' => array (false, self::PROPERTY_TYPE_FLOAT, null, false, false),
+            'PaymentDueDate' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTime', false, false),
+            'ReportingDate' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTime', false, false),
+            'ReceiptID' => array (true, self::PROPERTY_TYPE_STRING, null, false, false)
         );
     }
 

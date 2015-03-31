@@ -76,13 +76,14 @@ class BankAccount extends Remote\Object {
      *  [1] - Type
      *  [2] - PHP type
      *  [3] - Is an Array
+     *  [4] - Saves directly
      *
      * @return array
      */
     public static function getProperties() {
         return array(
-            'Code' => array (true, self::PROPERTY_TYPE_STRING, null, false),
-            'AccountID' => array (true, self::PROPERTY_TYPE_STRING, null, false)
+            'Code' => array (true, self::PROPERTY_TYPE_STRING, null, false, false),
+            'AccountID' => array (true, self::PROPERTY_TYPE_STRING, null, false, false)
         );
     }
 

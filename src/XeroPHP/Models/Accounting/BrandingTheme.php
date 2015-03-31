@@ -89,15 +89,16 @@ class BrandingTheme extends Remote\Object {
      *  [1] - Type
      *  [2] - PHP type
      *  [3] - Is an Array
+     *  [4] - Saves directly
      *
      * @return array
      */
     public static function getProperties() {
         return array(
-            'BrandingThemeID' => array (false, self::PROPERTY_TYPE_STRING, null, false),
-            'Name' => array (false, self::PROPERTY_TYPE_STRING, null, false),
-            'SortOrder' => array (false, self::PROPERTY_TYPE_INT, null, false),
-            'CreatedDateUTC' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTime', false)
+            'BrandingThemeID' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
+            'Name' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
+            'SortOrder' => array (false, self::PROPERTY_TYPE_INT, null, false, false),
+            'CreatedDateUTC' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTime', false, false)
         );
     }
 

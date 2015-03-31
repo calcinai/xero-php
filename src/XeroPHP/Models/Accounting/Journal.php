@@ -135,19 +135,20 @@ class Journal extends Remote\Object {
      *  [1] - Type
      *  [2] - PHP type
      *  [3] - Is an Array
+     *  [4] - Saves directly
      *
      * @return array
      */
     public static function getProperties() {
         return array(
-            'JournalID' => array (false, self::PROPERTY_TYPE_STRING, null, false),
-            'JournalDate' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTime', false),
-            'JournalNumber' => array (false, self::PROPERTY_TYPE_STRING, null, false),
-            'CreatedDateUTC' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTime', false),
-            'Reference' => array (false, self::PROPERTY_TYPE_STRING, null, false),
-            'SourceID' => array (false, self::PROPERTY_TYPE_STRING, null, false),
-            'SourceType' => array (false, self::PROPERTY_TYPE_ENUM, null, false),
-            'JournalLines' => array (false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Journal\\JournalLine', true)
+            'JournalID' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
+            'JournalDate' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTime', false, false),
+            'JournalNumber' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
+            'CreatedDateUTC' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTime', false, false),
+            'Reference' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
+            'SourceID' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
+            'SourceType' => array (false, self::PROPERTY_TYPE_ENUM, null, false, false),
+            'JournalLines' => array (false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Journal\\JournalLine', true, false)
         );
     }
 

@@ -117,19 +117,20 @@ class File extends Remote\Object {
      *  [1] - Type
      *  [2] - PHP type
      *  [3] - Is an Array
+     *  [4] - Saves directly
      *
      * @return array
      */
     public static function getProperties() {
         return array(
-            'Name' => array (true, self::PROPERTY_TYPE_STRING, null, false),
-            'FolderId' => array (false, self::PROPERTY_TYPE_OBJECT, 'Files\\Folder', false),
-            'MimeType' => array (false, self::PROPERTY_TYPE_STRING, null, false),
-            'Size' => array (false, self::PROPERTY_TYPE_STRING, null, false),
-            'CreatedDateUTC' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTime', false),
-            'UpdatedDateUTC' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTime', false),
-            'User' => array (false, self::PROPERTY_TYPE_STRING, null, false),
-            'Id' => array (false, self::PROPERTY_TYPE_GUID, null, false)
+            'Name' => array (true, self::PROPERTY_TYPE_STRING, null, false, false),
+            'FolderId' => array (false, self::PROPERTY_TYPE_OBJECT, 'Files\\Folder', false, false),
+            'MimeType' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
+            'Size' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
+            'CreatedDateUTC' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTime', false, false),
+            'UpdatedDateUTC' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTime', false, false),
+            'User' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
+            'Id' => array (false, self::PROPERTY_TYPE_GUID, null, false, false)
         );
     }
 

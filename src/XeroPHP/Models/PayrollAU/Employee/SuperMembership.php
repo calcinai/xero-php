@@ -104,17 +104,18 @@ class SuperMembership extends Remote\Object {
      *  [1] - Type
      *  [2] - PHP type
      *  [3] - Is an Array
+     *  [4] - Saves directly
      *
      * @return array
      */
     public static function getProperties() {
         return array(
-            'SuperFundID' => array (false, self::PROPERTY_TYPE_STRING, null, false),
-            'EmployeeNumber' => array (false, self::PROPERTY_TYPE_STRING, null, false),
-            'SuperMembershipID' => array (false, self::PROPERTY_TYPE_STRING, null, false),
-            'Recordfilter' => array (false, self::PROPERTY_TYPE_STRING, null, false),
-            'EmployeeID' => array (false, self::PROPERTY_TYPE_STRING, null, false),
-            'ModifiedAfter' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTime', false)
+            'SuperFundID' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
+            'EmployeeNumber' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
+            'SuperMembershipID' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
+            'Recordfilter' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
+            'EmployeeID' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
+            'ModifiedAfter' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTime', false, false)
         );
     }
 

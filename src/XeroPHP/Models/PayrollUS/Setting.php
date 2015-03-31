@@ -79,13 +79,14 @@ class Setting extends Remote\Object {
      *  [1] - Type
      *  [2] - PHP type
      *  [3] - Is an Array
+     *  [4] - Saves directly
      *
      * @return array
      */
     public static function getProperties() {
         return array(
-            'Accounts' => array (false, self::PROPERTY_TYPE_OBJECT, 'PayrollUS\\Setting\\Account', true),
-            'TrackingCategories' => array (false, self::PROPERTY_TYPE_OBJECT, 'PayrollUS\\Setting\\TrackingCategory', true)
+            'Accounts' => array (false, self::PROPERTY_TYPE_OBJECT, 'PayrollUS\\Setting\\Account', true, false),
+            'TrackingCategories' => array (false, self::PROPERTY_TYPE_OBJECT, 'PayrollUS\\Setting\\TrackingCategory', true, false)
         );
     }
 

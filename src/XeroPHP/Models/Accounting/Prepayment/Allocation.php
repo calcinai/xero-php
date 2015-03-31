@@ -84,14 +84,15 @@ class Allocation extends Remote\Object {
      *  [1] - Type
      *  [2] - PHP type
      *  [3] - Is an Array
+     *  [4] - Saves directly
      *
      * @return array
      */
     public static function getProperties() {
         return array(
-            'Invoice' => array (false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Invoice', false),
-            'AppliedAmount' => array (false, self::PROPERTY_TYPE_FLOAT, null, false),
-            'Date' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTime', false)
+            'Invoice' => array (false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Invoice', false, false),
+            'AppliedAmount' => array (false, self::PROPERTY_TYPE_FLOAT, null, false, false),
+            'Date' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTime', false, false)
         );
     }
 

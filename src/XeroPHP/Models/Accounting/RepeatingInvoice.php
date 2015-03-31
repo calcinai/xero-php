@@ -152,25 +152,26 @@ class RepeatingInvoice extends Remote\Object {
      *  [1] - Type
      *  [2] - PHP type
      *  [3] - Is an Array
+     *  [4] - Saves directly
      *
      * @return array
      */
     public static function getProperties() {
         return array(
-            'Type' => array (false, self::PROPERTY_TYPE_ENUM, null, false),
-            'Contact' => array (false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Contact', false),
-            'Schedule' => array (false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\RepeatingInvoice\\Schedule', false),
-            'LineItems' => array (false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\RepeatingInvoice\\LineItem', true),
-            'LineAmountTypes' => array (false, self::PROPERTY_TYPE_FLOAT, null, true),
-            'Reference' => array (false, self::PROPERTY_TYPE_STRING, null, false),
-            'BrandingThemeID' => array (false, self::PROPERTY_TYPE_STRING, null, false),
-            'CurrencyCode' => array (false, self::PROPERTY_TYPE_STRING, null, false),
-            'Status' => array (false, self::PROPERTY_TYPE_ENUM, null, false),
-            'SubTotal' => array (false, self::PROPERTY_TYPE_FLOAT, null, false),
-            'TotalTax' => array (false, self::PROPERTY_TYPE_FLOAT, null, false),
-            'Total' => array (false, self::PROPERTY_TYPE_FLOAT, null, false),
-            'RepeatingInvoiceID' => array (false, self::PROPERTY_TYPE_STRING, null, false),
-            'HasAttachments' => array (false, self::PROPERTY_TYPE_BOOLEAN, null, false)
+            'Type' => array (false, self::PROPERTY_TYPE_ENUM, null, false, false),
+            'Contact' => array (false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Contact', false, false),
+            'Schedule' => array (false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\RepeatingInvoice\\Schedule', false, false),
+            'LineItems' => array (false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\RepeatingInvoice\\LineItem', true, false),
+            'LineAmountTypes' => array (false, self::PROPERTY_TYPE_FLOAT, null, true, false),
+            'Reference' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
+            'BrandingThemeID' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
+            'CurrencyCode' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
+            'Status' => array (false, self::PROPERTY_TYPE_ENUM, null, false, false),
+            'SubTotal' => array (false, self::PROPERTY_TYPE_FLOAT, null, false, false),
+            'TotalTax' => array (false, self::PROPERTY_TYPE_FLOAT, null, false, false),
+            'Total' => array (false, self::PROPERTY_TYPE_FLOAT, null, false, false),
+            'RepeatingInvoiceID' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
+            'HasAttachments' => array (false, self::PROPERTY_TYPE_BOOLEAN, null, false, false)
         );
     }
 

@@ -89,15 +89,16 @@ class Purchase extends Remote\Object {
      *  [1] - Type
      *  [2] - PHP type
      *  [3] - Is an Array
+     *  [4] - Saves directly
      *
      * @return array
      */
     public static function getProperties() {
         return array(
-            'UnitPrice' => array (false, self::PROPERTY_TYPE_STRING, null, false),
-            'AccountCode' => array (false, self::PROPERTY_TYPE_STRING, null, false),
-            'TaxType' => array (false, self::PROPERTY_TYPE_ENUM, null, false),
-            'UpdatedDateUTC' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTime', false)
+            'UnitPrice' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
+            'AccountCode' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
+            'TaxType' => array (false, self::PROPERTY_TYPE_ENUM, null, false, false),
+            'UpdatedDateUTC' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTime', false, false)
         );
     }
 

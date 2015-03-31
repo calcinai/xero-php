@@ -88,15 +88,16 @@ class DeductionLine extends Remote\Object {
      *  [1] - Type
      *  [2] - PHP type
      *  [3] - Is an Array
+     *  [4] - Saves directly
      *
      * @return array
      */
     public static function getProperties() {
         return array(
-            'DeductionTypeID' => array (false, self::PROPERTY_TYPE_STRING, null, false),
-            'CalculationType' => array (false, self::PROPERTY_TYPE_ENUM, null, false),
-            'Percentage' => array (false, self::PROPERTY_TYPE_STRING, null, false),
-            'Amount' => array (false, self::PROPERTY_TYPE_FLOAT, null, false)
+            'DeductionTypeID' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
+            'CalculationType' => array (false, self::PROPERTY_TYPE_ENUM, null, false, false),
+            'Percentage' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
+            'Amount' => array (false, self::PROPERTY_TYPE_FLOAT, null, false, false)
         );
     }
 

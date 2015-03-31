@@ -192,29 +192,30 @@ class BankTransaction extends Remote\Object {
      *  [1] - Type
      *  [2] - PHP type
      *  [3] - Is an Array
+     *  [4] - Saves directly
      *
      * @return array
      */
     public static function getProperties() {
         return array(
-            'Type' => array (true, self::PROPERTY_TYPE_ENUM, null, false),
-            'Contact' => array (true, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Contact', false),
-            'Lineitems' => array (true, self::PROPERTY_TYPE_OBJECT, 'Accounting\\BankTransaction\\LineItem', true),
-            'BankAccount' => array (true, self::PROPERTY_TYPE_OBJECT, 'Accounting\\BankTransaction\\BankAccount', false),
-            'IsReconciled' => array (false, self::PROPERTY_TYPE_BOOLEAN, null, false),
-            'Date' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTime', false),
-            'Reference' => array (false, self::PROPERTY_TYPE_STRING, null, false),
-            'CurrencyCode' => array (false, self::PROPERTY_TYPE_STRING, null, false),
-            'CurrencyRate' => array (false, self::PROPERTY_TYPE_FLOAT, null, false),
-            'Url' => array (false, self::PROPERTY_TYPE_STRING, null, false),
-            'Status' => array (false, self::PROPERTY_TYPE_ENUM, null, false),
-            'LineAmountTypes' => array (false, self::PROPERTY_TYPE_FLOAT, null, true),
-            'SubTotal' => array (false, self::PROPERTY_TYPE_FLOAT, null, false),
-            'TotalTax' => array (false, self::PROPERTY_TYPE_FLOAT, null, false),
-            'Total' => array (false, self::PROPERTY_TYPE_FLOAT, null, false),
-            'BankTransactionID' => array (false, self::PROPERTY_TYPE_STRING, null, false),
-            'UpdatedDateUTC' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTime', false),
-            'HasAttachments' => array (false, self::PROPERTY_TYPE_BOOLEAN, null, false)
+            'Type' => array (true, self::PROPERTY_TYPE_ENUM, null, false, false),
+            'Contact' => array (true, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Contact', false, false),
+            'Lineitems' => array (true, self::PROPERTY_TYPE_OBJECT, 'Accounting\\BankTransaction\\LineItem', true, false),
+            'BankAccount' => array (true, self::PROPERTY_TYPE_OBJECT, 'Accounting\\BankTransaction\\BankAccount', false, false),
+            'IsReconciled' => array (false, self::PROPERTY_TYPE_BOOLEAN, null, false, false),
+            'Date' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTime', false, false),
+            'Reference' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
+            'CurrencyCode' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
+            'CurrencyRate' => array (false, self::PROPERTY_TYPE_FLOAT, null, false, false),
+            'Url' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
+            'Status' => array (false, self::PROPERTY_TYPE_ENUM, null, false, false),
+            'LineAmountTypes' => array (false, self::PROPERTY_TYPE_FLOAT, null, true, false),
+            'SubTotal' => array (false, self::PROPERTY_TYPE_FLOAT, null, false, false),
+            'TotalTax' => array (false, self::PROPERTY_TYPE_FLOAT, null, false, false),
+            'Total' => array (false, self::PROPERTY_TYPE_FLOAT, null, false, false),
+            'BankTransactionID' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
+            'UpdatedDateUTC' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTime', false, false),
+            'HasAttachments' => array (false, self::PROPERTY_TYPE_BOOLEAN, null, false, false)
         );
     }
 

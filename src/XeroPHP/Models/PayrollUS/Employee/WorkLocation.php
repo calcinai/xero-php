@@ -76,13 +76,14 @@ class WorkLocation extends Remote\Object {
      *  [1] - Type
      *  [2] - PHP type
      *  [3] - Is an Array
+     *  [4] - Saves directly
      *
      * @return array
      */
     public static function getProperties() {
         return array(
-            'WorkLocationID' => array (false, self::PROPERTY_TYPE_STRING, null, false),
-            'IsPrimary' => array (false, self::PROPERTY_TYPE_BOOLEAN, null, false)
+            'WorkLocationID' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
+            'IsPrimary' => array (false, self::PROPERTY_TYPE_BOOLEAN, null, false, false)
         );
     }
 

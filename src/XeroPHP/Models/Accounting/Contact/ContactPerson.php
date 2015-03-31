@@ -107,18 +107,19 @@ class ContactPerson extends Remote\Object {
      *  [1] - Type
      *  [2] - PHP type
      *  [3] - Is an Array
+     *  [4] - Saves directly
      *
      * @return array
      */
     public static function getProperties() {
         return array(
-            'FirstName' => array (false, self::PROPERTY_TYPE_STRING, null, false),
-            'LastName' => array (false, self::PROPERTY_TYPE_STRING, null, false),
-            'EmailAddress' => array (false, self::PROPERTY_TYPE_STRING, null, false),
-            'IncludeInEmails' => array (false, self::PROPERTY_TYPE_BOOLEAN, null, false),
-            'ContactID' => array (false, self::PROPERTY_TYPE_STRING, null, false),
-            'ContactNumber' => array (false, self::PROPERTY_TYPE_STRING, null, false),
-            'Name' => array (false, self::PROPERTY_TYPE_STRING, null, false)
+            'FirstName' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
+            'LastName' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
+            'EmailAddress' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
+            'IncludeInEmails' => array (false, self::PROPERTY_TYPE_BOOLEAN, null, false, false),
+            'ContactID' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
+            'ContactNumber' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
+            'Name' => array (false, self::PROPERTY_TYPE_STRING, null, false, false)
         );
     }
 

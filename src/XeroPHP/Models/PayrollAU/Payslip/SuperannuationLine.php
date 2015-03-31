@@ -118,20 +118,21 @@ class SuperannuationLine extends Remote\Object {
      *  [1] - Type
      *  [2] - PHP type
      *  [3] - Is an Array
+     *  [4] - Saves directly
      *
      * @return array
      */
     public static function getProperties() {
         return array(
-            'SuperMembershipID' => array (false, self::PROPERTY_TYPE_STRING, null, false),
-            'ContributionType' => array (false, self::PROPERTY_TYPE_STRING, null, false),
-            'CalculationType' => array (false, self::PROPERTY_TYPE_STRING, null, false),
-            'MinimumMonthlyEarnings' => array (false, self::PROPERTY_TYPE_STRING, null, true),
-            'ExpenseAccountCode' => array (false, self::PROPERTY_TYPE_STRING, null, false),
-            'LiabilityAccountCode' => array (false, self::PROPERTY_TYPE_STRING, null, false),
-            'PaymentDateForThisPeriod' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTime', false),
-            'Percentage' => array (false, self::PROPERTY_TYPE_STRING, null, false),
-            'Amount' => array (false, self::PROPERTY_TYPE_FLOAT, null, false)
+            'SuperMembershipID' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
+            'ContributionType' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
+            'CalculationType' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
+            'MinimumMonthlyEarnings' => array (false, self::PROPERTY_TYPE_STRING, null, true, false),
+            'ExpenseAccountCode' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
+            'LiabilityAccountCode' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
+            'PaymentDateForThisPeriod' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTime', false, false),
+            'Percentage' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
+            'Amount' => array (false, self::PROPERTY_TYPE_FLOAT, null, false, false)
         );
     }
 

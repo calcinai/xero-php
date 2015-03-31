@@ -80,13 +80,14 @@ class PaymentMethod extends Remote\Object {
      *  [1] - Type
      *  [2] - PHP type
      *  [3] - Is an Array
+     *  [4] - Saves directly
      *
      * @return array
      */
     public static function getProperties() {
         return array(
-            'PaymentMethodType' => array (false, self::PROPERTY_TYPE_ENUM, null, false),
-            'BankAccounts' => array (false, self::PROPERTY_TYPE_ENUM, null, false)
+            'PaymentMethodType' => array (false, self::PROPERTY_TYPE_ENUM, null, false, false),
+            'BankAccounts' => array (false, self::PROPERTY_TYPE_ENUM, null, false, false)
         );
     }
 

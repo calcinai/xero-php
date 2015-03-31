@@ -148,23 +148,24 @@ class TaxDeclaration extends Remote\Object {
      *  [1] - Type
      *  [2] - PHP type
      *  [3] - Is an Array
+     *  [4] - Saves directly
      *
      * @return array
      */
     public static function getProperties() {
         return array(
-            'EmployeeID' => array (true, self::PROPERTY_TYPE_STRING, null, false),
-            'EmploymentBasis' => array (true, self::PROPERTY_TYPE_ENUM, null, false),
-            'TFNExemptionType' => array (false, self::PROPERTY_TYPE_ENUM, null, false),
-            'TaxFileNumber' => array (false, self::PROPERTY_TYPE_STRING, null, false),
-            'AustralianResidentForTaxPurposes' => array (false, self::PROPERTY_TYPE_STRING, null, true),
-            'TaxFreeThresholdClaimed' => array (false, self::PROPERTY_TYPE_STRING, null, false),
-            'TaxOffsetEstimatedAmount' => array (false, self::PROPERTY_TYPE_FLOAT, null, false),
-            'HasHELPDebt' => array (false, self::PROPERTY_TYPE_STRING, null, false),
-            'HasSFSSDebt' => array (false, self::PROPERTY_TYPE_STRING, null, false),
-            'UpwardVariationTaxWithholdingAmount' => array (false, self::PROPERTY_TYPE_STRING, null, false),
-            'EligibleToReceiveLeaveLoading' => array (false, self::PROPERTY_TYPE_STRING, null, false),
-            'ApprovedWithholdingVariationPercentage' => array (false, self::PROPERTY_TYPE_STRING, null, false)
+            'EmployeeID' => array (true, self::PROPERTY_TYPE_STRING, null, false, false),
+            'EmploymentBasis' => array (true, self::PROPERTY_TYPE_ENUM, null, false, false),
+            'TFNExemptionType' => array (false, self::PROPERTY_TYPE_ENUM, null, false, false),
+            'TaxFileNumber' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
+            'AustralianResidentForTaxPurposes' => array (false, self::PROPERTY_TYPE_STRING, null, true, false),
+            'TaxFreeThresholdClaimed' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
+            'TaxOffsetEstimatedAmount' => array (false, self::PROPERTY_TYPE_FLOAT, null, false, false),
+            'HasHELPDebt' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
+            'HasSFSSDebt' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
+            'UpwardVariationTaxWithholdingAmount' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
+            'EligibleToReceiveLeaveLoading' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
+            'ApprovedWithholdingVariationPercentage' => array (false, self::PROPERTY_TYPE_STRING, null, false, false)
         );
     }
 

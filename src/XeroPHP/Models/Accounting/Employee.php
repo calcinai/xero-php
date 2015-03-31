@@ -101,16 +101,17 @@ The description of the link is auto-generated in the form “Go to <App name>”
      *  [1] - Type
      *  [2] - PHP type
      *  [3] - Is an Array
+     *  [4] - Saves directly
      *
      * @return array
      */
     public static function getProperties() {
         return array(
-            'EmployeeID' => array (false, self::PROPERTY_TYPE_STRING, null, false),
-            'Status' => array (false, self::PROPERTY_TYPE_STRING, null, false),
-            'FirstName' => array (false, self::PROPERTY_TYPE_STRING, null, false),
-            'LastName' => array (false, self::PROPERTY_TYPE_STRING, null, false),
-            'ExternalLink' => array (false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Organisation\\ExternalLink', false)
+            'EmployeeID' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
+            'Status' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
+            'FirstName' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
+            'LastName' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
+            'ExternalLink' => array (false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Organisation\\ExternalLink', false, false)
         );
     }
 

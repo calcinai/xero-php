@@ -144,23 +144,24 @@ class OpeningBalance extends Remote\Object {
      *  [1] - Type
      *  [2] - PHP type
      *  [3] - Is an Array
+     *  [4] - Saves directly
      *
      * @return array
      */
     public static function getProperties() {
         return array(
-            'EarningsLines' => array (false, self::PROPERTY_TYPE_OBJECT, 'PayrollUS\\Paystub\\EarningsLine', true),
-            'BenefitLines' => array (false, self::PROPERTY_TYPE_OBJECT, 'PayrollUS\\Paystub\\BenefitLine', true),
-            'DeductionLines' => array (false, self::PROPERTY_TYPE_OBJECT, 'PayrollUS\\Paystub\\DeductionLine', true),
-            'ReimbursementLines' => array (false, self::PROPERTY_TYPE_OBJECT, 'PayrollUS\\Paystub\\ReimbursementLine', true),
-            'EarningsTypeID' => array (false, self::PROPERTY_TYPE_STRING, null, false),
-            'Amount' => array (false, self::PROPERTY_TYPE_FLOAT, null, false),
-            'BenefitTypeID' => array (false, self::PROPERTY_TYPE_STRING, null, false),
-            'DeductionTypeID' => array (false, self::PROPERTY_TYPE_STRING, null, false),
-            'ReimbursementTypeID' => array (false, self::PROPERTY_TYPE_STRING, null, false),
-            'Recordfilter' => array (false, self::PROPERTY_TYPE_STRING, null, false),
-            'EmployeeID' => array (false, self::PROPERTY_TYPE_STRING, null, false),
-            'ModifiedAfter' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTime', false)
+            'EarningsLines' => array (false, self::PROPERTY_TYPE_OBJECT, 'PayrollUS\\Paystub\\EarningsLine', true, false),
+            'BenefitLines' => array (false, self::PROPERTY_TYPE_OBJECT, 'PayrollUS\\Paystub\\BenefitLine', true, false),
+            'DeductionLines' => array (false, self::PROPERTY_TYPE_OBJECT, 'PayrollUS\\Paystub\\DeductionLine', true, false),
+            'ReimbursementLines' => array (false, self::PROPERTY_TYPE_OBJECT, 'PayrollUS\\Paystub\\ReimbursementLine', true, false),
+            'EarningsTypeID' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
+            'Amount' => array (false, self::PROPERTY_TYPE_FLOAT, null, false, false),
+            'BenefitTypeID' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
+            'DeductionTypeID' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
+            'ReimbursementTypeID' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
+            'Recordfilter' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
+            'EmployeeID' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
+            'ModifiedAfter' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTime', false, false)
         );
     }
 

@@ -113,18 +113,19 @@ class Timesheet extends Remote\Object {
      *  [1] - Type
      *  [2] - PHP type
      *  [3] - Is an Array
+     *  [4] - Saves directly
      *
      * @return array
      */
     public static function getProperties() {
         return array(
-            'EmployeeID' => array (true, self::PROPERTY_TYPE_STRING, null, false),
-            'StartDate' => array (true, self::PROPERTY_TYPE_DATE, '\\DateTime', false),
-            'EndDate' => array (true, self::PROPERTY_TYPE_DATE, '\\DateTime', false),
-            'TimesheetLines' => array (false, self::PROPERTY_TYPE_OBJECT, 'PayrollAU\\Timesheet\\TimesheetLine', true),
-            'Status' => array (false, self::PROPERTY_TYPE_ENUM, null, false),
-            'Hours' => array (false, self::PROPERTY_TYPE_STRING, null, true),
-            'TimesheetID' => array (false, self::PROPERTY_TYPE_STRING, null, false)
+            'EmployeeID' => array (true, self::PROPERTY_TYPE_STRING, null, false, false),
+            'StartDate' => array (true, self::PROPERTY_TYPE_DATE, '\\DateTime', false, false),
+            'EndDate' => array (true, self::PROPERTY_TYPE_DATE, '\\DateTime', false, false),
+            'TimesheetLines' => array (false, self::PROPERTY_TYPE_OBJECT, 'PayrollAU\\Timesheet\\TimesheetLine', true, false),
+            'Status' => array (false, self::PROPERTY_TYPE_ENUM, null, false, false),
+            'Hours' => array (false, self::PROPERTY_TYPE_STRING, null, true, false),
+            'TimesheetID' => array (false, self::PROPERTY_TYPE_STRING, null, false, false)
         );
     }
 

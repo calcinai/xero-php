@@ -153,22 +153,23 @@ class EarningsType extends Remote\Object {
      *  [1] - Type
      *  [2] - PHP type
      *  [3] - Is an Array
+     *  [4] - Saves directly
      *
      * @return array
      */
     public static function getProperties() {
         return array(
-            'EarningsType' => array (true, self::PROPERTY_TYPE_OBJECT, 'PayrollUS\\PayItem\\EarningsType', false),
-            'DisplayName' => array (true, self::PROPERTY_TYPE_STRING, null, false),
-            'ExpenseAccountCode' => array (true, self::PROPERTY_TYPE_STRING, null, false),
-            'EarningsCategory' => array (true, self::PROPERTY_TYPE_ENUM, null, false),
-            'RateType' => array (true, self::PROPERTY_TYPE_ENUM, null, false),
-            'TypeOfUnits' => array (true, self::PROPERTY_TYPE_ENUM, null, false),
-            'EarningsRateID' => array (false, self::PROPERTY_TYPE_STRING, null, false),
-            'Multiple' => array (false, self::PROPERTY_TYPE_FLOAT, null, false),
-            'DoNotAccrueTimeOff' => array (false, self::PROPERTY_TYPE_STRING, null, false),
-            'IsSupplemental' => array (false, self::PROPERTY_TYPE_STRING, null, false),
-            'Amount' => array (false, self::PROPERTY_TYPE_FLOAT, null, false)
+            'EarningsType' => array (true, self::PROPERTY_TYPE_OBJECT, 'PayrollUS\\PayItem\\EarningsType', false, false),
+            'DisplayName' => array (true, self::PROPERTY_TYPE_STRING, null, false, false),
+            'ExpenseAccountCode' => array (true, self::PROPERTY_TYPE_STRING, null, false, false),
+            'EarningsCategory' => array (true, self::PROPERTY_TYPE_ENUM, null, false, false),
+            'RateType' => array (true, self::PROPERTY_TYPE_ENUM, null, false, false),
+            'TypeOfUnits' => array (true, self::PROPERTY_TYPE_ENUM, null, false, false),
+            'EarningsRateID' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
+            'Multiple' => array (false, self::PROPERTY_TYPE_FLOAT, null, false, false),
+            'DoNotAccrueTimeOff' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
+            'IsSupplemental' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
+            'Amount' => array (false, self::PROPERTY_TYPE_FLOAT, null, false, false)
         );
     }
 

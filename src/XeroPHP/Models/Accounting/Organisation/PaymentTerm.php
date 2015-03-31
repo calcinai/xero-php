@@ -76,13 +76,14 @@ class PaymentTerm extends Remote\Object {
      *  [1] - Type
      *  [2] - PHP type
      *  [3] - Is an Array
+     *  [4] - Saves directly
      *
      * @return array
      */
     public static function getProperties() {
         return array(
-            'Bills' => array (false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Organisation\\Bill', true),
-            'Sales' => array (false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Organisation\\Sale', true)
+            'Bills' => array (false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Organisation\\Bill', true, false),
+            'Sales' => array (false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Organisation\\Sale', true, false)
         );
     }
 

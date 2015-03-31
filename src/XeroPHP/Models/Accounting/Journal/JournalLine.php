@@ -132,22 +132,23 @@ class JournalLine extends Remote\Object {
      *  [1] - Type
      *  [2] - PHP type
      *  [3] - Is an Array
+     *  [4] - Saves directly
      *
      * @return array
      */
     public static function getProperties() {
         return array(
-            'JournalLineID' => array (false, self::PROPERTY_TYPE_STRING, null, false),
-            'AccountID' => array (false, self::PROPERTY_TYPE_STRING, null, false),
-            'AccountCode' => array (false, self::PROPERTY_TYPE_STRING, null, false),
-            'AccountType' => array (false, self::PROPERTY_TYPE_ENUM, null, false),
-            'AccountName' => array (false, self::PROPERTY_TYPE_STRING, null, false),
-            'NetAmount' => array (false, self::PROPERTY_TYPE_FLOAT, null, false),
-            'GrossAmount' => array (false, self::PROPERTY_TYPE_FLOAT, null, false),
-            'TaxAmount' => array (false, self::PROPERTY_TYPE_FLOAT, null, false),
-            'TaxType' => array (false, self::PROPERTY_TYPE_ENUM, null, false),
-            'TaxName' => array (false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\TaxRate', false),
-            'TrackingCategories' => array (false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\TrackingCategory', true)
+            'JournalLineID' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
+            'AccountID' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
+            'AccountCode' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
+            'AccountType' => array (false, self::PROPERTY_TYPE_ENUM, null, false, false),
+            'AccountName' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
+            'NetAmount' => array (false, self::PROPERTY_TYPE_FLOAT, null, false, false),
+            'GrossAmount' => array (false, self::PROPERTY_TYPE_FLOAT, null, false, false),
+            'TaxAmount' => array (false, self::PROPERTY_TYPE_FLOAT, null, false, false),
+            'TaxType' => array (false, self::PROPERTY_TYPE_ENUM, null, false, false),
+            'TaxName' => array (false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\TaxRate', false, false),
+            'TrackingCategories' => array (false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\TrackingCategory', true, false)
         );
     }
 

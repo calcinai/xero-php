@@ -121,19 +121,20 @@ class ManualJournal extends Remote\Object {
      *  [1] - Type
      *  [2] - PHP type
      *  [3] - Is an Array
+     *  [4] - Saves directly
      *
      * @return array
      */
     public static function getProperties() {
         return array(
-            'Narration' => array (true, self::PROPERTY_TYPE_STRING, null, false),
-            'JournalLines' => array (true, self::PROPERTY_TYPE_OBJECT, 'Accounting\\ManualJournal\\JournalLine', true),
-            'Date' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTime', false),
-            'LineAmountTypes' => array (false, self::PROPERTY_TYPE_FLOAT, null, true),
-            'Status' => array (false, self::PROPERTY_TYPE_ENUM, null, false),
-            'Url' => array (false, self::PROPERTY_TYPE_STRING, null, false),
-            'ShowOnCashBasisReports' => array (false, self::PROPERTY_TYPE_BOOLEAN, null, false),
-            'HasAttachments' => array (false, self::PROPERTY_TYPE_BOOLEAN, null, false)
+            'Narration' => array (true, self::PROPERTY_TYPE_STRING, null, false, false),
+            'JournalLines' => array (true, self::PROPERTY_TYPE_OBJECT, 'Accounting\\ManualJournal\\JournalLine', true, false),
+            'Date' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTime', false, false),
+            'LineAmountTypes' => array (false, self::PROPERTY_TYPE_FLOAT, null, true, false),
+            'Status' => array (false, self::PROPERTY_TYPE_ENUM, null, false, false),
+            'Url' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
+            'ShowOnCashBasisReports' => array (false, self::PROPERTY_TYPE_BOOLEAN, null, false, false),
+            'HasAttachments' => array (false, self::PROPERTY_TYPE_BOOLEAN, null, false, false)
         );
     }
 

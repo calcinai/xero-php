@@ -84,14 +84,15 @@ class SuperFund extends Remote\Object {
      *  [1] - Type
      *  [2] - PHP type
      *  [3] - Is an Array
+     *  [4] - Saves directly
      *
      * @return array
      */
     public static function getProperties() {
         return array(
-            'Type' => array (false, self::PROPERTY_TYPE_ENUM, null, false),
-            'ABN' => array (false, self::PROPERTY_TYPE_STRING, null, false),
-            'USI' => array (false, self::PROPERTY_TYPE_STRING, null, false)
+            'Type' => array (false, self::PROPERTY_TYPE_ENUM, null, false, false),
+            'ABN' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
+            'USI' => array (false, self::PROPERTY_TYPE_STRING, null, false, false)
         );
     }
 

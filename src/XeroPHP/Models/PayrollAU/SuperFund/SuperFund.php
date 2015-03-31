@@ -147,23 +147,24 @@ A UTC timestamp
      *  [1] - Type
      *  [2] - PHP type
      *  [3] - Is an Array
+     *  [4] - Saves directly
      *
      * @return array
      */
     public static function getProperties() {
         return array(
-            'Type' => array (false, self::PROPERTY_TYPE_ENUM, null, false),
-            'Name' => array (false, self::PROPERTY_TYPE_STRING, null, false),
-            'ABN' => array (false, self::PROPERTY_TYPE_STRING, null, false),
-            'BSB' => array (false, self::PROPERTY_TYPE_STRING, null, false),
-            'AccountNumber' => array (false, self::PROPERTY_TYPE_STRING, null, false),
-            'AccountName' => array (false, self::PROPERTY_TYPE_STRING, null, false),
-            'SuperFundID' => array (false, self::PROPERTY_TYPE_STRING, null, false),
-            'EmployerNumber' => array (false, self::PROPERTY_TYPE_STRING, null, false),
-            'SPIN' => array (false, self::PROPERTY_TYPE_STRING, null, false),
-            'Recordfilter' => array (false, self::PROPERTY_TYPE_STRING, null, false),
-            '' => array (false, self::PROPERTY_TYPE_STRING, null, false),
-            'ModifiedAfter' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTime', false)
+            'Type' => array (false, self::PROPERTY_TYPE_ENUM, null, false, false),
+            'Name' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
+            'ABN' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
+            'BSB' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
+            'AccountNumber' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
+            'AccountName' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
+            'SuperFundID' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
+            'EmployerNumber' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
+            'SPIN' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
+            'Recordfilter' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
+            '' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
+            'ModifiedAfter' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTime', false, false)
         );
     }
 

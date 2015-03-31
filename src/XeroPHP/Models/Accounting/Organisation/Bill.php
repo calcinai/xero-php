@@ -76,13 +76,14 @@ class Bill extends Remote\Object {
      *  [1] - Type
      *  [2] - PHP type
      *  [3] - Is an Array
+     *  [4] - Saves directly
      *
      * @return array
      */
     public static function getProperties() {
         return array(
-            'Day' => array (false, self::PROPERTY_TYPE_STRING, null, false),
-            'Type' => array (false, self::PROPERTY_TYPE_ENUM, null, false)
+            'Day' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
+            'Type' => array (false, self::PROPERTY_TYPE_ENUM, null, false, false)
         );
     }
 

@@ -157,26 +157,27 @@ class OpeningBalance extends Remote\Object {
      *  [1] - Type
      *  [2] - PHP type
      *  [3] - Is an Array
+     *  [4] - Saves directly
      *
      * @return array
      */
     public static function getProperties() {
         return array(
-            'OpeningBalanceDate' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTime', false),
-            'Tax' => array (false, self::PROPERTY_TYPE_STRING, null, false),
-            'EarningsLines' => array (false, self::PROPERTY_TYPE_OBJECT, 'PayrollAU\\Payslip\\EarningsLine', true),
-            'DeductionLines' => array (false, self::PROPERTY_TYPE_OBJECT, 'PayrollAU\\Payslip\\DeductionLine', true),
-            'SuperLines' => array (false, self::PROPERTY_TYPE_STRING, null, true),
-            'ReimbursementLines' => array (false, self::PROPERTY_TYPE_OBJECT, 'PayrollAU\\Payslip\\ReimbursementLine', true),
-            'LeaveLines' => array (false, self::PROPERTY_TYPE_STRING, null, true),
-            'EarningsRateID' => array (false, self::PROPERTY_TYPE_STRING, null, false),
-            'Amount' => array (false, self::PROPERTY_TYPE_FLOAT, null, false),
-            'DeductionTypeID' => array (false, self::PROPERTY_TYPE_STRING, null, false),
-            'SuperMembershipID' => array (false, self::PROPERTY_TYPE_STRING, null, false),
-            'CalculationType' => array (false, self::PROPERTY_TYPE_STRING, null, false),
-            'ReimbursementTypeID' => array (false, self::PROPERTY_TYPE_STRING, null, false),
-            'LeaveTypeID' => array (false, self::PROPERTY_TYPE_STRING, null, false),
-            'NumberOfUnits' => array (false, self::PROPERTY_TYPE_STRING, null, true)
+            'OpeningBalanceDate' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTime', false, false),
+            'Tax' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
+            'EarningsLines' => array (false, self::PROPERTY_TYPE_OBJECT, 'PayrollAU\\Payslip\\EarningsLine', true, false),
+            'DeductionLines' => array (false, self::PROPERTY_TYPE_OBJECT, 'PayrollAU\\Payslip\\DeductionLine', true, false),
+            'SuperLines' => array (false, self::PROPERTY_TYPE_STRING, null, true, false),
+            'ReimbursementLines' => array (false, self::PROPERTY_TYPE_OBJECT, 'PayrollAU\\Payslip\\ReimbursementLine', true, false),
+            'LeaveLines' => array (false, self::PROPERTY_TYPE_STRING, null, true, false),
+            'EarningsRateID' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
+            'Amount' => array (false, self::PROPERTY_TYPE_FLOAT, null, false, false),
+            'DeductionTypeID' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
+            'SuperMembershipID' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
+            'CalculationType' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
+            'ReimbursementTypeID' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
+            'LeaveTypeID' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
+            'NumberOfUnits' => array (false, self::PROPERTY_TYPE_STRING, null, true, false)
         );
     }
 

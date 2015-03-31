@@ -272,42 +272,43 @@ class Invoice extends Remote\Object {
      *  [1] - Type
      *  [2] - PHP type
      *  [3] - Is an Array
+     *  [4] - Saves directly
      *
      * @return array
      */
     public static function getProperties() {
         return array(
-            'Type' => array (true, self::PROPERTY_TYPE_ENUM, null, false),
-            'Contact' => array (true, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Contact', false),
-            'LineItems' => array (true, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Invoice\\LineItem', true),
-            'Date' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTime', false),
-            'DueDate' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTime', false),
-            'LineAmountTypes' => array (false, self::PROPERTY_TYPE_FLOAT, null, true),
-            'InvoiceNumber' => array (false, self::PROPERTY_TYPE_FLOAT, null, false),
-            'Reference' => array (false, self::PROPERTY_TYPE_STRING, null, false),
-            'BrandingThemeID' => array (false, self::PROPERTY_TYPE_STRING, null, false),
-            'Url' => array (false, self::PROPERTY_TYPE_STRING, null, false),
-            'CurrencyCode' => array (false, self::PROPERTY_TYPE_STRING, null, false),
-            'CurrencyRate' => array (false, self::PROPERTY_TYPE_FLOAT, null, false),
-            'Status' => array (false, self::PROPERTY_TYPE_ENUM, null, false),
-            'SentToContact' => array (false, self::PROPERTY_TYPE_BOOLEAN, null, false),
-            'ExpectedPaymentDate' => array (false, self::PROPERTY_TYPE_STRING, null, false),
-            'PlannedPaymentDate' => array (false, self::PROPERTY_TYPE_STRING, null, false),
-            'SubTotal' => array (false, self::PROPERTY_TYPE_FLOAT, null, false),
-            'TotalTax' => array (false, self::PROPERTY_TYPE_FLOAT, null, false),
-            'Total' => array (false, self::PROPERTY_TYPE_FLOAT, null, false),
-            'TotalDiscount' => array (false, self::PROPERTY_TYPE_FLOAT, null, false),
-            'InvoiceID' => array (false, self::PROPERTY_TYPE_STRING, null, false),
-            'HasAttachments' => array (false, self::PROPERTY_TYPE_BOOLEAN, null, false),
-            'Payments' => array (false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Payment', true),
-            'Prepayments' => array (false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Prepayment', true),
-            'Overpayments' => array (false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Overpayment', true),
-            'AmountDue' => array (false, self::PROPERTY_TYPE_FLOAT, null, false),
-            'AmountPaid' => array (false, self::PROPERTY_TYPE_FLOAT, null, false),
-            'FullyPaidOnDate' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTime', false),
-            'AmountCredited' => array (false, self::PROPERTY_TYPE_FLOAT, null, false),
-            'UpdatedDateUTC' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTime', false),
-            'CreditNotes' => array (false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\CreditNote', true)
+            'Type' => array (true, self::PROPERTY_TYPE_ENUM, null, false, false),
+            'Contact' => array (true, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Contact', false, false),
+            'LineItems' => array (true, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Invoice\\LineItem', true, false),
+            'Date' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTime', false, false),
+            'DueDate' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTime', false, false),
+            'LineAmountTypes' => array (false, self::PROPERTY_TYPE_FLOAT, null, true, false),
+            'InvoiceNumber' => array (false, self::PROPERTY_TYPE_FLOAT, null, false, false),
+            'Reference' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
+            'BrandingThemeID' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
+            'Url' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
+            'CurrencyCode' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
+            'CurrencyRate' => array (false, self::PROPERTY_TYPE_FLOAT, null, false, false),
+            'Status' => array (false, self::PROPERTY_TYPE_ENUM, null, false, false),
+            'SentToContact' => array (false, self::PROPERTY_TYPE_BOOLEAN, null, false, false),
+            'ExpectedPaymentDate' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
+            'PlannedPaymentDate' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
+            'SubTotal' => array (false, self::PROPERTY_TYPE_FLOAT, null, false, false),
+            'TotalTax' => array (false, self::PROPERTY_TYPE_FLOAT, null, false, false),
+            'Total' => array (false, self::PROPERTY_TYPE_FLOAT, null, false, false),
+            'TotalDiscount' => array (false, self::PROPERTY_TYPE_FLOAT, null, false, false),
+            'InvoiceID' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
+            'HasAttachments' => array (false, self::PROPERTY_TYPE_BOOLEAN, null, false, false),
+            'Payments' => array (false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Payment', true, false),
+            'Prepayments' => array (false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Prepayment', true, false),
+            'Overpayments' => array (false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Overpayment', true, false),
+            'AmountDue' => array (false, self::PROPERTY_TYPE_FLOAT, null, false, false),
+            'AmountPaid' => array (false, self::PROPERTY_TYPE_FLOAT, null, false, false),
+            'FullyPaidOnDate' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTime', false, false),
+            'AmountCredited' => array (false, self::PROPERTY_TYPE_FLOAT, null, false, false),
+            'UpdatedDateUTC' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTime', false, false),
+            'CreditNotes' => array (false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\CreditNote', true, false)
         );
     }
 

@@ -278,44 +278,45 @@ class Contact extends Remote\Object {
      *  [1] - Type
      *  [2] - PHP type
      *  [3] - Is an Array
+     *  [4] - Saves directly
      *
      * @return array
      */
     public static function getProperties() {
         return array(
-            'ContactID' => array (false, self::PROPERTY_TYPE_STRING, null, false),
-            'ContactNumber' => array (false, self::PROPERTY_TYPE_STRING, null, false),
-            'AccountNumber' => array (false, self::PROPERTY_TYPE_STRING, null, false),
-            'ContactStatus' => array (false, self::PROPERTY_TYPE_ENUM, null, false),
-            'Name' => array (false, self::PROPERTY_TYPE_STRING, null, false),
-            'FirstName' => array (false, self::PROPERTY_TYPE_STRING, null, false),
-            'LastName' => array (false, self::PROPERTY_TYPE_STRING, null, false),
-            'EmailAddress' => array (false, self::PROPERTY_TYPE_STRING, null, false),
-            'SkypeUserName' => array (false, self::PROPERTY_TYPE_STRING, null, false),
-            'ContactPersons' => array (false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Contact\\ContactPerson', true),
-            'BankAccountDetails' => array (false, self::PROPERTY_TYPE_STRING, null, true),
-            'TaxNumber' => array (false, self::PROPERTY_TYPE_STRING, null, false),
-            'AccountsReceivableTaxType' => array (false, self::PROPERTY_TYPE_STRING, null, false),
-            'AccountsPayableTaxType' => array (false, self::PROPERTY_TYPE_STRING, null, false),
-            'Addresses' => array (false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Address', true),
-            'Phones' => array (false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Phone', true),
-            'UpdatedDateUTC' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTime', false),
-            'IsSupplier' => array (false, self::PROPERTY_TYPE_BOOLEAN, null, false),
-            'IsCustomer' => array (false, self::PROPERTY_TYPE_BOOLEAN, null, false),
-            'DefaultCurrency' => array (false, self::PROPERTY_TYPE_STRING, null, false),
-            'XeroNetworkKey' => array (false, self::PROPERTY_TYPE_STRING, null, false),
-            'SalesDefaultAccountCode' => array (false, self::PROPERTY_TYPE_STRING, null, false),
-            'PurchasesDefaultAccountCode' => array (false, self::PROPERTY_TYPE_STRING, null, false),
-            'SalesTrackingCategories' => array (false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\TrackingCategory', true),
-            'PurchasesTrackingCategories' => array (false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\TrackingCategory', true),
-            'ContactGroups' => array (false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\ContactGroup', true),
-            'Website' => array (false, self::PROPERTY_TYPE_STRING, null, false),
-            'BrandingTheme' => array (false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\BrandingTheme', false),
-            'BatchPayments' => array (false, self::PROPERTY_TYPE_STRING, null, true),
-            'Discount' => array (false, self::PROPERTY_TYPE_FLOAT, null, false),
-            'Balances' => array (false, self::PROPERTY_TYPE_STRING, null, true),
-            'PaymentTerms' => array (false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Organisation\\PaymentTerm', true),
-            'HasAttachments' => array (false, self::PROPERTY_TYPE_BOOLEAN, null, false)
+            'ContactID' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
+            'ContactNumber' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
+            'AccountNumber' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
+            'ContactStatus' => array (false, self::PROPERTY_TYPE_ENUM, null, false, false),
+            'Name' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
+            'FirstName' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
+            'LastName' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
+            'EmailAddress' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
+            'SkypeUserName' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
+            'ContactPersons' => array (false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Contact\\ContactPerson', true, false),
+            'BankAccountDetails' => array (false, self::PROPERTY_TYPE_STRING, null, true, false),
+            'TaxNumber' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
+            'AccountsReceivableTaxType' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
+            'AccountsPayableTaxType' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
+            'Addresses' => array (false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Address', true, false),
+            'Phones' => array (false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Phone', true, false),
+            'UpdatedDateUTC' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTime', false, false),
+            'IsSupplier' => array (false, self::PROPERTY_TYPE_BOOLEAN, null, false, false),
+            'IsCustomer' => array (false, self::PROPERTY_TYPE_BOOLEAN, null, false, false),
+            'DefaultCurrency' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
+            'XeroNetworkKey' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
+            'SalesDefaultAccountCode' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
+            'PurchasesDefaultAccountCode' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
+            'SalesTrackingCategories' => array (false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\TrackingCategory', true, false),
+            'PurchasesTrackingCategories' => array (false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\TrackingCategory', true, false),
+            'ContactGroups' => array (false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\ContactGroup', true, false),
+            'Website' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
+            'BrandingTheme' => array (false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\BrandingTheme', false, false),
+            'BatchPayments' => array (false, self::PROPERTY_TYPE_STRING, null, true, false),
+            'Discount' => array (false, self::PROPERTY_TYPE_FLOAT, null, false, false),
+            'Balances' => array (false, self::PROPERTY_TYPE_STRING, null, true, false),
+            'PaymentTerms' => array (false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Organisation\\PaymentTerm', true, false),
+            'HasAttachments' => array (false, self::PROPERTY_TYPE_BOOLEAN, null, false, false)
         );
     }
 

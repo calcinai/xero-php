@@ -106,18 +106,19 @@ class SalaryAndWage extends Remote\Object {
      *  [1] - Type
      *  [2] - PHP type
      *  [3] - Is an Array
+     *  [4] - Saves directly
      *
      * @return array
      */
     public static function getProperties() {
         return array(
-            'SalaryAndWageID' => array (false, self::PROPERTY_TYPE_STRING, null, false),
-            'EarningsTypeID' => array (false, self::PROPERTY_TYPE_STRING, null, false),
-            'SalaryWagesType' => array (false, self::PROPERTY_TYPE_ENUM, null, false),
-            'HourlyRate' => array (false, self::PROPERTY_TYPE_FLOAT, null, false),
-            'AnnualSalary' => array (false, self::PROPERTY_TYPE_STRING, null, false),
-            'StandardHoursPerWeek' => array (false, self::PROPERTY_TYPE_STRING, null, false),
-            'EffectiveDate' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTime', false)
+            'SalaryAndWageID' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
+            'EarningsTypeID' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
+            'SalaryWagesType' => array (false, self::PROPERTY_TYPE_ENUM, null, false, false),
+            'HourlyRate' => array (false, self::PROPERTY_TYPE_FLOAT, null, false, false),
+            'AnnualSalary' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
+            'StandardHoursPerWeek' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
+            'EffectiveDate' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTime', false, false)
         );
     }
 

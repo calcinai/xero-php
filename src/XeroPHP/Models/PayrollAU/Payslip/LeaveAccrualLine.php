@@ -82,14 +82,15 @@ class LeaveAccrualLine extends Remote\Object {
      *  [1] - Type
      *  [2] - PHP type
      *  [3] - Is an Array
+     *  [4] - Saves directly
      *
      * @return array
      */
     public static function getProperties() {
         return array(
-            'LeaveTypeID' => array (false, self::PROPERTY_TYPE_STRING, null, false),
-            'NumberOfUnits' => array (false, self::PROPERTY_TYPE_STRING, null, true),
-            'AutoCalculate' => array (false, self::PROPERTY_TYPE_STRING, null, false)
+            'LeaveTypeID' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
+            'NumberOfUnits' => array (false, self::PROPERTY_TYPE_STRING, null, true, false),
+            'AutoCalculate' => array (false, self::PROPERTY_TYPE_STRING, null, false, false)
         );
     }
 

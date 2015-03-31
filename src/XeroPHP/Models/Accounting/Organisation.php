@@ -245,37 +245,38 @@ class Organisation extends Remote\Object {
      *  [1] - Type
      *  [2] - PHP type
      *  [3] - Is an Array
+     *  [4] - Saves directly
      *
      * @return array
      */
     public static function getProperties() {
         return array(
-            'APIKey' => array (false, self::PROPERTY_TYPE_STRING, null, false),
-            'Name' => array (false, self::PROPERTY_TYPE_STRING, null, false),
-            'LegalName' => array (false, self::PROPERTY_TYPE_STRING, null, false),
-            'PaysTax' => array (false, self::PROPERTY_TYPE_BOOLEAN, null, false),
-            'Version' => array (false, self::PROPERTY_TYPE_ENUM, null, false),
-            'BaseCurrency' => array (false, self::PROPERTY_TYPE_STRING, null, false),
-            'CountryCode' => array (false, self::PROPERTY_TYPE_STRING, null, false),
-            'IsDemoCompany' => array (false, self::PROPERTY_TYPE_BOOLEAN, null, false),
-            'OrganisationStatus' => array (false, self::PROPERTY_TYPE_STRING, null, false),
-            'RegistrationNumber' => array (false, self::PROPERTY_TYPE_STRING, null, false),
-            'TaxNumber' => array (false, self::PROPERTY_TYPE_STRING, null, false),
-            'FinancialYearEndDay' => array (false, self::PROPERTY_TYPE_STRING, null, false),
-            'FinancialYearEndMonth' => array (false, self::PROPERTY_TYPE_STRING, null, false),
-            'SalesTaxBasis' => array (false, self::PROPERTY_TYPE_ENUM, null, false),
-            'SalesTaxPeriod' => array (false, self::PROPERTY_TYPE_ENUM, null, false),
-            'PeriodLockDate' => array (false, self::PROPERTY_TYPE_STRING, null, false),
-            'EndOfYearLockDate' => array (false, self::PROPERTY_TYPE_STRING, null, false),
-            'CreatedDateUTC' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTime', false),
-            'OrganisationEntityType' => array (false, self::PROPERTY_TYPE_ENUM, null, false),
-            'Timezone' => array (false, self::PROPERTY_TYPE_STRING, null, false),
-            'ShortCode' => array (false, self::PROPERTY_TYPE_STRING, null, false),
-            'LineOfBusiness' => array (false, self::PROPERTY_TYPE_STRING, null, false),
-            'Addresses' => array (false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Address', true),
-            'Phones' => array (false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Phone', true),
-            'ExternalLinks' => array (false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Organisation\\ExternalLink', true),
-            'PaymentTerms' => array (false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Organisation\\PaymentTerm', true)
+            'APIKey' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
+            'Name' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
+            'LegalName' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
+            'PaysTax' => array (false, self::PROPERTY_TYPE_BOOLEAN, null, false, false),
+            'Version' => array (false, self::PROPERTY_TYPE_ENUM, null, false, false),
+            'BaseCurrency' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
+            'CountryCode' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
+            'IsDemoCompany' => array (false, self::PROPERTY_TYPE_BOOLEAN, null, false, false),
+            'OrganisationStatus' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
+            'RegistrationNumber' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
+            'TaxNumber' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
+            'FinancialYearEndDay' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
+            'FinancialYearEndMonth' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
+            'SalesTaxBasis' => array (false, self::PROPERTY_TYPE_ENUM, null, false, false),
+            'SalesTaxPeriod' => array (false, self::PROPERTY_TYPE_ENUM, null, false, false),
+            'PeriodLockDate' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
+            'EndOfYearLockDate' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
+            'CreatedDateUTC' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTime', false, false),
+            'OrganisationEntityType' => array (false, self::PROPERTY_TYPE_ENUM, null, false, false),
+            'Timezone' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
+            'ShortCode' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
+            'LineOfBusiness' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
+            'Addresses' => array (false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Address', true, false),
+            'Phones' => array (false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Phone', true, false),
+            'ExternalLinks' => array (false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Organisation\\ExternalLink', true, false),
+            'PaymentTerms' => array (false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Organisation\\PaymentTerm', true, false)
         );
     }
 

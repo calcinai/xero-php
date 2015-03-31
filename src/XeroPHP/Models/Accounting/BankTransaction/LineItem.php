@@ -118,19 +118,20 @@ class LineItem extends Remote\Object {
      *  [1] - Type
      *  [2] - PHP type
      *  [3] - Is an Array
+     *  [4] - Saves directly
      *
      * @return array
      */
     public static function getProperties() {
         return array(
-            'Description' => array (false, self::PROPERTY_TYPE_STRING, null, false),
-            'Quantity' => array (false, self::PROPERTY_TYPE_STRING, null, false),
-            'UnitAmount' => array (false, self::PROPERTY_TYPE_FLOAT, null, false),
-            'AccountCode' => array (false, self::PROPERTY_TYPE_STRING, null, false),
-            'ItemCode' => array (false, self::PROPERTY_TYPE_STRING, null, false),
-            'TaxType' => array (false, self::PROPERTY_TYPE_ENUM, null, false),
-            'LineAmount' => array (false, self::PROPERTY_TYPE_FLOAT, null, false),
-            'Tracking' => array (false, self::PROPERTY_TYPE_STRING, null, false)
+            'Description' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
+            'Quantity' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
+            'UnitAmount' => array (false, self::PROPERTY_TYPE_FLOAT, null, false, false),
+            'AccountCode' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
+            'ItemCode' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
+            'TaxType' => array (false, self::PROPERTY_TYPE_ENUM, null, false, false),
+            'LineAmount' => array (false, self::PROPERTY_TYPE_FLOAT, null, false, false),
+            'Tracking' => array (false, self::PROPERTY_TYPE_STRING, null, false, false)
         );
     }
 

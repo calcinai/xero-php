@@ -96,15 +96,16 @@ e.g.
      *  [1] - Type
      *  [2] - PHP type
      *  [3] - Is an Array
+     *  [4] - Saves directly
      *
      * @return array
      */
     public static function getProperties() {
         return array(
-            'Name' => array (false, self::PROPERTY_TYPE_STRING, null, false),
-            'Status' => array (false, self::PROPERTY_TYPE_STRING, null, false),
-            'ContactGroupID' => array (false, self::PROPERTY_TYPE_STRING, null, false),
-            'Contacts' => array (false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Contact', true)
+            'Name' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
+            'Status' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
+            'ContactGroupID' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
+            'Contacts' => array (false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Contact', true, true)
         );
     }
 

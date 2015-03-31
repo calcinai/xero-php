@@ -96,16 +96,17 @@ class PaySchedule extends Remote\Object {
      *  [1] - Type
      *  [2] - PHP type
      *  [3] - Is an Array
+     *  [4] - Saves directly
      *
      * @return array
      */
     public static function getProperties() {
         return array(
-            'PayScheduleName' => array (true, self::PROPERTY_TYPE_STRING, null, false),
-            'PaymentDate' => array (true, self::PROPERTY_TYPE_DATE, '\\DateTime', false),
-            'StartDate' => array (true, self::PROPERTY_TYPE_DATE, '\\DateTime', false),
-            'ScheduleType' => array (true, self::PROPERTY_TYPE_ENUM, null, false),
-            'PayScheduleId' => array (false, self::PROPERTY_TYPE_GUID, null, false)
+            'PayScheduleName' => array (true, self::PROPERTY_TYPE_STRING, null, false, false),
+            'PaymentDate' => array (true, self::PROPERTY_TYPE_DATE, '\\DateTime', false, false),
+            'StartDate' => array (true, self::PROPERTY_TYPE_DATE, '\\DateTime', false, false),
+            'ScheduleType' => array (true, self::PROPERTY_TYPE_ENUM, null, false, false),
+            'PayScheduleId' => array (false, self::PROPERTY_TYPE_GUID, null, false, false)
         );
     }
 

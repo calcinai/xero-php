@@ -105,17 +105,18 @@ If Paid Time Off is selected the employee will get paid when taking this time of
      *  [1] - Type
      *  [2] - PHP type
      *  [3] - Is an Array
+     *  [4] - Saves directly
      *
      * @return array
      */
     public static function getProperties() {
         return array(
-            'TimeOffType' => array (true, self::PROPERTY_TYPE_ENUM, null, false),
-            'TimeOffCategory' => array (true, self::PROPERTY_TYPE_ENUM, null, false),
-            'ExpenseAccountCode' => array (true, self::PROPERTY_TYPE_STRING, null, false),
-            'LiabilityAccountCode' => array (true, self::PROPERTY_TYPE_STRING, null, false),
-            'TimeOffTypeID' => array (false, self::PROPERTY_TYPE_STRING, null, false),
-            'ShowBalanceToEmployee' => array (false, self::PROPERTY_TYPE_STRING, null, false)
+            'TimeOffType' => array (true, self::PROPERTY_TYPE_ENUM, null, false, false),
+            'TimeOffCategory' => array (true, self::PROPERTY_TYPE_ENUM, null, false, false),
+            'ExpenseAccountCode' => array (true, self::PROPERTY_TYPE_STRING, null, false, false),
+            'LiabilityAccountCode' => array (true, self::PROPERTY_TYPE_STRING, null, false, false),
+            'TimeOffTypeID' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
+            'ShowBalanceToEmployee' => array (false, self::PROPERTY_TYPE_STRING, null, false, false)
         );
     }
 
