@@ -7,19 +7,17 @@ use XeroPHP\Remote\URL;
 //These are the minimum settings - for more options, refer to examples/config.php
 $config = array(
     'oauth' => array(
-        'callback'    => 'http://localhost/',
-
-        'consumer_key'      => 'k',
-        'consumer_secret'   => 's',
-
+        'callback'              => 'http://localhost/',
+        'consumer_key'          => 'k',
+        'consumer_secret'       => 's',
+        'rsa_private_key'       => 'file://certs/privatekey.pem',
+        //'signature_location'  => \XeroPHP\Remote\OAuth\Client::SIGN_LOCATION_QUERY
     ),
-
     'curl' => array(
         CURLOPT_CAINFO          => 'certs/ca-bundle.crt',
-
-        CURLOPT_SSLCERT         => 'certs/entrust-cert-RQ3.pem',
+        CURLOPT_SSLCERT         => 'certs/entrust-cert.pem',
         CURLOPT_SSLKEYPASSWD    => '1234',
-        CURLOPT_SSLKEY          => 'certs/entrust-private-RQ3.pem'
+        CURLOPT_SSLKEY          => 'certs/entrust-private.pem'
     )
 );
 
