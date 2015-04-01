@@ -43,7 +43,7 @@ if(null === $oauth_session = getOAuthSession()){
 
     setOAuthSession($oauth_response['oauth_token'], $oauth_response['oauth_token_secret']);
 
-    printf('<a href="%s?oauth_token=%s">Click here to Authorize</a>', $url->getFullURL(), $oauth_response['oauth_token']);
+    printf('<a href="%s?oauth_token=%s">Click here to Authorize</a>', $url->getAuthorizeURL(), $oauth_response['oauth_token']);
     exit;
 
 } else {
