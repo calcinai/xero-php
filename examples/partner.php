@@ -4,6 +4,9 @@ use XeroPHP\Application\PartnerApplication;
 use XeroPHP\Remote\Request;
 use XeroPHP\Remote\URL;
 
+// Start a session for the oauth session storage
+session_start();
+
 //These are the minimum settings - for more options, refer to examples/config.php
 $config = array(
     'oauth' => array(
@@ -20,7 +23,6 @@ $config = array(
         CURLOPT_SSLKEY          => 'certs/entrust-private.pem'
     )
 );
-
 
 $xero = new PartnerApplication($config);
 
@@ -73,10 +75,14 @@ if(null === $oauth_session = getOAuthSession()){
     }
 }
 
-//Otherwise, you're in.
-print_r($xero->loadByGUID('Accounting\\Contact', '[GUID]'));
-
-
+// We are in! Grab some journals...
+$journals = $xero->load('Accounting\\Journal')->execute();
+echo sprintf('Found %s journals', count($journals));
+/*
+foreach ($journals as $journal) {
+    print_r($journal);
+}
+*/
 
 //The following two functions are just for a demo - you should use a more robust mechanism of storing tokens than this!
 function setOAuthSession($token, $secret, $expires = null){
