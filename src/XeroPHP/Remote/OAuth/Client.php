@@ -59,7 +59,7 @@ class Client {
         $this->request = $request;
 
         $oauth_params = $this->getOAuthParams();
-        $oauth_params['oauth_signature'] = Helpers::escape($this->getSignature());
+        $oauth_params['oauth_signature'] = $this->getSignature();
 
         //put it where it needs to go in the request
         switch($this->config['signature_location']) {

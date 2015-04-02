@@ -73,6 +73,7 @@ class URL {
         //This contains API versions and base URLs
         $xero_config = $app->getConfig('xero');
         $this->base_url = $xero_config['base_url'];
+        $this->authorize_url = $xero_config['authorize_url'];
         $this->endpoint = $endpoint;
 
         //Check here that the URI hasn't been set by one of the OAuth methods and handle as normal
@@ -105,6 +106,13 @@ class URL {
      */
     public function getFullURL() {
         return sprintf('%s/%s', $this->base_url, $this->path);
+    }
+
+    /**
+     * @return string
+     */
+    public function getAuthorizeURL() {
+        return sprintf('%s/%s', $this->authorize_url, $this->path);
     }
 
 
