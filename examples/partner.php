@@ -26,10 +26,13 @@ $config = array(
 
 $xero = new PartnerApplication($config);
 
-//if no session or if it is expired
-if(null === $oauth_session = getOAuthSession()){
+$oauth_session = getOAuthSession();
+
+// If no session found
+if($oauth_session === null){
 
     $url = new URL($xero, URL::OAUTH_REQUEST_TOKEN);
+
     $request = new Request($xero, $url);
 
     //Here's where you'll see if your keys are valid.  You can catch a BadRequestException.
@@ -48,6 +51,25 @@ if(null === $oauth_session = getOAuthSession()){
     printf('<a href="%s?oauth_token=%s">Click here to Authorize</a>', $url->getAuthorizeURL(), $oauth_response['oauth_token']);
     exit;
 
+} elseif(isset($_SESSION['oauth']['session_handle']) && !isset($_SESSION['oauth']['expires'])) {
+    // If session is expired refresh the token
+    $url = new URL($xero, URL::OAUTH_ACCESS_TOKEN);
+    $request = new Request($xero, $url);
+
+    $request->setParameter('oauth_token', $_SESSION['oauth']['token']);
+    $request->setParameter('oauth_session_handle', $_SESSION['oauth']['session_handle']);
+
+    $request->send();
+    $oauth_response = $request->getResponse()->getOAuthResponse();
+
+    $expires = time() + intval($oauth_response['oauth_expires_in']);
+
+    setOAuthSession($oauth_response['oauth_token'], $oauth_response['oauth_token_secret'], $expires, $oauth_response['oauth_session_handle']);
+
+    $xero->getOAuthClient()
+        ->setToken($oauth_response['oauth_token'])
+        ->setTokenSecret($oauth_response['oauth_token_secret']);
+
 } else {
 
     $xero->getOAuthClient()
@@ -63,7 +85,9 @@ if(null === $oauth_session = getOAuthSession()){
         $request->send();
         $oauth_response = $request->getResponse()->getOAuthResponse();
 
-        setOAuthSession($oauth_response['oauth_token'], $oauth_response['oauth_token_secret'], $oauth_response['expires']);
+        $expires = time() + intval($oauth_response['oauth_expires_in']);
+
+        setOAuthSession($oauth_response['oauth_token'], $oauth_response['oauth_token_secret'], $expires, $oauth_response['oauth_session_handle']);
 
         //drop the qs
         $uri_parts = explode('?', $_SERVER['REQUEST_URI']);
@@ -78,25 +102,31 @@ if(null === $oauth_session = getOAuthSession()){
 // We are in! Grab some journals...
 $journals = $xero->load('Accounting\\Journal')->execute();
 echo sprintf('Found %s journals', count($journals));
-/*
-foreach ($journals as $journal) {
-    print_r($journal);
-}
-*/
+/*foreach ($journals as $journal) {
+    json_encode($journal);
+}*/
+
 
 //The following two functions are just for a demo - you should use a more robust mechanism of storing tokens than this!
-function setOAuthSession($token, $secret, $expires = null){
+function setOAuthSession($token, $secret, $expires = null, $session_handle = null){
     $_SESSION['oauth'] = array(
         'token' => $token,
         'token_secret' => $secret,
-        'expires' => $expires
+        'expires' => $expires,
+        'session_handle' => $session_handle
     );
 }
 
 function getOAuthSession(){
-    //If it doesn't exist or is expired, return null
-    if(!isset($_SESSION['oauth']) || ($_SESSION['oauth']['expires'] !== null && $_SESSION['oauth']['expires'] <= time()))
+    //If it doesn't exist, return null
+    if(!isset($_SESSION['oauth'])) {
         return null;
+    }
+
+    // If the session is expired or expiring, unset the expires key
+    if($_SESSION['oauth']['expires'] !== null && $_SESSION['oauth']['expires'] <= (time() + 100)) {
+        unset($_SESSION['oauth']['expires']);
+    }
 
     return $_SESSION['oauth'];
 }
