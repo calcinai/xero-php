@@ -14,7 +14,6 @@ abstract class Application {
         'xero'  => array(
             'site'            => 'https://api.xero.com',
             'base_url'        => 'https://api.xero.com',
-            'authorize_url'   => 'https://api.xero.com',
             'core_version'    => '2.0',
             'payroll_version' => '1.0',
             'file_version'    => '1.0',
@@ -23,10 +22,10 @@ abstract class Application {
         //OAuth config
         'oauth' => array(
             'signature_method'   => Client::SIGNATURE_RSA_SHA1,
+            'signature_location' => Client::SIGN_LOCATION_HEADER,
+            'authorize_url'      => 'https://api.xero.com/oauth/Authorize',
             'request_token_path' => 'oauth/RequestToken',
-            'access_token_path'  => 'oauth/AccessToken',
-            'authorize_path'     => 'oauth/Authorize',
-            'signature_location' => Client::SIGN_LOCATION_HEADER
+            'access_token_path'  => 'oauth/AccessToken'
         ),
         'curl'  => array(
             CURLOPT_USERAGENT      => 'XeroPHP',
@@ -60,6 +59,10 @@ abstract class Application {
      */
     public function getOAuthClient() {
         return $this->oauth_client;
+    }
+
+    public function getAuthorizeURL() {
+        return $this->oauth_client->getAuthorizeURL();
     }
 
 

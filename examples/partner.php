@@ -44,20 +44,19 @@ if($oauth_session === null){
     }
 
     $oauth_response = $request->getResponse()->getOAuthResponse();
-    $url = new URL($xero, URL::OAUTH_AUTHORIZE);
 
     setOAuthSession($oauth_response['oauth_token'], $oauth_response['oauth_token_secret']);
 
-    printf('<a href="%s?oauth_token=%s">Click here to Authorize</a>', $url->getAuthorizeURL(), $oauth_response['oauth_token']);
+    printf('<a href="%s?oauth_token=%s">Click here to Authorize</a>', $xero->getAuthorizeURL(), $oauth_response['oauth_token']);
     exit;
 
-} elseif(isset($_SESSION['oauth']['session_handle']) && !isset($_SESSION['oauth']['expires'])) {
+} elseif(isset($oauth_session['session_handle']) && !isset($oauth_session['expires'])) {
     // If session is expired refresh the token
     $url = new URL($xero, URL::OAUTH_ACCESS_TOKEN);
     $request = new Request($xero, $url);
 
-    $request->setParameter('oauth_token', $_SESSION['oauth']['token']);
-    $request->setParameter('oauth_session_handle', $_SESSION['oauth']['session_handle']);
+    $request->setParameter('oauth_token', $oauth_session['token']);
+    $request->setParameter('oauth_session_handle', $oauth_session['session_handle']);
 
     $request->send();
     $oauth_response = $request->getResponse()->getOAuthResponse();

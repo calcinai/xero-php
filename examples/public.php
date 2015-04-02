@@ -32,11 +32,10 @@ if(null === $oauth_session = getOAuthSession()){
     }
 
     $oauth_response = $request->getResponse()->getOAuthResponse();
-    $url = new URL($xero, URL::OAUTH_AUTHORIZE);
 
     setOAuthSession($oauth_response['oauth_token'], $oauth_response['oauth_token_secret']);
 
-    printf('<a href="%s?oauth_token=%s">Click here to Authorize</a>', $url->getFullURL(), $oauth_response['oauth_token']);
+    printf('<a href="%s?oauth_token=%s">Click here to Authorize</a>', $xero->getAuthorizeURL(), $oauth_response['oauth_token']);
     exit;
 
 } else {

@@ -19,7 +19,6 @@ class URL {
     const API_PAYROLL = 'payroll.xro';
     const API_FILE    = 'file.xro';
 
-    const OAUTH_AUTHORIZE     = 'Authorize';
     const OAUTH_REQUEST_TOKEN = 'RequestToken';
     const OAUTH_ACCESS_TOKEN  = 'AccessToken';
 
@@ -51,10 +50,6 @@ class URL {
             $this->is_oauth = false;
 
             switch($endpoint) {
-                case self::OAUTH_AUTHORIZE:
-                    $this->path = $oauth_endpoints['authorize_path'];
-                    $this->is_oauth = true;
-                    break;
                 case self::OAUTH_REQUEST_TOKEN:
                     $this->path = $oauth_endpoints['request_token_path'];
                     $this->is_oauth = true;
@@ -73,7 +68,6 @@ class URL {
         //This contains API versions and base URLs
         $xero_config = $app->getConfig('xero');
         $this->base_url = $xero_config['base_url'];
-        $this->authorize_url = $xero_config['authorize_url'];
         $this->endpoint = $endpoint;
 
         //Check here that the URI hasn't been set by one of the OAuth methods and handle as normal
@@ -107,13 +101,5 @@ class URL {
     public function getFullURL() {
         return sprintf('%s/%s', $this->base_url, $this->path);
     }
-
-    /**
-     * @return string
-     */
-    public function getAuthorizeURL() {
-        return sprintf('%s/%s', $this->authorize_url, $this->path);
-    }
-
 
 }
