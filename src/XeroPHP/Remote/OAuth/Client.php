@@ -59,18 +59,23 @@ class Client {
         $this->request = $request;
 
         $oauth_params = $this->getOAuthParams();
-        $oauth_params['oauth_signature'] = Helpers::escape($this->getSignature());
+        $oauth_params['oauth_signature'] = $this->getSignature();
 
         //put it where it needs to go in the request
         switch($this->config['signature_location']) {
             case self::SIGN_LOCATION_HEADER:
+                //Needs escaping in the header, not in the QS
+                $oauth_params['oauth_signature'] = Helpers::escape($oauth_params['oauth_signature']);
+
                 $header = 'OAuth ' . Helpers::flattenAssocArray($oauth_params, '%s="%s"', ', ');
                 $request->setHeader(Request::HEADER_AUTHORIZATION, $header);
                 break;
+
             case self::SIGN_LOCATION_QUERY:
                 foreach($oauth_params as $param_name => $param_value)
                     $request->setParameter($param_name, $param_value);
                 break;
+
             default:
                 throw new Exception('Invalid signing location specified.');
         }
@@ -245,6 +250,13 @@ class Client {
      */
     private function getSignatureMethod() {
         return $this->config['signature_method'];
+    }
+
+    /**
+     * @return string
+     */
+    public function getAuthorizeURL(){
+        return $this->config['authorize_url'];
     }
 
 

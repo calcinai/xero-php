@@ -19,7 +19,6 @@ class URL {
     const API_PAYROLL = 'payroll.xro';
     const API_FILE    = 'file.xro';
 
-    const OAUTH_AUTHORIZE     = 'Authorize';
     const OAUTH_REQUEST_TOKEN = 'RequestToken';
     const OAUTH_ACCESS_TOKEN  = 'AccessToken';
 
@@ -51,10 +50,6 @@ class URL {
             $this->is_oauth = false;
 
             switch($endpoint) {
-                case self::OAUTH_AUTHORIZE:
-                    $this->path = $oauth_endpoints['authorize_path'];
-                    $this->is_oauth = true;
-                    break;
                 case self::OAUTH_REQUEST_TOKEN:
                     $this->path = $oauth_endpoints['request_token_path'];
                     $this->is_oauth = true;
@@ -106,6 +101,5 @@ class URL {
     public function getFullURL() {
         return sprintf('%s/%s', $this->base_url, $this->path);
     }
-
 
 }
