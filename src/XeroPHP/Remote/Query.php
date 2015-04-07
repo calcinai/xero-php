@@ -12,11 +12,17 @@ class Query {
     private $from;
     private $where;
     private $order;
+    private $modifiedAfter;
+    private $page;
+    private $offset;
 
     public function __construct($app) {
         $this->app = $app;
         $this->where = array();
         $this->order = null;
+        $this->modifiedAfter = null;
+        $this->page = null;
+        $this->offset = null;
     }
 
     public function from($class) {
@@ -53,6 +59,28 @@ class Query {
         $this->order = sprintf('%s %s', $order, $direction);
     }
 
+    public function modifiedAfter(\DateTime $modifiedAfter = null) {
+        if($modifiedAfter === null) {
+            $modifiedAfter = new \DateTime('@0'); // since ever
+        }
+
+        $this->modifiedAfter = $modifiedAfter->format('c');
+
+        return $this;
+    }
+
+    public function page($page = 1) {
+        $this->page = intval($page);
+
+        return $this;
+    }
+
+    public function offset($offset = 0) {
+        $this->offset = intval($offset);
+
+        return $this;
+    }
+
     public function execute() {
 
         $from_class = $this->from;
@@ -60,11 +88,25 @@ class Query {
         $request = new Request($this->app, $url, Request::METHOD_GET);
 
         $where = $this->getWhere();
-        if(!empty($where))
+        if(!empty($where)) {
             $request->setParameter('where', $where);
+        }
 
-        if($this->order !== null)
+        if($this->order !== null) {
             $request->setParameter('order', $this->order);
+        }
+
+        if($this->modifiedAfter !== null) {
+            $request->setHeader('If-Modified-Since', $this->modifiedAfter);
+        }
+
+        if($this->page !== null) {
+            $request->setParameter('page', $this->page);
+        }
+
+        if($this->offset !== null) {
+            $request->setParameter('offset', $this->offset);
+        }
 
         $request->send();
 
@@ -82,4 +124,4 @@ class Query {
     public function getFrom() {
         return $this->from;
     }
-} 
+}
