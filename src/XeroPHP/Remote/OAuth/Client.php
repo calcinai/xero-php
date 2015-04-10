@@ -80,7 +80,7 @@ class Client {
                 throw new Exception('Invalid signing location specified.');
         }
 
-        //Reset so this instance of the Client can sign subsequent requests.  Mainly fot he nonce.
+        //Reset so this instance of the Client can sign subsequent requests.  Mainly for the nonce.
         $this->resetOAuthParams();
     }
 
