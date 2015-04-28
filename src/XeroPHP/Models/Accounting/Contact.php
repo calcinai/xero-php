@@ -17,7 +17,8 @@ class Contact extends Remote\Object {
 
     /**
      * This can be updated via the API only i.e. This field is read only on the Xero contact screen, used
-     * to identify contacts in external systems (max length = 50)
+     * to identify contacts in external systems (max length = 50). If the Contact Number is used, this is
+     * displayed as Contact Code in the Contacts UI in Xero.
      *
      * @property string ContactNumber
      */

@@ -16,7 +16,7 @@ class Item extends Remote\Object {
      */
 
     /**
-     * Description of item
+     * The sales description of the item
      *
      * @property string Description
      */
