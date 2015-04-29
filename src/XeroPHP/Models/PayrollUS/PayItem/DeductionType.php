@@ -88,7 +88,7 @@ SECTION125PLAN
      * @return string
      */
     public static function getResourceURI(){
-        return null;
+        return 'DeductionTypes';
     }
 
 

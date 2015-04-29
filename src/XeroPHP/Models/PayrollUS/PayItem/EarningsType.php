@@ -104,7 +104,7 @@ class EarningsType extends Remote\Object {
      * @return string
      */
     public static function getResourceURI(){
-        return null;
+        return 'EarningsTypes';
     }
 
 

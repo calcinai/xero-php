@@ -40,7 +40,7 @@ class TaxLine extends Remote\Object {
      * @return string
      */
     public static function getResourceURI(){
-        return null;
+        return 'TaxLine';
     }
 
 

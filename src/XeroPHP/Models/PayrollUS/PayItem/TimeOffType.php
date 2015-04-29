@@ -56,7 +56,7 @@ If Paid Time Off is selected the employee will get paid when taking this time of
      * @return string
      */
     public static function getResourceURI(){
-        return null;
+        return 'TimeOffTypes';
     }
 
 

@@ -207,7 +207,7 @@ class Overpayment extends Remote\Object {
             'OverpaymentID' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'CurrencyRate' => array (false, self::PROPERTY_TYPE_FLOAT, null, false, false),
             'RemainingCredit' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'Allocations' => array (false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Overpayment\\Allocation', true, false),
+            'Allocations' => array (false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Overpayment\\Allocation', true, true),
             'HasAttachments' => array (false, self::PROPERTY_TYPE_BOOLEAN, null, false, false)
         );
     }

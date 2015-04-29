@@ -85,7 +85,7 @@ class BenefitType extends Remote\Object {
      * @return string
      */
     public static function getResourceURI(){
-        return null;
+        return 'BenefitTypes';
     }
 
 

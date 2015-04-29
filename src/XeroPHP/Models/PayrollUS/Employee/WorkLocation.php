@@ -27,7 +27,7 @@ class WorkLocation extends Remote\Object {
      * @return string
      */
     public static function getResourceURI(){
-        return null;
+        return 'WorkLocations';
     }
 
 

@@ -44,7 +44,7 @@ class Phone extends Remote\Object {
      * @return string
      */
     public static function getResourceURI(){
-        return null;
+        return 'Phones';
     }
 
 

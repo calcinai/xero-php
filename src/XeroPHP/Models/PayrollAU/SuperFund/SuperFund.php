@@ -98,7 +98,7 @@ A UTC timestamp
      * @return string
      */
     public static function getResourceURI(){
-        return null;
+        return 'SuperFund';
     }
 
 
