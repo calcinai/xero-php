@@ -91,6 +91,7 @@ class Object {
 
     public function setGUID($guid) {
         $this->_data[static::getGUIDProperty()] = $guid;
+        return $this;
     }
 
     /**
