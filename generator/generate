@@ -249,7 +249,7 @@ foreach($scrape_apis as $scrape_api) {
                     });
 
                     //filtering for properties that have special PUT/DELETE URI
-                    if(preg_match('/PUT\s\/(?<primary_model>[a-z]+)\/[a-z0-9\-]+\/(?<secondary_model>[a-z]+)/i', $node->text(), $matches)){
+                    if(preg_match('/PUT\s\/?(?<primary_model>[a-z]+)\/[a-z0-9\-]+\/(?<secondary_model>[a-z]+)/i', $node->text(), $matches)){
                         /** @var Model $primary_model */
                         if($matches['primary_model'] === $primary_model->getName() && $primary_model->hasProperty($matches['secondary_model'])){
                             $primary_model->getProperty($matches['secondary_model'])->save_directly = true;

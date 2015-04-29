@@ -1,5 +1,6 @@
 <?php
 
+use XeroPHP\Helpers;
 use XeroPHP\Remote\Object;
 use XeroPHP\Remote\Request;
 
@@ -80,7 +81,7 @@ class Model {
      */
     public function getClassName($with_ns = false){
 
-        $class_name = \XeroPHP\Helpers::singularize($this->getName());
+        $class_name = Helpers::singularize($this->getName());
 
         if($with_ns)
             return sprintf('%s\\%s', $this->getNamespace(), $class_name);
@@ -260,12 +261,11 @@ class Model {
     //https://api.xero.com/api.xro/2.0/Contacts
     public function getResourceURI(){
 
-        if(!isset($this->url))
-            return null;
-
         if(preg_match('#/[a-z]+.xro/[0-9\.]+/(?<uri>.+)#', $this->url, $matches))
             return $matches['uri'];
 
+        //Otherwise default to name of object
+        return $this->getName();
     }
 
     /**

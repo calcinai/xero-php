@@ -35,7 +35,7 @@ class {{ model.ClassName }} extends Remote\Object {
      * @return string
      */
     public static function getResourceURI(){
-        return {% if model.ResourceURI %}'{{ model.ResourceURI }}'{% else %}null{% endif %};
+        return '{{ model.ResourceURI }}';
     }
 
 
