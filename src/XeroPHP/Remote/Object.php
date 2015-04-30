@@ -69,6 +69,7 @@ class Object {
         else
             unset($this->_dirty[$property]);
 
+        return $this;
     }
 
     /**
