@@ -8,7 +8,9 @@ class Query {
     const ORDER_ASC  = 'ASC';
     const ORDER_DESC = 'DESC';
 
+    /** @var  \XeroPHP\Application */
     private $app;
+
     private $from;
     private $where;
     private $order;
@@ -26,15 +28,8 @@ class Query {
     }
 
     public function from($class) {
-        $config = $this->app->getConfig('xero');
 
-        if($class[0] !== '\\')
-            $class = sprintf('%s\\%s', $config['model_namespace'], $class);
-
-        if(!class_exists($class))
-            throw new Exception("Class does not exist [$class]");
-
-        $this->from = $class;
+        $this->from = $this->app->validateModelClass($class);
 
         return $this;
     }

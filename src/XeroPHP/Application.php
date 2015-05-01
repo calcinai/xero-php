@@ -79,6 +79,27 @@ abstract class Application {
         return $this->config[$key];
     }
 
+
+    /**
+     * Validates and expands the provided model class to a full PHP class
+     *
+     * @param $class
+     * @return string
+     * @throws Exception
+     */
+    public function validateModelClass($class){
+        $config = $this->getConfig('xero');
+
+        if($class[0] !== '\\')
+            $class = sprintf('%s\\%s', $config['model_namespace'], $class);
+
+        if(!class_exists($class))
+            throw new Exception("Class does not exist [$class]");
+
+        return $class;
+    }
+
+
     /**
      * @param $model
      * @param $guid
@@ -87,17 +108,22 @@ abstract class Application {
      */
     public function loadByGUID($model, $guid) {
 
-        $query = $this->load($model);
+        $class = $this->validateModelClass($model);
 
-        $full_class = $query->getFrom();
+        $uri = sprintf('%s/%s', $class::getResourceURI(), $guid);
 
-        $guid_property = $full_class::getGUIDProperty();
-        if($guid_property === null)
-            throw new Exception("Class does not have GUID property [$full_class]");
+        $url = new URL($this, $uri);
+        $request = new Request($this, $url, Request::METHOD_GET);
+        $request->send();
 
-        $objects = $query->where(sprintf('%s=Guid("%s")', $guid_property, $guid))->execute();
-        return current($objects);
+        //Return the first (if any) element from the response.
+        foreach($request->getResponse()->getElements() as $element){
+            $object = new $class();
+            $object->fromStringArray($element);
+            return $object;
+        }
 
+        return null;
     }
 
 
