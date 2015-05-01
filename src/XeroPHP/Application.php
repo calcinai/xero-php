@@ -242,14 +242,14 @@ abstract class Application {
         foreach($object::getProperties() as $property_name => $meta){
             if($meta[Object::KEY_SAVE_DIRECTLY] && $object->isDirty($property_name)){
                 //Then actually save
-                $property = $object->$property_name;
-                $property_type = get_class(current($property));
+                $property_objects = $object->$property_name;
+                $property_type = get_class(current($property_objects));
 
                 $url = new URL($this, sprintf('%s/%s/%s', $object::getResourceURI(), $object->getGUID(), $property_type::getResourceURI()));
                 $request = new Request($this, $url, Request::METHOD_PUT);
 
                 $property_array = array();
-                foreach($property as $property_object){
+                foreach($property_objects as $property_object){
                     $property_array[] = $property_object->toStringArray();
                 }
 
@@ -257,6 +257,14 @@ abstract class Application {
                 $request->setBody(Helpers::arrayToXML(array($root_node_name => $property_array)));
 
                 $request->send();
+
+                $response = $request->getResponse();
+                foreach($response->getElements() as $element_index => $element) {
+                    if($response->getErrorsForElement($element_index) === null) {
+                        $property_objects[$element_index]->fromStringArray($element);
+                        $property_objects[$element_index]->setClean();
+                    }
+                }
 
                 //Set it clean so the following save might have nothing to do.
                 $object->setClean($property_name);
