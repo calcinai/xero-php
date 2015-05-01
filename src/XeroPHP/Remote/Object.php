@@ -3,6 +3,7 @@
 namespace XeroPHP\Remote;
 
 use XeroPHP\Exception;
+use XeroPHP\Helpers;
 
 /**
  * Class Object
@@ -116,7 +117,9 @@ class Object {
             if(!isset($input_array[$property]))
                 continue;
 
-            if(is_array($input_array[$property])) {
+            //Fix for an earlier assumption that the API didn't return more than two levels of nested objects.
+            //Handles Invoice > Contact > Address etc. in one build.
+            if(is_array($input_array[$property]) && Helpers::isAssoc($input_array[$property]) === false) {
                 $this->_data[$property] = array();
                 foreach($input_array[$property] as $assoc_element) {
                     $this->_data[$property][] = self::castFromString($type, $assoc_element, $php_type);
