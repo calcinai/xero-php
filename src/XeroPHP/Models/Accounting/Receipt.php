@@ -23,7 +23,7 @@ class Receipt extends Remote\Object {
     /**
      * See LineItems
      *
-     * @property LineItem[] Lineitems
+     * @property LineItem[] LineItems
      */
 
     /**
@@ -171,7 +171,7 @@ class Receipt extends Remote\Object {
         return array(
             'Date' => array (true, self::PROPERTY_TYPE_DATE, '\\DateTime', false, false),
             'Contact' => array (true, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Contact', false, false),
-            'Lineitems' => array (true, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Receipt\\LineItem', true, false),
+            'LineItems' => array (true, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Receipt\\LineItem', true, false),
             'User' => array (true, self::PROPERTY_TYPE_OBJECT, 'Accounting\\User', false, false),
             'Reference' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'LineAmountTypes' => array (false, self::PROPERTY_TYPE_FLOAT, null, true, false),
@@ -225,17 +225,17 @@ class Receipt extends Remote\Object {
     /**
      * @return LineItem[]
      */
-    public function getLineitems() {
-        return $this->_data['Lineitems'];
+    public function getLineItems() {
+        return $this->_data['LineItems'];
     }
 
     /**
      * @param LineItem $value
      * @return Receipt
      */
-    public function addLineitem(LineItem $value) {
-        $this->propertyUpdated('Lineitems', $value);
-        $this->_data['Lineitems'][] = $value;
+    public function addLineItem(LineItem $value) {
+        $this->propertyUpdated('LineItems', $value);
+        $this->_data['LineItems'][] = $value;
         return $this;
     }
 

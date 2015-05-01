@@ -289,6 +289,12 @@ class Property {
         elseif($result instanceof Model){
             $type = Object::PROPERTY_TYPE_OBJECT;
             $this->related_object = $result;
+
+            //If docs have case-typos in them, take the class name as authoritative.
+            if(strcmp($this->getName(), $this->related_object->getName()) !== 0 && strcasecmp($this->getName(), $this->related_object->getName()) === 0)
+                $this->name = $this->related_object->getName();
+
+
         }
 
         if(!isset($type))
