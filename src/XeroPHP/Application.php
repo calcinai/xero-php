@@ -101,10 +101,13 @@ abstract class Application {
 
 
     /**
+     * As you should never have a GUID for a non-existent object, will throw a NotFoundExceptioon
+     *
      * @param $model
      * @param $guid
      * @return mixed
      * @throws Exception
+     * @throws Remote\Exception\NotFoundException
      */
     public function loadByGUID($model, $guid) {
 
@@ -123,7 +126,6 @@ abstract class Application {
             return $object;
         }
 
-        return null;
     }
 
 
