@@ -137,11 +137,16 @@ class Model {
             $properties = array();
             $property_position = 0;
             foreach($this->properties as $existing_name => $existing_property){
-                if($property_position === $insert_position){
+                if($property_position++ === $insert_position){
                     $properties[$property->getName()] = $property;
                 }
                 $properties[$existing_name] = $existing_property;
             }
+
+            //Otherwise it's at the end (or after)
+            if($insert_position >= $property_position)
+                $properties[$property->getName()] = $property;
+
             $this->properties = $properties;
 
         } else {
@@ -150,8 +155,18 @@ class Model {
     }
 
 
-    public function hasProperty($property_name){
-        return isset($this->properties[$property_name]);
+    public function hasProperty($property_name, $case_sensitive = true){
+
+        if($case_sensitive)
+            return isset($this->properties[$property_name]);
+
+        //CI search for the potential corrections of props
+        $property_name = strtolower($property_name);
+        foreach($this->properties as $name => $prop){
+            if(strtolower($name) === $property_name)
+                return true;
+        }
+        return false;
     }
 
     /**
@@ -193,7 +208,7 @@ class Model {
             $this->methods = $methods;
         } else {
             preg_match_all('/(?<methods>GET|PUT|POST|DELETE)/', $methods, $matches);
-            $this->methods = $matches['methods'];
+            $this->methods = array_unique($matches['methods']);
         }
     }
 

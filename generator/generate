@@ -427,7 +427,7 @@ foreach($apis as $api){
             $property_position = 0;
             foreach($model_class::getProperties() as $name => $property_meta){
                 //At this point, it's been removed from the API (and not deprecated).  Thanks Xero!
-                if(!$model->hasProperty($name)){
+                if(!$model->hasProperty($name, false)){
                     //Make it and deprecate it.
                     $property = new Property($name, 'This property has been removed from the Xero API', $property_meta[0], false, true);
                     $model->addProperty($property, $property_position);
