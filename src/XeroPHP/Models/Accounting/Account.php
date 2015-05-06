@@ -50,17 +50,17 @@ class Account extends Remote\Object {
      */
 
     /**
-     * See Account Status Codes
-     *
-     * @property string Status
-     */
-
-    /**
      * The Xero identifier for an account – specified as a string following the endpoint name
 e.g.
      * /297c2dc5-cc47-4afd-8ec8-74990b8761e9
      *
      * @property string AccountID
+     */
+
+    /**
+     * See Account Status Codes
+     *
+     * @property string Status
      */
 
     /**
@@ -100,7 +100,7 @@ e.g.
      */
 
     /**
-     * boolean to indicate if an account has an attachment
+     * boolean to indicate if an account has an attachment (read only)
      *
      * @property bool HasAttachments
      */
@@ -224,15 +224,15 @@ e.g.
             'TaxType' => array (false, self::PROPERTY_TYPE_ENUM, null, false, false),
             'EnablePaymentsToAccount' => array (false, self::PROPERTY_TYPE_BOOLEAN, null, false, false),
             'ShowInExpenseClaims' => array (false, self::PROPERTY_TYPE_BOOLEAN, null, false, false),
-            'Status' => array (false, self::PROPERTY_TYPE_ENUM, null, false, false),
             'AccountID' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'Class' => array (false, self::PROPERTY_TYPE_ENUM, null, false, false),
-            'SystemAccount' => array (false, self::PROPERTY_TYPE_ENUM, null, false, false),
-            'BankAccountNumber' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'CurrencyCode' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'ReportingCode' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'ReportingCodeName' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'HasAttachments' => array (false, self::PROPERTY_TYPE_BOOLEAN, null, false, false)
+            'Status' => array (true, self::PROPERTY_TYPE_ENUM, null, false, false),
+            'Class' => array (true, self::PROPERTY_TYPE_ENUM, null, false, false),
+            'SystemAccount' => array (true, self::PROPERTY_TYPE_ENUM, null, false, false),
+            'BankAccountNumber' => array (true, self::PROPERTY_TYPE_STRING, null, false, false),
+            'CurrencyCode' => array (true, self::PROPERTY_TYPE_STRING, null, false, false),
+            'ReportingCode' => array (true, self::PROPERTY_TYPE_STRING, null, false, false),
+            'ReportingCodeName' => array (true, self::PROPERTY_TYPE_STRING, null, false, false),
+            'HasAttachments' => array (true, self::PROPERTY_TYPE_BOOLEAN, null, false, false)
         );
     }
 
@@ -359,23 +359,6 @@ e.g.
     /**
      * @return string
      */
-    public function getStatus() {
-        return $this->_data['Status'];
-    }
-
-    /**
-     * @param string $value
-     * @return Account
-     */
-    public function setStatus($value) {
-        $this->propertyUpdated('Status', $value);
-        $this->_data['Status'] = $value;
-        return $this;
-    }
-
-    /**
-     * @return string
-     */
     public function getAccountID() {
         return $this->_data['AccountID'];
     }
@@ -387,6 +370,23 @@ e.g.
     public function setAccountID($value) {
         $this->propertyUpdated('AccountID', $value);
         $this->_data['AccountID'] = $value;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getStatus() {
+        return $this->_data['Status'];
+    }
+
+    /**
+     * @param string $value
+     * @return Account
+     */
+    public function setStatus($value) {
+        $this->propertyUpdated('Status', $value);
+        $this->_data['Status'] = $value;
         return $this;
     }
 

@@ -45,9 +45,10 @@ class ContactPerson extends Remote\Object {
      */
 
     /**
-     * This can be updated via API or in the contact record in Xero
+     * This property has been removed from the Xero API
      *
      * @property string Name
+     * @deprecated
      */
 
 
@@ -228,6 +229,7 @@ class ContactPerson extends Remote\Object {
 
     /**
      * @return string
+     * @deprecated
      */
     public function getName() {
         return $this->_data['Name'];
@@ -236,6 +238,7 @@ class ContactPerson extends Remote\Object {
     /**
      * @param string $value
      * @return ContactPerson
+     * @deprecated
      */
     public function setName($value) {
         $this->propertyUpdated('Name', $value);

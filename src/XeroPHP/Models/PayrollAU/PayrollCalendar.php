@@ -20,14 +20,14 @@ class PayrollCalendar extends Remote\Object {
      */
 
     /**
-     * The start date for the first pay period you will process. The end date will be calculated based upon
-     * this date, and the calendar type selected (YYYY-MM-DD)
+     * The start date of the upcoming pay period. The end date will be calculated based upon this date, and
+     * the calendar type selected (YYYY-MM-DD), more details.
      *
      * @property \DateTime StartDate
      */
 
     /**
-     * The date on which employees will be paid for the first pay period (YYYY-MM-DD)
+     * The date on which employees will be paid for the upcoming pay period (YYYY-MM-DD), more details.
      *
      * @property \DateTime PaymentDate
      */
