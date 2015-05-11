@@ -7,21 +7,27 @@ use XeroPHP\Exception;
 use XeroPHP\Helpers;
 use XeroPHP\Remote\Exception\BadRequestException;
 use XeroPHP\Remote\Exception\InternalErrorException;
+use XeroPHP\Remote\Exception\NotAvailableException;
 use XeroPHP\Remote\Exception\NotFoundException;
+use XeroPHP\Remote\Exception\NotImplementedException;
+use XeroPHP\Remote\Exception\OrganisationOfflineException;
 use XeroPHP\Remote\Exception\RateLimitExceededException;
 use XeroPHP\Remote\Exception\UnauthorizedException;
 
 class Response {
 
-    const STATUS_OK                  = 200;
-    const STATUS_BAD_REQUEST         = 400;
-    const STATUS_UNAUTHORISED        = 401;
-    const STATUS_FORBIDDEN           = 403;
-    const STATUS_NOT_FOUND           = 404;
-    const STATUS_INTERNAL_ERROR      = 500;
-    const STATUS_NOT_IMPLEMENTED     = 501;
-    const STATUS_RATE_LIMIT_EXCEEDED = 503;
-    const STATUS_NOT_AVAILABLE       = 503;
+    const STATUS_OK                   = 200;
+    const STATUS_BAD_REQUEST          = 400;
+    const STATUS_UNAUTHORISED         = 401;
+    const STATUS_FORBIDDEN            = 403;
+    const STATUS_NOT_FOUND            = 404;
+    const STATUS_INTERNAL_ERROR       = 500;
+    const STATUS_NOT_IMPLEMENTED      = 501;
+
+    //Seriously, 1 code for 3 different things!
+    const STATUS_NOT_AVAILABLE        = 503;
+    const STATUS_RATE_LIMIT_EXCEEDED  = 503;
+    const STATUS_ORGANISATION_OFFLINE = 503;
 
     private $request;
 
@@ -73,12 +79,22 @@ class Response {
                 throw new NotFoundException();
 
             case Response::STATUS_INTERNAL_ERROR:
-            case Response::STATUS_NOT_IMPLEMENTED:
                 throw new InternalErrorException();
 
-            case Response::STATUS_RATE_LIMIT_EXCEEDED:
-                throw new RateLimitExceededException();
+            case Response::STATUS_NOT_IMPLEMENTED:
+                throw new NotImplementedException();
 
+            case Response::STATUS_NOT_AVAILABLE:
+            case Response::STATUS_RATE_LIMIT_EXCEEDED:
+            case Response::STATUS_ORGANISATION_OFFLINE:
+                //There must be a better way than this?
+                if(false !== stripos($this->response_body, 'Organisation is offline')){
+                    throw new OrganisationOfflineException();
+                } elseif(false !== stripos($this->response_body, 'Rate limit exceeded')){
+                    throw new RateLimitExceededException();
+                } else {
+                    throw new NotAvailableException();
+                }
         }
     }
 

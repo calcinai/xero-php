@@ -10,7 +10,7 @@ class UnauthorizedException extends Exception {
     public function __construct($message = null, $code = null, $previous = null) {
 
         if($message === null)
-            $message = 'Unauthorized';
+            $message = 'Invalid authorization credentials.';
 
         if($code === null)
             $code = Response::STATUS_UNAUTHORISED;
