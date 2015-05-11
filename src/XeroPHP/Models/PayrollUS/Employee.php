@@ -93,6 +93,13 @@ class Employee extends Remote\Object {
      */
 
     /**
+     * Termination date of employee (YYYY-MM-DD). Note this is only returned when retrieving an individual
+     * Employee with a Status of TERMINATED
+     *
+     * @property \DateTime TerminationDate
+     */
+
+    /**
      * Xero unique identifier – PayScheduleID for the employee
      *
      * @property string PayScheduleID
@@ -254,6 +261,7 @@ class Employee extends Remote\Object {
             'EmployeeNumber' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'SocialSecurityNumber' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'StartDate' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTime', false, false),
+            'TerminationDate' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTime', false, false),
             'PayScheduleID' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'EmployeeGroupName' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'EmploymentBasis' => array (false, self::PROPERTY_TYPE_ENUM, null, false, false),
@@ -490,6 +498,23 @@ class Employee extends Remote\Object {
     public function setStartDate(\DateTime $value) {
         $this->propertyUpdated('StartDate', $value);
         $this->_data['StartDate'] = $value;
+        return $this;
+    }
+
+    /**
+     * @return \DateTime
+     */
+    public function getTerminationDate() {
+        return $this->_data['TerminationDate'];
+    }
+
+    /**
+     * @param \DateTime $value
+     * @return Employee
+     */
+    public function setTerminationDate(\DateTime $value) {
+        $this->propertyUpdated('TerminationDate', $value);
+        $this->_data['TerminationDate'] = $value;
         return $this;
     }
 
