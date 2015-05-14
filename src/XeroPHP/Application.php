@@ -199,15 +199,23 @@ abstract class Application {
         $type = get_class(current($objects));
         $object_arrays = array();
 
+        $requestMethod = Request::METHOD_PUT;
+
         foreach($objects as $object) {
-            if($type !== get_class($object))
+            if($type !== get_class($object)) {
                 throw new Exception('Array passed to ->saveAll() must be homogeneous.');
+            }
+
+            // If the object has a GUID we are probably doing a bulk update so need to POST
+            if($object->hasGUID()) {
+                $requestMethod = Request::METHOD_POST;
+            }
 
             $object_arrays[] = $object->toStringArray();
         }
 
         $url = new URL($this, $type::getResourceURI());
-        $request = new Request($this, $url, Request::METHOD_PUT);
+        $request = new Request($this, $url, $requestMethod);
 
         //This might need to be parsed and stored some day.
         $root_node_name = Helpers::pluralize($type::getRootNodeName());
