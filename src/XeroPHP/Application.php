@@ -196,26 +196,28 @@ abstract class Application {
     public function saveAll(array $objects) {
 
         //Just get one type to compare with, doesn't matter which.
-        $type = get_class(current($objects));
+        $current_object = current($objects);
+        $type = get_class($current_object);
+        $has_guid =  $current_object->hasGUID();
         $object_arrays = array();
-
-        $requestMethod = Request::METHOD_PUT;
 
         foreach($objects as $object) {
             if($type !== get_class($object)) {
                 throw new Exception('Array passed to ->saveAll() must be homogeneous.');
             }
 
-            // If the object has a GUID we are probably doing a bulk update so need to POST
-            if($object->hasGUID()) {
-                $requestMethod = Request::METHOD_POST;
+            // Check if we have a GUID
+            if($object->hasGUID() && $has_guid === false) {
+                $has_guid = true;
             }
 
             $object_arrays[] = $object->toStringArray();
         }
 
+        $request_method = $has_guid ? Request::METHOD_POST : Request::METHOD_PUT;
+
         $url = new URL($this, $type::getResourceURI());
-        $request = new Request($this, $url, $requestMethod);
+        $request = new Request($this, $url, $request_method);
 
         //This might need to be parsed and stored some day.
         $root_node_name = Helpers::pluralize($type::getRootNodeName());
