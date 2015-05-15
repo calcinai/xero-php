@@ -9,6 +9,12 @@ use XeroPHP\Models\PayrollAU\LeaveApplication\LeavePeriod;
 class LeaveApplication extends Remote\Object {
 
     /**
+     * Xero identifier
+     *
+     * @property string LeaveApplicationID
+     */
+
+    /**
      * The Xero identifier for Payroll Employee
      *
      * @property string EmployeeID
@@ -81,7 +87,7 @@ class LeaveApplication extends Remote\Object {
      * @return string
      */
     public static function getGUIDProperty(){
-        return '';
+        return 'LeaveApplicationID';
     }
 
 
@@ -118,6 +124,7 @@ class LeaveApplication extends Remote\Object {
      */
     public static function getProperties() {
         return array(
+            'LeaveApplicationID' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'EmployeeID' => array (true, self::PROPERTY_TYPE_STRING, null, false, false),
             'LeaveTypeID' => array (true, self::PROPERTY_TYPE_STRING, null, false, false),
             'Title' => array (true, self::PROPERTY_TYPE_STRING, null, false, false),
@@ -128,6 +135,23 @@ class LeaveApplication extends Remote\Object {
         );
     }
 
+
+    /**
+     * @return string
+     */
+    public function getLeaveApplicationID() {
+        return $this->_data['LeaveApplicationID'];
+    }
+
+    /**
+     * @param string $value
+     * @return LeaveApplication
+     */
+    public function setLeaveApplicationID($value) {
+        $this->propertyUpdated('LeaveApplicationID', $value);
+        $this->_data['LeaveApplicationID'] = $value;
+        return $this;
+    }
 
     /**
      * @return string

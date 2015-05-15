@@ -8,6 +8,12 @@ use XeroPHP\Remote;
 class SuperFund extends Remote\Object {
 
     /**
+     * Xero identifier
+     *
+     * @property string SuperFundID
+     */
+
+    /**
      * REGULATED see Super Fund Types
      *
      * @property string Type
@@ -53,7 +59,7 @@ class SuperFund extends Remote\Object {
      * @return string
      */
     public static function getGUIDProperty(){
-        return '';
+        return 'SuperFundID';
     }
 
 
@@ -90,12 +96,30 @@ class SuperFund extends Remote\Object {
      */
     public static function getProperties() {
         return array(
+            'SuperFundID' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'Type' => array (false, self::PROPERTY_TYPE_ENUM, null, false, false),
             'ABN' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'USI' => array (false, self::PROPERTY_TYPE_STRING, null, false, false)
         );
     }
 
+
+    /**
+     * @return string
+     */
+    public function getSuperFundID() {
+        return $this->_data['SuperFundID'];
+    }
+
+    /**
+     * @param string $value
+     * @return SuperFund
+     */
+    public function setSuperFundID($value) {
+        $this->propertyUpdated('SuperFundID', $value);
+        $this->_data['SuperFundID'] = $value;
+        return $this;
+    }
 
     /**
      * @return string

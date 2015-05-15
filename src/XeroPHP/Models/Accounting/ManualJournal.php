@@ -9,6 +9,12 @@ use XeroPHP\Models\Accounting\ManualJournal\JournalLine;
 class ManualJournal extends Remote\Object {
 
     /**
+     * Xero identifier
+     *
+     * @property string ManualJournalID
+     */
+
+    /**
      * Description of journal being posted
      *
      * @property string Narration
@@ -89,7 +95,7 @@ class ManualJournal extends Remote\Object {
      * @return string
      */
     public static function getGUIDProperty(){
-        return '';
+        return 'ManualJournalID';
     }
 
 
@@ -127,6 +133,7 @@ class ManualJournal extends Remote\Object {
      */
     public static function getProperties() {
         return array(
+            'ManualJournalID' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'Narration' => array (true, self::PROPERTY_TYPE_STRING, null, false, false),
             'JournalLines' => array (true, self::PROPERTY_TYPE_OBJECT, 'Accounting\\ManualJournal\\JournalLine', true, false),
             'Date' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTime', false, false),
@@ -138,6 +145,23 @@ class ManualJournal extends Remote\Object {
         );
     }
 
+
+    /**
+     * @return string
+     */
+    public function getManualJournalID() {
+        return $this->_data['ManualJournalID'];
+    }
+
+    /**
+     * @param string $value
+     * @return ManualJournal
+     */
+    public function setManualJournalID($value) {
+        $this->propertyUpdated('ManualJournalID', $value);
+        $this->_data['ManualJournalID'] = $value;
+        return $this;
+    }
 
     /**
      * @return string

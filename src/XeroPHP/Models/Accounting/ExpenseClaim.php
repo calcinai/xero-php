@@ -8,6 +8,12 @@ use XeroPHP\Remote;
 class ExpenseClaim extends Remote\Object {
 
     /**
+     * Xero identifier
+     *
+     * @property string ExpenseClaimID
+     */
+
+    /**
      * See Users
      *
      * @property User User
@@ -51,7 +57,7 @@ class ExpenseClaim extends Remote\Object {
      * @return string
      */
     public static function getGUIDProperty(){
-        return '';
+        return 'ExpenseClaimID';
     }
 
 
@@ -89,11 +95,29 @@ class ExpenseClaim extends Remote\Object {
      */
     public static function getProperties() {
         return array(
+            'ExpenseClaimID' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'User' => array (true, self::PROPERTY_TYPE_OBJECT, 'Accounting\\User', false, false),
             'Receipts' => array (true, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Receipt', true, false)
         );
     }
 
+
+    /**
+     * @return string
+     */
+    public function getExpenseClaimID() {
+        return $this->_data['ExpenseClaimID'];
+    }
+
+    /**
+     * @param string $value
+     * @return ExpenseClaim
+     */
+    public function setExpenseClaimID($value) {
+        $this->propertyUpdated('ExpenseClaimID', $value);
+        $this->_data['ExpenseClaimID'] = $value;
+        return $this;
+    }
 
     /**
      * @return User

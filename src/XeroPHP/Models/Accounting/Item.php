@@ -10,6 +10,12 @@ use XeroPHP\Models\Accounting\Organisation\Sale;
 class Item extends Remote\Object {
 
     /**
+     * Xero identifier
+     *
+     * @property string ItemID
+     */
+
+    /**
      * User defined item code (max length = 30)
      *
      * @property string Code
@@ -61,7 +67,7 @@ class Item extends Remote\Object {
      * @return string
      */
     public static function getGUIDProperty(){
-        return '';
+        return 'ItemID';
     }
 
 
@@ -99,6 +105,7 @@ class Item extends Remote\Object {
      */
     public static function getProperties() {
         return array(
+            'ItemID' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'Code' => array (true, self::PROPERTY_TYPE_STRING, null, false, false),
             'Description' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'PurchaseDetails' => array (false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Item\\Purchase', true, false),
@@ -106,6 +113,23 @@ class Item extends Remote\Object {
         );
     }
 
+
+    /**
+     * @return string
+     */
+    public function getItemID() {
+        return $this->_data['ItemID'];
+    }
+
+    /**
+     * @param string $value
+     * @return Item
+     */
+    public function setItemID($value) {
+        $this->propertyUpdated('ItemID', $value);
+        $this->_data['ItemID'] = $value;
+        return $this;
+    }
 
     /**
      * @return string

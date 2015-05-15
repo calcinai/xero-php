@@ -225,7 +225,9 @@ foreach($scrape_apis as $scrape_api) {
 
         $current_model = null;
 
-        $crawler->filter('.entry-content')->children()->each(function ($node) use ($api, &$current_model) {
+        $last = $crawler->filter('.entry-content')->children()->last();
+
+        $crawler->filter('.entry-content')->children()->each(function ($node) use ($api, &$current_model, $crawler, $last) {
             //keep static in closure.
             static $page_heading, $section_name, $primary_model;
 
@@ -292,16 +294,14 @@ foreach($scrape_apis as $scrape_api) {
                         $exploded_name = preg_split('/\b(and|or)\b/', $matches['model_name']);
                         $model_name = str_replace(' ', '', ucwords($exploded_name[0]));
 
+                        $current_model->rawHTML = $crawler->filter('body')->text();
+
                         //if it hasn't been set, set it.
                         if($primary_model->getName() === null){
                             $primary_model_name = str_replace(' ', '', $page_heading);
                             $primary_model->setName($primary_model_name);
                             $api->addModel($primary_model);
                         } elseif($current_model->getName() !== $model_name){
-
-                            //Debug
-                            $current_model->printPropertyTable();
-
                             //If its not the same, we've reached a new one
                             //create the sub one and add its parent
                             $current_model = new Model();
@@ -385,28 +385,42 @@ foreach($scrape_apis as $scrape_api) {
 
                         }
                     });
-//                    if($rows_processed){
-//                        //fairly ugly little bit of code - just for debug really.
-//                        $prop_names = array();
-//                        foreach($current_model->getProperties() as $property){
-//                            $prop_names[] = $property->getName();
-//                        }
-//                        printf("Parsed: %s\n", $current_model->getName());
-//                        printf(" \\> %d properties: %s \n",
-//                            count($prop_names),
-//                            wordwrap(implode(', ',$prop_names), 100, "\n                   ")
-//                        );
-//                    }
-                    unset($section_name);
-                    break;
-                    //END HANDLING FOR TABLE ELEMENT
+                    //if($rows_processed){
+                    //	//fairly ugly little bit of code - just for debug really.
+                    //	$prop_names = array();
+                    //	foreach($current_model->getProperties() as $property){
+                    //		$prop_names[] = $property->getName();
+                    //	}
+                    //	printf("Parsed: %s\n", $current_model->getName());
+                    //	printf(" \\> %d properties: %s \n",
+                    //		count($prop_names),
+                    //		wordwrap(implode(', ',$prop_names), 100, "\n                   ")
+                    //	);
+                    //}
+                unset($section_name);
+                break;
+                //END HANDLING FOR TABLE ELEMENT
+            }
+
+            // Do some processing once we are at the last node.
+            if($node->getNode(0)->nodeValue === $last->getNode(0)->nodeValue) {
+                $models = array($primary_model);
+                if($primary_model->getName() !== $current_model->getName()) {$models[] = $current_model;}
+                foreach($models as $model) {
+                    // If we don't have a GUID make a last ditch effort to get one...
+                    if ($model->hasProperty($model->getClassName() . 'ID') === false && isset($model->rawHTML)) {
+                        if (preg_match('/' . $model->getClassName() . 'ID/', $model->rawHTML)) {
+                            $property = new Property($model->getClassName() . 'ID', 'Xero identifier', false, false, false);
+                            $model->addProperty($property, 0);
+                        }
+                    }
+
+                    //Debug
+                    $model->printPropertyTable();
                 }
+            }
 
-            });
-
-        //Debug
-        if($current_model !== null)
-            $current_model->printPropertyTable();
+        });
     }
     $apis[] = $api;
 }
