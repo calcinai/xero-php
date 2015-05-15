@@ -8,6 +8,12 @@ use XeroPHP\Remote;
 class PayrollCalendar extends Remote\Object {
 
     /**
+     * Xero identifier
+     *
+     * @property string PayrollCalendarID
+     */
+
+    /**
      * Name of the Payroll Calendar (max length = 100)
      *
      * @property string Name
@@ -67,7 +73,7 @@ class PayrollCalendar extends Remote\Object {
      * @return string
      */
     public static function getGUIDProperty(){
-        return '';
+        return 'PayrollCalendarID';
     }
 
 
@@ -104,6 +110,7 @@ class PayrollCalendar extends Remote\Object {
      */
     public static function getProperties() {
         return array(
+            'PayrollCalendarID' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'Name' => array (true, self::PROPERTY_TYPE_STRING, null, false, false),
             'CalendarType' => array (true, self::PROPERTY_TYPE_ENUM, null, false, false),
             'StartDate' => array (true, self::PROPERTY_TYPE_DATE, '\\DateTime', false, false),
@@ -111,6 +118,23 @@ class PayrollCalendar extends Remote\Object {
         );
     }
 
+
+    /**
+     * @return string
+     */
+    public function getPayrollCalendarID() {
+        return $this->_data['PayrollCalendarID'];
+    }
+
+    /**
+     * @param string $value
+     * @return PayrollCalendar
+     */
+    public function setPayrollCalendarID($value) {
+        $this->propertyUpdated('PayrollCalendarID', $value);
+        $this->_data['PayrollCalendarID'] = $value;
+        return $this;
+    }
 
     /**
      * @return string
