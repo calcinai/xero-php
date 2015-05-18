@@ -235,15 +235,6 @@ class PayRun extends Remote\Object {
         return $this->_data['PayRunPeriodStartDate'];
     }
 
-    /**
-     * @param \DateTime $value
-     * @return PayRun
-     */
-    public function setPayRunPeriodStartDate(\DateTime $value) {
-        $this->propertyUpdated('PayRunPeriodStartDate', $value);
-        $this->_data['PayRunPeriodStartDate'] = $value;
-        return $this;
-    }
 
     /**
      * @return \DateTime
@@ -252,15 +243,6 @@ class PayRun extends Remote\Object {
         return $this->_data['PaymentDate'];
     }
 
-    /**
-     * @param \DateTime $value
-     * @return PayRun
-     */
-    public function setPaymentDate(\DateTime $value) {
-        $this->propertyUpdated('PaymentDate', $value);
-        $this->_data['PaymentDate'] = $value;
-        return $this;
-    }
 
     /**
      * @return string[]
@@ -269,15 +251,6 @@ class PayRun extends Remote\Object {
         return $this->_data['Earnings'];
     }
 
-    /**
-     * @param string $value
-     * @return PayRun
-     */
-    public function addEarning($value) {
-        $this->propertyUpdated('Earnings', $value);
-        $this->_data['Earnings'][] = $value;
-        return $this;
-    }
 
     /**
      * @return string[]
@@ -286,15 +259,6 @@ class PayRun extends Remote\Object {
         return $this->_data['Deductions'];
     }
 
-    /**
-     * @param string $value
-     * @return PayRun
-     */
-    public function addDeduction($value) {
-        $this->propertyUpdated('Deductions', $value);
-        $this->_data['Deductions'][] = $value;
-        return $this;
-    }
 
     /**
      * @return string
@@ -303,15 +267,6 @@ class PayRun extends Remote\Object {
         return $this->_data['Reimbursement'];
     }
 
-    /**
-     * @param string $value
-     * @return PayRun
-     */
-    public function setReimbursement($value) {
-        $this->propertyUpdated('Reimbursement', $value);
-        $this->_data['Reimbursement'] = $value;
-        return $this;
-    }
 
     /**
      * @return string
@@ -320,15 +275,6 @@ class PayRun extends Remote\Object {
         return $this->_data['NetPay'];
     }
 
-    /**
-     * @param string $value
-     * @return PayRun
-     */
-    public function setNetPay($value) {
-        $this->propertyUpdated('NetPay', $value);
-        $this->_data['NetPay'] = $value;
-        return $this;
-    }
 
     /**
      * @return \DateTime
@@ -337,15 +283,6 @@ class PayRun extends Remote\Object {
         return $this->_data['UpdateDateUTC'];
     }
 
-    /**
-     * @param \DateTime $value
-     * @return PayRun
-     */
-    public function setUpdateDateUTC(\DateTime $value) {
-        $this->propertyUpdated('UpdateDateUTC', $value);
-        $this->_data['UpdateDateUTC'] = $value;
-        return $this;
-    }
 
     /**
      * @return string[]
@@ -354,15 +291,6 @@ class PayRun extends Remote\Object {
         return $this->_data['PayStubs'];
     }
 
-    /**
-     * @param string $value
-     * @return PayRun
-     */
-    public function addPayStub($value) {
-        $this->propertyUpdated('PayStubs', $value);
-        $this->_data['PayStubs'][] = $value;
-        return $this;
-    }
 
 
 }

@@ -624,6 +624,15 @@ class Invoice extends Remote\Object {
         return $this->_data['InvoiceID'];
     }
 
+    /**
+     * @param string $value
+     * @return Invoice
+     */
+    public function setInvoiceID($value) {
+        $this->propertyUpdated('InvoiceID', $value);
+        $this->_data['InvoiceID'] = $value;
+        return $this;
+    }
 
     /**
      * @return bool

@@ -144,6 +144,15 @@ class ExpenseClaim extends Remote\Object {
         return $this->_data['ExpenseClaimID'];
     }
 
+    /**
+     * @param string $value
+     * @return ExpenseClaim
+     */
+    public function setExpenseClaimID($value) {
+        $this->propertyUpdated('ExpenseClaimID', $value);
+        $this->_data['ExpenseClaimID'] = $value;
+        return $this;
+    }
 
     /**
      * @return string

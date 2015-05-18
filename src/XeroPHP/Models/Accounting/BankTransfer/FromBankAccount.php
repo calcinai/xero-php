@@ -90,7 +90,7 @@ class FromBankAccount extends Remote\Object {
         return array(
             'Code' => array (true, self::PROPERTY_TYPE_STRING, null, false, false),
             'AccountID' => array (true, self::PROPERTY_TYPE_STRING, null, false, false),
-            'Name' => array (true, self::PROPERTY_TYPE_STRING, null, false, false)
+            'Name' => array (false, self::PROPERTY_TYPE_STRING, null, false, false)
         );
     }
 

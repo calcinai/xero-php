@@ -8,12 +8,6 @@ use XeroPHP\Remote;
 class PaySchedule extends Remote\Object {
 
     /**
-     * Xero identifier
-     *
-     * @property string PayScheduleID
-     */
-
-    /**
      * Name of the Pay Schedule
      *
      * @property string PayScheduleName
@@ -71,7 +65,7 @@ class PaySchedule extends Remote\Object {
      * @return string
      */
     public static function getGUIDProperty(){
-        return 'PayScheduleID';
+        return 'PayScheduleId';
     }
 
 
@@ -108,7 +102,6 @@ class PaySchedule extends Remote\Object {
      */
     public static function getProperties() {
         return array(
-            'PayScheduleID' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'PayScheduleName' => array (true, self::PROPERTY_TYPE_STRING, null, false, false),
             'PaymentDate' => array (true, self::PROPERTY_TYPE_DATE, '\\DateTime', false, false),
             'StartDate' => array (true, self::PROPERTY_TYPE_DATE, '\\DateTime', false, false),
@@ -117,23 +110,6 @@ class PaySchedule extends Remote\Object {
         );
     }
 
-
-    /**
-     * @return string
-     */
-    public function getPayScheduleID() {
-        return $this->_data['PayScheduleID'];
-    }
-
-    /**
-     * @param string $value
-     * @return PaySchedule
-     */
-    public function setPayScheduleID($value) {
-        $this->propertyUpdated('PayScheduleID', $value);
-        $this->_data['PayScheduleID'] = $value;
-        return $this;
-    }
 
     /**
      * @return string

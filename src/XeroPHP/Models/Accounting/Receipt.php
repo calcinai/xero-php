@@ -348,6 +348,15 @@ class Receipt extends Remote\Object {
         return $this->_data['ReceiptID'];
     }
 
+    /**
+     * @param string $value
+     * @return Receipt
+     */
+    public function setReceiptID($value) {
+        $this->propertyUpdated('ReceiptID', $value);
+        $this->_data['ReceiptID'] = $value;
+        return $this;
+    }
 
     /**
      * @return string

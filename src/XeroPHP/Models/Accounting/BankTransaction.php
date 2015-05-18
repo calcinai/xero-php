@@ -482,6 +482,15 @@ class BankTransaction extends Remote\Object {
         return $this->_data['BankTransactionID'];
     }
 
+    /**
+     * @param string $value
+     * @return BankTransaction
+     */
+    public function setBankTransactionID($value) {
+        $this->propertyUpdated('BankTransactionID', $value);
+        $this->_data['BankTransactionID'] = $value;
+        return $this;
+    }
 
     /**
      * @return \DateTime

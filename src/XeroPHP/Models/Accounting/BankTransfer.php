@@ -216,6 +216,15 @@ class BankTransfer extends Remote\Object {
         return $this->_data['BankTransferID'];
     }
 
+    /**
+     * @param string $value
+     * @return BankTransfer
+     */
+    public function setBankTransferID($value) {
+        $this->propertyUpdated('BankTransferID', $value);
+        $this->_data['BankTransferID'] = $value;
+        return $this;
+    }
 
     /**
      * @return float

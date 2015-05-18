@@ -151,13 +151,13 @@ class TaxRate extends Remote\Object {
             'TaxComponents' => array (false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\TaxRate\\TaxComponent', true, false),
             'Status' => array (false, self::PROPERTY_TYPE_FLOAT, null, false, false),
             'ReportTaxType' => array (true, self::PROPERTY_TYPE_ENUM, null, false, false),
-            'CanApplyToAssets' => array (true, self::PROPERTY_TYPE_FLOAT, null, true, false),
-            'CanApplyToEquity' => array (true, self::PROPERTY_TYPE_FLOAT, null, false, false),
-            'CanApplyToExpenses' => array (true, self::PROPERTY_TYPE_FLOAT, null, true, false),
-            'CanApplyToLiabilities' => array (true, self::PROPERTY_TYPE_FLOAT, null, true, false),
-            'CanApplyToRevenue' => array (true, self::PROPERTY_TYPE_FLOAT, null, false, false),
-            'DisplayTaxRate' => array (true, self::PROPERTY_TYPE_FLOAT, null, false, false),
-            'EffectiveRate' => array (true, self::PROPERTY_TYPE_FLOAT, null, false, false)
+            'CanApplyToAssets' => array (false, self::PROPERTY_TYPE_FLOAT, null, true, false),
+            'CanApplyToEquity' => array (false, self::PROPERTY_TYPE_FLOAT, null, false, false),
+            'CanApplyToExpenses' => array (false, self::PROPERTY_TYPE_FLOAT, null, true, false),
+            'CanApplyToLiabilities' => array (false, self::PROPERTY_TYPE_FLOAT, null, true, false),
+            'CanApplyToRevenue' => array (false, self::PROPERTY_TYPE_FLOAT, null, false, false),
+            'DisplayTaxRate' => array (false, self::PROPERTY_TYPE_FLOAT, null, false, false),
+            'EffectiveRate' => array (false, self::PROPERTY_TYPE_FLOAT, null, false, false)
         );
     }
 

@@ -239,15 +239,6 @@ class Timesheet extends Remote\Object {
         return $this->_data['Hours'];
     }
 
-    /**
-     * @param string $value
-     * @return Timesheet
-     */
-    public function addHour($value) {
-        $this->propertyUpdated('Hours', $value);
-        $this->_data['Hours'][] = $value;
-        return $this;
-    }
 
 
 }

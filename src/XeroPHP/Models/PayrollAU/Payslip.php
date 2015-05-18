@@ -384,15 +384,6 @@ class Payslip extends Remote\Object {
         return $this->_data['FirstName'];
     }
 
-    /**
-     * @param string $value
-     * @return Payslip
-     */
-    public function setFirstName($value) {
-        $this->propertyUpdated('FirstName', $value);
-        $this->_data['FirstName'] = $value;
-        return $this;
-    }
 
     /**
      * @return string
@@ -401,15 +392,6 @@ class Payslip extends Remote\Object {
         return $this->_data['LastName'];
     }
 
-    /**
-     * @param string $value
-     * @return Payslip
-     */
-    public function setLastName($value) {
-        $this->propertyUpdated('LastName', $value);
-        $this->_data['LastName'] = $value;
-        return $this;
-    }
 
     /**
      * @return string
@@ -418,15 +400,6 @@ class Payslip extends Remote\Object {
         return $this->_data['EmployeeGroup'];
     }
 
-    /**
-     * @param string $value
-     * @return Payslip
-     */
-    public function setEmployeeGroup($value) {
-        $this->propertyUpdated('EmployeeGroup', $value);
-        $this->_data['EmployeeGroup'] = $value;
-        return $this;
-    }
 
     /**
      * @return string
@@ -435,15 +408,6 @@ class Payslip extends Remote\Object {
         return $this->_data['LastEdited'];
     }
 
-    /**
-     * @param string $value
-     * @return Payslip
-     */
-    public function setLastEdited($value) {
-        $this->propertyUpdated('LastEdited', $value);
-        $this->_data['LastEdited'] = $value;
-        return $this;
-    }
 
     /**
      * @return float[]
@@ -452,15 +416,6 @@ class Payslip extends Remote\Object {
         return $this->_data['Wages'];
     }
 
-    /**
-     * @param float $value
-     * @return Payslip
-     */
-    public function addWage($value) {
-        $this->propertyUpdated('Wages', $value);
-        $this->_data['Wages'][] = $value;
-        return $this;
-    }
 
     /**
      * @return float[]
@@ -469,15 +424,6 @@ class Payslip extends Remote\Object {
         return $this->_data['Deductions'];
     }
 
-    /**
-     * @param float $value
-     * @return Payslip
-     */
-    public function addDeduction($value) {
-        $this->propertyUpdated('Deductions', $value);
-        $this->_data['Deductions'][] = $value;
-        return $this;
-    }
 
     /**
      * @return float
@@ -486,15 +432,6 @@ class Payslip extends Remote\Object {
         return $this->_data['NetPay'];
     }
 
-    /**
-     * @param float $value
-     * @return Payslip
-     */
-    public function setNetPay($value) {
-        $this->propertyUpdated('NetPay', $value);
-        $this->_data['NetPay'] = $value;
-        return $this;
-    }
 
     /**
      * @return float
@@ -503,15 +440,6 @@ class Payslip extends Remote\Object {
         return $this->_data['Tax'];
     }
 
-    /**
-     * @param float $value
-     * @return Payslip
-     */
-    public function setTax($value) {
-        $this->propertyUpdated('Tax', $value);
-        $this->_data['Tax'] = $value;
-        return $this;
-    }
 
     /**
      * @return float
@@ -520,15 +448,6 @@ class Payslip extends Remote\Object {
         return $this->_data['Super'];
     }
 
-    /**
-     * @param float $value
-     * @return Payslip
-     */
-    public function setSuper($value) {
-        $this->propertyUpdated('Super', $value);
-        $this->_data['Super'] = $value;
-        return $this;
-    }
 
     /**
      * @return float[]
@@ -537,15 +456,6 @@ class Payslip extends Remote\Object {
         return $this->_data['Reimbursements'];
     }
 
-    /**
-     * @param float $value
-     * @return Payslip
-     */
-    public function addReimbursement($value) {
-        $this->propertyUpdated('Reimbursements', $value);
-        $this->_data['Reimbursements'][] = $value;
-        return $this;
-    }
 
     /**
      * @return LeaveEarningsLine[]
@@ -554,15 +464,6 @@ class Payslip extends Remote\Object {
         return $this->_data['LeaveEarningsLines'];
     }
 
-    /**
-     * @param LeaveEarningsLine $value
-     * @return Payslip
-     */
-    public function addLeaveEarningsLine(LeaveEarningsLine $value) {
-        $this->propertyUpdated('LeaveEarningsLines', $value);
-        $this->_data['LeaveEarningsLines'][] = $value;
-        return $this;
-    }
 
 
 }
