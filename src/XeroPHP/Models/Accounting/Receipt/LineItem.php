@@ -265,15 +265,6 @@ class LineItem extends Remote\Object {
         return $this->_data['DiscountRate'];
     }
 
-    /**
-     * @param string $value
-     * @return LineItem
-     */
-    public function setDiscountRate($value) {
-        $this->propertyUpdated('DiscountRate', $value);
-        $this->_data['DiscountRate'] = $value;
-        return $this;
-    }
 
 
 }

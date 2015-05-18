@@ -40,6 +40,12 @@ class JournalLine extends Remote\Object {
      */
 
     /**
+     * The description from the source transaction line item. Only returned if populated.
+     *
+     * @property string Description
+     */
+
+    /**
      * Net amount of journal line. This will be a positive value for a debit and negative for a credit
      *
      * @property float NetAmount
@@ -143,6 +149,7 @@ class JournalLine extends Remote\Object {
             'AccountCode' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'AccountType' => array (false, self::PROPERTY_TYPE_ENUM, null, false, false),
             'AccountName' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
+            'Description' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'NetAmount' => array (false, self::PROPERTY_TYPE_FLOAT, null, false, false),
             'GrossAmount' => array (false, self::PROPERTY_TYPE_FLOAT, null, false, false),
             'TaxAmount' => array (false, self::PROPERTY_TYPE_FLOAT, null, false, false),
@@ -235,6 +242,23 @@ class JournalLine extends Remote\Object {
     public function setAccountName($value) {
         $this->propertyUpdated('AccountName', $value);
         $this->_data['AccountName'] = $value;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getDescription() {
+        return $this->_data['Description'];
+    }
+
+    /**
+     * @param string $value
+     * @return JournalLine
+     */
+    public function setDescription($value) {
+        $this->propertyUpdated('Description', $value);
+        $this->_data['Description'] = $value;
         return $this;
     }
 

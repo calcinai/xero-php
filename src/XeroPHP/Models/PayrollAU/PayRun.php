@@ -283,15 +283,6 @@ class PayRun extends Remote\Object {
         return $this->_data['PayslipMessage'];
     }
 
-    /**
-     * @param string $value
-     * @return PayRun
-     */
-    public function setPayslipMessage($value) {
-        $this->propertyUpdated('PayslipMessage', $value);
-        $this->_data['PayslipMessage'] = $value;
-        return $this;
-    }
 
     /**
      * @return Payslip[]
@@ -300,15 +291,6 @@ class PayRun extends Remote\Object {
         return $this->_data['Payslips'];
     }
 
-    /**
-     * @param Payslip $value
-     * @return PayRun
-     */
-    public function addPayslip(Payslip $value) {
-        $this->propertyUpdated('Payslips', $value);
-        $this->_data['Payslips'][] = $value;
-        return $this;
-    }
 
     /**
      * @return string[]
@@ -317,15 +299,6 @@ class PayRun extends Remote\Object {
         return $this->_data['Wages'];
     }
 
-    /**
-     * @param string $value
-     * @return PayRun
-     */
-    public function addWage($value) {
-        $this->propertyUpdated('Wages', $value);
-        $this->_data['Wages'][] = $value;
-        return $this;
-    }
 
     /**
      * @return string[]
@@ -334,15 +307,6 @@ class PayRun extends Remote\Object {
         return $this->_data['Deductions'];
     }
 
-    /**
-     * @param string $value
-     * @return PayRun
-     */
-    public function addDeduction($value) {
-        $this->propertyUpdated('Deductions', $value);
-        $this->_data['Deductions'][] = $value;
-        return $this;
-    }
 
     /**
      * @return float
@@ -351,15 +315,6 @@ class PayRun extends Remote\Object {
         return $this->_data['Tax'];
     }
 
-    /**
-     * @param float $value
-     * @return PayRun
-     */
-    public function setTax($value) {
-        $this->propertyUpdated('Tax', $value);
-        $this->_data['Tax'] = $value;
-        return $this;
-    }
 
     /**
      * @return string
@@ -368,15 +323,6 @@ class PayRun extends Remote\Object {
         return $this->_data['Super'];
     }
 
-    /**
-     * @param string $value
-     * @return PayRun
-     */
-    public function setSuper($value) {
-        $this->propertyUpdated('Super', $value);
-        $this->_data['Super'] = $value;
-        return $this;
-    }
 
     /**
      * @return string
@@ -385,15 +331,6 @@ class PayRun extends Remote\Object {
         return $this->_data['Reimbursement'];
     }
 
-    /**
-     * @param string $value
-     * @return PayRun
-     */
-    public function setReimbursement($value) {
-        $this->propertyUpdated('Reimbursement', $value);
-        $this->_data['Reimbursement'] = $value;
-        return $this;
-    }
 
     /**
      * @return string
@@ -402,15 +339,6 @@ class PayRun extends Remote\Object {
         return $this->_data['NetPay'];
     }
 
-    /**
-     * @param string $value
-     * @return PayRun
-     */
-    public function setNetPay($value) {
-        $this->propertyUpdated('NetPay', $value);
-        $this->_data['NetPay'] = $value;
-        return $this;
-    }
 
 
 }

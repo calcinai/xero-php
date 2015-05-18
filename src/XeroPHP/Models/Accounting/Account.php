@@ -58,7 +58,7 @@ e.g.
      */
 
     /**
-     * See Account Status Codes
+     * Accounts with a status of ACTIVE can be updated to ARCHIVED. See Account Status Codes
      *
      * @property string Status
      */
@@ -225,14 +225,14 @@ e.g.
             'EnablePaymentsToAccount' => array (false, self::PROPERTY_TYPE_BOOLEAN, null, false, false),
             'ShowInExpenseClaims' => array (false, self::PROPERTY_TYPE_BOOLEAN, null, false, false),
             'AccountID' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'Status' => array (true, self::PROPERTY_TYPE_ENUM, null, false, false),
-            'Class' => array (true, self::PROPERTY_TYPE_ENUM, null, false, false),
-            'SystemAccount' => array (true, self::PROPERTY_TYPE_ENUM, null, false, false),
-            'BankAccountNumber' => array (true, self::PROPERTY_TYPE_STRING, null, false, false),
-            'CurrencyCode' => array (true, self::PROPERTY_TYPE_STRING, null, false, false),
-            'ReportingCode' => array (true, self::PROPERTY_TYPE_STRING, null, false, false),
-            'ReportingCodeName' => array (true, self::PROPERTY_TYPE_STRING, null, false, false),
-            'HasAttachments' => array (true, self::PROPERTY_TYPE_BOOLEAN, null, false, false)
+            'Status' => array (false, self::PROPERTY_TYPE_ENUM, null, false, false),
+            'Class' => array (false, self::PROPERTY_TYPE_ENUM, null, false, false),
+            'SystemAccount' => array (false, self::PROPERTY_TYPE_ENUM, null, false, false),
+            'BankAccountNumber' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
+            'CurrencyCode' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
+            'ReportingCode' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
+            'ReportingCodeName' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
+            'HasAttachments' => array (false, self::PROPERTY_TYPE_BOOLEAN, null, false, false)
         );
     }
 
@@ -397,15 +397,6 @@ e.g.
         return $this->_data['Class'];
     }
 
-    /**
-     * @param string $value
-     * @return Account
-     */
-    public function setClass($value) {
-        $this->propertyUpdated('Class', $value);
-        $this->_data['Class'] = $value;
-        return $this;
-    }
 
     /**
      * @return string
@@ -414,15 +405,6 @@ e.g.
         return $this->_data['SystemAccount'];
     }
 
-    /**
-     * @param string $value
-     * @return Account
-     */
-    public function setSystemAccount($value) {
-        $this->propertyUpdated('SystemAccount', $value);
-        $this->_data['SystemAccount'] = $value;
-        return $this;
-    }
 
     /**
      * @return string
@@ -431,15 +413,6 @@ e.g.
         return $this->_data['BankAccountNumber'];
     }
 
-    /**
-     * @param string $value
-     * @return Account
-     */
-    public function setBankAccountNumber($value) {
-        $this->propertyUpdated('BankAccountNumber', $value);
-        $this->_data['BankAccountNumber'] = $value;
-        return $this;
-    }
 
     /**
      * @return string
@@ -448,15 +421,6 @@ e.g.
         return $this->_data['CurrencyCode'];
     }
 
-    /**
-     * @param string $value
-     * @return Account
-     */
-    public function setCurrencyCode($value) {
-        $this->propertyUpdated('CurrencyCode', $value);
-        $this->_data['CurrencyCode'] = $value;
-        return $this;
-    }
 
     /**
      * @return string
@@ -465,15 +429,6 @@ e.g.
         return $this->_data['ReportingCode'];
     }
 
-    /**
-     * @param string $value
-     * @return Account
-     */
-    public function setReportingCode($value) {
-        $this->propertyUpdated('ReportingCode', $value);
-        $this->_data['ReportingCode'] = $value;
-        return $this;
-    }
 
     /**
      * @return string
@@ -482,15 +437,6 @@ e.g.
         return $this->_data['ReportingCodeName'];
     }
 
-    /**
-     * @param string $value
-     * @return Account
-     */
-    public function setReportingCodeName($value) {
-        $this->propertyUpdated('ReportingCodeName', $value);
-        $this->_data['ReportingCodeName'] = $value;
-        return $this;
-    }
 
     /**
      * @return bool
@@ -499,15 +445,6 @@ e.g.
         return $this->_data['HasAttachments'];
     }
 
-    /**
-     * @param bool $value
-     * @return Account
-     */
-    public function setHasAttachment($value) {
-        $this->propertyUpdated('HasAttachments', $value);
-        $this->_data['HasAttachments'] = $value;
-        return $this;
-    }
 
 
 }
