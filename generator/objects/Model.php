@@ -127,9 +127,16 @@ class Model {
      * It's not crucial that the order stays the same either.
      *
      * @param Property $property
-     * @param null $insert_position
+	 * @param null $insert_position
+	 * @param boolean $get_only
      */
-    public function addProperty(Property $property, $insert_position = null) {
+    public function addProperty(Property $property, $insert_position = null, $get_only = false) {
+        $key_name = strtolower($property->getName());
+
+        if(isset($this->properties[$key_name]) && $get_only) {
+            return;
+        }
+
         $property->setModel($this);
 
         //This is so it can be retrospectively added in the case of deprecation.
@@ -138,35 +145,25 @@ class Model {
             $property_position = 0;
             foreach($this->properties as $existing_name => $existing_property){
                 if($property_position++ === $insert_position){
-                    $properties[$property->getName()] = $property;
+                    $properties[$key_name] = $property;
                 }
                 $properties[$existing_name] = $existing_property;
             }
 
             //Otherwise it's at the end (or after)
             if($insert_position >= $property_position)
-                $properties[$property->getName()] = $property;
+                $properties[$key_name] = $property;
 
             $this->properties = $properties;
 
         } else {
-            $this->properties[$property->getName()] = $property;
+            $this->properties[$key_name] = $property;
         }
     }
 
 
-    public function hasProperty($property_name, $case_sensitive = true){
-
-        if($case_sensitive)
-            return isset($this->properties[$property_name]);
-
-        //CI search for the potential corrections of props
-        $property_name = strtolower($property_name);
-        foreach($this->properties as $name => $prop){
-            if(strtolower($name) === $property_name)
-                return true;
-        }
-        return false;
+    public function hasProperty($property_name){
+        return isset($this->properties[strtolower($property_name)]);
     }
 
     /**
@@ -176,7 +173,7 @@ class Model {
      * @return Property
      */
     public function getProperty($property_name) {
-        return $this->properties[$property_name];
+        return $this->properties[strtolower($property_name)];
     }
 
 

@@ -328,7 +328,7 @@ foreach($scrape_apis as $scrape_api) {
 
                     //At this point, we will have a $current_model, so parse properties
                     $node->filter('tr')->each(function($node) use ($current_model){
-                        static $mandatory, $read_only, $skip_next;
+                        static $mandatory, $read_only, $get_only, $skip_next;
 
                         //this is for skipping rowspans
                         if(isset($skip_next) && $skip_next){
@@ -341,12 +341,23 @@ foreach($scrape_apis as $scrape_api) {
 
                         //Breaks in the table with colspans
                         if($num_children === 1){
+                            $get_only = false;
                             if(preg_match('/(required|mandatory)/i', $children->eq(0)->text())){
                                 $mandatory = true;
+                                $read_only = false;
                             } elseif(preg_match('/(optional|recommended)/i', $children->eq(0)->text())){
                                 $mandatory = false;
-                            } elseif(preg_match('/only returned on (a )?GET requests?\.?$/i', $children->eq(0)->text())){
+                                $read_only = false;
+                            } elseif(preg_match('/(updatable)/i', $children->eq(0)->text())){
+                                $read_only = false;
+                                $mandatory = false;
+                            } elseif(preg_match('/(only )?returned on (a )?GET requests?( only)?\.?$/i', $children->eq(0)->text())){
                                 $read_only = true;
+                                $mandatory = false;
+                                $get_only = true;
+                            }
+                            if(preg_match('/(PUT|POST)/i', $children->eq(0)->text())){
+                                $read_only = false;
                             }
                         } else {
                             if(!isset($mandatory)){
@@ -355,6 +366,10 @@ foreach($scrape_apis as $scrape_api) {
 
                             if(!isset($read_only)){
                                 $read_only = false;
+                            }
+
+                            if(!isset($get_only)){
+                                $get_only = false;
                             }
 
                             //Handle tables with rowspansœ
@@ -374,8 +389,14 @@ foreach($scrape_apis as $scrape_api) {
                             foreach(preg_split('/>\s*or\s*</', $column_name) as $column_name){
                                 //make it into another param
                                 $column_name = str_replace(' ', '', $column_name);
+                                $tmp_ro = $read_only;
+                                // Don't make Primary GUID readonly
+                                if($column_name === $current_model->getClassName() . 'ID') {
+                                    $read_only = false;
+                                }
                                 $property = new Property($column_name, $column_description, $mandatory, $read_only);
-                                $current_model->addProperty($property);
+                                $current_model->addProperty($property, null, $get_only);
+                                $read_only = $tmp_ro;
                             }
 
                             //add links to property (for parsing types)
@@ -441,7 +462,7 @@ foreach($apis as $api){
             $property_position = 0;
             foreach($model_class::getProperties() as $name => $property_meta){
                 //At this point, it's been removed from the API (and not deprecated).  Thanks Xero!
-                if(!$model->hasProperty($name, false)){
+                if(!$model->hasProperty($name)){
                     //Make it and deprecate it.
                     $property = new Property($name, 'This property has been removed from the Xero API', $property_meta[0], false, true);
                     $model->addProperty($property, $property_position);
