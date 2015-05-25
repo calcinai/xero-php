@@ -42,7 +42,7 @@ class Invoice extends Remote\Object {
      * Line amounts are exclusive of tax by default if you don’t specify this element. See Line Amount
      * Types
      *
-     * @property float[] LineAmountTypes
+     * @property string LineAmountTypes
      */
 
     /**
@@ -283,7 +283,7 @@ class Invoice extends Remote\Object {
             'LineItems' => array (true, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Invoice\\LineItem', true, false),
             'Date' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTime', false, false),
             'DueDate' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTime', false, false),
-            'LineAmountTypes' => array (false, self::PROPERTY_TYPE_FLOAT, null, true, false),
+            'LineAmountTypes' => array (false, self::PROPERTY_TYPE_ENUM, null, false, false),
             'InvoiceNumber' => array (false, self::PROPERTY_TYPE_FLOAT, null, false, false),
             'Reference' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'BrandingThemeID' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
@@ -399,19 +399,19 @@ class Invoice extends Remote\Object {
     }
 
     /**
-     * @return float[]
+     * @return string
      */
     public function getLineAmountTypes() {
         return $this->_data['LineAmountTypes'];
     }
 
     /**
-     * @param float $value
+     * @param string $value
      * @return Invoice
      */
-    public function addLineAmountType($value) {
+    public function setLineAmountType($value) {
         $this->propertyUpdated('LineAmountTypes', $value);
-        $this->_data['LineAmountTypes'][] = $value;
+        $this->_data['LineAmountTypes'] = $value;
         return $this;
     }
 

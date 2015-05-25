@@ -35,7 +35,7 @@ class ManualJournal extends Remote\Object {
     /**
      * NoTax by default if you don’t specify this element. See Line Amount Types
      *
-     * @property float[] LineAmountTypes
+     * @property string LineAmountTypes
      */
 
     /**
@@ -137,7 +137,7 @@ class ManualJournal extends Remote\Object {
             'Narration' => array (true, self::PROPERTY_TYPE_STRING, null, false, false),
             'JournalLines' => array (true, self::PROPERTY_TYPE_OBJECT, 'Accounting\\ManualJournal\\JournalLine', true, false),
             'Date' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTime', false, false),
-            'LineAmountTypes' => array (false, self::PROPERTY_TYPE_FLOAT, null, true, false),
+            'LineAmountTypes' => array (false, self::PROPERTY_TYPE_ENUM, null, false, false),
             'Status' => array (false, self::PROPERTY_TYPE_ENUM, null, false, false),
             'Url' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'ShowOnCashBasisReports' => array (false, self::PROPERTY_TYPE_BOOLEAN, null, false, false),
@@ -215,19 +215,19 @@ class ManualJournal extends Remote\Object {
     }
 
     /**
-     * @return float[]
+     * @return string
      */
     public function getLineAmountTypes() {
         return $this->_data['LineAmountTypes'];
     }
 
     /**
-     * @param float $value
+     * @param string $value
      * @return ManualJournal
      */
-    public function addLineAmountType($value) {
+    public function setLineAmountType($value) {
         $this->propertyUpdated('LineAmountTypes', $value);
-        $this->_data['LineAmountTypes'][] = $value;
+        $this->_data['LineAmountTypes'] = $value;
         return $this;
     }
 

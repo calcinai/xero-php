@@ -41,7 +41,7 @@ class Receipt extends Remote\Object {
     /**
      * See Line Amount Types
      *
-     * @property float[] LineAmountTypes
+     * @property string LineAmountTypes
      */
 
     /**
@@ -174,7 +174,7 @@ class Receipt extends Remote\Object {
             'LineItems' => array (true, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Receipt\\LineItem', true, false),
             'User' => array (true, self::PROPERTY_TYPE_OBJECT, 'Accounting\\User', false, false),
             'Reference' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'LineAmountTypes' => array (false, self::PROPERTY_TYPE_FLOAT, null, true, false),
+            'LineAmountTypes' => array (false, self::PROPERTY_TYPE_ENUM, null, false, false),
             'SubTotal' => array (false, self::PROPERTY_TYPE_FLOAT, null, false, false),
             'TotalTax' => array (false, self::PROPERTY_TYPE_FLOAT, null, false, false),
             'Total' => array (false, self::PROPERTY_TYPE_FLOAT, null, false, false),
@@ -274,19 +274,19 @@ class Receipt extends Remote\Object {
     }
 
     /**
-     * @return float[]
+     * @return string
      */
     public function getLineAmountTypes() {
         return $this->_data['LineAmountTypes'];
     }
 
     /**
-     * @param float $value
+     * @param string $value
      * @return Receipt
      */
-    public function addLineAmountType($value) {
+    public function setLineAmountType($value) {
         $this->propertyUpdated('LineAmountTypes', $value);
-        $this->_data['LineAmountTypes'][] = $value;
+        $this->_data['LineAmountTypes'] = $value;
         return $this;
     }
 
