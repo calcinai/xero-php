@@ -11,6 +11,10 @@ $config = array(
 
         'consumer_key'      => 'k',
         'consumer_secret'   => 's',
+
+        'curl' => array(
+            CURLOPT_CAINFO => __DIR__.'/certs/ca-bundle.crt'
+        )
     )
 );
 
