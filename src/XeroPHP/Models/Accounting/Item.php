@@ -22,7 +22,7 @@ class Item extends Remote\Object {
      */
 
     /**
-     * The sales description of the item
+     * The sales description of the item (max length = 4000)
      *
      * @property string Description
      */
