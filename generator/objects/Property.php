@@ -213,6 +213,9 @@ class Property {
             }
         }
 
+        if(preg_match('/(alpha numeric)/i', $this->description))
+            $type = Object::PROPERTY_TYPE_STRING;
+
         if(preg_match('/(^int(eger)?\b)/i', $this->description))
             $type = Object::PROPERTY_TYPE_INT;
 
