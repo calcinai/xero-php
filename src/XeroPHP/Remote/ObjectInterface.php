@@ -1,0 +1,29 @@
+<?php
+
+
+namespace XeroPHP\Remote;
+
+
+interface ObjectInterface {
+
+    /**
+     * Get the GUID Property if it exists
+     *
+     * @return string|null
+     */
+    static function getGUIDProperty();
+
+    /**
+     * Get a list of properties
+     *
+     * @return array
+     */
+    static function getProperties();
+
+    /**
+     * Get a list of the supported HTTP Methods
+     *
+     * @return array
+     */
+    static function getSupportedMethods();
+}

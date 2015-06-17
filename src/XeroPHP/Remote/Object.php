@@ -9,7 +9,7 @@ use XeroPHP\Helpers;
  * Class Object
  * @package XeroPHP\Remote
  */
-class Object {
+abstract class Object implements ObjectInterface {
 
     /**
      * Keys for the meta properties array
@@ -36,6 +36,7 @@ class Object {
     public function __construct() {
         $this->_dirty = array();
         $this->_data = array();
+        $this->_associated_objects = array();
     }
 
     /**
@@ -53,8 +54,17 @@ class Object {
     protected $_dirty;
 
     /**
+     * Holds a list of objects that hold child references to this one.
+     *
+     * @var self[]
+     */
+    protected $_associated_objects;
+
+
+    /**
      * If there have been any properties changed since load
      *
+     * @param null $property
      * @return bool
      */
     public function isDirty($property = null) {
@@ -64,6 +74,24 @@ class Object {
             return isset($this->_dirty[$property]);
     }
 
+    /**
+     * Manually set a property as dirty
+     *
+     * @param $property
+     * @return self
+     */
+    public function setDirty($property){
+        $this->_dirty[$property] = true;
+
+        return $this;
+    }
+
+    /**
+     * Manually set a property as clean
+     *
+     * @param null $property
+     * @return self
+     */
     public function setClean($property = null) {
         if($property === null)
             $this->_dirty = array();
@@ -122,10 +150,20 @@ class Object {
             if(is_array($input_array[$property]) && Helpers::isAssoc($input_array[$property]) === false) {
                 $this->_data[$property] = array();
                 foreach($input_array[$property] as $assoc_element) {
-                    $this->_data[$property][] = self::castFromString($type, $assoc_element, $php_type);
+                    $cast = self::castFromString($type, $assoc_element, $php_type);
+                    //Do this here so that you know it's not a static method call to ::castFromString
+                    if($cast instanceof Object){
+                        $cast->addAssociatedObject($property, $this);
+                    }
+                    $this->_data[$property][] = $cast;
                 }
             } else {
-                $this->_data[$property] = self::castFromString($type, $input_array[$property], $php_type);
+                $cast = self::castFromString($type, $input_array[$property], $php_type);
+                //Do this here so that you know it's not a static method call to ::castFromString
+                if($cast instanceof Object){
+                    $cast->addAssociatedObject($property, $this);
+                }
+                $this->_data[$property] = $cast;
             }
         }
     }
@@ -175,6 +213,7 @@ class Object {
                 return $value ? 'true' : 'false';
 
             case self::PROPERTY_TYPE_DATE:
+                /** @var \DateTime $value */
                 return $value->format('c');
 
             case self::PROPERTY_TYPE_OBJECT:
@@ -189,8 +228,10 @@ class Object {
     /**
      * Cast the values to PHP types
      *
+     * @param $property_name
      * @param $type
      * @param $value
+     * @param $php_type
      * @return bool|\DateTime|float|int|string
      */
     public static function castFromString($type, $value, $php_type) {
@@ -213,6 +254,7 @@ class Object {
 
             case self::PROPERTY_TYPE_OBJECT:
                 $php_type = sprintf('\\XeroPHP\\Models\\%s', $php_type);
+                /** @var self $instance */
                 $instance = new $php_type();
                 $instance->fromStringArray($value);
                 return $instance;
@@ -246,7 +288,10 @@ class Object {
 
                 if($check_children) {
                     if($this->_data[$property] instanceof Object) {
-                        $this->_data[$property]->validate();
+                        //Keep IDEs happy
+                        /** @var self $obj */
+                        $obj = $this->_data[$property];
+                        $obj->validate();
 
                     } elseif(is_array($this->_data[$property])) {
                         foreach($this->_data[$property] as $element) {
@@ -261,6 +306,16 @@ class Object {
         return true;
     }
 
+
+    /**
+     * @param string $property
+     * @param self $object
+     */
+    public function addAssociatedObject($property, Object $object) {
+        $this->_associated_objects[$property] = $object;
+    }
+
+
     /**
      * Magic getter for accessing properties directly
      *
@@ -274,6 +329,8 @@ class Object {
             return $this->$getter();
 
         trigger_error(sprintf("Undefined property %s::$%s.\n", __CLASS__, $property));
+
+        return null;
     }
 
     /**
@@ -290,11 +347,23 @@ class Object {
             return $this->$setter($value);
 
         trigger_error(sprintf("Undefined property %s::$%s.\n", __CLASS__, $property));
+
+        return null;
     }
 
     protected function propertyUpdated($property, $value) {
-        if(!isset($this->_data[$property]) || $this->_data[$property] !== $value)
-            $this->_dirty[$property] = true;
+        if(!isset($this->_data[$property]) || $this->_data[$property] !== $value){
+            //If this object can update itself, set its own dirty flag, otherwise, set its parent's.
+            if(count(array_intersect($this::getSupportedMethods(), array(Request::METHOD_PUT, Request::METHOD_POST))) > 0){
+                //Object can update itself
+                $this->setDirty($property);
+            } else {
+                //Object can't update itself, so tell its parents
+                foreach($this->_associated_objects as $parent_property => $object){
+                    $object->setDirty($parent_property);
+                }
+            }
+        }
     }
 
     /**

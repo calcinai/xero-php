@@ -250,7 +250,7 @@ abstract class Application {
      */
     private function savePropertiesDirectly(Object $object){
         foreach($object::getProperties() as $property_name => $meta){
-            if($meta[Object::KEY_SAVE_DIRECTLY] && $object->isDirty($property_name)){
+            if($meta[Object::KEY_SAVE_DIRECTLY] && $object->isPropertyDirty($property_name)){
                 //Then actually save
                 $property_objects = $object->$property_name;
                 $property_type = get_class(current($property_objects));
