@@ -40,7 +40,7 @@ class Request {
     private $response;
 
 
-    public function __construct(Application $app, URL $url, $method = self::METHOD_GET) {
+    public function __construct(Application $app, URL $url, $method = self::METHOD_GET, $accept = self::CONTENT_TYPE_XML) {
 
         $this->app = $app;
         $this->url = $url;
@@ -59,7 +59,7 @@ class Request {
         }
 
         //Default to XML so you get the  xsi:type attribute in the root node.
-        $this->setHeader(self::HEADER_ACCEPT, self::CONTENT_TYPE_XML);
+        $this->setHeader(self::HEADER_ACCEPT, $accept);
 
     }
 
@@ -105,7 +105,9 @@ class Request {
         }
 
         $this->response = new Response($this, $response, $info);
-        $this->response->parse();
+        if ($this->getHeader(self::HEADER_ACCEPT) === self::CONTENT_TYPE_XML) {
+          $this->response->parse();
+        }
 
         return $this->response;
     }

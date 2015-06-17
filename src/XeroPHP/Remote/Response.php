@@ -126,6 +126,10 @@ class Response {
         return $this->oauth_response;
     }
 
+    public function getResponse() {
+        return $this->response_body;
+    }
+
     public function parseBody() {
 
         if($this->request->getUrl()->isOAuth())
@@ -245,4 +249,4 @@ class Response {
     }
 
 
-} 
+}

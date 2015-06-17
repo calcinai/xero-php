@@ -101,29 +101,35 @@ abstract class Application {
 
 
     /**
-     * As you should never have a GUID for a non-existent object, will throw a NotFoundExceptioon
+     * As you should never have a GUID for a non-existent object, will throw a NotFoundException.
+     * You can also add the accept parameter to request PDFs (ie. of invoices)
      *
      * @param $model
      * @param $guid
+     * @param $accept
      * @return mixed
      * @throws Exception
      * @throws Remote\Exception\NotFoundException
      */
-    public function loadByGUID($model, $guid) {
+    public function loadByGUID($model, $guid, $accept = Request::CONTENT_TYPE_XML) {
 
         $class = $this->validateModelClass($model);
 
         $uri = sprintf('%s/%s', $class::getResourceURI(), $guid);
 
         $url = new URL($this, $uri);
-        $request = new Request($this, $url, Request::METHOD_GET);
+        $request = new Request($this, $url, Request::METHOD_GET, $accept);
         $request->send();
 
-        //Return the first (if any) element from the response.
-        foreach($request->getResponse()->getElements() as $element){
-            $object = new $class();
-            $object->fromStringArray($element);
-            return $object;
+        if ($accept === Request::CONTENT_TYPE_XML) {
+          //Return the first (if any) element from the response.
+          foreach($request->getResponse()->getElements() as $element){
+              $object = new $class();
+              $object->fromStringArray($element);
+              return $object;
+          }
+        } else {
+          return $request->getResponse();
         }
 
     }
