@@ -62,8 +62,8 @@ class LineItem extends Remote\Object {
      */
 
     /**
-     * Optional Tracking Category – see Tracking.  Any LineItem can have a maximum of 2
-     * <TrackingCategory> elements.
+     * Optional Tracking Category – see Tracking. Any LineItem can have a maximum of 2 <TrackingCategory>
+     * elements.
      *
      * @property string Tracking
      */

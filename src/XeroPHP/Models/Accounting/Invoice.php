@@ -65,7 +65,7 @@ class Invoice extends Remote\Object {
      */
 
     /**
-     * URL link to a source document – shown as "Go to [appName]" in the Xero app
+     * URL link to a source document – shown as “Go to [appName]” in the Xero app
      *
      * @property string Url
      */
