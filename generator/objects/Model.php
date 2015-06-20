@@ -14,7 +14,9 @@ class Model {
     private $api;
 
     /**
-     * @var The parent model of the object.  This is if it's defined as a secondary model on a doc page
+     * The parent model of the object.  This is if it's defined as a secondary model on a doc page
+     *
+     * @var Model $parent_model
      */
     private $parent_model;
 
@@ -24,6 +26,14 @@ class Model {
     private $guid_property;
 
     /**
+     * @var bool $supports_pdf
+     */
+    private $supports_pdf;
+
+
+    public $rawHTML;
+
+    /**
      * No args in constructor.  Most things are not known when it's built
      */
     public function __construct(){
@@ -31,6 +41,7 @@ class Model {
         $this->properties = array();
         $this->methods = array();
         $this->sub_models = array();
+        $this->supports_pdf = false;
     }
 
     /**
@@ -249,6 +260,31 @@ class Model {
     public function setUrl($url) {
         $this->url = $url;
     }
+
+
+    /**
+     * This should be enough to tell if it supports them
+     *
+     * @return boolean
+     */
+    public function getSupportsAttachments() {
+        return $this->hasProperty('HasAttachments');
+    }
+
+    /**
+     * @return boolean
+     */
+    public function getSupportsPDF() {
+        return $this->supports_pdf;
+    }
+
+    /**
+     * @param boolean $supports_pdf
+     */
+    public function setSupportsPDF($supports_pdf) {
+        $this->supports_pdf = $supports_pdf;
+    }
+
 
     /**
      * Shortcut for getting them from $api where the group is the same as this name

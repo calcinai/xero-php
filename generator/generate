@@ -439,6 +439,11 @@ foreach($scrape_apis as $scrape_api) {
                     //Debug
                     $model->printPropertyTable();
                 }
+
+                if(strpos($primary_model->rawHTML, 'returned as PDF') !== false){
+                    //Assume that it does support it.
+                    $primary_model->setSupportsPDF(true);
+                }
             }
 
         });

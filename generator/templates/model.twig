@@ -4,12 +4,26 @@ namespace XeroPHP\Models\{{ model.Namespace }};
 
 use XeroPHP\Remote;
 
+{% if model.SupportsPDF %}
+use XeroPHP\Traits\PDFTrait;
+{% endif %}
+{% if model.SupportsAttachments %}
+use XeroPHP\Traits\AttachmentTrait;
+
+{% endif %}
 {% for class in model.UsedClasses %}
 use XeroPHP\Models\{{ class }};
 {% endfor %}
 
 class {{ model.ClassName }} extends Remote\Object {
 
+{% if model.SupportsPDF %}
+    use PDFTrait;
+{% endif %}
+{% if model.SupportsAttachments %}
+    use AttachmentTrait;
+
+{% endif %}
 {% for property in model.Properties %}
     /**
      * {{ property.Description|wordwrap(100, "\n     * ")|raw }}
