@@ -121,7 +121,7 @@ abstract class Application {
 
         //Return the first (if any) element from the response.
         foreach($request->getResponse()->getElements() as $element){
-            $object = new $class();
+            $object = new $class($this);
             $object->fromStringArray($element);
             return $object;
         }
@@ -156,13 +156,14 @@ abstract class Application {
 
             //In this case it's new
             if($object->hasGUID()) {
-
                 $method = Request::METHOD_POST;
                 $uri = sprintf('%s/%s', $object::getResourceURI(), $object->getGUID());
 
             } else {
                 $method = Request::METHOD_PUT;
                 $uri = $object::getResourceURI();
+                //@todo, bump version so you must create objects with app context.
+                $object->setApplication($this);
             }
 
             if(!$object::supportsMethod($method))

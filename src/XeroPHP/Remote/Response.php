@@ -53,6 +53,17 @@ class Response {
         list($this->content_type) = explode(';', $curl_info['content_type']);
     }
 
+    /**
+     * @throws BadRequestException
+     * @throws Exception
+     * @throws InternalErrorException
+     * @throws NotAvailableException
+     * @throws NotFoundException
+     * @throws NotImplementedException
+     * @throws OrganisationOfflineException
+     * @throws RateLimitExceededException
+     * @throws UnauthorizedException
+     */
     public function parse() {
 
         $this->parseBody();
@@ -67,6 +78,7 @@ class Response {
                     throw new BadRequestException();
                 }
 
+            /** @noinspection PhpMissingBreakStatementInspection */
             case Response::STATUS_UNAUTHORISED:
                 //This is where OAuth errors end up, this could maybe change to an OAuth exception
                 if(isset($this->oauth_response['oauth_problem_advice'])) {
@@ -96,6 +108,10 @@ class Response {
                     throw new NotAvailableException();
                 }
         }
+    }
+
+    public function getResponseBody(){
+        return $this->response_body;
     }
 
     public function getElements() {
@@ -128,8 +144,10 @@ class Response {
 
     public function parseBody() {
 
-        if($this->request->getUrl()->isOAuth())
-            return $this->parseHTML();
+        if($this->request->getUrl()->isOAuth()){
+            $this->parseHTML();
+            return;
+        }
 
         $this->elements = array();
         $this->element_errors = array();
@@ -150,7 +168,8 @@ class Response {
                 break;
 
             default:
-                throw new Exception("Parsing method not implemented for [{$this->content_type}]");
+                //Don't try to parse anything else.
+                return;
         }
 
         foreach($this->elements as $index => $element)
@@ -186,10 +205,10 @@ class Response {
     public function parseXML() {
 
         $sxml = new SimpleXMLElement($this->response_body);
-        $root_error = array();
 
         // For lack of a better way to find the elements returned (every time)
         // XML has an array 2 levels deep due to its non-unique key nature.
+        /** @var SimpleXMLElement $root_child */
         foreach($sxml as $child_index => $root_child) {
 
             switch($child_index) {
@@ -214,7 +233,6 @@ class Response {
 
     public function parseJSON() {
         $json = json_decode($this->response_body, true);
-        $root_error = array();
 
         foreach($json as $child_index => $root_child) {
 

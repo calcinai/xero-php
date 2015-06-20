@@ -34,8 +34,8 @@ class Request {
 
     private $oauth_client;
 
-    /*
-     * @var XeroPHP\Remote\Response;
+    /**
+     * @var \XeroPHP\Remote\Response;
      */
     private $response;
 
@@ -135,8 +135,8 @@ class Request {
         return $this->headers;
     }
 
-    /*
-     * @return XeroPHP\Remote\Response
+    /**
+     * @return \XeroPHP\Remote\Response
      */
     public function getResponse() {
         if(isset($this->response))

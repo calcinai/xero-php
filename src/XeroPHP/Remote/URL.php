@@ -43,6 +43,16 @@ class URL {
      */
     public function __construct(Application $app, $endpoint, $api = null) {
 
+        //Handle full URLs and pull them back apart.
+        //Annoying internal references are http??? and absolute.
+        if(strpos($endpoint, 'http') === 0){
+            if(preg_match('@^http(s)?://[^/]+/(?<api>[^/]+)/(?<version>[^/]+)/(?<endpoint>.+)$@i', $endpoint, $matches)) {
+                $endpoint = $matches['endpoint'];
+                $api = $matches['api'];
+                //$version = $matches['version'];
+            }
+        }
+
         if($api === null) {
             //Assume that it's an OAuth endpoint if no API is given.
             //If this becomes an issue it can just check every time, but it seems a little redundant

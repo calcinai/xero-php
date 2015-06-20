@@ -2,6 +2,7 @@
 
 namespace XeroPHP\Remote;
 
+use XeroPHP\Application;
 use XeroPHP\Exception;
 use XeroPHP\Helpers;
 
@@ -32,13 +33,6 @@ abstract class Object implements ObjectInterface {
     const PROPERTY_TYPE_DATE    = 'date';
     const PROPERTY_TYPE_OBJECT  = 'object';
 
-
-    public function __construct() {
-        $this->_dirty = array();
-        $this->_data = array();
-        $this->_associated_objects = array();
-    }
-
     /**
      * Container to the actual properties of the object
      *
@@ -60,6 +54,30 @@ abstract class Object implements ObjectInterface {
      */
     protected $_associated_objects;
 
+
+    /**
+     * Holds a ref to the application that was used to load the object, enables shorthand $object->save();
+     *
+     * @var Application $_application
+     */
+    protected $_application;
+
+
+    public function __construct(Application $application = null) {
+        $this->_application = $application;
+        $this->_dirty = array();
+        $this->_data = array();
+        $this->_associated_objects = array();
+    }
+
+    /**
+     * This should be compulsory in the constructor int he future, but will have to be like this for BC until the next major version.
+     *
+     * @param Application $application
+     */
+    public function setApplication(Application $application){
+        $this->_application = $application;
+    }
 
     /**
      * If there have been any properties changed since load
@@ -228,7 +246,6 @@ abstract class Object implements ObjectInterface {
     /**
      * Cast the values to PHP types
      *
-     * @param $property_name
      * @param $type
      * @param $value
      * @param $php_type
@@ -306,6 +323,18 @@ abstract class Object implements ObjectInterface {
         return true;
     }
 
+
+    /**
+     * Shorthand save an object if it is instantiated with app context.
+     *
+     * @throws Exception
+     */
+    public function save(){
+        if($this->_application === null){
+            throw new Exception('->save() is only available on objects that have an injected application context.');
+        }
+        $this->_application->save($this);
+    }
 
     /**
      * @param string $property

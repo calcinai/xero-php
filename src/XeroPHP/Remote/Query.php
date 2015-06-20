@@ -107,7 +107,7 @@ class Query {
 
         $elements = array();
         foreach($request->getResponse()->getElements() as $element) {
-            $built_element = new $from_class;
+            $built_element = new $from_class($this->app);
             $built_element->fromStringArray($element);
             $elements[] = $built_element;
         }

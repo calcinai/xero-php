@@ -26,4 +26,13 @@ interface ObjectInterface {
      * @return array
      */
     static function getSupportedMethods();
+
+    /**
+     * return the URI of the resource (if any)
+     *
+     * @return string
+     */
+    static function getResourceURI();
+
+
 }
