@@ -4,10 +4,14 @@ namespace XeroPHP\Models\Accounting;
 
 use XeroPHP\Remote;
 
+use XeroPHP\Traits\AttachmentTrait;
+
 use XeroPHP\Models\Accounting\BankTransfer\FromBankAccount;
 use XeroPHP\Models\Accounting\BankTransfer\ToBankAccount;
 
 class BankTransfer extends Remote\Object {
+
+    use AttachmentTrait;
 
     /**
      * See FromBankAccount

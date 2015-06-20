@@ -4,8 +4,12 @@ namespace XeroPHP\Models\Accounting;
 
 use XeroPHP\Remote;
 
+use XeroPHP\Traits\AttachmentTrait;
+
 
 class Account extends Remote\Object {
+
+    use AttachmentTrait;
 
     /**
      * Customer defined alpha numeric account code e.g 200 or SALES

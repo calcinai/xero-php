@@ -4,9 +4,15 @@ namespace XeroPHP\Models\Accounting;
 
 use XeroPHP\Remote;
 
+use XeroPHP\Traits\PDFTrait;
+use XeroPHP\Traits\AttachmentTrait;
+
 use XeroPHP\Models\Accounting\Invoice\LineItem;
 
 class Invoice extends Remote\Object {
+
+    use PDFTrait;
+    use AttachmentTrait;
 
     /**
      * See Invoice Types

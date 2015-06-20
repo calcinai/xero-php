@@ -4,10 +4,14 @@ namespace XeroPHP\Models\Accounting;
 
 use XeroPHP\Remote;
 
+use XeroPHP\Traits\AttachmentTrait;
+
 use XeroPHP\Models\Accounting\BankTransaction\LineItem;
 use XeroPHP\Models\Accounting\Prepayment\Allocation;
 
 class Prepayment extends Remote\Object {
+
+    use AttachmentTrait;
 
     /**
      * This property has been removed from the Xero API

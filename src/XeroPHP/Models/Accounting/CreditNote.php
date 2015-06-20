@@ -4,10 +4,16 @@ namespace XeroPHP\Models\Accounting;
 
 use XeroPHP\Remote;
 
+use XeroPHP\Traits\PDFTrait;
+use XeroPHP\Traits\AttachmentTrait;
+
 use XeroPHP\Models\Accounting\Invoice\LineItem;
 use XeroPHP\Models\Accounting\CreditNote\Allocation;
 
 class CreditNote extends Remote\Object {
+
+    use PDFTrait;
+    use AttachmentTrait;
 
     /**
      * An optional field to store a reference

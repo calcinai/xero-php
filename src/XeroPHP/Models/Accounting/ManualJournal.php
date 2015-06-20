@@ -4,9 +4,13 @@ namespace XeroPHP\Models\Accounting;
 
 use XeroPHP\Remote;
 
+use XeroPHP\Traits\AttachmentTrait;
+
 use XeroPHP\Models\Accounting\ManualJournal\JournalLine;
 
 class ManualJournal extends Remote\Object {
+
+    use AttachmentTrait;
 
     /**
      * Xero identifier

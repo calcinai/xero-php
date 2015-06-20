@@ -4,10 +4,14 @@ namespace XeroPHP\Models\Accounting;
 
 use XeroPHP\Remote;
 
+use XeroPHP\Traits\AttachmentTrait;
+
 use XeroPHP\Models\Accounting\Contact\ContactPerson;
 use XeroPHP\Models\Accounting\Organisation\PaymentTerm;
 
 class Contact extends Remote\Object {
+
+    use AttachmentTrait;
 
     /**
      * Xero identifier
