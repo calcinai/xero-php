@@ -17,10 +17,9 @@ trait AttachmentTrait {
 
         $url = new URL($this->_application, $uri);
         $request = new Request($this->_application, $url, Request::METHOD_POST);
-        print_r($request);
-        $request->send();
+        
 
-        $request->setBody($attachment->getContent())->send();
+        $request->setBody($attachment->getContent(), $attachment->getMimeType())->send();
         $response = $request->getResponse();
 
         if(false !== $element = current($response->getElements())) {
