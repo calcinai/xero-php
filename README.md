@@ -23,7 +23,7 @@ This library has been tested with Private, Public and Partner apps but is still 
 Any files in the XeroPHP/Models directory are system generated.  Ideally, these shouldn't be modified directly, as it will be difficult to track/update.  Instead, if you notice something wrong with them, have a look at the ```generate/``` folder.  This contains the generation code, which actually just scrapes <http://developer.xero.com/documentation/> and parses out model/property/relation information.
 
 ## Requirements
-* PHP 5.3+
+* PHP 5.4+
 * php\_curl extension - ensure a recent version (7.30+)
 * php\_openssl extension
 
@@ -33,7 +33,7 @@ Using composer:
 
 ```json
   "require": {
-  	"calcinai/xero-php": "1.1.*"
+  	"calcinai/xero-php": "1.2.*"
   }
 ```
 
@@ -62,16 +62,40 @@ $contact = $xero->loadByGUID('Accounting\\Contact', [GUID]);
 
 Or create & populate it
 ```php
-$contact = new \XeroPHP\Models\Accounting\Contact();
+$contact = new \XeroPHP\Models\Accounting\Contact($xero);
 $contact->setName('Test Contact')
-			->setFirstName('Test')
-			->setLastName('Contact')
-			->setEmailAddress('test@example.com');
+	->setFirstName('Test')
+	->setLastName('Contact')
+	->setEmailAddress('test@example.com');
 ```
 
 Save it
 ```php
-$xero->save($contact);
+$contact->save();
 ```
+
+From v1.2.0+, Xero context can be injected directly when creating the objects themselves, which then exposes the ```->save()``` method.  This is necessary for the objects to maintain state with their relations.
+
+Nested objects
+```php
+$invoice = $xero->loadByGUID('Accounting\\Invoice', '[GUID]');
+$incoice->setContact($contact);
+```
+
+Attachments
+```php
+$attachments = $invoice->getAttachments();
+foreach($attachment as $attachment){
+	//Do something with them
+    file_put_contents($attachment->getFileName(), $attachment->getContent);
+}
+
+//You can also upload attachemnts
+$attachment = \XeroPHP\Models\Accounting\Attachment::createFromLocalFile('/path/to/image.jpg');
+$invoice->addAttachment($attachment);
+```
+
+PDF - Models that support PDF export will inherit a ```->getPDF()``` method, which returns the raw content of the PDF.  Currently this is limited to Invoices and CreditNotes.
+
 
 Refer to the [examples](examples) for more complex usage and nested/related objects.
