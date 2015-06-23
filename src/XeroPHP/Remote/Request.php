@@ -32,8 +32,6 @@ class Request {
     private $parameters;
     private $body;
 
-    private $oauth_client;
-
     /**
      * @var \XeroPHP\Remote\Response;
      */
