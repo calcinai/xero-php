@@ -62,6 +62,12 @@ class TaxDeclaration extends Remote\Object {
      */
 
     /**
+     * If employee has trade support loan. e.g true or false
+     *
+     * @property string HasTSLDebt
+     */
+
+    /**
      * If the employee has requested that additional tax be withheld each pay run. e.g 50
      *
      * @property string UpwardVariationTaxWithholdingAmount
@@ -163,6 +169,7 @@ class TaxDeclaration extends Remote\Object {
             'TaxOffsetEstimatedAmount' => array (false, self::PROPERTY_TYPE_FLOAT, null, false, false),
             'HasHELPDebt' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'HasSFSSDebt' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
+            'HasTSLDebt' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'UpwardVariationTaxWithholdingAmount' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'EligibleToReceiveLeaveLoading' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'ApprovedWithholdingVariationPercentage' => array (false, self::PROPERTY_TYPE_STRING, null, false, false)
@@ -320,6 +327,23 @@ class TaxDeclaration extends Remote\Object {
     public function setHasSFSSDebt($value) {
         $this->propertyUpdated('HasSFSSDebt', $value);
         $this->_data['HasSFSSDebt'] = $value;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getHasTSLDebt() {
+        return $this->_data['HasTSLDebt'];
+    }
+
+    /**
+     * @param string $value
+     * @return TaxDeclaration
+     */
+    public function setHasTSLDebt($value) {
+        $this->propertyUpdated('HasTSLDebt', $value);
+        $this->_data['HasTSLDebt'] = $value;
         return $this;
     }
 

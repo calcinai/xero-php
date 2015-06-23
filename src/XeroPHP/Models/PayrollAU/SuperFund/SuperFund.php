@@ -45,6 +45,12 @@ class SuperFund extends Remote\Object {
      */
 
     /**
+     * The electronic service address for the self managed super fund (max length = 16)
+     *
+     * @property string ElectronicServiceAddress
+     */
+
+    /**
      * Xero identifier e.g c56b19ef-75bf-45e8-98a4-e699a96609f7
      *
      * @property string SuperFundID
@@ -159,6 +165,7 @@ A UTC timestamp
             'BSB' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'AccountNumber' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'AccountName' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
+            'ElectronicServiceAddress' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'SuperFundID' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'EmployerNumber' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'SPIN' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
@@ -268,6 +275,23 @@ A UTC timestamp
     public function setAccountName($value) {
         $this->propertyUpdated('AccountName', $value);
         $this->_data['AccountName'] = $value;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getElectronicServiceAddress() {
+        return $this->_data['ElectronicServiceAddress'];
+    }
+
+    /**
+     * @param string $value
+     * @return SuperFund
+     */
+    public function setElectronicServiceAddress($value) {
+        $this->propertyUpdated('ElectronicServiceAddress', $value);
+        $this->_data['ElectronicServiceAddress'] = $value;
         return $this;
     }
 
