@@ -52,19 +52,19 @@ class TaxDeclaration extends Remote\Object {
     /**
      * If employee has HECS or HELP dept. e.g true or false
      *
-     * @property string HasHELPDebt
+     * @property bool HasHELPDebt
      */
 
     /**
      * If employee has financial supplement dept. e.g true or false
      *
-     * @property string HasSFSSDebt
+     * @property bool HasSFSSDebt
      */
 
     /**
      * If employee has trade support loan. e.g true or false
      *
-     * @property string HasTSLDebt
+     * @property bool HasTSLDebt
      */
 
     /**
@@ -167,9 +167,9 @@ class TaxDeclaration extends Remote\Object {
             'AustralianResidentForTaxPurposes' => array (false, self::PROPERTY_TYPE_STRING, null, true, false),
             'TaxFreeThresholdClaimed' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'TaxOffsetEstimatedAmount' => array (false, self::PROPERTY_TYPE_FLOAT, null, false, false),
-            'HasHELPDebt' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'HasSFSSDebt' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'HasTSLDebt' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
+            'HasHELPDebt' => array (false, self::PROPERTY_TYPE_BOOLEAN, null, false, false),
+            'HasSFSSDebt' => array (false, self::PROPERTY_TYPE_BOOLEAN, null, false, false),
+            'HasTSLDebt' => array (false, self::PROPERTY_TYPE_BOOLEAN, null, false, false),
             'UpwardVariationTaxWithholdingAmount' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'EligibleToReceiveLeaveLoading' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'ApprovedWithholdingVariationPercentage' => array (false, self::PROPERTY_TYPE_STRING, null, false, false)
@@ -297,14 +297,14 @@ class TaxDeclaration extends Remote\Object {
     }
 
     /**
-     * @return string
+     * @return bool
      */
     public function getHasHELPDebt() {
         return $this->_data['HasHELPDebt'];
     }
 
     /**
-     * @param string $value
+     * @param bool $value
      * @return TaxDeclaration
      */
     public function setHasHELPDebt($value) {
@@ -314,14 +314,14 @@ class TaxDeclaration extends Remote\Object {
     }
 
     /**
-     * @return string
+     * @return bool
      */
     public function getHasSFSSDebt() {
         return $this->_data['HasSFSSDebt'];
     }
 
     /**
-     * @param string $value
+     * @param bool $value
      * @return TaxDeclaration
      */
     public function setHasSFSSDebt($value) {
@@ -331,14 +331,14 @@ class TaxDeclaration extends Remote\Object {
     }
 
     /**
-     * @return string
+     * @return bool
      */
     public function getHasTSLDebt() {
         return $this->_data['HasTSLDebt'];
     }
 
     /**
-     * @param string $value
+     * @param bool $value
      * @return TaxDeclaration
      */
     public function setHasTSLDebt($value) {
