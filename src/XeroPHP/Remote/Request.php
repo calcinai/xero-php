@@ -92,7 +92,7 @@ class Request {
 
         curl_setopt($ch, CURLOPT_URL, $full_uri);
 
-        if($this->method === self::METHOD_POST || $this->method === self::METHOD_POST)
+        if($this->method === self::METHOD_POST || $this->method === self::METHOD_PUT)
             curl_setopt($ch, CURLOPT_POST, true);
 
         $response = curl_exec($ch);
