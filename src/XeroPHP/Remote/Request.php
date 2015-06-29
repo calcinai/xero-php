@@ -87,13 +87,18 @@ class Request {
         //build parameter array - the only time there's a post body is with the XML, only escape at this point
         $query_string = Helpers::flattenAssocArray($this->getParameters(), '%s=%s', '&', true);
 
-        if(strlen($query_string) > 0)
+        if(strlen($query_string) > 0) {
             $full_uri .= "?$query_string";
+        }
 
         curl_setopt($ch, CURLOPT_URL, $full_uri);
 
-        if($this->method === self::METHOD_POST || $this->method === self::METHOD_POST)
+        if($this->method === self::METHOD_POST || $this->method === self::METHOD_POST) {
             curl_setopt($ch, CURLOPT_POST, true);
+        }
+
+        // Fire event containing request state before request sent
+        $this->app->events()->fire('onRequest', $this);
 
         $response = curl_exec($ch);
         $info = curl_getinfo($ch);
@@ -103,6 +108,10 @@ class Request {
         }
 
         $this->response = new Response($this, $response, $info);
+
+        // Fire event containing response state before response is parsed
+        $this->app->events()->fire('onResponse', $this->response);
+
         $this->response->parse();
 
         return $this->response;
@@ -169,6 +178,12 @@ class Request {
         return $this->url;
     }
 
+    /**
+     * @return string
+     */
+    public function getBody() {
+        return $this->body;
+    }
 
     public function setBody($body, $content_type = self::CONTENT_TYPE_XML) {
 

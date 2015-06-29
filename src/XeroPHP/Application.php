@@ -43,11 +43,14 @@ abstract class Application {
 
     protected $config;
     protected $oauth_client;
+    protected $events;
 
     /**
      * @param array $user_config
      */
     public function __construct(array $user_config) {
+        $this->events = new Events();
+
         //better here for overriding
         $this->config = array_replace_recursive(self::$_config_defaults, static::$_type_config_defaults, $user_config);
 
@@ -65,6 +68,12 @@ abstract class Application {
         return $this->oauth_client->getAuthorizeURL();
     }
 
+    /**
+     * @return Events
+     */
+    public function events() {
+        return $this->events;
+    }
 
     /**
      * @param $key
