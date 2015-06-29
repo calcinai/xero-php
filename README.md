@@ -87,7 +87,7 @@ Attachments
 $attachments = $invoice->getAttachments();
 foreach($attachment as $attachment){
 	//Do something with them
-    file_put_contents($attachment->getFileName(), $attachment->getContent);
+    file_put_contents($attachment->getFileName(), $attachment->getContent());
 }
 
 //You can also upload attachemnts
