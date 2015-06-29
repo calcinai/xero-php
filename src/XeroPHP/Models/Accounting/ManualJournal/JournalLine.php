@@ -39,6 +39,12 @@ class JournalLine extends Remote\Object {
      * @property string Tracking
      */
 
+    /**
+     * The calculated tax amount based on the TaxType and LineAmount
+     *
+     * @property float TaxAmount
+     */
+
 
 
     /**
@@ -106,7 +112,8 @@ class JournalLine extends Remote\Object {
             'AccountCode' => array (true, self::PROPERTY_TYPE_STRING, null, false, false),
             'Description' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'TaxType' => array (false, self::PROPERTY_TYPE_ENUM, null, false, false),
-            'Tracking' => array (false, self::PROPERTY_TYPE_STRING, null, false, false)
+            'Tracking' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
+            'TaxAmount' => array (false, self::PROPERTY_TYPE_FLOAT, null, false, false)
         );
     }
 
@@ -195,6 +202,14 @@ class JournalLine extends Remote\Object {
         $this->_data['Tracking'] = $value;
         return $this;
     }
+
+    /**
+     * @return float
+     */
+    public function getTaxAmount() {
+        return $this->_data['TaxAmount'];
+    }
+
 
 
 }
