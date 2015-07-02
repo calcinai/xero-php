@@ -16,7 +16,7 @@ class PaymentMethod extends Remote\Object {
     /**
      * The Bank accounts for the employee. Only Applies when PaymentMethodType is DIRECTDEPOSIT
      *
-     * @property string BankAccounts
+     * @property BankAccount[] BankAccounts
      */
 
 
@@ -87,7 +87,7 @@ class PaymentMethod extends Remote\Object {
     public static function getProperties() {
         return array(
             'PaymentMethodType' => array (false, self::PROPERTY_TYPE_ENUM, null, false, false),
-            'BankAccounts' => array (false, self::PROPERTY_TYPE_ENUM, null, false, false)
+            'BankAccounts' => array (false, self::PROPERTY_TYPE_OBJECT, 'PayrollUS\\Employee\\BankAccount', true, false)
         );
     }
 
@@ -110,19 +110,19 @@ class PaymentMethod extends Remote\Object {
     }
 
     /**
-     * @return string
+     * @return BankAccount[]
      */
     public function getBankAccounts() {
         return $this->_data['BankAccounts'];
     }
 
     /**
-     * @param string $value
+     * @param BankAccount $value
      * @return PaymentMethod
      */
-    public function setBankAccount($value) {
+    public function addBankAccount(BankAccount $value) {
         $this->propertyUpdated('BankAccounts', $value);
-        $this->_data['BankAccounts'] = $value;
+        $this->_data['BankAccounts'][] = $value;
         return $this;
     }
 

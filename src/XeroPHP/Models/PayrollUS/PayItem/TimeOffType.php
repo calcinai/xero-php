@@ -10,7 +10,7 @@ class TimeOffType extends Remote\Object {
     /**
      * Name of the time off type (max length = 50)
      *
-     * @property string TimeOffType
+     * @property TimeOffType TimeOffType
      */
 
     /**
@@ -111,7 +111,7 @@ If Paid Time Off is selected the employee will get paid when taking this time of
      */
     public static function getProperties() {
         return array(
-            'TimeOffType' => array (true, self::PROPERTY_TYPE_ENUM, null, false, false),
+            'TimeOffType' => array (true, self::PROPERTY_TYPE_OBJECT, 'PayrollUS\\PayItem\\TimeOffType', false, false),
             'TimeOffCategory' => array (true, self::PROPERTY_TYPE_ENUM, null, false, false),
             'ExpenseAccountCode' => array (true, self::PROPERTY_TYPE_STRING, null, false, false),
             'LiabilityAccountCode' => array (true, self::PROPERTY_TYPE_STRING, null, false, false),
@@ -122,17 +122,17 @@ If Paid Time Off is selected the employee will get paid when taking this time of
 
 
     /**
-     * @return string
+     * @return TimeOffType
      */
     public function getTimeOffType() {
         return $this->_data['TimeOffType'];
     }
 
     /**
-     * @param string $value
+     * @param TimeOffType $value
      * @return TimeOffType
      */
-    public function setTimeOffType($value) {
+    public function setTimeOffType(TimeOffType $value) {
         $this->propertyUpdated('TimeOffType', $value);
         $this->_data['TimeOffType'] = $value;
         return $this;

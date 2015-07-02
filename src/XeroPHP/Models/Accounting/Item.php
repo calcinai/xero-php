@@ -5,7 +5,7 @@ namespace XeroPHP\Models\Accounting;
 use XeroPHP\Remote;
 
 use XeroPHP\Models\Accounting\Item\Purchase;
-use XeroPHP\Models\Accounting\Organisation\Sale;
+use XeroPHP\Models\Accounting\Item\Sale;
 
 class Item extends Remote\Object {
 
@@ -109,7 +109,7 @@ class Item extends Remote\Object {
             'Code' => array (true, self::PROPERTY_TYPE_STRING, null, false, false),
             'Description' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'PurchaseDetails' => array (false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Item\\Purchase', true, false),
-            'SalesDetails' => array (false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Organisation\\Sale', true, false)
+            'SalesDetails' => array (false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Item\\Sale', true, false)
         );
     }
 
