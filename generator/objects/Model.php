@@ -4,7 +4,7 @@ use XeroPHP\Helpers;
 use XeroPHP\Remote\Object;
 use XeroPHP\Remote\Request;
 
-class Model {
+class Model implements ParsedObjectInterface {
 
     private $name;
     private $properties;
@@ -57,7 +57,7 @@ class Model {
     /**
      * Getter for api
      *
-     * @return mixed
+     * @return API
      */
     public function getAPI(){
         return $this->api;

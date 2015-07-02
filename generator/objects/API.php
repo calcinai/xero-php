@@ -18,9 +18,13 @@ class API {
      */
     private $is_indexed;
 
+    /** @var Model[]|Enum[] */
+    private $search_keys;
+
     /**
      * @param $name
      * @param $namespace
+     * @param $stem
      */
     public function __construct($name, $namespace, $stem) {
 
@@ -79,7 +83,7 @@ class API {
     /**
      * Get all Enums
      *
-     * @return mixed
+     * @return Enum[]
      */
     public function getEnums() {
         return $this->enums;
@@ -88,34 +92,36 @@ class API {
     /**
      * Add an enum
      *
-     * @param Enum $enums
+     * @param Enum $enum
      */
     public function addEnum(Enum $enum) {
         $this->enums[] = $enum;
     }
 
     /**
+     * @param bool $include_aliases
+     *
      * @return Model[]
      */
     public function getModels($include_aliases = true) {
         $models = $this->models;
 
         if($include_aliases){
-            foreach($this->model_aliases as $alias => $model){
-                //actually clone them there and change their name
-                $clone = clone $model;
-                $clone->setName($alias);
+            foreach($this->model_aliases as $alias){
+                /** @var Model $clone */
+                $clone = clone $alias['model'];
+                $clone->setName($alias['name']);
                 $models[] = $clone;
             }
-        }
 
+        }
         return $models;
     }
 
     /**
      * Add a model representation to the api
      *
-     * @param mixed $models
+     * @param Model $model
      */
     public function addModel(Model $model) {
         $model->setAPI($this);
@@ -129,7 +135,10 @@ class API {
      * @param $class_name
      */
     public function addModelAlias(Model $model, $class_name){
-        $this->model_aliases[$class_name] = $model;
+        $this->model_aliases[] = array(
+            'name' => $class_name,
+            'model' => $model
+        );
     }
 
     /**

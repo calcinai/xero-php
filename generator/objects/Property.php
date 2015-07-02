@@ -15,6 +15,11 @@ class Property {
     private $is_mandatory;
     private $is_read_only;
 
+    /**
+     * Contains the model that a property contains
+     *
+     * @var Model $related_object
+     */
     private $related_object;
 
     public $save_directly;
@@ -46,35 +51,35 @@ class Property {
     }
 
     /**
-     * @return mixed
+     * @return Model
      */
     public function getModel(){
         return $this->model;
     }
 
     /**
-     * @return mixed
+     * @return string
      */
     public function getName(){
         return $this->name;
     }
 
     /**
-     * @return mixed
+     * @return string
      */
     public function getNameSingular(){
         return \XeroPHP\Helpers::singularize($this->getName());
     }
 
     /**
-     * @return mixed
+     * @return string
      */
     public function getDescription(){
         return $this->description;
     }
 
     /**
-     * @return null
+     * @return Model|null
      */
     public function getRelatedObject(){
         return $this->related_object;
@@ -174,6 +179,7 @@ class Property {
                 return $this->related_object->getClassName($with_ns);
         }
 
+        return null;
     }
 
     /**
@@ -258,6 +264,11 @@ class Property {
 
             }
 
+            if($result === null && substr_count($ns_hint, '\\') > 1){
+                $parent_ns_hint = substr($ns_hint, 0, strrpos($ns_hint, '\\'));
+                $result = $this->getModel()->getAPI()->searchByKey($this->getName(), $parent_ns_hint);
+            }
+
             if($result === null)
                 $result = $this->getModel()->getAPI()->searchByKey($this->getName(), $ns_hint);
 
@@ -286,8 +297,9 @@ class Property {
 
             //I have tried very hard to avoid special cases!
             if($result === null){
-                if(preg_match('/^(?<model>Purchase|Sale)s?Details/i', $this->getName(), $matches))
+                if(preg_match('/^(?<model>Purchase|Sale)s?Details/i', $this->getName(), $matches)){
                     $result = $this->getModel()->getAPI()->searchByKey($matches['model'], $ns_hint);
+                }
             }
 
         }

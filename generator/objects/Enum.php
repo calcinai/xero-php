@@ -1,6 +1,6 @@
 <?php
 
-class Enum {
+class Enum implements ParsedObjectInterface {
 
     private $group;
     private $name;
@@ -125,6 +125,14 @@ class Enum {
      */
     public function getName(){
         return $this->name;
+    }
+
+    /**
+     * Setter for Enum name
+     * @param $name
+     */
+    public function setName($name){
+        $this->name = $name;
     }
 
     /**

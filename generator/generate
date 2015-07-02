@@ -10,9 +10,12 @@
  * It was a lot faster than going through each page in the docs.
  */
 
+use Symfony\Component\DomCrawler\Crawler;
+
 define('GEN_ROOT', __DIR__);
 
 require GEN_ROOT.'/../vendor/autoload.php';
+require GEN_ROOT.'/objects/ParsedObjectInterface.php';
 require GEN_ROOT.'/objects/API.php';
 require GEN_ROOT.'/objects/Model.php';
 require GEN_ROOT.'/objects/Property.php';
@@ -118,8 +121,9 @@ foreach($scrape_apis as $scrape_api) {
     $full_uri = sprintf('%s/%s/%s/', $documentation_base, $scrape_api['uri'], $scrape_api['types']);
     $crawler = $client->request('GET', $full_uri);
 
-    $crawler->filter('.entry-content')->children()->each(function($node) use($api){
+    $crawler->filter('.entry-content')->children()->each(function(Crawler $node) use($api){
         //keep static in closure.
+        /** @var ParsedObjectInterface $current_object */
         static $section_name, $current_object;
 
         $current_tag = $node->getNode(0)->tagName;
@@ -137,11 +141,11 @@ foreach($scrape_apis as $scrape_api) {
 
                 //Skip empty sections
                 if('' == $subsection_name = preg_replace('/\([\s\w]+\)/', '', str_replace(' ', '', $node->text())))
-                    return;
+                    return null;
 
                 //Try record the anchor on page for searching
                 $anchor = null;
-                $node->filter('a')->each(function($node) use(&$anchor){ $anchor = $node->attr('name'); });
+                $node->filter('a')->each(function(Crawler $node) use(&$anchor){ $anchor = $node->attr('name'); });
 
                 //this is to catch the models that are hiding in the types and codes
                 if($section_name === $subsection_name){
@@ -154,7 +158,7 @@ foreach($scrape_apis as $scrape_api) {
                 break;
             case 'table':
                 $possible_name_override = null;
-                $node->filter('tr')->each(function($node, $row_index) use($current_object, &$possible_name_override){
+                $node->filter('tr')->each(function(Crawler $node, $row_index) use($current_object, &$possible_name_override){
 
                     //Why is this table different to every other one in the docs?
                     $swap_name_description = $current_object->getName() == 'SystemAccounts';
@@ -202,12 +206,14 @@ foreach($scrape_apis as $scrape_api) {
                         }
                     }
 
-                    });
+                    return null;
+                });
 
                 //Add here
                 if($current_object instanceof Model){
                     $api->addModel($current_object);
                     //debug
+                    /** @var Model $current_object */
                     $current_object->printPropertyTable();
                 } elseif($current_object instanceof Enum) {
                     $api->addEnum($current_object);
@@ -215,6 +221,8 @@ foreach($scrape_apis as $scrape_api) {
 
                 break;
         }
+
+        return null;
     });
 
     //Parse actual classes
@@ -223,12 +231,14 @@ foreach($scrape_apis as $scrape_api) {
         $full_uri = sprintf('%s/%s/%s/', $documentation_base, $scrape_api['uri'], $uri);
         $crawler = $client->request('GET', $full_uri);
 
+        /** @var Model $current_model */
         $current_model = null;
 
         $last = $crawler->filter('.entry-content')->children()->last();
 
-        $crawler->filter('.entry-content')->children()->each(function ($node) use ($api, &$current_model, $crawler, $last) {
+        $crawler->filter('.entry-content')->children()->each(function (Crawler $node) use ($api, &$current_model, $crawler, $last) {
             //keep static in closure.
+            /** @var Model $primary_model */
             static $page_heading, $section_name, $primary_model;
 
             $current_tag = $node->getNode(0)->tagName;
@@ -245,7 +255,7 @@ foreach($scrape_apis as $scrape_api) {
                     }
                     break;
                 case 'p':
-                    $node->filter('strong')->each(function($node) use (&$section_name){
+                    $node->filter('strong')->each(function(Crawler $node) use (&$section_name){
                         if($node->parents()->getNode(0)->tagName != 'em')
                             $section_name = $node->text();
                     });
@@ -267,7 +277,7 @@ foreach($scrape_apis as $scrape_api) {
                         $primary_model = new Model();
                         $current_model = $primary_model;
 
-                        $node->filter('tr')->each(function($node) use($primary_model){
+                        $node->filter('tr')->each(function(Crawler $node) use($primary_model){
                             $columns = $node->children();
                             if(count($columns) == 0)
                                 return;
@@ -327,7 +337,7 @@ foreach($scrape_apis as $scrape_api) {
                     }
 
                     //At this point, we will have a $current_model, so parse properties
-                    $node->filter('tr')->each(function($node) use ($current_model){
+                    $node->filter('tr')->each(function(Crawler $node) use ($current_model){
                         static $mandatory, $read_only, $get_only, $skip_next;
 
                         //this is for skipping rowspans
@@ -386,6 +396,7 @@ foreach($scrape_apis as $scrape_api) {
                             if(preg_match('/^(where|order|sort|filter|page|pagesize)$/i', $column_name) || strpos($column_name, '–') !== false)
                                 return;
 
+                            $property = null;
                             foreach(preg_split('/>\s*or\s*</', $column_name) as $column_name){
                                 //make it into another param
                                 $column_name = str_replace(' ', '', $column_name);
@@ -400,7 +411,7 @@ foreach($scrape_apis as $scrape_api) {
                             }
 
                             //add links to property (for parsing types)
-                            $children->eq(1)->filter('a')->each(function($node) use($property){
+                            $children->eq(1)->filter('a')->each(function(Crawler $node) use($property){
                                 $property->addLink($node->text(), $node->attr('href'));
                             });
 
@@ -428,6 +439,7 @@ foreach($scrape_apis as $scrape_api) {
                 $models = array($primary_model);
                 if($primary_model->getName() !== $current_model->getName()) {$models[] = $current_model;}
                 foreach($models as $model) {
+                    /** @var Model $model */
                     // If we don't have a GUID make a last ditch effort to get one...
                     if ($model->hasProperty($model->getClassName() . 'ID') === false && isset($model->rawHTML)) {
                         if (preg_match('/' . $model->getClassName() . 'ID/', $model->rawHTML)) {
@@ -457,6 +469,7 @@ $twig->addFilter(new Twig_SimpleFilter('wordwrap', 'wordwrap'));
 $twig->addFilter(new Twig_SimpleFilter('addslashes', 'addslashes'));
 
 //print_r($apis[0]->getSearchKeys());
+//exit;
 
 foreach($apis as $api){
     /* @var API $api */
@@ -465,6 +478,7 @@ foreach($apis as $api){
         $model_class = sprintf('\\XeroPHP\\Models\\%s', $model->getClassName(true));
         if(class_exists($model_class)){
             $property_position = 0;
+            /** @var XeroPHP\Remote\ObjectInterface $model_class */
             foreach($model_class::getProperties() as $name => $property_meta){
                 //At this point, it's been removed from the API (and not deprecated).  Thanks Xero!
                 if(!$model->hasProperty($name)){
