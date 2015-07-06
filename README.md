@@ -79,7 +79,7 @@ From v1.2.0+, Xero context can be injected directly when creating the objects th
 Nested objects
 ```php
 $invoice = $xero->loadByGUID('Accounting\\Invoice', '[GUID]');
-$incoice->setContact($contact);
+$invoice->setContact($contact);
 ```
 
 Attachments
