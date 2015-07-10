@@ -101,9 +101,10 @@ if($oauth_session === null){
 // We are in! Grab some journals...
 $journals = $xero->load('Accounting\\Journal')->execute();
 echo sprintf('Found %s journals', count($journals));
-/*foreach ($journals as $journal) {
-    json_encode($journal);
-}*/
+
+foreach ($journals as $journal) {
+    json_encode($journal->toStringArray());
+}
 
 
 //The following two functions are just for a demo - you should use a more robust mechanism of storing tokens than this!
