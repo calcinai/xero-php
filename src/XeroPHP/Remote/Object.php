@@ -406,12 +406,12 @@ abstract class Object implements ObjectInterface, \JsonSerializable {
     }
 
     /**
-     * JSON Encode overload to putt out hidden properties
+     * JSON Encode overload to pull out hidden properties
      *
      * @return string
      */
     public function jsonSerialize(){
-        return json_encode($this->toStringArray());
+        return $this->toStringArray();
     }
 
 } 
