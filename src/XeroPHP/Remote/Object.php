@@ -10,7 +10,7 @@ use XeroPHP\Helpers;
  * Class Object
  * @package XeroPHP\Remote
  */
-abstract class Object implements ObjectInterface {
+abstract class Object implements ObjectInterface, \JsonSerializable {
 
     /**
      * Keys for the meta properties array
@@ -403,6 +403,15 @@ abstract class Object implements ObjectInterface {
      */
     public static function supportsMethod($method) {
         return in_array($method, static::getSupportedMethods());
+    }
+
+    /**
+     * JSON Encode overload to putt out hidden properties
+     *
+     * @return string
+     */
+    public function jsonSerialize(){
+        return json_encode($this->toStringArray());
     }
 
 } 
