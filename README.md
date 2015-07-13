@@ -74,6 +74,8 @@ Save it
 $contact->save();
 ```
 
+If you have created a number of objects of the same type, you can save them all in a batch by passing an array to ```$xero->saveAll()```.
+
 From v1.2.0+, Xero context can be injected directly when creating the objects themselves, which then exposes the ```->save()``` method.  This is necessary for the objects to maintain state with their relations.
 
 Nested objects
@@ -96,6 +98,5 @@ $invoice->addAttachment($attachment);
 ```
 
 PDF - Models that support PDF export will inherit a ```->getPDF()``` method, which returns the raw content of the PDF.  Currently this is limited to Invoices and CreditNotes.
-
 
 Refer to the [examples](examples) for more complex usage and nested/related objects.
