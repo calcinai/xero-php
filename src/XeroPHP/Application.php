@@ -130,8 +130,8 @@ abstract class Application {
 
 
     /**
-     * @param $model
-     * @return $this
+     * @param string $model
+     * @return Query
      * @throws Remote\Exception
      */
     public function load($model) {
