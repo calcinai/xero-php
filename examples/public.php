@@ -8,14 +8,12 @@ use XeroPHP\Remote\URL;
 $config = array(
     'oauth' => array(
         'callback'    => 'http://localhost/',
-
         'consumer_key'      => 'k',
         'consumer_secret'   => 's',
-
-        'curl' => array(
-            CURLOPT_CAINFO => __DIR__.'/certs/ca-bundle.crt'
-        )
-    )
+    ),
+    'curl' => array(
+        CURLOPT_CAINFO => __DIR__.'/certs/ca-bundle.crt',
+    ),
 );
 
 
@@ -31,8 +29,10 @@ if(null === $oauth_session = getOAuthSession()){
     try {
         $request->send();
     } catch (Exception $e){
-        echo($e->getCode());
-        print_r($request->getResponse()->getOAuthResponse());
+        print_r($e);
+        if ($request->getResponse()) {
+            print_r($request->getResponse()->getOAuthResponse());
+        }
     }
 
     $oauth_response = $request->getResponse()->getOAuthResponse();
