@@ -5,14 +5,11 @@ use XeroPHP\Application\PrivateApplication;
 //These are the minimum settings - for more options, refer to examples/config.php
 $config = array(
     'oauth' => array(
-        'callback'    => 'oob',
-
-        'consumer_key'      => 'k',
-        'consumer_secret'   => 's',
-        
+        'callback'         => 'http://localhost/',
+        'consumer_key'     => 'k',
+        'consumer_secret'  => 's',
         'rsa_private_key'  => 'file://certs/private.pem',
         'rsa_public_key'   => 'file://certs/public.pem'
-
     )
 );
 
@@ -20,5 +17,5 @@ $config = array(
 $xero = new PrivateApplication($config);
 
 
-print_r($xero->loadByGUID('Accounting\\Contact', '[GUID]'));
+print_r($xero->load('Accounting\\Organisation')->execute());
 
