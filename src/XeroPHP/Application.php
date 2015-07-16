@@ -40,8 +40,14 @@ abstract class Application {
         )
     );
 
-
+    /**
+     * @var array
+     */
     protected $config;
+
+    /**
+     * @var Client
+     */
     protected $oauth_client;
 
     /**
@@ -61,13 +67,21 @@ abstract class Application {
         return $this->oauth_client;
     }
 
-    public function getAuthorizeURL() {
-        return $this->oauth_client->getAuthorizeURL();
+    /**
+     * @param string|null $oAuthToken
+     * @return string
+     */
+    public function getAuthorizeURL($oAuthToken = null) {
+        $authorizeUrl = $this->oauth_client->getAuthorizeURL();
+        if ($oAuthToken) {
+            return sprintf('%s?oauth_token=%s', $authorizeUrl, $oAuthToken);
+        }
+
+        return $authorizeUrl;
     }
 
-
     /**
-     * @param $key
+     * @param mixed $key
      * @return mixed
      * @throws Exception
      */
@@ -83,7 +97,7 @@ abstract class Application {
     /**
      * Validates and expands the provided model class to a full PHP class
      *
-     * @param $class
+     * @param string $class
      * @return string
      * @throws Exception
      */
