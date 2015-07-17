@@ -2,6 +2,8 @@
 
 * Travis CI
 * PHPUnit testing
+* Query setParameter and setParameters added
+* Query includeArchived added
 
 ### 1.2.0
 

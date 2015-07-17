@@ -11,7 +11,9 @@ class Query {
     const ORDER_ASC  = 'ASC';
     const ORDER_DESC = 'DESC';
 
-    /** @var  \XeroPHP\Application */
+    /**
+     * @var Application
+     */
     private $app;
 
     private $from_class;
@@ -20,6 +22,16 @@ class Query {
     private $modifiedAfter;
     private $page;
     private $offset;
+
+    /**
+     * @var bool
+     */
+    private $includeArchived = false;
+
+    /**
+     * @var mixed[]
+     */
+    private $parameters = [];
 
     public function __construct(Application $app) {
         $this->app = $app;
@@ -42,22 +54,64 @@ class Query {
     }
 
     /**
+     * @param string $where
+     * @param mixed|null $value
      * @return $this
      */
-    public function where() {
-        $args = func_get_args();
-
-        if(func_num_args() === 2) {
-            $this->where[] = sprintf('%s=="%s"', $args[0], $args[1]);
+    public function where($where, $value = null) {
+        if ($where && $value) {
+            $parameterName = sha1($value);
+            $this->where[] = sprintf('%s==%s', $where, ":$parameterName");
+            $this->setParameter($parameterName, $value);
         } else {
-            $this->where[] = $args[0];
+            $this->where[] = $where;
         }
 
         return $this;
     }
 
+    /**
+     * @param string $where
+     * @param mixed|null $value
+     * @return $this
+     */
+    public function andWhere($where, $value = null) {
+        return $this->where($where, $value);
+    }
+
+    /**
+     * @return string
+     */
     public function getWhere() {
-        return implode(' AND ', $this->where);
+        return implode(' AND ', array_map(function($where) {
+            return "($where)";
+        }, $this->where));
+    }
+
+    /**
+     * @param string $key
+     * @param mixed $value
+     * @return $this
+     */
+    public function setParameter($key, $value)
+    {
+        $this->parameters[$key] = $value;
+
+        return $this;
+    }
+
+    /**
+     * @param mixed[] $values
+     * @return $this
+     */
+    public function setParameters($values)
+    {
+        $this->parameters = [];
+        foreach ($values as $key => $value) {
+            $this->setParameter($key, $value);
+        }
+
+        return $this;
     }
 
     /**
@@ -86,7 +140,7 @@ class Query {
     }
 
     /**
-     * @param int $page
+     * @param int|null $page
      * @return $this
      * @throws Exception
      */
@@ -113,16 +167,46 @@ class Query {
     }
 
     /**
+     * @param bool $includeArchived
+     * @return $this
+     */
+    public function includeArchived($includeArchived = true) {
+        $this->includeArchived = $includeArchived == true;
+
+        return $this;
+    }
+
+    /**
      * @return array
      */
     public function execute() {
 
         /** @var ObjectInterface $from_class */
         $from_class = $this->from_class;
+        $request = $this->getRequest();
+        $request->send();
+
+        $elements = array();
+        foreach($request->getResponse()->getElements() as $element) {
+            /** @var \XeroPHP\Models\Files\Object $built_element */
+            $built_element = new $from_class($this->app);
+            $built_element->fromStringArray($element);
+            $elements[] = $built_element;
+        }
+
+        return $elements;
+    }
+
+    /**
+     * @return Request
+     */
+    public function getRequest()
+    {
+        $from_class = $this->from;
         $url = new URL($this->app, $from_class::getResourceURI());
         $request = new Request($this->app, $url, Request::METHOD_GET);
 
-        $where = $this->getWhere();
+        $where = $this->getParsedWhere();
         if(!empty($where)) {
             $request->setParameter('where', $where);
         }
@@ -143,22 +227,45 @@ class Query {
             $request->setParameter('offset', $this->offset);
         }
 
-        $request->send();
-
-        $elements = array();
-        foreach($request->getResponse()->getElements() as $element) {
-            /** @var Object $built_element */
-            $built_element = new $from_class($this->app);
-            $built_element->fromStringArray($element);
-            $elements[] = $built_element;
+        if($this->includeArchived) {
+            $request->setParameter('includeArchived', $this->includeArchived);
         }
 
-        return $elements;
+        return $request;
     }
 
     /**
-     * @return mixed
+     * @return string
      */
+    private function getParsedWhere()
+    {
+        return preg_replace_callback('/:[_a-zA-Z0-9]+/', function($matches) {
+            $parameterKey = ltrim($matches[0], ':');
+            $parameterValue = $this->parameters[$parameterKey];
+
+            return $this->convertPHPValueToXeroQuery($parameterValue);
+        }, $this->getWhere());
+    }
+
+    /**
+     * @param string $value
+     * @return string
+     */
+    private function convertPHPValueToXeroQuery($value)
+    {
+        if ($value instanceof \DateTime) {
+            return sprintf('DateTime(%s)', $value->format('Y,m,d'));
+        } else if (is_int($value) || is_float($value)) {
+            return $value;
+        } else if ($value === true) {
+            return 'true';
+        } else if ($value === false) {
+            return 'false';
+        }
+
+        return sprintf('"%s"', addslashes($value)); // TODO improve string escaping
+    }
+
     public function getFrom() {
         return $this->from_class;
     }
