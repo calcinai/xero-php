@@ -2,6 +2,8 @@
 
 namespace XeroPHP\Remote;
 
+use XeroPHP\Application;
+use XeroPHP\Models\Files\Object;
 
 class Query {
 
@@ -18,7 +20,7 @@ class Query {
     private $page;
     private $offset;
 
-    public function __construct($app) {
+    public function __construct(Application $app) {
         $this->app = $app;
         $this->where = array();
         $this->order = null;
@@ -27,6 +29,10 @@ class Query {
         $this->offset = null;
     }
 
+    /**
+     * @param string $class
+     * @return $this
+     */
     public function from($class) {
 
         $this->from = $this->app->validateModelClass($class);
@@ -34,6 +40,9 @@ class Query {
         return $this;
     }
 
+    /**
+     * @return $this
+     */
     public function where() {
         $args = func_get_args();
 
@@ -50,10 +59,21 @@ class Query {
         return implode(' AND ', $this->where);
     }
 
+    /**
+     * @param string $order
+     * @param string $direction
+     * @return $this
+     */
     public function orderBy($order, $direction = self::ORDER_ASC) {
         $this->order = sprintf('%s %s', $order, $direction);
+
+        return $this;
     }
 
+    /**
+     * @param \DateTime|null $modifiedAfter
+     * @return $this
+     */
     public function modifiedAfter(\DateTime $modifiedAfter = null) {
         if($modifiedAfter === null) {
             $modifiedAfter = new \DateTime('@0'); // since ever
@@ -64,20 +84,32 @@ class Query {
         return $this;
     }
 
+    /**
+     * @param int $page
+     * @return $this
+     */
     public function page($page = 1) {
         $this->page = intval($page);
 
         return $this;
     }
 
+    /**
+     * @param int $offset
+     * @return $this
+     */
     public function offset($offset = 0) {
         $this->offset = intval($offset);
 
         return $this;
     }
 
+    /**
+     * @return array
+     */
     public function execute() {
 
+        /** @var ObjectInterface $from_class */
         $from_class = $this->from;
         $url = new URL($this->app, $from_class::getResourceURI());
         $request = new Request($this->app, $url, Request::METHOD_GET);
@@ -107,6 +139,7 @@ class Query {
 
         $elements = array();
         foreach($request->getResponse()->getElements() as $element) {
+            /** @var Object $built_element */
             $built_element = new $from_class($this->app);
             $built_element->fromStringArray($element);
             $elements[] = $built_element;
@@ -115,7 +148,9 @@ class Query {
         return $elements;
     }
 
-
+    /**
+     * @return mixed
+     */
     public function getFrom() {
         return $this->from;
     }
