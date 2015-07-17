@@ -98,13 +98,8 @@ if($oauth_session === null){
     }
 }
 
-// We are in! Grab some journals...
-$journals = $xero->load('Accounting\\Journal')->execute();
-echo sprintf('Found %s journals', count($journals));
-/*foreach ($journals as $journal) {
-    json_encode($journal);
-}*/
-
+// We are in! Print organisation details...
+print_r($xero->load('Accounting\\Organisation')->execute());
 
 //The following two functions are just for a demo - you should use a more robust mechanism of storing tokens than this!
 function setOAuthSession($token, $secret, $expires = null, $session_handle = null){

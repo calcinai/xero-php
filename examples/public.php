@@ -4,6 +4,9 @@ use XeroPHP\Application\PublicApplication;
 use XeroPHP\Remote\Request;
 use XeroPHP\Remote\URL;
 
+// Start a session for the oauth session storage
+session_start();
+
 //These are the minimum settings - for more options, refer to examples/config.php
 $config = array(
     'oauth' => array(
@@ -70,9 +73,7 @@ if(null === $oauth_session = getOAuthSession()){
 }
 
 //Otherwise, you're in.
-print_r($xero->loadByGUID('Accounting\\Contact', '[GUID]'));
-
-
+print_r($xero->load('Accounting\\Organisation')->execute());
 
 //The following two functions are just for a demo - you should use a more robust mechanism of storing tokens than this!
 function setOAuthSession($token, $secret, $expires = null){
