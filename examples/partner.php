@@ -47,7 +47,7 @@ if($oauth_session === null){
 
     setOAuthSession($oauth_response['oauth_token'], $oauth_response['oauth_token_secret']);
 
-    printf('<a href="%s?oauth_token=%s">Click here to Authorize</a>', $xero->getAuthorizeURL(), $oauth_response['oauth_token']);
+    printf('<a href="%s">Click here to Authorize</a>', $xero->getAuthorizeURL($oauth_response['oauth_token']));
     exit;
 
 } elseif(isset($oauth_session['session_handle']) && !isset($oauth_session['expires'])) {
