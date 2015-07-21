@@ -35,5 +35,17 @@ $xero_base_config = array(
         //CURLOPT_SSLKEYPASSWD    => '1234',
         //CURLOPT_SSLKEY          => 'certs/entrust-private-RQ3.pem'
 
+    ),
+
+    // Functions which will be invoked at certain points during execution
+    // Currently supports xero_request($method, $uri) which is called every time
+    // a request is sent to Xero
+    'callbacks' => array(
+        // 'xero_request'         => function($method, $uri) {
+        //     This function could include code for saving the request to a log,
+        //     adding to your daily request counter (given the xero limit of one thousad per day),
+        //     automated testing or any other situation where monitoring Xero requests is useful.
+        //     e.g. \YourApp\XeroTransactions::log($method, $uri);
+        // }
     )
 );
