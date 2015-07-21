@@ -1,5 +1,8 @@
 XeroPHP
 -----------------------
+
+[![Build Status](https://travis-ci.org/calcinai/xero-php.svg?branch=master)](https://travis-ci.org/calcinai/xero-php)
+
 A client implementation of the [Xero API](<http://developer.xero.com>), with a cleaner OAuth interface and ORM-like abstraction.
 
 ## Background
