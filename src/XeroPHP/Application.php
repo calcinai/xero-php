@@ -93,6 +93,25 @@ abstract class Application {
         return $this->config[$key];
     }
 
+    /**
+     * Fetch the requested callback function from the callbacks array, if it exists
+     *
+     * Callbacks are optional functions that the user can supply, which are then called at
+     * associated times. For instance, the xero_request callback is called when we are making
+     * a request against Xero and to it we pass the request's method and url.
+     *
+     * @param $key
+     * @return mixed
+     */
+    public function getCallback($key) {
+        $callback = null;
+
+        if(isset($this->config['callbacks'][$key])){
+            $callback = $this->config['callbacks'][$key];
+        }
+
+        return $callback;
+    }
 
     /**
      * Validates and expands the provided model class to a full PHP class

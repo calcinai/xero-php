@@ -95,6 +95,8 @@ class Request {
         if($this->method === self::METHOD_POST || $this->method === self::METHOD_PUT)
             curl_setopt($ch, CURLOPT_POST, true);
 
+        $this->callRequestCallback($this->method, $full_uri);
+
         $response = curl_exec($ch);
         $info = curl_getinfo($ch);
 
@@ -180,5 +182,15 @@ class Request {
         return $this;
     }
 
-
+    /**
+     * Invoke the Request callback if one has been configured and send to it the details
+     * of the Xero request that we are about to make
+     * @param $method string The HTTP method for the request being sent to Xero (e.g. POST, GET etc.)
+     * @param $uri string The URI that we are making the request against
+     */
+    protected function callRequestCallback($method, $uri){
+        if($requestCallback = $this->app->getCallback('xero_request')){
+            $requestCallback($method, $uri);
+        }
+    }
 }
