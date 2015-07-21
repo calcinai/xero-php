@@ -442,9 +442,17 @@ foreach($scrape_apis as $scrape_api) {
                     /** @var Model $model */
                     // If we don't have a GUID make a last ditch effort to get one...
                     if ($model->hasProperty($model->getClassName() . 'ID') === false && isset($model->rawHTML)) {
-                        if (preg_match('/' . $model->getClassName() . 'ID/', $model->rawHTML)) {
+                        if (strpos($model->rawHTML, $model->getClassName() . 'ID')) {
                             $property = new Property($model->getClassName() . 'ID', 'Xero identifier', false, false, false);
                             $model->addProperty($property, 0);
+                        }
+                    }
+
+                    // If we don't have a the UTC Updated field do a scan to see if it in use on this model
+                    if ($model->hasProperty('UpdatedDateUTC') === false && isset($model->rawHTML)) {
+                        if (strpos($model->rawHTML, 'UpdatedDateUTC')) {
+                            $property = new Property('UpdatedDateUTC', 'UTC timestamp of last update to the ' . $model->getClassName(), false, true, false);
+                            $model->addProperty($property);
                         }
                     }
 
