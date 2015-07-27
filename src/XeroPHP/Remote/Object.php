@@ -346,6 +346,17 @@ abstract class Object implements ObjectInterface, \JsonSerializable {
 
 
     /**
+     * Magic method for testing if properties exist
+     *
+     * @param $property
+     * @return bool
+     */
+    public function __isset($property) {
+        return isset($this->_data[$property]);
+    }
+
+
+    /**
      * Magic getter for accessing properties directly
      *
      * @param $property
@@ -414,4 +425,4 @@ abstract class Object implements ObjectInterface, \JsonSerializable {
         return $this->toStringArray();
     }
 
-} 
+}
