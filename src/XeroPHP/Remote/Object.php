@@ -10,7 +10,7 @@ use XeroPHP\Helpers;
  * Class Object
  * @package XeroPHP\Remote
  */
-abstract class Object implements ObjectInterface, \JsonSerializable {
+abstract class Object implements ObjectInterface, \JsonSerializable, \ArrayAccess {
 
     /**
      * Keys for the meta properties array
@@ -129,16 +129,19 @@ abstract class Object implements ObjectInterface, \JsonSerializable {
     }
 
     /**
-     *
      * @return string
      */
     public function getGUID() {
-        return $this->_data[static::getGUIDProperty()];
+        return $this->__get(static::getGUIDProperty());
     }
 
-
+    /**
+     * @param string $guid
+     * @return $this
+     */
     public function setGUID($guid) {
-        $this->_data[static::getGUIDProperty()] = $guid;
+        $this->__set(static::getGUIDProperty(), $guid);
+
         return $this;
     }
 
@@ -425,4 +428,39 @@ abstract class Object implements ObjectInterface, \JsonSerializable {
         return $this->toStringArray();
     }
 
+    /**
+     * @param mixed $offset
+     * @return bool
+     */
+    public function offsetExists($offset)
+    {
+        return $this->__isset($offset);
+    }
+
+    /**
+     * @param mixed $offset
+     * @return mixed
+     */
+    public function offsetGet($offset)
+    {
+        return $this->__get($offset);
+    }
+
+    /**
+     * @param mixed $offset
+     * @param mixed $value
+     * @return mixed
+     */
+    public function offsetSet($offset, $value)
+    {
+        return $this->__set($offset, $value);
+    }
+
+    /**
+     * @param mixed $offset
+     */
+    public function offsetUnset($offset)
+    {
+        unset($this->_data[$offset]);
+    }
 }
