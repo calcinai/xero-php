@@ -87,6 +87,9 @@ class Sale extends Remote\Object {
         );
     }
 
+    public static function isPageable(){
+        return false;
+    }
 
     /**
      * @return string

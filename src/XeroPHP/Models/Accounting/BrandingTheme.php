@@ -102,6 +102,9 @@ class BrandingTheme extends Remote\Object {
         );
     }
 
+    public static function isPageable(){
+        return false;
+    }
 
     /**
      * @return string

@@ -66,25 +66,9 @@ class OpeningBalance extends Remote\Object {
      */
 
     /**
-     * You can specify an individual record by appending the value to the endpoint, i.e. GET
-     * https://…/Employees/{identifier} This will return all employee information as well as employee’s
-     * Bank Account and Pay Template
-     *
-     * @property string Recordfilter
-     */
-
-    /**
      * The Xero identifier for an employee e.g. 297c2dc5-cc47-4afd-8ec8-74990b8761e9
      *
      * @property string EmployeeID
-     */
-
-    /**
-     * The ModifiedAfter filter is actually an HTTP header: ‘If-Modified-Since‘. A UTC timestamp
-     * (yyyy-mm-ddThh:mm:ss) . Only employees created or modified since this timestamp will be returned
-     * e.g. 2009-11-12T00:00:00
-     *
-     * @property \DateTime ModifiedAfter
      */
 
 
@@ -159,12 +143,13 @@ class OpeningBalance extends Remote\Object {
             'BenefitTypeID' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'DeductionTypeID' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'ReimbursementTypeID' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'Recordfilter' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'EmployeeID' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'ModifiedAfter' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTime', false, false)
+            'EmployeeID' => array (false, self::PROPERTY_TYPE_STRING, null, false, false)
         );
     }
 
+    public static function isPageable(){
+        return false;
+    }
 
     /**
      * @return EarningsLine[]
@@ -322,23 +307,6 @@ class OpeningBalance extends Remote\Object {
     /**
      * @return string
      */
-    public function getRecordfilter() {
-        return $this->_data['Recordfilter'];
-    }
-
-    /**
-     * @param string $value
-     * @return OpeningBalance
-     */
-    public function setRecordfilter($value) {
-        $this->propertyUpdated('Recordfilter', $value);
-        $this->_data['Recordfilter'] = $value;
-        return $this;
-    }
-
-    /**
-     * @return string
-     */
     public function getEmployeeID() {
         return $this->_data['EmployeeID'];
     }
@@ -350,23 +318,6 @@ class OpeningBalance extends Remote\Object {
     public function setEmployeeID($value) {
         $this->propertyUpdated('EmployeeID', $value);
         $this->_data['EmployeeID'] = $value;
-        return $this;
-    }
-
-    /**
-     * @return \DateTime
-     */
-    public function getModifiedAfter() {
-        return $this->_data['ModifiedAfter'];
-    }
-
-    /**
-     * @param \DateTime $value
-     * @return OpeningBalance
-     */
-    public function setModifiedAfter(\DateTime $value) {
-        $this->propertyUpdated('ModifiedAfter', $value);
-        $this->_data['ModifiedAfter'] = $value;
         return $this;
     }
 

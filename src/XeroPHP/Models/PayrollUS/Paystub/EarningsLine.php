@@ -94,6 +94,9 @@ class EarningsLine extends Remote\Object {
         );
     }
 
+    public static function isPageable(){
+        return false;
+    }
 
     /**
      * @return string

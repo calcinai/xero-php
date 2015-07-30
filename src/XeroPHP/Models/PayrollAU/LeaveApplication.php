@@ -135,6 +135,9 @@ class LeaveApplication extends Remote\Object {
         );
     }
 
+    public static function isPageable(){
+        return true;
+    }
 
     /**
      * @return string

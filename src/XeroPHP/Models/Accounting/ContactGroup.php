@@ -109,6 +109,9 @@ e.g.
         );
     }
 
+    public static function isPageable(){
+        return false;
+    }
 
     /**
      * @return string

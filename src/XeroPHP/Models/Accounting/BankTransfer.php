@@ -144,6 +144,9 @@ class BankTransfer extends Remote\Object {
         );
     }
 
+    public static function isPageable(){
+        return false;
+    }
 
     /**
      * @return FromBankAccount

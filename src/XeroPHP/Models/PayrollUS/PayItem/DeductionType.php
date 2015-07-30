@@ -153,6 +153,9 @@ SECTION125PLAN
         );
     }
 
+    public static function isPageable(){
+        return false;
+    }
 
     /**
      * @return DeductionType

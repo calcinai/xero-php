@@ -123,6 +123,9 @@ class User extends Remote\Object {
         );
     }
 
+    public static function isPageable(){
+        return false;
+    }
 
     /**
      * @return string

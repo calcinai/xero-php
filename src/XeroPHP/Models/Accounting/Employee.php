@@ -115,6 +115,9 @@ The description of the link is auto-generated in the form “Go to <App name>”
         );
     }
 
+    public static function isPageable(){
+        return false;
+    }
 
     /**
      * @return string

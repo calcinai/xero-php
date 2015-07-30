@@ -96,6 +96,9 @@ class Currency extends Remote\Object {
         );
     }
 
+    public static function isPageable(){
+        return false;
+    }
 
     /**
      * @return \DateTime

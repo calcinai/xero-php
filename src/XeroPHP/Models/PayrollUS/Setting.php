@@ -90,6 +90,9 @@ class Setting extends Remote\Object {
         );
     }
 
+    public static function isPageable(){
+        return false;
+    }
 
     /**
      * @return Account[]
