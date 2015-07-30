@@ -3,6 +3,7 @@
 namespace XeroPHP\Remote;
 
 use XeroPHP\Application;
+use XeroPHP\Exception;
 use XeroPHP\Models\Files\Object;
 
 class Query {
@@ -13,7 +14,7 @@ class Query {
     /** @var  \XeroPHP\Application */
     private $app;
 
-    private $from;
+    private $from_class;
     private $where;
     private $order;
     private $modifiedAfter;
@@ -35,7 +36,7 @@ class Query {
      */
     public function from($class) {
 
-        $this->from = $this->app->validateModelClass($class);
+        $this->from_class = $this->app->validateModelClass($class);
 
         return $this;
     }
@@ -87,8 +88,15 @@ class Query {
     /**
      * @param int $page
      * @return $this
+     * @throws Exception
      */
     public function page($page = 1) {
+        /** @var ObjectInterface $from_class */
+        $from_class = $this->from_class;
+        if(!$from_class::isPageable()){
+            throw new Exception(sprintf('%s does not support paging.', $from_class));
+        }
+
         $this->page = intval($page);
 
         return $this;
@@ -110,7 +118,7 @@ class Query {
     public function execute() {
 
         /** @var ObjectInterface $from_class */
-        $from_class = $this->from;
+        $from_class = $this->from_class;
         $url = new URL($this->app, $from_class::getResourceURI());
         $request = new Request($this->app, $url, Request::METHOD_GET);
 
@@ -152,6 +160,6 @@ class Query {
      * @return mixed
      */
     public function getFrom() {
-        return $this->from;
+        return $this->from_class;
     }
 }

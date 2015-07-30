@@ -338,16 +338,10 @@ foreach($scrape_apis as $scrape_api) {
                         }
                     }
 
-                    //try to work out what's next
-                    if(preg_match('/^GET (?<model_name>[\w\s]+)/i', $section_name, $matches)){
-
-                        //actually, don't bother doing anything with these.
-                        //This will be met when there are filters like where and order, but they're the same for any object.
-                        return;
-                    }
+                    $finished_scraping = preg_match('/^GET (?<model_name>[\w\s]+)/i', $section_name, $matches);
 
                     //At this point, we will have a $current_model, so parse properties
-                    $node->filter('tr')->each(function(Crawler $node) use ($current_model){
+                    $node->filter('tr')->each(function(Crawler $node) use ($current_model, $primary_model, $finished_scraping){
                         static $mandatory, $read_only, $get_only, $skip_next;
 
                         //this is for skipping rowspans
@@ -392,7 +386,7 @@ foreach($scrape_apis as $scrape_api) {
                                 $get_only = false;
                             }
 
-                            //Handle tables with rowspansœ
+                            //Handle tables with rowspans
                             if($num_children === 2){
                                 $column_name = trim($children->eq(0)->text(), "<> \n");
                                 $column_description = trim($children->eq(1)->text());
@@ -403,8 +397,18 @@ foreach($scrape_apis as $scrape_api) {
                             }
 
                             //@todo Here should handle making these methods available on the models
-                            if(preg_match('/^(where|order|sort|filter|page|pagesize)$/i', $column_name) || strpos($column_name, '–') !== false)
+                            if(preg_match('/^(?<special_function>where|order|sort|filter|page|offset|pagesize|modified( after)?|record filter|include ?archived)$/i', $column_name, $matches) || $finished_scraping || strpos($column_name, '–') !== false){
+
+                                if(isset($matches['special_function'])){
+                                    switch($matches['special_function']){
+                                        case 'page':
+                                            $primary_model->setIsPagable(true);
+                                            break;
+                                    }
+                                }
+
                                 return;
+                            }
 
                             $property = null;
                             foreach(preg_split('/>\s*or\s*</', $column_name) as $column_name){

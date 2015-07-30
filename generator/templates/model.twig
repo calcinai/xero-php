@@ -115,6 +115,9 @@ class {{ model.ClassName }} extends Remote\Object {
         );
     }
 
+    public static function isPageable(){
+        return {% if model.isPageable %}true{% else %}false{% endif %};
+    }
 
 {#  getters and setters #}
 {% for property in model.properties %}

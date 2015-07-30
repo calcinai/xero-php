@@ -9,6 +9,8 @@ use XeroPHP\Helpers;
 /**
  * Class Object
  * @package XeroPHP\Remote
+ *
+ * todo - at 2.x, move this into the root of the project and refer to it as a model.
  */
 abstract class Object implements ObjectInterface, \JsonSerializable, \ArrayAccess {
 

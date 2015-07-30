@@ -30,6 +30,11 @@ class Model implements ParsedObjectInterface {
      */
     private $supports_pdf;
 
+    /**
+     * @var bool $supports_page
+     */
+    private $is_pageable;
+
 
     public $rawHTML;
 
@@ -42,6 +47,7 @@ class Model implements ParsedObjectInterface {
         $this->methods = array();
         $this->sub_models = array();
         $this->supports_pdf = false;
+        $this->supports_page = false;
     }
 
     /**
@@ -285,6 +291,20 @@ class Model implements ParsedObjectInterface {
         $this->supports_pdf = $supports_pdf;
     }
 
+    /**
+     * @return boolean
+     */
+    public function isPageable() {
+        return $this->is_pageable;
+    }
+
+    /**
+     * @param boolean $is_pageable
+     */
+    public function setIsPagable($is_pageable) {
+        $this->is_pageable = $is_pageable;
+    }
+
 
     /**
      * Shortcut for getting them from $api where the group is the same as this name
@@ -361,4 +381,5 @@ class Model implements ParsedObjectInterface {
 
 
     }
+
 } 
