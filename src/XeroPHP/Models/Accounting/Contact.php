@@ -114,12 +114,6 @@ class Contact extends Remote\Object {
      */
 
     /**
-     * UTC timestamp of last update to contact
-     *
-     * @property \DateTime UpdatedDateUTC
-     */
-
-    /**
      * true or false – Boolean that describes if a contact that has any AP invoices entered against them.
      * Cannot be set via PUT or POST – it is automatically set when an accounts payable invoice is
      * generated against this contact.
@@ -169,6 +163,12 @@ class Contact extends Remote\Object {
      * The default purchases tracking categories for contacts
      *
      * @property TrackingCategory[] PurchasesTrackingCategories
+     */
+
+    /**
+     * UTC timestamp of last update to contact
+     *
+     * @property \DateTime UpdatedDateUTC
      */
 
     /**
@@ -305,7 +305,6 @@ class Contact extends Remote\Object {
             'AccountsPayableTaxType' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'Addresses' => array (false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Address', true, false),
             'Phones' => array (false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Phone', true, false),
-            'UpdatedDateUTC' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTime', false, false),
             'IsSupplier' => array (false, self::PROPERTY_TYPE_BOOLEAN, null, false, false),
             'IsCustomer' => array (false, self::PROPERTY_TYPE_BOOLEAN, null, false, false),
             'DefaultCurrency' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
@@ -314,6 +313,7 @@ class Contact extends Remote\Object {
             'PurchasesDefaultAccountCode' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'SalesTrackingCategories' => array (false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\TrackingCategory', true, false),
             'PurchasesTrackingCategories' => array (false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\TrackingCategory', true, false),
+            'UpdatedDateUTC' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTime', false, false),
             'ContactGroups' => array (false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\ContactGroup', true, false),
             'Website' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'BrandingTheme' => array (false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\BrandingTheme', false, false),
@@ -599,23 +599,6 @@ class Contact extends Remote\Object {
     }
 
     /**
-     * @return \DateTime
-     */
-    public function getUpdatedDateUTC() {
-        return $this->_data['UpdatedDateUTC'];
-    }
-
-    /**
-     * @param \DateTime $value
-     * @return Contact
-     */
-    public function setUpdatedDateUTC(\DateTime $value) {
-        $this->propertyUpdated('UpdatedDateUTC', $value);
-        $this->_data['UpdatedDateUTC'] = $value;
-        return $this;
-    }
-
-    /**
      * @return bool
      */
     public function getIsSupplier() {
@@ -748,6 +731,23 @@ class Contact extends Remote\Object {
     public function addPurchasesTrackingCategory(TrackingCategory $value) {
         $this->propertyUpdated('PurchasesTrackingCategories', $value);
         $this->_data['PurchasesTrackingCategories'][] = $value;
+        return $this;
+    }
+
+    /**
+     * @return \DateTime
+     */
+    public function getUpdatedDateUTC() {
+        return $this->_data['UpdatedDateUTC'];
+    }
+
+    /**
+     * @param \DateTime $value
+     * @return Contact
+     */
+    public function setUpdatedDateUTC(\DateTime $value) {
+        $this->propertyUpdated('UpdatedDateUTC', $value);
+        $this->_data['UpdatedDateUTC'] = $value;
         return $this;
     }
 

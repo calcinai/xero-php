@@ -71,7 +71,7 @@ class Payment extends Remote\Object {
      */
 
     /**
-     * The status of the payment. This will always be AUTHORISED
+     * The status of the payment.
      *
      * @property string Status
      */
@@ -187,7 +187,7 @@ class Payment extends Remote\Object {
             'Amount' => array (false, self::PROPERTY_TYPE_FLOAT, null, false, false),
             'Reference' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'IsReconciled' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'Status' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
+            'Status' => array (false, self::PROPERTY_TYPE_ENUM, null, false, false),
             'PaymentType' => array (false, self::PROPERTY_TYPE_ENUM, null, false, false),
             'UpdatedDateUTC' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTime', false, false),
             'PaymentID' => array (false, self::PROPERTY_TYPE_STRING, null, false, false)

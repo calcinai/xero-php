@@ -27,9 +27,9 @@ class TaxRate extends Remote\Object {
      */
 
     /**
-     * The Status of the Tax Rate e.g. ACTIVE, DELETED
+     * See Status Codes
      *
-     * @property float Status
+     * @property string Status
      */
 
     /**
@@ -80,6 +80,10 @@ class TaxRate extends Remote\Object {
      * @property float EffectiveRate
      */
 
+
+    const TAX_STATUS_ACTIVE   = 'ACTIVE';
+    const TAX_STATUS_DELETED  = 'DELETED';
+    const TAX_STATUS_ARCHIVED = 'ARCHIVED';
 
 
     /**
@@ -149,7 +153,7 @@ class TaxRate extends Remote\Object {
             'Name' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'TaxType' => array (false, self::PROPERTY_TYPE_ENUM, null, false, false),
             'TaxComponents' => array (false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\TaxRate\\TaxComponent', true, false),
-            'Status' => array (false, self::PROPERTY_TYPE_FLOAT, null, false, false),
+            'Status' => array (false, self::PROPERTY_TYPE_ENUM, null, false, false),
             'ReportTaxType' => array (true, self::PROPERTY_TYPE_ENUM, null, false, false),
             'CanApplyToAssets' => array (false, self::PROPERTY_TYPE_FLOAT, null, true, false),
             'CanApplyToEquity' => array (false, self::PROPERTY_TYPE_FLOAT, null, false, false),
@@ -214,14 +218,14 @@ class TaxRate extends Remote\Object {
     }
 
     /**
-     * @return float
+     * @return string
      */
     public function getStatus() {
         return $this->_data['Status'];
     }
 
     /**
-     * @param float $value
+     * @param string $value
      * @return TaxRate
      */
     public function setStatus($value) {
