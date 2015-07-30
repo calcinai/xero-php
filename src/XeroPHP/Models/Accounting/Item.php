@@ -39,6 +39,12 @@ class Item extends Remote\Object {
      * @property Sale[] SalesDetails
      */
 
+    /**
+     * Last modified date in UTC format
+     *
+     * @property \DateTime UpdatedDateUTC
+     */
+
 
 
     /**
@@ -109,7 +115,8 @@ class Item extends Remote\Object {
             'Code' => array (true, self::PROPERTY_TYPE_STRING, null, false, false),
             'Description' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'PurchaseDetails' => array (false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Item\\Purchase', true, false),
-            'SalesDetails' => array (false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Item\\Sale', true, false)
+            'SalesDetails' => array (false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Item\\Sale', true, false),
+            'UpdatedDateUTC' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTime', false, false)
         );
     }
 
@@ -201,6 +208,14 @@ class Item extends Remote\Object {
         $this->_data['SalesDetails'][] = $value;
         return $this;
     }
+
+    /**
+     * @return \DateTime
+     */
+    public function getUpdatedDateUTC() {
+        return $this->_data['UpdatedDateUTC'];
+    }
+
 
 
 }
