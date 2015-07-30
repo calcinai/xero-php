@@ -156,9 +156,6 @@ foreach($scrape_apis as $scrape_api) {
                     $section_name = $anchor;
                 }
 
-                //this is to catch the models that are hiding in the types and codes
-                echo "Section[$section_name]: Subsection[$subsection_name]: Anchor[$anchor]\n";
-
                 if($section_name === $subsection_name){
                     $current_object = new Model();
                     $current_object->setName($section_name);
@@ -303,6 +300,9 @@ foreach($scrape_apis as $scrape_api) {
                         return;
                     }
 
+                    if(strpos($section_name, 'Example') === 0){
+                        return;
+                    }
 
                     //try to work out what's next
                     if(preg_match('/(xml )?elements( returned)? for( adding)?( an| get| a)? (?<model_name>[\w\s]+)/i', $section_name, $matches)){
@@ -427,18 +427,7 @@ foreach($scrape_apis as $scrape_api) {
 
                         }
                     });
-                    //if($rows_processed){
-                    //	//fairly ugly little bit of code - just for debug really.
-                    //	$prop_names = array();
-                    //	foreach($current_model->getProperties() as $property){
-                    //		$prop_names[] = $property->getName();
-                    //	}
-                    //	printf("Parsed: %s\n", $current_model->getName());
-                    //	printf(" \\> %d properties: %s \n",
-                    //		count($prop_names),
-                    //		wordwrap(implode(', ',$prop_names), 100, "\n                   ")
-                    //	);
-                    //}
+
                 unset($section_name);
                 break;
                 //END HANDLING FOR TABLE ELEMENT
@@ -459,7 +448,7 @@ foreach($scrape_apis as $scrape_api) {
                     }
 
                     //Debug
-                    //$model->printPropertyTable();
+                    $model->printPropertyTable();
                 }
 
                 if(strpos($primary_model->rawHTML, 'returned as PDF') !== false){
