@@ -4,14 +4,17 @@ namespace XeroPHP\Remote;
 
 use XeroPHP\Application;
 use XeroPHP\Exception;
-use XeroPHP\Models\Files\Object;
+use XeroPHP\Remote\Exception\QueryParameterNotSetException;
+use XeroPHP\Remote\Exception\QueryParameterNotUsedException;
 
 class Query {
 
     const ORDER_ASC  = 'ASC';
     const ORDER_DESC = 'DESC';
 
-    /** @var  \XeroPHP\Application */
+    /**
+     * @var Application
+     */
     private $app;
 
     private $from_class;
@@ -20,6 +23,21 @@ class Query {
     private $modifiedAfter;
     private $page;
     private $offset;
+
+    /**
+     * @var bool
+     */
+    private $includeArchived = false;
+
+    /**
+     * @var mixed[]
+     */
+    private $parameters = [];
+
+    /**
+     * @var mixed[]
+     */
+    private $internalParameters = [];
 
     public function __construct(Application $app) {
         $this->app = $app;
@@ -42,22 +60,63 @@ class Query {
     }
 
     /**
+     * @param string $where
+     * @param mixed|null $value
      * @return $this
      */
-    public function where() {
-        $args = func_get_args();
-
-        if(func_num_args() === 2) {
-            $this->where[] = sprintf('%s=="%s"', $args[0], $args[1]);
+    public function where($where, $value = null) {
+        if ($value !== null) {
+            $parameterName = $this->addInternalParameter($value);
+            $this->where[] = sprintf('%s==%s', $where, ":$parameterName");
         } else {
-            $this->where[] = $args[0];
+            $this->where[] = $where;
         }
 
         return $this;
     }
 
+    /**
+     * @param string $where
+     * @param mixed|null $value
+     * @return $this
+     */
+    public function andWhere($where, $value = null) {
+        return $this->where($where, $value);
+    }
+
+    /**
+     * @return string
+     */
     public function getWhere() {
-        return implode(' AND ', $this->where);
+        return implode(' AND ', array_map(function($where) {
+            return "($where)";
+        }, $this->where));
+    }
+
+    /**
+     * @param string $key
+     * @param mixed $value
+     * @return $this
+     */
+    public function setParameter($key, $value)
+    {
+        $this->parameters[$key] = $value;
+
+        return $this;
+    }
+
+    /**
+     * @param mixed[] $values
+     * @return $this
+     */
+    public function setParameters($values)
+    {
+        $this->parameters = [];
+        foreach ($values as $key => $value) {
+            $this->setParameter($key, $value);
+        }
+
+        return $this;
     }
 
     /**
@@ -86,7 +145,7 @@ class Query {
     }
 
     /**
-     * @param int $page
+     * @param int|null $page
      * @return $this
      * @throws Exception
      */
@@ -113,16 +172,46 @@ class Query {
     }
 
     /**
+     * @param bool $includeArchived
+     * @return $this
+     */
+    public function includeArchived($includeArchived = true) {
+        $this->includeArchived = $includeArchived == true;
+
+        return $this;
+    }
+
+    /**
      * @return array
      */
     public function execute() {
 
         /** @var ObjectInterface $from_class */
         $from_class = $this->from_class;
+        $request = $this->getRequest();
+        $request->send();
+
+        $elements = array();
+        foreach($request->getResponse()->getElements() as $element) {
+            /** @var \XeroPHP\Models\Files\Object $built_element */
+            $built_element = new $from_class($this->app);
+            $built_element->fromStringArray($element);
+            $elements[] = $built_element;
+        }
+
+        return $elements;
+    }
+
+    /**
+     * @return Request
+     */
+    public function getRequest()
+    {
+        $from_class = $this->from_class;
         $url = new URL($this->app, $from_class::getResourceURI());
         $request = new Request($this->app, $url, Request::METHOD_GET);
 
-        $where = $this->getWhere();
+        $where = $this->getParsedWhere();
         if(!empty($where)) {
             $request->setParameter('where', $where);
         }
@@ -143,23 +232,92 @@ class Query {
             $request->setParameter('offset', $this->offset);
         }
 
-        $request->send();
-
-        $elements = array();
-        foreach($request->getResponse()->getElements() as $element) {
-            /** @var Object $built_element */
-            $built_element = new $from_class($this->app);
-            $built_element->fromStringArray($element);
-            $elements[] = $built_element;
+        if($this->includeArchived !== false) {
+            $request->setParameter('includeArchived', $this->includeArchived);
         }
 
-        return $elements;
+        return $request;
     }
 
     /**
-     * @return mixed
+     * @return string
+     * @throws QueryParameterNotUsedException
      */
+    private function getParsedWhere()
+    {
+        $usedParameters = [];
+        $parsedWhere = preg_replace_callback('/:[\?_a-zA-Z0-9]+/', function($matches) use (&$usedParameters) {
+            $parameterKey = ltrim($matches[0], ':');
+            $usedParameters[$parameterKey] = true;
+
+            return $this->convertPHPValueToXeroQuery($this->getParameter($parameterKey));
+        }, $this->getWhere());
+
+        if (count($usedParameters) != (count($this->parameters) + count($this->internalParameters))) {
+            throw new QueryParameterNotUsedException('Too many parameters: the query defines ' . count($usedParameters) . ' parameters and you bound ' . (count($this->parameters) + count($this->internalParameters)));
+        }
+
+        return $parsedWhere;
+    }
+
+    /**
+     * @param string $value
+     * @return string
+     */
+    private function convertPHPValueToXeroQuery($value)
+    {
+        if ($value instanceof \DateTime) {
+            return sprintf('DateTime(%s)', $value->format('Y,m,d'));
+        } else if (is_int($value) || is_float($value)) {
+            return (string) $value;
+        } else if ($value === true) {
+            return 'true';
+        } else if ($value === false) {
+            return 'false';
+        }
+
+        return sprintf('"%s"', addslashes($value));
+    }
+
     public function getFrom() {
         return $this->from_class;
+    }
+
+    /**
+     * @return int key of added value
+     */
+    private function addInternalParameter($value)
+    {
+        $key = count($this->internalParameters);
+        $this->internalParameters[$key] = $value;
+
+        return "?$key";
+    }
+
+    /**
+     * @param string $key
+     * @return mixed
+     * @throws QueryParameterNotSetException
+     */
+    private function getParameter($key)
+    {
+        if ($key[0] === '?') {
+            return $this->getInternalParameter($key);
+        }
+
+        if (isset($this->parameters[$key])) {
+            return $this->parameters[$key];
+        }
+
+        throw new QueryParameterNotSetException("Query parameter is not set '$key'");
+    }
+
+    /**
+     * @param string $key
+     * @return mixed
+     */
+    private function getInternalParameter($key)
+    {
+        return $this->internalParameters[ltrim($key, '?')];
     }
 }
