@@ -134,4 +134,24 @@ class QueryTest extends \PHPUnit_Framework_TestCase
         $this->query->includeArchived(false);
         $this->assertArrayNotHasKey('includedArchived', $this->query->getRequest()->getParameters(), 'includeArchive should not be set in Request if set to false');
     }
+
+    /**
+     * @expectedException \XeroPHP\Remote\Exception\QueryParameterNotSetException
+     */
+    public function testParameterNotSetThrowsException()
+    {
+        $this->query->where('test == :name');
+        $this->query->getRequest();
+    }
+
+    /**
+     * @expectedException \XeroPHP\Remote\Exception\QueryParameterNotUsedException
+     */
+    public function testParameterNotUsedThrowsException()
+    {
+        $this->query->where('test == :name');
+        $this->query->setParameter('name', 'something');
+        $this->query->setParameter('email', 'test@example.com');
+        $this->query->getRequest();
+    }
 }
