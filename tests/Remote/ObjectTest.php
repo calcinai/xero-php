@@ -67,6 +67,11 @@ class SimpleObject extends Object
         return 'test';
     }
 
+    static function isPageable()
+    {
+        return false;
+    }
+
     /**
      * @return mixed
      */
@@ -82,4 +87,5 @@ class SimpleObject extends Object
     {
         $this->_data['test'] = $test;
     }
+
 }
