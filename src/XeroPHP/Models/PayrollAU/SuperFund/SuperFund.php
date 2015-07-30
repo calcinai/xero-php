@@ -71,28 +71,6 @@ class SuperFund extends Remote\Object {
      * @deprecated
      */
 
-    /**
-     * You can specify an individual record by appending the value to the endpoint, i.e.GET
-     * https://…/SuperFunds/{identifier}
-     *
-     * @property string Recordfilter
-     */
-
-    /**
-     * You can get all super funds by not appending super fund Id. e.g. GET https://…/superFunds
-     *
-     * @property string 
-     */
-
-    /**
-     * The ModifiedAfter filter is actually an HTTP header: ‘If-Modified-Since‘.
-A UTC timestamp
-     * (yyyy-mm-ddThh:mm:ss) . Only superfunds created or modified since this timestamp will be returned
-     * e.g. 2009-11-12T00:00:00
-     *
-     * @property \DateTime ModifiedAfter
-     */
-
 
     const TYPE_REGULATED = 'REGULATED';
     const TYPE_SMSF      = 'SMSF';
@@ -168,10 +146,7 @@ A UTC timestamp
             'ElectronicServiceAddress' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'SuperFundID' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'EmployerNumber' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'SPIN' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'Recordfilter' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            '' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'ModifiedAfter' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTime', false, false)
+            'SPIN' => array (false, self::PROPERTY_TYPE_STRING, null, false, false)
         );
     }
 
@@ -345,57 +320,6 @@ A UTC timestamp
     public function setSPIN($value) {
         $this->propertyUpdated('SPIN', $value);
         $this->_data['SPIN'] = $value;
-        return $this;
-    }
-
-    /**
-     * @return string
-     */
-    public function getRecordfilter() {
-        return $this->_data['Recordfilter'];
-    }
-
-    /**
-     * @param string $value
-     * @return SuperFund
-     */
-    public function setRecordfilter($value) {
-        $this->propertyUpdated('Recordfilter', $value);
-        $this->_data['Recordfilter'] = $value;
-        return $this;
-    }
-
-    /**
-     * @return string
-     */
-    public function get() {
-        return $this->_data[''];
-    }
-
-    /**
-     * @param string $value
-     * @return SuperFund
-     */
-    public function set($value) {
-        $this->propertyUpdated('', $value);
-        $this->_data[''] = $value;
-        return $this;
-    }
-
-    /**
-     * @return \DateTime
-     */
-    public function getModifiedAfter() {
-        return $this->_data['ModifiedAfter'];
-    }
-
-    /**
-     * @param \DateTime $value
-     * @return SuperFund
-     */
-    public function setModifiedAfter(\DateTime $value) {
-        $this->propertyUpdated('ModifiedAfter', $value);
-        $this->_data['ModifiedAfter'] = $value;
         return $this;
     }
 
