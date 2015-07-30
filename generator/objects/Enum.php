@@ -15,10 +15,10 @@ class Enum implements ParsedObjectInterface {
     private $longest_name;
 
     /**
-     * @param $group The doc group eg. Organisation
-     * @param $name The doc subsection, used for the constant name
-     * @param $anchor Any links found in the docs.  Used to track which values are being referred to
-     * @param $raw_name Raw name as in docs, used for generating constant name
+     * @param $group string The doc group eg. Organisation
+     * @param $name string The doc subsection, used for the constant name
+     * @param $anchor string Any links found in the docs.  Used to track which values are being referred to
+     * @param $raw_name string Raw name as in docs, used for generating constant name
      */
     public function __construct($group, $name, $anchor, $raw_name){
         $this->group = $group;

@@ -123,7 +123,7 @@ foreach($scrape_apis as $scrape_api) {
 
     $crawler->filter('.entry-content')->children()->each(function(Crawler $node) use($api){
         //keep static in closure.
-        /** @var ParsedObjectInterface $current_object */
+        /** @var Enum|Model $current_object */
         static $section_name, $current_object;
 
         $current_tag = $node->getNode(0)->tagName;
@@ -143,11 +143,22 @@ foreach($scrape_apis as $scrape_api) {
                 if('' == $subsection_name = preg_replace('/\([\s\w]+\)/', '', str_replace(' ', '', $node->text())))
                     return null;
 
+                //Take the first line only.
+                list($subsection_name) = explode("\n", $subsection_name);
+
                 //Try record the anchor on page for searching
                 $anchor = null;
                 $node->filter('a')->each(function(Crawler $node) use(&$anchor){ $anchor = $node->attr('name'); });
 
+                //Fix for doc update for BC.
+                //todo - reassess if these cases should belong in 'TaxRates' class from 2.x (maybe Xero will have a machine-readable spec by then)
+                if(strpos($anchor, 'TaxTypes') !== false){
+                    $section_name = $anchor;
+                }
+
                 //this is to catch the models that are hiding in the types and codes
+                echo "Section[$section_name]: Subsection[$subsection_name]: Anchor[$anchor]\n";
+
                 if($section_name === $subsection_name){
                     $current_object = new Model();
                     $current_object->setName($section_name);
@@ -200,7 +211,6 @@ foreach($scrape_apis as $scrape_api) {
 
                         if($children->eq(0)->filter('em')->count()){
                             //Skip if the first child has an em in it
-                            //echo $name."\n";
                         } else {
                             $current_object->addValue($name, $description);
                         }
@@ -449,7 +459,7 @@ foreach($scrape_apis as $scrape_api) {
                     }
 
                     //Debug
-                    $model->printPropertyTable();
+                    //$model->printPropertyTable();
                 }
 
                 if(strpos($primary_model->rawHTML, 'returned as PDF') !== false){

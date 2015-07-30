@@ -95,7 +95,7 @@ class API {
      * @param Enum $enum
      */
     public function addEnum(Enum $enum) {
-        $this->enums[] = $enum;
+        $this->enums[$enum->getGroup().$enum->getName()] = $enum;
     }
 
     /**
