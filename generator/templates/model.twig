@@ -122,7 +122,8 @@ class {{ model.ClassName }} extends Remote\Object {
 {#  getters and setters #}
 {% for property in model.properties %}
     /**
-     * @return {{ property.PHPType }}{% if property.isArray %}[]{% endif %}
+     * @return {{ property.PHPType }}{% if property.isArray %}[]|Collection
+     * Always returns a collection, switch is for type hinting{% endif %}
 
 {% if property.isDeprecated %}     * @deprecated
 {% endif %}

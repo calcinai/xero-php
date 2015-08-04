@@ -113,7 +113,7 @@ class Query {
     }
 
     /**
-     * @return array
+     * @return Collection
      */
     public function execute() {
 
@@ -145,12 +145,12 @@ class Query {
 
         $request->send();
 
-        $elements = array();
+        $elements = new Collection();
         foreach($request->getResponse()->getElements() as $element) {
             /** @var Object $built_element */
             $built_element = new $from_class($this->app);
             $built_element->fromStringArray($element);
-            $elements[] = $built_element;
+            $elements->append($built_element);
         }
 
         return $elements;

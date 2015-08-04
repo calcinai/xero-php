@@ -10,7 +10,7 @@ use XeroPHP\Helpers;
  * Class Object
  * @package XeroPHP\Remote
  *
- * todo - at 2.x, move this into the root of the project and refer to it as a model.
+ * todo - at 2.x, move this into the root of the project and refer to it as a model.  Also make this an ArrayObject to simplify storage
  */
 abstract class Object implements ObjectInterface, \JsonSerializable, \ArrayAccess {
 
@@ -171,15 +171,17 @@ abstract class Object implements ObjectInterface, \JsonSerializable, \ArrayAcces
             //Fix for an earlier assumption that the API didn't return more than two levels of nested objects.
             //Handles Invoice > Contact > Address etc. in one build.
             if(is_array($input_array[$property]) && Helpers::isAssoc($input_array[$property]) === false) {
-                $this->_data[$property] = array();
+                $collection = new Collection();
+                $collection->addAssociatedObject($property, $this);
                 foreach($input_array[$property] as $assoc_element) {
                     $cast = self::castFromString($type, $assoc_element, $php_type);
                     //Do this here so that you know it's not a static method call to ::castFromString
                     if($cast instanceof Object){
                         $cast->addAssociatedObject($property, $this);
                     }
-                    $this->_data[$property][] = $cast;
+                    $collection->append($cast);
                 }
+                $this->_data[$property] = $collection;
             } else {
                 $cast = self::castFromString($type, $input_array[$property], $php_type);
                 //Do this here so that you know it's not a static method call to ::castFromString
@@ -348,7 +350,6 @@ abstract class Object implements ObjectInterface, \JsonSerializable, \ArrayAcces
     public function addAssociatedObject($property, Object $object) {
         $this->_associated_objects[$property] = $object;
     }
-
 
     /**
      * Magic method for testing if properties exist
