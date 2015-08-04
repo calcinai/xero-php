@@ -152,7 +152,8 @@ class OpeningBalance extends Remote\Object {
     }
 
     /**
-     * @return EarningsLine[]
+     * @return EarningsLine[]|Collection
+     * Always returns a collection, switch is for type hinting
      */
     public function getEarningsLines() {
         return $this->_data['EarningsLines'];
@@ -169,7 +170,8 @@ class OpeningBalance extends Remote\Object {
     }
 
     /**
-     * @return BenefitLine[]
+     * @return BenefitLine[]|Collection
+     * Always returns a collection, switch is for type hinting
      */
     public function getBenefitLines() {
         return $this->_data['BenefitLines'];
@@ -186,7 +188,8 @@ class OpeningBalance extends Remote\Object {
     }
 
     /**
-     * @return DeductionLine[]
+     * @return DeductionLine[]|Collection
+     * Always returns a collection, switch is for type hinting
      */
     public function getDeductionLines() {
         return $this->_data['DeductionLines'];
@@ -203,7 +206,8 @@ class OpeningBalance extends Remote\Object {
     }
 
     /**
-     * @return ReimbursementLine[]
+     * @return ReimbursementLine[]|Collection
+     * Always returns a collection, switch is for type hinting
      */
     public function getReimbursementLines() {
         return $this->_data['ReimbursementLines'];

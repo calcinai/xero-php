@@ -249,7 +249,8 @@ class TaxDeclaration extends Remote\Object {
     }
 
     /**
-     * @return string[]
+     * @return string[]|Collection
+     * Always returns a collection, switch is for type hinting
      */
     public function getAustralianResidentForTaxPurposes() {
         return $this->_data['AustralianResidentForTaxPurposes'];

@@ -112,7 +112,8 @@ class PayItem extends Remote\Object {
     }
 
     /**
-     * @return EarningsRate[]
+     * @return EarningsRate[]|Collection
+     * Always returns a collection, switch is for type hinting
      */
     public function getEarningsRates() {
         return $this->_data['EarningsRates'];
@@ -129,7 +130,8 @@ class PayItem extends Remote\Object {
     }
 
     /**
-     * @return DeductionType[]
+     * @return DeductionType[]|Collection
+     * Always returns a collection, switch is for type hinting
      */
     public function getDeductionTypes() {
         return $this->_data['DeductionTypes'];
@@ -146,7 +148,8 @@ class PayItem extends Remote\Object {
     }
 
     /**
-     * @return LeaveType[]
+     * @return LeaveType[]|Collection
+     * Always returns a collection, switch is for type hinting
      */
     public function getLeaveTypes() {
         return $this->_data['LeaveTypes'];
@@ -163,7 +166,8 @@ class PayItem extends Remote\Object {
     }
 
     /**
-     * @return ReimbursementType[]
+     * @return ReimbursementType[]|Collection
+     * Always returns a collection, switch is for type hinting
      */
     public function getReimbursementTypes() {
         return $this->_data['ReimbursementTypes'];

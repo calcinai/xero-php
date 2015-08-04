@@ -218,7 +218,8 @@ class Folder extends Remote\Object {
     }
 
     /**
-     * @return File[]
+     * @return File[]|Collection
+     * Always returns a collection, switch is for type hinting
      */
     public function getFiles() {
         return $this->_data['Files'];

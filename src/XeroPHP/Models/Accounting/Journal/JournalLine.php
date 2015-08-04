@@ -351,7 +351,8 @@ class JournalLine extends Remote\Object {
     }
 
     /**
-     * @return TrackingCategory[]
+     * @return TrackingCategory[]|Collection
+     * Always returns a collection, switch is for type hinting
      */
     public function getTrackingCategories() {
         return $this->_data['TrackingCategories'];

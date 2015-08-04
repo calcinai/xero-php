@@ -162,7 +162,8 @@ class TrackingCategory extends Remote\Object {
     }
 
     /**
-     * @return TrackingOption[]
+     * @return TrackingOption[]|Collection
+     * Always returns a collection, switch is for type hinting
      */
     public function getOptions() {
         return $this->_data['Options'];

@@ -322,7 +322,8 @@ class Paystub extends Remote\Object {
     }
 
     /**
-     * @return float[]
+     * @return float[]|Collection
+     * Always returns a collection, switch is for type hinting
      */
     public function getEarnings() {
         return $this->_data['Earnings'];
@@ -339,7 +340,8 @@ class Paystub extends Remote\Object {
     }
 
     /**
-     * @return float[]
+     * @return float[]|Collection
+     * Always returns a collection, switch is for type hinting
      */
     public function getDeductions() {
         return $this->_data['Deductions'];
@@ -373,7 +375,8 @@ class Paystub extends Remote\Object {
     }
 
     /**
-     * @return float[]
+     * @return float[]|Collection
+     * Always returns a collection, switch is for type hinting
      */
     public function getReimbursements() {
         return $this->_data['Reimbursements'];
@@ -424,7 +427,8 @@ class Paystub extends Remote\Object {
     }
 
     /**
-     * @return EarningsLine[]
+     * @return EarningsLine[]|Collection
+     * Always returns a collection, switch is for type hinting
      */
     public function getEarningsLines() {
         return $this->_data['EarningsLines'];
@@ -441,7 +445,8 @@ class Paystub extends Remote\Object {
     }
 
     /**
-     * @return LeaveEarningsLine[]
+     * @return LeaveEarningsLine[]|Collection
+     * Always returns a collection, switch is for type hinting
      */
     public function getLeaveEarningsLines() {
         return $this->_data['LeaveEarningsLines'];
@@ -458,7 +463,8 @@ class Paystub extends Remote\Object {
     }
 
     /**
-     * @return TimesheetEarningsLine[]
+     * @return TimesheetEarningsLine[]|Collection
+     * Always returns a collection, switch is for type hinting
      */
     public function getTimesheetEarningsLines() {
         return $this->_data['TimesheetEarningsLines'];
@@ -475,7 +481,8 @@ class Paystub extends Remote\Object {
     }
 
     /**
-     * @return DeductionLine[]
+     * @return DeductionLine[]|Collection
+     * Always returns a collection, switch is for type hinting
      */
     public function getDeductionLines() {
         return $this->_data['DeductionLines'];
@@ -492,7 +499,8 @@ class Paystub extends Remote\Object {
     }
 
     /**
-     * @return ReimbursementLine[]
+     * @return ReimbursementLine[]|Collection
+     * Always returns a collection, switch is for type hinting
      */
     public function getReimbursementLines() {
         return $this->_data['ReimbursementLines'];
@@ -509,7 +517,8 @@ class Paystub extends Remote\Object {
     }
 
     /**
-     * @return BenefitLine[]
+     * @return BenefitLine[]|Collection
+     * Always returns a collection, switch is for type hinting
      */
     public function getBenefitLines() {
         return $this->_data['BenefitLines'];
@@ -526,7 +535,8 @@ class Paystub extends Remote\Object {
     }
 
     /**
-     * @return TimeOffLine[]
+     * @return TimeOffLine[]|Collection
+     * Always returns a collection, switch is for type hinting
      */
     public function getTimeOffLines() {
         return $this->_data['TimeOffLines'];

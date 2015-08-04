@@ -176,7 +176,8 @@ class Item extends Remote\Object {
     }
 
     /**
-     * @return Purchase[]
+     * @return Purchase[]|Collection
+     * Always returns a collection, switch is for type hinting
      */
     public function getPurchaseDetails() {
         return $this->_data['PurchaseDetails'];
@@ -193,7 +194,8 @@ class Item extends Remote\Object {
     }
 
     /**
-     * @return Sale[]
+     * @return Sale[]|Collection
+     * Always returns a collection, switch is for type hinting
      */
     public function getSalesDetails() {
         return $this->_data['SalesDetails'];

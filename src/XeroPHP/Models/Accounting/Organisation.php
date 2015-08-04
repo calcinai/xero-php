@@ -659,7 +659,8 @@ class Organisation extends Remote\Object {
     }
 
     /**
-     * @return Address[]
+     * @return Address[]|Collection
+     * Always returns a collection, switch is for type hinting
      */
     public function getAddresses() {
         return $this->_data['Addresses'];
@@ -676,7 +677,8 @@ class Organisation extends Remote\Object {
     }
 
     /**
-     * @return Phone[]
+     * @return Phone[]|Collection
+     * Always returns a collection, switch is for type hinting
      */
     public function getPhones() {
         return $this->_data['Phones'];
@@ -693,7 +695,8 @@ class Organisation extends Remote\Object {
     }
 
     /**
-     * @return ExternalLink[]
+     * @return ExternalLink[]|Collection
+     * Always returns a collection, switch is for type hinting
      */
     public function getExternalLinks() {
         return $this->_data['ExternalLinks'];
@@ -710,7 +713,8 @@ class Organisation extends Remote\Object {
     }
 
     /**
-     * @return PaymentTerm[]
+     * @return PaymentTerm[]|Collection
+     * Always returns a collection, switch is for type hinting
      */
     public function getPaymentTerms() {
         return $this->_data['PaymentTerms'];

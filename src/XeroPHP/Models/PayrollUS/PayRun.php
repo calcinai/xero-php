@@ -248,7 +248,8 @@ class PayRun extends Remote\Object {
 
 
     /**
-     * @return string[]
+     * @return string[]|Collection
+     * Always returns a collection, switch is for type hinting
      */
     public function getEarnings() {
         return $this->_data['Earnings'];
@@ -256,7 +257,8 @@ class PayRun extends Remote\Object {
 
 
     /**
-     * @return string[]
+     * @return string[]|Collection
+     * Always returns a collection, switch is for type hinting
      */
     public function getDeductions() {
         return $this->_data['Deductions'];
@@ -288,7 +290,8 @@ class PayRun extends Remote\Object {
 
 
     /**
-     * @return string[]
+     * @return string[]|Collection
+     * Always returns a collection, switch is for type hinting
      */
     public function getPayStubs() {
         return $this->_data['PayStubs'];

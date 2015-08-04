@@ -232,7 +232,8 @@ class EarningsRate extends Remote\Object {
     }
 
     /**
-     * @return string[]
+     * @return string[]|Collection
+     * Always returns a collection, switch is for type hinting
      */
     public function getTypeOfUnits() {
         return $this->_data['TypeOfUnits'];

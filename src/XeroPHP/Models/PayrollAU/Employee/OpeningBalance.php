@@ -220,7 +220,8 @@ class OpeningBalance extends Remote\Object {
     }
 
     /**
-     * @return EarningsLine[]
+     * @return EarningsLine[]|Collection
+     * Always returns a collection, switch is for type hinting
      */
     public function getEarningsLines() {
         return $this->_data['EarningsLines'];
@@ -237,7 +238,8 @@ class OpeningBalance extends Remote\Object {
     }
 
     /**
-     * @return DeductionLine[]
+     * @return DeductionLine[]|Collection
+     * Always returns a collection, switch is for type hinting
      */
     public function getDeductionLines() {
         return $this->_data['DeductionLines'];
@@ -254,7 +256,8 @@ class OpeningBalance extends Remote\Object {
     }
 
     /**
-     * @return string[]
+     * @return string[]|Collection
+     * Always returns a collection, switch is for type hinting
      */
     public function getSuperLines() {
         return $this->_data['SuperLines'];
@@ -271,7 +274,8 @@ class OpeningBalance extends Remote\Object {
     }
 
     /**
-     * @return ReimbursementLine[]
+     * @return ReimbursementLine[]|Collection
+     * Always returns a collection, switch is for type hinting
      */
     public function getReimbursementLines() {
         return $this->_data['ReimbursementLines'];
@@ -288,7 +292,8 @@ class OpeningBalance extends Remote\Object {
     }
 
     /**
-     * @return string[]
+     * @return string[]|Collection
+     * Always returns a collection, switch is for type hinting
      */
     public function getLeaveLines() {
         return $this->_data['LeaveLines'];
@@ -424,7 +429,8 @@ class OpeningBalance extends Remote\Object {
     }
 
     /**
-     * @return string[]
+     * @return string[]|Collection
+     * Always returns a collection, switch is for type hinting
      */
     public function getNumberOfUnits() {
         return $this->_data['NumberOfUnits'];

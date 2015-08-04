@@ -165,7 +165,8 @@ e.g.
     }
 
     /**
-     * @return Contact[]
+     * @return Contact[]|Collection
+     * Always returns a collection, switch is for type hinting
      */
     public function getContacts() {
         return $this->_data['Contacts'];

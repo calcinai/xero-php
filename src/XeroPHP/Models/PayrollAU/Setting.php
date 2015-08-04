@@ -103,7 +103,8 @@ class Setting extends Remote\Object {
     }
 
     /**
-     * @return Account[]
+     * @return Account[]|Collection
+     * Always returns a collection, switch is for type hinting
      */
     public function getAccounts() {
         return $this->_data['Accounts'];
@@ -120,7 +121,8 @@ class Setting extends Remote\Object {
     }
 
     /**
-     * @return TrackingCategory[]
+     * @return TrackingCategory[]|Collection
+     * Always returns a collection, switch is for type hinting
      */
     public function getTrackingCategories() {
         return $this->_data['TrackingCategories'];

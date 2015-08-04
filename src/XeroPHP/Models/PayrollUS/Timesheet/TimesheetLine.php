@@ -134,7 +134,8 @@ class TimesheetLine extends Remote\Object {
     }
 
     /**
-     * @return string[]
+     * @return string[]|Collection
+     * Always returns a collection, switch is for type hinting
      */
     public function getNumberOfUnits() {
         return $this->_data['NumberOfUnits'];

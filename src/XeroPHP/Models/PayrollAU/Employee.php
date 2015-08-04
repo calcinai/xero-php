@@ -361,7 +361,8 @@ class Employee extends Remote\Object {
     }
 
     /**
-     * @return string[]
+     * @return string[]|Collection
+     * Always returns a collection, switch is for type hinting
      */
     public function getMiddleNames() {
         return $this->_data['MiddleNames'];
@@ -565,7 +566,8 @@ class Employee extends Remote\Object {
     }
 
     /**
-     * @return BankAccount[]
+     * @return BankAccount[]|Collection
+     * Always returns a collection, switch is for type hinting
      */
     public function getBankAccounts() {
         return $this->_data['BankAccounts'];
@@ -599,7 +601,8 @@ class Employee extends Remote\Object {
     }
 
     /**
-     * @return OpeningBalance[]
+     * @return OpeningBalance[]|Collection
+     * Always returns a collection, switch is for type hinting
      */
     public function getOpeningBalances() {
         return $this->_data['OpeningBalances'];
@@ -616,7 +619,8 @@ class Employee extends Remote\Object {
     }
 
     /**
-     * @return SuperMembership[]
+     * @return SuperMembership[]|Collection
+     * Always returns a collection, switch is for type hinting
      */
     public function getSuperMemberships() {
         return $this->_data['SuperMemberships'];
