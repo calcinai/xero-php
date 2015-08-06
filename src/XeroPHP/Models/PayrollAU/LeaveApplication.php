@@ -259,7 +259,8 @@ class LeaveApplication extends Remote\Object {
     }
 
     /**
-     * @return LeavePeriod[]
+     * @return LeavePeriod[]|Collection
+     * Always returns a collection, switch is for type hinting
      */
     public function getLeavePeriods() {
         return $this->_data['LeavePeriods'];

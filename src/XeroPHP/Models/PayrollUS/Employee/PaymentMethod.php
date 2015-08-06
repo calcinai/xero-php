@@ -113,7 +113,8 @@ class PaymentMethod extends Remote\Object {
     }
 
     /**
-     * @return BankAccount[]
+     * @return BankAccount[]|Collection
+     * Always returns a collection, switch is for type hinting
      */
     public function getBankAccounts() {
         return $this->_data['BankAccounts'];

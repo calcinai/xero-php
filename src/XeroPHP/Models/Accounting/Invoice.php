@@ -357,7 +357,8 @@ class Invoice extends Remote\Object {
     }
 
     /**
-     * @return LineItem[]
+     * @return LineItem[]|Collection
+     * Always returns a collection, switch is for type hinting
      */
     public function getLineItems() {
         return $this->_data['LineItems'];
@@ -652,7 +653,8 @@ class Invoice extends Remote\Object {
 
 
     /**
-     * @return Payment[]
+     * @return Payment[]|Collection
+     * Always returns a collection, switch is for type hinting
      */
     public function getPayments() {
         return $this->_data['Payments'];
@@ -660,7 +662,8 @@ class Invoice extends Remote\Object {
 
 
     /**
-     * @return Prepayment[]
+     * @return Prepayment[]|Collection
+     * Always returns a collection, switch is for type hinting
      */
     public function getPrepayments() {
         return $this->_data['Prepayments'];
@@ -668,7 +671,8 @@ class Invoice extends Remote\Object {
 
 
     /**
-     * @return Overpayment[]
+     * @return Overpayment[]|Collection
+     * Always returns a collection, switch is for type hinting
      */
     public function getOverpayments() {
         return $this->_data['Overpayments'];
@@ -716,7 +720,8 @@ class Invoice extends Remote\Object {
 
 
     /**
-     * @return CreditNote[]
+     * @return CreditNote[]|Collection
+     * Always returns a collection, switch is for type hinting
      */
     public function getCreditNotes() {
         return $this->_data['CreditNotes'];

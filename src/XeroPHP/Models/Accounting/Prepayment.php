@@ -325,7 +325,8 @@ class Prepayment extends Remote\Object {
     }
 
     /**
-     * @return LineItem[]
+     * @return LineItem[]|Collection
+     * Always returns a collection, switch is for type hinting
      */
     public function getLineItems() {
         return $this->_data['LineItems'];
@@ -495,7 +496,8 @@ class Prepayment extends Remote\Object {
     }
 
     /**
-     * @return Allocation[]
+     * @return Allocation[]|Collection
+     * Always returns a collection, switch is for type hinting
      */
     public function getAllocations() {
         return $this->_data['Allocations'];

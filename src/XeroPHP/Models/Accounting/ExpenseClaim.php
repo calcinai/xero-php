@@ -140,7 +140,8 @@ class ExpenseClaim extends Remote\Object {
     }
 
     /**
-     * @return Receipt[]
+     * @return Receipt[]|Collection
+     * Always returns a collection, switch is for type hinting
      */
     public function getReceipts() {
         return $this->_data['Receipts'];

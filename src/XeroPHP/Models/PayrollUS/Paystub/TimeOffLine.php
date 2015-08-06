@@ -116,7 +116,8 @@ class TimeOffLine extends Remote\Object {
     }
 
     /**
-     * @return string[]
+     * @return string[]|Collection
+     * Always returns a collection, switch is for type hinting
      */
     public function getHours() {
         return $this->_data['Hours'];

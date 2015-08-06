@@ -92,7 +92,8 @@ class PaymentTerm extends Remote\Object {
     }
 
     /**
-     * @return Bill[]
+     * @return Bill[]|Collection
+     * Always returns a collection, switch is for type hinting
      */
     public function getBills() {
         return $this->_data['Bills'];
@@ -109,7 +110,8 @@ class PaymentTerm extends Remote\Object {
     }
 
     /**
-     * @return Sale[]
+     * @return Sale[]|Collection
+     * Always returns a collection, switch is for type hinting
      */
     public function getSales() {
         return $this->_data['Sales'];

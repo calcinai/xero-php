@@ -277,7 +277,8 @@ class Journal extends Remote\Object {
     }
 
     /**
-     * @return JournalLine[]
+     * @return JournalLine[]|Collection
+     * Always returns a collection, switch is for type hinting
      */
     public function getJournalLines() {
         return $this->_data['JournalLines'];

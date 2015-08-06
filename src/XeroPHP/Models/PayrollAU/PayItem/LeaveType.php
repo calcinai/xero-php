@@ -146,7 +146,8 @@ class LeaveType extends Remote\Object {
     }
 
     /**
-     * @return float[]
+     * @return float[]|Collection
+     * Always returns a collection, switch is for type hinting
      */
     public function getTypeOfUnits() {
         return $this->_data['TypeOfUnits'];

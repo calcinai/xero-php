@@ -483,7 +483,8 @@ class Contact extends Remote\Object {
     }
 
     /**
-     * @return ContactPerson[]
+     * @return ContactPerson[]|Collection
+     * Always returns a collection, switch is for type hinting
      */
     public function getContactPersons() {
         return $this->_data['ContactPersons'];
@@ -500,7 +501,8 @@ class Contact extends Remote\Object {
     }
 
     /**
-     * @return string[]
+     * @return string[]|Collection
+     * Always returns a collection, switch is for type hinting
      */
     public function getBankAccountDetails() {
         return $this->_data['BankAccountDetails'];
@@ -568,7 +570,8 @@ class Contact extends Remote\Object {
     }
 
     /**
-     * @return Address[]
+     * @return Address[]|Collection
+     * Always returns a collection, switch is for type hinting
      */
     public function getAddresses() {
         return $this->_data['Addresses'];
@@ -585,7 +588,8 @@ class Contact extends Remote\Object {
     }
 
     /**
-     * @return Phone[]
+     * @return Phone[]|Collection
+     * Always returns a collection, switch is for type hinting
      */
     public function getPhones() {
         return $this->_data['Phones'];
@@ -704,7 +708,8 @@ class Contact extends Remote\Object {
     }
 
     /**
-     * @return TrackingCategory[]
+     * @return TrackingCategory[]|Collection
+     * Always returns a collection, switch is for type hinting
      */
     public function getSalesTrackingCategories() {
         return $this->_data['SalesTrackingCategories'];
@@ -721,7 +726,8 @@ class Contact extends Remote\Object {
     }
 
     /**
-     * @return TrackingCategory[]
+     * @return TrackingCategory[]|Collection
+     * Always returns a collection, switch is for type hinting
      */
     public function getPurchasesTrackingCategories() {
         return $this->_data['PurchasesTrackingCategories'];
@@ -755,7 +761,8 @@ class Contact extends Remote\Object {
     }
 
     /**
-     * @return ContactGroup[]
+     * @return ContactGroup[]|Collection
+     * Always returns a collection, switch is for type hinting
      */
     public function getContactGroups() {
         return $this->_data['ContactGroups'];
@@ -806,7 +813,8 @@ class Contact extends Remote\Object {
     }
 
     /**
-     * @return string[]
+     * @return string[]|Collection
+     * Always returns a collection, switch is for type hinting
      */
     public function getBatchPayments() {
         return $this->_data['BatchPayments'];
@@ -840,7 +848,8 @@ class Contact extends Remote\Object {
     }
 
     /**
-     * @return string[]
+     * @return string[]|Collection
+     * Always returns a collection, switch is for type hinting
      */
     public function getBalances() {
         return $this->_data['Balances'];
@@ -857,7 +866,8 @@ class Contact extends Remote\Object {
     }
 
     /**
-     * @return PaymentTerm[]
+     * @return PaymentTerm[]|Collection
+     * Always returns a collection, switch is for type hinting
      */
     public function getPaymentTerms() {
         return $this->_data['PaymentTerms'];

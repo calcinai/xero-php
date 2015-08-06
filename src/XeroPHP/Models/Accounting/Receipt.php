@@ -230,7 +230,8 @@ class Receipt extends Remote\Object {
     }
 
     /**
-     * @return LineItem[]
+     * @return LineItem[]|Collection
+     * Always returns a collection, switch is for type hinting
      */
     public function getLineItems() {
         return $this->_data['LineItems'];

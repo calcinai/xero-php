@@ -193,7 +193,8 @@ class PayTemplate extends Remote\Object {
     }
 
     /**
-     * @return float[]
+     * @return float[]|Collection
+     * Always returns a collection, switch is for type hinting
      */
     public function getEarningsLines() {
         return $this->_data['EarningsLines'];
@@ -210,7 +211,8 @@ class PayTemplate extends Remote\Object {
     }
 
     /**
-     * @return DeductionLine[]
+     * @return DeductionLine[]|Collection
+     * Always returns a collection, switch is for type hinting
      */
     public function getDeductionLines() {
         return $this->_data['DeductionLines'];
@@ -227,7 +229,8 @@ class PayTemplate extends Remote\Object {
     }
 
     /**
-     * @return ReimbursementLine[]
+     * @return ReimbursementLine[]|Collection
+     * Always returns a collection, switch is for type hinting
      */
     public function getReimbursementLines() {
         return $this->_data['ReimbursementLines'];
@@ -244,7 +247,8 @@ class PayTemplate extends Remote\Object {
     }
 
     /**
-     * @return BenefitLine[]
+     * @return BenefitLine[]|Collection
+     * Always returns a collection, switch is for type hinting
      */
     public function getBenefitLines() {
         return $this->_data['BenefitLines'];
@@ -278,7 +282,8 @@ class PayTemplate extends Remote\Object {
     }
 
     /**
-     * @return string[]
+     * @return string[]|Collection
+     * Always returns a collection, switch is for type hinting
      */
     public function getUnitsOrHours() {
         return $this->_data['UnitsOrHours'];

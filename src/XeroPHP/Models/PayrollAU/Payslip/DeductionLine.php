@@ -157,7 +157,8 @@ class DeductionLine extends Remote\Object {
     }
 
     /**
-     * @return float[]
+     * @return float[]|Collection
+     * Always returns a collection, switch is for type hinting
      */
     public function getNumberOfUnits() {
         return $this->_data['NumberOfUnits'];
