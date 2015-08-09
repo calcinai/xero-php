@@ -4,6 +4,7 @@ namespace XeroPHP\Models\Accounting\ManualJournal;
 
 use XeroPHP\Remote;
 
+use XeroPHP\Models\Accounting\TrackingCategory;
 
 class JournalLine extends Remote\Object {
 
@@ -36,7 +37,7 @@ class JournalLine extends Remote\Object {
      * Optional Tracking Category – see Tracking.  Any JournalLine can have a maximum of 2
      * <TrackingCategory> elements.
      *
-     * @property string Tracking
+     * @property TrackingCategory[] Tracking
      */
 
     /**
@@ -112,7 +113,7 @@ class JournalLine extends Remote\Object {
             'AccountCode' => array (true, self::PROPERTY_TYPE_STRING, null, false, false),
             'Description' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'TaxType' => array (false, self::PROPERTY_TYPE_ENUM, null, false, false),
-            'Tracking' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
+            'Tracking' => array (false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\TrackingCategory', true, false),
             'TaxAmount' => array (false, self::PROPERTY_TYPE_FLOAT, null, false, false)
         );
     }
@@ -190,19 +191,20 @@ class JournalLine extends Remote\Object {
     }
 
     /**
-     * @return string
+     * @return TrackingCategory[]|Collection
+     * Always returns a collection, switch is for type hinting
      */
     public function getTracking() {
         return $this->_data['Tracking'];
     }
 
     /**
-     * @param string $value
+     * @param TrackingCategory $value
      * @return JournalLine
      */
-    public function setTracking($value) {
+    public function addTracking(TrackingCategory $value) {
         $this->propertyUpdated('Tracking', $value);
-        $this->_data['Tracking'] = $value;
+        $this->_data['Tracking'][] = $value;
         return $this;
     }
 
