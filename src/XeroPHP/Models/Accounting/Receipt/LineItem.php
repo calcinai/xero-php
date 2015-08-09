@@ -4,6 +4,7 @@ namespace XeroPHP\Models\Accounting\Receipt;
 
 use XeroPHP\Remote;
 
+use XeroPHP\Models\Accounting\TrackingCategory;
 
 class LineItem extends Remote\Object {
 
@@ -54,7 +55,7 @@ class LineItem extends Remote\Object {
      * Optional Tracking Category – see Tracking.  Any LineItem can have a maximum of 2
      * <TrackingCategory> elements.
      *
-     * @property string Tracking
+     * @property TrackingCategory[] Tracking
      */
 
     /**
@@ -133,7 +134,7 @@ class LineItem extends Remote\Object {
             'Quantity' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'TaxType' => array (false, self::PROPERTY_TYPE_ENUM, null, false, false),
             'LineAmount' => array (false, self::PROPERTY_TYPE_FLOAT, null, false, false),
-            'Tracking' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
+            'Tracking' => array (false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\TrackingCategory', true, false),
             'DiscountRate' => array (false, self::PROPERTY_TYPE_STRING, null, false, false)
         );
     }
@@ -245,19 +246,20 @@ class LineItem extends Remote\Object {
     }
 
     /**
-     * @return string
+     * @return TrackingCategory[]|Collection
+     * Always returns a collection, switch is for type hinting
      */
     public function getTracking() {
         return $this->_data['Tracking'];
     }
 
     /**
-     * @param string $value
+     * @param TrackingCategory $value
      * @return LineItem
      */
-    public function setTracking($value) {
+    public function addTracking(TrackingCategory $value) {
         $this->propertyUpdated('Tracking', $value);
-        $this->_data['Tracking'] = $value;
+        $this->_data['Tracking'][] = $value;
         return $this;
     }
 
