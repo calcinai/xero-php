@@ -119,7 +119,7 @@ class Query {
 
         /** @var ObjectInterface $from_class */
         $from_class = $this->from_class;
-        $url = new URL($this->app, $from_class::getResourceURI());
+        $url = new URL($this->app, $from_class::getResourceURI(), $from_class::getAPIStem());
         $request = new Request($this->app, $url, Request::METHOD_GET);
 
         $where = $this->getWhere();
