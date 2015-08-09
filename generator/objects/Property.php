@@ -124,6 +124,9 @@ class Property {
             case $this->getType() === Object::PROPERTY_TYPE_BOOLEAN:
             case $this->getType() === Object::PROPERTY_TYPE_ENUM:
                 return false;
+            //This to to improve detection of names that are the same plural/sing
+            case preg_match('/maximum of [2-9] <(?<model>[a-z]+)> elements/i', $this->getDescription()):
+                return true;
             default:
                 return $this->getNameSingular() != $this->getName();
         }
@@ -290,6 +293,13 @@ class Property {
             //Otherwise, just have a stab again, this needs to be after other references
             if($result === null){
                 if(preg_match('/see\s(?<model>[^.]+)/i', $this->getDescription(), $matches)){
+                    $result = $this->getModel()->getAPI()->searchByKey(str_replace(' ', '', ucwords($matches['model'])), $ns_hint);
+                }
+            }
+
+            //Look for pointy bracketed references
+            if($result === null){
+                if(preg_match('/<(?<model>[^>]+)>/i', $this->getDescription(), $matches)){
                     $result = $this->getModel()->getAPI()->searchByKey(str_replace(' ', '', ucwords($matches['model'])), $ns_hint);
                 }
             }
