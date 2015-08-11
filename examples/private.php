@@ -9,13 +9,12 @@ $config = array(
         'consumer_key'     => 'k',
         'consumer_secret'  => 's',
         'rsa_private_key'  => 'file://certs/private.pem',
-        'rsa_public_key'   => 'file://certs/public.pem'
-    )
+    ),
+    'curl' => array(
+        CURLOPT_CAINFO => __DIR__.'/certs/ca-bundle.crt',
+    ),
 );
-
 
 $xero = new PrivateApplication($config);
 
-
 print_r($xero->load('Accounting\\Organisation')->execute());
-
