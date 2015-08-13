@@ -4,7 +4,6 @@ namespace XeroPHP\Remote;
 
 use XeroPHP\Application;
 use XeroPHP\Exception;
-use XeroPHP\Models\Files\Object;
 
 class Query {
 
