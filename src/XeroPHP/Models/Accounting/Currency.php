@@ -8,10 +8,10 @@ use XeroPHP\Remote;
 class Currency extends Remote\Object {
 
     /**
-     * A UTC timestamp (YYYYMMDDHHMMSS) . Only currencies  created or modified since this timestamp will be
-     * returned e.g. 20090901000000
+     * This property has been removed from the Xero API
      *
-     * @property \DateTime ModifiedAfter
+     * @property string ModifiedAfter
+     * @deprecated
      */
 
     /**
@@ -90,7 +90,7 @@ class Currency extends Remote\Object {
      */
     public static function getProperties() {
         return array(
-            'ModifiedAfter' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTime', false, false),
+            'ModifiedAfter' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'Code' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'Description' => array (false, self::PROPERTY_TYPE_STRING, null, false, false)
         );
@@ -101,17 +101,19 @@ class Currency extends Remote\Object {
     }
 
     /**
-     * @return \DateTime
+     * @return string
+     * @deprecated
      */
     public function getModifiedAfter() {
         return $this->_data['ModifiedAfter'];
     }
 
     /**
-     * @param \DateTime $value
+     * @param string $value
      * @return Currency
+     * @deprecated
      */
-    public function setModifiedAfter(\DateTime $value) {
+    public function setModifiedAfter($value) {
         $this->propertyUpdated('ModifiedAfter', $value);
         $this->_data['ModifiedAfter'] = $value;
         return $this;

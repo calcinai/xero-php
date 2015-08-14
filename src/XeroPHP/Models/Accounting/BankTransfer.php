@@ -67,6 +67,12 @@ class BankTransfer extends Remote\Object {
      * @property bool HasAttachments
      */
 
+    /**
+     * UTC timestamp of creation date of bank transfer
+     *
+     * @property \DateTime CreatedDateUTC
+     */
+
 
 
     /**
@@ -140,7 +146,8 @@ class BankTransfer extends Remote\Object {
             'CurrencyRate' => array (false, self::PROPERTY_TYPE_FLOAT, null, false, false),
             'FromBankTransactionID' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'ToBankTransactionID' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'HasAttachments' => array (false, self::PROPERTY_TYPE_BOOLEAN, null, false, false)
+            'HasAttachments' => array (false, self::PROPERTY_TYPE_BOOLEAN, null, false, false),
+            'CreatedDateUTC' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTime', false, false)
         );
     }
 
@@ -262,6 +269,14 @@ class BankTransfer extends Remote\Object {
      */
     public function getHasAttachments() {
         return $this->_data['HasAttachments'];
+    }
+
+
+    /**
+     * @return \DateTime
+     */
+    public function getCreatedDateUTC() {
+        return $this->_data['CreatedDateUTC'];
     }
 
 

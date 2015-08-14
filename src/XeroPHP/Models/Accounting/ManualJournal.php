@@ -66,6 +66,12 @@ class ManualJournal extends Remote\Object {
      * @property bool HasAttachments
      */
 
+    /**
+     * Last modified date UTC format
+     *
+     * @property \DateTime UpdatedDateUTC
+     */
+
 
     const MANUAL_JOURNAL_STATUS_DRAFT   = 'DRAFT';
     const MANUAL_JOURNAL_STATUS_POSTED  = 'POSTED';
@@ -145,7 +151,8 @@ class ManualJournal extends Remote\Object {
             'Status' => array (false, self::PROPERTY_TYPE_ENUM, null, false, false),
             'Url' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'ShowOnCashBasisReports' => array (false, self::PROPERTY_TYPE_BOOLEAN, null, false, false),
-            'HasAttachments' => array (false, self::PROPERTY_TYPE_BOOLEAN, null, false, false)
+            'HasAttachments' => array (false, self::PROPERTY_TYPE_BOOLEAN, null, false, false),
+            'UpdatedDateUTC' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTime', false, false)
         );
     }
 
@@ -295,6 +302,14 @@ class ManualJournal extends Remote\Object {
      */
     public function getHasAttachments() {
         return $this->_data['HasAttachments'];
+    }
+
+
+    /**
+     * @return \DateTime
+     */
+    public function getUpdatedDateUTC() {
+        return $this->_data['UpdatedDateUTC'];
     }
 
 
