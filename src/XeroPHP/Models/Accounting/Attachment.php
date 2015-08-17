@@ -201,4 +201,11 @@ class Attachment extends Object {
         $this->local_handle = $local_handle;
     }
 
+    /**
+     * @return mixed
+     */
+    public static function isPageable() {
+        return false;
+    }
+
 }
