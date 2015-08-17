@@ -204,7 +204,7 @@ class Attachment extends Object {
     /**
      * @return mixed
      */
-    static function isPageable() {
+    public static function isPageable() {
         return false;
     }
 
