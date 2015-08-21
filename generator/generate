@@ -390,6 +390,8 @@ foreach($scrape_apis as $scrape_api) {
                             if($num_children === 2){
                                 $column_name = trim($children->eq(0)->text(), "<> \n");
                                 $column_description = trim($children->eq(1)->text());
+                            } elseif($num_children === 0) {
+                                return;
                             } else {
                                 //at least 3 children in here
                                 $skip_next = true;
