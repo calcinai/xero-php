@@ -14,8 +14,7 @@ class EarningsRate extends Remote\Object {
      */
 
     /**
-     * DisplayName of the earnings rate, this field is only accessible via the API.  The DisplayName is
-     * shown on the employee’s Payslip. (max length = 50)
+     * Display name of the earnings rate, as it will appear on payslips. (max length = 100)
      *
      * @property string DisplayName
      */

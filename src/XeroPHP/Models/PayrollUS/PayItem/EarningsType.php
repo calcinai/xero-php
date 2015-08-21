@@ -14,10 +14,10 @@ class EarningsType extends Remote\Object {
      */
 
     /**
-     * DisplayName of the earnings rate, this field is only accessible via the API.  The DisplayName is
-     * shown on the employee’s Payslip. (max length = 50)
+     * This property has been removed from the Xero API
      *
      * @property string DisplayName
+     * @deprecated
      */
 
     /**
@@ -196,6 +196,7 @@ class EarningsType extends Remote\Object {
 
     /**
      * @return string
+     * @deprecated
      */
     public function getDisplayName() {
         return $this->_data['DisplayName'];
@@ -204,6 +205,7 @@ class EarningsType extends Remote\Object {
     /**
      * @param string $value
      * @return EarningsType
+     * @deprecated
      */
     public function setDisplayName($value) {
         $this->propertyUpdated('DisplayName', $value);

@@ -25,6 +25,12 @@ class Employee extends Remote\Object {
      */
 
     /**
+     * Date of birth of the employee (YYYY-MM-DD)
+     *
+     * @property \DateTime DateOfBirth
+     */
+
+    /**
      * Employee home address. See HomeAddress
      *
      * @property HomeAddress HomeAddress
@@ -245,6 +251,7 @@ class Employee extends Remote\Object {
         return array(
             'FirstName' => array (true, self::PROPERTY_TYPE_STRING, null, false, false),
             'LastName' => array (true, self::PROPERTY_TYPE_STRING, null, false, false),
+            'DateOfBirth' => array (true, self::PROPERTY_TYPE_DATE, '\\DateTime', false, false),
             'HomeAddress' => array (true, self::PROPERTY_TYPE_OBJECT, 'PayrollAU\\Employee\\HomeAddress', false, false),
             'StartDate' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTime', false, false),
             'Title' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
@@ -306,6 +313,23 @@ class Employee extends Remote\Object {
     public function setLastName($value) {
         $this->propertyUpdated('LastName', $value);
         $this->_data['LastName'] = $value;
+        return $this;
+    }
+
+    /**
+     * @return \DateTime
+     */
+    public function getDateOfBirth() {
+        return $this->_data['DateOfBirth'];
+    }
+
+    /**
+     * @param \DateTime $value
+     * @return Employee
+     */
+    public function setDateOfBirth(\DateTime $value) {
+        $this->propertyUpdated('DateOfBirth', $value);
+        $this->_data['DateOfBirth'] = $value;
         return $this;
     }
 
