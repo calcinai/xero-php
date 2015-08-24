@@ -128,8 +128,9 @@ abstract class Application {
         $class = $this->validateModelClass($model);
 
         $uri = sprintf('%s/%s', $class::getResourceURI(), $guid);
+        $api = $class::getAPIStem();
 
-        $url = new URL($this, $uri);
+        $url = new URL($this, $uri, $api);
         $request = new Request($this, $url, Request::METHOD_GET);
         $request->send();
 
