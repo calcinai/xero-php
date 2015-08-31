@@ -127,7 +127,7 @@ class File extends Remote\Object {
             'FolderId' => array (false, self::PROPERTY_TYPE_OBJECT, 'Files\\Folder', false, false),
             'MimeType' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'Size' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'CreatedDateUTC' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTime', false, false),
+            'CreatedDateUTC' => array (false, self::PROPERTY_TYPE_TIMESTAMP, '\\DateTime', false, false),
             'UpdatedDateUTC' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTime', false, false),
             'User' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'Id' => array (false, self::PROPERTY_TYPE_GUID, null, false, false)

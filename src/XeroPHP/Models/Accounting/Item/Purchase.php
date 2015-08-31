@@ -29,7 +29,7 @@ class Purchase extends Remote\Object {
     /**
      * This property has been removed from the Xero API
      *
-     * @property string UpdatedDateUTC
+     * @property \DateTime UpdatedDateUTC
      * @deprecated
      */
 
@@ -99,7 +99,7 @@ class Purchase extends Remote\Object {
             'UnitPrice' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'AccountCode' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'TaxType' => array (false, self::PROPERTY_TYPE_ENUM, null, false, false),
-            'UpdatedDateUTC' => array (false, self::PROPERTY_TYPE_STRING, null, false, false)
+            'UpdatedDateUTC' => array (false, self::PROPERTY_TYPE_TIMESTAMP, '\\DateTime', false, false)
         );
     }
 
@@ -159,7 +159,7 @@ class Purchase extends Remote\Object {
     }
 
     /**
-     * @return string
+     * @return \DateTime
      * @deprecated
      */
     public function getUpdatedDateUTC() {
@@ -167,11 +167,11 @@ class Purchase extends Remote\Object {
     }
 
     /**
-     * @param string $value
+     * @param \DateTime $value
      * @return Purchase
      * @deprecated
      */
-    public function setUpdatedDateUTC($value) {
+    public function setUpdatedDateUTC(\DateTime $value) {
         $this->propertyUpdated('UpdatedDateUTC', $value);
         $this->_data['UpdatedDateUTC'] = $value;
         return $this;

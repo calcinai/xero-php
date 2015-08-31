@@ -275,7 +275,7 @@ class Employee extends Remote\Object {
             'OpeningBalances' => array (false, self::PROPERTY_TYPE_OBJECT, 'PayrollUS\\Employee\\OpeningBalance', true, false),
             'EmployeeID' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'Status' => array (false, self::PROPERTY_TYPE_ENUM, null, false, false),
-            'UpdatedDateUTC' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTime', false, false)
+            'UpdatedDateUTC' => array (false, self::PROPERTY_TYPE_TIMESTAMP, '\\DateTime', false, false)
         );
     }
 

@@ -205,7 +205,7 @@ class Overpayment extends Remote\Object {
             'SubTotal' => array (false, self::PROPERTY_TYPE_FLOAT, null, false, false),
             'TotalTax' => array (false, self::PROPERTY_TYPE_FLOAT, null, false, false),
             'Total' => array (false, self::PROPERTY_TYPE_FLOAT, null, false, false),
-            'UpdatedDateUTC' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTime', false, false),
+            'UpdatedDateUTC' => array (false, self::PROPERTY_TYPE_TIMESTAMP, '\\DateTime', false, false),
             'CurrencyCode' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'FullyPaidOnDate' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTime', false, false),
             'OverpaymentID' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),

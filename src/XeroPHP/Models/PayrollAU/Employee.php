@@ -274,7 +274,7 @@ class Employee extends Remote\Object {
             'TerminationDate' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTime', false, false),
             'EmployeeID' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'Status' => array (false, self::PROPERTY_TYPE_ENUM, null, false, false),
-            'UpdatedDateUTC' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTime', false, false)
+            'UpdatedDateUTC' => array (false, self::PROPERTY_TYPE_TIMESTAMP, '\\DateTime', false, false)
         );
     }
 
