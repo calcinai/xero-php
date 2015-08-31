@@ -26,14 +26,15 @@ abstract class Object implements ObjectInterface, \JsonSerializable, \ArrayAcces
     /**
      *
      */
-    const PROPERTY_TYPE_STRING  = 'string';
-    const PROPERTY_TYPE_INT     = 'int';
-    const PROPERTY_TYPE_FLOAT   = 'float';
-    const PROPERTY_TYPE_BOOLEAN = 'bool';
-    const PROPERTY_TYPE_ENUM    = 'enum';
-    const PROPERTY_TYPE_GUID    = 'guid';
-    const PROPERTY_TYPE_DATE    = 'date';
-    const PROPERTY_TYPE_OBJECT  = 'object';
+    const PROPERTY_TYPE_STRING    = 'string';
+    const PROPERTY_TYPE_INT       = 'int';
+    const PROPERTY_TYPE_FLOAT     = 'float';
+    const PROPERTY_TYPE_BOOLEAN   = 'bool';
+    const PROPERTY_TYPE_ENUM      = 'enum';
+    const PROPERTY_TYPE_GUID      = 'guid';
+    const PROPERTY_TYPE_DATE      = 'date';
+    const PROPERTY_TYPE_TIMESTAMP = 'timestamp';
+    const PROPERTY_TYPE_OBJECT    = 'object';
 
     /**
      * Container to the actual properties of the object
@@ -238,6 +239,7 @@ abstract class Object implements ObjectInterface, \JsonSerializable, \ArrayAcces
                 return $value ? 'true' : 'false';
 
             case self::PROPERTY_TYPE_DATE:
+            case self::PROPERTY_TYPE_TIMESTAMP:
                 /** @var \DateTime $value */
                 return $value->format('c');
 
@@ -260,6 +262,9 @@ abstract class Object implements ObjectInterface, \JsonSerializable, \ArrayAcces
      */
     public static function castFromString($type, $value, $php_type) {
 
+        //Here should maybe handle locale specific tz overrides in the future.
+        $timezone = null;
+
         switch($type) {
 
             case self::PROPERTY_TYPE_INT:
@@ -271,10 +276,12 @@ abstract class Object implements ObjectInterface, \JsonSerializable, \ArrayAcces
             case self::PROPERTY_TYPE_BOOLEAN:
                 return in_array(strtolower($value), array('true', '1', 'yes'));
 
+            case self::PROPERTY_TYPE_TIMESTAMP:
+                $timezone = new \DateTimeZone('UTC');
             case self::PROPERTY_TYPE_DATE:
                 if(preg_match('/Date\((?<timestamp>[0-9\+\.]+)\)/', $value, $matches)) //to catch stupid .net date serialisation
                     $value = $matches['timestamp'];
-                return new \DateTime($value);
+                return new \DateTime($value, $timezone);
 
             case self::PROPERTY_TYPE_OBJECT:
                 $php_type = sprintf('\\XeroPHP\\Models\\%s', $php_type);

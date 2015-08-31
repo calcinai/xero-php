@@ -176,6 +176,7 @@ class Property {
                 return 'string';
 
             case Object::PROPERTY_TYPE_DATE:
+            case Object::PROPERTY_TYPE_TIMESTAMP:
                 return '\DateTime';
 
             case Object::PROPERTY_TYPE_OBJECT:
@@ -195,6 +196,7 @@ class Property {
 
         switch($this->getType()){
             case Object::PROPERTY_TYPE_DATE:
+            case Object::PROPERTY_TYPE_TIMESTAMP:
             case Object::PROPERTY_TYPE_OBJECT:
                 return true;
             default:
@@ -215,6 +217,10 @@ class Property {
         if(preg_match('/^((a\s)?bool|true\b|booelan)/i', $this->description))
             $type = Object::PROPERTY_TYPE_BOOLEAN;
 
+        //Spelling errors in the docs
+        if(preg_match('/UTC$/', $this->getName()))
+            $type = Object::PROPERTY_TYPE_TIMESTAMP;
+
         if(preg_match('/^Has[A-Z]\w+/', $this->getName()))
             $type = Object::PROPERTY_TYPE_BOOLEAN;
 
@@ -231,7 +237,7 @@ class Property {
         if(preg_match('/(^int(eger)?\b)/i', $this->description))
             $type = Object::PROPERTY_TYPE_INT;
 
-        if(preg_match('/(UTC|timestamp|\bdate\b)/i', $this->description))
+        if(preg_match('/(\bdate\b)/i', $this->description))
             $type = Object::PROPERTY_TYPE_DATE;
 
         if(preg_match('/Xero (generated )?(unique )?identifier/i', $this->description))
