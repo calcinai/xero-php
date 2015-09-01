@@ -117,7 +117,7 @@ class User extends Remote\Object {
             'EmailAddress' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'FirstName' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'LastName' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'UpdatedDateUTC' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTime', false, false),
+            'UpdatedDateUTC' => array (false, self::PROPERTY_TYPE_TIMESTAMP, '\\DateTime', false, false),
             'IsSubscriber' => array (false, self::PROPERTY_TYPE_BOOLEAN, null, false, false),
             'OrganisationRole' => array (false, self::PROPERTY_TYPE_ENUM, null, false, false)
         );
