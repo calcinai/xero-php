@@ -86,6 +86,12 @@ e.g.
      */
 
     /**
+     * Shown for bank accounts only. See Bank Account types
+     *
+     * @property string BankAccountType
+     */
+
+    /**
      * Shown for bank accounts only
      *
      * @property string CurrencyCode
@@ -141,6 +147,10 @@ e.g.
 
     const ACCOUNT_STATUS_ACTIVE   = 'ACTIVE';
     const ACCOUNT_STATUS_ARCHIVED = 'ARCHIVED';
+
+    const BANK_ACCOUNT_TYPE_BANK       = 'BANK';
+    const BANK_ACCOUNT_TYPE_CREDITCARD = 'CREDITCARD';
+    const BANK_ACCOUNT_TYPE_PAYPAL     = 'PAYPAL';
 
     const SYSTEM_ACCOUNT_DEBTORS                = 'DEBTORS';
     const SYSTEM_ACCOUNT_CREDITORS              = 'CREDITORS';
@@ -234,6 +244,7 @@ e.g.
             'Class' => array (false, self::PROPERTY_TYPE_ENUM, null, false, false),
             'SystemAccount' => array (false, self::PROPERTY_TYPE_ENUM, null, false, false),
             'BankAccountNumber' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
+            'BankAccountType' => array (false, self::PROPERTY_TYPE_ENUM, null, false, false),
             'CurrencyCode' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'ReportingCode' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'ReportingCodeName' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
@@ -419,6 +430,14 @@ e.g.
      */
     public function getBankAccountNumber() {
         return $this->_data['BankAccountNumber'];
+    }
+
+
+    /**
+     * @return string
+     */
+    public function getBankAccountType() {
+        return $this->_data['BankAccountType'];
     }
 
 
