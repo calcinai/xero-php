@@ -59,6 +59,10 @@ class Request {
         //Default to XML so you get the  xsi:type attribute in the root node.
         $this->setHeader(self::HEADER_ACCEPT, self::CONTENT_TYPE_XML);
 
+        $xero_config = $this->app->getConfig('xero');
+        if(isset($xero_config['unitdp'])){
+            $this->setParameter('unitdp', $xero_config['unitdp']);
+        }
     }
 
     public function send() {
