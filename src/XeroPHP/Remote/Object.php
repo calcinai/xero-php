@@ -208,7 +208,7 @@ abstract class Object implements ObjectInterface, \JsonSerializable, \ArrayAcces
 
             $type = $meta[self::KEY_TYPE];
 
-            if(is_array($this->_data[$property])) {
+            if($this->_data[$property] instanceof Collection) {
                 $out[$property] = array();
                 foreach($this->_data[$property] as $assoc_property) {
                     $out[$property][] = self::castToString($type, $assoc_property);
@@ -324,7 +324,7 @@ abstract class Object implements ObjectInterface, \JsonSerializable, \ArrayAcces
                         $obj = $this->_data[$property];
                         $obj->validate();
 
-                    } elseif(is_array($this->_data[$property])) {
+                    } elseif($this->_data[$property] instanceof Collection) {
                         foreach($this->_data[$property] as $element) {
                             if($element instanceof Object)
                                 $element->validate();
