@@ -71,6 +71,12 @@ abstract class Object implements ObjectInterface, \JsonSerializable, \ArrayAcces
         $this->_dirty = array();
         $this->_data = array();
         $this->_associated_objects = array();
+
+        foreach(static::getProperties() as $property => $data){
+            if($data[self::KEY_IS_ARRAY]){
+                $this->_data[$property] = new Collection();
+            }
+        }
     }
 
     /**
