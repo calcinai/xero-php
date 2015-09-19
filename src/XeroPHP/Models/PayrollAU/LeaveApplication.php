@@ -259,7 +259,7 @@ class LeaveApplication extends Remote\Object {
     }
 
     /**
-     * @return LeavePeriod[]|Collection
+     * @return LeavePeriod[]|Remote\Collection
      * Always returns a collection, switch is for type hinting
      */
     public function getLeavePeriods() {
@@ -272,6 +272,9 @@ class LeaveApplication extends Remote\Object {
      */
     public function addLeavePeriod(LeavePeriod $value) {
         $this->propertyUpdated('LeavePeriods', $value);
+        if(!isset($this->_data['LeavePeriods'])){
+            $this->_data['LeavePeriods'] = new Remote\Collection();
+        }
         $this->_data['LeavePeriods'][] = $value;
         return $this;
     }

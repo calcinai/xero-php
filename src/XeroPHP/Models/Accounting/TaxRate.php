@@ -204,7 +204,7 @@ class TaxRate extends Remote\Object {
     }
 
     /**
-     * @return TaxComponent[]|Collection
+     * @return TaxComponent[]|Remote\Collection
      * Always returns a collection, switch is for type hinting
      */
     public function getTaxComponents() {
@@ -217,6 +217,9 @@ class TaxRate extends Remote\Object {
      */
     public function addTaxComponent(TaxComponent $value) {
         $this->propertyUpdated('TaxComponents', $value);
+        if(!isset($this->_data['TaxComponents'])){
+            $this->_data['TaxComponents'] = new Remote\Collection();
+        }
         $this->_data['TaxComponents'][] = $value;
         return $this;
     }
@@ -256,7 +259,7 @@ class TaxRate extends Remote\Object {
     }
 
     /**
-     * @return float[]|Collection
+     * @return float[]|Remote\Collection
      * Always returns a collection, switch is for type hinting
      */
     public function getCanApplyToAssets() {
@@ -273,7 +276,7 @@ class TaxRate extends Remote\Object {
 
 
     /**
-     * @return float[]|Collection
+     * @return float[]|Remote\Collection
      * Always returns a collection, switch is for type hinting
      */
     public function getCanApplyToExpenses() {
@@ -282,7 +285,7 @@ class TaxRate extends Remote\Object {
 
 
     /**
-     * @return float[]|Collection
+     * @return float[]|Remote\Collection
      * Always returns a collection, switch is for type hinting
      */
     public function getCanApplyToLiabilities() {

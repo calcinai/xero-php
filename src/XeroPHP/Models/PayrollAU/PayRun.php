@@ -288,7 +288,7 @@ class PayRun extends Remote\Object {
 
 
     /**
-     * @return Payslip[]|Collection
+     * @return Payslip[]|Remote\Collection
      * Always returns a collection, switch is for type hinting
      */
     public function getPayslips() {

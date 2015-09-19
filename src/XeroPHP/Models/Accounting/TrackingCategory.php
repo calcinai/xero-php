@@ -162,7 +162,7 @@ class TrackingCategory extends Remote\Object {
     }
 
     /**
-     * @return TrackingOption[]|Collection
+     * @return TrackingOption[]|Remote\Collection
      * Always returns a collection, switch is for type hinting
      */
     public function getOptions() {
@@ -175,6 +175,9 @@ class TrackingCategory extends Remote\Object {
      */
     public function addOption(TrackingOption $value) {
         $this->propertyUpdated('Options', $value);
+        if(!isset($this->_data['Options'])){
+            $this->_data['Options'] = new Remote\Collection();
+        }
         $this->_data['Options'][] = $value;
         return $this;
     }

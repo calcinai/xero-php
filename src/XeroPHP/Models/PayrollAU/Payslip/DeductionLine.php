@@ -157,7 +157,7 @@ class DeductionLine extends Remote\Object {
     }
 
     /**
-     * @return float[]|Collection
+     * @return float[]|Remote\Collection
      * Always returns a collection, switch is for type hinting
      */
     public function getNumberOfUnits() {
@@ -170,6 +170,9 @@ class DeductionLine extends Remote\Object {
      */
     public function addNumberOfUnit($value) {
         $this->propertyUpdated('NumberOfUnits', $value);
+        if(!isset($this->_data['NumberOfUnits'])){
+            $this->_data['NumberOfUnits'] = new Remote\Collection();
+        }
         $this->_data['NumberOfUnits'][] = $value;
         return $this;
     }

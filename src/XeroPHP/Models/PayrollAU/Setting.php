@@ -103,7 +103,7 @@ class Setting extends Remote\Object {
     }
 
     /**
-     * @return Account[]|Collection
+     * @return Account[]|Remote\Collection
      * Always returns a collection, switch is for type hinting
      */
     public function getAccounts() {
@@ -116,12 +116,15 @@ class Setting extends Remote\Object {
      */
     public function addAccount(Account $value) {
         $this->propertyUpdated('Accounts', $value);
+        if(!isset($this->_data['Accounts'])){
+            $this->_data['Accounts'] = new Remote\Collection();
+        }
         $this->_data['Accounts'][] = $value;
         return $this;
     }
 
     /**
-     * @return TrackingCategory[]|Collection
+     * @return TrackingCategory[]|Remote\Collection
      * Always returns a collection, switch is for type hinting
      */
     public function getTrackingCategories() {
@@ -134,6 +137,9 @@ class Setting extends Remote\Object {
      */
     public function addTrackingCategory(TrackingCategory $value) {
         $this->propertyUpdated('TrackingCategories', $value);
+        if(!isset($this->_data['TrackingCategories'])){
+            $this->_data['TrackingCategories'] = new Remote\Collection();
+        }
         $this->_data['TrackingCategories'][] = $value;
         return $this;
     }

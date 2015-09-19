@@ -92,7 +92,7 @@ class PaymentTerm extends Remote\Object {
     }
 
     /**
-     * @return Bill[]|Collection
+     * @return Bill[]|Remote\Collection
      * Always returns a collection, switch is for type hinting
      */
     public function getBills() {
@@ -105,12 +105,15 @@ class PaymentTerm extends Remote\Object {
      */
     public function addBill(Bill $value) {
         $this->propertyUpdated('Bills', $value);
+        if(!isset($this->_data['Bills'])){
+            $this->_data['Bills'] = new Remote\Collection();
+        }
         $this->_data['Bills'][] = $value;
         return $this;
     }
 
     /**
-     * @return Sale[]|Collection
+     * @return Sale[]|Remote\Collection
      * Always returns a collection, switch is for type hinting
      */
     public function getSales() {
@@ -123,6 +126,9 @@ class PaymentTerm extends Remote\Object {
      */
     public function addSale(Sale $value) {
         $this->propertyUpdated('Sales', $value);
+        if(!isset($this->_data['Sales'])){
+            $this->_data['Sales'] = new Remote\Collection();
+        }
         $this->_data['Sales'][] = $value;
         return $this;
     }

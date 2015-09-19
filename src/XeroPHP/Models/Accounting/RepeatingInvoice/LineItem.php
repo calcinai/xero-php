@@ -293,7 +293,7 @@ class LineItem extends Remote\Object {
     }
 
     /**
-     * @return TrackingCategory[]|Collection
+     * @return TrackingCategory[]|Remote\Collection
      * Always returns a collection, switch is for type hinting
      */
     public function getTracking() {
@@ -306,6 +306,9 @@ class LineItem extends Remote\Object {
      */
     public function addTracking(TrackingCategory $value) {
         $this->propertyUpdated('Tracking', $value);
+        if(!isset($this->_data['Tracking'])){
+            $this->_data['Tracking'] = new Remote\Collection();
+        }
         $this->_data['Tracking'][] = $value;
         return $this;
     }
