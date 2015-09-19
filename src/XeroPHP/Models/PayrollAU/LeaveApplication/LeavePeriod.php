@@ -10,7 +10,7 @@ class LeavePeriod extends Remote\Object {
     /**
      * The Number of Units for the leave
      *
-     * @property string[] NumberOfUnits
+     * @property string NumberOfUnits
      */
 
     /**
@@ -94,7 +94,7 @@ class LeavePeriod extends Remote\Object {
      */
     public static function getProperties() {
         return array(
-            'NumberOfUnits' => array (false, self::PROPERTY_TYPE_STRING, null, true, false),
+            'NumberOfUnits' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'PayPeriodEndDate' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTime', false, false),
             'PayPeriodStartDate' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTime', false, false),
             'LeavePeriodStatus' => array (false, self::PROPERTY_TYPE_ENUM, null, false, false)
@@ -106,8 +106,7 @@ class LeavePeriod extends Remote\Object {
     }
 
     /**
-     * @return string[]|Collection
-     * Always returns a collection, switch is for type hinting
+     * @return string
      */
     public function getNumberOfUnits() {
         return $this->_data['NumberOfUnits'];
@@ -117,9 +116,9 @@ class LeavePeriod extends Remote\Object {
      * @param string $value
      * @return LeavePeriod
      */
-    public function addNumberOfUnit($value) {
+    public function setNumberOfUnit($value) {
         $this->propertyUpdated('NumberOfUnits', $value);
-        $this->_data['NumberOfUnits'][] = $value;
+        $this->_data['NumberOfUnits'] = $value;
         return $this;
     }
 

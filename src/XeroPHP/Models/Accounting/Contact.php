@@ -78,7 +78,7 @@ class Contact extends Remote\Object {
     /**
      * Bank account number of contact
      *
-     * @property string[] BankAccountDetails
+     * @property string BankAccountDetails
      */
 
     /**
@@ -166,6 +166,12 @@ class Contact extends Remote\Object {
      */
 
     /**
+     * The default payment terms for the contact – see Payment Terms
+     *
+     * @property PaymentTerm[] PaymentTerms
+     */
+
+    /**
      * UTC timestamp of last update to contact
      *
      * @property \DateTime UpdatedDateUTC
@@ -192,7 +198,7 @@ class Contact extends Remote\Object {
     /**
      * batch payment details for contact (read only)
      *
-     * @property string[] BatchPayments
+     * @property string BatchPayments
      */
 
     /**
@@ -205,13 +211,7 @@ class Contact extends Remote\Object {
      * The AccountsReceivable(sales invoices) and AccountsPayable(bills) outstanding and overdue amounts
      * (read only)
      *
-     * @property string[] Balances
-     */
-
-    /**
-     * The default payment terms for the contact (read only)  – see Payment Terms
-     *
-     * @property PaymentTerm[] PaymentTerms
+     * @property string Balances
      */
 
     /**
@@ -299,7 +299,7 @@ class Contact extends Remote\Object {
             'EmailAddress' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'SkypeUserName' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'ContactPersons' => array (false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Contact\\ContactPerson', true, false),
-            'BankAccountDetails' => array (false, self::PROPERTY_TYPE_STRING, null, true, false),
+            'BankAccountDetails' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'TaxNumber' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'AccountsReceivableTaxType' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'AccountsPayableTaxType' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
@@ -313,14 +313,14 @@ class Contact extends Remote\Object {
             'PurchasesDefaultAccountCode' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'SalesTrackingCategories' => array (false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\TrackingCategory', true, false),
             'PurchasesTrackingCategories' => array (false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\TrackingCategory', true, false),
+            'PaymentTerms' => array (false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Organisation\\PaymentTerm', true, false),
             'UpdatedDateUTC' => array (false, self::PROPERTY_TYPE_TIMESTAMP, '\\DateTime', false, false),
             'ContactGroups' => array (false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\ContactGroup', true, false),
             'Website' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'BrandingTheme' => array (false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\BrandingTheme', false, false),
-            'BatchPayments' => array (false, self::PROPERTY_TYPE_STRING, null, true, false),
+            'BatchPayments' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'Discount' => array (false, self::PROPERTY_TYPE_FLOAT, null, false, false),
-            'Balances' => array (false, self::PROPERTY_TYPE_STRING, null, true, false),
-            'PaymentTerms' => array (false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Organisation\\PaymentTerm', true, false),
+            'Balances' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'HasAttachments' => array (false, self::PROPERTY_TYPE_BOOLEAN, null, false, false)
         );
     }
@@ -501,8 +501,7 @@ class Contact extends Remote\Object {
     }
 
     /**
-     * @return string[]|Collection
-     * Always returns a collection, switch is for type hinting
+     * @return string
      */
     public function getBankAccountDetails() {
         return $this->_data['BankAccountDetails'];
@@ -512,9 +511,9 @@ class Contact extends Remote\Object {
      * @param string $value
      * @return Contact
      */
-    public function addBankAccountDetail($value) {
+    public function setBankAccountDetail($value) {
         $this->propertyUpdated('BankAccountDetails', $value);
-        $this->_data['BankAccountDetails'][] = $value;
+        $this->_data['BankAccountDetails'] = $value;
         return $this;
     }
 
@@ -744,6 +743,24 @@ class Contact extends Remote\Object {
     }
 
     /**
+     * @return PaymentTerm[]|Collection
+     * Always returns a collection, switch is for type hinting
+     */
+    public function getPaymentTerms() {
+        return $this->_data['PaymentTerms'];
+    }
+
+    /**
+     * @param PaymentTerm $value
+     * @return Contact
+     */
+    public function addPaymentTerm(PaymentTerm $value) {
+        $this->propertyUpdated('PaymentTerms', $value);
+        $this->_data['PaymentTerms'][] = $value;
+        return $this;
+    }
+
+    /**
      * @return \DateTime
      */
     public function getUpdatedDateUTC() {
@@ -813,8 +830,7 @@ class Contact extends Remote\Object {
     }
 
     /**
-     * @return string[]|Collection
-     * Always returns a collection, switch is for type hinting
+     * @return string
      */
     public function getBatchPayments() {
         return $this->_data['BatchPayments'];
@@ -824,9 +840,9 @@ class Contact extends Remote\Object {
      * @param string $value
      * @return Contact
      */
-    public function addBatchPayment($value) {
+    public function setBatchPayment($value) {
         $this->propertyUpdated('BatchPayments', $value);
-        $this->_data['BatchPayments'][] = $value;
+        $this->_data['BatchPayments'] = $value;
         return $this;
     }
 
@@ -848,8 +864,7 @@ class Contact extends Remote\Object {
     }
 
     /**
-     * @return string[]|Collection
-     * Always returns a collection, switch is for type hinting
+     * @return string
      */
     public function getBalances() {
         return $this->_data['Balances'];
@@ -859,27 +874,9 @@ class Contact extends Remote\Object {
      * @param string $value
      * @return Contact
      */
-    public function addBalance($value) {
+    public function setBalance($value) {
         $this->propertyUpdated('Balances', $value);
-        $this->_data['Balances'][] = $value;
-        return $this;
-    }
-
-    /**
-     * @return PaymentTerm[]|Collection
-     * Always returns a collection, switch is for type hinting
-     */
-    public function getPaymentTerms() {
-        return $this->_data['PaymentTerms'];
-    }
-
-    /**
-     * @param PaymentTerm $value
-     * @return Contact
-     */
-    public function addPaymentTerm(PaymentTerm $value) {
-        $this->propertyUpdated('PaymentTerms', $value);
-        $this->_data['PaymentTerms'][] = $value;
+        $this->_data['Balances'] = $value;
         return $this;
     }
 

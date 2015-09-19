@@ -58,13 +58,13 @@ class PayRun extends Remote\Object {
     /**
      * Total Wages for the PayRun
      *
-     * @property string[] Wages
+     * @property string Wages
      */
 
     /**
      * Total Deduction for the PayRun
      *
-     * @property string[] Deductions
+     * @property string Deductions
      */
 
     /**
@@ -164,8 +164,8 @@ class PayRun extends Remote\Object {
             'PaymentDate' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTime', false, false),
             'PayslipMessage' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'Payslips' => array (false, self::PROPERTY_TYPE_OBJECT, 'PayrollAU\\Payslip', true, false),
-            'Wages' => array (false, self::PROPERTY_TYPE_STRING, null, true, false),
-            'Deductions' => array (false, self::PROPERTY_TYPE_STRING, null, true, false),
+            'Wages' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
+            'Deductions' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'Tax' => array (false, self::PROPERTY_TYPE_FLOAT, null, false, false),
             'Super' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'Reimbursement' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
@@ -297,8 +297,7 @@ class PayRun extends Remote\Object {
 
 
     /**
-     * @return string[]|Collection
-     * Always returns a collection, switch is for type hinting
+     * @return string
      */
     public function getWages() {
         return $this->_data['Wages'];
@@ -306,8 +305,7 @@ class PayRun extends Remote\Object {
 
 
     /**
-     * @return string[]|Collection
-     * Always returns a collection, switch is for type hinting
+     * @return string
      */
     public function getDeductions() {
         return $this->_data['Deductions'];

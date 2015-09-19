@@ -16,7 +16,7 @@ class TimeOffLine extends Remote\Object {
     /**
      * Hours of time off
      *
-     * @property string[] Hours
+     * @property string Hours
      */
 
     /**
@@ -89,7 +89,7 @@ class TimeOffLine extends Remote\Object {
     public static function getProperties() {
         return array(
             'TimeOffTypeID' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'Hours' => array (false, self::PROPERTY_TYPE_STRING, null, true, false),
+            'Hours' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'Balance' => array (false, self::PROPERTY_TYPE_STRING, null, false, false)
         );
     }
@@ -116,8 +116,7 @@ class TimeOffLine extends Remote\Object {
     }
 
     /**
-     * @return string[]|Collection
-     * Always returns a collection, switch is for type hinting
+     * @return string
      */
     public function getHours() {
         return $this->_data['Hours'];
@@ -127,9 +126,9 @@ class TimeOffLine extends Remote\Object {
      * @param string $value
      * @return TimeOffLine
      */
-    public function addHour($value) {
+    public function setHour($value) {
         $this->propertyUpdated('Hours', $value);
-        $this->_data['Hours'][] = $value;
+        $this->_data['Hours'] = $value;
         return $this;
     }
 

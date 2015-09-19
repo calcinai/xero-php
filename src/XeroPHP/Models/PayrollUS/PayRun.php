@@ -46,13 +46,13 @@ class PayRun extends Remote\Object {
     /**
      * Total Earnings for the PayRun
      *
-     * @property string[] Earnings
+     * @property string Earnings
      */
 
     /**
      * Total Deduction for the PayRun
      *
-     * @property string[] Deductions
+     * @property string Deductions
      */
 
     /**
@@ -76,7 +76,7 @@ class PayRun extends Remote\Object {
     /**
      * See PayStubs
      *
-     * @property string[] PayStubs
+     * @property string PayStubs
      */
 
 
@@ -150,12 +150,12 @@ class PayRun extends Remote\Object {
             'PayRunID' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'PayRunPeriodStartDate' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTime', false, false),
             'PaymentDate' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTime', false, false),
-            'Earnings' => array (false, self::PROPERTY_TYPE_STRING, null, true, false),
-            'Deductions' => array (false, self::PROPERTY_TYPE_STRING, null, true, false),
+            'Earnings' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
+            'Deductions' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'Reimbursement' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'NetPay' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'UpdateDateUTC' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTime', false, false),
-            'PayStubs' => array (false, self::PROPERTY_TYPE_STRING, null, true, false)
+            'PayStubs' => array (false, self::PROPERTY_TYPE_STRING, null, false, false)
         );
     }
 
@@ -248,8 +248,7 @@ class PayRun extends Remote\Object {
 
 
     /**
-     * @return string[]|Collection
-     * Always returns a collection, switch is for type hinting
+     * @return string
      */
     public function getEarnings() {
         return $this->_data['Earnings'];
@@ -257,8 +256,7 @@ class PayRun extends Remote\Object {
 
 
     /**
-     * @return string[]|Collection
-     * Always returns a collection, switch is for type hinting
+     * @return string
      */
     public function getDeductions() {
         return $this->_data['Deductions'];
@@ -290,8 +288,7 @@ class PayRun extends Remote\Object {
 
 
     /**
-     * @return string[]|Collection
-     * Always returns a collection, switch is for type hinting
+     * @return string
      */
     public function getPayStubs() {
         return $this->_data['PayStubs'];

@@ -1,0 +1,14 @@
+<?php
+
+namespace XeroPHP\Models\Accounting;
+
+class LinkedTransaction {
+
+    const LINKED_TRANSACTION_STATUS_DRAFT    = 'DRAFT';
+    const LINKED_TRANSACTION_STATUS_APPROVED = 'APPROVED';
+    const LINKED_TRANSACTION_STATUS_ONDRAFT  = 'ONDRAFT';
+    const LINKED_TRANSACTION_STATUS_BILLED   = 'BILLED';
+    const LINKED_TRANSACTION_STATUS_VOIDED   = 'VOIDED';
+
+
+}

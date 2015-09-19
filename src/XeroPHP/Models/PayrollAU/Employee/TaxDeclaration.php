@@ -34,7 +34,7 @@ class TaxDeclaration extends Remote\Object {
     /**
      * If the employee is Australian resident for tax purposes. e.g true or false
      *
-     * @property string[] AustralianResidentForTaxPurposes
+     * @property string AustralianResidentForTaxPurposes
      */
 
     /**
@@ -164,7 +164,7 @@ class TaxDeclaration extends Remote\Object {
             'EmploymentBasis' => array (true, self::PROPERTY_TYPE_ENUM, null, false, false),
             'TFNExemptionType' => array (false, self::PROPERTY_TYPE_ENUM, null, false, false),
             'TaxFileNumber' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'AustralianResidentForTaxPurposes' => array (false, self::PROPERTY_TYPE_STRING, null, true, false),
+            'AustralianResidentForTaxPurposes' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'TaxFreeThresholdClaimed' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'TaxOffsetEstimatedAmount' => array (false, self::PROPERTY_TYPE_FLOAT, null, false, false),
             'HasHELPDebt' => array (false, self::PROPERTY_TYPE_BOOLEAN, null, false, false),
@@ -249,8 +249,7 @@ class TaxDeclaration extends Remote\Object {
     }
 
     /**
-     * @return string[]|Collection
-     * Always returns a collection, switch is for type hinting
+     * @return string
      */
     public function getAustralianResidentForTaxPurposes() {
         return $this->_data['AustralianResidentForTaxPurposes'];
@@ -260,9 +259,9 @@ class TaxDeclaration extends Remote\Object {
      * @param string $value
      * @return TaxDeclaration
      */
-    public function addAustralianResidentForTaxPurpose($value) {
+    public function setAustralianResidentForTaxPurpose($value) {
         $this->propertyUpdated('AustralianResidentForTaxPurposes', $value);
-        $this->_data['AustralianResidentForTaxPurposes'][] = $value;
+        $this->_data['AustralianResidentForTaxPurposes'] = $value;
         return $this;
     }
 

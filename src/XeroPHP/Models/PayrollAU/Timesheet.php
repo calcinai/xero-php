@@ -41,7 +41,7 @@ class Timesheet extends Remote\Object {
     /**
      * Timesheet total hours
      *
-     * @property string[] Hours
+     * @property string Hours
      */
 
     /**
@@ -124,7 +124,7 @@ class Timesheet extends Remote\Object {
             'EndDate' => array (true, self::PROPERTY_TYPE_DATE, '\\DateTime', false, false),
             'TimesheetLines' => array (false, self::PROPERTY_TYPE_OBJECT, 'PayrollAU\\Timesheet\\TimesheetLine', true, false),
             'Status' => array (false, self::PROPERTY_TYPE_ENUM, null, false, false),
-            'Hours' => array (false, self::PROPERTY_TYPE_STRING, null, true, false),
+            'Hours' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'TimesheetID' => array (false, self::PROPERTY_TYPE_STRING, null, false, false)
         );
     }
@@ -220,8 +220,7 @@ class Timesheet extends Remote\Object {
     }
 
     /**
-     * @return string[]|Collection
-     * Always returns a collection, switch is for type hinting
+     * @return string
      */
     public function getHours() {
         return $this->_data['Hours'];
@@ -231,9 +230,9 @@ class Timesheet extends Remote\Object {
      * @param string $value
      * @return Timesheet
      */
-    public function addHour($value) {
+    public function setHour($value) {
         $this->propertyUpdated('Hours', $value);
-        $this->_data['Hours'][] = $value;
+        $this->_data['Hours'] = $value;
         return $this;
     }
 
