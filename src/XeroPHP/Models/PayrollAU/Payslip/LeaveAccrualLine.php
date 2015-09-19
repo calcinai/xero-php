@@ -16,7 +16,7 @@ class LeaveAccrualLine extends Remote\Object {
     /**
      * Number of units for the Leave line.
      *
-     * @property string[] NumberOfUnits
+     * @property string NumberOfUnits
      */
 
     /**
@@ -89,7 +89,7 @@ class LeaveAccrualLine extends Remote\Object {
     public static function getProperties() {
         return array(
             'LeaveTypeID' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'NumberOfUnits' => array (false, self::PROPERTY_TYPE_STRING, null, true, false),
+            'NumberOfUnits' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'AutoCalculate' => array (false, self::PROPERTY_TYPE_STRING, null, false, false)
         );
     }
@@ -116,8 +116,7 @@ class LeaveAccrualLine extends Remote\Object {
     }
 
     /**
-     * @return string[]|Collection
-     * Always returns a collection, switch is for type hinting
+     * @return string
      */
     public function getNumberOfUnits() {
         return $this->_data['NumberOfUnits'];
@@ -127,9 +126,9 @@ class LeaveAccrualLine extends Remote\Object {
      * @param string $value
      * @return LeaveAccrualLine
      */
-    public function addNumberOfUnit($value) {
+    public function setNumberOfUnit($value) {
         $this->propertyUpdated('NumberOfUnits', $value);
-        $this->_data['NumberOfUnits'][] = $value;
+        $this->_data['NumberOfUnits'] = $value;
         return $this;
     }
 

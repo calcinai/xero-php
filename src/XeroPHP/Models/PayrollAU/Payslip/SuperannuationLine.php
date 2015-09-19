@@ -28,7 +28,7 @@ class SuperannuationLine extends Remote\Object {
     /**
      * Superannuation minimum monthly earnings
      *
-     * @property string[] MinimumMonthlyEarnings
+     * @property string MinimumMonthlyEarnings
      */
 
     /**
@@ -127,7 +127,7 @@ class SuperannuationLine extends Remote\Object {
             'SuperMembershipID' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'ContributionType' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'CalculationType' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'MinimumMonthlyEarnings' => array (false, self::PROPERTY_TYPE_STRING, null, true, false),
+            'MinimumMonthlyEarnings' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'ExpenseAccountCode' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'LiabilityAccountCode' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'PaymentDateForThisPeriod' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTime', false, false),
@@ -192,8 +192,7 @@ class SuperannuationLine extends Remote\Object {
     }
 
     /**
-     * @return string[]|Collection
-     * Always returns a collection, switch is for type hinting
+     * @return string
      */
     public function getMinimumMonthlyEarnings() {
         return $this->_data['MinimumMonthlyEarnings'];
@@ -203,9 +202,9 @@ class SuperannuationLine extends Remote\Object {
      * @param string $value
      * @return SuperannuationLine
      */
-    public function addMinimumMonthlyEarning($value) {
+    public function setMinimumMonthlyEarning($value) {
         $this->propertyUpdated('MinimumMonthlyEarnings', $value);
-        $this->_data['MinimumMonthlyEarnings'][] = $value;
+        $this->_data['MinimumMonthlyEarnings'] = $value;
         return $this;
     }
 

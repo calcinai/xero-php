@@ -52,7 +52,7 @@ class Employee extends Remote\Object {
     /**
      * Middle name(s) of the employee (max length = 35)
      *
-     * @property string[] MiddleNames
+     * @property string MiddleNames
      */
 
     /**
@@ -255,7 +255,7 @@ class Employee extends Remote\Object {
             'HomeAddress' => array (true, self::PROPERTY_TYPE_OBJECT, 'PayrollAU\\Employee\\HomeAddress', false, false),
             'StartDate' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTime', false, false),
             'Title' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'MiddleNames' => array (false, self::PROPERTY_TYPE_STRING, null, true, false),
+            'MiddleNames' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'Email' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'Gender' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'Mobile' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
@@ -385,8 +385,7 @@ class Employee extends Remote\Object {
     }
 
     /**
-     * @return string[]|Collection
-     * Always returns a collection, switch is for type hinting
+     * @return string
      */
     public function getMiddleNames() {
         return $this->_data['MiddleNames'];
@@ -396,9 +395,9 @@ class Employee extends Remote\Object {
      * @param string $value
      * @return Employee
      */
-    public function addMiddleName($value) {
+    public function setMiddleName($value) {
         $this->propertyUpdated('MiddleNames', $value);
-        $this->_data['MiddleNames'][] = $value;
+        $this->_data['MiddleNames'] = $value;
         return $this;
     }
 

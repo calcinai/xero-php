@@ -28,7 +28,7 @@ class EarningsRate extends Remote\Object {
     /**
      * Type of units used to record earnings (max length = 50). Only When RateType is RATEPERUNIT
      *
-     * @property string[] TypeOfUnits
+     * @property string TypeOfUnits
      */
 
     /**
@@ -162,7 +162,7 @@ class EarningsRate extends Remote\Object {
             'Name' => array (true, self::PROPERTY_TYPE_STRING, null, false, false),
             'DisplayName' => array (true, self::PROPERTY_TYPE_STRING, null, false, false),
             'AccountCode' => array (true, self::PROPERTY_TYPE_STRING, null, false, false),
-            'TypeOfUnits' => array (true, self::PROPERTY_TYPE_STRING, null, true, false),
+            'TypeOfUnits' => array (true, self::PROPERTY_TYPE_STRING, null, false, false),
             'IsExemptFromTax' => array (true, self::PROPERTY_TYPE_STRING, null, false, false),
             'IsExemptFromSuper' => array (true, self::PROPERTY_TYPE_STRING, null, false, false),
             'EarningsType' => array (true, self::PROPERTY_TYPE_ENUM, null, false, false),
@@ -231,8 +231,7 @@ class EarningsRate extends Remote\Object {
     }
 
     /**
-     * @return string[]|Collection
-     * Always returns a collection, switch is for type hinting
+     * @return string
      */
     public function getTypeOfUnits() {
         return $this->_data['TypeOfUnits'];
@@ -242,9 +241,9 @@ class EarningsRate extends Remote\Object {
      * @param string $value
      * @return EarningsRate
      */
-    public function addTypeOfUnit($value) {
+    public function setTypeOfUnit($value) {
         $this->propertyUpdated('TypeOfUnits', $value);
-        $this->_data['TypeOfUnits'][] = $value;
+        $this->_data['TypeOfUnits'] = $value;
         return $this;
     }
 

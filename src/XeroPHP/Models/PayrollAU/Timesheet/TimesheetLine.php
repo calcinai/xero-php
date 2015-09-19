@@ -23,7 +23,7 @@ class TimesheetLine extends Remote\Object {
     /**
      * Number of units of a Timesheet line
      *
-     * @property string[] NumberOfUnits
+     * @property string NumberOfUnits
      */
 
 
@@ -91,7 +91,7 @@ class TimesheetLine extends Remote\Object {
         return array(
             'EarningsRateID' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'TrackingItemID' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'NumberOfUnits' => array (false, self::PROPERTY_TYPE_STRING, null, true, false)
+            'NumberOfUnits' => array (false, self::PROPERTY_TYPE_STRING, null, false, false)
         );
     }
 
@@ -134,8 +134,7 @@ class TimesheetLine extends Remote\Object {
     }
 
     /**
-     * @return string[]|Collection
-     * Always returns a collection, switch is for type hinting
+     * @return string
      */
     public function getNumberOfUnits() {
         return $this->_data['NumberOfUnits'];
@@ -145,9 +144,9 @@ class TimesheetLine extends Remote\Object {
      * @param string $value
      * @return TimesheetLine
      */
-    public function addNumberOfUnit($value) {
+    public function setNumberOfUnit($value) {
         $this->propertyUpdated('NumberOfUnits', $value);
-        $this->_data['NumberOfUnits'][] = $value;
+        $this->_data['NumberOfUnits'] = $value;
         return $this;
     }
 

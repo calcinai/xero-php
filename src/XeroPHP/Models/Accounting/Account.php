@@ -30,7 +30,13 @@ class Account extends Remote\Object {
      */
 
     /**
-     * Description of Account. All accounts except bank accounts return this element
+     * Accounts with a status of ACTIVE can be updated to ARCHIVED. See Account Status Codes
+     *
+     * @property string Status
+     */
+
+    /**
+     * Description of the Account. Valid for all types of accounts except bank accounts
      *
      * @property string Description
      */
@@ -59,12 +65,6 @@ e.g.
      * /297c2dc5-cc47-4afd-8ec8-74990b8761e9
      *
      * @property string AccountID
-     */
-
-    /**
-     * Accounts with a status of ACTIVE can be updated to ARCHIVED. See Account Status Codes
-     *
-     * @property string Status
      */
 
     /**
@@ -235,12 +235,12 @@ e.g.
             'Code' => array (true, self::PROPERTY_TYPE_STRING, null, false, false),
             'Name' => array (true, self::PROPERTY_TYPE_STRING, null, false, false),
             'Type' => array (true, self::PROPERTY_TYPE_ENUM, null, false, false),
+            'Status' => array (false, self::PROPERTY_TYPE_ENUM, null, false, false),
             'Description' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'TaxType' => array (false, self::PROPERTY_TYPE_ENUM, null, false, false),
             'EnablePaymentsToAccount' => array (false, self::PROPERTY_TYPE_BOOLEAN, null, false, false),
             'ShowInExpenseClaims' => array (false, self::PROPERTY_TYPE_BOOLEAN, null, false, false),
             'AccountID' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'Status' => array (false, self::PROPERTY_TYPE_ENUM, null, false, false),
             'Class' => array (false, self::PROPERTY_TYPE_ENUM, null, false, false),
             'SystemAccount' => array (false, self::PROPERTY_TYPE_ENUM, null, false, false),
             'BankAccountNumber' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
@@ -304,6 +304,23 @@ e.g.
     public function setType($value) {
         $this->propertyUpdated('Type', $value);
         $this->_data['Type'] = $value;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getStatus() {
+        return $this->_data['Status'];
+    }
+
+    /**
+     * @param string $value
+     * @return Account
+     */
+    public function setStatus($value) {
+        $this->propertyUpdated('Status', $value);
+        $this->_data['Status'] = $value;
         return $this;
     }
 
@@ -389,23 +406,6 @@ e.g.
     public function setAccountID($value) {
         $this->propertyUpdated('AccountID', $value);
         $this->_data['AccountID'] = $value;
-        return $this;
-    }
-
-    /**
-     * @return string
-     */
-    public function getStatus() {
-        return $this->_data['Status'];
-    }
-
-    /**
-     * @param string $value
-     * @return Account
-     */
-    public function setStatus($value) {
-        $this->propertyUpdated('Status', $value);
-        $this->_data['Status'] = $value;
         return $this;
     }
 

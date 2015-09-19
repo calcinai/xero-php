@@ -43,7 +43,7 @@ class PayTemplate extends Remote\Object {
     /**
      * The Units or Hours for the earnings line
      *
-     * @property string[] UnitsOrHours
+     * @property string UnitsOrHours
      */
 
     /**
@@ -175,7 +175,7 @@ class PayTemplate extends Remote\Object {
             'ReimbursementLines' => array (false, self::PROPERTY_TYPE_OBJECT, 'PayrollUS\\Paystub\\ReimbursementLine', true, false),
             'BenefitLines' => array (false, self::PROPERTY_TYPE_OBJECT, 'PayrollUS\\Paystub\\BenefitLine', true, false),
             'EarningsTypeID' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'UnitsOrHours' => array (false, self::PROPERTY_TYPE_STRING, null, true, false),
+            'UnitsOrHours' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'RatePerUnit' => array (false, self::PROPERTY_TYPE_FLOAT, null, false, false),
             'Amount' => array (false, self::PROPERTY_TYPE_FLOAT, null, false, false),
             'DeductionTypeID' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
@@ -282,8 +282,7 @@ class PayTemplate extends Remote\Object {
     }
 
     /**
-     * @return string[]|Collection
-     * Always returns a collection, switch is for type hinting
+     * @return string
      */
     public function getUnitsOrHours() {
         return $this->_data['UnitsOrHours'];
@@ -293,9 +292,9 @@ class PayTemplate extends Remote\Object {
      * @param string $value
      * @return PayTemplate
      */
-    public function addUnitsOrHour($value) {
+    public function setUnitsOrHour($value) {
         $this->propertyUpdated('UnitsOrHours', $value);
-        $this->_data['UnitsOrHours'][] = $value;
+        $this->_data['UnitsOrHours'] = $value;
         return $this;
     }
 

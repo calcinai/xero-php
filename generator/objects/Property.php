@@ -123,6 +123,7 @@ class Property {
             case stripos($this->getName(), 'status') !== false:
             case $this->getType() === Object::PROPERTY_TYPE_BOOLEAN:
             case $this->getType() === Object::PROPERTY_TYPE_ENUM:
+            case $this->getType() === Object::PROPERTY_TYPE_STRING:
                 return false;
             //This to to improve detection of names that are the same plural/sing
             case preg_match('/maximum of [2-9] <(?<model>[a-z]+)> elements/i', $this->getDescription()):
