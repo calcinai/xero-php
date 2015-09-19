@@ -277,7 +277,7 @@ class Journal extends Remote\Object {
     }
 
     /**
-     * @return JournalLine[]|Collection
+     * @return JournalLine[]|Remote\Collection
      * Always returns a collection, switch is for type hinting
      */
     public function getJournalLines() {
@@ -290,6 +290,9 @@ class Journal extends Remote\Object {
      */
     public function addJournalLine(JournalLine $value) {
         $this->propertyUpdated('JournalLines', $value);
+        if(!isset($this->_data['JournalLines'])){
+            $this->_data['JournalLines'] = new Remote\Collection();
+        }
         $this->_data['JournalLines'][] = $value;
         return $this;
     }

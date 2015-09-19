@@ -71,12 +71,6 @@ abstract class Object implements ObjectInterface, \JsonSerializable, \ArrayAcces
         $this->_dirty = array();
         $this->_data = array();
         $this->_associated_objects = array();
-
-        foreach(static::getProperties() as $property => $data){
-            if($data[self::KEY_IS_ARRAY]){
-                $this->_data[$property] = new Collection();
-            }
-        }
     }
 
     /**
@@ -169,8 +163,9 @@ abstract class Object implements ObjectInterface, \JsonSerializable, \ArrayAcces
             $php_type = $meta[self::KEY_PHP_TYPE];
 
             //If set and NOT replace data, continue
-            if(!$replace_data && isset($this->_data[$property]))
+            if(!$replace_data && isset($this->_data[$property])){
                 continue;
+            }
 
             if(!isset($input_array[$property]))
                 continue;

@@ -351,7 +351,7 @@ class JournalLine extends Remote\Object {
     }
 
     /**
-     * @return TrackingCategory[]|Collection
+     * @return TrackingCategory[]|Remote\Collection
      * Always returns a collection, switch is for type hinting
      */
     public function getTrackingCategories() {
@@ -364,6 +364,9 @@ class JournalLine extends Remote\Object {
      */
     public function addTrackingCategory(TrackingCategory $value) {
         $this->propertyUpdated('TrackingCategories', $value);
+        if(!isset($this->_data['TrackingCategories'])){
+            $this->_data['TrackingCategories'] = new Remote\Collection();
+        }
         $this->_data['TrackingCategories'][] = $value;
         return $this;
     }

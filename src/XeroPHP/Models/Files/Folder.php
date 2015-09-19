@@ -218,7 +218,7 @@ class Folder extends Remote\Object {
     }
 
     /**
-     * @return File[]|Collection
+     * @return File[]|Remote\Collection
      * Always returns a collection, switch is for type hinting
      */
     public function getFiles() {
@@ -231,6 +231,9 @@ class Folder extends Remote\Object {
      */
     public function addFile(File $value) {
         $this->propertyUpdated('Files', $value);
+        if(!isset($this->_data['Files'])){
+            $this->_data['Files'] = new Remote\Collection();
+        }
         $this->_data['Files'][] = $value;
         return $this;
     }

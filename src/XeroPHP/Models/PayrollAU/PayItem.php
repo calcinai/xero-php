@@ -112,7 +112,7 @@ class PayItem extends Remote\Object {
     }
 
     /**
-     * @return EarningsRate[]|Collection
+     * @return EarningsRate[]|Remote\Collection
      * Always returns a collection, switch is for type hinting
      */
     public function getEarningsRates() {
@@ -125,12 +125,15 @@ class PayItem extends Remote\Object {
      */
     public function addEarningsRate(EarningsRate $value) {
         $this->propertyUpdated('EarningsRates', $value);
+        if(!isset($this->_data['EarningsRates'])){
+            $this->_data['EarningsRates'] = new Remote\Collection();
+        }
         $this->_data['EarningsRates'][] = $value;
         return $this;
     }
 
     /**
-     * @return DeductionType[]|Collection
+     * @return DeductionType[]|Remote\Collection
      * Always returns a collection, switch is for type hinting
      */
     public function getDeductionTypes() {
@@ -143,12 +146,15 @@ class PayItem extends Remote\Object {
      */
     public function addDeductionType(DeductionType $value) {
         $this->propertyUpdated('DeductionTypes', $value);
+        if(!isset($this->_data['DeductionTypes'])){
+            $this->_data['DeductionTypes'] = new Remote\Collection();
+        }
         $this->_data['DeductionTypes'][] = $value;
         return $this;
     }
 
     /**
-     * @return LeaveType[]|Collection
+     * @return LeaveType[]|Remote\Collection
      * Always returns a collection, switch is for type hinting
      */
     public function getLeaveTypes() {
@@ -161,12 +167,15 @@ class PayItem extends Remote\Object {
      */
     public function addLeaveType(LeaveType $value) {
         $this->propertyUpdated('LeaveTypes', $value);
+        if(!isset($this->_data['LeaveTypes'])){
+            $this->_data['LeaveTypes'] = new Remote\Collection();
+        }
         $this->_data['LeaveTypes'][] = $value;
         return $this;
     }
 
     /**
-     * @return ReimbursementType[]|Collection
+     * @return ReimbursementType[]|Remote\Collection
      * Always returns a collection, switch is for type hinting
      */
     public function getReimbursementTypes() {
@@ -179,6 +188,9 @@ class PayItem extends Remote\Object {
      */
     public function addReimbursementType(ReimbursementType $value) {
         $this->propertyUpdated('ReimbursementTypes', $value);
+        if(!isset($this->_data['ReimbursementTypes'])){
+            $this->_data['ReimbursementTypes'] = new Remote\Collection();
+        }
         $this->_data['ReimbursementTypes'][] = $value;
         return $this;
     }

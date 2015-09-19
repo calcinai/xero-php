@@ -589,7 +589,7 @@ class Employee extends Remote\Object {
     }
 
     /**
-     * @return BankAccount[]|Collection
+     * @return BankAccount[]|Remote\Collection
      * Always returns a collection, switch is for type hinting
      */
     public function getBankAccounts() {
@@ -602,6 +602,9 @@ class Employee extends Remote\Object {
      */
     public function addBankAccount(BankAccount $value) {
         $this->propertyUpdated('BankAccounts', $value);
+        if(!isset($this->_data['BankAccounts'])){
+            $this->_data['BankAccounts'] = new Remote\Collection();
+        }
         $this->_data['BankAccounts'][] = $value;
         return $this;
     }
@@ -624,7 +627,7 @@ class Employee extends Remote\Object {
     }
 
     /**
-     * @return OpeningBalance[]|Collection
+     * @return OpeningBalance[]|Remote\Collection
      * Always returns a collection, switch is for type hinting
      */
     public function getOpeningBalances() {
@@ -637,12 +640,15 @@ class Employee extends Remote\Object {
      */
     public function addOpeningBalance(OpeningBalance $value) {
         $this->propertyUpdated('OpeningBalances', $value);
+        if(!isset($this->_data['OpeningBalances'])){
+            $this->_data['OpeningBalances'] = new Remote\Collection();
+        }
         $this->_data['OpeningBalances'][] = $value;
         return $this;
     }
 
     /**
-     * @return SuperMembership[]|Collection
+     * @return SuperMembership[]|Remote\Collection
      * Always returns a collection, switch is for type hinting
      */
     public function getSuperMemberships() {
@@ -655,6 +661,9 @@ class Employee extends Remote\Object {
      */
     public function addSuperMembership(SuperMembership $value) {
         $this->propertyUpdated('SuperMemberships', $value);
+        if(!isset($this->_data['SuperMemberships'])){
+            $this->_data['SuperMemberships'] = new Remote\Collection();
+        }
         $this->_data['SuperMemberships'][] = $value;
         return $this;
     }

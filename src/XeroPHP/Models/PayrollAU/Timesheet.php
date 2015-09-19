@@ -185,7 +185,7 @@ class Timesheet extends Remote\Object {
     }
 
     /**
-     * @return TimesheetLine[]|Collection
+     * @return TimesheetLine[]|Remote\Collection
      * Always returns a collection, switch is for type hinting
      */
     public function getTimesheetLines() {
@@ -198,6 +198,9 @@ class Timesheet extends Remote\Object {
      */
     public function addTimesheetLine(TimesheetLine $value) {
         $this->propertyUpdated('TimesheetLines', $value);
+        if(!isset($this->_data['TimesheetLines'])){
+            $this->_data['TimesheetLines'] = new Remote\Collection();
+        }
         $this->_data['TimesheetLines'][] = $value;
         return $this;
     }

@@ -146,7 +146,7 @@ class LeaveType extends Remote\Object {
     }
 
     /**
-     * @return float[]|Collection
+     * @return float[]|Remote\Collection
      * Always returns a collection, switch is for type hinting
      */
     public function getTypeOfUnits() {
@@ -159,6 +159,9 @@ class LeaveType extends Remote\Object {
      */
     public function addTypeOfUnit($value) {
         $this->propertyUpdated('TypeOfUnits', $value);
+        if(!isset($this->_data['TypeOfUnits'])){
+            $this->_data['TypeOfUnits'] = new Remote\Collection();
+        }
         $this->_data['TypeOfUnits'][] = $value;
         return $this;
     }

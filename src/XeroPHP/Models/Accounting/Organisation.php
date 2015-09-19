@@ -659,7 +659,7 @@ class Organisation extends Remote\Object {
     }
 
     /**
-     * @return Address[]|Collection
+     * @return Address[]|Remote\Collection
      * Always returns a collection, switch is for type hinting
      */
     public function getAddresses() {
@@ -672,12 +672,15 @@ class Organisation extends Remote\Object {
      */
     public function addAddress(Address $value) {
         $this->propertyUpdated('Addresses', $value);
+        if(!isset($this->_data['Addresses'])){
+            $this->_data['Addresses'] = new Remote\Collection();
+        }
         $this->_data['Addresses'][] = $value;
         return $this;
     }
 
     /**
-     * @return Phone[]|Collection
+     * @return Phone[]|Remote\Collection
      * Always returns a collection, switch is for type hinting
      */
     public function getPhones() {
@@ -690,12 +693,15 @@ class Organisation extends Remote\Object {
      */
     public function addPhone(Phone $value) {
         $this->propertyUpdated('Phones', $value);
+        if(!isset($this->_data['Phones'])){
+            $this->_data['Phones'] = new Remote\Collection();
+        }
         $this->_data['Phones'][] = $value;
         return $this;
     }
 
     /**
-     * @return ExternalLink[]|Collection
+     * @return ExternalLink[]|Remote\Collection
      * Always returns a collection, switch is for type hinting
      */
     public function getExternalLinks() {
@@ -708,12 +714,15 @@ class Organisation extends Remote\Object {
      */
     public function addExternalLink(ExternalLink $value) {
         $this->propertyUpdated('ExternalLinks', $value);
+        if(!isset($this->_data['ExternalLinks'])){
+            $this->_data['ExternalLinks'] = new Remote\Collection();
+        }
         $this->_data['ExternalLinks'][] = $value;
         return $this;
     }
 
     /**
-     * @return PaymentTerm[]|Collection
+     * @return PaymentTerm[]|Remote\Collection
      * Always returns a collection, switch is for type hinting
      */
     public function getPaymentTerms() {
@@ -726,6 +735,9 @@ class Organisation extends Remote\Object {
      */
     public function addPaymentTerm(PaymentTerm $value) {
         $this->propertyUpdated('PaymentTerms', $value);
+        if(!isset($this->_data['PaymentTerms'])){
+            $this->_data['PaymentTerms'] = new Remote\Collection();
+        }
         $this->_data['PaymentTerms'][] = $value;
         return $this;
     }

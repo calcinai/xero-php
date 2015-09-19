@@ -140,7 +140,7 @@ class ExpenseClaim extends Remote\Object {
     }
 
     /**
-     * @return Receipt[]|Collection
+     * @return Receipt[]|Remote\Collection
      * Always returns a collection, switch is for type hinting
      */
     public function getReceipts() {
@@ -153,6 +153,9 @@ class ExpenseClaim extends Remote\Object {
      */
     public function addReceipt(Receipt $value) {
         $this->propertyUpdated('Receipts', $value);
+        if(!isset($this->_data['Receipts'])){
+            $this->_data['Receipts'] = new Remote\Collection();
+        }
         $this->_data['Receipts'][] = $value;
         return $this;
     }

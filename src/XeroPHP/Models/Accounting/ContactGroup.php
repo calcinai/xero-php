@@ -165,7 +165,7 @@ e.g.
     }
 
     /**
-     * @return Contact[]|Collection
+     * @return Contact[]|Remote\Collection
      * Always returns a collection, switch is for type hinting
      */
     public function getContacts() {
@@ -178,6 +178,9 @@ e.g.
      */
     public function addContact(Contact $value) {
         $this->propertyUpdated('Contacts', $value);
+        if(!isset($this->_data['Contacts'])){
+            $this->_data['Contacts'] = new Remote\Collection();
+        }
         $this->_data['Contacts'][] = $value;
         return $this;
     }

@@ -220,7 +220,7 @@ class OpeningBalance extends Remote\Object {
     }
 
     /**
-     * @return EarningsLine[]|Collection
+     * @return EarningsLine[]|Remote\Collection
      * Always returns a collection, switch is for type hinting
      */
     public function getEarningsLines() {
@@ -233,12 +233,15 @@ class OpeningBalance extends Remote\Object {
      */
     public function addEarningsLine(EarningsLine $value) {
         $this->propertyUpdated('EarningsLines', $value);
+        if(!isset($this->_data['EarningsLines'])){
+            $this->_data['EarningsLines'] = new Remote\Collection();
+        }
         $this->_data['EarningsLines'][] = $value;
         return $this;
     }
 
     /**
-     * @return DeductionLine[]|Collection
+     * @return DeductionLine[]|Remote\Collection
      * Always returns a collection, switch is for type hinting
      */
     public function getDeductionLines() {
@@ -251,6 +254,9 @@ class OpeningBalance extends Remote\Object {
      */
     public function addDeductionLine(DeductionLine $value) {
         $this->propertyUpdated('DeductionLines', $value);
+        if(!isset($this->_data['DeductionLines'])){
+            $this->_data['DeductionLines'] = new Remote\Collection();
+        }
         $this->_data['DeductionLines'][] = $value;
         return $this;
     }
@@ -273,7 +279,7 @@ class OpeningBalance extends Remote\Object {
     }
 
     /**
-     * @return ReimbursementLine[]|Collection
+     * @return ReimbursementLine[]|Remote\Collection
      * Always returns a collection, switch is for type hinting
      */
     public function getReimbursementLines() {
@@ -286,6 +292,9 @@ class OpeningBalance extends Remote\Object {
      */
     public function addReimbursementLine(ReimbursementLine $value) {
         $this->propertyUpdated('ReimbursementLines', $value);
+        if(!isset($this->_data['ReimbursementLines'])){
+            $this->_data['ReimbursementLines'] = new Remote\Collection();
+        }
         $this->_data['ReimbursementLines'][] = $value;
         return $this;
     }

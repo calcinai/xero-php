@@ -113,7 +113,7 @@ class PaymentMethod extends Remote\Object {
     }
 
     /**
-     * @return BankAccount[]|Collection
+     * @return BankAccount[]|Remote\Collection
      * Always returns a collection, switch is for type hinting
      */
     public function getBankAccounts() {
@@ -126,6 +126,9 @@ class PaymentMethod extends Remote\Object {
      */
     public function addBankAccount(BankAccount $value) {
         $this->propertyUpdated('BankAccounts', $value);
+        if(!isset($this->_data['BankAccounts'])){
+            $this->_data['BankAccounts'] = new Remote\Collection();
+        }
         $this->_data['BankAccounts'][] = $value;
         return $this;
     }

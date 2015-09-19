@@ -230,7 +230,7 @@ class Receipt extends Remote\Object {
     }
 
     /**
-     * @return LineItem[]|Collection
+     * @return LineItem[]|Remote\Collection
      * Always returns a collection, switch is for type hinting
      */
     public function getLineItems() {
@@ -243,6 +243,9 @@ class Receipt extends Remote\Object {
      */
     public function addLineItem(LineItem $value) {
         $this->propertyUpdated('LineItems', $value);
+        if(!isset($this->_data['LineItems'])){
+            $this->_data['LineItems'] = new Remote\Collection();
+        }
         $this->_data['LineItems'][] = $value;
         return $this;
     }

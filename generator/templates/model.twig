@@ -122,7 +122,7 @@ class {{ model.ClassName }} extends Remote\Object {
 {#  getters and setters #}
 {% for property in model.properties %}
     /**
-     * @return {{ property.PHPType }}{% if property.isArray %}[]|Collection
+     * @return {{ property.PHPType }}{% if property.isArray %}[]|Remote\Collection
      * Always returns a collection, switch is for type hinting{% endif %}
 
 {% if property.isDeprecated %}     * @deprecated
@@ -141,8 +141,12 @@ class {{ model.ClassName }} extends Remote\Object {
      */
     public function {% if property.isArray %}add{% else %}set{% endif %}{{ property.NameSingular }}({% if property.isHintable %}{{ property.PHPType }} {% endif %}$value) {
         $this->propertyUpdated('{{ property.Name }}', $value);
-        $this->_data['{{ property.Name }}']{% if property.isArray %}[]{% endif %} = $value;
-        return $this;
+        {% if property.isArray %}if(!isset($this->_data['{{ property.Name }}'])){
+            $this->_data['{{ property.Name }}'] = new Remote\Collection();
+        }
+        $this->_data['{{ property.Name }}'][] = $value;
+        {% else %}$this->_data['{{ property.Name }}'] = $value;
+        {% endif %}return $this;
     }
 {% endif %}
 
