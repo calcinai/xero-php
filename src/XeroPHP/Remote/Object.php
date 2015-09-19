@@ -292,9 +292,10 @@ abstract class Object implements ObjectInterface, \JsonSerializable, \ArrayAcces
                 return $instance;
 
             default:
-                if(is_scalar($value))
+                if(is_scalar($value)){
                     return (string) $value;
-                return '';
+                }
+                return (object) $value;
 
         }
 
