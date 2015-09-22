@@ -100,9 +100,10 @@ class Response {
             case Response::STATUS_RATE_LIMIT_EXCEEDED:
             case Response::STATUS_ORGANISATION_OFFLINE:
                 //There must be a better way than this?
-                if(false !== stripos($this->response_body, 'Organisation is offline')){
+                $response = urldecode($this->response_body);
+                if(false !== stripos($response, 'Organisation is offline')){
                     throw new OrganisationOfflineException();
-                } elseif(false !== stripos($this->response_body, 'Rate limit exceeded')){
+                } elseif(false !== stripos($response, 'Rate limit exceeded')){
                     throw new RateLimitExceededException();
                 } else {
                     throw new NotAvailableException();
