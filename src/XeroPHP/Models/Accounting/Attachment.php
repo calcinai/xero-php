@@ -116,6 +116,23 @@ class Attachment extends Object {
         return $instance;
     }
 
+
+    public static function createFromBinary($data, $file_name, $mime_type){
+
+        $content_length = strlen($data);
+
+        $instance = new self();
+        $instance->fromStringArray(array(
+            'MimeType' => $mime_type,
+            'ContentLength' => $content_length,
+            'FileName' => $file_name
+        ));
+
+        $instance->content = $data;
+
+        return $instance;
+    }
+
     /**
      * @return string
      */
