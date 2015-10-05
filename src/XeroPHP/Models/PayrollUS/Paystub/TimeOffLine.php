@@ -1,11 +1,10 @@
 <?php
-
 namespace XeroPHP\Models\PayrollUS\Paystub;
 
 use XeroPHP\Remote;
 
-
-class TimeOffLine extends Remote\Object {
+class TimeOffLine extends Remote\Object
+{
 
     /**
      * Xero identifier for payroll time off type
@@ -32,7 +31,8 @@ class TimeOffLine extends Remote\Object {
      *
      * @return string
      */
-    public static function getResourceURI(){
+    public static function getResourceURI()
+    {
         return 'TimeOffLine';
     }
 
@@ -42,7 +42,8 @@ class TimeOffLine extends Remote\Object {
      *
      * @return string
      */
-    public static function getRootNodeName(){
+    public static function getRootNodeName()
+    {
         return 'TimeOffLine';
     }
 
@@ -52,7 +53,8 @@ class TimeOffLine extends Remote\Object {
      *
      * @return string
      */
-    public static function getGUIDProperty(){
+    public static function getGUIDProperty()
+    {
         return '';
     }
 
@@ -62,7 +64,8 @@ class TimeOffLine extends Remote\Object {
      *
      * @return string|null
      */
-    public static function getAPIStem(){
+    public static function getAPIStem()
+    {
         return Remote\URL::API_PAYROLL;
     }
 
@@ -70,7 +73,8 @@ class TimeOffLine extends Remote\Object {
     /**
      * Get the supported methods
      */
-    public static function getSupportedMethods() {
+    public static function getSupportedMethods()
+    {
         return array(
         );
     }
@@ -86,7 +90,8 @@ class TimeOffLine extends Remote\Object {
      *
      * @return array
      */
-    public static function getProperties() {
+    public static function getProperties()
+    {
         return array(
             'TimeOffTypeID' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'Hours' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
@@ -94,14 +99,16 @@ class TimeOffLine extends Remote\Object {
         );
     }
 
-    public static function isPageable(){
+    public static function isPageable()
+    {
         return false;
     }
 
     /**
      * @return string
      */
-    public function getTimeOffTypeID() {
+    public function getTimeOffTypeID()
+    {
         return $this->_data['TimeOffTypeID'];
     }
 
@@ -109,7 +116,8 @@ class TimeOffLine extends Remote\Object {
      * @param string $value
      * @return TimeOffLine
      */
-    public function setTimeOffTypeID($value) {
+    public function setTimeOffTypeID($value)
+    {
         $this->propertyUpdated('TimeOffTypeID', $value);
         $this->_data['TimeOffTypeID'] = $value;
         return $this;
@@ -118,7 +126,8 @@ class TimeOffLine extends Remote\Object {
     /**
      * @return string
      */
-    public function getHours() {
+    public function getHours()
+    {
         return $this->_data['Hours'];
     }
 
@@ -126,7 +135,8 @@ class TimeOffLine extends Remote\Object {
      * @param string $value
      * @return TimeOffLine
      */
-    public function setHour($value) {
+    public function setHour($value)
+    {
         $this->propertyUpdated('Hours', $value);
         $this->_data['Hours'] = $value;
         return $this;
@@ -135,7 +145,8 @@ class TimeOffLine extends Remote\Object {
     /**
      * @return string
      */
-    public function getBalance() {
+    public function getBalance()
+    {
         return $this->_data['Balance'];
     }
 
@@ -143,7 +154,8 @@ class TimeOffLine extends Remote\Object {
      * @param string $value
      * @return TimeOffLine
      */
-    public function setBalance($value) {
+    public function setBalance($value)
+    {
         $this->propertyUpdated('Balance', $value);
         $this->_data['Balance'] = $value;
         return $this;

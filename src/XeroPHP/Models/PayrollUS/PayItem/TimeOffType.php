@@ -1,11 +1,10 @@
 <?php
-
 namespace XeroPHP\Models\PayrollUS\PayItem;
 
 use XeroPHP\Remote;
 
-
-class TimeOffType extends Remote\Object {
+class TimeOffType extends Remote\Object
+{
 
     /**
      * Name of the time off type (max length = 50)
@@ -55,7 +54,8 @@ If Paid Time Off is selected the employee will get paid when taking this time of
      *
      * @return string
      */
-    public static function getResourceURI(){
+    public static function getResourceURI()
+    {
         return 'TimeOffTypes';
     }
 
@@ -65,7 +65,8 @@ If Paid Time Off is selected the employee will get paid when taking this time of
      *
      * @return string
      */
-    public static function getRootNodeName(){
+    public static function getRootNodeName()
+    {
         return 'TimeOffType';
     }
 
@@ -75,7 +76,8 @@ If Paid Time Off is selected the employee will get paid when taking this time of
      *
      * @return string
      */
-    public static function getGUIDProperty(){
+    public static function getGUIDProperty()
+    {
         return 'TimeOffTypeID';
     }
 
@@ -85,7 +87,8 @@ If Paid Time Off is selected the employee will get paid when taking this time of
      *
      * @return string|null
      */
-    public static function getAPIStem(){
+    public static function getAPIStem()
+    {
         return Remote\URL::API_PAYROLL;
     }
 
@@ -93,7 +96,8 @@ If Paid Time Off is selected the employee will get paid when taking this time of
     /**
      * Get the supported methods
      */
-    public static function getSupportedMethods() {
+    public static function getSupportedMethods()
+    {
         return array(
         );
     }
@@ -109,7 +113,8 @@ If Paid Time Off is selected the employee will get paid when taking this time of
      *
      * @return array
      */
-    public static function getProperties() {
+    public static function getProperties()
+    {
         return array(
             'TimeOffType' => array (true, self::PROPERTY_TYPE_OBJECT, 'PayrollUS\\PayItem\\TimeOffType', false, false),
             'TimeOffCategory' => array (true, self::PROPERTY_TYPE_ENUM, null, false, false),
@@ -120,14 +125,16 @@ If Paid Time Off is selected the employee will get paid when taking this time of
         );
     }
 
-    public static function isPageable(){
+    public static function isPageable()
+    {
         return false;
     }
 
     /**
      * @return TimeOffType
      */
-    public function getTimeOffType() {
+    public function getTimeOffType()
+    {
         return $this->_data['TimeOffType'];
     }
 
@@ -135,7 +142,8 @@ If Paid Time Off is selected the employee will get paid when taking this time of
      * @param TimeOffType $value
      * @return TimeOffType
      */
-    public function setTimeOffType(TimeOffType $value) {
+    public function setTimeOffType(TimeOffType $value)
+    {
         $this->propertyUpdated('TimeOffType', $value);
         $this->_data['TimeOffType'] = $value;
         return $this;
@@ -144,7 +152,8 @@ If Paid Time Off is selected the employee will get paid when taking this time of
     /**
      * @return string
      */
-    public function getTimeOffCategory() {
+    public function getTimeOffCategory()
+    {
         return $this->_data['TimeOffCategory'];
     }
 
@@ -152,7 +161,8 @@ If Paid Time Off is selected the employee will get paid when taking this time of
      * @param string $value
      * @return TimeOffType
      */
-    public function setTimeOffCategory($value) {
+    public function setTimeOffCategory($value)
+    {
         $this->propertyUpdated('TimeOffCategory', $value);
         $this->_data['TimeOffCategory'] = $value;
         return $this;
@@ -161,7 +171,8 @@ If Paid Time Off is selected the employee will get paid when taking this time of
     /**
      * @return string
      */
-    public function getExpenseAccountCode() {
+    public function getExpenseAccountCode()
+    {
         return $this->_data['ExpenseAccountCode'];
     }
 
@@ -169,7 +180,8 @@ If Paid Time Off is selected the employee will get paid when taking this time of
      * @param string $value
      * @return TimeOffType
      */
-    public function setExpenseAccountCode($value) {
+    public function setExpenseAccountCode($value)
+    {
         $this->propertyUpdated('ExpenseAccountCode', $value);
         $this->_data['ExpenseAccountCode'] = $value;
         return $this;
@@ -178,7 +190,8 @@ If Paid Time Off is selected the employee will get paid when taking this time of
     /**
      * @return string
      */
-    public function getLiabilityAccountCode() {
+    public function getLiabilityAccountCode()
+    {
         return $this->_data['LiabilityAccountCode'];
     }
 
@@ -186,7 +199,8 @@ If Paid Time Off is selected the employee will get paid when taking this time of
      * @param string $value
      * @return TimeOffType
      */
-    public function setLiabilityAccountCode($value) {
+    public function setLiabilityAccountCode($value)
+    {
         $this->propertyUpdated('LiabilityAccountCode', $value);
         $this->_data['LiabilityAccountCode'] = $value;
         return $this;
@@ -195,7 +209,8 @@ If Paid Time Off is selected the employee will get paid when taking this time of
     /**
      * @return string
      */
-    public function getTimeOffTypeID() {
+    public function getTimeOffTypeID()
+    {
         return $this->_data['TimeOffTypeID'];
     }
 
@@ -203,7 +218,8 @@ If Paid Time Off is selected the employee will get paid when taking this time of
      * @param string $value
      * @return TimeOffType
      */
-    public function setTimeOffTypeID($value) {
+    public function setTimeOffTypeID($value)
+    {
         $this->propertyUpdated('TimeOffTypeID', $value);
         $this->_data['TimeOffTypeID'] = $value;
         return $this;
@@ -212,7 +228,8 @@ If Paid Time Off is selected the employee will get paid when taking this time of
     /**
      * @return string
      */
-    public function getShowBalanceToEmployee() {
+    public function getShowBalanceToEmployee()
+    {
         return $this->_data['ShowBalanceToEmployee'];
     }
 
@@ -220,7 +237,8 @@ If Paid Time Off is selected the employee will get paid when taking this time of
      * @param string $value
      * @return TimeOffType
      */
-    public function setShowBalanceToEmployee($value) {
+    public function setShowBalanceToEmployee($value)
+    {
         $this->propertyUpdated('ShowBalanceToEmployee', $value);
         $this->_data['ShowBalanceToEmployee'] = $value;
         return $this;

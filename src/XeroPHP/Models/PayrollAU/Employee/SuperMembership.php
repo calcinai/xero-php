@@ -1,11 +1,10 @@
 <?php
-
 namespace XeroPHP\Models\PayrollAU\Employee;
 
 use XeroPHP\Remote;
 
-
-class SuperMembership extends Remote\Object {
+class SuperMembership extends Remote\Object
+{
 
     /**
      * Xero identifier for super fund
@@ -38,7 +37,8 @@ class SuperMembership extends Remote\Object {
      *
      * @return string
      */
-    public static function getResourceURI(){
+    public static function getResourceURI()
+    {
         return 'SuperMembership';
     }
 
@@ -48,7 +48,8 @@ class SuperMembership extends Remote\Object {
      *
      * @return string
      */
-    public static function getRootNodeName(){
+    public static function getRootNodeName()
+    {
         return 'SuperMembership';
     }
 
@@ -58,7 +59,8 @@ class SuperMembership extends Remote\Object {
      *
      * @return string
      */
-    public static function getGUIDProperty(){
+    public static function getGUIDProperty()
+    {
         return 'SuperMembershipID';
     }
 
@@ -68,7 +70,8 @@ class SuperMembership extends Remote\Object {
      *
      * @return string|null
      */
-    public static function getAPIStem(){
+    public static function getAPIStem()
+    {
         return Remote\URL::API_PAYROLL;
     }
 
@@ -76,7 +79,8 @@ class SuperMembership extends Remote\Object {
     /**
      * Get the supported methods
      */
-    public static function getSupportedMethods() {
+    public static function getSupportedMethods()
+    {
         return array(
         );
     }
@@ -92,7 +96,8 @@ class SuperMembership extends Remote\Object {
      *
      * @return array
      */
-    public static function getProperties() {
+    public static function getProperties()
+    {
         return array(
             'SuperFundID' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'EmployeeNumber' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
@@ -101,14 +106,16 @@ class SuperMembership extends Remote\Object {
         );
     }
 
-    public static function isPageable(){
+    public static function isPageable()
+    {
         return false;
     }
 
     /**
      * @return string
      */
-    public function getSuperFundID() {
+    public function getSuperFundID()
+    {
         return $this->_data['SuperFundID'];
     }
 
@@ -116,7 +123,8 @@ class SuperMembership extends Remote\Object {
      * @param string $value
      * @return SuperMembership
      */
-    public function setSuperFundID($value) {
+    public function setSuperFundID($value)
+    {
         $this->propertyUpdated('SuperFundID', $value);
         $this->_data['SuperFundID'] = $value;
         return $this;
@@ -125,7 +133,8 @@ class SuperMembership extends Remote\Object {
     /**
      * @return string
      */
-    public function getEmployeeNumber() {
+    public function getEmployeeNumber()
+    {
         return $this->_data['EmployeeNumber'];
     }
 
@@ -133,7 +142,8 @@ class SuperMembership extends Remote\Object {
      * @param string $value
      * @return SuperMembership
      */
-    public function setEmployeeNumber($value) {
+    public function setEmployeeNumber($value)
+    {
         $this->propertyUpdated('EmployeeNumber', $value);
         $this->_data['EmployeeNumber'] = $value;
         return $this;
@@ -142,7 +152,8 @@ class SuperMembership extends Remote\Object {
     /**
      * @return string
      */
-    public function getSuperMembershipID() {
+    public function getSuperMembershipID()
+    {
         return $this->_data['SuperMembershipID'];
     }
 
@@ -150,7 +161,8 @@ class SuperMembership extends Remote\Object {
      * @param string $value
      * @return SuperMembership
      */
-    public function setSuperMembershipID($value) {
+    public function setSuperMembershipID($value)
+    {
         $this->propertyUpdated('SuperMembershipID', $value);
         $this->_data['SuperMembershipID'] = $value;
         return $this;
@@ -159,7 +171,8 @@ class SuperMembership extends Remote\Object {
     /**
      * @return string
      */
-    public function getEmployeeID() {
+    public function getEmployeeID()
+    {
         return $this->_data['EmployeeID'];
     }
 
@@ -167,7 +180,8 @@ class SuperMembership extends Remote\Object {
      * @param string $value
      * @return SuperMembership
      */
-    public function setEmployeeID($value) {
+    public function setEmployeeID($value)
+    {
         $this->propertyUpdated('EmployeeID', $value);
         $this->_data['EmployeeID'] = $value;
         return $this;

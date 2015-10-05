@@ -1,11 +1,10 @@
 <?php
-
 namespace XeroPHP\Models\PayrollAU;
 
 use XeroPHP\Remote;
 
-
-class SuperFund extends Remote\Object {
+class SuperFund extends Remote\Object
+{
 
     /**
      * Xero identifier
@@ -38,7 +37,8 @@ class SuperFund extends Remote\Object {
      *
      * @return string
      */
-    public static function getResourceURI(){
+    public static function getResourceURI()
+    {
         return 'SuperFunds';
     }
 
@@ -48,7 +48,8 @@ class SuperFund extends Remote\Object {
      *
      * @return string
      */
-    public static function getRootNodeName(){
+    public static function getRootNodeName()
+    {
         return 'SuperFund';
     }
 
@@ -58,7 +59,8 @@ class SuperFund extends Remote\Object {
      *
      * @return string
      */
-    public static function getGUIDProperty(){
+    public static function getGUIDProperty()
+    {
         return 'SuperFundID';
     }
 
@@ -68,7 +70,8 @@ class SuperFund extends Remote\Object {
      *
      * @return string|null
      */
-    public static function getAPIStem(){
+    public static function getAPIStem()
+    {
         return Remote\URL::API_PAYROLL;
     }
 
@@ -76,7 +79,8 @@ class SuperFund extends Remote\Object {
     /**
      * Get the supported methods
      */
-    public static function getSupportedMethods() {
+    public static function getSupportedMethods()
+    {
         return array(
             Remote\Request::METHOD_POST,
             Remote\Request::METHOD_GET
@@ -94,7 +98,8 @@ class SuperFund extends Remote\Object {
      *
      * @return array
      */
-    public static function getProperties() {
+    public static function getProperties()
+    {
         return array(
             'SuperFundID' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'Type' => array (false, self::PROPERTY_TYPE_ENUM, null, false, false),
@@ -103,14 +108,16 @@ class SuperFund extends Remote\Object {
         );
     }
 
-    public static function isPageable(){
+    public static function isPageable()
+    {
         return false;
     }
 
     /**
      * @return string
      */
-    public function getSuperFundID() {
+    public function getSuperFundID()
+    {
         return $this->_data['SuperFundID'];
     }
 
@@ -118,7 +125,8 @@ class SuperFund extends Remote\Object {
      * @param string $value
      * @return SuperFund
      */
-    public function setSuperFundID($value) {
+    public function setSuperFundID($value)
+    {
         $this->propertyUpdated('SuperFundID', $value);
         $this->_data['SuperFundID'] = $value;
         return $this;
@@ -127,7 +135,8 @@ class SuperFund extends Remote\Object {
     /**
      * @return string
      */
-    public function getType() {
+    public function getType()
+    {
         return $this->_data['Type'];
     }
 
@@ -135,7 +144,8 @@ class SuperFund extends Remote\Object {
      * @param string $value
      * @return SuperFund
      */
-    public function setType($value) {
+    public function setType($value)
+    {
         $this->propertyUpdated('Type', $value);
         $this->_data['Type'] = $value;
         return $this;
@@ -144,7 +154,8 @@ class SuperFund extends Remote\Object {
     /**
      * @return string
      */
-    public function getABN() {
+    public function getABN()
+    {
         return $this->_data['ABN'];
     }
 
@@ -152,7 +163,8 @@ class SuperFund extends Remote\Object {
      * @param string $value
      * @return SuperFund
      */
-    public function setABN($value) {
+    public function setABN($value)
+    {
         $this->propertyUpdated('ABN', $value);
         $this->_data['ABN'] = $value;
         return $this;
@@ -161,7 +173,8 @@ class SuperFund extends Remote\Object {
     /**
      * @return string
      */
-    public function getUSI() {
+    public function getUSI()
+    {
         return $this->_data['USI'];
     }
 
@@ -169,7 +182,8 @@ class SuperFund extends Remote\Object {
      * @param string $value
      * @return SuperFund
      */
-    public function setUSI($value) {
+    public function setUSI($value)
+    {
         $this->propertyUpdated('USI', $value);
         $this->_data['USI'] = $value;
         return $this;

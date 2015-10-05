@@ -1,11 +1,10 @@
 <?php
-
 namespace XeroPHP\Models\PayrollUS\Employee;
 
 use XeroPHP\Remote;
 
-
-class BankAccount extends Remote\Object {
+class BankAccount extends Remote\Object
+{
 
     /**
      * The name of bank account holder exactly how the bank has it.
@@ -57,7 +56,8 @@ class BankAccount extends Remote\Object {
      *
      * @return string
      */
-    public static function getResourceURI(){
+    public static function getResourceURI()
+    {
         return 'BankAccount';
     }
 
@@ -67,7 +67,8 @@ class BankAccount extends Remote\Object {
      *
      * @return string
      */
-    public static function getRootNodeName(){
+    public static function getRootNodeName()
+    {
         return 'BankAccount';
     }
 
@@ -77,7 +78,8 @@ class BankAccount extends Remote\Object {
      *
      * @return string
      */
-    public static function getGUIDProperty(){
+    public static function getGUIDProperty()
+    {
         return '';
     }
 
@@ -87,7 +89,8 @@ class BankAccount extends Remote\Object {
      *
      * @return string|null
      */
-    public static function getAPIStem(){
+    public static function getAPIStem()
+    {
         return Remote\URL::API_PAYROLL;
     }
 
@@ -95,7 +98,8 @@ class BankAccount extends Remote\Object {
     /**
      * Get the supported methods
      */
-    public static function getSupportedMethods() {
+    public static function getSupportedMethods()
+    {
         return array(
         );
     }
@@ -111,7 +115,8 @@ class BankAccount extends Remote\Object {
      *
      * @return array
      */
-    public static function getProperties() {
+    public static function getProperties()
+    {
         return array(
             'AccountHolderName' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'StatementText' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
@@ -123,14 +128,16 @@ class BankAccount extends Remote\Object {
         );
     }
 
-    public static function isPageable(){
+    public static function isPageable()
+    {
         return false;
     }
 
     /**
      * @return string
      */
-    public function getAccountHolderName() {
+    public function getAccountHolderName()
+    {
         return $this->_data['AccountHolderName'];
     }
 
@@ -138,7 +145,8 @@ class BankAccount extends Remote\Object {
      * @param string $value
      * @return BankAccount
      */
-    public function setAccountHolderName($value) {
+    public function setAccountHolderName($value)
+    {
         $this->propertyUpdated('AccountHolderName', $value);
         $this->_data['AccountHolderName'] = $value;
         return $this;
@@ -147,7 +155,8 @@ class BankAccount extends Remote\Object {
     /**
      * @return string
      */
-    public function getStatementText() {
+    public function getStatementText()
+    {
         return $this->_data['StatementText'];
     }
 
@@ -155,7 +164,8 @@ class BankAccount extends Remote\Object {
      * @param string $value
      * @return BankAccount
      */
-    public function setStatementText($value) {
+    public function setStatementText($value)
+    {
         $this->propertyUpdated('StatementText', $value);
         $this->_data['StatementText'] = $value;
         return $this;
@@ -164,7 +174,8 @@ class BankAccount extends Remote\Object {
     /**
      * @return string
      */
-    public function getAccountType() {
+    public function getAccountType()
+    {
         return $this->_data['AccountType'];
     }
 
@@ -172,7 +183,8 @@ class BankAccount extends Remote\Object {
      * @param string $value
      * @return BankAccount
      */
-    public function setAccountType($value) {
+    public function setAccountType($value)
+    {
         $this->propertyUpdated('AccountType', $value);
         $this->_data['AccountType'] = $value;
         return $this;
@@ -181,7 +193,8 @@ class BankAccount extends Remote\Object {
     /**
      * @return string
      */
-    public function getRoutingNumber() {
+    public function getRoutingNumber()
+    {
         return $this->_data['RoutingNumber'];
     }
 
@@ -189,7 +202,8 @@ class BankAccount extends Remote\Object {
      * @param string $value
      * @return BankAccount
      */
-    public function setRoutingNumber($value) {
+    public function setRoutingNumber($value)
+    {
         $this->propertyUpdated('RoutingNumber', $value);
         $this->_data['RoutingNumber'] = $value;
         return $this;
@@ -198,7 +212,8 @@ class BankAccount extends Remote\Object {
     /**
      * @return string
      */
-    public function getAccountNumber() {
+    public function getAccountNumber()
+    {
         return $this->_data['AccountNumber'];
     }
 
@@ -206,7 +221,8 @@ class BankAccount extends Remote\Object {
      * @param string $value
      * @return BankAccount
      */
-    public function setAccountNumber($value) {
+    public function setAccountNumber($value)
+    {
         $this->propertyUpdated('AccountNumber', $value);
         $this->_data['AccountNumber'] = $value;
         return $this;
@@ -215,7 +231,8 @@ class BankAccount extends Remote\Object {
     /**
      * @return float
      */
-    public function getAmount() {
+    public function getAmount()
+    {
         return $this->_data['Amount'];
     }
 
@@ -223,7 +240,8 @@ class BankAccount extends Remote\Object {
      * @param float $value
      * @return BankAccount
      */
-    public function setAmount($value) {
+    public function setAmount($value)
+    {
         $this->propertyUpdated('Amount', $value);
         $this->_data['Amount'] = $value;
         return $this;
@@ -232,7 +250,8 @@ class BankAccount extends Remote\Object {
     /**
      * @return string
      */
-    public function getRemainder() {
+    public function getRemainder()
+    {
         return $this->_data['Remainder'];
     }
 
@@ -240,7 +259,8 @@ class BankAccount extends Remote\Object {
      * @param string $value
      * @return BankAccount
      */
-    public function setRemainder($value) {
+    public function setRemainder($value)
+    {
         $this->propertyUpdated('Remainder', $value);
         $this->_data['Remainder'] = $value;
         return $this;

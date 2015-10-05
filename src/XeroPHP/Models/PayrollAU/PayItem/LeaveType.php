@@ -1,11 +1,10 @@
 <?php
-
 namespace XeroPHP\Models\PayrollAU\PayItem;
 
 use XeroPHP\Remote;
 
-
-class LeaveType extends Remote\Object {
+class LeaveType extends Remote\Object
+{
 
     /**
      * Name of the leave type (max length = 50)
@@ -58,7 +57,8 @@ class LeaveType extends Remote\Object {
      *
      * @return string
      */
-    public static function getResourceURI(){
+    public static function getResourceURI()
+    {
         return 'LeaveTypes';
     }
 
@@ -68,7 +68,8 @@ class LeaveType extends Remote\Object {
      *
      * @return string
      */
-    public static function getRootNodeName(){
+    public static function getRootNodeName()
+    {
         return 'LeaveType';
     }
 
@@ -78,7 +79,8 @@ class LeaveType extends Remote\Object {
      *
      * @return string
      */
-    public static function getGUIDProperty(){
+    public static function getGUIDProperty()
+    {
         return 'LeaveTypeID';
     }
 
@@ -88,7 +90,8 @@ class LeaveType extends Remote\Object {
      *
      * @return string|null
      */
-    public static function getAPIStem(){
+    public static function getAPIStem()
+    {
         return Remote\URL::API_PAYROLL;
     }
 
@@ -96,7 +99,8 @@ class LeaveType extends Remote\Object {
     /**
      * Get the supported methods
      */
-    public static function getSupportedMethods() {
+    public static function getSupportedMethods()
+    {
         return array(
         );
     }
@@ -112,7 +116,8 @@ class LeaveType extends Remote\Object {
      *
      * @return array
      */
-    public static function getProperties() {
+    public static function getProperties()
+    {
         return array(
             'Name' => array (true, self::PROPERTY_TYPE_STRING, null, false, false),
             'TypeOfUnits' => array (true, self::PROPERTY_TYPE_FLOAT, null, true, false),
@@ -124,14 +129,16 @@ class LeaveType extends Remote\Object {
         );
     }
 
-    public static function isPageable(){
+    public static function isPageable()
+    {
         return false;
     }
 
     /**
      * @return string
      */
-    public function getName() {
+    public function getName()
+    {
         return $this->_data['Name'];
     }
 
@@ -139,7 +146,8 @@ class LeaveType extends Remote\Object {
      * @param string $value
      * @return LeaveType
      */
-    public function setName($value) {
+    public function setName($value)
+    {
         $this->propertyUpdated('Name', $value);
         $this->_data['Name'] = $value;
         return $this;
@@ -149,7 +157,8 @@ class LeaveType extends Remote\Object {
      * @return float[]|Remote\Collection
      * Always returns a collection, switch is for type hinting
      */
-    public function getTypeOfUnits() {
+    public function getTypeOfUnits()
+    {
         return $this->_data['TypeOfUnits'];
     }
 
@@ -157,7 +166,8 @@ class LeaveType extends Remote\Object {
      * @param float $value
      * @return LeaveType
      */
-    public function addTypeOfUnit($value) {
+    public function addTypeOfUnit($value)
+    {
         $this->propertyUpdated('TypeOfUnits', $value);
         if(!isset($this->_data['TypeOfUnits'])){
             $this->_data['TypeOfUnits'] = new Remote\Collection();
@@ -169,7 +179,8 @@ class LeaveType extends Remote\Object {
     /**
      * @return string
      */
-    public function getIsPaidLeave() {
+    public function getIsPaidLeave()
+    {
         return $this->_data['IsPaidLeave'];
     }
 
@@ -177,7 +188,8 @@ class LeaveType extends Remote\Object {
      * @param string $value
      * @return LeaveType
      */
-    public function setIsPaidLeave($value) {
+    public function setIsPaidLeave($value)
+    {
         $this->propertyUpdated('IsPaidLeave', $value);
         $this->_data['IsPaidLeave'] = $value;
         return $this;
@@ -186,7 +198,8 @@ class LeaveType extends Remote\Object {
     /**
      * @return string
      */
-    public function getShowOnPayslip() {
+    public function getShowOnPayslip()
+    {
         return $this->_data['ShowOnPayslip'];
     }
 
@@ -194,7 +207,8 @@ class LeaveType extends Remote\Object {
      * @param string $value
      * @return LeaveType
      */
-    public function setShowOnPayslip($value) {
+    public function setShowOnPayslip($value)
+    {
         $this->propertyUpdated('ShowOnPayslip', $value);
         $this->_data['ShowOnPayslip'] = $value;
         return $this;
@@ -203,7 +217,8 @@ class LeaveType extends Remote\Object {
     /**
      * @return string
      */
-    public function getLeaveTypeID() {
+    public function getLeaveTypeID()
+    {
         return $this->_data['LeaveTypeID'];
     }
 
@@ -211,7 +226,8 @@ class LeaveType extends Remote\Object {
      * @param string $value
      * @return LeaveType
      */
-    public function setLeaveTypeID($value) {
+    public function setLeaveTypeID($value)
+    {
         $this->propertyUpdated('LeaveTypeID', $value);
         $this->_data['LeaveTypeID'] = $value;
         return $this;
@@ -220,7 +236,8 @@ class LeaveType extends Remote\Object {
     /**
      * @return string
      */
-    public function getNormalEntitlement() {
+    public function getNormalEntitlement()
+    {
         return $this->_data['NormalEntitlement'];
     }
 
@@ -228,7 +245,8 @@ class LeaveType extends Remote\Object {
      * @param string $value
      * @return LeaveType
      */
-    public function setNormalEntitlement($value) {
+    public function setNormalEntitlement($value)
+    {
         $this->propertyUpdated('NormalEntitlement', $value);
         $this->_data['NormalEntitlement'] = $value;
         return $this;
@@ -237,7 +255,8 @@ class LeaveType extends Remote\Object {
     /**
      * @return float
      */
-    public function getLeaveLoadingRate() {
+    public function getLeaveLoadingRate()
+    {
         return $this->_data['LeaveLoadingRate'];
     }
 
@@ -245,7 +264,8 @@ class LeaveType extends Remote\Object {
      * @param float $value
      * @return LeaveType
      */
-    public function setLeaveLoadingRate($value) {
+    public function setLeaveLoadingRate($value)
+    {
         $this->propertyUpdated('LeaveLoadingRate', $value);
         $this->_data['LeaveLoadingRate'] = $value;
         return $this;

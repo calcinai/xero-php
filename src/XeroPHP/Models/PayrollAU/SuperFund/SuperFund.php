@@ -1,11 +1,10 @@
 <?php
-
 namespace XeroPHP\Models\PayrollAU\SuperFund;
 
 use XeroPHP\Remote;
 
-
-class SuperFund extends Remote\Object {
+class SuperFund extends Remote\Object
+{
 
     /**
      * SMSF see Super Fund Types
@@ -81,7 +80,8 @@ class SuperFund extends Remote\Object {
      *
      * @return string
      */
-    public static function getResourceURI(){
+    public static function getResourceURI()
+    {
         return 'SuperFund';
     }
 
@@ -91,7 +91,8 @@ class SuperFund extends Remote\Object {
      *
      * @return string
      */
-    public static function getRootNodeName(){
+    public static function getRootNodeName()
+    {
         return 'SuperFund';
     }
 
@@ -101,7 +102,8 @@ class SuperFund extends Remote\Object {
      *
      * @return string
      */
-    public static function getGUIDProperty(){
+    public static function getGUIDProperty()
+    {
         return 'SuperFundID';
     }
 
@@ -111,7 +113,8 @@ class SuperFund extends Remote\Object {
      *
      * @return string|null
      */
-    public static function getAPIStem(){
+    public static function getAPIStem()
+    {
         return Remote\URL::API_PAYROLL;
     }
 
@@ -119,7 +122,8 @@ class SuperFund extends Remote\Object {
     /**
      * Get the supported methods
      */
-    public static function getSupportedMethods() {
+    public static function getSupportedMethods()
+    {
         return array(
         );
     }
@@ -135,7 +139,8 @@ class SuperFund extends Remote\Object {
      *
      * @return array
      */
-    public static function getProperties() {
+    public static function getProperties()
+    {
         return array(
             'Type' => array (false, self::PROPERTY_TYPE_ENUM, null, false, false),
             'Name' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
@@ -150,14 +155,16 @@ class SuperFund extends Remote\Object {
         );
     }
 
-    public static function isPageable(){
+    public static function isPageable()
+    {
         return false;
     }
 
     /**
      * @return string
      */
-    public function getType() {
+    public function getType()
+    {
         return $this->_data['Type'];
     }
 
@@ -165,7 +172,8 @@ class SuperFund extends Remote\Object {
      * @param string $value
      * @return SuperFund
      */
-    public function setType($value) {
+    public function setType($value)
+    {
         $this->propertyUpdated('Type', $value);
         $this->_data['Type'] = $value;
         return $this;
@@ -174,7 +182,8 @@ class SuperFund extends Remote\Object {
     /**
      * @return string
      */
-    public function getName() {
+    public function getName()
+    {
         return $this->_data['Name'];
     }
 
@@ -182,7 +191,8 @@ class SuperFund extends Remote\Object {
      * @param string $value
      * @return SuperFund
      */
-    public function setName($value) {
+    public function setName($value)
+    {
         $this->propertyUpdated('Name', $value);
         $this->_data['Name'] = $value;
         return $this;
@@ -191,7 +201,8 @@ class SuperFund extends Remote\Object {
     /**
      * @return string
      */
-    public function getABN() {
+    public function getABN()
+    {
         return $this->_data['ABN'];
     }
 
@@ -199,7 +210,8 @@ class SuperFund extends Remote\Object {
      * @param string $value
      * @return SuperFund
      */
-    public function setABN($value) {
+    public function setABN($value)
+    {
         $this->propertyUpdated('ABN', $value);
         $this->_data['ABN'] = $value;
         return $this;
@@ -208,7 +220,8 @@ class SuperFund extends Remote\Object {
     /**
      * @return string
      */
-    public function getBSB() {
+    public function getBSB()
+    {
         return $this->_data['BSB'];
     }
 
@@ -216,7 +229,8 @@ class SuperFund extends Remote\Object {
      * @param string $value
      * @return SuperFund
      */
-    public function setBSB($value) {
+    public function setBSB($value)
+    {
         $this->propertyUpdated('BSB', $value);
         $this->_data['BSB'] = $value;
         return $this;
@@ -225,7 +239,8 @@ class SuperFund extends Remote\Object {
     /**
      * @return string
      */
-    public function getAccountNumber() {
+    public function getAccountNumber()
+    {
         return $this->_data['AccountNumber'];
     }
 
@@ -233,7 +248,8 @@ class SuperFund extends Remote\Object {
      * @param string $value
      * @return SuperFund
      */
-    public function setAccountNumber($value) {
+    public function setAccountNumber($value)
+    {
         $this->propertyUpdated('AccountNumber', $value);
         $this->_data['AccountNumber'] = $value;
         return $this;
@@ -242,7 +258,8 @@ class SuperFund extends Remote\Object {
     /**
      * @return string
      */
-    public function getAccountName() {
+    public function getAccountName()
+    {
         return $this->_data['AccountName'];
     }
 
@@ -250,7 +267,8 @@ class SuperFund extends Remote\Object {
      * @param string $value
      * @return SuperFund
      */
-    public function setAccountName($value) {
+    public function setAccountName($value)
+    {
         $this->propertyUpdated('AccountName', $value);
         $this->_data['AccountName'] = $value;
         return $this;
@@ -259,7 +277,8 @@ class SuperFund extends Remote\Object {
     /**
      * @return string
      */
-    public function getElectronicServiceAddress() {
+    public function getElectronicServiceAddress()
+    {
         return $this->_data['ElectronicServiceAddress'];
     }
 
@@ -267,7 +286,8 @@ class SuperFund extends Remote\Object {
      * @param string $value
      * @return SuperFund
      */
-    public function setElectronicServiceAddress($value) {
+    public function setElectronicServiceAddress($value)
+    {
         $this->propertyUpdated('ElectronicServiceAddress', $value);
         $this->_data['ElectronicServiceAddress'] = $value;
         return $this;
@@ -276,7 +296,8 @@ class SuperFund extends Remote\Object {
     /**
      * @return string
      */
-    public function getSuperFundID() {
+    public function getSuperFundID()
+    {
         return $this->_data['SuperFundID'];
     }
 
@@ -284,7 +305,8 @@ class SuperFund extends Remote\Object {
      * @param string $value
      * @return SuperFund
      */
-    public function setSuperFundID($value) {
+    public function setSuperFundID($value)
+    {
         $this->propertyUpdated('SuperFundID', $value);
         $this->_data['SuperFundID'] = $value;
         return $this;
@@ -293,7 +315,8 @@ class SuperFund extends Remote\Object {
     /**
      * @return string
      */
-    public function getEmployerNumber() {
+    public function getEmployerNumber()
+    {
         return $this->_data['EmployerNumber'];
     }
 
@@ -301,7 +324,8 @@ class SuperFund extends Remote\Object {
      * @param string $value
      * @return SuperFund
      */
-    public function setEmployerNumber($value) {
+    public function setEmployerNumber($value)
+    {
         $this->propertyUpdated('EmployerNumber', $value);
         $this->_data['EmployerNumber'] = $value;
         return $this;
@@ -311,7 +335,8 @@ class SuperFund extends Remote\Object {
      * @return string
      * @deprecated
      */
-    public function getSPIN() {
+    public function getSPIN()
+    {
         return $this->_data['SPIN'];
     }
 
@@ -320,7 +345,8 @@ class SuperFund extends Remote\Object {
      * @return SuperFund
      * @deprecated
      */
-    public function setSPIN($value) {
+    public function setSPIN($value)
+    {
         $this->propertyUpdated('SPIN', $value);
         $this->_data['SPIN'] = $value;
         return $this;

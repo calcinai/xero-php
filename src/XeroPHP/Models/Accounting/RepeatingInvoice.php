@@ -1,15 +1,13 @@
 <?php
-
 namespace XeroPHP\Models\Accounting;
 
 use XeroPHP\Remote;
-
 use XeroPHP\Traits\AttachmentTrait;
-
 use XeroPHP\Models\Accounting\RepeatingInvoice\Schedule;
 use XeroPHP\Models\Accounting\RepeatingInvoice\LineItem;
 
-class RepeatingInvoice extends Remote\Object {
+class RepeatingInvoice extends Remote\Object
+{
 
     use AttachmentTrait;
 
@@ -105,7 +103,8 @@ class RepeatingInvoice extends Remote\Object {
      *
      * @return string
      */
-    public static function getResourceURI(){
+    public static function getResourceURI()
+    {
         return 'RepeatingInvoices';
     }
 
@@ -115,7 +114,8 @@ class RepeatingInvoice extends Remote\Object {
      *
      * @return string
      */
-    public static function getRootNodeName(){
+    public static function getRootNodeName()
+    {
         return 'RepeatingInvoice';
     }
 
@@ -125,7 +125,8 @@ class RepeatingInvoice extends Remote\Object {
      *
      * @return string
      */
-    public static function getGUIDProperty(){
+    public static function getGUIDProperty()
+    {
         return 'RepeatingInvoiceID';
     }
 
@@ -135,7 +136,8 @@ class RepeatingInvoice extends Remote\Object {
      *
      * @return string|null
      */
-    public static function getAPIStem(){
+    public static function getAPIStem()
+    {
         return Remote\URL::API_CORE;
     }
 
@@ -143,7 +145,8 @@ class RepeatingInvoice extends Remote\Object {
     /**
      * Get the supported methods
      */
-    public static function getSupportedMethods() {
+    public static function getSupportedMethods()
+    {
         return array(
             Remote\Request::METHOD_GET
         );
@@ -160,7 +163,8 @@ class RepeatingInvoice extends Remote\Object {
      *
      * @return array
      */
-    public static function getProperties() {
+    public static function getProperties()
+    {
         return array(
             'Type' => array (false, self::PROPERTY_TYPE_ENUM, null, false, false),
             'Contact' => array (false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Contact', false, false),
@@ -179,14 +183,16 @@ class RepeatingInvoice extends Remote\Object {
         );
     }
 
-    public static function isPageable(){
+    public static function isPageable()
+    {
         return false;
     }
 
     /**
      * @return string
      */
-    public function getType() {
+    public function getType()
+    {
         return $this->_data['Type'];
     }
 
@@ -194,7 +200,8 @@ class RepeatingInvoice extends Remote\Object {
      * @param string $value
      * @return RepeatingInvoice
      */
-    public function setType($value) {
+    public function setType($value)
+    {
         $this->propertyUpdated('Type', $value);
         $this->_data['Type'] = $value;
         return $this;
@@ -203,7 +210,8 @@ class RepeatingInvoice extends Remote\Object {
     /**
      * @return Contact
      */
-    public function getContact() {
+    public function getContact()
+    {
         return $this->_data['Contact'];
     }
 
@@ -211,7 +219,8 @@ class RepeatingInvoice extends Remote\Object {
      * @param Contact $value
      * @return RepeatingInvoice
      */
-    public function setContact(Contact $value) {
+    public function setContact(Contact $value)
+    {
         $this->propertyUpdated('Contact', $value);
         $this->_data['Contact'] = $value;
         return $this;
@@ -220,7 +229,8 @@ class RepeatingInvoice extends Remote\Object {
     /**
      * @return Schedule
      */
-    public function getSchedule() {
+    public function getSchedule()
+    {
         return $this->_data['Schedule'];
     }
 
@@ -228,7 +238,8 @@ class RepeatingInvoice extends Remote\Object {
      * @param Schedule $value
      * @return RepeatingInvoice
      */
-    public function setSchedule(Schedule $value) {
+    public function setSchedule(Schedule $value)
+    {
         $this->propertyUpdated('Schedule', $value);
         $this->_data['Schedule'] = $value;
         return $this;
@@ -238,7 +249,8 @@ class RepeatingInvoice extends Remote\Object {
      * @return LineItem[]|Remote\Collection
      * Always returns a collection, switch is for type hinting
      */
-    public function getLineItems() {
+    public function getLineItems()
+    {
         return $this->_data['LineItems'];
     }
 
@@ -246,7 +258,8 @@ class RepeatingInvoice extends Remote\Object {
      * @param LineItem $value
      * @return RepeatingInvoice
      */
-    public function addLineItem(LineItem $value) {
+    public function addLineItem(LineItem $value)
+    {
         $this->propertyUpdated('LineItems', $value);
         if(!isset($this->_data['LineItems'])){
             $this->_data['LineItems'] = new Remote\Collection();
@@ -258,7 +271,8 @@ class RepeatingInvoice extends Remote\Object {
     /**
      * @return string
      */
-    public function getLineAmountTypes() {
+    public function getLineAmountTypes()
+    {
         return $this->_data['LineAmountTypes'];
     }
 
@@ -266,7 +280,8 @@ class RepeatingInvoice extends Remote\Object {
      * @param string $value
      * @return RepeatingInvoice
      */
-    public function setLineAmountType($value) {
+    public function setLineAmountType($value)
+    {
         $this->propertyUpdated('LineAmountTypes', $value);
         $this->_data['LineAmountTypes'] = $value;
         return $this;
@@ -275,7 +290,8 @@ class RepeatingInvoice extends Remote\Object {
     /**
      * @return string
      */
-    public function getReference() {
+    public function getReference()
+    {
         return $this->_data['Reference'];
     }
 
@@ -283,7 +299,8 @@ class RepeatingInvoice extends Remote\Object {
      * @param string $value
      * @return RepeatingInvoice
      */
-    public function setReference($value) {
+    public function setReference($value)
+    {
         $this->propertyUpdated('Reference', $value);
         $this->_data['Reference'] = $value;
         return $this;
@@ -292,7 +309,8 @@ class RepeatingInvoice extends Remote\Object {
     /**
      * @return string
      */
-    public function getBrandingThemeID() {
+    public function getBrandingThemeID()
+    {
         return $this->_data['BrandingThemeID'];
     }
 
@@ -300,7 +318,8 @@ class RepeatingInvoice extends Remote\Object {
      * @param string $value
      * @return RepeatingInvoice
      */
-    public function setBrandingThemeID($value) {
+    public function setBrandingThemeID($value)
+    {
         $this->propertyUpdated('BrandingThemeID', $value);
         $this->_data['BrandingThemeID'] = $value;
         return $this;
@@ -309,7 +328,8 @@ class RepeatingInvoice extends Remote\Object {
     /**
      * @return string
      */
-    public function getCurrencyCode() {
+    public function getCurrencyCode()
+    {
         return $this->_data['CurrencyCode'];
     }
 
@@ -317,7 +337,8 @@ class RepeatingInvoice extends Remote\Object {
      * @param string $value
      * @return RepeatingInvoice
      */
-    public function setCurrencyCode($value) {
+    public function setCurrencyCode($value)
+    {
         $this->propertyUpdated('CurrencyCode', $value);
         $this->_data['CurrencyCode'] = $value;
         return $this;
@@ -326,7 +347,8 @@ class RepeatingInvoice extends Remote\Object {
     /**
      * @return string
      */
-    public function getStatus() {
+    public function getStatus()
+    {
         return $this->_data['Status'];
     }
 
@@ -334,7 +356,8 @@ class RepeatingInvoice extends Remote\Object {
      * @param string $value
      * @return RepeatingInvoice
      */
-    public function setStatus($value) {
+    public function setStatus($value)
+    {
         $this->propertyUpdated('Status', $value);
         $this->_data['Status'] = $value;
         return $this;
@@ -343,7 +366,8 @@ class RepeatingInvoice extends Remote\Object {
     /**
      * @return float
      */
-    public function getSubTotal() {
+    public function getSubTotal()
+    {
         return $this->_data['SubTotal'];
     }
 
@@ -351,7 +375,8 @@ class RepeatingInvoice extends Remote\Object {
      * @param float $value
      * @return RepeatingInvoice
      */
-    public function setSubTotal($value) {
+    public function setSubTotal($value)
+    {
         $this->propertyUpdated('SubTotal', $value);
         $this->_data['SubTotal'] = $value;
         return $this;
@@ -360,7 +385,8 @@ class RepeatingInvoice extends Remote\Object {
     /**
      * @return float
      */
-    public function getTotalTax() {
+    public function getTotalTax()
+    {
         return $this->_data['TotalTax'];
     }
 
@@ -368,7 +394,8 @@ class RepeatingInvoice extends Remote\Object {
      * @param float $value
      * @return RepeatingInvoice
      */
-    public function setTotalTax($value) {
+    public function setTotalTax($value)
+    {
         $this->propertyUpdated('TotalTax', $value);
         $this->_data['TotalTax'] = $value;
         return $this;
@@ -377,7 +404,8 @@ class RepeatingInvoice extends Remote\Object {
     /**
      * @return float
      */
-    public function getTotal() {
+    public function getTotal()
+    {
         return $this->_data['Total'];
     }
 
@@ -385,7 +413,8 @@ class RepeatingInvoice extends Remote\Object {
      * @param float $value
      * @return RepeatingInvoice
      */
-    public function setTotal($value) {
+    public function setTotal($value)
+    {
         $this->propertyUpdated('Total', $value);
         $this->_data['Total'] = $value;
         return $this;
@@ -394,7 +423,8 @@ class RepeatingInvoice extends Remote\Object {
     /**
      * @return string
      */
-    public function getRepeatingInvoiceID() {
+    public function getRepeatingInvoiceID()
+    {
         return $this->_data['RepeatingInvoiceID'];
     }
 
@@ -402,7 +432,8 @@ class RepeatingInvoice extends Remote\Object {
      * @param string $value
      * @return RepeatingInvoice
      */
-    public function setRepeatingInvoiceID($value) {
+    public function setRepeatingInvoiceID($value)
+    {
         $this->propertyUpdated('RepeatingInvoiceID', $value);
         $this->_data['RepeatingInvoiceID'] = $value;
         return $this;
@@ -411,7 +442,8 @@ class RepeatingInvoice extends Remote\Object {
     /**
      * @return bool
      */
-    public function getHasAttachments() {
+    public function getHasAttachments()
+    {
         return $this->_data['HasAttachments'];
     }
 
@@ -419,7 +451,8 @@ class RepeatingInvoice extends Remote\Object {
      * @param bool $value
      * @return RepeatingInvoice
      */
-    public function setHasAttachment($value) {
+    public function setHasAttachment($value)
+    {
         $this->propertyUpdated('HasAttachments', $value);
         $this->_data['HasAttachments'] = $value;
         return $this;

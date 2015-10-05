@@ -1,11 +1,10 @@
 <?php
-
 namespace XeroPHP\Models\PayrollUS\Employee;
 
 use XeroPHP\Remote;
 
-
-class WorkLocation extends Remote\Object {
+class WorkLocation extends Remote\Object
+{
 
     /**
      * Xero unique identifier for WorkLocation. e.g c56b19ef-75bf-45e8-98a4-e699a96609f7
@@ -26,7 +25,8 @@ class WorkLocation extends Remote\Object {
      *
      * @return string
      */
-    public static function getResourceURI(){
+    public static function getResourceURI()
+    {
         return 'WorkLocations';
     }
 
@@ -36,7 +36,8 @@ class WorkLocation extends Remote\Object {
      *
      * @return string
      */
-    public static function getRootNodeName(){
+    public static function getRootNodeName()
+    {
         return 'WorkLocation';
     }
 
@@ -46,7 +47,8 @@ class WorkLocation extends Remote\Object {
      *
      * @return string
      */
-    public static function getGUIDProperty(){
+    public static function getGUIDProperty()
+    {
         return 'WorkLocationID';
     }
 
@@ -56,7 +58,8 @@ class WorkLocation extends Remote\Object {
      *
      * @return string|null
      */
-    public static function getAPIStem(){
+    public static function getAPIStem()
+    {
         return Remote\URL::API_PAYROLL;
     }
 
@@ -64,7 +67,8 @@ class WorkLocation extends Remote\Object {
     /**
      * Get the supported methods
      */
-    public static function getSupportedMethods() {
+    public static function getSupportedMethods()
+    {
         return array(
         );
     }
@@ -80,21 +84,24 @@ class WorkLocation extends Remote\Object {
      *
      * @return array
      */
-    public static function getProperties() {
+    public static function getProperties()
+    {
         return array(
             'WorkLocationID' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'IsPrimary' => array (false, self::PROPERTY_TYPE_BOOLEAN, null, false, false)
         );
     }
 
-    public static function isPageable(){
+    public static function isPageable()
+    {
         return false;
     }
 
     /**
      * @return string
      */
-    public function getWorkLocationID() {
+    public function getWorkLocationID()
+    {
         return $this->_data['WorkLocationID'];
     }
 
@@ -102,7 +109,8 @@ class WorkLocation extends Remote\Object {
      * @param string $value
      * @return WorkLocation
      */
-    public function setWorkLocationID($value) {
+    public function setWorkLocationID($value)
+    {
         $this->propertyUpdated('WorkLocationID', $value);
         $this->_data['WorkLocationID'] = $value;
         return $this;
@@ -111,7 +119,8 @@ class WorkLocation extends Remote\Object {
     /**
      * @return bool
      */
-    public function getIsPrimary() {
+    public function getIsPrimary()
+    {
         return $this->_data['IsPrimary'];
     }
 
@@ -119,7 +128,8 @@ class WorkLocation extends Remote\Object {
      * @param bool $value
      * @return WorkLocation
      */
-    public function setIsPrimary($value) {
+    public function setIsPrimary($value)
+    {
         $this->propertyUpdated('IsPrimary', $value);
         $this->_data['IsPrimary'] = $value;
         return $this;

@@ -1,11 +1,10 @@
 <?php
-
 namespace XeroPHP\Models\Accounting\Organisation;
 
 use XeroPHP\Remote;
 
-
-class PaymentTerm extends Remote\Object {
+class PaymentTerm extends Remote\Object
+{
 
     /**
      * Default payment terms for bills (accounts payable) – see Payment Terms
@@ -26,7 +25,8 @@ class PaymentTerm extends Remote\Object {
      *
      * @return string
      */
-    public static function getResourceURI(){
+    public static function getResourceURI()
+    {
         return 'PaymentTerms';
     }
 
@@ -36,7 +36,8 @@ class PaymentTerm extends Remote\Object {
      *
      * @return string
      */
-    public static function getRootNodeName(){
+    public static function getRootNodeName()
+    {
         return 'PaymentTerm';
     }
 
@@ -46,7 +47,8 @@ class PaymentTerm extends Remote\Object {
      *
      * @return string
      */
-    public static function getGUIDProperty(){
+    public static function getGUIDProperty()
+    {
         return '';
     }
 
@@ -56,7 +58,8 @@ class PaymentTerm extends Remote\Object {
      *
      * @return string|null
      */
-    public static function getAPIStem(){
+    public static function getAPIStem()
+    {
         return Remote\URL::API_CORE;
     }
 
@@ -64,7 +67,8 @@ class PaymentTerm extends Remote\Object {
     /**
      * Get the supported methods
      */
-    public static function getSupportedMethods() {
+    public static function getSupportedMethods()
+    {
         return array(
         );
     }
@@ -80,14 +84,16 @@ class PaymentTerm extends Remote\Object {
      *
      * @return array
      */
-    public static function getProperties() {
+    public static function getProperties()
+    {
         return array(
             'Bills' => array (false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Organisation\\Bill', true, false),
             'Sales' => array (false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Organisation\\Sale', true, false)
         );
     }
 
-    public static function isPageable(){
+    public static function isPageable()
+    {
         return false;
     }
 
@@ -95,7 +101,8 @@ class PaymentTerm extends Remote\Object {
      * @return Bill[]|Remote\Collection
      * Always returns a collection, switch is for type hinting
      */
-    public function getBills() {
+    public function getBills()
+    {
         return $this->_data['Bills'];
     }
 
@@ -103,7 +110,8 @@ class PaymentTerm extends Remote\Object {
      * @param Bill $value
      * @return PaymentTerm
      */
-    public function addBill(Bill $value) {
+    public function addBill(Bill $value)
+    {
         $this->propertyUpdated('Bills', $value);
         if(!isset($this->_data['Bills'])){
             $this->_data['Bills'] = new Remote\Collection();
@@ -116,7 +124,8 @@ class PaymentTerm extends Remote\Object {
      * @return Sale[]|Remote\Collection
      * Always returns a collection, switch is for type hinting
      */
-    public function getSales() {
+    public function getSales()
+    {
         return $this->_data['Sales'];
     }
 
@@ -124,7 +133,8 @@ class PaymentTerm extends Remote\Object {
      * @param Sale $value
      * @return PaymentTerm
      */
-    public function addSale(Sale $value) {
+    public function addSale(Sale $value)
+    {
         $this->propertyUpdated('Sales', $value);
         if(!isset($this->_data['Sales'])){
             $this->_data['Sales'] = new Remote\Collection();

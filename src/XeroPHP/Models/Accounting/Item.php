@@ -1,13 +1,12 @@
 <?php
-
 namespace XeroPHP\Models\Accounting;
 
 use XeroPHP\Remote;
-
 use XeroPHP\Models\Accounting\Item\Purchase;
 use XeroPHP\Models\Accounting\Item\Sale;
 
-class Item extends Remote\Object {
+class Item extends Remote\Object
+{
 
     /**
      * Xero identifier
@@ -52,7 +51,8 @@ class Item extends Remote\Object {
      *
      * @return string
      */
-    public static function getResourceURI(){
+    public static function getResourceURI()
+    {
         return 'Items';
     }
 
@@ -62,7 +62,8 @@ class Item extends Remote\Object {
      *
      * @return string
      */
-    public static function getRootNodeName(){
+    public static function getRootNodeName()
+    {
         return 'Item';
     }
 
@@ -72,7 +73,8 @@ class Item extends Remote\Object {
      *
      * @return string
      */
-    public static function getGUIDProperty(){
+    public static function getGUIDProperty()
+    {
         return 'ItemID';
     }
 
@@ -82,7 +84,8 @@ class Item extends Remote\Object {
      *
      * @return string|null
      */
-    public static function getAPIStem(){
+    public static function getAPIStem()
+    {
         return Remote\URL::API_CORE;
     }
 
@@ -90,7 +93,8 @@ class Item extends Remote\Object {
     /**
      * Get the supported methods
      */
-    public static function getSupportedMethods() {
+    public static function getSupportedMethods()
+    {
         return array(
             Remote\Request::METHOD_GET,
             Remote\Request::METHOD_PUT,
@@ -109,7 +113,8 @@ class Item extends Remote\Object {
      *
      * @return array
      */
-    public static function getProperties() {
+    public static function getProperties()
+    {
         return array(
             'ItemID' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'Code' => array (true, self::PROPERTY_TYPE_STRING, null, false, false),
@@ -120,14 +125,16 @@ class Item extends Remote\Object {
         );
     }
 
-    public static function isPageable(){
+    public static function isPageable()
+    {
         return false;
     }
 
     /**
      * @return string
      */
-    public function getItemID() {
+    public function getItemID()
+    {
         return $this->_data['ItemID'];
     }
 
@@ -135,7 +142,8 @@ class Item extends Remote\Object {
      * @param string $value
      * @return Item
      */
-    public function setItemID($value) {
+    public function setItemID($value)
+    {
         $this->propertyUpdated('ItemID', $value);
         $this->_data['ItemID'] = $value;
         return $this;
@@ -144,7 +152,8 @@ class Item extends Remote\Object {
     /**
      * @return string
      */
-    public function getCode() {
+    public function getCode()
+    {
         return $this->_data['Code'];
     }
 
@@ -152,7 +161,8 @@ class Item extends Remote\Object {
      * @param string $value
      * @return Item
      */
-    public function setCode($value) {
+    public function setCode($value)
+    {
         $this->propertyUpdated('Code', $value);
         $this->_data['Code'] = $value;
         return $this;
@@ -161,7 +171,8 @@ class Item extends Remote\Object {
     /**
      * @return string
      */
-    public function getDescription() {
+    public function getDescription()
+    {
         return $this->_data['Description'];
     }
 
@@ -169,7 +180,8 @@ class Item extends Remote\Object {
      * @param string $value
      * @return Item
      */
-    public function setDescription($value) {
+    public function setDescription($value)
+    {
         $this->propertyUpdated('Description', $value);
         $this->_data['Description'] = $value;
         return $this;
@@ -179,7 +191,8 @@ class Item extends Remote\Object {
      * @return Purchase[]|Remote\Collection
      * Always returns a collection, switch is for type hinting
      */
-    public function getPurchaseDetails() {
+    public function getPurchaseDetails()
+    {
         return $this->_data['PurchaseDetails'];
     }
 
@@ -187,7 +200,8 @@ class Item extends Remote\Object {
      * @param Purchase $value
      * @return Item
      */
-    public function addPurchaseDetail(Purchase $value) {
+    public function addPurchaseDetail(Purchase $value)
+    {
         $this->propertyUpdated('PurchaseDetails', $value);
         if(!isset($this->_data['PurchaseDetails'])){
             $this->_data['PurchaseDetails'] = new Remote\Collection();
@@ -200,7 +214,8 @@ class Item extends Remote\Object {
      * @return Sale[]|Remote\Collection
      * Always returns a collection, switch is for type hinting
      */
-    public function getSalesDetails() {
+    public function getSalesDetails()
+    {
         return $this->_data['SalesDetails'];
     }
 
@@ -208,7 +223,8 @@ class Item extends Remote\Object {
      * @param Sale $value
      * @return Item
      */
-    public function addSalesDetail(Sale $value) {
+    public function addSalesDetail(Sale $value)
+    {
         $this->propertyUpdated('SalesDetails', $value);
         if(!isset($this->_data['SalesDetails'])){
             $this->_data['SalesDetails'] = new Remote\Collection();
@@ -220,7 +236,8 @@ class Item extends Remote\Object {
     /**
      * @return \DateTime
      */
-    public function getUpdatedDateUTC() {
+    public function getUpdatedDateUTC()
+    {
         return $this->_data['UpdatedDateUTC'];
     }
 

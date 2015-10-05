@@ -1,15 +1,14 @@
 <?php
-
 namespace XeroPHP\Models\PayrollAU;
 
 use XeroPHP\Remote;
-
 use XeroPHP\Models\PayrollAU\PayItem\EarningsRate;
 use XeroPHP\Models\PayrollAU\PayItem\DeductionType;
 use XeroPHP\Models\PayrollAU\PayItem\LeaveType;
 use XeroPHP\Models\PayrollAU\PayItem\ReimbursementType;
 
-class PayItem extends Remote\Object {
+class PayItem extends Remote\Object
+{
 
     /**
      * See EarningsRates
@@ -42,7 +41,8 @@ class PayItem extends Remote\Object {
      *
      * @return string
      */
-    public static function getResourceURI(){
+    public static function getResourceURI()
+    {
         return 'PayItems';
     }
 
@@ -52,7 +52,8 @@ class PayItem extends Remote\Object {
      *
      * @return string
      */
-    public static function getRootNodeName(){
+    public static function getRootNodeName()
+    {
         return 'PayItem';
     }
 
@@ -62,7 +63,8 @@ class PayItem extends Remote\Object {
      *
      * @return string
      */
-    public static function getGUIDProperty(){
+    public static function getGUIDProperty()
+    {
         return '';
     }
 
@@ -72,7 +74,8 @@ class PayItem extends Remote\Object {
      *
      * @return string|null
      */
-    public static function getAPIStem(){
+    public static function getAPIStem()
+    {
         return Remote\URL::API_PAYROLL;
     }
 
@@ -80,7 +83,8 @@ class PayItem extends Remote\Object {
     /**
      * Get the supported methods
      */
-    public static function getSupportedMethods() {
+    public static function getSupportedMethods()
+    {
         return array(
             Remote\Request::METHOD_POST,
             Remote\Request::METHOD_GET
@@ -98,7 +102,8 @@ class PayItem extends Remote\Object {
      *
      * @return array
      */
-    public static function getProperties() {
+    public static function getProperties()
+    {
         return array(
             'EarningsRates' => array (false, self::PROPERTY_TYPE_OBJECT, 'PayrollAU\\PayItem\\EarningsRate', true, false),
             'DeductionTypes' => array (false, self::PROPERTY_TYPE_OBJECT, 'PayrollAU\\PayItem\\DeductionType', true, false),
@@ -107,7 +112,8 @@ class PayItem extends Remote\Object {
         );
     }
 
-    public static function isPageable(){
+    public static function isPageable()
+    {
         return false;
     }
 
@@ -115,7 +121,8 @@ class PayItem extends Remote\Object {
      * @return EarningsRate[]|Remote\Collection
      * Always returns a collection, switch is for type hinting
      */
-    public function getEarningsRates() {
+    public function getEarningsRates()
+    {
         return $this->_data['EarningsRates'];
     }
 
@@ -123,7 +130,8 @@ class PayItem extends Remote\Object {
      * @param EarningsRate $value
      * @return PayItem
      */
-    public function addEarningsRate(EarningsRate $value) {
+    public function addEarningsRate(EarningsRate $value)
+    {
         $this->propertyUpdated('EarningsRates', $value);
         if(!isset($this->_data['EarningsRates'])){
             $this->_data['EarningsRates'] = new Remote\Collection();
@@ -136,7 +144,8 @@ class PayItem extends Remote\Object {
      * @return DeductionType[]|Remote\Collection
      * Always returns a collection, switch is for type hinting
      */
-    public function getDeductionTypes() {
+    public function getDeductionTypes()
+    {
         return $this->_data['DeductionTypes'];
     }
 
@@ -144,7 +153,8 @@ class PayItem extends Remote\Object {
      * @param DeductionType $value
      * @return PayItem
      */
-    public function addDeductionType(DeductionType $value) {
+    public function addDeductionType(DeductionType $value)
+    {
         $this->propertyUpdated('DeductionTypes', $value);
         if(!isset($this->_data['DeductionTypes'])){
             $this->_data['DeductionTypes'] = new Remote\Collection();
@@ -157,7 +167,8 @@ class PayItem extends Remote\Object {
      * @return LeaveType[]|Remote\Collection
      * Always returns a collection, switch is for type hinting
      */
-    public function getLeaveTypes() {
+    public function getLeaveTypes()
+    {
         return $this->_data['LeaveTypes'];
     }
 
@@ -165,7 +176,8 @@ class PayItem extends Remote\Object {
      * @param LeaveType $value
      * @return PayItem
      */
-    public function addLeaveType(LeaveType $value) {
+    public function addLeaveType(LeaveType $value)
+    {
         $this->propertyUpdated('LeaveTypes', $value);
         if(!isset($this->_data['LeaveTypes'])){
             $this->_data['LeaveTypes'] = new Remote\Collection();
@@ -178,7 +190,8 @@ class PayItem extends Remote\Object {
      * @return ReimbursementType[]|Remote\Collection
      * Always returns a collection, switch is for type hinting
      */
-    public function getReimbursementTypes() {
+    public function getReimbursementTypes()
+    {
         return $this->_data['ReimbursementTypes'];
     }
 
@@ -186,7 +199,8 @@ class PayItem extends Remote\Object {
      * @param ReimbursementType $value
      * @return PayItem
      */
-    public function addReimbursementType(ReimbursementType $value) {
+    public function addReimbursementType(ReimbursementType $value)
+    {
         $this->propertyUpdated('ReimbursementTypes', $value);
         if(!isset($this->_data['ReimbursementTypes'])){
             $this->_data['ReimbursementTypes'] = new Remote\Collection();

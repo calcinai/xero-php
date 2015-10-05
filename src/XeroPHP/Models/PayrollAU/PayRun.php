@@ -1,11 +1,10 @@
 <?php
-
 namespace XeroPHP\Models\PayrollAU;
 
 use XeroPHP\Remote;
 
-
-class PayRun extends Remote\Object {
+class PayRun extends Remote\Object
+{
 
     /**
      * See PayrollCalendars
@@ -98,7 +97,8 @@ class PayRun extends Remote\Object {
      *
      * @return string
      */
-    public static function getResourceURI(){
+    public static function getResourceURI()
+    {
         return 'PayRuns';
     }
 
@@ -108,7 +108,8 @@ class PayRun extends Remote\Object {
      *
      * @return string
      */
-    public static function getRootNodeName(){
+    public static function getRootNodeName()
+    {
         return 'PayRun';
     }
 
@@ -118,7 +119,8 @@ class PayRun extends Remote\Object {
      *
      * @return string
      */
-    public static function getGUIDProperty(){
+    public static function getGUIDProperty()
+    {
         return 'PayRunID';
     }
 
@@ -128,7 +130,8 @@ class PayRun extends Remote\Object {
      *
      * @return string|null
      */
-    public static function getAPIStem(){
+    public static function getAPIStem()
+    {
         return Remote\URL::API_PAYROLL;
     }
 
@@ -136,7 +139,8 @@ class PayRun extends Remote\Object {
     /**
      * Get the supported methods
      */
-    public static function getSupportedMethods() {
+    public static function getSupportedMethods()
+    {
         return array(
             Remote\Request::METHOD_POST,
             Remote\Request::METHOD_GET
@@ -154,7 +158,8 @@ class PayRun extends Remote\Object {
      *
      * @return array
      */
-    public static function getProperties() {
+    public static function getProperties()
+    {
         return array(
             'PayrollCalendarID' => array (true, self::PROPERTY_TYPE_STRING, null, false, false),
             'PayRunID' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
@@ -173,14 +178,16 @@ class PayRun extends Remote\Object {
         );
     }
 
-    public static function isPageable(){
+    public static function isPageable()
+    {
         return true;
     }
 
     /**
      * @return string
      */
-    public function getPayrollCalendarID() {
+    public function getPayrollCalendarID()
+    {
         return $this->_data['PayrollCalendarID'];
     }
 
@@ -188,7 +195,8 @@ class PayRun extends Remote\Object {
      * @param string $value
      * @return PayRun
      */
-    public function setPayrollCalendarID($value) {
+    public function setPayrollCalendarID($value)
+    {
         $this->propertyUpdated('PayrollCalendarID', $value);
         $this->_data['PayrollCalendarID'] = $value;
         return $this;
@@ -197,7 +205,8 @@ class PayRun extends Remote\Object {
     /**
      * @return string
      */
-    public function getPayRunID() {
+    public function getPayRunID()
+    {
         return $this->_data['PayRunID'];
     }
 
@@ -205,7 +214,8 @@ class PayRun extends Remote\Object {
      * @param string $value
      * @return PayRun
      */
-    public function setPayRunID($value) {
+    public function setPayRunID($value)
+    {
         $this->propertyUpdated('PayRunID', $value);
         $this->_data['PayRunID'] = $value;
         return $this;
@@ -214,7 +224,8 @@ class PayRun extends Remote\Object {
     /**
      * @return \DateTime
      */
-    public function getPayRunPeriodStartDate() {
+    public function getPayRunPeriodStartDate()
+    {
         return $this->_data['PayRunPeriodStartDate'];
     }
 
@@ -222,7 +233,8 @@ class PayRun extends Remote\Object {
      * @param \DateTime $value
      * @return PayRun
      */
-    public function setPayRunPeriodStartDate(\DateTime $value) {
+    public function setPayRunPeriodStartDate(\DateTime $value)
+    {
         $this->propertyUpdated('PayRunPeriodStartDate', $value);
         $this->_data['PayRunPeriodStartDate'] = $value;
         return $this;
@@ -231,7 +243,8 @@ class PayRun extends Remote\Object {
     /**
      * @return \DateTime
      */
-    public function getPayRunPeriodEndDate() {
+    public function getPayRunPeriodEndDate()
+    {
         return $this->_data['PayRunPeriodEndDate'];
     }
 
@@ -239,7 +252,8 @@ class PayRun extends Remote\Object {
      * @param \DateTime $value
      * @return PayRun
      */
-    public function setPayRunPeriodEndDate(\DateTime $value) {
+    public function setPayRunPeriodEndDate(\DateTime $value)
+    {
         $this->propertyUpdated('PayRunPeriodEndDate', $value);
         $this->_data['PayRunPeriodEndDate'] = $value;
         return $this;
@@ -248,7 +262,8 @@ class PayRun extends Remote\Object {
     /**
      * @return string
      */
-    public function getPayRunStatus() {
+    public function getPayRunStatus()
+    {
         return $this->_data['PayRunStatus'];
     }
 
@@ -256,7 +271,8 @@ class PayRun extends Remote\Object {
      * @param string $value
      * @return PayRun
      */
-    public function setPayRunStatus($value) {
+    public function setPayRunStatus($value)
+    {
         $this->propertyUpdated('PayRunStatus', $value);
         $this->_data['PayRunStatus'] = $value;
         return $this;
@@ -265,7 +281,8 @@ class PayRun extends Remote\Object {
     /**
      * @return \DateTime
      */
-    public function getPaymentDate() {
+    public function getPaymentDate()
+    {
         return $this->_data['PaymentDate'];
     }
 
@@ -273,7 +290,8 @@ class PayRun extends Remote\Object {
      * @param \DateTime $value
      * @return PayRun
      */
-    public function setPaymentDate(\DateTime $value) {
+    public function setPaymentDate(\DateTime $value)
+    {
         $this->propertyUpdated('PaymentDate', $value);
         $this->_data['PaymentDate'] = $value;
         return $this;
@@ -282,7 +300,8 @@ class PayRun extends Remote\Object {
     /**
      * @return string
      */
-    public function getPayslipMessage() {
+    public function getPayslipMessage()
+    {
         return $this->_data['PayslipMessage'];
     }
 
@@ -291,7 +310,8 @@ class PayRun extends Remote\Object {
      * @return Payslip[]|Remote\Collection
      * Always returns a collection, switch is for type hinting
      */
-    public function getPayslips() {
+    public function getPayslips()
+    {
         return $this->_data['Payslips'];
     }
 
@@ -299,7 +319,8 @@ class PayRun extends Remote\Object {
     /**
      * @return string
      */
-    public function getWages() {
+    public function getWages()
+    {
         return $this->_data['Wages'];
     }
 
@@ -307,7 +328,8 @@ class PayRun extends Remote\Object {
     /**
      * @return string
      */
-    public function getDeductions() {
+    public function getDeductions()
+    {
         return $this->_data['Deductions'];
     }
 
@@ -315,7 +337,8 @@ class PayRun extends Remote\Object {
     /**
      * @return float
      */
-    public function getTax() {
+    public function getTax()
+    {
         return $this->_data['Tax'];
     }
 
@@ -323,7 +346,8 @@ class PayRun extends Remote\Object {
     /**
      * @return string
      */
-    public function getSuper() {
+    public function getSuper()
+    {
         return $this->_data['Super'];
     }
 
@@ -331,7 +355,8 @@ class PayRun extends Remote\Object {
     /**
      * @return string
      */
-    public function getReimbursement() {
+    public function getReimbursement()
+    {
         return $this->_data['Reimbursement'];
     }
 
@@ -339,7 +364,8 @@ class PayRun extends Remote\Object {
     /**
      * @return string
      */
-    public function getNetPay() {
+    public function getNetPay()
+    {
         return $this->_data['NetPay'];
     }
 

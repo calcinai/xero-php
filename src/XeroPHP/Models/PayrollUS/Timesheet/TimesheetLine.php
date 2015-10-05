@@ -1,11 +1,10 @@
 <?php
-
 namespace XeroPHP\Models\PayrollUS\Timesheet;
 
 use XeroPHP\Remote;
 
-
-class TimesheetLine extends Remote\Object {
+class TimesheetLine extends Remote\Object
+{
 
     /**
      * The Xero identifier for an Earnings Type
@@ -33,7 +32,8 @@ class TimesheetLine extends Remote\Object {
      *
      * @return string
      */
-    public static function getResourceURI(){
+    public static function getResourceURI()
+    {
         return 'TimesheetLines';
     }
 
@@ -43,7 +43,8 @@ class TimesheetLine extends Remote\Object {
      *
      * @return string
      */
-    public static function getRootNodeName(){
+    public static function getRootNodeName()
+    {
         return 'TimesheetLine';
     }
 
@@ -53,7 +54,8 @@ class TimesheetLine extends Remote\Object {
      *
      * @return string
      */
-    public static function getGUIDProperty(){
+    public static function getGUIDProperty()
+    {
         return '';
     }
 
@@ -63,7 +65,8 @@ class TimesheetLine extends Remote\Object {
      *
      * @return string|null
      */
-    public static function getAPIStem(){
+    public static function getAPIStem()
+    {
         return Remote\URL::API_PAYROLL;
     }
 
@@ -71,7 +74,8 @@ class TimesheetLine extends Remote\Object {
     /**
      * Get the supported methods
      */
-    public static function getSupportedMethods() {
+    public static function getSupportedMethods()
+    {
         return array(
         );
     }
@@ -87,7 +91,8 @@ class TimesheetLine extends Remote\Object {
      *
      * @return array
      */
-    public static function getProperties() {
+    public static function getProperties()
+    {
         return array(
             'EarningsTypeID' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'TrackingItemID' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
@@ -95,14 +100,16 @@ class TimesheetLine extends Remote\Object {
         );
     }
 
-    public static function isPageable(){
+    public static function isPageable()
+    {
         return false;
     }
 
     /**
      * @return string
      */
-    public function getEarningsTypeID() {
+    public function getEarningsTypeID()
+    {
         return $this->_data['EarningsTypeID'];
     }
 
@@ -110,7 +117,8 @@ class TimesheetLine extends Remote\Object {
      * @param string $value
      * @return TimesheetLine
      */
-    public function setEarningsTypeID($value) {
+    public function setEarningsTypeID($value)
+    {
         $this->propertyUpdated('EarningsTypeID', $value);
         $this->_data['EarningsTypeID'] = $value;
         return $this;
@@ -119,7 +127,8 @@ class TimesheetLine extends Remote\Object {
     /**
      * @return string
      */
-    public function getTrackingItemID() {
+    public function getTrackingItemID()
+    {
         return $this->_data['TrackingItemID'];
     }
 
@@ -127,7 +136,8 @@ class TimesheetLine extends Remote\Object {
      * @param string $value
      * @return TimesheetLine
      */
-    public function setTrackingItemID($value) {
+    public function setTrackingItemID($value)
+    {
         $this->propertyUpdated('TrackingItemID', $value);
         $this->_data['TrackingItemID'] = $value;
         return $this;
@@ -136,7 +146,8 @@ class TimesheetLine extends Remote\Object {
     /**
      * @return string
      */
-    public function getNumberOfUnits() {
+    public function getNumberOfUnits()
+    {
         return $this->_data['NumberOfUnits'];
     }
 
@@ -144,7 +155,8 @@ class TimesheetLine extends Remote\Object {
      * @param string $value
      * @return TimesheetLine
      */
-    public function setNumberOfUnit($value) {
+    public function setNumberOfUnit($value)
+    {
         $this->propertyUpdated('NumberOfUnits', $value);
         $this->_data['NumberOfUnits'] = $value;
         return $this;

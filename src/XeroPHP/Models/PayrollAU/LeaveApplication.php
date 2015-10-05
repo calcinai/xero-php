@@ -1,12 +1,11 @@
 <?php
-
 namespace XeroPHP\Models\PayrollAU;
 
 use XeroPHP\Remote;
-
 use XeroPHP\Models\PayrollAU\LeaveApplication\LeavePeriod;
 
-class LeaveApplication extends Remote\Object {
+class LeaveApplication extends Remote\Object
+{
 
     /**
      * Xero identifier
@@ -66,7 +65,8 @@ class LeaveApplication extends Remote\Object {
      *
      * @return string
      */
-    public static function getResourceURI(){
+    public static function getResourceURI()
+    {
         return 'LeaveApplications';
     }
 
@@ -76,7 +76,8 @@ class LeaveApplication extends Remote\Object {
      *
      * @return string
      */
-    public static function getRootNodeName(){
+    public static function getRootNodeName()
+    {
         return 'LeaveApplication';
     }
 
@@ -86,7 +87,8 @@ class LeaveApplication extends Remote\Object {
      *
      * @return string
      */
-    public static function getGUIDProperty(){
+    public static function getGUIDProperty()
+    {
         return 'LeaveApplicationID';
     }
 
@@ -96,7 +98,8 @@ class LeaveApplication extends Remote\Object {
      *
      * @return string|null
      */
-    public static function getAPIStem(){
+    public static function getAPIStem()
+    {
         return Remote\URL::API_PAYROLL;
     }
 
@@ -104,7 +107,8 @@ class LeaveApplication extends Remote\Object {
     /**
      * Get the supported methods
      */
-    public static function getSupportedMethods() {
+    public static function getSupportedMethods()
+    {
         return array(
             Remote\Request::METHOD_POST,
             Remote\Request::METHOD_GET
@@ -122,7 +126,8 @@ class LeaveApplication extends Remote\Object {
      *
      * @return array
      */
-    public static function getProperties() {
+    public static function getProperties()
+    {
         return array(
             'LeaveApplicationID' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'EmployeeID' => array (true, self::PROPERTY_TYPE_STRING, null, false, false),
@@ -135,14 +140,16 @@ class LeaveApplication extends Remote\Object {
         );
     }
 
-    public static function isPageable(){
+    public static function isPageable()
+    {
         return true;
     }
 
     /**
      * @return string
      */
-    public function getLeaveApplicationID() {
+    public function getLeaveApplicationID()
+    {
         return $this->_data['LeaveApplicationID'];
     }
 
@@ -150,7 +157,8 @@ class LeaveApplication extends Remote\Object {
      * @param string $value
      * @return LeaveApplication
      */
-    public function setLeaveApplicationID($value) {
+    public function setLeaveApplicationID($value)
+    {
         $this->propertyUpdated('LeaveApplicationID', $value);
         $this->_data['LeaveApplicationID'] = $value;
         return $this;
@@ -159,7 +167,8 @@ class LeaveApplication extends Remote\Object {
     /**
      * @return string
      */
-    public function getEmployeeID() {
+    public function getEmployeeID()
+    {
         return $this->_data['EmployeeID'];
     }
 
@@ -167,7 +176,8 @@ class LeaveApplication extends Remote\Object {
      * @param string $value
      * @return LeaveApplication
      */
-    public function setEmployeeID($value) {
+    public function setEmployeeID($value)
+    {
         $this->propertyUpdated('EmployeeID', $value);
         $this->_data['EmployeeID'] = $value;
         return $this;
@@ -176,7 +186,8 @@ class LeaveApplication extends Remote\Object {
     /**
      * @return string
      */
-    public function getLeaveTypeID() {
+    public function getLeaveTypeID()
+    {
         return $this->_data['LeaveTypeID'];
     }
 
@@ -184,7 +195,8 @@ class LeaveApplication extends Remote\Object {
      * @param string $value
      * @return LeaveApplication
      */
-    public function setLeaveTypeID($value) {
+    public function setLeaveTypeID($value)
+    {
         $this->propertyUpdated('LeaveTypeID', $value);
         $this->_data['LeaveTypeID'] = $value;
         return $this;
@@ -193,7 +205,8 @@ class LeaveApplication extends Remote\Object {
     /**
      * @return string
      */
-    public function getTitle() {
+    public function getTitle()
+    {
         return $this->_data['Title'];
     }
 
@@ -201,7 +214,8 @@ class LeaveApplication extends Remote\Object {
      * @param string $value
      * @return LeaveApplication
      */
-    public function setTitle($value) {
+    public function setTitle($value)
+    {
         $this->propertyUpdated('Title', $value);
         $this->_data['Title'] = $value;
         return $this;
@@ -210,7 +224,8 @@ class LeaveApplication extends Remote\Object {
     /**
      * @return \DateTime
      */
-    public function getStartDate() {
+    public function getStartDate()
+    {
         return $this->_data['StartDate'];
     }
 
@@ -218,7 +233,8 @@ class LeaveApplication extends Remote\Object {
      * @param \DateTime $value
      * @return LeaveApplication
      */
-    public function setStartDate(\DateTime $value) {
+    public function setStartDate(\DateTime $value)
+    {
         $this->propertyUpdated('StartDate', $value);
         $this->_data['StartDate'] = $value;
         return $this;
@@ -227,7 +243,8 @@ class LeaveApplication extends Remote\Object {
     /**
      * @return \DateTime
      */
-    public function getEndDate() {
+    public function getEndDate()
+    {
         return $this->_data['EndDate'];
     }
 
@@ -235,7 +252,8 @@ class LeaveApplication extends Remote\Object {
      * @param \DateTime $value
      * @return LeaveApplication
      */
-    public function setEndDate(\DateTime $value) {
+    public function setEndDate(\DateTime $value)
+    {
         $this->propertyUpdated('EndDate', $value);
         $this->_data['EndDate'] = $value;
         return $this;
@@ -244,7 +262,8 @@ class LeaveApplication extends Remote\Object {
     /**
      * @return string
      */
-    public function getDescription() {
+    public function getDescription()
+    {
         return $this->_data['Description'];
     }
 
@@ -252,7 +271,8 @@ class LeaveApplication extends Remote\Object {
      * @param string $value
      * @return LeaveApplication
      */
-    public function setDescription($value) {
+    public function setDescription($value)
+    {
         $this->propertyUpdated('Description', $value);
         $this->_data['Description'] = $value;
         return $this;
@@ -262,7 +282,8 @@ class LeaveApplication extends Remote\Object {
      * @return LeavePeriod[]|Remote\Collection
      * Always returns a collection, switch is for type hinting
      */
-    public function getLeavePeriods() {
+    public function getLeavePeriods()
+    {
         return $this->_data['LeavePeriods'];
     }
 
@@ -270,7 +291,8 @@ class LeaveApplication extends Remote\Object {
      * @param LeavePeriod $value
      * @return LeaveApplication
      */
-    public function addLeavePeriod(LeavePeriod $value) {
+    public function addLeavePeriod(LeavePeriod $value)
+    {
         $this->propertyUpdated('LeavePeriods', $value);
         if(!isset($this->_data['LeavePeriods'])){
             $this->_data['LeavePeriods'] = new Remote\Collection();

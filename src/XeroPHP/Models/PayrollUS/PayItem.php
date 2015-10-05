@@ -1,16 +1,15 @@
 <?php
-
 namespace XeroPHP\Models\PayrollUS;
 
 use XeroPHP\Remote;
-
 use XeroPHP\Models\PayrollUS\PayItem\EarningsType;
 use XeroPHP\Models\PayrollUS\PayItem\BenefitType;
 use XeroPHP\Models\PayrollUS\PayItem\DeductionType;
 use XeroPHP\Models\PayrollUS\PayItem\ReimbursementType;
 use XeroPHP\Models\PayrollUS\PayItem\TimeOffType;
 
-class PayItem extends Remote\Object {
+class PayItem extends Remote\Object
+{
 
     /**
      * See EarningsTypes
@@ -49,7 +48,8 @@ class PayItem extends Remote\Object {
      *
      * @return string
      */
-    public static function getResourceURI(){
+    public static function getResourceURI()
+    {
         return 'PayItems';
     }
 
@@ -59,7 +59,8 @@ class PayItem extends Remote\Object {
      *
      * @return string
      */
-    public static function getRootNodeName(){
+    public static function getRootNodeName()
+    {
         return 'PayItem';
     }
 
@@ -69,7 +70,8 @@ class PayItem extends Remote\Object {
      *
      * @return string
      */
-    public static function getGUIDProperty(){
+    public static function getGUIDProperty()
+    {
         return '';
     }
 
@@ -79,7 +81,8 @@ class PayItem extends Remote\Object {
      *
      * @return string|null
      */
-    public static function getAPIStem(){
+    public static function getAPIStem()
+    {
         return Remote\URL::API_PAYROLL;
     }
 
@@ -87,7 +90,8 @@ class PayItem extends Remote\Object {
     /**
      * Get the supported methods
      */
-    public static function getSupportedMethods() {
+    public static function getSupportedMethods()
+    {
         return array(
             Remote\Request::METHOD_POST,
             Remote\Request::METHOD_GET
@@ -105,7 +109,8 @@ class PayItem extends Remote\Object {
      *
      * @return array
      */
-    public static function getProperties() {
+    public static function getProperties()
+    {
         return array(
             'EarningsTypes' => array (false, self::PROPERTY_TYPE_OBJECT, 'PayrollUS\\PayItem\\EarningsType', true, false),
             'BenefitTypes' => array (false, self::PROPERTY_TYPE_OBJECT, 'PayrollUS\\PayItem\\BenefitType', true, false),
@@ -115,7 +120,8 @@ class PayItem extends Remote\Object {
         );
     }
 
-    public static function isPageable(){
+    public static function isPageable()
+    {
         return false;
     }
 
@@ -123,7 +129,8 @@ class PayItem extends Remote\Object {
      * @return EarningsType[]|Remote\Collection
      * Always returns a collection, switch is for type hinting
      */
-    public function getEarningsTypes() {
+    public function getEarningsTypes()
+    {
         return $this->_data['EarningsTypes'];
     }
 
@@ -131,7 +138,8 @@ class PayItem extends Remote\Object {
      * @param EarningsType $value
      * @return PayItem
      */
-    public function addEarningsType(EarningsType $value) {
+    public function addEarningsType(EarningsType $value)
+    {
         $this->propertyUpdated('EarningsTypes', $value);
         if(!isset($this->_data['EarningsTypes'])){
             $this->_data['EarningsTypes'] = new Remote\Collection();
@@ -144,7 +152,8 @@ class PayItem extends Remote\Object {
      * @return BenefitType[]|Remote\Collection
      * Always returns a collection, switch is for type hinting
      */
-    public function getBenefitTypes() {
+    public function getBenefitTypes()
+    {
         return $this->_data['BenefitTypes'];
     }
 
@@ -152,7 +161,8 @@ class PayItem extends Remote\Object {
      * @param BenefitType $value
      * @return PayItem
      */
-    public function addBenefitType(BenefitType $value) {
+    public function addBenefitType(BenefitType $value)
+    {
         $this->propertyUpdated('BenefitTypes', $value);
         if(!isset($this->_data['BenefitTypes'])){
             $this->_data['BenefitTypes'] = new Remote\Collection();
@@ -165,7 +175,8 @@ class PayItem extends Remote\Object {
      * @return DeductionType[]|Remote\Collection
      * Always returns a collection, switch is for type hinting
      */
-    public function getDeductionTypes() {
+    public function getDeductionTypes()
+    {
         return $this->_data['DeductionTypes'];
     }
 
@@ -173,7 +184,8 @@ class PayItem extends Remote\Object {
      * @param DeductionType $value
      * @return PayItem
      */
-    public function addDeductionType(DeductionType $value) {
+    public function addDeductionType(DeductionType $value)
+    {
         $this->propertyUpdated('DeductionTypes', $value);
         if(!isset($this->_data['DeductionTypes'])){
             $this->_data['DeductionTypes'] = new Remote\Collection();
@@ -186,7 +198,8 @@ class PayItem extends Remote\Object {
      * @return ReimbursementType[]|Remote\Collection
      * Always returns a collection, switch is for type hinting
      */
-    public function getReimbursementTypes() {
+    public function getReimbursementTypes()
+    {
         return $this->_data['ReimbursementTypes'];
     }
 
@@ -194,7 +207,8 @@ class PayItem extends Remote\Object {
      * @param ReimbursementType $value
      * @return PayItem
      */
-    public function addReimbursementType(ReimbursementType $value) {
+    public function addReimbursementType(ReimbursementType $value)
+    {
         $this->propertyUpdated('ReimbursementTypes', $value);
         if(!isset($this->_data['ReimbursementTypes'])){
             $this->_data['ReimbursementTypes'] = new Remote\Collection();
@@ -207,7 +221,8 @@ class PayItem extends Remote\Object {
      * @return TimeOffType[]|Remote\Collection
      * Always returns a collection, switch is for type hinting
      */
-    public function getTimeOffTypes() {
+    public function getTimeOffTypes()
+    {
         return $this->_data['TimeOffTypes'];
     }
 
@@ -215,7 +230,8 @@ class PayItem extends Remote\Object {
      * @param TimeOffType $value
      * @return PayItem
      */
-    public function addTimeOffType(TimeOffType $value) {
+    public function addTimeOffType(TimeOffType $value)
+    {
         $this->propertyUpdated('TimeOffTypes', $value);
         if(!isset($this->_data['TimeOffTypes'])){
             $this->_data['TimeOffTypes'] = new Remote\Collection();

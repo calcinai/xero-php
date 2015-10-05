@@ -1,11 +1,10 @@
 <?php
-
 namespace XeroPHP\Models\PayrollAU\Payslip;
 
 use XeroPHP\Remote;
 
-
-class LeaveAccrualLine extends Remote\Object {
+class LeaveAccrualLine extends Remote\Object
+{
 
     /**
      * Xero identifier for the Leave type.
@@ -32,7 +31,8 @@ class LeaveAccrualLine extends Remote\Object {
      *
      * @return string
      */
-    public static function getResourceURI(){
+    public static function getResourceURI()
+    {
         return 'LeaveAccrualLine';
     }
 
@@ -42,7 +42,8 @@ class LeaveAccrualLine extends Remote\Object {
      *
      * @return string
      */
-    public static function getRootNodeName(){
+    public static function getRootNodeName()
+    {
         return 'LeaveAccrualLine';
     }
 
@@ -52,7 +53,8 @@ class LeaveAccrualLine extends Remote\Object {
      *
      * @return string
      */
-    public static function getGUIDProperty(){
+    public static function getGUIDProperty()
+    {
         return '';
     }
 
@@ -62,7 +64,8 @@ class LeaveAccrualLine extends Remote\Object {
      *
      * @return string|null
      */
-    public static function getAPIStem(){
+    public static function getAPIStem()
+    {
         return Remote\URL::API_PAYROLL;
     }
 
@@ -70,7 +73,8 @@ class LeaveAccrualLine extends Remote\Object {
     /**
      * Get the supported methods
      */
-    public static function getSupportedMethods() {
+    public static function getSupportedMethods()
+    {
         return array(
         );
     }
@@ -86,7 +90,8 @@ class LeaveAccrualLine extends Remote\Object {
      *
      * @return array
      */
-    public static function getProperties() {
+    public static function getProperties()
+    {
         return array(
             'LeaveTypeID' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'NumberOfUnits' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
@@ -94,14 +99,16 @@ class LeaveAccrualLine extends Remote\Object {
         );
     }
 
-    public static function isPageable(){
+    public static function isPageable()
+    {
         return false;
     }
 
     /**
      * @return string
      */
-    public function getLeaveTypeID() {
+    public function getLeaveTypeID()
+    {
         return $this->_data['LeaveTypeID'];
     }
 
@@ -109,7 +116,8 @@ class LeaveAccrualLine extends Remote\Object {
      * @param string $value
      * @return LeaveAccrualLine
      */
-    public function setLeaveTypeID($value) {
+    public function setLeaveTypeID($value)
+    {
         $this->propertyUpdated('LeaveTypeID', $value);
         $this->_data['LeaveTypeID'] = $value;
         return $this;
@@ -118,7 +126,8 @@ class LeaveAccrualLine extends Remote\Object {
     /**
      * @return string
      */
-    public function getNumberOfUnits() {
+    public function getNumberOfUnits()
+    {
         return $this->_data['NumberOfUnits'];
     }
 
@@ -126,7 +135,8 @@ class LeaveAccrualLine extends Remote\Object {
      * @param string $value
      * @return LeaveAccrualLine
      */
-    public function setNumberOfUnit($value) {
+    public function setNumberOfUnit($value)
+    {
         $this->propertyUpdated('NumberOfUnits', $value);
         $this->_data['NumberOfUnits'] = $value;
         return $this;
@@ -135,7 +145,8 @@ class LeaveAccrualLine extends Remote\Object {
     /**
      * @return string
      */
-    public function getAutoCalculate() {
+    public function getAutoCalculate()
+    {
         return $this->_data['AutoCalculate'];
     }
 
@@ -143,7 +154,8 @@ class LeaveAccrualLine extends Remote\Object {
      * @param string $value
      * @return LeaveAccrualLine
      */
-    public function setAutoCalculate($value) {
+    public function setAutoCalculate($value)
+    {
         $this->propertyUpdated('AutoCalculate', $value);
         $this->_data['AutoCalculate'] = $value;
         return $this;

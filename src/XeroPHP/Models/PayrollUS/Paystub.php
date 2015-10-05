@@ -1,9 +1,7 @@
 <?php
-
 namespace XeroPHP\Models\PayrollUS;
 
 use XeroPHP\Remote;
-
 use XeroPHP\Models\PayrollUS\Paystub\EarningsLine;
 use XeroPHP\Models\PayrollUS\Paystub\LeaveEarningsLine;
 use XeroPHP\Models\PayrollUS\Paystub\TimesheetEarningsLine;
@@ -12,7 +10,8 @@ use XeroPHP\Models\PayrollUS\Paystub\ReimbursementLine;
 use XeroPHP\Models\PayrollUS\Paystub\BenefitLine;
 use XeroPHP\Models\PayrollUS\Paystub\TimeOffLine;
 
-class Paystub extends Remote\Object {
+class Paystub extends Remote\Object
+{
 
     /**
      * Xero identifier for payroll employee
@@ -135,7 +134,8 @@ class Paystub extends Remote\Object {
      *
      * @return string
      */
-    public static function getResourceURI(){
+    public static function getResourceURI()
+    {
         return 'Paystubs';
     }
 
@@ -145,7 +145,8 @@ class Paystub extends Remote\Object {
      *
      * @return string
      */
-    public static function getRootNodeName(){
+    public static function getRootNodeName()
+    {
         return 'Paystub';
     }
 
@@ -155,7 +156,8 @@ class Paystub extends Remote\Object {
      *
      * @return string
      */
-    public static function getGUIDProperty(){
+    public static function getGUIDProperty()
+    {
         return 'PaystubID';
     }
 
@@ -165,7 +167,8 @@ class Paystub extends Remote\Object {
      *
      * @return string|null
      */
-    public static function getAPIStem(){
+    public static function getAPIStem()
+    {
         return Remote\URL::API_PAYROLL;
     }
 
@@ -173,7 +176,8 @@ class Paystub extends Remote\Object {
     /**
      * Get the supported methods
      */
-    public static function getSupportedMethods() {
+    public static function getSupportedMethods()
+    {
         return array(
             Remote\Request::METHOD_POST,
             Remote\Request::METHOD_GET
@@ -191,7 +195,8 @@ class Paystub extends Remote\Object {
      *
      * @return array
      */
-    public static function getProperties() {
+    public static function getProperties()
+    {
         return array(
             'EmployeeID' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'PaystubID' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
@@ -215,14 +220,16 @@ class Paystub extends Remote\Object {
         );
     }
 
-    public static function isPageable(){
+    public static function isPageable()
+    {
         return false;
     }
 
     /**
      * @return string
      */
-    public function getEmployeeID() {
+    public function getEmployeeID()
+    {
         return $this->_data['EmployeeID'];
     }
 
@@ -230,7 +237,8 @@ class Paystub extends Remote\Object {
      * @param string $value
      * @return Paystub
      */
-    public function setEmployeeID($value) {
+    public function setEmployeeID($value)
+    {
         $this->propertyUpdated('EmployeeID', $value);
         $this->_data['EmployeeID'] = $value;
         return $this;
@@ -239,7 +247,8 @@ class Paystub extends Remote\Object {
     /**
      * @return string
      */
-    public function getPaystubID() {
+    public function getPaystubID()
+    {
         return $this->_data['PaystubID'];
     }
 
@@ -247,7 +256,8 @@ class Paystub extends Remote\Object {
      * @param string $value
      * @return Paystub
      */
-    public function setPaystubID($value) {
+    public function setPaystubID($value)
+    {
         $this->propertyUpdated('PaystubID', $value);
         $this->_data['PaystubID'] = $value;
         return $this;
@@ -256,7 +266,8 @@ class Paystub extends Remote\Object {
     /**
      * @return string
      */
-    public function getPayRunID() {
+    public function getPayRunID()
+    {
         return $this->_data['PayRunID'];
     }
 
@@ -264,7 +275,8 @@ class Paystub extends Remote\Object {
      * @param string $value
      * @return Paystub
      */
-    public function setPayRunID($value) {
+    public function setPayRunID($value)
+    {
         $this->propertyUpdated('PayRunID', $value);
         $this->_data['PayRunID'] = $value;
         return $this;
@@ -273,7 +285,8 @@ class Paystub extends Remote\Object {
     /**
      * @return string
      */
-    public function getFirstName() {
+    public function getFirstName()
+    {
         return $this->_data['FirstName'];
     }
 
@@ -281,7 +294,8 @@ class Paystub extends Remote\Object {
      * @param string $value
      * @return Paystub
      */
-    public function setFirstName($value) {
+    public function setFirstName($value)
+    {
         $this->propertyUpdated('FirstName', $value);
         $this->_data['FirstName'] = $value;
         return $this;
@@ -290,7 +304,8 @@ class Paystub extends Remote\Object {
     /**
      * @return string
      */
-    public function getLastName() {
+    public function getLastName()
+    {
         return $this->_data['LastName'];
     }
 
@@ -298,7 +313,8 @@ class Paystub extends Remote\Object {
      * @param string $value
      * @return Paystub
      */
-    public function setLastName($value) {
+    public function setLastName($value)
+    {
         $this->propertyUpdated('LastName', $value);
         $this->_data['LastName'] = $value;
         return $this;
@@ -307,7 +323,8 @@ class Paystub extends Remote\Object {
     /**
      * @return string
      */
-    public function getLastEdited() {
+    public function getLastEdited()
+    {
         return $this->_data['LastEdited'];
     }
 
@@ -315,7 +332,8 @@ class Paystub extends Remote\Object {
      * @param string $value
      * @return Paystub
      */
-    public function setLastEdited($value) {
+    public function setLastEdited($value)
+    {
         $this->propertyUpdated('LastEdited', $value);
         $this->_data['LastEdited'] = $value;
         return $this;
@@ -325,7 +343,8 @@ class Paystub extends Remote\Object {
      * @return float[]|Remote\Collection
      * Always returns a collection, switch is for type hinting
      */
-    public function getEarnings() {
+    public function getEarnings()
+    {
         return $this->_data['Earnings'];
     }
 
@@ -333,7 +352,8 @@ class Paystub extends Remote\Object {
      * @param float $value
      * @return Paystub
      */
-    public function addEarning($value) {
+    public function addEarning($value)
+    {
         $this->propertyUpdated('Earnings', $value);
         if(!isset($this->_data['Earnings'])){
             $this->_data['Earnings'] = new Remote\Collection();
@@ -346,7 +366,8 @@ class Paystub extends Remote\Object {
      * @return float[]|Remote\Collection
      * Always returns a collection, switch is for type hinting
      */
-    public function getDeductions() {
+    public function getDeductions()
+    {
         return $this->_data['Deductions'];
     }
 
@@ -354,7 +375,8 @@ class Paystub extends Remote\Object {
      * @param float $value
      * @return Paystub
      */
-    public function addDeduction($value) {
+    public function addDeduction($value)
+    {
         $this->propertyUpdated('Deductions', $value);
         if(!isset($this->_data['Deductions'])){
             $this->_data['Deductions'] = new Remote\Collection();
@@ -366,7 +388,8 @@ class Paystub extends Remote\Object {
     /**
      * @return float
      */
-    public function getTax() {
+    public function getTax()
+    {
         return $this->_data['Tax'];
     }
 
@@ -374,7 +397,8 @@ class Paystub extends Remote\Object {
      * @param float $value
      * @return Paystub
      */
-    public function setTax($value) {
+    public function setTax($value)
+    {
         $this->propertyUpdated('Tax', $value);
         $this->_data['Tax'] = $value;
         return $this;
@@ -384,7 +408,8 @@ class Paystub extends Remote\Object {
      * @return float[]|Remote\Collection
      * Always returns a collection, switch is for type hinting
      */
-    public function getReimbursements() {
+    public function getReimbursements()
+    {
         return $this->_data['Reimbursements'];
     }
 
@@ -392,7 +417,8 @@ class Paystub extends Remote\Object {
      * @param float $value
      * @return Paystub
      */
-    public function addReimbursement($value) {
+    public function addReimbursement($value)
+    {
         $this->propertyUpdated('Reimbursements', $value);
         if(!isset($this->_data['Reimbursements'])){
             $this->_data['Reimbursements'] = new Remote\Collection();
@@ -404,7 +430,8 @@ class Paystub extends Remote\Object {
     /**
      * @return float
      */
-    public function getNetPay() {
+    public function getNetPay()
+    {
         return $this->_data['NetPay'];
     }
 
@@ -412,7 +439,8 @@ class Paystub extends Remote\Object {
      * @param float $value
      * @return Paystub
      */
-    public function setNetPay($value) {
+    public function setNetPay($value)
+    {
         $this->propertyUpdated('NetPay', $value);
         $this->_data['NetPay'] = $value;
         return $this;
@@ -421,7 +449,8 @@ class Paystub extends Remote\Object {
     /**
      * @return \DateTime
      */
-    public function getUpdatedDateUTC() {
+    public function getUpdatedDateUTC()
+    {
         return $this->_data['UpdatedDateUTC'];
     }
 
@@ -429,7 +458,8 @@ class Paystub extends Remote\Object {
      * @param \DateTime $value
      * @return Paystub
      */
-    public function setUpdatedDateUTC(\DateTime $value) {
+    public function setUpdatedDateUTC(\DateTime $value)
+    {
         $this->propertyUpdated('UpdatedDateUTC', $value);
         $this->_data['UpdatedDateUTC'] = $value;
         return $this;
@@ -439,7 +469,8 @@ class Paystub extends Remote\Object {
      * @return EarningsLine[]|Remote\Collection
      * Always returns a collection, switch is for type hinting
      */
-    public function getEarningsLines() {
+    public function getEarningsLines()
+    {
         return $this->_data['EarningsLines'];
     }
 
@@ -447,7 +478,8 @@ class Paystub extends Remote\Object {
      * @param EarningsLine $value
      * @return Paystub
      */
-    public function addEarningsLine(EarningsLine $value) {
+    public function addEarningsLine(EarningsLine $value)
+    {
         $this->propertyUpdated('EarningsLines', $value);
         if(!isset($this->_data['EarningsLines'])){
             $this->_data['EarningsLines'] = new Remote\Collection();
@@ -460,7 +492,8 @@ class Paystub extends Remote\Object {
      * @return LeaveEarningsLine[]|Remote\Collection
      * Always returns a collection, switch is for type hinting
      */
-    public function getLeaveEarningsLines() {
+    public function getLeaveEarningsLines()
+    {
         return $this->_data['LeaveEarningsLines'];
     }
 
@@ -468,7 +501,8 @@ class Paystub extends Remote\Object {
      * @param LeaveEarningsLine $value
      * @return Paystub
      */
-    public function addLeaveEarningsLine(LeaveEarningsLine $value) {
+    public function addLeaveEarningsLine(LeaveEarningsLine $value)
+    {
         $this->propertyUpdated('LeaveEarningsLines', $value);
         if(!isset($this->_data['LeaveEarningsLines'])){
             $this->_data['LeaveEarningsLines'] = new Remote\Collection();
@@ -481,7 +515,8 @@ class Paystub extends Remote\Object {
      * @return TimesheetEarningsLine[]|Remote\Collection
      * Always returns a collection, switch is for type hinting
      */
-    public function getTimesheetEarningsLines() {
+    public function getTimesheetEarningsLines()
+    {
         return $this->_data['TimesheetEarningsLines'];
     }
 
@@ -489,7 +524,8 @@ class Paystub extends Remote\Object {
      * @param TimesheetEarningsLine $value
      * @return Paystub
      */
-    public function addTimesheetEarningsLine(TimesheetEarningsLine $value) {
+    public function addTimesheetEarningsLine(TimesheetEarningsLine $value)
+    {
         $this->propertyUpdated('TimesheetEarningsLines', $value);
         if(!isset($this->_data['TimesheetEarningsLines'])){
             $this->_data['TimesheetEarningsLines'] = new Remote\Collection();
@@ -502,7 +538,8 @@ class Paystub extends Remote\Object {
      * @return DeductionLine[]|Remote\Collection
      * Always returns a collection, switch is for type hinting
      */
-    public function getDeductionLines() {
+    public function getDeductionLines()
+    {
         return $this->_data['DeductionLines'];
     }
 
@@ -510,7 +547,8 @@ class Paystub extends Remote\Object {
      * @param DeductionLine $value
      * @return Paystub
      */
-    public function addDeductionLine(DeductionLine $value) {
+    public function addDeductionLine(DeductionLine $value)
+    {
         $this->propertyUpdated('DeductionLines', $value);
         if(!isset($this->_data['DeductionLines'])){
             $this->_data['DeductionLines'] = new Remote\Collection();
@@ -523,7 +561,8 @@ class Paystub extends Remote\Object {
      * @return ReimbursementLine[]|Remote\Collection
      * Always returns a collection, switch is for type hinting
      */
-    public function getReimbursementLines() {
+    public function getReimbursementLines()
+    {
         return $this->_data['ReimbursementLines'];
     }
 
@@ -531,7 +570,8 @@ class Paystub extends Remote\Object {
      * @param ReimbursementLine $value
      * @return Paystub
      */
-    public function addReimbursementLine(ReimbursementLine $value) {
+    public function addReimbursementLine(ReimbursementLine $value)
+    {
         $this->propertyUpdated('ReimbursementLines', $value);
         if(!isset($this->_data['ReimbursementLines'])){
             $this->_data['ReimbursementLines'] = new Remote\Collection();
@@ -544,7 +584,8 @@ class Paystub extends Remote\Object {
      * @return BenefitLine[]|Remote\Collection
      * Always returns a collection, switch is for type hinting
      */
-    public function getBenefitLines() {
+    public function getBenefitLines()
+    {
         return $this->_data['BenefitLines'];
     }
 
@@ -552,7 +593,8 @@ class Paystub extends Remote\Object {
      * @param BenefitLine $value
      * @return Paystub
      */
-    public function addBenefitLine(BenefitLine $value) {
+    public function addBenefitLine(BenefitLine $value)
+    {
         $this->propertyUpdated('BenefitLines', $value);
         if(!isset($this->_data['BenefitLines'])){
             $this->_data['BenefitLines'] = new Remote\Collection();
@@ -565,7 +607,8 @@ class Paystub extends Remote\Object {
      * @return TimeOffLine[]|Remote\Collection
      * Always returns a collection, switch is for type hinting
      */
-    public function getTimeOffLines() {
+    public function getTimeOffLines()
+    {
         return $this->_data['TimeOffLines'];
     }
 
@@ -573,7 +616,8 @@ class Paystub extends Remote\Object {
      * @param TimeOffLine $value
      * @return Paystub
      */
-    public function addTimeOffLine(TimeOffLine $value) {
+    public function addTimeOffLine(TimeOffLine $value)
+    {
         $this->propertyUpdated('TimeOffLines', $value);
         if(!isset($this->_data['TimeOffLines'])){
             $this->_data['TimeOffLines'] = new Remote\Collection();

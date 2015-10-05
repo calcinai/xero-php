@@ -1,12 +1,11 @@
 <?php
-
 namespace XeroPHP\Models\Accounting;
 
 use XeroPHP\Remote;
-
 use XeroPHP\Models\Accounting\TrackingCategory\TrackingOption;
 
-class TrackingCategory extends Remote\Object {
+class TrackingCategory extends Remote\Object
+{
 
     /**
      * The Xero identifier for a tracking categorye.g. 297c2dc5-cc47-4afd-8ec8-74990b8761e9
@@ -39,7 +38,8 @@ class TrackingCategory extends Remote\Object {
      *
      * @return string
      */
-    public static function getResourceURI(){
+    public static function getResourceURI()
+    {
         return 'TrackingCategories';
     }
 
@@ -49,7 +49,8 @@ class TrackingCategory extends Remote\Object {
      *
      * @return string
      */
-    public static function getRootNodeName(){
+    public static function getRootNodeName()
+    {
         return 'TrackingCategory';
     }
 
@@ -59,7 +60,8 @@ class TrackingCategory extends Remote\Object {
      *
      * @return string
      */
-    public static function getGUIDProperty(){
+    public static function getGUIDProperty()
+    {
         return 'TrackingCategoryID';
     }
 
@@ -69,7 +71,8 @@ class TrackingCategory extends Remote\Object {
      *
      * @return string|null
      */
-    public static function getAPIStem(){
+    public static function getAPIStem()
+    {
         return Remote\URL::API_CORE;
     }
 
@@ -77,7 +80,8 @@ class TrackingCategory extends Remote\Object {
     /**
      * Get the supported methods
      */
-    public static function getSupportedMethods() {
+    public static function getSupportedMethods()
+    {
         return array(
             Remote\Request::METHOD_GET,
             Remote\Request::METHOD_PUT,
@@ -97,7 +101,8 @@ class TrackingCategory extends Remote\Object {
      *
      * @return array
      */
-    public static function getProperties() {
+    public static function getProperties()
+    {
         return array(
             'TrackingCategoryID' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'Name' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
@@ -106,14 +111,16 @@ class TrackingCategory extends Remote\Object {
         );
     }
 
-    public static function isPageable(){
+    public static function isPageable()
+    {
         return false;
     }
 
     /**
      * @return string
      */
-    public function getTrackingCategoryID() {
+    public function getTrackingCategoryID()
+    {
         return $this->_data['TrackingCategoryID'];
     }
 
@@ -121,7 +128,8 @@ class TrackingCategory extends Remote\Object {
      * @param string $value
      * @return TrackingCategory
      */
-    public function setTrackingCategoryID($value) {
+    public function setTrackingCategoryID($value)
+    {
         $this->propertyUpdated('TrackingCategoryID', $value);
         $this->_data['TrackingCategoryID'] = $value;
         return $this;
@@ -130,7 +138,8 @@ class TrackingCategory extends Remote\Object {
     /**
      * @return string
      */
-    public function getName() {
+    public function getName()
+    {
         return $this->_data['Name'];
     }
 
@@ -138,7 +147,8 @@ class TrackingCategory extends Remote\Object {
      * @param string $value
      * @return TrackingCategory
      */
-    public function setName($value) {
+    public function setName($value)
+    {
         $this->propertyUpdated('Name', $value);
         $this->_data['Name'] = $value;
         return $this;
@@ -147,7 +157,8 @@ class TrackingCategory extends Remote\Object {
     /**
      * @return string
      */
-    public function getStatus() {
+    public function getStatus()
+    {
         return $this->_data['Status'];
     }
 
@@ -155,7 +166,8 @@ class TrackingCategory extends Remote\Object {
      * @param string $value
      * @return TrackingCategory
      */
-    public function setStatus($value) {
+    public function setStatus($value)
+    {
         $this->propertyUpdated('Status', $value);
         $this->_data['Status'] = $value;
         return $this;
@@ -165,7 +177,8 @@ class TrackingCategory extends Remote\Object {
      * @return TrackingOption[]|Remote\Collection
      * Always returns a collection, switch is for type hinting
      */
-    public function getOptions() {
+    public function getOptions()
+    {
         return $this->_data['Options'];
     }
 
@@ -173,7 +186,8 @@ class TrackingCategory extends Remote\Object {
      * @param TrackingOption $value
      * @return TrackingCategory
      */
-    public function addOption(TrackingOption $value) {
+    public function addOption(TrackingOption $value)
+    {
         $this->propertyUpdated('Options', $value);
         if(!isset($this->_data['Options'])){
             $this->_data['Options'] = new Remote\Collection();

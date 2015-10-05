@@ -1,11 +1,10 @@
 <?php
-
 namespace XeroPHP\Models\Files;
 
 use XeroPHP\Remote;
 
-
-class File extends Remote\Object {
+class File extends Remote\Object
+{
 
     /**
      * The name of the file
@@ -63,7 +62,8 @@ class File extends Remote\Object {
      *
      * @return string
      */
-    public static function getResourceURI(){
+    public static function getResourceURI()
+    {
         return 'Files';
     }
 
@@ -73,7 +73,8 @@ class File extends Remote\Object {
      *
      * @return string
      */
-    public static function getRootNodeName(){
+    public static function getRootNodeName()
+    {
         return 'File';
     }
 
@@ -83,7 +84,8 @@ class File extends Remote\Object {
      *
      * @return string
      */
-    public static function getGUIDProperty(){
+    public static function getGUIDProperty()
+    {
         return 'Id';
     }
 
@@ -93,7 +95,8 @@ class File extends Remote\Object {
      *
      * @return string|null
      */
-    public static function getAPIStem(){
+    public static function getAPIStem()
+    {
         return Remote\URL::API_FILE;
     }
 
@@ -101,7 +104,8 @@ class File extends Remote\Object {
     /**
      * Get the supported methods
      */
-    public static function getSupportedMethods() {
+    public static function getSupportedMethods()
+    {
         return array(
             Remote\Request::METHOD_GET,
             Remote\Request::METHOD_POST,
@@ -121,7 +125,8 @@ class File extends Remote\Object {
      *
      * @return array
      */
-    public static function getProperties() {
+    public static function getProperties()
+    {
         return array(
             'Name' => array (true, self::PROPERTY_TYPE_STRING, null, false, false),
             'FolderId' => array (false, self::PROPERTY_TYPE_OBJECT, 'Files\\Folder', false, false),
@@ -134,14 +139,16 @@ class File extends Remote\Object {
         );
     }
 
-    public static function isPageable(){
+    public static function isPageable()
+    {
         return true;
     }
 
     /**
      * @return string
      */
-    public function getName() {
+    public function getName()
+    {
         return $this->_data['Name'];
     }
 
@@ -149,7 +156,8 @@ class File extends Remote\Object {
      * @param string $value
      * @return File
      */
-    public function setName($value) {
+    public function setName($value)
+    {
         $this->propertyUpdated('Name', $value);
         $this->_data['Name'] = $value;
         return $this;
@@ -158,7 +166,8 @@ class File extends Remote\Object {
     /**
      * @return Folder
      */
-    public function getFolderId() {
+    public function getFolderId()
+    {
         return $this->_data['FolderId'];
     }
 
@@ -166,7 +175,8 @@ class File extends Remote\Object {
      * @param Folder $value
      * @return File
      */
-    public function setFolderId(Folder $value) {
+    public function setFolderId(Folder $value)
+    {
         $this->propertyUpdated('FolderId', $value);
         $this->_data['FolderId'] = $value;
         return $this;
@@ -175,7 +185,8 @@ class File extends Remote\Object {
     /**
      * @return string
      */
-    public function getMimeType() {
+    public function getMimeType()
+    {
         return $this->_data['MimeType'];
     }
 
@@ -183,7 +194,8 @@ class File extends Remote\Object {
      * @param string $value
      * @return File
      */
-    public function setMimeType($value) {
+    public function setMimeType($value)
+    {
         $this->propertyUpdated('MimeType', $value);
         $this->_data['MimeType'] = $value;
         return $this;
@@ -192,7 +204,8 @@ class File extends Remote\Object {
     /**
      * @return string
      */
-    public function getSize() {
+    public function getSize()
+    {
         return $this->_data['Size'];
     }
 
@@ -200,7 +213,8 @@ class File extends Remote\Object {
      * @param string $value
      * @return File
      */
-    public function setSize($value) {
+    public function setSize($value)
+    {
         $this->propertyUpdated('Size', $value);
         $this->_data['Size'] = $value;
         return $this;
@@ -209,7 +223,8 @@ class File extends Remote\Object {
     /**
      * @return \DateTime
      */
-    public function getCreatedDateUTC() {
+    public function getCreatedDateUTC()
+    {
         return $this->_data['CreatedDateUTC'];
     }
 
@@ -217,7 +232,8 @@ class File extends Remote\Object {
      * @param \DateTime $value
      * @return File
      */
-    public function setCreatedDateUTC(\DateTime $value) {
+    public function setCreatedDateUTC(\DateTime $value)
+    {
         $this->propertyUpdated('CreatedDateUTC', $value);
         $this->_data['CreatedDateUTC'] = $value;
         return $this;
@@ -226,7 +242,8 @@ class File extends Remote\Object {
     /**
      * @return \DateTime
      */
-    public function getUpdatedDateUTC() {
+    public function getUpdatedDateUTC()
+    {
         return $this->_data['UpdatedDateUTC'];
     }
 
@@ -234,7 +251,8 @@ class File extends Remote\Object {
      * @param \DateTime $value
      * @return File
      */
-    public function setUpdatedDateUTC(\DateTime $value) {
+    public function setUpdatedDateUTC(\DateTime $value)
+    {
         $this->propertyUpdated('UpdatedDateUTC', $value);
         $this->_data['UpdatedDateUTC'] = $value;
         return $this;
@@ -243,7 +261,8 @@ class File extends Remote\Object {
     /**
      * @return string
      */
-    public function getUser() {
+    public function getUser()
+    {
         return $this->_data['User'];
     }
 
@@ -251,7 +270,8 @@ class File extends Remote\Object {
      * @param string $value
      * @return File
      */
-    public function setUser($value) {
+    public function setUser($value)
+    {
         $this->propertyUpdated('User', $value);
         $this->_data['User'] = $value;
         return $this;
@@ -260,7 +280,8 @@ class File extends Remote\Object {
     /**
      * @return string
      */
-    public function getId() {
+    public function getId()
+    {
         return $this->_data['Id'];
     }
 
@@ -268,7 +289,8 @@ class File extends Remote\Object {
      * @param string $value
      * @return File
      */
-    public function setId($value) {
+    public function setId($value)
+    {
         $this->propertyUpdated('Id', $value);
         $this->_data['Id'] = $value;
         return $this;

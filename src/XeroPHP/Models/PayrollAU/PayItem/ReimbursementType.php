@@ -1,11 +1,10 @@
 <?php
-
 namespace XeroPHP\Models\PayrollAU\PayItem;
 
 use XeroPHP\Remote;
 
-
-class ReimbursementType extends Remote\Object {
+class ReimbursementType extends Remote\Object
+{
 
     /**
      * Name of the reimbursement type (max length = 50)
@@ -32,7 +31,8 @@ class ReimbursementType extends Remote\Object {
      *
      * @return string
      */
-    public static function getResourceURI(){
+    public static function getResourceURI()
+    {
         return 'ReimbursementTypes';
     }
 
@@ -42,7 +42,8 @@ class ReimbursementType extends Remote\Object {
      *
      * @return string
      */
-    public static function getRootNodeName(){
+    public static function getRootNodeName()
+    {
         return 'ReimbursementType';
     }
 
@@ -52,7 +53,8 @@ class ReimbursementType extends Remote\Object {
      *
      * @return string
      */
-    public static function getGUIDProperty(){
+    public static function getGUIDProperty()
+    {
         return 'ReimbursementTypeID';
     }
 
@@ -62,7 +64,8 @@ class ReimbursementType extends Remote\Object {
      *
      * @return string|null
      */
-    public static function getAPIStem(){
+    public static function getAPIStem()
+    {
         return Remote\URL::API_PAYROLL;
     }
 
@@ -70,7 +73,8 @@ class ReimbursementType extends Remote\Object {
     /**
      * Get the supported methods
      */
-    public static function getSupportedMethods() {
+    public static function getSupportedMethods()
+    {
         return array(
         );
     }
@@ -86,7 +90,8 @@ class ReimbursementType extends Remote\Object {
      *
      * @return array
      */
-    public static function getProperties() {
+    public static function getProperties()
+    {
         return array(
             'Name' => array (true, self::PROPERTY_TYPE_STRING, null, false, false),
             'AccountCode' => array (true, self::PROPERTY_TYPE_STRING, null, false, false),
@@ -94,14 +99,16 @@ class ReimbursementType extends Remote\Object {
         );
     }
 
-    public static function isPageable(){
+    public static function isPageable()
+    {
         return false;
     }
 
     /**
      * @return string
      */
-    public function getName() {
+    public function getName()
+    {
         return $this->_data['Name'];
     }
 
@@ -109,7 +116,8 @@ class ReimbursementType extends Remote\Object {
      * @param string $value
      * @return ReimbursementType
      */
-    public function setName($value) {
+    public function setName($value)
+    {
         $this->propertyUpdated('Name', $value);
         $this->_data['Name'] = $value;
         return $this;
@@ -118,7 +126,8 @@ class ReimbursementType extends Remote\Object {
     /**
      * @return string
      */
-    public function getAccountCode() {
+    public function getAccountCode()
+    {
         return $this->_data['AccountCode'];
     }
 
@@ -126,7 +135,8 @@ class ReimbursementType extends Remote\Object {
      * @param string $value
      * @return ReimbursementType
      */
-    public function setAccountCode($value) {
+    public function setAccountCode($value)
+    {
         $this->propertyUpdated('AccountCode', $value);
         $this->_data['AccountCode'] = $value;
         return $this;
@@ -135,7 +145,8 @@ class ReimbursementType extends Remote\Object {
     /**
      * @return string
      */
-    public function getReimbursementTypeID() {
+    public function getReimbursementTypeID()
+    {
         return $this->_data['ReimbursementTypeID'];
     }
 
@@ -143,7 +154,8 @@ class ReimbursementType extends Remote\Object {
      * @param string $value
      * @return ReimbursementType
      */
-    public function setReimbursementTypeID($value) {
+    public function setReimbursementTypeID($value)
+    {
         $this->propertyUpdated('ReimbursementTypeID', $value);
         $this->_data['ReimbursementTypeID'] = $value;
         return $this;

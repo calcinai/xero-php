@@ -1,11 +1,10 @@
 <?php
-
 namespace XeroPHP\Models\Accounting;
 
 use XeroPHP\Remote;
 
-
-class BrandingTheme extends Remote\Object {
+class BrandingTheme extends Remote\Object
+{
 
     /**
      * Xero identifier
@@ -38,7 +37,8 @@ class BrandingTheme extends Remote\Object {
      *
      * @return string
      */
-    public static function getResourceURI(){
+    public static function getResourceURI()
+    {
         return 'BrandingThemes';
     }
 
@@ -48,7 +48,8 @@ class BrandingTheme extends Remote\Object {
      *
      * @return string
      */
-    public static function getRootNodeName(){
+    public static function getRootNodeName()
+    {
         return 'BrandingTheme';
     }
 
@@ -58,7 +59,8 @@ class BrandingTheme extends Remote\Object {
      *
      * @return string
      */
-    public static function getGUIDProperty(){
+    public static function getGUIDProperty()
+    {
         return 'BrandingThemeID';
     }
 
@@ -68,7 +70,8 @@ class BrandingTheme extends Remote\Object {
      *
      * @return string|null
      */
-    public static function getAPIStem(){
+    public static function getAPIStem()
+    {
         return Remote\URL::API_CORE;
     }
 
@@ -76,7 +79,8 @@ class BrandingTheme extends Remote\Object {
     /**
      * Get the supported methods
      */
-    public static function getSupportedMethods() {
+    public static function getSupportedMethods()
+    {
         return array(
             Remote\Request::METHOD_GET
         );
@@ -93,7 +97,8 @@ class BrandingTheme extends Remote\Object {
      *
      * @return array
      */
-    public static function getProperties() {
+    public static function getProperties()
+    {
         return array(
             'BrandingThemeID' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'Name' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
@@ -102,14 +107,16 @@ class BrandingTheme extends Remote\Object {
         );
     }
 
-    public static function isPageable(){
+    public static function isPageable()
+    {
         return false;
     }
 
     /**
      * @return string
      */
-    public function getBrandingThemeID() {
+    public function getBrandingThemeID()
+    {
         return $this->_data['BrandingThemeID'];
     }
 
@@ -117,7 +124,8 @@ class BrandingTheme extends Remote\Object {
      * @param string $value
      * @return BrandingTheme
      */
-    public function setBrandingThemeID($value) {
+    public function setBrandingThemeID($value)
+    {
         $this->propertyUpdated('BrandingThemeID', $value);
         $this->_data['BrandingThemeID'] = $value;
         return $this;
@@ -126,7 +134,8 @@ class BrandingTheme extends Remote\Object {
     /**
      * @return string
      */
-    public function getName() {
+    public function getName()
+    {
         return $this->_data['Name'];
     }
 
@@ -134,7 +143,8 @@ class BrandingTheme extends Remote\Object {
      * @param string $value
      * @return BrandingTheme
      */
-    public function setName($value) {
+    public function setName($value)
+    {
         $this->propertyUpdated('Name', $value);
         $this->_data['Name'] = $value;
         return $this;
@@ -143,7 +153,8 @@ class BrandingTheme extends Remote\Object {
     /**
      * @return int
      */
-    public function getSortOrder() {
+    public function getSortOrder()
+    {
         return $this->_data['SortOrder'];
     }
 
@@ -151,7 +162,8 @@ class BrandingTheme extends Remote\Object {
      * @param int $value
      * @return BrandingTheme
      */
-    public function setSortOrder($value) {
+    public function setSortOrder($value)
+    {
         $this->propertyUpdated('SortOrder', $value);
         $this->_data['SortOrder'] = $value;
         return $this;
@@ -160,7 +172,8 @@ class BrandingTheme extends Remote\Object {
     /**
      * @return \DateTime
      */
-    public function getCreatedDateUTC() {
+    public function getCreatedDateUTC()
+    {
         return $this->_data['CreatedDateUTC'];
     }
 
@@ -168,7 +181,8 @@ class BrandingTheme extends Remote\Object {
      * @param \DateTime $value
      * @return BrandingTheme
      */
-    public function setCreatedDateUTC(\DateTime $value) {
+    public function setCreatedDateUTC(\DateTime $value)
+    {
         $this->propertyUpdated('CreatedDateUTC', $value);
         $this->_data['CreatedDateUTC'] = $value;
         return $this;

@@ -1,15 +1,13 @@
 <?php
-
 namespace XeroPHP\Models\Accounting;
 
 use XeroPHP\Remote;
-
 use XeroPHP\Traits\AttachmentTrait;
-
 use XeroPHP\Models\Accounting\Contact\ContactPerson;
 use XeroPHP\Models\Accounting\Organisation\PaymentTerm;
 
-class Contact extends Remote\Object {
+class Contact extends Remote\Object
+{
 
     use AttachmentTrait;
 
@@ -230,7 +228,8 @@ class Contact extends Remote\Object {
      *
      * @return string
      */
-    public static function getResourceURI(){
+    public static function getResourceURI()
+    {
         return 'Contacts';
     }
 
@@ -240,7 +239,8 @@ class Contact extends Remote\Object {
      *
      * @return string
      */
-    public static function getRootNodeName(){
+    public static function getRootNodeName()
+    {
         return 'Contact';
     }
 
@@ -250,7 +250,8 @@ class Contact extends Remote\Object {
      *
      * @return string
      */
-    public static function getGUIDProperty(){
+    public static function getGUIDProperty()
+    {
         return 'ContactID';
     }
 
@@ -260,7 +261,8 @@ class Contact extends Remote\Object {
      *
      * @return string|null
      */
-    public static function getAPIStem(){
+    public static function getAPIStem()
+    {
         return Remote\URL::API_CORE;
     }
 
@@ -268,7 +270,8 @@ class Contact extends Remote\Object {
     /**
      * Get the supported methods
      */
-    public static function getSupportedMethods() {
+    public static function getSupportedMethods()
+    {
         return array(
             Remote\Request::METHOD_POST,
             Remote\Request::METHOD_PUT,
@@ -287,7 +290,8 @@ class Contact extends Remote\Object {
      *
      * @return array
      */
-    public static function getProperties() {
+    public static function getProperties()
+    {
         return array(
             'ContactID' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'ContactNumber' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
@@ -325,14 +329,16 @@ class Contact extends Remote\Object {
         );
     }
 
-    public static function isPageable(){
+    public static function isPageable()
+    {
         return true;
     }
 
     /**
      * @return string
      */
-    public function getContactID() {
+    public function getContactID()
+    {
         return $this->_data['ContactID'];
     }
 
@@ -340,7 +346,8 @@ class Contact extends Remote\Object {
      * @param string $value
      * @return Contact
      */
-    public function setContactID($value) {
+    public function setContactID($value)
+    {
         $this->propertyUpdated('ContactID', $value);
         $this->_data['ContactID'] = $value;
         return $this;
@@ -349,7 +356,8 @@ class Contact extends Remote\Object {
     /**
      * @return string
      */
-    public function getContactNumber() {
+    public function getContactNumber()
+    {
         return $this->_data['ContactNumber'];
     }
 
@@ -357,7 +365,8 @@ class Contact extends Remote\Object {
      * @param string $value
      * @return Contact
      */
-    public function setContactNumber($value) {
+    public function setContactNumber($value)
+    {
         $this->propertyUpdated('ContactNumber', $value);
         $this->_data['ContactNumber'] = $value;
         return $this;
@@ -366,7 +375,8 @@ class Contact extends Remote\Object {
     /**
      * @return string
      */
-    public function getAccountNumber() {
+    public function getAccountNumber()
+    {
         return $this->_data['AccountNumber'];
     }
 
@@ -374,7 +384,8 @@ class Contact extends Remote\Object {
      * @param string $value
      * @return Contact
      */
-    public function setAccountNumber($value) {
+    public function setAccountNumber($value)
+    {
         $this->propertyUpdated('AccountNumber', $value);
         $this->_data['AccountNumber'] = $value;
         return $this;
@@ -383,7 +394,8 @@ class Contact extends Remote\Object {
     /**
      * @return string
      */
-    public function getContactStatus() {
+    public function getContactStatus()
+    {
         return $this->_data['ContactStatus'];
     }
 
@@ -391,7 +403,8 @@ class Contact extends Remote\Object {
      * @param string $value
      * @return Contact
      */
-    public function setContactStatus($value) {
+    public function setContactStatus($value)
+    {
         $this->propertyUpdated('ContactStatus', $value);
         $this->_data['ContactStatus'] = $value;
         return $this;
@@ -400,7 +413,8 @@ class Contact extends Remote\Object {
     /**
      * @return string
      */
-    public function getName() {
+    public function getName()
+    {
         return $this->_data['Name'];
     }
 
@@ -408,7 +422,8 @@ class Contact extends Remote\Object {
      * @param string $value
      * @return Contact
      */
-    public function setName($value) {
+    public function setName($value)
+    {
         $this->propertyUpdated('Name', $value);
         $this->_data['Name'] = $value;
         return $this;
@@ -417,7 +432,8 @@ class Contact extends Remote\Object {
     /**
      * @return string
      */
-    public function getFirstName() {
+    public function getFirstName()
+    {
         return $this->_data['FirstName'];
     }
 
@@ -425,7 +441,8 @@ class Contact extends Remote\Object {
      * @param string $value
      * @return Contact
      */
-    public function setFirstName($value) {
+    public function setFirstName($value)
+    {
         $this->propertyUpdated('FirstName', $value);
         $this->_data['FirstName'] = $value;
         return $this;
@@ -434,7 +451,8 @@ class Contact extends Remote\Object {
     /**
      * @return string
      */
-    public function getLastName() {
+    public function getLastName()
+    {
         return $this->_data['LastName'];
     }
 
@@ -442,7 +460,8 @@ class Contact extends Remote\Object {
      * @param string $value
      * @return Contact
      */
-    public function setLastName($value) {
+    public function setLastName($value)
+    {
         $this->propertyUpdated('LastName', $value);
         $this->_data['LastName'] = $value;
         return $this;
@@ -451,7 +470,8 @@ class Contact extends Remote\Object {
     /**
      * @return string
      */
-    public function getEmailAddress() {
+    public function getEmailAddress()
+    {
         return $this->_data['EmailAddress'];
     }
 
@@ -459,7 +479,8 @@ class Contact extends Remote\Object {
      * @param string $value
      * @return Contact
      */
-    public function setEmailAddress($value) {
+    public function setEmailAddress($value)
+    {
         $this->propertyUpdated('EmailAddress', $value);
         $this->_data['EmailAddress'] = $value;
         return $this;
@@ -468,7 +489,8 @@ class Contact extends Remote\Object {
     /**
      * @return string
      */
-    public function getSkypeUserName() {
+    public function getSkypeUserName()
+    {
         return $this->_data['SkypeUserName'];
     }
 
@@ -476,7 +498,8 @@ class Contact extends Remote\Object {
      * @param string $value
      * @return Contact
      */
-    public function setSkypeUserName($value) {
+    public function setSkypeUserName($value)
+    {
         $this->propertyUpdated('SkypeUserName', $value);
         $this->_data['SkypeUserName'] = $value;
         return $this;
@@ -486,7 +509,8 @@ class Contact extends Remote\Object {
      * @return ContactPerson[]|Remote\Collection
      * Always returns a collection, switch is for type hinting
      */
-    public function getContactPersons() {
+    public function getContactPersons()
+    {
         return $this->_data['ContactPersons'];
     }
 
@@ -494,7 +518,8 @@ class Contact extends Remote\Object {
      * @param ContactPerson $value
      * @return Contact
      */
-    public function addContactPerson(ContactPerson $value) {
+    public function addContactPerson(ContactPerson $value)
+    {
         $this->propertyUpdated('ContactPersons', $value);
         if(!isset($this->_data['ContactPersons'])){
             $this->_data['ContactPersons'] = new Remote\Collection();
@@ -506,7 +531,8 @@ class Contact extends Remote\Object {
     /**
      * @return string
      */
-    public function getBankAccountDetails() {
+    public function getBankAccountDetails()
+    {
         return $this->_data['BankAccountDetails'];
     }
 
@@ -514,7 +540,8 @@ class Contact extends Remote\Object {
      * @param string $value
      * @return Contact
      */
-    public function setBankAccountDetail($value) {
+    public function setBankAccountDetail($value)
+    {
         $this->propertyUpdated('BankAccountDetails', $value);
         $this->_data['BankAccountDetails'] = $value;
         return $this;
@@ -523,7 +550,8 @@ class Contact extends Remote\Object {
     /**
      * @return string
      */
-    public function getTaxNumber() {
+    public function getTaxNumber()
+    {
         return $this->_data['TaxNumber'];
     }
 
@@ -531,7 +559,8 @@ class Contact extends Remote\Object {
      * @param string $value
      * @return Contact
      */
-    public function setTaxNumber($value) {
+    public function setTaxNumber($value)
+    {
         $this->propertyUpdated('TaxNumber', $value);
         $this->_data['TaxNumber'] = $value;
         return $this;
@@ -540,7 +569,8 @@ class Contact extends Remote\Object {
     /**
      * @return string
      */
-    public function getAccountsReceivableTaxType() {
+    public function getAccountsReceivableTaxType()
+    {
         return $this->_data['AccountsReceivableTaxType'];
     }
 
@@ -548,7 +578,8 @@ class Contact extends Remote\Object {
      * @param string $value
      * @return Contact
      */
-    public function setAccountsReceivableTaxType($value) {
+    public function setAccountsReceivableTaxType($value)
+    {
         $this->propertyUpdated('AccountsReceivableTaxType', $value);
         $this->_data['AccountsReceivableTaxType'] = $value;
         return $this;
@@ -557,7 +588,8 @@ class Contact extends Remote\Object {
     /**
      * @return string
      */
-    public function getAccountsPayableTaxType() {
+    public function getAccountsPayableTaxType()
+    {
         return $this->_data['AccountsPayableTaxType'];
     }
 
@@ -565,7 +597,8 @@ class Contact extends Remote\Object {
      * @param string $value
      * @return Contact
      */
-    public function setAccountsPayableTaxType($value) {
+    public function setAccountsPayableTaxType($value)
+    {
         $this->propertyUpdated('AccountsPayableTaxType', $value);
         $this->_data['AccountsPayableTaxType'] = $value;
         return $this;
@@ -575,7 +608,8 @@ class Contact extends Remote\Object {
      * @return Address[]|Remote\Collection
      * Always returns a collection, switch is for type hinting
      */
-    public function getAddresses() {
+    public function getAddresses()
+    {
         return $this->_data['Addresses'];
     }
 
@@ -583,7 +617,8 @@ class Contact extends Remote\Object {
      * @param Address $value
      * @return Contact
      */
-    public function addAddress(Address $value) {
+    public function addAddress(Address $value)
+    {
         $this->propertyUpdated('Addresses', $value);
         if(!isset($this->_data['Addresses'])){
             $this->_data['Addresses'] = new Remote\Collection();
@@ -596,7 +631,8 @@ class Contact extends Remote\Object {
      * @return Phone[]|Remote\Collection
      * Always returns a collection, switch is for type hinting
      */
-    public function getPhones() {
+    public function getPhones()
+    {
         return $this->_data['Phones'];
     }
 
@@ -604,7 +640,8 @@ class Contact extends Remote\Object {
      * @param Phone $value
      * @return Contact
      */
-    public function addPhone(Phone $value) {
+    public function addPhone(Phone $value)
+    {
         $this->propertyUpdated('Phones', $value);
         if(!isset($this->_data['Phones'])){
             $this->_data['Phones'] = new Remote\Collection();
@@ -616,7 +653,8 @@ class Contact extends Remote\Object {
     /**
      * @return bool
      */
-    public function getIsSupplier() {
+    public function getIsSupplier()
+    {
         return $this->_data['IsSupplier'];
     }
 
@@ -624,7 +662,8 @@ class Contact extends Remote\Object {
      * @param bool $value
      * @return Contact
      */
-    public function setIsSupplier($value) {
+    public function setIsSupplier($value)
+    {
         $this->propertyUpdated('IsSupplier', $value);
         $this->_data['IsSupplier'] = $value;
         return $this;
@@ -633,7 +672,8 @@ class Contact extends Remote\Object {
     /**
      * @return bool
      */
-    public function getIsCustomer() {
+    public function getIsCustomer()
+    {
         return $this->_data['IsCustomer'];
     }
 
@@ -641,7 +681,8 @@ class Contact extends Remote\Object {
      * @param bool $value
      * @return Contact
      */
-    public function setIsCustomer($value) {
+    public function setIsCustomer($value)
+    {
         $this->propertyUpdated('IsCustomer', $value);
         $this->_data['IsCustomer'] = $value;
         return $this;
@@ -650,7 +691,8 @@ class Contact extends Remote\Object {
     /**
      * @return string
      */
-    public function getDefaultCurrency() {
+    public function getDefaultCurrency()
+    {
         return $this->_data['DefaultCurrency'];
     }
 
@@ -658,7 +700,8 @@ class Contact extends Remote\Object {
      * @param string $value
      * @return Contact
      */
-    public function setDefaultCurrency($value) {
+    public function setDefaultCurrency($value)
+    {
         $this->propertyUpdated('DefaultCurrency', $value);
         $this->_data['DefaultCurrency'] = $value;
         return $this;
@@ -667,7 +710,8 @@ class Contact extends Remote\Object {
     /**
      * @return string
      */
-    public function getXeroNetworkKey() {
+    public function getXeroNetworkKey()
+    {
         return $this->_data['XeroNetworkKey'];
     }
 
@@ -675,7 +719,8 @@ class Contact extends Remote\Object {
      * @param string $value
      * @return Contact
      */
-    public function setXeroNetworkKey($value) {
+    public function setXeroNetworkKey($value)
+    {
         $this->propertyUpdated('XeroNetworkKey', $value);
         $this->_data['XeroNetworkKey'] = $value;
         return $this;
@@ -684,7 +729,8 @@ class Contact extends Remote\Object {
     /**
      * @return string
      */
-    public function getSalesDefaultAccountCode() {
+    public function getSalesDefaultAccountCode()
+    {
         return $this->_data['SalesDefaultAccountCode'];
     }
 
@@ -692,7 +738,8 @@ class Contact extends Remote\Object {
      * @param string $value
      * @return Contact
      */
-    public function setSalesDefaultAccountCode($value) {
+    public function setSalesDefaultAccountCode($value)
+    {
         $this->propertyUpdated('SalesDefaultAccountCode', $value);
         $this->_data['SalesDefaultAccountCode'] = $value;
         return $this;
@@ -701,7 +748,8 @@ class Contact extends Remote\Object {
     /**
      * @return string
      */
-    public function getPurchasesDefaultAccountCode() {
+    public function getPurchasesDefaultAccountCode()
+    {
         return $this->_data['PurchasesDefaultAccountCode'];
     }
 
@@ -709,7 +757,8 @@ class Contact extends Remote\Object {
      * @param string $value
      * @return Contact
      */
-    public function setPurchasesDefaultAccountCode($value) {
+    public function setPurchasesDefaultAccountCode($value)
+    {
         $this->propertyUpdated('PurchasesDefaultAccountCode', $value);
         $this->_data['PurchasesDefaultAccountCode'] = $value;
         return $this;
@@ -719,7 +768,8 @@ class Contact extends Remote\Object {
      * @return TrackingCategory[]|Remote\Collection
      * Always returns a collection, switch is for type hinting
      */
-    public function getSalesTrackingCategories() {
+    public function getSalesTrackingCategories()
+    {
         return $this->_data['SalesTrackingCategories'];
     }
 
@@ -727,7 +777,8 @@ class Contact extends Remote\Object {
      * @param TrackingCategory $value
      * @return Contact
      */
-    public function addSalesTrackingCategory(TrackingCategory $value) {
+    public function addSalesTrackingCategory(TrackingCategory $value)
+    {
         $this->propertyUpdated('SalesTrackingCategories', $value);
         if(!isset($this->_data['SalesTrackingCategories'])){
             $this->_data['SalesTrackingCategories'] = new Remote\Collection();
@@ -740,7 +791,8 @@ class Contact extends Remote\Object {
      * @return TrackingCategory[]|Remote\Collection
      * Always returns a collection, switch is for type hinting
      */
-    public function getPurchasesTrackingCategories() {
+    public function getPurchasesTrackingCategories()
+    {
         return $this->_data['PurchasesTrackingCategories'];
     }
 
@@ -748,7 +800,8 @@ class Contact extends Remote\Object {
      * @param TrackingCategory $value
      * @return Contact
      */
-    public function addPurchasesTrackingCategory(TrackingCategory $value) {
+    public function addPurchasesTrackingCategory(TrackingCategory $value)
+    {
         $this->propertyUpdated('PurchasesTrackingCategories', $value);
         if(!isset($this->_data['PurchasesTrackingCategories'])){
             $this->_data['PurchasesTrackingCategories'] = new Remote\Collection();
@@ -761,7 +814,8 @@ class Contact extends Remote\Object {
      * @return PaymentTerm[]|Remote\Collection
      * Always returns a collection, switch is for type hinting
      */
-    public function getPaymentTerms() {
+    public function getPaymentTerms()
+    {
         return $this->_data['PaymentTerms'];
     }
 
@@ -769,7 +823,8 @@ class Contact extends Remote\Object {
      * @param PaymentTerm $value
      * @return Contact
      */
-    public function addPaymentTerm(PaymentTerm $value) {
+    public function addPaymentTerm(PaymentTerm $value)
+    {
         $this->propertyUpdated('PaymentTerms', $value);
         if(!isset($this->_data['PaymentTerms'])){
             $this->_data['PaymentTerms'] = new Remote\Collection();
@@ -781,7 +836,8 @@ class Contact extends Remote\Object {
     /**
      * @return \DateTime
      */
-    public function getUpdatedDateUTC() {
+    public function getUpdatedDateUTC()
+    {
         return $this->_data['UpdatedDateUTC'];
     }
 
@@ -789,7 +845,8 @@ class Contact extends Remote\Object {
      * @param \DateTime $value
      * @return Contact
      */
-    public function setUpdatedDateUTC(\DateTime $value) {
+    public function setUpdatedDateUTC(\DateTime $value)
+    {
         $this->propertyUpdated('UpdatedDateUTC', $value);
         $this->_data['UpdatedDateUTC'] = $value;
         return $this;
@@ -799,7 +856,8 @@ class Contact extends Remote\Object {
      * @return ContactGroup[]|Remote\Collection
      * Always returns a collection, switch is for type hinting
      */
-    public function getContactGroups() {
+    public function getContactGroups()
+    {
         return $this->_data['ContactGroups'];
     }
 
@@ -807,7 +865,8 @@ class Contact extends Remote\Object {
      * @param ContactGroup $value
      * @return Contact
      */
-    public function addContactGroup(ContactGroup $value) {
+    public function addContactGroup(ContactGroup $value)
+    {
         $this->propertyUpdated('ContactGroups', $value);
         if(!isset($this->_data['ContactGroups'])){
             $this->_data['ContactGroups'] = new Remote\Collection();
@@ -819,7 +878,8 @@ class Contact extends Remote\Object {
     /**
      * @return string
      */
-    public function getWebsite() {
+    public function getWebsite()
+    {
         return $this->_data['Website'];
     }
 
@@ -827,7 +887,8 @@ class Contact extends Remote\Object {
      * @param string $value
      * @return Contact
      */
-    public function setWebsite($value) {
+    public function setWebsite($value)
+    {
         $this->propertyUpdated('Website', $value);
         $this->_data['Website'] = $value;
         return $this;
@@ -836,7 +897,8 @@ class Contact extends Remote\Object {
     /**
      * @return BrandingTheme
      */
-    public function getBrandingTheme() {
+    public function getBrandingTheme()
+    {
         return $this->_data['BrandingTheme'];
     }
 
@@ -844,7 +906,8 @@ class Contact extends Remote\Object {
      * @param BrandingTheme $value
      * @return Contact
      */
-    public function setBrandingTheme(BrandingTheme $value) {
+    public function setBrandingTheme(BrandingTheme $value)
+    {
         $this->propertyUpdated('BrandingTheme', $value);
         $this->_data['BrandingTheme'] = $value;
         return $this;
@@ -853,7 +916,8 @@ class Contact extends Remote\Object {
     /**
      * @return string
      */
-    public function getBatchPayments() {
+    public function getBatchPayments()
+    {
         return $this->_data['BatchPayments'];
     }
 
@@ -861,7 +925,8 @@ class Contact extends Remote\Object {
      * @param string $value
      * @return Contact
      */
-    public function setBatchPayment($value) {
+    public function setBatchPayment($value)
+    {
         $this->propertyUpdated('BatchPayments', $value);
         $this->_data['BatchPayments'] = $value;
         return $this;
@@ -870,7 +935,8 @@ class Contact extends Remote\Object {
     /**
      * @return float
      */
-    public function getDiscount() {
+    public function getDiscount()
+    {
         return $this->_data['Discount'];
     }
 
@@ -878,7 +944,8 @@ class Contact extends Remote\Object {
      * @param float $value
      * @return Contact
      */
-    public function setDiscount($value) {
+    public function setDiscount($value)
+    {
         $this->propertyUpdated('Discount', $value);
         $this->_data['Discount'] = $value;
         return $this;
@@ -887,7 +954,8 @@ class Contact extends Remote\Object {
     /**
      * @return string
      */
-    public function getBalances() {
+    public function getBalances()
+    {
         return $this->_data['Balances'];
     }
 
@@ -895,7 +963,8 @@ class Contact extends Remote\Object {
      * @param string $value
      * @return Contact
      */
-    public function setBalance($value) {
+    public function setBalance($value)
+    {
         $this->propertyUpdated('Balances', $value);
         $this->_data['Balances'] = $value;
         return $this;
@@ -904,7 +973,8 @@ class Contact extends Remote\Object {
     /**
      * @return bool
      */
-    public function getHasAttachments() {
+    public function getHasAttachments()
+    {
         return $this->_data['HasAttachments'];
     }
 
@@ -912,7 +982,8 @@ class Contact extends Remote\Object {
      * @param bool $value
      * @return Contact
      */
-    public function setHasAttachment($value) {
+    public function setHasAttachment($value)
+    {
         $this->propertyUpdated('HasAttachments', $value);
         $this->_data['HasAttachments'] = $value;
         return $this;

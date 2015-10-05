@@ -1,11 +1,10 @@
 <?php
-
 namespace XeroPHP\Models\PayrollAU;
 
 use XeroPHP\Remote;
 
-
-class PayrollCalendar extends Remote\Object {
+class PayrollCalendar extends Remote\Object
+{
 
     /**
      * Xero identifier
@@ -52,7 +51,8 @@ class PayrollCalendar extends Remote\Object {
      *
      * @return string
      */
-    public static function getResourceURI(){
+    public static function getResourceURI()
+    {
         return 'PayrollCalendars';
     }
 
@@ -62,7 +62,8 @@ class PayrollCalendar extends Remote\Object {
      *
      * @return string
      */
-    public static function getRootNodeName(){
+    public static function getRootNodeName()
+    {
         return 'PayrollCalendar';
     }
 
@@ -72,7 +73,8 @@ class PayrollCalendar extends Remote\Object {
      *
      * @return string
      */
-    public static function getGUIDProperty(){
+    public static function getGUIDProperty()
+    {
         return 'PayrollCalendarID';
     }
 
@@ -82,7 +84,8 @@ class PayrollCalendar extends Remote\Object {
      *
      * @return string|null
      */
-    public static function getAPIStem(){
+    public static function getAPIStem()
+    {
         return Remote\URL::API_PAYROLL;
     }
 
@@ -90,7 +93,8 @@ class PayrollCalendar extends Remote\Object {
     /**
      * Get the supported methods
      */
-    public static function getSupportedMethods() {
+    public static function getSupportedMethods()
+    {
         return array(
             Remote\Request::METHOD_POST,
             Remote\Request::METHOD_GET
@@ -108,7 +112,8 @@ class PayrollCalendar extends Remote\Object {
      *
      * @return array
      */
-    public static function getProperties() {
+    public static function getProperties()
+    {
         return array(
             'PayrollCalendarID' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'Name' => array (true, self::PROPERTY_TYPE_STRING, null, false, false),
@@ -118,14 +123,16 @@ class PayrollCalendar extends Remote\Object {
         );
     }
 
-    public static function isPageable(){
+    public static function isPageable()
+    {
         return true;
     }
 
     /**
      * @return string
      */
-    public function getPayrollCalendarID() {
+    public function getPayrollCalendarID()
+    {
         return $this->_data['PayrollCalendarID'];
     }
 
@@ -133,7 +140,8 @@ class PayrollCalendar extends Remote\Object {
      * @param string $value
      * @return PayrollCalendar
      */
-    public function setPayrollCalendarID($value) {
+    public function setPayrollCalendarID($value)
+    {
         $this->propertyUpdated('PayrollCalendarID', $value);
         $this->_data['PayrollCalendarID'] = $value;
         return $this;
@@ -142,7 +150,8 @@ class PayrollCalendar extends Remote\Object {
     /**
      * @return string
      */
-    public function getName() {
+    public function getName()
+    {
         return $this->_data['Name'];
     }
 
@@ -150,7 +159,8 @@ class PayrollCalendar extends Remote\Object {
      * @param string $value
      * @return PayrollCalendar
      */
-    public function setName($value) {
+    public function setName($value)
+    {
         $this->propertyUpdated('Name', $value);
         $this->_data['Name'] = $value;
         return $this;
@@ -159,7 +169,8 @@ class PayrollCalendar extends Remote\Object {
     /**
      * @return string
      */
-    public function getCalendarType() {
+    public function getCalendarType()
+    {
         return $this->_data['CalendarType'];
     }
 
@@ -167,7 +178,8 @@ class PayrollCalendar extends Remote\Object {
      * @param string $value
      * @return PayrollCalendar
      */
-    public function setCalendarType($value) {
+    public function setCalendarType($value)
+    {
         $this->propertyUpdated('CalendarType', $value);
         $this->_data['CalendarType'] = $value;
         return $this;
@@ -176,7 +188,8 @@ class PayrollCalendar extends Remote\Object {
     /**
      * @return \DateTime
      */
-    public function getStartDate() {
+    public function getStartDate()
+    {
         return $this->_data['StartDate'];
     }
 
@@ -184,7 +197,8 @@ class PayrollCalendar extends Remote\Object {
      * @param \DateTime $value
      * @return PayrollCalendar
      */
-    public function setStartDate(\DateTime $value) {
+    public function setStartDate(\DateTime $value)
+    {
         $this->propertyUpdated('StartDate', $value);
         $this->_data['StartDate'] = $value;
         return $this;
@@ -193,7 +207,8 @@ class PayrollCalendar extends Remote\Object {
     /**
      * @return \DateTime
      */
-    public function getPaymentDate() {
+    public function getPaymentDate()
+    {
         return $this->_data['PaymentDate'];
     }
 
@@ -201,7 +216,8 @@ class PayrollCalendar extends Remote\Object {
      * @param \DateTime $value
      * @return PayrollCalendar
      */
-    public function setPaymentDate(\DateTime $value) {
+    public function setPaymentDate(\DateTime $value)
+    {
         $this->propertyUpdated('PaymentDate', $value);
         $this->_data['PaymentDate'] = $value;
         return $this;

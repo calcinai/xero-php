@@ -1,11 +1,10 @@
 <?php
-
 namespace XeroPHP\Models\PayrollAU\LeaveApplication;
 
 use XeroPHP\Remote;
 
-
-class LeavePeriod extends Remote\Object {
+class LeavePeriod extends Remote\Object
+{
 
     /**
      * The Number of Units for the leave
@@ -38,7 +37,8 @@ class LeavePeriod extends Remote\Object {
      *
      * @return string
      */
-    public static function getResourceURI(){
+    public static function getResourceURI()
+    {
         return 'LeavePeriod';
     }
 
@@ -48,7 +48,8 @@ class LeavePeriod extends Remote\Object {
      *
      * @return string
      */
-    public static function getRootNodeName(){
+    public static function getRootNodeName()
+    {
         return 'LeavePeriod';
     }
 
@@ -58,7 +59,8 @@ class LeavePeriod extends Remote\Object {
      *
      * @return string
      */
-    public static function getGUIDProperty(){
+    public static function getGUIDProperty()
+    {
         return '';
     }
 
@@ -68,7 +70,8 @@ class LeavePeriod extends Remote\Object {
      *
      * @return string|null
      */
-    public static function getAPIStem(){
+    public static function getAPIStem()
+    {
         return Remote\URL::API_PAYROLL;
     }
 
@@ -76,7 +79,8 @@ class LeavePeriod extends Remote\Object {
     /**
      * Get the supported methods
      */
-    public static function getSupportedMethods() {
+    public static function getSupportedMethods()
+    {
         return array(
         );
     }
@@ -92,7 +96,8 @@ class LeavePeriod extends Remote\Object {
      *
      * @return array
      */
-    public static function getProperties() {
+    public static function getProperties()
+    {
         return array(
             'NumberOfUnits' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'PayPeriodEndDate' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTime', false, false),
@@ -101,14 +106,16 @@ class LeavePeriod extends Remote\Object {
         );
     }
 
-    public static function isPageable(){
+    public static function isPageable()
+    {
         return false;
     }
 
     /**
      * @return string
      */
-    public function getNumberOfUnits() {
+    public function getNumberOfUnits()
+    {
         return $this->_data['NumberOfUnits'];
     }
 
@@ -116,7 +123,8 @@ class LeavePeriod extends Remote\Object {
      * @param string $value
      * @return LeavePeriod
      */
-    public function setNumberOfUnit($value) {
+    public function setNumberOfUnit($value)
+    {
         $this->propertyUpdated('NumberOfUnits', $value);
         $this->_data['NumberOfUnits'] = $value;
         return $this;
@@ -125,7 +133,8 @@ class LeavePeriod extends Remote\Object {
     /**
      * @return \DateTime
      */
-    public function getPayPeriodEndDate() {
+    public function getPayPeriodEndDate()
+    {
         return $this->_data['PayPeriodEndDate'];
     }
 
@@ -133,7 +142,8 @@ class LeavePeriod extends Remote\Object {
      * @param \DateTime $value
      * @return LeavePeriod
      */
-    public function setPayPeriodEndDate(\DateTime $value) {
+    public function setPayPeriodEndDate(\DateTime $value)
+    {
         $this->propertyUpdated('PayPeriodEndDate', $value);
         $this->_data['PayPeriodEndDate'] = $value;
         return $this;
@@ -142,7 +152,8 @@ class LeavePeriod extends Remote\Object {
     /**
      * @return \DateTime
      */
-    public function getPayPeriodStartDate() {
+    public function getPayPeriodStartDate()
+    {
         return $this->_data['PayPeriodStartDate'];
     }
 
@@ -150,7 +161,8 @@ class LeavePeriod extends Remote\Object {
      * @param \DateTime $value
      * @return LeavePeriod
      */
-    public function setPayPeriodStartDate(\DateTime $value) {
+    public function setPayPeriodStartDate(\DateTime $value)
+    {
         $this->propertyUpdated('PayPeriodStartDate', $value);
         $this->_data['PayPeriodStartDate'] = $value;
         return $this;
@@ -159,7 +171,8 @@ class LeavePeriod extends Remote\Object {
     /**
      * @return string
      */
-    public function getLeavePeriodStatus() {
+    public function getLeavePeriodStatus()
+    {
         return $this->_data['LeavePeriodStatus'];
     }
 
@@ -167,7 +180,8 @@ class LeavePeriod extends Remote\Object {
      * @param string $value
      * @return LeavePeriod
      */
-    public function setLeavePeriodStatus($value) {
+    public function setLeavePeriodStatus($value)
+    {
         $this->propertyUpdated('LeavePeriodStatus', $value);
         $this->_data['LeavePeriodStatus'] = $value;
         return $this;

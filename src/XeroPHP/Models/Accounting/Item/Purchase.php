@@ -1,16 +1,16 @@
 <?php
-
 namespace XeroPHP\Models\Accounting\Item;
 
 use XeroPHP\Remote;
 
-
-class Purchase extends Remote\Object {
+class Purchase extends Remote\Object
+{
 
     /**
-     * Unit Price of item
+     * Unit Price of the item. By default UnitPrice is rounded to two decimal places. You can use 4 decimal
+     * places by adding the unitdp=4 querystring parameter to your request.
      *
-     * @property string UnitPrice
+     * @property float UnitPrice
      */
 
     /**
@@ -40,7 +40,8 @@ class Purchase extends Remote\Object {
      *
      * @return string
      */
-    public static function getResourceURI(){
+    public static function getResourceURI()
+    {
         return 'Purchases';
     }
 
@@ -50,7 +51,8 @@ class Purchase extends Remote\Object {
      *
      * @return string
      */
-    public static function getRootNodeName(){
+    public static function getRootNodeName()
+    {
         return 'Purchase';
     }
 
@@ -60,7 +62,8 @@ class Purchase extends Remote\Object {
      *
      * @return string
      */
-    public static function getGUIDProperty(){
+    public static function getGUIDProperty()
+    {
         return '';
     }
 
@@ -70,7 +73,8 @@ class Purchase extends Remote\Object {
      *
      * @return string|null
      */
-    public static function getAPIStem(){
+    public static function getAPIStem()
+    {
         return Remote\URL::API_CORE;
     }
 
@@ -78,7 +82,8 @@ class Purchase extends Remote\Object {
     /**
      * Get the supported methods
      */
-    public static function getSupportedMethods() {
+    public static function getSupportedMethods()
+    {
         return array(
         );
     }
@@ -94,31 +99,35 @@ class Purchase extends Remote\Object {
      *
      * @return array
      */
-    public static function getProperties() {
+    public static function getProperties()
+    {
         return array(
-            'UnitPrice' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
+            'UnitPrice' => array (false, self::PROPERTY_TYPE_FLOAT, null, false, false),
             'AccountCode' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'TaxType' => array (false, self::PROPERTY_TYPE_ENUM, null, false, false),
             'UpdatedDateUTC' => array (false, self::PROPERTY_TYPE_TIMESTAMP, '\\DateTime', false, false)
         );
     }
 
-    public static function isPageable(){
+    public static function isPageable()
+    {
         return false;
     }
 
     /**
-     * @return string
+     * @return float
      */
-    public function getUnitPrice() {
+    public function getUnitPrice()
+    {
         return $this->_data['UnitPrice'];
     }
 
     /**
-     * @param string $value
+     * @param float $value
      * @return Purchase
      */
-    public function setUnitPrice($value) {
+    public function setUnitPrice($value)
+    {
         $this->propertyUpdated('UnitPrice', $value);
         $this->_data['UnitPrice'] = $value;
         return $this;
@@ -127,7 +136,8 @@ class Purchase extends Remote\Object {
     /**
      * @return string
      */
-    public function getAccountCode() {
+    public function getAccountCode()
+    {
         return $this->_data['AccountCode'];
     }
 
@@ -135,7 +145,8 @@ class Purchase extends Remote\Object {
      * @param string $value
      * @return Purchase
      */
-    public function setAccountCode($value) {
+    public function setAccountCode($value)
+    {
         $this->propertyUpdated('AccountCode', $value);
         $this->_data['AccountCode'] = $value;
         return $this;
@@ -144,7 +155,8 @@ class Purchase extends Remote\Object {
     /**
      * @return string
      */
-    public function getTaxType() {
+    public function getTaxType()
+    {
         return $this->_data['TaxType'];
     }
 
@@ -152,7 +164,8 @@ class Purchase extends Remote\Object {
      * @param string $value
      * @return Purchase
      */
-    public function setTaxType($value) {
+    public function setTaxType($value)
+    {
         $this->propertyUpdated('TaxType', $value);
         $this->_data['TaxType'] = $value;
         return $this;
@@ -162,7 +175,8 @@ class Purchase extends Remote\Object {
      * @return \DateTime
      * @deprecated
      */
-    public function getUpdatedDateUTC() {
+    public function getUpdatedDateUTC()
+    {
         return $this->_data['UpdatedDateUTC'];
     }
 
@@ -171,7 +185,8 @@ class Purchase extends Remote\Object {
      * @return Purchase
      * @deprecated
      */
-    public function setUpdatedDateUTC(\DateTime $value) {
+    public function setUpdatedDateUTC(\DateTime $value)
+    {
         $this->propertyUpdated('UpdatedDateUTC', $value);
         $this->_data['UpdatedDateUTC'] = $value;
         return $this;

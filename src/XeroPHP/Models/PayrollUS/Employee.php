@@ -1,9 +1,7 @@
 <?php
-
 namespace XeroPHP\Models\PayrollUS;
 
 use XeroPHP\Remote;
-
 use XeroPHP\Models\PayrollUS\Employee\HomeAddress;
 use XeroPHP\Models\PayrollUS\Employee\MailingAddress;
 use XeroPHP\Models\PayrollUS\Employee\SalaryAndWage;
@@ -12,7 +10,8 @@ use XeroPHP\Models\PayrollUS\Employee\PaymentMethod;
 use XeroPHP\Models\PayrollUS\Employee\PayTemplate;
 use XeroPHP\Models\PayrollUS\Employee\OpeningBalance;
 
-class Employee extends Remote\Object {
+class Employee extends Remote\Object
+{
 
     /**
      * First name of employee (max length = 35)
@@ -190,7 +189,8 @@ class Employee extends Remote\Object {
      *
      * @return string
      */
-    public static function getResourceURI(){
+    public static function getResourceURI()
+    {
         return 'Employees';
     }
 
@@ -200,7 +200,8 @@ class Employee extends Remote\Object {
      *
      * @return string
      */
-    public static function getRootNodeName(){
+    public static function getRootNodeName()
+    {
         return 'Employee';
     }
 
@@ -210,7 +211,8 @@ class Employee extends Remote\Object {
      *
      * @return string
      */
-    public static function getGUIDProperty(){
+    public static function getGUIDProperty()
+    {
         return 'EmployeeID';
     }
 
@@ -220,7 +222,8 @@ class Employee extends Remote\Object {
      *
      * @return string|null
      */
-    public static function getAPIStem(){
+    public static function getAPIStem()
+    {
         return Remote\URL::API_PAYROLL;
     }
 
@@ -228,7 +231,8 @@ class Employee extends Remote\Object {
     /**
      * Get the supported methods
      */
-    public static function getSupportedMethods() {
+    public static function getSupportedMethods()
+    {
         return array(
             Remote\Request::METHOD_POST,
             Remote\Request::METHOD_GET
@@ -246,7 +250,8 @@ class Employee extends Remote\Object {
      *
      * @return array
      */
-    public static function getProperties() {
+    public static function getProperties()
+    {
         return array(
             'FirstName' => array (true, self::PROPERTY_TYPE_STRING, null, false, false),
             'LastName' => array (true, self::PROPERTY_TYPE_STRING, null, false, false),
@@ -279,14 +284,16 @@ class Employee extends Remote\Object {
         );
     }
 
-    public static function isPageable(){
+    public static function isPageable()
+    {
         return true;
     }
 
     /**
      * @return string
      */
-    public function getFirstName() {
+    public function getFirstName()
+    {
         return $this->_data['FirstName'];
     }
 
@@ -294,7 +301,8 @@ class Employee extends Remote\Object {
      * @param string $value
      * @return Employee
      */
-    public function setFirstName($value) {
+    public function setFirstName($value)
+    {
         $this->propertyUpdated('FirstName', $value);
         $this->_data['FirstName'] = $value;
         return $this;
@@ -303,7 +311,8 @@ class Employee extends Remote\Object {
     /**
      * @return string
      */
-    public function getLastName() {
+    public function getLastName()
+    {
         return $this->_data['LastName'];
     }
 
@@ -311,7 +320,8 @@ class Employee extends Remote\Object {
      * @param string $value
      * @return Employee
      */
-    public function setLastName($value) {
+    public function setLastName($value)
+    {
         $this->propertyUpdated('LastName', $value);
         $this->_data['LastName'] = $value;
         return $this;
@@ -320,7 +330,8 @@ class Employee extends Remote\Object {
     /**
      * @return \DateTime
      */
-    public function getDateOfBirth() {
+    public function getDateOfBirth()
+    {
         return $this->_data['DateOfBirth'];
     }
 
@@ -328,7 +339,8 @@ class Employee extends Remote\Object {
      * @param \DateTime $value
      * @return Employee
      */
-    public function setDateOfBirth(\DateTime $value) {
+    public function setDateOfBirth(\DateTime $value)
+    {
         $this->propertyUpdated('DateOfBirth', $value);
         $this->_data['DateOfBirth'] = $value;
         return $this;
@@ -337,7 +349,8 @@ class Employee extends Remote\Object {
     /**
      * @return HomeAddress
      */
-    public function getHomeAddress() {
+    public function getHomeAddress()
+    {
         return $this->_data['HomeAddress'];
     }
 
@@ -345,7 +358,8 @@ class Employee extends Remote\Object {
      * @param HomeAddress $value
      * @return Employee
      */
-    public function setHomeAddress(HomeAddress $value) {
+    public function setHomeAddress(HomeAddress $value)
+    {
         $this->propertyUpdated('HomeAddress', $value);
         $this->_data['HomeAddress'] = $value;
         return $this;
@@ -354,7 +368,8 @@ class Employee extends Remote\Object {
     /**
      * @return string
      */
-    public function getMiddleNames() {
+    public function getMiddleNames()
+    {
         return $this->_data['MiddleNames'];
     }
 
@@ -362,7 +377,8 @@ class Employee extends Remote\Object {
      * @param string $value
      * @return Employee
      */
-    public function setMiddleName($value) {
+    public function setMiddleName($value)
+    {
         $this->propertyUpdated('MiddleNames', $value);
         $this->_data['MiddleNames'] = $value;
         return $this;
@@ -371,7 +387,8 @@ class Employee extends Remote\Object {
     /**
      * @return string
      */
-    public function getJobTitle() {
+    public function getJobTitle()
+    {
         return $this->_data['JobTitle'];
     }
 
@@ -379,7 +396,8 @@ class Employee extends Remote\Object {
      * @param string $value
      * @return Employee
      */
-    public function setJobTitle($value) {
+    public function setJobTitle($value)
+    {
         $this->propertyUpdated('JobTitle', $value);
         $this->_data['JobTitle'] = $value;
         return $this;
@@ -388,7 +406,8 @@ class Employee extends Remote\Object {
     /**
      * @return string
      */
-    public function getEmail() {
+    public function getEmail()
+    {
         return $this->_data['Email'];
     }
 
@@ -396,7 +415,8 @@ class Employee extends Remote\Object {
      * @param string $value
      * @return Employee
      */
-    public function setEmail($value) {
+    public function setEmail($value)
+    {
         $this->propertyUpdated('Email', $value);
         $this->_data['Email'] = $value;
         return $this;
@@ -405,7 +425,8 @@ class Employee extends Remote\Object {
     /**
      * @return string
      */
-    public function getGender() {
+    public function getGender()
+    {
         return $this->_data['Gender'];
     }
 
@@ -413,7 +434,8 @@ class Employee extends Remote\Object {
      * @param string $value
      * @return Employee
      */
-    public function setGender($value) {
+    public function setGender($value)
+    {
         $this->propertyUpdated('Gender', $value);
         $this->_data['Gender'] = $value;
         return $this;
@@ -422,7 +444,8 @@ class Employee extends Remote\Object {
     /**
      * @return MailingAddress
      */
-    public function getMailingAddress() {
+    public function getMailingAddress()
+    {
         return $this->_data['MailingAddress'];
     }
 
@@ -430,7 +453,8 @@ class Employee extends Remote\Object {
      * @param MailingAddress $value
      * @return Employee
      */
-    public function setMailingAddress(MailingAddress $value) {
+    public function setMailingAddress(MailingAddress $value)
+    {
         $this->propertyUpdated('MailingAddress', $value);
         $this->_data['MailingAddress'] = $value;
         return $this;
@@ -439,7 +463,8 @@ class Employee extends Remote\Object {
     /**
      * @return string
      */
-    public function getPhone() {
+    public function getPhone()
+    {
         return $this->_data['Phone'];
     }
 
@@ -447,7 +472,8 @@ class Employee extends Remote\Object {
      * @param string $value
      * @return Employee
      */
-    public function setPhone($value) {
+    public function setPhone($value)
+    {
         $this->propertyUpdated('Phone', $value);
         $this->_data['Phone'] = $value;
         return $this;
@@ -456,7 +482,8 @@ class Employee extends Remote\Object {
     /**
      * @return string
      */
-    public function getEmployeeNumber() {
+    public function getEmployeeNumber()
+    {
         return $this->_data['EmployeeNumber'];
     }
 
@@ -464,7 +491,8 @@ class Employee extends Remote\Object {
      * @param string $value
      * @return Employee
      */
-    public function setEmployeeNumber($value) {
+    public function setEmployeeNumber($value)
+    {
         $this->propertyUpdated('EmployeeNumber', $value);
         $this->_data['EmployeeNumber'] = $value;
         return $this;
@@ -473,7 +501,8 @@ class Employee extends Remote\Object {
     /**
      * @return string
      */
-    public function getSocialSecurityNumber() {
+    public function getSocialSecurityNumber()
+    {
         return $this->_data['SocialSecurityNumber'];
     }
 
@@ -481,7 +510,8 @@ class Employee extends Remote\Object {
      * @param string $value
      * @return Employee
      */
-    public function setSocialSecurityNumber($value) {
+    public function setSocialSecurityNumber($value)
+    {
         $this->propertyUpdated('SocialSecurityNumber', $value);
         $this->_data['SocialSecurityNumber'] = $value;
         return $this;
@@ -490,7 +520,8 @@ class Employee extends Remote\Object {
     /**
      * @return \DateTime
      */
-    public function getStartDate() {
+    public function getStartDate()
+    {
         return $this->_data['StartDate'];
     }
 
@@ -498,7 +529,8 @@ class Employee extends Remote\Object {
      * @param \DateTime $value
      * @return Employee
      */
-    public function setStartDate(\DateTime $value) {
+    public function setStartDate(\DateTime $value)
+    {
         $this->propertyUpdated('StartDate', $value);
         $this->_data['StartDate'] = $value;
         return $this;
@@ -507,7 +539,8 @@ class Employee extends Remote\Object {
     /**
      * @return \DateTime
      */
-    public function getTerminationDate() {
+    public function getTerminationDate()
+    {
         return $this->_data['TerminationDate'];
     }
 
@@ -515,7 +548,8 @@ class Employee extends Remote\Object {
      * @param \DateTime $value
      * @return Employee
      */
-    public function setTerminationDate(\DateTime $value) {
+    public function setTerminationDate(\DateTime $value)
+    {
         $this->propertyUpdated('TerminationDate', $value);
         $this->_data['TerminationDate'] = $value;
         return $this;
@@ -524,7 +558,8 @@ class Employee extends Remote\Object {
     /**
      * @return string
      */
-    public function getPayScheduleID() {
+    public function getPayScheduleID()
+    {
         return $this->_data['PayScheduleID'];
     }
 
@@ -532,7 +567,8 @@ class Employee extends Remote\Object {
      * @param string $value
      * @return Employee
      */
-    public function setPayScheduleID($value) {
+    public function setPayScheduleID($value)
+    {
         $this->propertyUpdated('PayScheduleID', $value);
         $this->_data['PayScheduleID'] = $value;
         return $this;
@@ -541,7 +577,8 @@ class Employee extends Remote\Object {
     /**
      * @return string
      */
-    public function getEmployeeGroupName() {
+    public function getEmployeeGroupName()
+    {
         return $this->_data['EmployeeGroupName'];
     }
 
@@ -549,7 +586,8 @@ class Employee extends Remote\Object {
      * @param string $value
      * @return Employee
      */
-    public function setEmployeeGroupName($value) {
+    public function setEmployeeGroupName($value)
+    {
         $this->propertyUpdated('EmployeeGroupName', $value);
         $this->_data['EmployeeGroupName'] = $value;
         return $this;
@@ -558,7 +596,8 @@ class Employee extends Remote\Object {
     /**
      * @return string
      */
-    public function getEmploymentBasis() {
+    public function getEmploymentBasis()
+    {
         return $this->_data['EmploymentBasis'];
     }
 
@@ -566,7 +605,8 @@ class Employee extends Remote\Object {
      * @param string $value
      * @return Employee
      */
-    public function setEmploymentBasis($value) {
+    public function setEmploymentBasis($value)
+    {
         $this->propertyUpdated('EmploymentBasis', $value);
         $this->_data['EmploymentBasis'] = $value;
         return $this;
@@ -575,7 +615,8 @@ class Employee extends Remote\Object {
     /**
      * @return string
      */
-    public function getHolidayGroupID() {
+    public function getHolidayGroupID()
+    {
         return $this->_data['HolidayGroupID'];
     }
 
@@ -583,7 +624,8 @@ class Employee extends Remote\Object {
      * @param string $value
      * @return Employee
      */
-    public function setHolidayGroupID($value) {
+    public function setHolidayGroupID($value)
+    {
         $this->propertyUpdated('HolidayGroupID', $value);
         $this->_data['HolidayGroupID'] = $value;
         return $this;
@@ -592,7 +634,8 @@ class Employee extends Remote\Object {
     /**
      * @return bool
      */
-    public function getIsAuthorisedToApproveTimeOff() {
+    public function getIsAuthorisedToApproveTimeOff()
+    {
         return $this->_data['IsAuthorisedToApproveTimeOff'];
     }
 
@@ -600,7 +643,8 @@ class Employee extends Remote\Object {
      * @param bool $value
      * @return Employee
      */
-    public function setIsAuthorisedToApproveTimeOff($value) {
+    public function setIsAuthorisedToApproveTimeOff($value)
+    {
         $this->propertyUpdated('IsAuthorisedToApproveTimeOff', $value);
         $this->_data['IsAuthorisedToApproveTimeOff'] = $value;
         return $this;
@@ -609,7 +653,8 @@ class Employee extends Remote\Object {
     /**
      * @return bool
      */
-    public function getIsAuthorisedToApproveTimesheets() {
+    public function getIsAuthorisedToApproveTimesheets()
+    {
         return $this->_data['IsAuthorisedToApproveTimesheets'];
     }
 
@@ -617,7 +662,8 @@ class Employee extends Remote\Object {
      * @param bool $value
      * @return Employee
      */
-    public function setIsAuthorisedToApproveTimesheet($value) {
+    public function setIsAuthorisedToApproveTimesheet($value)
+    {
         $this->propertyUpdated('IsAuthorisedToApproveTimesheets', $value);
         $this->_data['IsAuthorisedToApproveTimesheets'] = $value;
         return $this;
@@ -627,7 +673,8 @@ class Employee extends Remote\Object {
      * @return SalaryAndWage[]|Remote\Collection
      * Always returns a collection, switch is for type hinting
      */
-    public function getSalaryAndWages() {
+    public function getSalaryAndWages()
+    {
         return $this->_data['SalaryAndWages'];
     }
 
@@ -635,7 +682,8 @@ class Employee extends Remote\Object {
      * @param SalaryAndWage $value
      * @return Employee
      */
-    public function addSalaryAndWage(SalaryAndWage $value) {
+    public function addSalaryAndWage(SalaryAndWage $value)
+    {
         $this->propertyUpdated('SalaryAndWages', $value);
         if(!isset($this->_data['SalaryAndWages'])){
             $this->_data['SalaryAndWages'] = new Remote\Collection();
@@ -648,7 +696,8 @@ class Employee extends Remote\Object {
      * @return WorkLocation[]|Remote\Collection
      * Always returns a collection, switch is for type hinting
      */
-    public function getWorkLocations() {
+    public function getWorkLocations()
+    {
         return $this->_data['WorkLocations'];
     }
 
@@ -656,7 +705,8 @@ class Employee extends Remote\Object {
      * @param WorkLocation $value
      * @return Employee
      */
-    public function addWorkLocation(WorkLocation $value) {
+    public function addWorkLocation(WorkLocation $value)
+    {
         $this->propertyUpdated('WorkLocations', $value);
         if(!isset($this->_data['WorkLocations'])){
             $this->_data['WorkLocations'] = new Remote\Collection();
@@ -668,7 +718,8 @@ class Employee extends Remote\Object {
     /**
      * @return PaymentMethod
      */
-    public function getPaymentMethod() {
+    public function getPaymentMethod()
+    {
         return $this->_data['PaymentMethod'];
     }
 
@@ -676,7 +727,8 @@ class Employee extends Remote\Object {
      * @param PaymentMethod $value
      * @return Employee
      */
-    public function setPaymentMethod(PaymentMethod $value) {
+    public function setPaymentMethod(PaymentMethod $value)
+    {
         $this->propertyUpdated('PaymentMethod', $value);
         $this->_data['PaymentMethod'] = $value;
         return $this;
@@ -685,7 +737,8 @@ class Employee extends Remote\Object {
     /**
      * @return PayTemplate
      */
-    public function getPayTemplate() {
+    public function getPayTemplate()
+    {
         return $this->_data['PayTemplate'];
     }
 
@@ -693,7 +746,8 @@ class Employee extends Remote\Object {
      * @param PayTemplate $value
      * @return Employee
      */
-    public function setPayTemplate(PayTemplate $value) {
+    public function setPayTemplate(PayTemplate $value)
+    {
         $this->propertyUpdated('PayTemplate', $value);
         $this->_data['PayTemplate'] = $value;
         return $this;
@@ -703,7 +757,8 @@ class Employee extends Remote\Object {
      * @return OpeningBalance[]|Remote\Collection
      * Always returns a collection, switch is for type hinting
      */
-    public function getOpeningBalances() {
+    public function getOpeningBalances()
+    {
         return $this->_data['OpeningBalances'];
     }
 
@@ -711,7 +766,8 @@ class Employee extends Remote\Object {
      * @param OpeningBalance $value
      * @return Employee
      */
-    public function addOpeningBalance(OpeningBalance $value) {
+    public function addOpeningBalance(OpeningBalance $value)
+    {
         $this->propertyUpdated('OpeningBalances', $value);
         if(!isset($this->_data['OpeningBalances'])){
             $this->_data['OpeningBalances'] = new Remote\Collection();
@@ -723,7 +779,8 @@ class Employee extends Remote\Object {
     /**
      * @return string
      */
-    public function getEmployeeID() {
+    public function getEmployeeID()
+    {
         return $this->_data['EmployeeID'];
     }
 
@@ -731,7 +788,8 @@ class Employee extends Remote\Object {
      * @param string $value
      * @return Employee
      */
-    public function setEmployeeID($value) {
+    public function setEmployeeID($value)
+    {
         $this->propertyUpdated('EmployeeID', $value);
         $this->_data['EmployeeID'] = $value;
         return $this;
@@ -740,7 +798,8 @@ class Employee extends Remote\Object {
     /**
      * @return string
      */
-    public function getStatus() {
+    public function getStatus()
+    {
         return $this->_data['Status'];
     }
 
@@ -748,7 +807,8 @@ class Employee extends Remote\Object {
      * @param string $value
      * @return Employee
      */
-    public function setStatus($value) {
+    public function setStatus($value)
+    {
         $this->propertyUpdated('Status', $value);
         $this->_data['Status'] = $value;
         return $this;
@@ -757,7 +817,8 @@ class Employee extends Remote\Object {
     /**
      * @return \DateTime
      */
-    public function getUpdatedDateUTC() {
+    public function getUpdatedDateUTC()
+    {
         return $this->_data['UpdatedDateUTC'];
     }
 
@@ -765,7 +826,8 @@ class Employee extends Remote\Object {
      * @param \DateTime $value
      * @return Employee
      */
-    public function setUpdatedDateUTC(\DateTime $value) {
+    public function setUpdatedDateUTC(\DateTime $value)
+    {
         $this->propertyUpdated('UpdatedDateUTC', $value);
         $this->_data['UpdatedDateUTC'] = $value;
         return $this;

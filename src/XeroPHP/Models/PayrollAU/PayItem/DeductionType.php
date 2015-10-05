@@ -1,11 +1,10 @@
 <?php
-
 namespace XeroPHP\Models\PayrollAU\PayItem;
 
 use XeroPHP\Remote;
 
-
-class DeductionType extends Remote\Object {
+class DeductionType extends Remote\Object
+{
 
     /**
      * Name of the deduction type (max length = 50)
@@ -46,7 +45,8 @@ class DeductionType extends Remote\Object {
      *
      * @return string
      */
-    public static function getResourceURI(){
+    public static function getResourceURI()
+    {
         return 'DeductionTypes';
     }
 
@@ -56,7 +56,8 @@ class DeductionType extends Remote\Object {
      *
      * @return string
      */
-    public static function getRootNodeName(){
+    public static function getRootNodeName()
+    {
         return 'DeductionType';
     }
 
@@ -66,7 +67,8 @@ class DeductionType extends Remote\Object {
      *
      * @return string
      */
-    public static function getGUIDProperty(){
+    public static function getGUIDProperty()
+    {
         return 'DeductionTypeID';
     }
 
@@ -76,7 +78,8 @@ class DeductionType extends Remote\Object {
      *
      * @return string|null
      */
-    public static function getAPIStem(){
+    public static function getAPIStem()
+    {
         return Remote\URL::API_PAYROLL;
     }
 
@@ -84,7 +87,8 @@ class DeductionType extends Remote\Object {
     /**
      * Get the supported methods
      */
-    public static function getSupportedMethods() {
+    public static function getSupportedMethods()
+    {
         return array(
         );
     }
@@ -100,7 +104,8 @@ class DeductionType extends Remote\Object {
      *
      * @return array
      */
-    public static function getProperties() {
+    public static function getProperties()
+    {
         return array(
             'Name' => array (true, self::PROPERTY_TYPE_STRING, null, false, false),
             'AccountCode' => array (true, self::PROPERTY_TYPE_STRING, null, false, false),
@@ -110,14 +115,16 @@ class DeductionType extends Remote\Object {
         );
     }
 
-    public static function isPageable(){
+    public static function isPageable()
+    {
         return false;
     }
 
     /**
      * @return string
      */
-    public function getName() {
+    public function getName()
+    {
         return $this->_data['Name'];
     }
 
@@ -125,7 +132,8 @@ class DeductionType extends Remote\Object {
      * @param string $value
      * @return DeductionType
      */
-    public function setName($value) {
+    public function setName($value)
+    {
         $this->propertyUpdated('Name', $value);
         $this->_data['Name'] = $value;
         return $this;
@@ -134,7 +142,8 @@ class DeductionType extends Remote\Object {
     /**
      * @return string
      */
-    public function getAccountCode() {
+    public function getAccountCode()
+    {
         return $this->_data['AccountCode'];
     }
 
@@ -142,7 +151,8 @@ class DeductionType extends Remote\Object {
      * @param string $value
      * @return DeductionType
      */
-    public function setAccountCode($value) {
+    public function setAccountCode($value)
+    {
         $this->propertyUpdated('AccountCode', $value);
         $this->_data['AccountCode'] = $value;
         return $this;
@@ -151,7 +161,8 @@ class DeductionType extends Remote\Object {
     /**
      * @return float
      */
-    public function getReducesTax() {
+    public function getReducesTax()
+    {
         return $this->_data['ReducesTax'];
     }
 
@@ -159,7 +170,8 @@ class DeductionType extends Remote\Object {
      * @param float $value
      * @return DeductionType
      */
-    public function setReducesTax($value) {
+    public function setReducesTax($value)
+    {
         $this->propertyUpdated('ReducesTax', $value);
         $this->_data['ReducesTax'] = $value;
         return $this;
@@ -168,7 +180,8 @@ class DeductionType extends Remote\Object {
     /**
      * @return string
      */
-    public function getReducesSuper() {
+    public function getReducesSuper()
+    {
         return $this->_data['ReducesSuper'];
     }
 
@@ -176,7 +189,8 @@ class DeductionType extends Remote\Object {
      * @param string $value
      * @return DeductionType
      */
-    public function setReducesSuper($value) {
+    public function setReducesSuper($value)
+    {
         $this->propertyUpdated('ReducesSuper', $value);
         $this->_data['ReducesSuper'] = $value;
         return $this;
@@ -185,7 +199,8 @@ class DeductionType extends Remote\Object {
     /**
      * @return string
      */
-    public function getDeductionTypeID() {
+    public function getDeductionTypeID()
+    {
         return $this->_data['DeductionTypeID'];
     }
 
@@ -193,7 +208,8 @@ class DeductionType extends Remote\Object {
      * @param string $value
      * @return DeductionType
      */
-    public function setDeductionTypeID($value) {
+    public function setDeductionTypeID($value)
+    {
         $this->propertyUpdated('DeductionTypeID', $value);
         $this->_data['DeductionTypeID'] = $value;
         return $this;

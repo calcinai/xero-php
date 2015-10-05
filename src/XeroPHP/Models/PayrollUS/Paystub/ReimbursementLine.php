@@ -1,11 +1,10 @@
 <?php
-
 namespace XeroPHP\Models\PayrollUS\Paystub;
 
 use XeroPHP\Remote;
 
-
-class ReimbursementLine extends Remote\Object {
+class ReimbursementLine extends Remote\Object
+{
 
     /**
      * Xero identifier for payroll reimbursement type
@@ -38,7 +37,8 @@ class ReimbursementLine extends Remote\Object {
      *
      * @return string
      */
-    public static function getResourceURI(){
+    public static function getResourceURI()
+    {
         return 'ReimbursementLine';
     }
 
@@ -48,7 +48,8 @@ class ReimbursementLine extends Remote\Object {
      *
      * @return string
      */
-    public static function getRootNodeName(){
+    public static function getRootNodeName()
+    {
         return 'ReimbursementLine';
     }
 
@@ -58,7 +59,8 @@ class ReimbursementLine extends Remote\Object {
      *
      * @return string
      */
-    public static function getGUIDProperty(){
+    public static function getGUIDProperty()
+    {
         return '';
     }
 
@@ -68,7 +70,8 @@ class ReimbursementLine extends Remote\Object {
      *
      * @return string|null
      */
-    public static function getAPIStem(){
+    public static function getAPIStem()
+    {
         return Remote\URL::API_PAYROLL;
     }
 
@@ -76,7 +79,8 @@ class ReimbursementLine extends Remote\Object {
     /**
      * Get the supported methods
      */
-    public static function getSupportedMethods() {
+    public static function getSupportedMethods()
+    {
         return array(
         );
     }
@@ -92,7 +96,8 @@ class ReimbursementLine extends Remote\Object {
      *
      * @return array
      */
-    public static function getProperties() {
+    public static function getProperties()
+    {
         return array(
             'ReimbursementTypeID' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'Description' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
@@ -101,14 +106,16 @@ class ReimbursementLine extends Remote\Object {
         );
     }
 
-    public static function isPageable(){
+    public static function isPageable()
+    {
         return false;
     }
 
     /**
      * @return string
      */
-    public function getReimbursementTypeID() {
+    public function getReimbursementTypeID()
+    {
         return $this->_data['ReimbursementTypeID'];
     }
 
@@ -116,7 +123,8 @@ class ReimbursementLine extends Remote\Object {
      * @param string $value
      * @return ReimbursementLine
      */
-    public function setReimbursementTypeID($value) {
+    public function setReimbursementTypeID($value)
+    {
         $this->propertyUpdated('ReimbursementTypeID', $value);
         $this->_data['ReimbursementTypeID'] = $value;
         return $this;
@@ -125,7 +133,8 @@ class ReimbursementLine extends Remote\Object {
     /**
      * @return string
      */
-    public function getDescription() {
+    public function getDescription()
+    {
         return $this->_data['Description'];
     }
 
@@ -133,7 +142,8 @@ class ReimbursementLine extends Remote\Object {
      * @param string $value
      * @return ReimbursementLine
      */
-    public function setDescription($value) {
+    public function setDescription($value)
+    {
         $this->propertyUpdated('Description', $value);
         $this->_data['Description'] = $value;
         return $this;
@@ -142,7 +152,8 @@ class ReimbursementLine extends Remote\Object {
     /**
      * @return string
      */
-    public function getExpenseAccount() {
+    public function getExpenseAccount()
+    {
         return $this->_data['ExpenseAccount'];
     }
 
@@ -150,7 +161,8 @@ class ReimbursementLine extends Remote\Object {
      * @param string $value
      * @return ReimbursementLine
      */
-    public function setExpenseAccount($value) {
+    public function setExpenseAccount($value)
+    {
         $this->propertyUpdated('ExpenseAccount', $value);
         $this->_data['ExpenseAccount'] = $value;
         return $this;
@@ -159,7 +171,8 @@ class ReimbursementLine extends Remote\Object {
     /**
      * @return float
      */
-    public function getAmount() {
+    public function getAmount()
+    {
         return $this->_data['Amount'];
     }
 
@@ -167,7 +180,8 @@ class ReimbursementLine extends Remote\Object {
      * @param float $value
      * @return ReimbursementLine
      */
-    public function setAmount($value) {
+    public function setAmount($value)
+    {
         $this->propertyUpdated('Amount', $value);
         $this->_data['Amount'] = $value;
         return $this;

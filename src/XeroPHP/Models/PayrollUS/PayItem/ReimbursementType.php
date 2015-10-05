@@ -1,11 +1,10 @@
 <?php
-
 namespace XeroPHP\Models\PayrollUS\PayItem;
 
 use XeroPHP\Remote;
 
-
-class ReimbursementType extends Remote\Object {
+class ReimbursementType extends Remote\Object
+{
 
     /**
      * Name of the reimbursement type (max length = 50)
@@ -32,7 +31,8 @@ class ReimbursementType extends Remote\Object {
      *
      * @return string
      */
-    public static function getResourceURI(){
+    public static function getResourceURI()
+    {
         return 'ReimbursementTypes';
     }
 
@@ -42,7 +42,8 @@ class ReimbursementType extends Remote\Object {
      *
      * @return string
      */
-    public static function getRootNodeName(){
+    public static function getRootNodeName()
+    {
         return 'ReimbursementType';
     }
 
@@ -52,7 +53,8 @@ class ReimbursementType extends Remote\Object {
      *
      * @return string
      */
-    public static function getGUIDProperty(){
+    public static function getGUIDProperty()
+    {
         return 'ReimbursementTypeID';
     }
 
@@ -62,7 +64,8 @@ class ReimbursementType extends Remote\Object {
      *
      * @return string|null
      */
-    public static function getAPIStem(){
+    public static function getAPIStem()
+    {
         return Remote\URL::API_PAYROLL;
     }
 
@@ -70,7 +73,8 @@ class ReimbursementType extends Remote\Object {
     /**
      * Get the supported methods
      */
-    public static function getSupportedMethods() {
+    public static function getSupportedMethods()
+    {
         return array(
         );
     }
@@ -86,7 +90,8 @@ class ReimbursementType extends Remote\Object {
      *
      * @return array
      */
-    public static function getProperties() {
+    public static function getProperties()
+    {
         return array(
             'ReimbursementType' => array (true, self::PROPERTY_TYPE_OBJECT, 'PayrollUS\\PayItem\\ReimbursementType', false, false),
             'ExpenseOrLiabilityAccountCode' => array (true, self::PROPERTY_TYPE_STRING, null, false, false),
@@ -94,14 +99,16 @@ class ReimbursementType extends Remote\Object {
         );
     }
 
-    public static function isPageable(){
+    public static function isPageable()
+    {
         return false;
     }
 
     /**
      * @return ReimbursementType
      */
-    public function getReimbursementType() {
+    public function getReimbursementType()
+    {
         return $this->_data['ReimbursementType'];
     }
 
@@ -109,7 +116,8 @@ class ReimbursementType extends Remote\Object {
      * @param ReimbursementType $value
      * @return ReimbursementType
      */
-    public function setReimbursementType(ReimbursementType $value) {
+    public function setReimbursementType(ReimbursementType $value)
+    {
         $this->propertyUpdated('ReimbursementType', $value);
         $this->_data['ReimbursementType'] = $value;
         return $this;
@@ -118,7 +126,8 @@ class ReimbursementType extends Remote\Object {
     /**
      * @return string
      */
-    public function getExpenseOrLiabilityAccountCode() {
+    public function getExpenseOrLiabilityAccountCode()
+    {
         return $this->_data['ExpenseOrLiabilityAccountCode'];
     }
 
@@ -126,7 +135,8 @@ class ReimbursementType extends Remote\Object {
      * @param string $value
      * @return ReimbursementType
      */
-    public function setExpenseOrLiabilityAccountCode($value) {
+    public function setExpenseOrLiabilityAccountCode($value)
+    {
         $this->propertyUpdated('ExpenseOrLiabilityAccountCode', $value);
         $this->_data['ExpenseOrLiabilityAccountCode'] = $value;
         return $this;
@@ -135,7 +145,8 @@ class ReimbursementType extends Remote\Object {
     /**
      * @return string
      */
-    public function getReimbursementTypeID() {
+    public function getReimbursementTypeID()
+    {
         return $this->_data['ReimbursementTypeID'];
     }
 
@@ -143,7 +154,8 @@ class ReimbursementType extends Remote\Object {
      * @param string $value
      * @return ReimbursementType
      */
-    public function setReimbursementTypeID($value) {
+    public function setReimbursementTypeID($value)
+    {
         $this->propertyUpdated('ReimbursementTypeID', $value);
         $this->_data['ReimbursementTypeID'] = $value;
         return $this;
