@@ -1,13 +1,12 @@
 <?php
-
 namespace XeroPHP\Models\Accounting\Journal;
 
 use XeroPHP\Remote;
-
 use XeroPHP\Models\Accounting\TaxRate;
 use XeroPHP\Models\Accounting\TrackingCategory;
 
-class JournalLine extends Remote\Object {
+class JournalLine extends Remote\Object
+{
 
     /**
      * Xero identifier
@@ -88,7 +87,8 @@ class JournalLine extends Remote\Object {
      *
      * @return string
      */
-    public static function getResourceURI(){
+    public static function getResourceURI()
+    {
         return 'JournalLines';
     }
 
@@ -98,7 +98,8 @@ class JournalLine extends Remote\Object {
      *
      * @return string
      */
-    public static function getRootNodeName(){
+    public static function getRootNodeName()
+    {
         return 'JournalLine';
     }
 
@@ -108,7 +109,8 @@ class JournalLine extends Remote\Object {
      *
      * @return string
      */
-    public static function getGUIDProperty(){
+    public static function getGUIDProperty()
+    {
         return 'JournalLineID';
     }
 
@@ -118,7 +120,8 @@ class JournalLine extends Remote\Object {
      *
      * @return string|null
      */
-    public static function getAPIStem(){
+    public static function getAPIStem()
+    {
         return Remote\URL::API_CORE;
     }
 
@@ -126,7 +129,8 @@ class JournalLine extends Remote\Object {
     /**
      * Get the supported methods
      */
-    public static function getSupportedMethods() {
+    public static function getSupportedMethods()
+    {
         return array(
         );
     }
@@ -142,7 +146,8 @@ class JournalLine extends Remote\Object {
      *
      * @return array
      */
-    public static function getProperties() {
+    public static function getProperties()
+    {
         return array(
             'JournalLineID' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'AccountID' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
@@ -159,14 +164,16 @@ class JournalLine extends Remote\Object {
         );
     }
 
-    public static function isPageable(){
+    public static function isPageable()
+    {
         return false;
     }
 
     /**
      * @return string
      */
-    public function getJournalLineID() {
+    public function getJournalLineID()
+    {
         return $this->_data['JournalLineID'];
     }
 
@@ -174,7 +181,8 @@ class JournalLine extends Remote\Object {
      * @param string $value
      * @return JournalLine
      */
-    public function setJournalLineID($value) {
+    public function setJournalLineID($value)
+    {
         $this->propertyUpdated('JournalLineID', $value);
         $this->_data['JournalLineID'] = $value;
         return $this;
@@ -183,7 +191,8 @@ class JournalLine extends Remote\Object {
     /**
      * @return string
      */
-    public function getAccountID() {
+    public function getAccountID()
+    {
         return $this->_data['AccountID'];
     }
 
@@ -191,7 +200,8 @@ class JournalLine extends Remote\Object {
      * @param string $value
      * @return JournalLine
      */
-    public function setAccountID($value) {
+    public function setAccountID($value)
+    {
         $this->propertyUpdated('AccountID', $value);
         $this->_data['AccountID'] = $value;
         return $this;
@@ -200,7 +210,8 @@ class JournalLine extends Remote\Object {
     /**
      * @return string
      */
-    public function getAccountCode() {
+    public function getAccountCode()
+    {
         return $this->_data['AccountCode'];
     }
 
@@ -208,7 +219,8 @@ class JournalLine extends Remote\Object {
      * @param string $value
      * @return JournalLine
      */
-    public function setAccountCode($value) {
+    public function setAccountCode($value)
+    {
         $this->propertyUpdated('AccountCode', $value);
         $this->_data['AccountCode'] = $value;
         return $this;
@@ -217,7 +229,8 @@ class JournalLine extends Remote\Object {
     /**
      * @return string
      */
-    public function getAccountType() {
+    public function getAccountType()
+    {
         return $this->_data['AccountType'];
     }
 
@@ -225,7 +238,8 @@ class JournalLine extends Remote\Object {
      * @param string $value
      * @return JournalLine
      */
-    public function setAccountType($value) {
+    public function setAccountType($value)
+    {
         $this->propertyUpdated('AccountType', $value);
         $this->_data['AccountType'] = $value;
         return $this;
@@ -234,7 +248,8 @@ class JournalLine extends Remote\Object {
     /**
      * @return string
      */
-    public function getAccountName() {
+    public function getAccountName()
+    {
         return $this->_data['AccountName'];
     }
 
@@ -242,7 +257,8 @@ class JournalLine extends Remote\Object {
      * @param string $value
      * @return JournalLine
      */
-    public function setAccountName($value) {
+    public function setAccountName($value)
+    {
         $this->propertyUpdated('AccountName', $value);
         $this->_data['AccountName'] = $value;
         return $this;
@@ -251,7 +267,8 @@ class JournalLine extends Remote\Object {
     /**
      * @return string
      */
-    public function getDescription() {
+    public function getDescription()
+    {
         return $this->_data['Description'];
     }
 
@@ -259,7 +276,8 @@ class JournalLine extends Remote\Object {
      * @param string $value
      * @return JournalLine
      */
-    public function setDescription($value) {
+    public function setDescription($value)
+    {
         $this->propertyUpdated('Description', $value);
         $this->_data['Description'] = $value;
         return $this;
@@ -268,7 +286,8 @@ class JournalLine extends Remote\Object {
     /**
      * @return float
      */
-    public function getNetAmount() {
+    public function getNetAmount()
+    {
         return $this->_data['NetAmount'];
     }
 
@@ -276,7 +295,8 @@ class JournalLine extends Remote\Object {
      * @param float $value
      * @return JournalLine
      */
-    public function setNetAmount($value) {
+    public function setNetAmount($value)
+    {
         $this->propertyUpdated('NetAmount', $value);
         $this->_data['NetAmount'] = $value;
         return $this;
@@ -285,7 +305,8 @@ class JournalLine extends Remote\Object {
     /**
      * @return float
      */
-    public function getGrossAmount() {
+    public function getGrossAmount()
+    {
         return $this->_data['GrossAmount'];
     }
 
@@ -293,7 +314,8 @@ class JournalLine extends Remote\Object {
      * @param float $value
      * @return JournalLine
      */
-    public function setGrossAmount($value) {
+    public function setGrossAmount($value)
+    {
         $this->propertyUpdated('GrossAmount', $value);
         $this->_data['GrossAmount'] = $value;
         return $this;
@@ -302,7 +324,8 @@ class JournalLine extends Remote\Object {
     /**
      * @return float
      */
-    public function getTaxAmount() {
+    public function getTaxAmount()
+    {
         return $this->_data['TaxAmount'];
     }
 
@@ -310,7 +333,8 @@ class JournalLine extends Remote\Object {
      * @param float $value
      * @return JournalLine
      */
-    public function setTaxAmount($value) {
+    public function setTaxAmount($value)
+    {
         $this->propertyUpdated('TaxAmount', $value);
         $this->_data['TaxAmount'] = $value;
         return $this;
@@ -319,7 +343,8 @@ class JournalLine extends Remote\Object {
     /**
      * @return string
      */
-    public function getTaxType() {
+    public function getTaxType()
+    {
         return $this->_data['TaxType'];
     }
 
@@ -327,7 +352,8 @@ class JournalLine extends Remote\Object {
      * @param string $value
      * @return JournalLine
      */
-    public function setTaxType($value) {
+    public function setTaxType($value)
+    {
         $this->propertyUpdated('TaxType', $value);
         $this->_data['TaxType'] = $value;
         return $this;
@@ -336,7 +362,8 @@ class JournalLine extends Remote\Object {
     /**
      * @return TaxRate
      */
-    public function getTaxName() {
+    public function getTaxName()
+    {
         return $this->_data['TaxName'];
     }
 
@@ -344,7 +371,8 @@ class JournalLine extends Remote\Object {
      * @param TaxRate $value
      * @return JournalLine
      */
-    public function setTaxName(TaxRate $value) {
+    public function setTaxName(TaxRate $value)
+    {
         $this->propertyUpdated('TaxName', $value);
         $this->_data['TaxName'] = $value;
         return $this;
@@ -354,7 +382,8 @@ class JournalLine extends Remote\Object {
      * @return TrackingCategory[]|Remote\Collection
      * Always returns a collection, switch is for type hinting
      */
-    public function getTrackingCategories() {
+    public function getTrackingCategories()
+    {
         return $this->_data['TrackingCategories'];
     }
 
@@ -362,7 +391,8 @@ class JournalLine extends Remote\Object {
      * @param TrackingCategory $value
      * @return JournalLine
      */
-    public function addTrackingCategory(TrackingCategory $value) {
+    public function addTrackingCategory(TrackingCategory $value)
+    {
         $this->propertyUpdated('TrackingCategories', $value);
         if(!isset($this->_data['TrackingCategories'])){
             $this->_data['TrackingCategories'] = new Remote\Collection();

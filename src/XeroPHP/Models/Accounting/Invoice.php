@@ -1,15 +1,13 @@
 <?php
-
 namespace XeroPHP\Models\Accounting;
 
 use XeroPHP\Remote;
-
 use XeroPHP\Traits\PDFTrait;
 use XeroPHP\Traits\AttachmentTrait;
-
 use XeroPHP\Models\Accounting\Invoice\LineItem;
 
-class Invoice extends Remote\Object {
+class Invoice extends Remote\Object
+{
 
     use PDFTrait;
     use AttachmentTrait;
@@ -225,7 +223,8 @@ class Invoice extends Remote\Object {
      *
      * @return string
      */
-    public static function getResourceURI(){
+    public static function getResourceURI()
+    {
         return 'Invoices';
     }
 
@@ -235,7 +234,8 @@ class Invoice extends Remote\Object {
      *
      * @return string
      */
-    public static function getRootNodeName(){
+    public static function getRootNodeName()
+    {
         return 'Invoice';
     }
 
@@ -245,7 +245,8 @@ class Invoice extends Remote\Object {
      *
      * @return string
      */
-    public static function getGUIDProperty(){
+    public static function getGUIDProperty()
+    {
         return 'InvoiceID';
     }
 
@@ -255,7 +256,8 @@ class Invoice extends Remote\Object {
      *
      * @return string|null
      */
-    public static function getAPIStem(){
+    public static function getAPIStem()
+    {
         return Remote\URL::API_CORE;
     }
 
@@ -263,7 +265,8 @@ class Invoice extends Remote\Object {
     /**
      * Get the supported methods
      */
-    public static function getSupportedMethods() {
+    public static function getSupportedMethods()
+    {
         return array(
             Remote\Request::METHOD_GET,
             Remote\Request::METHOD_PUT,
@@ -282,7 +285,8 @@ class Invoice extends Remote\Object {
      *
      * @return array
      */
-    public static function getProperties() {
+    public static function getProperties()
+    {
         return array(
             'Type' => array (true, self::PROPERTY_TYPE_ENUM, null, false, false),
             'Contact' => array (true, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Contact', false, false),
@@ -318,14 +322,16 @@ class Invoice extends Remote\Object {
         );
     }
 
-    public static function isPageable(){
+    public static function isPageable()
+    {
         return true;
     }
 
     /**
      * @return string
      */
-    public function getType() {
+    public function getType()
+    {
         return $this->_data['Type'];
     }
 
@@ -333,7 +339,8 @@ class Invoice extends Remote\Object {
      * @param string $value
      * @return Invoice
      */
-    public function setType($value) {
+    public function setType($value)
+    {
         $this->propertyUpdated('Type', $value);
         $this->_data['Type'] = $value;
         return $this;
@@ -342,7 +349,8 @@ class Invoice extends Remote\Object {
     /**
      * @return Contact
      */
-    public function getContact() {
+    public function getContact()
+    {
         return $this->_data['Contact'];
     }
 
@@ -350,7 +358,8 @@ class Invoice extends Remote\Object {
      * @param Contact $value
      * @return Invoice
      */
-    public function setContact(Contact $value) {
+    public function setContact(Contact $value)
+    {
         $this->propertyUpdated('Contact', $value);
         $this->_data['Contact'] = $value;
         return $this;
@@ -360,7 +369,8 @@ class Invoice extends Remote\Object {
      * @return LineItem[]|Remote\Collection
      * Always returns a collection, switch is for type hinting
      */
-    public function getLineItems() {
+    public function getLineItems()
+    {
         return $this->_data['LineItems'];
     }
 
@@ -368,7 +378,8 @@ class Invoice extends Remote\Object {
      * @param LineItem $value
      * @return Invoice
      */
-    public function addLineItem(LineItem $value) {
+    public function addLineItem(LineItem $value)
+    {
         $this->propertyUpdated('LineItems', $value);
         if(!isset($this->_data['LineItems'])){
             $this->_data['LineItems'] = new Remote\Collection();
@@ -380,7 +391,8 @@ class Invoice extends Remote\Object {
     /**
      * @return \DateTime
      */
-    public function getDate() {
+    public function getDate()
+    {
         return $this->_data['Date'];
     }
 
@@ -388,7 +400,8 @@ class Invoice extends Remote\Object {
      * @param \DateTime $value
      * @return Invoice
      */
-    public function setDate(\DateTime $value) {
+    public function setDate(\DateTime $value)
+    {
         $this->propertyUpdated('Date', $value);
         $this->_data['Date'] = $value;
         return $this;
@@ -397,7 +410,8 @@ class Invoice extends Remote\Object {
     /**
      * @return \DateTime
      */
-    public function getDueDate() {
+    public function getDueDate()
+    {
         return $this->_data['DueDate'];
     }
 
@@ -405,7 +419,8 @@ class Invoice extends Remote\Object {
      * @param \DateTime $value
      * @return Invoice
      */
-    public function setDueDate(\DateTime $value) {
+    public function setDueDate(\DateTime $value)
+    {
         $this->propertyUpdated('DueDate', $value);
         $this->_data['DueDate'] = $value;
         return $this;
@@ -414,7 +429,8 @@ class Invoice extends Remote\Object {
     /**
      * @return string
      */
-    public function getLineAmountTypes() {
+    public function getLineAmountTypes()
+    {
         return $this->_data['LineAmountTypes'];
     }
 
@@ -422,7 +438,8 @@ class Invoice extends Remote\Object {
      * @param string $value
      * @return Invoice
      */
-    public function setLineAmountType($value) {
+    public function setLineAmountType($value)
+    {
         $this->propertyUpdated('LineAmountTypes', $value);
         $this->_data['LineAmountTypes'] = $value;
         return $this;
@@ -431,7 +448,8 @@ class Invoice extends Remote\Object {
     /**
      * @return string
      */
-    public function getInvoiceNumber() {
+    public function getInvoiceNumber()
+    {
         return $this->_data['InvoiceNumber'];
     }
 
@@ -439,7 +457,8 @@ class Invoice extends Remote\Object {
      * @param string $value
      * @return Invoice
      */
-    public function setInvoiceNumber($value) {
+    public function setInvoiceNumber($value)
+    {
         $this->propertyUpdated('InvoiceNumber', $value);
         $this->_data['InvoiceNumber'] = $value;
         return $this;
@@ -448,7 +467,8 @@ class Invoice extends Remote\Object {
     /**
      * @return string
      */
-    public function getReference() {
+    public function getReference()
+    {
         return $this->_data['Reference'];
     }
 
@@ -456,7 +476,8 @@ class Invoice extends Remote\Object {
      * @param string $value
      * @return Invoice
      */
-    public function setReference($value) {
+    public function setReference($value)
+    {
         $this->propertyUpdated('Reference', $value);
         $this->_data['Reference'] = $value;
         return $this;
@@ -465,7 +486,8 @@ class Invoice extends Remote\Object {
     /**
      * @return string
      */
-    public function getBrandingThemeID() {
+    public function getBrandingThemeID()
+    {
         return $this->_data['BrandingThemeID'];
     }
 
@@ -473,7 +495,8 @@ class Invoice extends Remote\Object {
      * @param string $value
      * @return Invoice
      */
-    public function setBrandingThemeID($value) {
+    public function setBrandingThemeID($value)
+    {
         $this->propertyUpdated('BrandingThemeID', $value);
         $this->_data['BrandingThemeID'] = $value;
         return $this;
@@ -482,7 +505,8 @@ class Invoice extends Remote\Object {
     /**
      * @return string
      */
-    public function getUrl() {
+    public function getUrl()
+    {
         return $this->_data['Url'];
     }
 
@@ -490,7 +514,8 @@ class Invoice extends Remote\Object {
      * @param string $value
      * @return Invoice
      */
-    public function setUrl($value) {
+    public function setUrl($value)
+    {
         $this->propertyUpdated('Url', $value);
         $this->_data['Url'] = $value;
         return $this;
@@ -499,7 +524,8 @@ class Invoice extends Remote\Object {
     /**
      * @return string
      */
-    public function getCurrencyCode() {
+    public function getCurrencyCode()
+    {
         return $this->_data['CurrencyCode'];
     }
 
@@ -507,7 +533,8 @@ class Invoice extends Remote\Object {
      * @param string $value
      * @return Invoice
      */
-    public function setCurrencyCode($value) {
+    public function setCurrencyCode($value)
+    {
         $this->propertyUpdated('CurrencyCode', $value);
         $this->_data['CurrencyCode'] = $value;
         return $this;
@@ -516,7 +543,8 @@ class Invoice extends Remote\Object {
     /**
      * @return float
      */
-    public function getCurrencyRate() {
+    public function getCurrencyRate()
+    {
         return $this->_data['CurrencyRate'];
     }
 
@@ -524,7 +552,8 @@ class Invoice extends Remote\Object {
      * @param float $value
      * @return Invoice
      */
-    public function setCurrencyRate($value) {
+    public function setCurrencyRate($value)
+    {
         $this->propertyUpdated('CurrencyRate', $value);
         $this->_data['CurrencyRate'] = $value;
         return $this;
@@ -533,7 +562,8 @@ class Invoice extends Remote\Object {
     /**
      * @return string
      */
-    public function getStatus() {
+    public function getStatus()
+    {
         return $this->_data['Status'];
     }
 
@@ -541,7 +571,8 @@ class Invoice extends Remote\Object {
      * @param string $value
      * @return Invoice
      */
-    public function setStatus($value) {
+    public function setStatus($value)
+    {
         $this->propertyUpdated('Status', $value);
         $this->_data['Status'] = $value;
         return $this;
@@ -550,7 +581,8 @@ class Invoice extends Remote\Object {
     /**
      * @return bool
      */
-    public function getSentToContact() {
+    public function getSentToContact()
+    {
         return $this->_data['SentToContact'];
     }
 
@@ -558,7 +590,8 @@ class Invoice extends Remote\Object {
      * @param bool $value
      * @return Invoice
      */
-    public function setSentToContact($value) {
+    public function setSentToContact($value)
+    {
         $this->propertyUpdated('SentToContact', $value);
         $this->_data['SentToContact'] = $value;
         return $this;
@@ -567,7 +600,8 @@ class Invoice extends Remote\Object {
     /**
      * @return string
      */
-    public function getExpectedPaymentDate() {
+    public function getExpectedPaymentDate()
+    {
         return $this->_data['ExpectedPaymentDate'];
     }
 
@@ -575,7 +609,8 @@ class Invoice extends Remote\Object {
      * @param string $value
      * @return Invoice
      */
-    public function setExpectedPaymentDate($value) {
+    public function setExpectedPaymentDate($value)
+    {
         $this->propertyUpdated('ExpectedPaymentDate', $value);
         $this->_data['ExpectedPaymentDate'] = $value;
         return $this;
@@ -584,7 +619,8 @@ class Invoice extends Remote\Object {
     /**
      * @return string
      */
-    public function getPlannedPaymentDate() {
+    public function getPlannedPaymentDate()
+    {
         return $this->_data['PlannedPaymentDate'];
     }
 
@@ -592,7 +628,8 @@ class Invoice extends Remote\Object {
      * @param string $value
      * @return Invoice
      */
-    public function setPlannedPaymentDate($value) {
+    public function setPlannedPaymentDate($value)
+    {
         $this->propertyUpdated('PlannedPaymentDate', $value);
         $this->_data['PlannedPaymentDate'] = $value;
         return $this;
@@ -601,7 +638,8 @@ class Invoice extends Remote\Object {
     /**
      * @return float
      */
-    public function getSubTotal() {
+    public function getSubTotal()
+    {
         return $this->_data['SubTotal'];
     }
 
@@ -609,7 +647,8 @@ class Invoice extends Remote\Object {
     /**
      * @return float
      */
-    public function getTotalTax() {
+    public function getTotalTax()
+    {
         return $this->_data['TotalTax'];
     }
 
@@ -617,7 +656,8 @@ class Invoice extends Remote\Object {
     /**
      * @return float
      */
-    public function getTotal() {
+    public function getTotal()
+    {
         return $this->_data['Total'];
     }
 
@@ -625,7 +665,8 @@ class Invoice extends Remote\Object {
     /**
      * @return float
      */
-    public function getTotalDiscount() {
+    public function getTotalDiscount()
+    {
         return $this->_data['TotalDiscount'];
     }
 
@@ -633,7 +674,8 @@ class Invoice extends Remote\Object {
     /**
      * @return string
      */
-    public function getInvoiceID() {
+    public function getInvoiceID()
+    {
         return $this->_data['InvoiceID'];
     }
 
@@ -641,7 +683,8 @@ class Invoice extends Remote\Object {
      * @param string $value
      * @return Invoice
      */
-    public function setInvoiceID($value) {
+    public function setInvoiceID($value)
+    {
         $this->propertyUpdated('InvoiceID', $value);
         $this->_data['InvoiceID'] = $value;
         return $this;
@@ -650,7 +693,8 @@ class Invoice extends Remote\Object {
     /**
      * @return bool
      */
-    public function getHasAttachments() {
+    public function getHasAttachments()
+    {
         return $this->_data['HasAttachments'];
     }
 
@@ -659,7 +703,8 @@ class Invoice extends Remote\Object {
      * @return Payment[]|Remote\Collection
      * Always returns a collection, switch is for type hinting
      */
-    public function getPayments() {
+    public function getPayments()
+    {
         return $this->_data['Payments'];
     }
 
@@ -668,7 +713,8 @@ class Invoice extends Remote\Object {
      * @return Prepayment[]|Remote\Collection
      * Always returns a collection, switch is for type hinting
      */
-    public function getPrepayments() {
+    public function getPrepayments()
+    {
         return $this->_data['Prepayments'];
     }
 
@@ -677,7 +723,8 @@ class Invoice extends Remote\Object {
      * @return Overpayment[]|Remote\Collection
      * Always returns a collection, switch is for type hinting
      */
-    public function getOverpayments() {
+    public function getOverpayments()
+    {
         return $this->_data['Overpayments'];
     }
 
@@ -685,7 +732,8 @@ class Invoice extends Remote\Object {
     /**
      * @return float
      */
-    public function getAmountDue() {
+    public function getAmountDue()
+    {
         return $this->_data['AmountDue'];
     }
 
@@ -693,7 +741,8 @@ class Invoice extends Remote\Object {
     /**
      * @return float
      */
-    public function getAmountPaid() {
+    public function getAmountPaid()
+    {
         return $this->_data['AmountPaid'];
     }
 
@@ -701,7 +750,8 @@ class Invoice extends Remote\Object {
     /**
      * @return \DateTime
      */
-    public function getFullyPaidOnDate() {
+    public function getFullyPaidOnDate()
+    {
         return $this->_data['FullyPaidOnDate'];
     }
 
@@ -709,7 +759,8 @@ class Invoice extends Remote\Object {
     /**
      * @return float
      */
-    public function getAmountCredited() {
+    public function getAmountCredited()
+    {
         return $this->_data['AmountCredited'];
     }
 
@@ -717,7 +768,8 @@ class Invoice extends Remote\Object {
     /**
      * @return \DateTime
      */
-    public function getUpdatedDateUTC() {
+    public function getUpdatedDateUTC()
+    {
         return $this->_data['UpdatedDateUTC'];
     }
 
@@ -726,7 +778,8 @@ class Invoice extends Remote\Object {
      * @return CreditNote[]|Remote\Collection
      * Always returns a collection, switch is for type hinting
      */
-    public function getCreditNotes() {
+    public function getCreditNotes()
+    {
         return $this->_data['CreditNotes'];
     }
 

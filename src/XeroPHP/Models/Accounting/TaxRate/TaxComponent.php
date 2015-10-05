@@ -1,11 +1,10 @@
 <?php
-
 namespace XeroPHP\Models\Accounting\TaxRate;
 
 use XeroPHP\Remote;
 
-
-class TaxComponent extends Remote\Object {
+class TaxComponent extends Remote\Object
+{
 
     /**
      * Name of Tax Component
@@ -32,7 +31,8 @@ class TaxComponent extends Remote\Object {
      *
      * @return string
      */
-    public static function getResourceURI(){
+    public static function getResourceURI()
+    {
         return 'TaxComponents';
     }
 
@@ -42,7 +42,8 @@ class TaxComponent extends Remote\Object {
      *
      * @return string
      */
-    public static function getRootNodeName(){
+    public static function getRootNodeName()
+    {
         return 'TaxComponent';
     }
 
@@ -52,7 +53,8 @@ class TaxComponent extends Remote\Object {
      *
      * @return string
      */
-    public static function getGUIDProperty(){
+    public static function getGUIDProperty()
+    {
         return '';
     }
 
@@ -62,7 +64,8 @@ class TaxComponent extends Remote\Object {
      *
      * @return string|null
      */
-    public static function getAPIStem(){
+    public static function getAPIStem()
+    {
         return Remote\URL::API_CORE;
     }
 
@@ -70,7 +73,8 @@ class TaxComponent extends Remote\Object {
     /**
      * Get the supported methods
      */
-    public static function getSupportedMethods() {
+    public static function getSupportedMethods()
+    {
         return array(
         );
     }
@@ -86,7 +90,8 @@ class TaxComponent extends Remote\Object {
      *
      * @return array
      */
-    public static function getProperties() {
+    public static function getProperties()
+    {
         return array(
             'Name' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'Rate' => array (false, self::PROPERTY_TYPE_FLOAT, null, false, false),
@@ -94,14 +99,16 @@ class TaxComponent extends Remote\Object {
         );
     }
 
-    public static function isPageable(){
+    public static function isPageable()
+    {
         return false;
     }
 
     /**
      * @return string
      */
-    public function getName() {
+    public function getName()
+    {
         return $this->_data['Name'];
     }
 
@@ -109,7 +116,8 @@ class TaxComponent extends Remote\Object {
      * @param string $value
      * @return TaxComponent
      */
-    public function setName($value) {
+    public function setName($value)
+    {
         $this->propertyUpdated('Name', $value);
         $this->_data['Name'] = $value;
         return $this;
@@ -118,7 +126,8 @@ class TaxComponent extends Remote\Object {
     /**
      * @return float
      */
-    public function getRate() {
+    public function getRate()
+    {
         return $this->_data['Rate'];
     }
 
@@ -126,7 +135,8 @@ class TaxComponent extends Remote\Object {
      * @param float $value
      * @return TaxComponent
      */
-    public function setRate($value) {
+    public function setRate($value)
+    {
         $this->propertyUpdated('Rate', $value);
         $this->_data['Rate'] = $value;
         return $this;
@@ -135,7 +145,8 @@ class TaxComponent extends Remote\Object {
     /**
      * @return float
      */
-    public function getIsCompound() {
+    public function getIsCompound()
+    {
         return $this->_data['IsCompound'];
     }
 
@@ -143,7 +154,8 @@ class TaxComponent extends Remote\Object {
      * @param float $value
      * @return TaxComponent
      */
-    public function setIsCompound($value) {
+    public function setIsCompound($value)
+    {
         $this->propertyUpdated('IsCompound', $value);
         $this->_data['IsCompound'] = $value;
         return $this;

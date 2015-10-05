@@ -1,11 +1,10 @@
 <?php
-
 namespace XeroPHP\Models\PayrollAU\Employee;
 
 use XeroPHP\Remote;
 
-
-class TaxDeclaration extends Remote\Object {
+class TaxDeclaration extends Remote\Object
+{
 
     /**
      * Xero employee identifier. e.g c56b19ef-75bf-45e8-98a4-e699a96609f7
@@ -104,7 +103,8 @@ class TaxDeclaration extends Remote\Object {
      *
      * @return string
      */
-    public static function getResourceURI(){
+    public static function getResourceURI()
+    {
         return 'TaxDeclaration';
     }
 
@@ -114,7 +114,8 @@ class TaxDeclaration extends Remote\Object {
      *
      * @return string
      */
-    public static function getRootNodeName(){
+    public static function getRootNodeName()
+    {
         return 'TaxDeclaration';
     }
 
@@ -124,7 +125,8 @@ class TaxDeclaration extends Remote\Object {
      *
      * @return string
      */
-    public static function getGUIDProperty(){
+    public static function getGUIDProperty()
+    {
         return '';
     }
 
@@ -134,7 +136,8 @@ class TaxDeclaration extends Remote\Object {
      *
      * @return string|null
      */
-    public static function getAPIStem(){
+    public static function getAPIStem()
+    {
         return Remote\URL::API_PAYROLL;
     }
 
@@ -142,7 +145,8 @@ class TaxDeclaration extends Remote\Object {
     /**
      * Get the supported methods
      */
-    public static function getSupportedMethods() {
+    public static function getSupportedMethods()
+    {
         return array(
         );
     }
@@ -158,7 +162,8 @@ class TaxDeclaration extends Remote\Object {
      *
      * @return array
      */
-    public static function getProperties() {
+    public static function getProperties()
+    {
         return array(
             'EmployeeID' => array (true, self::PROPERTY_TYPE_STRING, null, false, false),
             'EmploymentBasis' => array (true, self::PROPERTY_TYPE_ENUM, null, false, false),
@@ -176,14 +181,16 @@ class TaxDeclaration extends Remote\Object {
         );
     }
 
-    public static function isPageable(){
+    public static function isPageable()
+    {
         return false;
     }
 
     /**
      * @return string
      */
-    public function getEmployeeID() {
+    public function getEmployeeID()
+    {
         return $this->_data['EmployeeID'];
     }
 
@@ -191,7 +198,8 @@ class TaxDeclaration extends Remote\Object {
      * @param string $value
      * @return TaxDeclaration
      */
-    public function setEmployeeID($value) {
+    public function setEmployeeID($value)
+    {
         $this->propertyUpdated('EmployeeID', $value);
         $this->_data['EmployeeID'] = $value;
         return $this;
@@ -200,7 +208,8 @@ class TaxDeclaration extends Remote\Object {
     /**
      * @return string
      */
-    public function getEmploymentBasis() {
+    public function getEmploymentBasis()
+    {
         return $this->_data['EmploymentBasis'];
     }
 
@@ -208,7 +217,8 @@ class TaxDeclaration extends Remote\Object {
      * @param string $value
      * @return TaxDeclaration
      */
-    public function setEmploymentBasis($value) {
+    public function setEmploymentBasis($value)
+    {
         $this->propertyUpdated('EmploymentBasis', $value);
         $this->_data['EmploymentBasis'] = $value;
         return $this;
@@ -217,7 +227,8 @@ class TaxDeclaration extends Remote\Object {
     /**
      * @return string
      */
-    public function getTFNExemptionType() {
+    public function getTFNExemptionType()
+    {
         return $this->_data['TFNExemptionType'];
     }
 
@@ -225,7 +236,8 @@ class TaxDeclaration extends Remote\Object {
      * @param string $value
      * @return TaxDeclaration
      */
-    public function setTFNExemptionType($value) {
+    public function setTFNExemptionType($value)
+    {
         $this->propertyUpdated('TFNExemptionType', $value);
         $this->_data['TFNExemptionType'] = $value;
         return $this;
@@ -234,7 +246,8 @@ class TaxDeclaration extends Remote\Object {
     /**
      * @return string
      */
-    public function getTaxFileNumber() {
+    public function getTaxFileNumber()
+    {
         return $this->_data['TaxFileNumber'];
     }
 
@@ -242,7 +255,8 @@ class TaxDeclaration extends Remote\Object {
      * @param string $value
      * @return TaxDeclaration
      */
-    public function setTaxFileNumber($value) {
+    public function setTaxFileNumber($value)
+    {
         $this->propertyUpdated('TaxFileNumber', $value);
         $this->_data['TaxFileNumber'] = $value;
         return $this;
@@ -251,7 +265,8 @@ class TaxDeclaration extends Remote\Object {
     /**
      * @return string
      */
-    public function getAustralianResidentForTaxPurposes() {
+    public function getAustralianResidentForTaxPurposes()
+    {
         return $this->_data['AustralianResidentForTaxPurposes'];
     }
 
@@ -259,7 +274,8 @@ class TaxDeclaration extends Remote\Object {
      * @param string $value
      * @return TaxDeclaration
      */
-    public function setAustralianResidentForTaxPurpose($value) {
+    public function setAustralianResidentForTaxPurpose($value)
+    {
         $this->propertyUpdated('AustralianResidentForTaxPurposes', $value);
         $this->_data['AustralianResidentForTaxPurposes'] = $value;
         return $this;
@@ -268,7 +284,8 @@ class TaxDeclaration extends Remote\Object {
     /**
      * @return string
      */
-    public function getTaxFreeThresholdClaimed() {
+    public function getTaxFreeThresholdClaimed()
+    {
         return $this->_data['TaxFreeThresholdClaimed'];
     }
 
@@ -276,7 +293,8 @@ class TaxDeclaration extends Remote\Object {
      * @param string $value
      * @return TaxDeclaration
      */
-    public function setTaxFreeThresholdClaimed($value) {
+    public function setTaxFreeThresholdClaimed($value)
+    {
         $this->propertyUpdated('TaxFreeThresholdClaimed', $value);
         $this->_data['TaxFreeThresholdClaimed'] = $value;
         return $this;
@@ -285,7 +303,8 @@ class TaxDeclaration extends Remote\Object {
     /**
      * @return float
      */
-    public function getTaxOffsetEstimatedAmount() {
+    public function getTaxOffsetEstimatedAmount()
+    {
         return $this->_data['TaxOffsetEstimatedAmount'];
     }
 
@@ -293,7 +312,8 @@ class TaxDeclaration extends Remote\Object {
      * @param float $value
      * @return TaxDeclaration
      */
-    public function setTaxOffsetEstimatedAmount($value) {
+    public function setTaxOffsetEstimatedAmount($value)
+    {
         $this->propertyUpdated('TaxOffsetEstimatedAmount', $value);
         $this->_data['TaxOffsetEstimatedAmount'] = $value;
         return $this;
@@ -302,7 +322,8 @@ class TaxDeclaration extends Remote\Object {
     /**
      * @return bool
      */
-    public function getHasHELPDebt() {
+    public function getHasHELPDebt()
+    {
         return $this->_data['HasHELPDebt'];
     }
 
@@ -310,7 +331,8 @@ class TaxDeclaration extends Remote\Object {
      * @param bool $value
      * @return TaxDeclaration
      */
-    public function setHasHELPDebt($value) {
+    public function setHasHELPDebt($value)
+    {
         $this->propertyUpdated('HasHELPDebt', $value);
         $this->_data['HasHELPDebt'] = $value;
         return $this;
@@ -319,7 +341,8 @@ class TaxDeclaration extends Remote\Object {
     /**
      * @return bool
      */
-    public function getHasSFSSDebt() {
+    public function getHasSFSSDebt()
+    {
         return $this->_data['HasSFSSDebt'];
     }
 
@@ -327,7 +350,8 @@ class TaxDeclaration extends Remote\Object {
      * @param bool $value
      * @return TaxDeclaration
      */
-    public function setHasSFSSDebt($value) {
+    public function setHasSFSSDebt($value)
+    {
         $this->propertyUpdated('HasSFSSDebt', $value);
         $this->_data['HasSFSSDebt'] = $value;
         return $this;
@@ -336,7 +360,8 @@ class TaxDeclaration extends Remote\Object {
     /**
      * @return bool
      */
-    public function getHasTSLDebt() {
+    public function getHasTSLDebt()
+    {
         return $this->_data['HasTSLDebt'];
     }
 
@@ -344,7 +369,8 @@ class TaxDeclaration extends Remote\Object {
      * @param bool $value
      * @return TaxDeclaration
      */
-    public function setHasTSLDebt($value) {
+    public function setHasTSLDebt($value)
+    {
         $this->propertyUpdated('HasTSLDebt', $value);
         $this->_data['HasTSLDebt'] = $value;
         return $this;
@@ -353,7 +379,8 @@ class TaxDeclaration extends Remote\Object {
     /**
      * @return string
      */
-    public function getUpwardVariationTaxWithholdingAmount() {
+    public function getUpwardVariationTaxWithholdingAmount()
+    {
         return $this->_data['UpwardVariationTaxWithholdingAmount'];
     }
 
@@ -361,7 +388,8 @@ class TaxDeclaration extends Remote\Object {
      * @param string $value
      * @return TaxDeclaration
      */
-    public function setUpwardVariationTaxWithholdingAmount($value) {
+    public function setUpwardVariationTaxWithholdingAmount($value)
+    {
         $this->propertyUpdated('UpwardVariationTaxWithholdingAmount', $value);
         $this->_data['UpwardVariationTaxWithholdingAmount'] = $value;
         return $this;
@@ -370,7 +398,8 @@ class TaxDeclaration extends Remote\Object {
     /**
      * @return string
      */
-    public function getEligibleToReceiveLeaveLoading() {
+    public function getEligibleToReceiveLeaveLoading()
+    {
         return $this->_data['EligibleToReceiveLeaveLoading'];
     }
 
@@ -378,7 +407,8 @@ class TaxDeclaration extends Remote\Object {
      * @param string $value
      * @return TaxDeclaration
      */
-    public function setEligibleToReceiveLeaveLoading($value) {
+    public function setEligibleToReceiveLeaveLoading($value)
+    {
         $this->propertyUpdated('EligibleToReceiveLeaveLoading', $value);
         $this->_data['EligibleToReceiveLeaveLoading'] = $value;
         return $this;
@@ -387,7 +417,8 @@ class TaxDeclaration extends Remote\Object {
     /**
      * @return string
      */
-    public function getApprovedWithholdingVariationPercentage() {
+    public function getApprovedWithholdingVariationPercentage()
+    {
         return $this->_data['ApprovedWithholdingVariationPercentage'];
     }
 
@@ -395,7 +426,8 @@ class TaxDeclaration extends Remote\Object {
      * @param string $value
      * @return TaxDeclaration
      */
-    public function setApprovedWithholdingVariationPercentage($value) {
+    public function setApprovedWithholdingVariationPercentage($value)
+    {
         $this->propertyUpdated('ApprovedWithholdingVariationPercentage', $value);
         $this->_data['ApprovedWithholdingVariationPercentage'] = $value;
         return $this;

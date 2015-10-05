@@ -1,11 +1,10 @@
 <?php
-
 namespace XeroPHP\Models\PayrollAU\Payslip;
 
 use XeroPHP\Remote;
 
-
-class TimesheetEarningsLine extends Remote\Object {
+class TimesheetEarningsLine extends Remote\Object
+{
 
     /**
      * Xero identifier for payroll earnings rate.
@@ -32,7 +31,8 @@ class TimesheetEarningsLine extends Remote\Object {
      *
      * @return string
      */
-    public static function getResourceURI(){
+    public static function getResourceURI()
+    {
         return 'TimesheetEarningsLine';
     }
 
@@ -42,7 +42,8 @@ class TimesheetEarningsLine extends Remote\Object {
      *
      * @return string
      */
-    public static function getRootNodeName(){
+    public static function getRootNodeName()
+    {
         return 'TimesheetEarningsLine';
     }
 
@@ -52,7 +53,8 @@ class TimesheetEarningsLine extends Remote\Object {
      *
      * @return string
      */
-    public static function getGUIDProperty(){
+    public static function getGUIDProperty()
+    {
         return '';
     }
 
@@ -62,7 +64,8 @@ class TimesheetEarningsLine extends Remote\Object {
      *
      * @return string|null
      */
-    public static function getAPIStem(){
+    public static function getAPIStem()
+    {
         return Remote\URL::API_PAYROLL;
     }
 
@@ -70,7 +73,8 @@ class TimesheetEarningsLine extends Remote\Object {
     /**
      * Get the supported methods
      */
-    public static function getSupportedMethods() {
+    public static function getSupportedMethods()
+    {
         return array(
         );
     }
@@ -86,7 +90,8 @@ class TimesheetEarningsLine extends Remote\Object {
      *
      * @return array
      */
-    public static function getProperties() {
+    public static function getProperties()
+    {
         return array(
             'EarningsRateID' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'RatePerUnit' => array (false, self::PROPERTY_TYPE_FLOAT, null, false, false),
@@ -94,14 +99,16 @@ class TimesheetEarningsLine extends Remote\Object {
         );
     }
 
-    public static function isPageable(){
+    public static function isPageable()
+    {
         return false;
     }
 
     /**
      * @return string
      */
-    public function getEarningsRateID() {
+    public function getEarningsRateID()
+    {
         return $this->_data['EarningsRateID'];
     }
 
@@ -109,7 +116,8 @@ class TimesheetEarningsLine extends Remote\Object {
      * @param string $value
      * @return TimesheetEarningsLine
      */
-    public function setEarningsRateID($value) {
+    public function setEarningsRateID($value)
+    {
         $this->propertyUpdated('EarningsRateID', $value);
         $this->_data['EarningsRateID'] = $value;
         return $this;
@@ -118,7 +126,8 @@ class TimesheetEarningsLine extends Remote\Object {
     /**
      * @return float
      */
-    public function getRatePerUnit() {
+    public function getRatePerUnit()
+    {
         return $this->_data['RatePerUnit'];
     }
 
@@ -126,7 +135,8 @@ class TimesheetEarningsLine extends Remote\Object {
      * @param float $value
      * @return TimesheetEarningsLine
      */
-    public function setRatePerUnit($value) {
+    public function setRatePerUnit($value)
+    {
         $this->propertyUpdated('RatePerUnit', $value);
         $this->_data['RatePerUnit'] = $value;
         return $this;
@@ -135,7 +145,8 @@ class TimesheetEarningsLine extends Remote\Object {
     /**
      * @return float
      */
-    public function getAmount() {
+    public function getAmount()
+    {
         return $this->_data['Amount'];
     }
 
@@ -143,7 +154,8 @@ class TimesheetEarningsLine extends Remote\Object {
      * @param float $value
      * @return TimesheetEarningsLine
      */
-    public function setAmount($value) {
+    public function setAmount($value)
+    {
         $this->propertyUpdated('Amount', $value);
         $this->_data['Amount'] = $value;
         return $this;

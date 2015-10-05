@@ -1,15 +1,13 @@
 <?php
-
 namespace XeroPHP\Models\Accounting;
 
 use XeroPHP\Remote;
-
 use XeroPHP\Traits\AttachmentTrait;
-
 use XeroPHP\Models\Accounting\BankTransaction\LineItem;
 use XeroPHP\Models\Accounting\Overpayment\Allocation;
 
-class Overpayment extends Remote\Object {
+class Overpayment extends Remote\Object
+{
 
     use AttachmentTrait;
 
@@ -137,7 +135,8 @@ class Overpayment extends Remote\Object {
      *
      * @return string
      */
-    public static function getResourceURI(){
+    public static function getResourceURI()
+    {
         return 'Overpayments';
     }
 
@@ -147,7 +146,8 @@ class Overpayment extends Remote\Object {
      *
      * @return string
      */
-    public static function getRootNodeName(){
+    public static function getRootNodeName()
+    {
         return 'Overpayment';
     }
 
@@ -157,7 +157,8 @@ class Overpayment extends Remote\Object {
      *
      * @return string
      */
-    public static function getGUIDProperty(){
+    public static function getGUIDProperty()
+    {
         return 'OverpaymentID';
     }
 
@@ -167,7 +168,8 @@ class Overpayment extends Remote\Object {
      *
      * @return string|null
      */
-    public static function getAPIStem(){
+    public static function getAPIStem()
+    {
         return Remote\URL::API_CORE;
     }
 
@@ -175,7 +177,8 @@ class Overpayment extends Remote\Object {
     /**
      * Get the supported methods
      */
-    public static function getSupportedMethods() {
+    public static function getSupportedMethods()
+    {
         return array(
             Remote\Request::METHOD_GET,
             Remote\Request::METHOD_PUT
@@ -193,7 +196,8 @@ class Overpayment extends Remote\Object {
      *
      * @return array
      */
-    public static function getProperties() {
+    public static function getProperties()
+    {
         return array(
             'Reference' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'Type' => array (false, self::PROPERTY_TYPE_ENUM, null, false, false),
@@ -216,7 +220,8 @@ class Overpayment extends Remote\Object {
         );
     }
 
-    public static function isPageable(){
+    public static function isPageable()
+    {
         return true;
     }
 
@@ -224,7 +229,8 @@ class Overpayment extends Remote\Object {
      * @return string
      * @deprecated
      */
-    public function getReference() {
+    public function getReference()
+    {
         return $this->_data['Reference'];
     }
 
@@ -233,7 +239,8 @@ class Overpayment extends Remote\Object {
      * @return Overpayment
      * @deprecated
      */
-    public function setReference($value) {
+    public function setReference($value)
+    {
         $this->propertyUpdated('Reference', $value);
         $this->_data['Reference'] = $value;
         return $this;
@@ -242,7 +249,8 @@ class Overpayment extends Remote\Object {
     /**
      * @return string
      */
-    public function getType() {
+    public function getType()
+    {
         return $this->_data['Type'];
     }
 
@@ -250,7 +258,8 @@ class Overpayment extends Remote\Object {
      * @param string $value
      * @return Overpayment
      */
-    public function setType($value) {
+    public function setType($value)
+    {
         $this->propertyUpdated('Type', $value);
         $this->_data['Type'] = $value;
         return $this;
@@ -259,7 +268,8 @@ class Overpayment extends Remote\Object {
     /**
      * @return Contact
      */
-    public function getContact() {
+    public function getContact()
+    {
         return $this->_data['Contact'];
     }
 
@@ -267,7 +277,8 @@ class Overpayment extends Remote\Object {
      * @param Contact $value
      * @return Overpayment
      */
-    public function setContact(Contact $value) {
+    public function setContact(Contact $value)
+    {
         $this->propertyUpdated('Contact', $value);
         $this->_data['Contact'] = $value;
         return $this;
@@ -276,7 +287,8 @@ class Overpayment extends Remote\Object {
     /**
      * @return \DateTime
      */
-    public function getDate() {
+    public function getDate()
+    {
         return $this->_data['Date'];
     }
 
@@ -284,7 +296,8 @@ class Overpayment extends Remote\Object {
      * @param \DateTime $value
      * @return Overpayment
      */
-    public function setDate(\DateTime $value) {
+    public function setDate(\DateTime $value)
+    {
         $this->propertyUpdated('Date', $value);
         $this->_data['Date'] = $value;
         return $this;
@@ -293,7 +306,8 @@ class Overpayment extends Remote\Object {
     /**
      * @return string
      */
-    public function getStatus() {
+    public function getStatus()
+    {
         return $this->_data['Status'];
     }
 
@@ -301,7 +315,8 @@ class Overpayment extends Remote\Object {
      * @param string $value
      * @return Overpayment
      */
-    public function setStatus($value) {
+    public function setStatus($value)
+    {
         $this->propertyUpdated('Status', $value);
         $this->_data['Status'] = $value;
         return $this;
@@ -310,7 +325,8 @@ class Overpayment extends Remote\Object {
     /**
      * @return string
      */
-    public function getLineAmountTypes() {
+    public function getLineAmountTypes()
+    {
         return $this->_data['LineAmountTypes'];
     }
 
@@ -318,7 +334,8 @@ class Overpayment extends Remote\Object {
      * @param string $value
      * @return Overpayment
      */
-    public function setLineAmountType($value) {
+    public function setLineAmountType($value)
+    {
         $this->propertyUpdated('LineAmountTypes', $value);
         $this->_data['LineAmountTypes'] = $value;
         return $this;
@@ -328,7 +345,8 @@ class Overpayment extends Remote\Object {
      * @return LineItem[]|Remote\Collection
      * Always returns a collection, switch is for type hinting
      */
-    public function getLineItems() {
+    public function getLineItems()
+    {
         return $this->_data['LineItems'];
     }
 
@@ -336,7 +354,8 @@ class Overpayment extends Remote\Object {
      * @param LineItem $value
      * @return Overpayment
      */
-    public function addLineItem(LineItem $value) {
+    public function addLineItem(LineItem $value)
+    {
         $this->propertyUpdated('LineItems', $value);
         if(!isset($this->_data['LineItems'])){
             $this->_data['LineItems'] = new Remote\Collection();
@@ -348,7 +367,8 @@ class Overpayment extends Remote\Object {
     /**
      * @return float
      */
-    public function getSubTotal() {
+    public function getSubTotal()
+    {
         return $this->_data['SubTotal'];
     }
 
@@ -356,7 +376,8 @@ class Overpayment extends Remote\Object {
      * @param float $value
      * @return Overpayment
      */
-    public function setSubTotal($value) {
+    public function setSubTotal($value)
+    {
         $this->propertyUpdated('SubTotal', $value);
         $this->_data['SubTotal'] = $value;
         return $this;
@@ -365,7 +386,8 @@ class Overpayment extends Remote\Object {
     /**
      * @return float
      */
-    public function getTotalTax() {
+    public function getTotalTax()
+    {
         return $this->_data['TotalTax'];
     }
 
@@ -373,7 +395,8 @@ class Overpayment extends Remote\Object {
      * @param float $value
      * @return Overpayment
      */
-    public function setTotalTax($value) {
+    public function setTotalTax($value)
+    {
         $this->propertyUpdated('TotalTax', $value);
         $this->_data['TotalTax'] = $value;
         return $this;
@@ -382,7 +405,8 @@ class Overpayment extends Remote\Object {
     /**
      * @return float
      */
-    public function getTotal() {
+    public function getTotal()
+    {
         return $this->_data['Total'];
     }
 
@@ -390,7 +414,8 @@ class Overpayment extends Remote\Object {
      * @param float $value
      * @return Overpayment
      */
-    public function setTotal($value) {
+    public function setTotal($value)
+    {
         $this->propertyUpdated('Total', $value);
         $this->_data['Total'] = $value;
         return $this;
@@ -399,7 +424,8 @@ class Overpayment extends Remote\Object {
     /**
      * @return \DateTime
      */
-    public function getUpdatedDateUTC() {
+    public function getUpdatedDateUTC()
+    {
         return $this->_data['UpdatedDateUTC'];
     }
 
@@ -407,7 +433,8 @@ class Overpayment extends Remote\Object {
      * @param \DateTime $value
      * @return Overpayment
      */
-    public function setUpdatedDateUTC(\DateTime $value) {
+    public function setUpdatedDateUTC(\DateTime $value)
+    {
         $this->propertyUpdated('UpdatedDateUTC', $value);
         $this->_data['UpdatedDateUTC'] = $value;
         return $this;
@@ -416,7 +443,8 @@ class Overpayment extends Remote\Object {
     /**
      * @return string
      */
-    public function getCurrencyCode() {
+    public function getCurrencyCode()
+    {
         return $this->_data['CurrencyCode'];
     }
 
@@ -424,7 +452,8 @@ class Overpayment extends Remote\Object {
      * @param string $value
      * @return Overpayment
      */
-    public function setCurrencyCode($value) {
+    public function setCurrencyCode($value)
+    {
         $this->propertyUpdated('CurrencyCode', $value);
         $this->_data['CurrencyCode'] = $value;
         return $this;
@@ -433,7 +462,8 @@ class Overpayment extends Remote\Object {
     /**
      * @return \DateTime
      */
-    public function getFullyPaidOnDate() {
+    public function getFullyPaidOnDate()
+    {
         return $this->_data['FullyPaidOnDate'];
     }
 
@@ -441,7 +471,8 @@ class Overpayment extends Remote\Object {
      * @param \DateTime $value
      * @return Overpayment
      */
-    public function setFullyPaidOnDate(\DateTime $value) {
+    public function setFullyPaidOnDate(\DateTime $value)
+    {
         $this->propertyUpdated('FullyPaidOnDate', $value);
         $this->_data['FullyPaidOnDate'] = $value;
         return $this;
@@ -450,7 +481,8 @@ class Overpayment extends Remote\Object {
     /**
      * @return string
      */
-    public function getOverpaymentID() {
+    public function getOverpaymentID()
+    {
         return $this->_data['OverpaymentID'];
     }
 
@@ -458,7 +490,8 @@ class Overpayment extends Remote\Object {
      * @param string $value
      * @return Overpayment
      */
-    public function setOverpaymentID($value) {
+    public function setOverpaymentID($value)
+    {
         $this->propertyUpdated('OverpaymentID', $value);
         $this->_data['OverpaymentID'] = $value;
         return $this;
@@ -467,7 +500,8 @@ class Overpayment extends Remote\Object {
     /**
      * @return float
      */
-    public function getCurrencyRate() {
+    public function getCurrencyRate()
+    {
         return $this->_data['CurrencyRate'];
     }
 
@@ -475,7 +509,8 @@ class Overpayment extends Remote\Object {
      * @param float $value
      * @return Overpayment
      */
-    public function setCurrencyRate($value) {
+    public function setCurrencyRate($value)
+    {
         $this->propertyUpdated('CurrencyRate', $value);
         $this->_data['CurrencyRate'] = $value;
         return $this;
@@ -484,7 +519,8 @@ class Overpayment extends Remote\Object {
     /**
      * @return string
      */
-    public function getRemainingCredit() {
+    public function getRemainingCredit()
+    {
         return $this->_data['RemainingCredit'];
     }
 
@@ -492,7 +528,8 @@ class Overpayment extends Remote\Object {
      * @param string $value
      * @return Overpayment
      */
-    public function setRemainingCredit($value) {
+    public function setRemainingCredit($value)
+    {
         $this->propertyUpdated('RemainingCredit', $value);
         $this->_data['RemainingCredit'] = $value;
         return $this;
@@ -502,7 +539,8 @@ class Overpayment extends Remote\Object {
      * @return Allocation[]|Remote\Collection
      * Always returns a collection, switch is for type hinting
      */
-    public function getAllocations() {
+    public function getAllocations()
+    {
         return $this->_data['Allocations'];
     }
 
@@ -510,7 +548,8 @@ class Overpayment extends Remote\Object {
      * @param Allocation $value
      * @return Overpayment
      */
-    public function addAllocation(Allocation $value) {
+    public function addAllocation(Allocation $value)
+    {
         $this->propertyUpdated('Allocations', $value);
         if(!isset($this->_data['Allocations'])){
             $this->_data['Allocations'] = new Remote\Collection();
@@ -522,7 +561,8 @@ class Overpayment extends Remote\Object {
     /**
      * @return bool
      */
-    public function getHasAttachments() {
+    public function getHasAttachments()
+    {
         return $this->_data['HasAttachments'];
     }
 
@@ -530,7 +570,8 @@ class Overpayment extends Remote\Object {
      * @param bool $value
      * @return Overpayment
      */
-    public function setHasAttachment($value) {
+    public function setHasAttachment($value)
+    {
         $this->propertyUpdated('HasAttachments', $value);
         $this->_data['HasAttachments'] = $value;
         return $this;

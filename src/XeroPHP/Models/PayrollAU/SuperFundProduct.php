@@ -1,11 +1,10 @@
 <?php
-
 namespace XeroPHP\Models\PayrollAU;
 
 use XeroPHP\Remote;
 
-
-class SuperFundProduct extends Remote\Object {
+class SuperFundProduct extends Remote\Object
+{
 
     /**
      * The ABN of the Regulated SuperFund (e.g 40022701955)
@@ -40,7 +39,8 @@ class SuperFundProduct extends Remote\Object {
      *
      * @return string
      */
-    public static function getResourceURI(){
+    public static function getResourceURI()
+    {
         return 'SuperFundProducts';
     }
 
@@ -50,7 +50,8 @@ class SuperFundProduct extends Remote\Object {
      *
      * @return string
      */
-    public static function getRootNodeName(){
+    public static function getRootNodeName()
+    {
         return 'SuperFundProduct';
     }
 
@@ -60,7 +61,8 @@ class SuperFundProduct extends Remote\Object {
      *
      * @return string
      */
-    public static function getGUIDProperty(){
+    public static function getGUIDProperty()
+    {
         return '';
     }
 
@@ -70,7 +72,8 @@ class SuperFundProduct extends Remote\Object {
      *
      * @return string|null
      */
-    public static function getAPIStem(){
+    public static function getAPIStem()
+    {
         return Remote\URL::API_PAYROLL;
     }
 
@@ -78,7 +81,8 @@ class SuperFundProduct extends Remote\Object {
     /**
      * Get the supported methods
      */
-    public static function getSupportedMethods() {
+    public static function getSupportedMethods()
+    {
         return array(
             Remote\Request::METHOD_GET
         );
@@ -95,7 +99,8 @@ class SuperFundProduct extends Remote\Object {
      *
      * @return array
      */
-    public static function getProperties() {
+    public static function getProperties()
+    {
         return array(
             'ABN' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'USI' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
@@ -104,14 +109,16 @@ class SuperFundProduct extends Remote\Object {
         );
     }
 
-    public static function isPageable(){
+    public static function isPageable()
+    {
         return false;
     }
 
     /**
      * @return string
      */
-    public function getABN() {
+    public function getABN()
+    {
         return $this->_data['ABN'];
     }
 
@@ -119,7 +126,8 @@ class SuperFundProduct extends Remote\Object {
      * @param string $value
      * @return SuperFundProduct
      */
-    public function setABN($value) {
+    public function setABN($value)
+    {
         $this->propertyUpdated('ABN', $value);
         $this->_data['ABN'] = $value;
         return $this;
@@ -128,7 +136,8 @@ class SuperFundProduct extends Remote\Object {
     /**
      * @return string
      */
-    public function getUSI() {
+    public function getUSI()
+    {
         return $this->_data['USI'];
     }
 
@@ -136,7 +145,8 @@ class SuperFundProduct extends Remote\Object {
      * @param string $value
      * @return SuperFundProduct
      */
-    public function setUSI($value) {
+    public function setUSI($value)
+    {
         $this->propertyUpdated('USI', $value);
         $this->_data['USI'] = $value;
         return $this;
@@ -146,7 +156,8 @@ class SuperFundProduct extends Remote\Object {
      * @return string
      * @deprecated
      */
-    public function getSPIN() {
+    public function getSPIN()
+    {
         return $this->_data['SPIN'];
     }
 
@@ -155,7 +166,8 @@ class SuperFundProduct extends Remote\Object {
      * @return SuperFundProduct
      * @deprecated
      */
-    public function setSPIN($value) {
+    public function setSPIN($value)
+    {
         $this->propertyUpdated('SPIN', $value);
         $this->_data['SPIN'] = $value;
         return $this;
@@ -164,7 +176,8 @@ class SuperFundProduct extends Remote\Object {
     /**
      * @return string
      */
-    public function getProductName() {
+    public function getProductName()
+    {
         return $this->_data['ProductName'];
     }
 
@@ -172,7 +185,8 @@ class SuperFundProduct extends Remote\Object {
      * @param string $value
      * @return SuperFundProduct
      */
-    public function setProductName($value) {
+    public function setProductName($value)
+    {
         $this->propertyUpdated('ProductName', $value);
         $this->_data['ProductName'] = $value;
         return $this;

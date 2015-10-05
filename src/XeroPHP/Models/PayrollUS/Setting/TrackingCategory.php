@@ -1,11 +1,10 @@
 <?php
-
 namespace XeroPHP\Models\PayrollUS\Setting;
 
 use XeroPHP\Remote;
 
-
-class TrackingCategory extends Remote\Object {
+class TrackingCategory extends Remote\Object
+{
 
     /**
      * Xero tracking category identifier. e.g c56b19ef-75bf-45e8-98a4-e699a96609f7
@@ -26,7 +25,8 @@ class TrackingCategory extends Remote\Object {
      *
      * @return string
      */
-    public static function getResourceURI(){
+    public static function getResourceURI()
+    {
         return 'TrackingCategories';
     }
 
@@ -36,7 +36,8 @@ class TrackingCategory extends Remote\Object {
      *
      * @return string
      */
-    public static function getRootNodeName(){
+    public static function getRootNodeName()
+    {
         return 'TrackingCategory';
     }
 
@@ -46,7 +47,8 @@ class TrackingCategory extends Remote\Object {
      *
      * @return string
      */
-    public static function getGUIDProperty(){
+    public static function getGUIDProperty()
+    {
         return 'TrackingCategoryID';
     }
 
@@ -56,7 +58,8 @@ class TrackingCategory extends Remote\Object {
      *
      * @return string|null
      */
-    public static function getAPIStem(){
+    public static function getAPIStem()
+    {
         return Remote\URL::API_PAYROLL;
     }
 
@@ -64,7 +67,8 @@ class TrackingCategory extends Remote\Object {
     /**
      * Get the supported methods
      */
-    public static function getSupportedMethods() {
+    public static function getSupportedMethods()
+    {
         return array(
         );
     }
@@ -80,21 +84,24 @@ class TrackingCategory extends Remote\Object {
      *
      * @return array
      */
-    public static function getProperties() {
+    public static function getProperties()
+    {
         return array(
             'TrackingCategoryID' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'TrackingCategoryName' => array (false, self::PROPERTY_TYPE_STRING, null, false, false)
         );
     }
 
-    public static function isPageable(){
+    public static function isPageable()
+    {
         return false;
     }
 
     /**
      * @return string
      */
-    public function getTrackingCategoryID() {
+    public function getTrackingCategoryID()
+    {
         return $this->_data['TrackingCategoryID'];
     }
 
@@ -102,7 +109,8 @@ class TrackingCategory extends Remote\Object {
      * @param string $value
      * @return TrackingCategory
      */
-    public function setTrackingCategoryID($value) {
+    public function setTrackingCategoryID($value)
+    {
         $this->propertyUpdated('TrackingCategoryID', $value);
         $this->_data['TrackingCategoryID'] = $value;
         return $this;
@@ -111,7 +119,8 @@ class TrackingCategory extends Remote\Object {
     /**
      * @return string
      */
-    public function getTrackingCategoryName() {
+    public function getTrackingCategoryName()
+    {
         return $this->_data['TrackingCategoryName'];
     }
 
@@ -119,7 +128,8 @@ class TrackingCategory extends Remote\Object {
      * @param string $value
      * @return TrackingCategory
      */
-    public function setTrackingCategoryName($value) {
+    public function setTrackingCategoryName($value)
+    {
         $this->propertyUpdated('TrackingCategoryName', $value);
         $this->_data['TrackingCategoryName'] = $value;
         return $this;

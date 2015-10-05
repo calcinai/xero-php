@@ -1,11 +1,10 @@
 <?php
-
 namespace XeroPHP\Models\Accounting\Contact;
 
 use XeroPHP\Remote;
 
-
-class ContactPerson extends Remote\Object {
+class ContactPerson extends Remote\Object
+{
 
     /**
      * First name of person
@@ -38,7 +37,8 @@ class ContactPerson extends Remote\Object {
      *
      * @return string
      */
-    public static function getResourceURI(){
+    public static function getResourceURI()
+    {
         return 'ContactPerson';
     }
 
@@ -48,7 +48,8 @@ class ContactPerson extends Remote\Object {
      *
      * @return string
      */
-    public static function getRootNodeName(){
+    public static function getRootNodeName()
+    {
         return 'ContactPerson';
     }
 
@@ -58,7 +59,8 @@ class ContactPerson extends Remote\Object {
      *
      * @return string
      */
-    public static function getGUIDProperty(){
+    public static function getGUIDProperty()
+    {
         return '';
     }
 
@@ -68,7 +70,8 @@ class ContactPerson extends Remote\Object {
      *
      * @return string|null
      */
-    public static function getAPIStem(){
+    public static function getAPIStem()
+    {
         return Remote\URL::API_CORE;
     }
 
@@ -76,7 +79,8 @@ class ContactPerson extends Remote\Object {
     /**
      * Get the supported methods
      */
-    public static function getSupportedMethods() {
+    public static function getSupportedMethods()
+    {
         return array(
         );
     }
@@ -92,7 +96,8 @@ class ContactPerson extends Remote\Object {
      *
      * @return array
      */
-    public static function getProperties() {
+    public static function getProperties()
+    {
         return array(
             'FirstName' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'LastName' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
@@ -101,14 +106,16 @@ class ContactPerson extends Remote\Object {
         );
     }
 
-    public static function isPageable(){
+    public static function isPageable()
+    {
         return false;
     }
 
     /**
      * @return string
      */
-    public function getFirstName() {
+    public function getFirstName()
+    {
         return $this->_data['FirstName'];
     }
 
@@ -116,7 +123,8 @@ class ContactPerson extends Remote\Object {
      * @param string $value
      * @return ContactPerson
      */
-    public function setFirstName($value) {
+    public function setFirstName($value)
+    {
         $this->propertyUpdated('FirstName', $value);
         $this->_data['FirstName'] = $value;
         return $this;
@@ -125,7 +133,8 @@ class ContactPerson extends Remote\Object {
     /**
      * @return string
      */
-    public function getLastName() {
+    public function getLastName()
+    {
         return $this->_data['LastName'];
     }
 
@@ -133,7 +142,8 @@ class ContactPerson extends Remote\Object {
      * @param string $value
      * @return ContactPerson
      */
-    public function setLastName($value) {
+    public function setLastName($value)
+    {
         $this->propertyUpdated('LastName', $value);
         $this->_data['LastName'] = $value;
         return $this;
@@ -142,7 +152,8 @@ class ContactPerson extends Remote\Object {
     /**
      * @return string
      */
-    public function getEmailAddress() {
+    public function getEmailAddress()
+    {
         return $this->_data['EmailAddress'];
     }
 
@@ -150,7 +161,8 @@ class ContactPerson extends Remote\Object {
      * @param string $value
      * @return ContactPerson
      */
-    public function setEmailAddress($value) {
+    public function setEmailAddress($value)
+    {
         $this->propertyUpdated('EmailAddress', $value);
         $this->_data['EmailAddress'] = $value;
         return $this;
@@ -159,7 +171,8 @@ class ContactPerson extends Remote\Object {
     /**
      * @return bool
      */
-    public function getIncludeInEmails() {
+    public function getIncludeInEmails()
+    {
         return $this->_data['IncludeInEmails'];
     }
 
@@ -167,7 +180,8 @@ class ContactPerson extends Remote\Object {
      * @param bool $value
      * @return ContactPerson
      */
-    public function setIncludeInEmail($value) {
+    public function setIncludeInEmail($value)
+    {
         $this->propertyUpdated('IncludeInEmails', $value);
         $this->_data['IncludeInEmails'] = $value;
         return $this;

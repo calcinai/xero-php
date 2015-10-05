@@ -1,11 +1,10 @@
 <?php
-
 namespace XeroPHP\Models\PayrollAU\PayItem;
 
 use XeroPHP\Remote;
 
-
-class EarningsRate extends Remote\Object {
+class EarningsRate extends Remote\Object
+{
 
     /**
      * Name of the earnings rate (max length = 100)
@@ -103,7 +102,8 @@ class EarningsRate extends Remote\Object {
      *
      * @return string
      */
-    public static function getResourceURI(){
+    public static function getResourceURI()
+    {
         return 'EarningsRates';
     }
 
@@ -113,7 +113,8 @@ class EarningsRate extends Remote\Object {
      *
      * @return string
      */
-    public static function getRootNodeName(){
+    public static function getRootNodeName()
+    {
         return 'EarningsRate';
     }
 
@@ -123,7 +124,8 @@ class EarningsRate extends Remote\Object {
      *
      * @return string
      */
-    public static function getGUIDProperty(){
+    public static function getGUIDProperty()
+    {
         return 'EarningsRateID';
     }
 
@@ -133,7 +135,8 @@ class EarningsRate extends Remote\Object {
      *
      * @return string|null
      */
-    public static function getAPIStem(){
+    public static function getAPIStem()
+    {
         return Remote\URL::API_PAYROLL;
     }
 
@@ -141,7 +144,8 @@ class EarningsRate extends Remote\Object {
     /**
      * Get the supported methods
      */
-    public static function getSupportedMethods() {
+    public static function getSupportedMethods()
+    {
         return array(
         );
     }
@@ -157,7 +161,8 @@ class EarningsRate extends Remote\Object {
      *
      * @return array
      */
-    public static function getProperties() {
+    public static function getProperties()
+    {
         return array(
             'Name' => array (true, self::PROPERTY_TYPE_STRING, null, false, false),
             'DisplayName' => array (true, self::PROPERTY_TYPE_STRING, null, false, false),
@@ -175,14 +180,16 @@ class EarningsRate extends Remote\Object {
         );
     }
 
-    public static function isPageable(){
+    public static function isPageable()
+    {
         return false;
     }
 
     /**
      * @return string
      */
-    public function getName() {
+    public function getName()
+    {
         return $this->_data['Name'];
     }
 
@@ -190,7 +197,8 @@ class EarningsRate extends Remote\Object {
      * @param string $value
      * @return EarningsRate
      */
-    public function setName($value) {
+    public function setName($value)
+    {
         $this->propertyUpdated('Name', $value);
         $this->_data['Name'] = $value;
         return $this;
@@ -199,7 +207,8 @@ class EarningsRate extends Remote\Object {
     /**
      * @return string
      */
-    public function getDisplayName() {
+    public function getDisplayName()
+    {
         return $this->_data['DisplayName'];
     }
 
@@ -207,7 +216,8 @@ class EarningsRate extends Remote\Object {
      * @param string $value
      * @return EarningsRate
      */
-    public function setDisplayName($value) {
+    public function setDisplayName($value)
+    {
         $this->propertyUpdated('DisplayName', $value);
         $this->_data['DisplayName'] = $value;
         return $this;
@@ -216,7 +226,8 @@ class EarningsRate extends Remote\Object {
     /**
      * @return string
      */
-    public function getAccountCode() {
+    public function getAccountCode()
+    {
         return $this->_data['AccountCode'];
     }
 
@@ -224,7 +235,8 @@ class EarningsRate extends Remote\Object {
      * @param string $value
      * @return EarningsRate
      */
-    public function setAccountCode($value) {
+    public function setAccountCode($value)
+    {
         $this->propertyUpdated('AccountCode', $value);
         $this->_data['AccountCode'] = $value;
         return $this;
@@ -233,7 +245,8 @@ class EarningsRate extends Remote\Object {
     /**
      * @return string
      */
-    public function getTypeOfUnits() {
+    public function getTypeOfUnits()
+    {
         return $this->_data['TypeOfUnits'];
     }
 
@@ -241,7 +254,8 @@ class EarningsRate extends Remote\Object {
      * @param string $value
      * @return EarningsRate
      */
-    public function setTypeOfUnit($value) {
+    public function setTypeOfUnit($value)
+    {
         $this->propertyUpdated('TypeOfUnits', $value);
         $this->_data['TypeOfUnits'] = $value;
         return $this;
@@ -250,7 +264,8 @@ class EarningsRate extends Remote\Object {
     /**
      * @return string
      */
-    public function getIsExemptFromTax() {
+    public function getIsExemptFromTax()
+    {
         return $this->_data['IsExemptFromTax'];
     }
 
@@ -258,7 +273,8 @@ class EarningsRate extends Remote\Object {
      * @param string $value
      * @return EarningsRate
      */
-    public function setIsExemptFromTax($value) {
+    public function setIsExemptFromTax($value)
+    {
         $this->propertyUpdated('IsExemptFromTax', $value);
         $this->_data['IsExemptFromTax'] = $value;
         return $this;
@@ -267,7 +283,8 @@ class EarningsRate extends Remote\Object {
     /**
      * @return string
      */
-    public function getIsExemptFromSuper() {
+    public function getIsExemptFromSuper()
+    {
         return $this->_data['IsExemptFromSuper'];
     }
 
@@ -275,7 +292,8 @@ class EarningsRate extends Remote\Object {
      * @param string $value
      * @return EarningsRate
      */
-    public function setIsExemptFromSuper($value) {
+    public function setIsExemptFromSuper($value)
+    {
         $this->propertyUpdated('IsExemptFromSuper', $value);
         $this->_data['IsExemptFromSuper'] = $value;
         return $this;
@@ -284,7 +302,8 @@ class EarningsRate extends Remote\Object {
     /**
      * @return string
      */
-    public function getEarningsType() {
+    public function getEarningsType()
+    {
         return $this->_data['EarningsType'];
     }
 
@@ -292,7 +311,8 @@ class EarningsRate extends Remote\Object {
      * @param string $value
      * @return EarningsRate
      */
-    public function setEarningsType($value) {
+    public function setEarningsType($value)
+    {
         $this->propertyUpdated('EarningsType', $value);
         $this->_data['EarningsType'] = $value;
         return $this;
@@ -301,7 +321,8 @@ class EarningsRate extends Remote\Object {
     /**
      * @return string
      */
-    public function getEarningsRateID() {
+    public function getEarningsRateID()
+    {
         return $this->_data['EarningsRateID'];
     }
 
@@ -309,7 +330,8 @@ class EarningsRate extends Remote\Object {
      * @param string $value
      * @return EarningsRate
      */
-    public function setEarningsRateID($value) {
+    public function setEarningsRateID($value)
+    {
         $this->propertyUpdated('EarningsRateID', $value);
         $this->_data['EarningsRateID'] = $value;
         return $this;
@@ -318,7 +340,8 @@ class EarningsRate extends Remote\Object {
     /**
      * @return string
      */
-    public function getRateType() {
+    public function getRateType()
+    {
         return $this->_data['RateType'];
     }
 
@@ -326,7 +349,8 @@ class EarningsRate extends Remote\Object {
      * @param string $value
      * @return EarningsRate
      */
-    public function setRateType($value) {
+    public function setRateType($value)
+    {
         $this->propertyUpdated('RateType', $value);
         $this->_data['RateType'] = $value;
         return $this;
@@ -335,7 +359,8 @@ class EarningsRate extends Remote\Object {
     /**
      * @return float
      */
-    public function getRatePerUnit() {
+    public function getRatePerUnit()
+    {
         return $this->_data['RatePerUnit'];
     }
 
@@ -343,7 +368,8 @@ class EarningsRate extends Remote\Object {
      * @param float $value
      * @return EarningsRate
      */
-    public function setRatePerUnit($value) {
+    public function setRatePerUnit($value)
+    {
         $this->propertyUpdated('RatePerUnit', $value);
         $this->_data['RatePerUnit'] = $value;
         return $this;
@@ -352,7 +378,8 @@ class EarningsRate extends Remote\Object {
     /**
      * @return float
      */
-    public function getMultiplier() {
+    public function getMultiplier()
+    {
         return $this->_data['Multiplier'];
     }
 
@@ -360,7 +387,8 @@ class EarningsRate extends Remote\Object {
      * @param float $value
      * @return EarningsRate
      */
-    public function setMultiplier($value) {
+    public function setMultiplier($value)
+    {
         $this->propertyUpdated('Multiplier', $value);
         $this->_data['Multiplier'] = $value;
         return $this;
@@ -369,7 +397,8 @@ class EarningsRate extends Remote\Object {
     /**
      * @return float
      */
-    public function getAccrueLeave() {
+    public function getAccrueLeave()
+    {
         return $this->_data['AccrueLeave'];
     }
 
@@ -377,7 +406,8 @@ class EarningsRate extends Remote\Object {
      * @param float $value
      * @return EarningsRate
      */
-    public function setAccrueLeave($value) {
+    public function setAccrueLeave($value)
+    {
         $this->propertyUpdated('AccrueLeave', $value);
         $this->_data['AccrueLeave'] = $value;
         return $this;
@@ -386,7 +416,8 @@ class EarningsRate extends Remote\Object {
     /**
      * @return float
      */
-    public function getAmount() {
+    public function getAmount()
+    {
         return $this->_data['Amount'];
     }
 
@@ -394,7 +425,8 @@ class EarningsRate extends Remote\Object {
      * @param float $value
      * @return EarningsRate
      */
-    public function setAmount($value) {
+    public function setAmount($value)
+    {
         $this->propertyUpdated('Amount', $value);
         $this->_data['Amount'] = $value;
         return $this;

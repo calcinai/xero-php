@@ -1,11 +1,10 @@
 <?php
-
 namespace XeroPHP\Models\Accounting\BankTransfer;
 
 use XeroPHP\Remote;
 
-
-class ToBankAccount extends Remote\Object {
+class ToBankAccount extends Remote\Object
+{
 
     /**
      * The Account Code of the Bank Account
@@ -32,7 +31,8 @@ class ToBankAccount extends Remote\Object {
      *
      * @return string
      */
-    public static function getResourceURI(){
+    public static function getResourceURI()
+    {
         return 'ToBankAccount';
     }
 
@@ -42,7 +42,8 @@ class ToBankAccount extends Remote\Object {
      *
      * @return string
      */
-    public static function getRootNodeName(){
+    public static function getRootNodeName()
+    {
         return 'ToBankAccount';
     }
 
@@ -52,7 +53,8 @@ class ToBankAccount extends Remote\Object {
      *
      * @return string
      */
-    public static function getGUIDProperty(){
+    public static function getGUIDProperty()
+    {
         return '';
     }
 
@@ -62,7 +64,8 @@ class ToBankAccount extends Remote\Object {
      *
      * @return string|null
      */
-    public static function getAPIStem(){
+    public static function getAPIStem()
+    {
         return Remote\URL::API_CORE;
     }
 
@@ -70,7 +73,8 @@ class ToBankAccount extends Remote\Object {
     /**
      * Get the supported methods
      */
-    public static function getSupportedMethods() {
+    public static function getSupportedMethods()
+    {
         return array(
         );
     }
@@ -86,7 +90,8 @@ class ToBankAccount extends Remote\Object {
      *
      * @return array
      */
-    public static function getProperties() {
+    public static function getProperties()
+    {
         return array(
             'Code' => array (true, self::PROPERTY_TYPE_STRING, null, false, false),
             'AccountID' => array (true, self::PROPERTY_TYPE_STRING, null, false, false),
@@ -94,14 +99,16 @@ class ToBankAccount extends Remote\Object {
         );
     }
 
-    public static function isPageable(){
+    public static function isPageable()
+    {
         return false;
     }
 
     /**
      * @return string
      */
-    public function getCode() {
+    public function getCode()
+    {
         return $this->_data['Code'];
     }
 
@@ -109,7 +116,8 @@ class ToBankAccount extends Remote\Object {
      * @param string $value
      * @return ToBankAccount
      */
-    public function setCode($value) {
+    public function setCode($value)
+    {
         $this->propertyUpdated('Code', $value);
         $this->_data['Code'] = $value;
         return $this;
@@ -118,7 +126,8 @@ class ToBankAccount extends Remote\Object {
     /**
      * @return string
      */
-    public function getAccountID() {
+    public function getAccountID()
+    {
         return $this->_data['AccountID'];
     }
 
@@ -126,7 +135,8 @@ class ToBankAccount extends Remote\Object {
      * @param string $value
      * @return ToBankAccount
      */
-    public function setAccountID($value) {
+    public function setAccountID($value)
+    {
         $this->propertyUpdated('AccountID', $value);
         $this->_data['AccountID'] = $value;
         return $this;
@@ -135,7 +145,8 @@ class ToBankAccount extends Remote\Object {
     /**
      * @return string
      */
-    public function getName() {
+    public function getName()
+    {
         return $this->_data['Name'];
     }
 

@@ -1,11 +1,10 @@
 <?php
-
 namespace XeroPHP\Models\PayrollAU\Payslip;
 
 use XeroPHP\Remote;
 
-
-class TaxLine extends Remote\Object {
+class TaxLine extends Remote\Object
+{
 
     /**
      * Name of the tax type
@@ -39,7 +38,8 @@ class TaxLine extends Remote\Object {
      *
      * @return string
      */
-    public static function getResourceURI(){
+    public static function getResourceURI()
+    {
         return 'TaxLine';
     }
 
@@ -49,7 +49,8 @@ class TaxLine extends Remote\Object {
      *
      * @return string
      */
-    public static function getRootNodeName(){
+    public static function getRootNodeName()
+    {
         return 'TaxLine';
     }
 
@@ -59,7 +60,8 @@ class TaxLine extends Remote\Object {
      *
      * @return string
      */
-    public static function getGUIDProperty(){
+    public static function getGUIDProperty()
+    {
         return '';
     }
 
@@ -69,7 +71,8 @@ class TaxLine extends Remote\Object {
      *
      * @return string|null
      */
-    public static function getAPIStem(){
+    public static function getAPIStem()
+    {
         return Remote\URL::API_PAYROLL;
     }
 
@@ -77,7 +80,8 @@ class TaxLine extends Remote\Object {
     /**
      * Get the supported methods
      */
-    public static function getSupportedMethods() {
+    public static function getSupportedMethods()
+    {
         return array(
         );
     }
@@ -93,7 +97,8 @@ class TaxLine extends Remote\Object {
      *
      * @return array
      */
-    public static function getProperties() {
+    public static function getProperties()
+    {
         return array(
             'TaxTypeName' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'Description' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
@@ -102,14 +107,16 @@ class TaxLine extends Remote\Object {
         );
     }
 
-    public static function isPageable(){
+    public static function isPageable()
+    {
         return false;
     }
 
     /**
      * @return string
      */
-    public function getTaxTypeName() {
+    public function getTaxTypeName()
+    {
         return $this->_data['TaxTypeName'];
     }
 
@@ -117,7 +124,8 @@ class TaxLine extends Remote\Object {
      * @param string $value
      * @return TaxLine
      */
-    public function setTaxTypeName($value) {
+    public function setTaxTypeName($value)
+    {
         $this->propertyUpdated('TaxTypeName', $value);
         $this->_data['TaxTypeName'] = $value;
         return $this;
@@ -126,7 +134,8 @@ class TaxLine extends Remote\Object {
     /**
      * @return string
      */
-    public function getDescription() {
+    public function getDescription()
+    {
         return $this->_data['Description'];
     }
 
@@ -134,7 +143,8 @@ class TaxLine extends Remote\Object {
      * @param string $value
      * @return TaxLine
      */
-    public function setDescription($value) {
+    public function setDescription($value)
+    {
         $this->propertyUpdated('Description', $value);
         $this->_data['Description'] = $value;
         return $this;
@@ -143,7 +153,8 @@ class TaxLine extends Remote\Object {
     /**
      * @return float
      */
-    public function getAmount() {
+    public function getAmount()
+    {
         return $this->_data['Amount'];
     }
 
@@ -151,7 +162,8 @@ class TaxLine extends Remote\Object {
      * @param float $value
      * @return TaxLine
      */
-    public function setAmount($value) {
+    public function setAmount($value)
+    {
         $this->propertyUpdated('Amount', $value);
         $this->_data['Amount'] = $value;
         return $this;
@@ -160,7 +172,8 @@ class TaxLine extends Remote\Object {
     /**
      * @return string
      */
-    public function getLiabilityAccount() {
+    public function getLiabilityAccount()
+    {
         return $this->_data['LiabilityAccount'];
     }
 
@@ -168,7 +181,8 @@ class TaxLine extends Remote\Object {
      * @param string $value
      * @return TaxLine
      */
-    public function setLiabilityAccount($value) {
+    public function setLiabilityAccount($value)
+    {
         $this->propertyUpdated('LiabilityAccount', $value);
         $this->_data['LiabilityAccount'] = $value;
         return $this;

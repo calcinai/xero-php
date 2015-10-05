@@ -1,11 +1,10 @@
 <?php
-
 namespace XeroPHP\Models\Accounting\Organisation;
 
 use XeroPHP\Remote;
 
-
-class Bill extends Remote\Object {
+class Bill extends Remote\Object
+{
 
     /**
      * Day of Month (0-31)
@@ -26,7 +25,8 @@ class Bill extends Remote\Object {
      *
      * @return string
      */
-    public static function getResourceURI(){
+    public static function getResourceURI()
+    {
         return 'Bills';
     }
 
@@ -36,7 +36,8 @@ class Bill extends Remote\Object {
      *
      * @return string
      */
-    public static function getRootNodeName(){
+    public static function getRootNodeName()
+    {
         return 'Bill';
     }
 
@@ -46,7 +47,8 @@ class Bill extends Remote\Object {
      *
      * @return string
      */
-    public static function getGUIDProperty(){
+    public static function getGUIDProperty()
+    {
         return '';
     }
 
@@ -56,7 +58,8 @@ class Bill extends Remote\Object {
      *
      * @return string|null
      */
-    public static function getAPIStem(){
+    public static function getAPIStem()
+    {
         return Remote\URL::API_CORE;
     }
 
@@ -64,7 +67,8 @@ class Bill extends Remote\Object {
     /**
      * Get the supported methods
      */
-    public static function getSupportedMethods() {
+    public static function getSupportedMethods()
+    {
         return array(
         );
     }
@@ -80,21 +84,24 @@ class Bill extends Remote\Object {
      *
      * @return array
      */
-    public static function getProperties() {
+    public static function getProperties()
+    {
         return array(
             'Day' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'Type' => array (false, self::PROPERTY_TYPE_ENUM, null, false, false)
         );
     }
 
-    public static function isPageable(){
+    public static function isPageable()
+    {
         return false;
     }
 
     /**
      * @return string
      */
-    public function getDay() {
+    public function getDay()
+    {
         return $this->_data['Day'];
     }
 
@@ -102,7 +109,8 @@ class Bill extends Remote\Object {
      * @param string $value
      * @return Bill
      */
-    public function setDay($value) {
+    public function setDay($value)
+    {
         $this->propertyUpdated('Day', $value);
         $this->_data['Day'] = $value;
         return $this;
@@ -111,7 +119,8 @@ class Bill extends Remote\Object {
     /**
      * @return string
      */
-    public function getType() {
+    public function getType()
+    {
         return $this->_data['Type'];
     }
 
@@ -119,7 +128,8 @@ class Bill extends Remote\Object {
      * @param string $value
      * @return Bill
      */
-    public function setType($value) {
+    public function setType($value)
+    {
         $this->propertyUpdated('Type', $value);
         $this->_data['Type'] = $value;
         return $this;

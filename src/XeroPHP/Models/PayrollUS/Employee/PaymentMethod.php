@@ -1,11 +1,10 @@
 <?php
-
 namespace XeroPHP\Models\PayrollUS\Employee;
 
 use XeroPHP\Remote;
 
-
-class PaymentMethod extends Remote\Object {
+class PaymentMethod extends Remote\Object
+{
 
     /**
      * See PaymentMethodTypes
@@ -30,7 +29,8 @@ class PaymentMethod extends Remote\Object {
      *
      * @return string
      */
-    public static function getResourceURI(){
+    public static function getResourceURI()
+    {
         return 'PaymentMethod';
     }
 
@@ -40,7 +40,8 @@ class PaymentMethod extends Remote\Object {
      *
      * @return string
      */
-    public static function getRootNodeName(){
+    public static function getRootNodeName()
+    {
         return 'PaymentMethod';
     }
 
@@ -50,7 +51,8 @@ class PaymentMethod extends Remote\Object {
      *
      * @return string
      */
-    public static function getGUIDProperty(){
+    public static function getGUIDProperty()
+    {
         return '';
     }
 
@@ -60,7 +62,8 @@ class PaymentMethod extends Remote\Object {
      *
      * @return string|null
      */
-    public static function getAPIStem(){
+    public static function getAPIStem()
+    {
         return Remote\URL::API_PAYROLL;
     }
 
@@ -68,7 +71,8 @@ class PaymentMethod extends Remote\Object {
     /**
      * Get the supported methods
      */
-    public static function getSupportedMethods() {
+    public static function getSupportedMethods()
+    {
         return array(
         );
     }
@@ -84,21 +88,24 @@ class PaymentMethod extends Remote\Object {
      *
      * @return array
      */
-    public static function getProperties() {
+    public static function getProperties()
+    {
         return array(
             'PaymentMethodType' => array (false, self::PROPERTY_TYPE_ENUM, null, false, false),
             'BankAccounts' => array (false, self::PROPERTY_TYPE_OBJECT, 'PayrollUS\\Employee\\BankAccount', true, false)
         );
     }
 
-    public static function isPageable(){
+    public static function isPageable()
+    {
         return false;
     }
 
     /**
      * @return string
      */
-    public function getPaymentMethodType() {
+    public function getPaymentMethodType()
+    {
         return $this->_data['PaymentMethodType'];
     }
 
@@ -106,7 +113,8 @@ class PaymentMethod extends Remote\Object {
      * @param string $value
      * @return PaymentMethod
      */
-    public function setPaymentMethodType($value) {
+    public function setPaymentMethodType($value)
+    {
         $this->propertyUpdated('PaymentMethodType', $value);
         $this->_data['PaymentMethodType'] = $value;
         return $this;
@@ -116,7 +124,8 @@ class PaymentMethod extends Remote\Object {
      * @return BankAccount[]|Remote\Collection
      * Always returns a collection, switch is for type hinting
      */
-    public function getBankAccounts() {
+    public function getBankAccounts()
+    {
         return $this->_data['BankAccounts'];
     }
 
@@ -124,7 +133,8 @@ class PaymentMethod extends Remote\Object {
      * @param BankAccount $value
      * @return PaymentMethod
      */
-    public function addBankAccount(BankAccount $value) {
+    public function addBankAccount(BankAccount $value)
+    {
         $this->propertyUpdated('BankAccounts', $value);
         if(!isset($this->_data['BankAccounts'])){
             $this->_data['BankAccounts'] = new Remote\Collection();

@@ -1,13 +1,12 @@
 <?php
-
 namespace XeroPHP\Models\PayrollAU;
 
 use XeroPHP\Remote;
-
 use XeroPHP\Models\PayrollAU\Setting\Account;
 use XeroPHP\Models\PayrollAU\Setting\TrackingCategory;
 
-class Setting extends Remote\Object {
+class Setting extends Remote\Object
+{
 
     /**
      * Payroll Account details for SuperExpense, SuperLiabilty, WagesExpense, PAYGLiability & WagesPayable.
@@ -35,7 +34,8 @@ class Setting extends Remote\Object {
      *
      * @return string
      */
-    public static function getResourceURI(){
+    public static function getResourceURI()
+    {
         return 'Settings';
     }
 
@@ -45,7 +45,8 @@ class Setting extends Remote\Object {
      *
      * @return string
      */
-    public static function getRootNodeName(){
+    public static function getRootNodeName()
+    {
         return 'Setting';
     }
 
@@ -55,7 +56,8 @@ class Setting extends Remote\Object {
      *
      * @return string
      */
-    public static function getGUIDProperty(){
+    public static function getGUIDProperty()
+    {
         return '';
     }
 
@@ -65,7 +67,8 @@ class Setting extends Remote\Object {
      *
      * @return string|null
      */
-    public static function getAPIStem(){
+    public static function getAPIStem()
+    {
         return Remote\URL::API_PAYROLL;
     }
 
@@ -73,7 +76,8 @@ class Setting extends Remote\Object {
     /**
      * Get the supported methods
      */
-    public static function getSupportedMethods() {
+    public static function getSupportedMethods()
+    {
         return array(
             Remote\Request::METHOD_GET
         );
@@ -90,7 +94,8 @@ class Setting extends Remote\Object {
      *
      * @return array
      */
-    public static function getProperties() {
+    public static function getProperties()
+    {
         return array(
             'Accounts' => array (false, self::PROPERTY_TYPE_OBJECT, 'PayrollAU\\Setting\\Account', true, false),
             'TrackingCategories' => array (false, self::PROPERTY_TYPE_OBJECT, 'PayrollAU\\Setting\\TrackingCategory', true, false),
@@ -98,7 +103,8 @@ class Setting extends Remote\Object {
         );
     }
 
-    public static function isPageable(){
+    public static function isPageable()
+    {
         return false;
     }
 
@@ -106,7 +112,8 @@ class Setting extends Remote\Object {
      * @return Account[]|Remote\Collection
      * Always returns a collection, switch is for type hinting
      */
-    public function getAccounts() {
+    public function getAccounts()
+    {
         return $this->_data['Accounts'];
     }
 
@@ -114,7 +121,8 @@ class Setting extends Remote\Object {
      * @param Account $value
      * @return Setting
      */
-    public function addAccount(Account $value) {
+    public function addAccount(Account $value)
+    {
         $this->propertyUpdated('Accounts', $value);
         if(!isset($this->_data['Accounts'])){
             $this->_data['Accounts'] = new Remote\Collection();
@@ -127,7 +135,8 @@ class Setting extends Remote\Object {
      * @return TrackingCategory[]|Remote\Collection
      * Always returns a collection, switch is for type hinting
      */
-    public function getTrackingCategories() {
+    public function getTrackingCategories()
+    {
         return $this->_data['TrackingCategories'];
     }
 
@@ -135,7 +144,8 @@ class Setting extends Remote\Object {
      * @param TrackingCategory $value
      * @return Setting
      */
-    public function addTrackingCategory(TrackingCategory $value) {
+    public function addTrackingCategory(TrackingCategory $value)
+    {
         $this->propertyUpdated('TrackingCategories', $value);
         if(!isset($this->_data['TrackingCategories'])){
             $this->_data['TrackingCategories'] = new Remote\Collection();
@@ -147,7 +157,8 @@ class Setting extends Remote\Object {
     /**
      * @return string
      */
-    public function getDaysInPayrollYear() {
+    public function getDaysInPayrollYear()
+    {
         return $this->_data['DaysInPayrollYear'];
     }
 
@@ -155,7 +166,8 @@ class Setting extends Remote\Object {
      * @param string $value
      * @return Setting
      */
-    public function setDaysInPayrollYear($value) {
+    public function setDaysInPayrollYear($value)
+    {
         $this->propertyUpdated('DaysInPayrollYear', $value);
         $this->_data['DaysInPayrollYear'] = $value;
         return $this;

@@ -1,11 +1,10 @@
 <?php
-
 namespace XeroPHP\Models\Accounting;
 
 use XeroPHP\Remote;
 
-
-class User extends Remote\Object {
+class User extends Remote\Object
+{
 
     /**
      * Xero identifier
@@ -56,7 +55,8 @@ class User extends Remote\Object {
      *
      * @return string
      */
-    public static function getResourceURI(){
+    public static function getResourceURI()
+    {
         return 'Users';
     }
 
@@ -66,7 +66,8 @@ class User extends Remote\Object {
      *
      * @return string
      */
-    public static function getRootNodeName(){
+    public static function getRootNodeName()
+    {
         return 'User';
     }
 
@@ -76,7 +77,8 @@ class User extends Remote\Object {
      *
      * @return string
      */
-    public static function getGUIDProperty(){
+    public static function getGUIDProperty()
+    {
         return 'UserID';
     }
 
@@ -86,7 +88,8 @@ class User extends Remote\Object {
      *
      * @return string|null
      */
-    public static function getAPIStem(){
+    public static function getAPIStem()
+    {
         return Remote\URL::API_CORE;
     }
 
@@ -94,7 +97,8 @@ class User extends Remote\Object {
     /**
      * Get the supported methods
      */
-    public static function getSupportedMethods() {
+    public static function getSupportedMethods()
+    {
         return array(
             Remote\Request::METHOD_GET
         );
@@ -111,7 +115,8 @@ class User extends Remote\Object {
      *
      * @return array
      */
-    public static function getProperties() {
+    public static function getProperties()
+    {
         return array(
             'UserID' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'EmailAddress' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
@@ -123,14 +128,16 @@ class User extends Remote\Object {
         );
     }
 
-    public static function isPageable(){
+    public static function isPageable()
+    {
         return false;
     }
 
     /**
      * @return string
      */
-    public function getUserID() {
+    public function getUserID()
+    {
         return $this->_data['UserID'];
     }
 
@@ -138,7 +145,8 @@ class User extends Remote\Object {
      * @param string $value
      * @return User
      */
-    public function setUserID($value) {
+    public function setUserID($value)
+    {
         $this->propertyUpdated('UserID', $value);
         $this->_data['UserID'] = $value;
         return $this;
@@ -147,7 +155,8 @@ class User extends Remote\Object {
     /**
      * @return string
      */
-    public function getEmailAddress() {
+    public function getEmailAddress()
+    {
         return $this->_data['EmailAddress'];
     }
 
@@ -155,7 +164,8 @@ class User extends Remote\Object {
      * @param string $value
      * @return User
      */
-    public function setEmailAddress($value) {
+    public function setEmailAddress($value)
+    {
         $this->propertyUpdated('EmailAddress', $value);
         $this->_data['EmailAddress'] = $value;
         return $this;
@@ -164,7 +174,8 @@ class User extends Remote\Object {
     /**
      * @return string
      */
-    public function getFirstName() {
+    public function getFirstName()
+    {
         return $this->_data['FirstName'];
     }
 
@@ -172,7 +183,8 @@ class User extends Remote\Object {
      * @param string $value
      * @return User
      */
-    public function setFirstName($value) {
+    public function setFirstName($value)
+    {
         $this->propertyUpdated('FirstName', $value);
         $this->_data['FirstName'] = $value;
         return $this;
@@ -181,7 +193,8 @@ class User extends Remote\Object {
     /**
      * @return string
      */
-    public function getLastName() {
+    public function getLastName()
+    {
         return $this->_data['LastName'];
     }
 
@@ -189,7 +202,8 @@ class User extends Remote\Object {
      * @param string $value
      * @return User
      */
-    public function setLastName($value) {
+    public function setLastName($value)
+    {
         $this->propertyUpdated('LastName', $value);
         $this->_data['LastName'] = $value;
         return $this;
@@ -198,7 +212,8 @@ class User extends Remote\Object {
     /**
      * @return \DateTime
      */
-    public function getUpdatedDateUTC() {
+    public function getUpdatedDateUTC()
+    {
         return $this->_data['UpdatedDateUTC'];
     }
 
@@ -206,7 +221,8 @@ class User extends Remote\Object {
      * @param \DateTime $value
      * @return User
      */
-    public function setUpdatedDateUTC(\DateTime $value) {
+    public function setUpdatedDateUTC(\DateTime $value)
+    {
         $this->propertyUpdated('UpdatedDateUTC', $value);
         $this->_data['UpdatedDateUTC'] = $value;
         return $this;
@@ -215,7 +231,8 @@ class User extends Remote\Object {
     /**
      * @return bool
      */
-    public function getIsSubscriber() {
+    public function getIsSubscriber()
+    {
         return $this->_data['IsSubscriber'];
     }
 
@@ -223,7 +240,8 @@ class User extends Remote\Object {
      * @param bool $value
      * @return User
      */
-    public function setIsSubscriber($value) {
+    public function setIsSubscriber($value)
+    {
         $this->propertyUpdated('IsSubscriber', $value);
         $this->_data['IsSubscriber'] = $value;
         return $this;
@@ -232,7 +250,8 @@ class User extends Remote\Object {
     /**
      * @return string
      */
-    public function getOrganisationRole() {
+    public function getOrganisationRole()
+    {
         return $this->_data['OrganisationRole'];
     }
 
@@ -240,7 +259,8 @@ class User extends Remote\Object {
      * @param string $value
      * @return User
      */
-    public function setOrganisationRole($value) {
+    public function setOrganisationRole($value)
+    {
         $this->propertyUpdated('OrganisationRole', $value);
         $this->_data['OrganisationRole'] = $value;
         return $this;

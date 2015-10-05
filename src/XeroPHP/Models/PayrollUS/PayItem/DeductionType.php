@@ -1,11 +1,10 @@
 <?php
-
 namespace XeroPHP\Models\PayrollUS\PayItem;
 
 use XeroPHP\Remote;
 
-
-class DeductionType extends Remote\Object {
+class DeductionType extends Remote\Object
+{
 
     /**
      * Name of the deduction type (max length = 50)
@@ -87,7 +86,8 @@ SECTION125PLAN
      *
      * @return string
      */
-    public static function getResourceURI(){
+    public static function getResourceURI()
+    {
         return 'DeductionTypes';
     }
 
@@ -97,7 +97,8 @@ SECTION125PLAN
      *
      * @return string
      */
-    public static function getRootNodeName(){
+    public static function getRootNodeName()
+    {
         return 'DeductionType';
     }
 
@@ -107,7 +108,8 @@ SECTION125PLAN
      *
      * @return string
      */
-    public static function getGUIDProperty(){
+    public static function getGUIDProperty()
+    {
         return 'DeductionTypeID';
     }
 
@@ -117,7 +119,8 @@ SECTION125PLAN
      *
      * @return string|null
      */
-    public static function getAPIStem(){
+    public static function getAPIStem()
+    {
         return Remote\URL::API_PAYROLL;
     }
 
@@ -125,7 +128,8 @@ SECTION125PLAN
     /**
      * Get the supported methods
      */
-    public static function getSupportedMethods() {
+    public static function getSupportedMethods()
+    {
         return array(
         );
     }
@@ -141,7 +145,8 @@ SECTION125PLAN
      *
      * @return array
      */
-    public static function getProperties() {
+    public static function getProperties()
+    {
         return array(
             'DeductionType' => array (true, self::PROPERTY_TYPE_OBJECT, 'PayrollUS\\PayItem\\DeductionType', false, false),
             'DeductionCategory' => array (true, self::PROPERTY_TYPE_ENUM, null, false, false),
@@ -153,14 +158,16 @@ SECTION125PLAN
         );
     }
 
-    public static function isPageable(){
+    public static function isPageable()
+    {
         return false;
     }
 
     /**
      * @return DeductionType
      */
-    public function getDeductionType() {
+    public function getDeductionType()
+    {
         return $this->_data['DeductionType'];
     }
 
@@ -168,7 +175,8 @@ SECTION125PLAN
      * @param DeductionType $value
      * @return DeductionType
      */
-    public function setDeductionType(DeductionType $value) {
+    public function setDeductionType(DeductionType $value)
+    {
         $this->propertyUpdated('DeductionType', $value);
         $this->_data['DeductionType'] = $value;
         return $this;
@@ -177,7 +185,8 @@ SECTION125PLAN
     /**
      * @return string
      */
-    public function getDeductionCategory() {
+    public function getDeductionCategory()
+    {
         return $this->_data['DeductionCategory'];
     }
 
@@ -185,7 +194,8 @@ SECTION125PLAN
      * @param string $value
      * @return DeductionType
      */
-    public function setDeductionCategory($value) {
+    public function setDeductionCategory($value)
+    {
         $this->propertyUpdated('DeductionCategory', $value);
         $this->_data['DeductionCategory'] = $value;
         return $this;
@@ -194,7 +204,8 @@ SECTION125PLAN
     /**
      * @return float
      */
-    public function getCalculationType() {
+    public function getCalculationType()
+    {
         return $this->_data['CalculationType'];
     }
 
@@ -202,7 +213,8 @@ SECTION125PLAN
      * @param float $value
      * @return DeductionType
      */
-    public function setCalculationType($value) {
+    public function setCalculationType($value)
+    {
         $this->propertyUpdated('CalculationType', $value);
         $this->_data['CalculationType'] = $value;
         return $this;
@@ -211,7 +223,8 @@ SECTION125PLAN
     /**
      * @return string
      */
-    public function getLiabilityAccountCode() {
+    public function getLiabilityAccountCode()
+    {
         return $this->_data['LiabilityAccountCode'];
     }
 
@@ -219,7 +232,8 @@ SECTION125PLAN
      * @param string $value
      * @return DeductionType
      */
-    public function setLiabilityAccountCode($value) {
+    public function setLiabilityAccountCode($value)
+    {
         $this->propertyUpdated('LiabilityAccountCode', $value);
         $this->_data['LiabilityAccountCode'] = $value;
         return $this;
@@ -228,7 +242,8 @@ SECTION125PLAN
     /**
      * @return string
      */
-    public function getDeductionTypeID() {
+    public function getDeductionTypeID()
+    {
         return $this->_data['DeductionTypeID'];
     }
 
@@ -236,7 +251,8 @@ SECTION125PLAN
      * @param string $value
      * @return DeductionType
      */
-    public function setDeductionTypeID($value) {
+    public function setDeductionTypeID($value)
+    {
         $this->propertyUpdated('DeductionTypeID', $value);
         $this->_data['DeductionTypeID'] = $value;
         return $this;
@@ -245,7 +261,8 @@ SECTION125PLAN
     /**
      * @return float
      */
-    public function getStandardAmount() {
+    public function getStandardAmount()
+    {
         return $this->_data['StandardAmount'];
     }
 
@@ -253,7 +270,8 @@ SECTION125PLAN
      * @param float $value
      * @return DeductionType
      */
-    public function setStandardAmount($value) {
+    public function setStandardAmount($value)
+    {
         $this->propertyUpdated('StandardAmount', $value);
         $this->_data['StandardAmount'] = $value;
         return $this;
@@ -262,7 +280,8 @@ SECTION125PLAN
     /**
      * @return float
      */
-    public function getCompanyMax() {
+    public function getCompanyMax()
+    {
         return $this->_data['CompanyMax'];
     }
 
@@ -270,7 +289,8 @@ SECTION125PLAN
      * @param float $value
      * @return DeductionType
      */
-    public function setCompanyMax($value) {
+    public function setCompanyMax($value)
+    {
         $this->propertyUpdated('CompanyMax', $value);
         $this->_data['CompanyMax'] = $value;
         return $this;

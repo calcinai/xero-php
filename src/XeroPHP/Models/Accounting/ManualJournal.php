@@ -1,14 +1,12 @@
 <?php
-
 namespace XeroPHP\Models\Accounting;
 
 use XeroPHP\Remote;
-
 use XeroPHP\Traits\AttachmentTrait;
-
 use XeroPHP\Models\Accounting\ManualJournal\JournalLine;
 
-class ManualJournal extends Remote\Object {
+class ManualJournal extends Remote\Object
+{
 
     use AttachmentTrait;
 
@@ -84,7 +82,8 @@ class ManualJournal extends Remote\Object {
      *
      * @return string
      */
-    public static function getResourceURI(){
+    public static function getResourceURI()
+    {
         return 'ManualJournals';
     }
 
@@ -94,7 +93,8 @@ class ManualJournal extends Remote\Object {
      *
      * @return string
      */
-    public static function getRootNodeName(){
+    public static function getRootNodeName()
+    {
         return 'ManualJournal';
     }
 
@@ -104,7 +104,8 @@ class ManualJournal extends Remote\Object {
      *
      * @return string
      */
-    public static function getGUIDProperty(){
+    public static function getGUIDProperty()
+    {
         return 'ManualJournalID';
     }
 
@@ -114,7 +115,8 @@ class ManualJournal extends Remote\Object {
      *
      * @return string|null
      */
-    public static function getAPIStem(){
+    public static function getAPIStem()
+    {
         return Remote\URL::API_CORE;
     }
 
@@ -122,7 +124,8 @@ class ManualJournal extends Remote\Object {
     /**
      * Get the supported methods
      */
-    public static function getSupportedMethods() {
+    public static function getSupportedMethods()
+    {
         return array(
             Remote\Request::METHOD_GET,
             Remote\Request::METHOD_PUT,
@@ -141,7 +144,8 @@ class ManualJournal extends Remote\Object {
      *
      * @return array
      */
-    public static function getProperties() {
+    public static function getProperties()
+    {
         return array(
             'ManualJournalID' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'Narration' => array (true, self::PROPERTY_TYPE_STRING, null, false, false),
@@ -156,14 +160,16 @@ class ManualJournal extends Remote\Object {
         );
     }
 
-    public static function isPageable(){
+    public static function isPageable()
+    {
         return true;
     }
 
     /**
      * @return string
      */
-    public function getManualJournalID() {
+    public function getManualJournalID()
+    {
         return $this->_data['ManualJournalID'];
     }
 
@@ -171,7 +177,8 @@ class ManualJournal extends Remote\Object {
      * @param string $value
      * @return ManualJournal
      */
-    public function setManualJournalID($value) {
+    public function setManualJournalID($value)
+    {
         $this->propertyUpdated('ManualJournalID', $value);
         $this->_data['ManualJournalID'] = $value;
         return $this;
@@ -180,7 +187,8 @@ class ManualJournal extends Remote\Object {
     /**
      * @return string
      */
-    public function getNarration() {
+    public function getNarration()
+    {
         return $this->_data['Narration'];
     }
 
@@ -188,7 +196,8 @@ class ManualJournal extends Remote\Object {
      * @param string $value
      * @return ManualJournal
      */
-    public function setNarration($value) {
+    public function setNarration($value)
+    {
         $this->propertyUpdated('Narration', $value);
         $this->_data['Narration'] = $value;
         return $this;
@@ -198,7 +207,8 @@ class ManualJournal extends Remote\Object {
      * @return JournalLine[]|Remote\Collection
      * Always returns a collection, switch is for type hinting
      */
-    public function getJournalLines() {
+    public function getJournalLines()
+    {
         return $this->_data['JournalLines'];
     }
 
@@ -206,7 +216,8 @@ class ManualJournal extends Remote\Object {
      * @param JournalLine $value
      * @return ManualJournal
      */
-    public function addJournalLine(JournalLine $value) {
+    public function addJournalLine(JournalLine $value)
+    {
         $this->propertyUpdated('JournalLines', $value);
         if(!isset($this->_data['JournalLines'])){
             $this->_data['JournalLines'] = new Remote\Collection();
@@ -218,7 +229,8 @@ class ManualJournal extends Remote\Object {
     /**
      * @return \DateTime
      */
-    public function getDate() {
+    public function getDate()
+    {
         return $this->_data['Date'];
     }
 
@@ -226,7 +238,8 @@ class ManualJournal extends Remote\Object {
      * @param \DateTime $value
      * @return ManualJournal
      */
-    public function setDate(\DateTime $value) {
+    public function setDate(\DateTime $value)
+    {
         $this->propertyUpdated('Date', $value);
         $this->_data['Date'] = $value;
         return $this;
@@ -235,7 +248,8 @@ class ManualJournal extends Remote\Object {
     /**
      * @return string
      */
-    public function getLineAmountTypes() {
+    public function getLineAmountTypes()
+    {
         return $this->_data['LineAmountTypes'];
     }
 
@@ -243,7 +257,8 @@ class ManualJournal extends Remote\Object {
      * @param string $value
      * @return ManualJournal
      */
-    public function setLineAmountType($value) {
+    public function setLineAmountType($value)
+    {
         $this->propertyUpdated('LineAmountTypes', $value);
         $this->_data['LineAmountTypes'] = $value;
         return $this;
@@ -252,7 +267,8 @@ class ManualJournal extends Remote\Object {
     /**
      * @return string
      */
-    public function getStatus() {
+    public function getStatus()
+    {
         return $this->_data['Status'];
     }
 
@@ -260,7 +276,8 @@ class ManualJournal extends Remote\Object {
      * @param string $value
      * @return ManualJournal
      */
-    public function setStatus($value) {
+    public function setStatus($value)
+    {
         $this->propertyUpdated('Status', $value);
         $this->_data['Status'] = $value;
         return $this;
@@ -269,7 +286,8 @@ class ManualJournal extends Remote\Object {
     /**
      * @return string
      */
-    public function getUrl() {
+    public function getUrl()
+    {
         return $this->_data['Url'];
     }
 
@@ -277,7 +295,8 @@ class ManualJournal extends Remote\Object {
      * @param string $value
      * @return ManualJournal
      */
-    public function setUrl($value) {
+    public function setUrl($value)
+    {
         $this->propertyUpdated('Url', $value);
         $this->_data['Url'] = $value;
         return $this;
@@ -286,7 +305,8 @@ class ManualJournal extends Remote\Object {
     /**
      * @return bool
      */
-    public function getShowOnCashBasisReports() {
+    public function getShowOnCashBasisReports()
+    {
         return $this->_data['ShowOnCashBasisReports'];
     }
 
@@ -294,7 +314,8 @@ class ManualJournal extends Remote\Object {
      * @param bool $value
      * @return ManualJournal
      */
-    public function setShowOnCashBasisReport($value) {
+    public function setShowOnCashBasisReport($value)
+    {
         $this->propertyUpdated('ShowOnCashBasisReports', $value);
         $this->_data['ShowOnCashBasisReports'] = $value;
         return $this;
@@ -303,7 +324,8 @@ class ManualJournal extends Remote\Object {
     /**
      * @return bool
      */
-    public function getHasAttachments() {
+    public function getHasAttachments()
+    {
         return $this->_data['HasAttachments'];
     }
 
@@ -311,7 +333,8 @@ class ManualJournal extends Remote\Object {
     /**
      * @return \DateTime
      */
-    public function getUpdatedDateUTC() {
+    public function getUpdatedDateUTC()
+    {
         return $this->_data['UpdatedDateUTC'];
     }
 

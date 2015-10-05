@@ -1,12 +1,11 @@
 <?php
-
 namespace XeroPHP\Models\Accounting;
 
 use XeroPHP\Remote;
-
 use XeroPHP\Models\Accounting\Journal\JournalLine;
 
-class Journal extends Remote\Object {
+class Journal extends Remote\Object
+{
 
     /**
      * Xero identifier
@@ -85,7 +84,8 @@ class Journal extends Remote\Object {
      *
      * @return string
      */
-    public static function getResourceURI(){
+    public static function getResourceURI()
+    {
         return 'Journals';
     }
 
@@ -95,7 +95,8 @@ class Journal extends Remote\Object {
      *
      * @return string
      */
-    public static function getRootNodeName(){
+    public static function getRootNodeName()
+    {
         return 'Journal';
     }
 
@@ -105,7 +106,8 @@ class Journal extends Remote\Object {
      *
      * @return string
      */
-    public static function getGUIDProperty(){
+    public static function getGUIDProperty()
+    {
         return 'JournalID';
     }
 
@@ -115,7 +117,8 @@ class Journal extends Remote\Object {
      *
      * @return string|null
      */
-    public static function getAPIStem(){
+    public static function getAPIStem()
+    {
         return Remote\URL::API_CORE;
     }
 
@@ -123,7 +126,8 @@ class Journal extends Remote\Object {
     /**
      * Get the supported methods
      */
-    public static function getSupportedMethods() {
+    public static function getSupportedMethods()
+    {
         return array(
             Remote\Request::METHOD_GET
         );
@@ -140,7 +144,8 @@ class Journal extends Remote\Object {
      *
      * @return array
      */
-    public static function getProperties() {
+    public static function getProperties()
+    {
         return array(
             'JournalID' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'JournalDate' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTime', false, false),
@@ -153,14 +158,16 @@ class Journal extends Remote\Object {
         );
     }
 
-    public static function isPageable(){
+    public static function isPageable()
+    {
         return false;
     }
 
     /**
      * @return string
      */
-    public function getJournalID() {
+    public function getJournalID()
+    {
         return $this->_data['JournalID'];
     }
 
@@ -168,7 +175,8 @@ class Journal extends Remote\Object {
      * @param string $value
      * @return Journal
      */
-    public function setJournalID($value) {
+    public function setJournalID($value)
+    {
         $this->propertyUpdated('JournalID', $value);
         $this->_data['JournalID'] = $value;
         return $this;
@@ -177,7 +185,8 @@ class Journal extends Remote\Object {
     /**
      * @return \DateTime
      */
-    public function getJournalDate() {
+    public function getJournalDate()
+    {
         return $this->_data['JournalDate'];
     }
 
@@ -185,7 +194,8 @@ class Journal extends Remote\Object {
      * @param \DateTime $value
      * @return Journal
      */
-    public function setJournalDate(\DateTime $value) {
+    public function setJournalDate(\DateTime $value)
+    {
         $this->propertyUpdated('JournalDate', $value);
         $this->_data['JournalDate'] = $value;
         return $this;
@@ -194,7 +204,8 @@ class Journal extends Remote\Object {
     /**
      * @return string
      */
-    public function getJournalNumber() {
+    public function getJournalNumber()
+    {
         return $this->_data['JournalNumber'];
     }
 
@@ -202,7 +213,8 @@ class Journal extends Remote\Object {
      * @param string $value
      * @return Journal
      */
-    public function setJournalNumber($value) {
+    public function setJournalNumber($value)
+    {
         $this->propertyUpdated('JournalNumber', $value);
         $this->_data['JournalNumber'] = $value;
         return $this;
@@ -211,7 +223,8 @@ class Journal extends Remote\Object {
     /**
      * @return \DateTime
      */
-    public function getCreatedDateUTC() {
+    public function getCreatedDateUTC()
+    {
         return $this->_data['CreatedDateUTC'];
     }
 
@@ -219,7 +232,8 @@ class Journal extends Remote\Object {
      * @param \DateTime $value
      * @return Journal
      */
-    public function setCreatedDateUTC(\DateTime $value) {
+    public function setCreatedDateUTC(\DateTime $value)
+    {
         $this->propertyUpdated('CreatedDateUTC', $value);
         $this->_data['CreatedDateUTC'] = $value;
         return $this;
@@ -228,7 +242,8 @@ class Journal extends Remote\Object {
     /**
      * @return string
      */
-    public function getReference() {
+    public function getReference()
+    {
         return $this->_data['Reference'];
     }
 
@@ -236,7 +251,8 @@ class Journal extends Remote\Object {
      * @param string $value
      * @return Journal
      */
-    public function setReference($value) {
+    public function setReference($value)
+    {
         $this->propertyUpdated('Reference', $value);
         $this->_data['Reference'] = $value;
         return $this;
@@ -245,7 +261,8 @@ class Journal extends Remote\Object {
     /**
      * @return string
      */
-    public function getSourceID() {
+    public function getSourceID()
+    {
         return $this->_data['SourceID'];
     }
 
@@ -253,7 +270,8 @@ class Journal extends Remote\Object {
      * @param string $value
      * @return Journal
      */
-    public function setSourceID($value) {
+    public function setSourceID($value)
+    {
         $this->propertyUpdated('SourceID', $value);
         $this->_data['SourceID'] = $value;
         return $this;
@@ -262,7 +280,8 @@ class Journal extends Remote\Object {
     /**
      * @return string
      */
-    public function getSourceType() {
+    public function getSourceType()
+    {
         return $this->_data['SourceType'];
     }
 
@@ -270,7 +289,8 @@ class Journal extends Remote\Object {
      * @param string $value
      * @return Journal
      */
-    public function setSourceType($value) {
+    public function setSourceType($value)
+    {
         $this->propertyUpdated('SourceType', $value);
         $this->_data['SourceType'] = $value;
         return $this;
@@ -280,7 +300,8 @@ class Journal extends Remote\Object {
      * @return JournalLine[]|Remote\Collection
      * Always returns a collection, switch is for type hinting
      */
-    public function getJournalLines() {
+    public function getJournalLines()
+    {
         return $this->_data['JournalLines'];
     }
 
@@ -288,7 +309,8 @@ class Journal extends Remote\Object {
      * @param JournalLine $value
      * @return Journal
      */
-    public function addJournalLine(JournalLine $value) {
+    public function addJournalLine(JournalLine $value)
+    {
         $this->propertyUpdated('JournalLines', $value);
         if(!isset($this->_data['JournalLines'])){
             $this->_data['JournalLines'] = new Remote\Collection();

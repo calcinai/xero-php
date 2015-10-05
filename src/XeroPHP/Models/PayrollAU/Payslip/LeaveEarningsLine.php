@@ -1,11 +1,10 @@
 <?php
-
 namespace XeroPHP\Models\PayrollAU\Payslip;
 
 use XeroPHP\Remote;
 
-
-class LeaveEarningsLine extends Remote\Object {
+class LeaveEarningsLine extends Remote\Object
+{
 
     /**
      * Xero identifier for payroll earnings rate.
@@ -32,7 +31,8 @@ class LeaveEarningsLine extends Remote\Object {
      *
      * @return string
      */
-    public static function getResourceURI(){
+    public static function getResourceURI()
+    {
         return 'LeaveEarningsLine';
     }
 
@@ -42,7 +42,8 @@ class LeaveEarningsLine extends Remote\Object {
      *
      * @return string
      */
-    public static function getRootNodeName(){
+    public static function getRootNodeName()
+    {
         return 'LeaveEarningsLine';
     }
 
@@ -52,7 +53,8 @@ class LeaveEarningsLine extends Remote\Object {
      *
      * @return string
      */
-    public static function getGUIDProperty(){
+    public static function getGUIDProperty()
+    {
         return '';
     }
 
@@ -62,7 +64,8 @@ class LeaveEarningsLine extends Remote\Object {
      *
      * @return string|null
      */
-    public static function getAPIStem(){
+    public static function getAPIStem()
+    {
         return Remote\URL::API_PAYROLL;
     }
 
@@ -70,7 +73,8 @@ class LeaveEarningsLine extends Remote\Object {
     /**
      * Get the supported methods
      */
-    public static function getSupportedMethods() {
+    public static function getSupportedMethods()
+    {
         return array(
         );
     }
@@ -86,7 +90,8 @@ class LeaveEarningsLine extends Remote\Object {
      *
      * @return array
      */
-    public static function getProperties() {
+    public static function getProperties()
+    {
         return array(
             'EarningsRateID' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'RatePerUnit' => array (false, self::PROPERTY_TYPE_FLOAT, null, false, false),
@@ -94,14 +99,16 @@ class LeaveEarningsLine extends Remote\Object {
         );
     }
 
-    public static function isPageable(){
+    public static function isPageable()
+    {
         return false;
     }
 
     /**
      * @return string
      */
-    public function getEarningsRateID() {
+    public function getEarningsRateID()
+    {
         return $this->_data['EarningsRateID'];
     }
 
@@ -109,7 +116,8 @@ class LeaveEarningsLine extends Remote\Object {
      * @param string $value
      * @return LeaveEarningsLine
      */
-    public function setEarningsRateID($value) {
+    public function setEarningsRateID($value)
+    {
         $this->propertyUpdated('EarningsRateID', $value);
         $this->_data['EarningsRateID'] = $value;
         return $this;
@@ -118,7 +126,8 @@ class LeaveEarningsLine extends Remote\Object {
     /**
      * @return float
      */
-    public function getRatePerUnit() {
+    public function getRatePerUnit()
+    {
         return $this->_data['RatePerUnit'];
     }
 
@@ -126,7 +135,8 @@ class LeaveEarningsLine extends Remote\Object {
      * @param float $value
      * @return LeaveEarningsLine
      */
-    public function setRatePerUnit($value) {
+    public function setRatePerUnit($value)
+    {
         $this->propertyUpdated('RatePerUnit', $value);
         $this->_data['RatePerUnit'] = $value;
         return $this;
@@ -136,7 +146,8 @@ class LeaveEarningsLine extends Remote\Object {
      * @return float[]|Remote\Collection
      * Always returns a collection, switch is for type hinting
      */
-    public function getNumberOfUnits() {
+    public function getNumberOfUnits()
+    {
         return $this->_data['NumberOfUnits'];
     }
 
@@ -144,7 +155,8 @@ class LeaveEarningsLine extends Remote\Object {
      * @param float $value
      * @return LeaveEarningsLine
      */
-    public function addNumberOfUnit($value) {
+    public function addNumberOfUnit($value)
+    {
         $this->propertyUpdated('NumberOfUnits', $value);
         if(!isset($this->_data['NumberOfUnits'])){
             $this->_data['NumberOfUnits'] = new Remote\Collection();

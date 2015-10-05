@@ -1,11 +1,10 @@
 <?php
-
 namespace XeroPHP\Models\Accounting;
 
 use XeroPHP\Remote;
 
-
-class Currency extends Remote\Object {
+class Currency extends Remote\Object
+{
 
     /**
      * This property has been removed from the Xero API
@@ -33,7 +32,8 @@ class Currency extends Remote\Object {
      *
      * @return string
      */
-    public static function getResourceURI(){
+    public static function getResourceURI()
+    {
         return 'Currencies';
     }
 
@@ -43,7 +43,8 @@ class Currency extends Remote\Object {
      *
      * @return string
      */
-    public static function getRootNodeName(){
+    public static function getRootNodeName()
+    {
         return 'Currency';
     }
 
@@ -53,7 +54,8 @@ class Currency extends Remote\Object {
      *
      * @return string
      */
-    public static function getGUIDProperty(){
+    public static function getGUIDProperty()
+    {
         return '';
     }
 
@@ -63,7 +65,8 @@ class Currency extends Remote\Object {
      *
      * @return string|null
      */
-    public static function getAPIStem(){
+    public static function getAPIStem()
+    {
         return Remote\URL::API_CORE;
     }
 
@@ -71,7 +74,8 @@ class Currency extends Remote\Object {
     /**
      * Get the supported methods
      */
-    public static function getSupportedMethods() {
+    public static function getSupportedMethods()
+    {
         return array(
             Remote\Request::METHOD_GET
         );
@@ -88,7 +92,8 @@ class Currency extends Remote\Object {
      *
      * @return array
      */
-    public static function getProperties() {
+    public static function getProperties()
+    {
         return array(
             'ModifiedAfter' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'Code' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
@@ -96,7 +101,8 @@ class Currency extends Remote\Object {
         );
     }
 
-    public static function isPageable(){
+    public static function isPageable()
+    {
         return false;
     }
 
@@ -104,7 +110,8 @@ class Currency extends Remote\Object {
      * @return string
      * @deprecated
      */
-    public function getModifiedAfter() {
+    public function getModifiedAfter()
+    {
         return $this->_data['ModifiedAfter'];
     }
 
@@ -113,7 +120,8 @@ class Currency extends Remote\Object {
      * @return Currency
      * @deprecated
      */
-    public function setModifiedAfter($value) {
+    public function setModifiedAfter($value)
+    {
         $this->propertyUpdated('ModifiedAfter', $value);
         $this->_data['ModifiedAfter'] = $value;
         return $this;
@@ -122,7 +130,8 @@ class Currency extends Remote\Object {
     /**
      * @return string
      */
-    public function getCode() {
+    public function getCode()
+    {
         return $this->_data['Code'];
     }
 
@@ -130,7 +139,8 @@ class Currency extends Remote\Object {
      * @param string $value
      * @return Currency
      */
-    public function setCode($value) {
+    public function setCode($value)
+    {
         $this->propertyUpdated('Code', $value);
         $this->_data['Code'] = $value;
         return $this;
@@ -139,7 +149,8 @@ class Currency extends Remote\Object {
     /**
      * @return string
      */
-    public function getDescription() {
+    public function getDescription()
+    {
         return $this->_data['Description'];
     }
 
@@ -147,7 +158,8 @@ class Currency extends Remote\Object {
      * @param string $value
      * @return Currency
      */
-    public function setDescription($value) {
+    public function setDescription($value)
+    {
         $this->propertyUpdated('Description', $value);
         $this->_data['Description'] = $value;
         return $this;

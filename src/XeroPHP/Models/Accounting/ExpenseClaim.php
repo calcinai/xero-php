@@ -1,11 +1,10 @@
 <?php
-
 namespace XeroPHP\Models\Accounting;
 
 use XeroPHP\Remote;
 
-
-class ExpenseClaim extends Remote\Object {
+class ExpenseClaim extends Remote\Object
+{
 
     /**
      * Xero identifier
@@ -36,7 +35,8 @@ class ExpenseClaim extends Remote\Object {
      *
      * @return string
      */
-    public static function getResourceURI(){
+    public static function getResourceURI()
+    {
         return 'ExpenseClaims';
     }
 
@@ -46,7 +46,8 @@ class ExpenseClaim extends Remote\Object {
      *
      * @return string
      */
-    public static function getRootNodeName(){
+    public static function getRootNodeName()
+    {
         return 'ExpenseClaim';
     }
 
@@ -56,7 +57,8 @@ class ExpenseClaim extends Remote\Object {
      *
      * @return string
      */
-    public static function getGUIDProperty(){
+    public static function getGUIDProperty()
+    {
         return 'ExpenseClaimID';
     }
 
@@ -66,7 +68,8 @@ class ExpenseClaim extends Remote\Object {
      *
      * @return string|null
      */
-    public static function getAPIStem(){
+    public static function getAPIStem()
+    {
         return Remote\URL::API_CORE;
     }
 
@@ -74,7 +77,8 @@ class ExpenseClaim extends Remote\Object {
     /**
      * Get the supported methods
      */
-    public static function getSupportedMethods() {
+    public static function getSupportedMethods()
+    {
         return array(
             Remote\Request::METHOD_GET,
             Remote\Request::METHOD_PUT,
@@ -93,7 +97,8 @@ class ExpenseClaim extends Remote\Object {
      *
      * @return array
      */
-    public static function getProperties() {
+    public static function getProperties()
+    {
         return array(
             'ExpenseClaimID' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'User' => array (true, self::PROPERTY_TYPE_OBJECT, 'Accounting\\User', false, false),
@@ -101,14 +106,16 @@ class ExpenseClaim extends Remote\Object {
         );
     }
 
-    public static function isPageable(){
+    public static function isPageable()
+    {
         return false;
     }
 
     /**
      * @return string
      */
-    public function getExpenseClaimID() {
+    public function getExpenseClaimID()
+    {
         return $this->_data['ExpenseClaimID'];
     }
 
@@ -116,7 +123,8 @@ class ExpenseClaim extends Remote\Object {
      * @param string $value
      * @return ExpenseClaim
      */
-    public function setExpenseClaimID($value) {
+    public function setExpenseClaimID($value)
+    {
         $this->propertyUpdated('ExpenseClaimID', $value);
         $this->_data['ExpenseClaimID'] = $value;
         return $this;
@@ -125,7 +133,8 @@ class ExpenseClaim extends Remote\Object {
     /**
      * @return User
      */
-    public function getUser() {
+    public function getUser()
+    {
         return $this->_data['User'];
     }
 
@@ -133,7 +142,8 @@ class ExpenseClaim extends Remote\Object {
      * @param User $value
      * @return ExpenseClaim
      */
-    public function setUser(User $value) {
+    public function setUser(User $value)
+    {
         $this->propertyUpdated('User', $value);
         $this->_data['User'] = $value;
         return $this;
@@ -143,7 +153,8 @@ class ExpenseClaim extends Remote\Object {
      * @return Receipt[]|Remote\Collection
      * Always returns a collection, switch is for type hinting
      */
-    public function getReceipts() {
+    public function getReceipts()
+    {
         return $this->_data['Receipts'];
     }
 
@@ -151,7 +162,8 @@ class ExpenseClaim extends Remote\Object {
      * @param Receipt $value
      * @return ExpenseClaim
      */
-    public function addReceipt(Receipt $value) {
+    public function addReceipt(Receipt $value)
+    {
         $this->propertyUpdated('Receipts', $value);
         if(!isset($this->_data['Receipts'])){
             $this->_data['Receipts'] = new Remote\Collection();

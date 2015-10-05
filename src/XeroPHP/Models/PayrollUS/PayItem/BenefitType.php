@@ -1,11 +1,10 @@
 <?php
-
 namespace XeroPHP\Models\PayrollUS\PayItem;
 
 use XeroPHP\Remote;
 
-
-class BenefitType extends Remote\Object {
+class BenefitType extends Remote\Object
+{
 
     /**
      * Name of the benefit type (max length = 100)
@@ -84,7 +83,8 @@ class BenefitType extends Remote\Object {
      *
      * @return string
      */
-    public static function getResourceURI(){
+    public static function getResourceURI()
+    {
         return 'BenefitTypes';
     }
 
@@ -94,7 +94,8 @@ class BenefitType extends Remote\Object {
      *
      * @return string
      */
-    public static function getRootNodeName(){
+    public static function getRootNodeName()
+    {
         return 'BenefitType';
     }
 
@@ -104,7 +105,8 @@ class BenefitType extends Remote\Object {
      *
      * @return string
      */
-    public static function getGUIDProperty(){
+    public static function getGUIDProperty()
+    {
         return 'BenefitTypeID';
     }
 
@@ -114,7 +116,8 @@ class BenefitType extends Remote\Object {
      *
      * @return string|null
      */
-    public static function getAPIStem(){
+    public static function getAPIStem()
+    {
         return Remote\URL::API_PAYROLL;
     }
 
@@ -122,7 +125,8 @@ class BenefitType extends Remote\Object {
     /**
      * Get the supported methods
      */
-    public static function getSupportedMethods() {
+    public static function getSupportedMethods()
+    {
         return array(
         );
     }
@@ -138,7 +142,8 @@ class BenefitType extends Remote\Object {
      *
      * @return array
      */
-    public static function getProperties() {
+    public static function getProperties()
+    {
         return array(
             'BenefitType' => array (true, self::PROPERTY_TYPE_OBJECT, 'PayrollUS\\PayItem\\BenefitType', false, false),
             'BenefitCategory' => array (true, self::PROPERTY_TYPE_ENUM, null, false, false),
@@ -152,14 +157,16 @@ class BenefitType extends Remote\Object {
         );
     }
 
-    public static function isPageable(){
+    public static function isPageable()
+    {
         return false;
     }
 
     /**
      * @return BenefitType
      */
-    public function getBenefitType() {
+    public function getBenefitType()
+    {
         return $this->_data['BenefitType'];
     }
 
@@ -167,7 +174,8 @@ class BenefitType extends Remote\Object {
      * @param BenefitType $value
      * @return BenefitType
      */
-    public function setBenefitType(BenefitType $value) {
+    public function setBenefitType(BenefitType $value)
+    {
         $this->propertyUpdated('BenefitType', $value);
         $this->_data['BenefitType'] = $value;
         return $this;
@@ -176,7 +184,8 @@ class BenefitType extends Remote\Object {
     /**
      * @return string
      */
-    public function getBenefitCategory() {
+    public function getBenefitCategory()
+    {
         return $this->_data['BenefitCategory'];
     }
 
@@ -184,7 +193,8 @@ class BenefitType extends Remote\Object {
      * @param string $value
      * @return BenefitType
      */
-    public function setBenefitCategory($value) {
+    public function setBenefitCategory($value)
+    {
         $this->propertyUpdated('BenefitCategory', $value);
         $this->_data['BenefitCategory'] = $value;
         return $this;
@@ -193,7 +203,8 @@ class BenefitType extends Remote\Object {
     /**
      * @return string
      */
-    public function getLiabilityAccountCode() {
+    public function getLiabilityAccountCode()
+    {
         return $this->_data['LiabilityAccountCode'];
     }
 
@@ -201,7 +212,8 @@ class BenefitType extends Remote\Object {
      * @param string $value
      * @return BenefitType
      */
-    public function setLiabilityAccountCode($value) {
+    public function setLiabilityAccountCode($value)
+    {
         $this->propertyUpdated('LiabilityAccountCode', $value);
         $this->_data['LiabilityAccountCode'] = $value;
         return $this;
@@ -210,7 +222,8 @@ class BenefitType extends Remote\Object {
     /**
      * @return string
      */
-    public function getExpenseAccountCode() {
+    public function getExpenseAccountCode()
+    {
         return $this->_data['ExpenseAccountCode'];
     }
 
@@ -218,7 +231,8 @@ class BenefitType extends Remote\Object {
      * @param string $value
      * @return BenefitType
      */
-    public function setExpenseAccountCode($value) {
+    public function setExpenseAccountCode($value)
+    {
         $this->propertyUpdated('ExpenseAccountCode', $value);
         $this->_data['ExpenseAccountCode'] = $value;
         return $this;
@@ -227,7 +241,8 @@ class BenefitType extends Remote\Object {
     /**
      * @return string
      */
-    public function getBenefitTypeID() {
+    public function getBenefitTypeID()
+    {
         return $this->_data['BenefitTypeID'];
     }
 
@@ -235,7 +250,8 @@ class BenefitType extends Remote\Object {
      * @param string $value
      * @return BenefitType
      */
-    public function setBenefitTypeID($value) {
+    public function setBenefitTypeID($value)
+    {
         $this->propertyUpdated('BenefitTypeID', $value);
         $this->_data['BenefitTypeID'] = $value;
         return $this;
@@ -244,7 +260,8 @@ class BenefitType extends Remote\Object {
     /**
      * @return float
      */
-    public function getStandardAmount() {
+    public function getStandardAmount()
+    {
         return $this->_data['StandardAmount'];
     }
 
@@ -252,7 +269,8 @@ class BenefitType extends Remote\Object {
      * @param float $value
      * @return BenefitType
      */
-    public function setStandardAmount($value) {
+    public function setStandardAmount($value)
+    {
         $this->propertyUpdated('StandardAmount', $value);
         $this->_data['StandardAmount'] = $value;
         return $this;
@@ -261,7 +279,8 @@ class BenefitType extends Remote\Object {
     /**
      * @return float
      */
-    public function getCompanyMax() {
+    public function getCompanyMax()
+    {
         return $this->_data['CompanyMax'];
     }
 
@@ -269,7 +288,8 @@ class BenefitType extends Remote\Object {
      * @param float $value
      * @return BenefitType
      */
-    public function setCompanyMax($value) {
+    public function setCompanyMax($value)
+    {
         $this->propertyUpdated('CompanyMax', $value);
         $this->_data['CompanyMax'] = $value;
         return $this;
@@ -278,7 +298,8 @@ class BenefitType extends Remote\Object {
     /**
      * @return string
      */
-    public function getPercentage() {
+    public function getPercentage()
+    {
         return $this->_data['Percentage'];
     }
 
@@ -286,7 +307,8 @@ class BenefitType extends Remote\Object {
      * @param string $value
      * @return BenefitType
      */
-    public function setPercentage($value) {
+    public function setPercentage($value)
+    {
         $this->propertyUpdated('Percentage', $value);
         $this->_data['Percentage'] = $value;
         return $this;
@@ -295,7 +317,8 @@ class BenefitType extends Remote\Object {
     /**
      * @return float
      */
-    public function getShowBalanceOnPaystub() {
+    public function getShowBalanceOnPaystub()
+    {
         return $this->_data['ShowBalanceOnPaystub'];
     }
 
@@ -303,7 +326,8 @@ class BenefitType extends Remote\Object {
      * @param float $value
      * @return BenefitType
      */
-    public function setShowBalanceOnPaystub($value) {
+    public function setShowBalanceOnPaystub($value)
+    {
         $this->propertyUpdated('ShowBalanceOnPaystub', $value);
         $this->_data['ShowBalanceOnPaystub'] = $value;
         return $this;
