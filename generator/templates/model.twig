@@ -1,21 +1,19 @@
 {{ '<?php' }}
-
 namespace XeroPHP\Models\{{ model.Namespace }};
 
 use XeroPHP\Remote;
-
 {% if model.SupportsPDF %}
 use XeroPHP\Traits\PDFTrait;
 {% endif %}
 {% if model.SupportsAttachments %}
 use XeroPHP\Traits\AttachmentTrait;
-
 {% endif %}
 {% for class in model.UsedClasses %}
 use XeroPHP\Models\{{ class }};
 {% endfor %}
 
-class {{ model.ClassName }} extends Remote\Object {
+class {{ model.ClassName }} extends Remote\Object
+{
 
 {% if model.SupportsPDF %}
     use PDFTrait;
@@ -48,7 +46,8 @@ class {{ model.ClassName }} extends Remote\Object {
      *
      * @return string
      */
-    public static function getResourceURI(){
+    public static function getResourceURI()
+    {
         return '{{ model.ResourceURI }}';
     }
 
@@ -58,7 +57,8 @@ class {{ model.ClassName }} extends Remote\Object {
      *
      * @return string
      */
-    public static function getRootNodeName(){
+    public static function getRootNodeName()
+    {
         return '{{ model.ClassName }}';
     }
 
@@ -68,7 +68,8 @@ class {{ model.ClassName }} extends Remote\Object {
      *
      * @return string
      */
-    public static function getGUIDProperty(){
+    public static function getGUIDProperty()
+    {
         return '{{ model.GUIDProperty.Name }}';
     }
 
@@ -78,7 +79,8 @@ class {{ model.ClassName }} extends Remote\Object {
      *
      * @return string|null
      */
-    public static function getAPIStem(){
+    public static function getAPIStem()
+    {
         return {% if model.API.StemConstant %}Remote\URL::{{ model.API.StemConstant }}{% else %}null{% endif %};
     }
 
@@ -86,7 +88,8 @@ class {{ model.ClassName }} extends Remote\Object {
     /**
      * Get the supported methods
      */
-    public static function getSupportedMethods() {
+    public static function getSupportedMethods()
+    {
         return array(
 {% for method in model.Methods %}
             Remote\Request::METHOD_{{ method }}{% if not loop.last %},{% endif %}
@@ -106,7 +109,8 @@ class {{ model.ClassName }} extends Remote\Object {
      *
      * @return array
      */
-    public static function getProperties() {
+    public static function getProperties()
+    {
         return array(
 {% for property in model.Properties %}
             '{{ property.name }}' => array ({% if property.isMandatory %}true{% else %}false{% endif %}, self::{{ property.getTypeConstant }}, {% if property.isHintable %}'{{ property.getPHPType(true)|addslashes }}'{% else %}null{% endif %}, {% if property.isArray %}true{% else %}false{% endif %}, {% if property.save_directly %}true{% else %}false{% endif %}){% if not loop.last %},{% endif %}
@@ -115,7 +119,8 @@ class {{ model.ClassName }} extends Remote\Object {
         );
     }
 
-    public static function isPageable(){
+    public static function isPageable()
+    {
         return {% if model.isPageable %}true{% else %}false{% endif %};
     }
 
@@ -128,7 +133,8 @@ class {{ model.ClassName }} extends Remote\Object {
 {% if property.isDeprecated %}     * @deprecated
 {% endif %}
      */
-    public function get{{ property.Name }}() {
+    public function get{{ property.Name }}()
+    {
         return $this->_data['{{ property.Name }}'];
     }
 
@@ -139,7 +145,8 @@ class {{ model.ClassName }} extends Remote\Object {
 {% if property.isDeprecated %}     * @deprecated
 {% endif %}
      */
-    public function {% if property.isArray %}add{% else %}set{% endif %}{{ property.NameSingular }}({% if property.isHintable %}{{ property.PHPType }} {% endif %}$value) {
+    public function {% if property.isArray %}add{% else %}set{% endif %}{{ property.NameSingular }}({% if property.isHintable %}{{ property.PHPType }} {% endif %}$value)
+    {
         $this->propertyUpdated('{{ property.Name }}', $value);
         {% if property.isArray %}if(!isset($this->_data['{{ property.Name }}'])){
             $this->_data['{{ property.Name }}'] = new Remote\Collection();
