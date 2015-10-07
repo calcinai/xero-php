@@ -151,7 +151,7 @@ class BankTransfer extends Remote\Object
             'FromBankTransactionID' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'ToBankTransactionID' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'HasAttachments' => array (false, self::PROPERTY_TYPE_BOOLEAN, null, false, false),
-            'CreatedDateUTC' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTime', false, false)
+            'CreatedDateUTC' => array (false, self::PROPERTY_TYPE_TIMESTAMP, '\\DateTime', false, false)
         );
     }
 

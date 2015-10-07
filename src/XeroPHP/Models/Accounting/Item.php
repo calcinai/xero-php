@@ -121,7 +121,7 @@ class Item extends Remote\Object
             'Description' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'PurchaseDetails' => array (false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Item\\Purchase', true, false),
             'SalesDetails' => array (false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Item\\Sale', true, false),
-            'UpdatedDateUTC' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTime', false, false)
+            'UpdatedDateUTC' => array (false, self::PROPERTY_TYPE_TIMESTAMP, '\\DateTime', false, false)
         );
     }
 

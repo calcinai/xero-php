@@ -159,7 +159,7 @@ class PayRun extends Remote\Object
             'Deductions' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'Reimbursement' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'NetPay' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'UpdateDateUTC' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTime', false, false),
+            'UpdateDateUTC' => array (false, self::PROPERTY_TYPE_TIMESTAMP, '\\DateTime', false, false),
             'PayStubs' => array (false, self::PROPERTY_TYPE_STRING, null, false, false)
         );
     }
