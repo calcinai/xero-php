@@ -22,7 +22,7 @@ class Schedule extends Remote\Object
     /**
      * Integer used with due date type e.g 20 (of following month), 31 (of current month)
      *
-     * @property \DateTime DueDate
+     * @property int DueDate
      */
 
     /**
@@ -120,7 +120,7 @@ class Schedule extends Remote\Object
         return array(
             'Period' => array (false, self::PROPERTY_TYPE_INT, null, false, false),
             'Unit' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'DueDate' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTime', false, false),
+            'DueDate' => array (false, self::PROPERTY_TYPE_INT, null, false, false),
             'DueDateType' => array (false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Organisation\\PaymentTerm', false, false),
             'StartDate' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTime', false, false),
             'NextScheduledDate' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTime', false, false),
@@ -172,7 +172,7 @@ class Schedule extends Remote\Object
     }
 
     /**
-     * @return \DateTime
+     * @return int
      */
     public function getDueDate()
     {
@@ -180,10 +180,10 @@ class Schedule extends Remote\Object
     }
 
     /**
-     * @param \DateTime $value
+     * @param int $value
      * @return Schedule
      */
-    public function setDueDate(\DateTime $value)
+    public function setDueDate($value)
     {
         $this->propertyUpdated('DueDate', $value);
         $this->_data['DueDate'] = $value;
