@@ -238,7 +238,7 @@ class Property {
         if(preg_match('/(^int(eger)?\b)/i', $this->description))
             $type = Object::PROPERTY_TYPE_INT;
 
-        if(preg_match('/(\bdate\b)/i', $this->description))
+        if(!isset($type) && preg_match('/(\bdate\b)/i', $this->description))
             $type = Object::PROPERTY_TYPE_DATE;
 
         if(preg_match('/Xero (generated )?(unique )?identifier/i', $this->description))
