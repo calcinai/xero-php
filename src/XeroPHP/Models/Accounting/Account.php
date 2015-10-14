@@ -458,6 +458,16 @@ e.g.
         return $this->_data['BankAccountNumber'];
     }
 
+    /**
+     * @param string $value
+     * @return Account
+     */
+    public function setBankAccountNumber($value)
+    {
+        $this->propertyUpdated('BankAccountNumber', $value);
+        $this->_data['BankAccountNumber'] = $value;
+        return $this;
+    }
 
     /**
      * @return string
