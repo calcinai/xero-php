@@ -92,9 +92,16 @@ class Employee extends Remote\Object
      */
 
     /**
-     * Occupation of the employee (max length = 50)
+     * This property has been removed from the Xero API
      *
      * @property string Occupation
+     * @deprecated
+     */
+
+    /**
+     * JobTitle of the employee (max length = 50)
+     *
+     * @property string JobTitle
      */
 
     /**
@@ -268,6 +275,7 @@ class Employee extends Remote\Object
             'IsAuthorisedToApproveLeave' => array (false, self::PROPERTY_TYPE_BOOLEAN, null, false, false),
             'IsAuthorisedToApproveTimesheets' => array (false, self::PROPERTY_TYPE_BOOLEAN, null, false, false),
             'Occupation' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
+            'JobTitle' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'Classification' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'OrdinaryEarningsRateID' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'PayrollCalendarID' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
@@ -537,6 +545,7 @@ class Employee extends Remote\Object
 
     /**
      * @return string
+     * @deprecated
      */
     public function getOccupation()
     {
@@ -546,11 +555,31 @@ class Employee extends Remote\Object
     /**
      * @param string $value
      * @return Employee
+     * @deprecated
      */
     public function setOccupation($value)
     {
         $this->propertyUpdated('Occupation', $value);
         $this->_data['Occupation'] = $value;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getJobTitle()
+    {
+        return $this->_data['JobTitle'];
+    }
+
+    /**
+     * @param string $value
+     * @return Employee
+     */
+    public function setJobTitle($value)
+    {
+        $this->propertyUpdated('JobTitle', $value);
+        $this->_data['JobTitle'] = $value;
         return $this;
     }
 
