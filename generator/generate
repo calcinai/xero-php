@@ -356,7 +356,11 @@ foreach($scrape_apis as $scrape_api) {
                         //Breaks in the table with colspans
                         if($num_children === 1){
                             $get_only = false;
-                            if(preg_match('/(required|mandatory)/i', $children->eq(0)->text())){
+                            //best that can be done really..  
+                            if(preg_match('/at least (one|two)/i', $children->eq(0)->text())){
+                                $mandatory = false;
+                                $read_only = false;
+                            } elseif(preg_match('/(required|mandatory)/i', $children->eq(0)->text())){
                                 $mandatory = true;
                                 $read_only = false;
                             } elseif(preg_match('/(optional|recommended)/i', $children->eq(0)->text())){
