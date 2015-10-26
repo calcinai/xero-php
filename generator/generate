@@ -45,6 +45,7 @@ $scrape_apis = array(
             'invoices',
             'items',
             'journals',
+            'linked-transactions',
             'manual-journals',
             'organisation',
             'overpayments',
@@ -417,7 +418,7 @@ foreach($scrape_apis as $scrape_api) {
                             }
 
                             $property = null;
-                            foreach(preg_split('/>\s*or\s*</', $column_name) as $column_name){
+                            foreach(preg_split('/(>\s*or\s*<|\s&\s)/', $column_name) as $column_name){
                                 //make it into another param
                                 $column_name = str_replace(' ', '', $column_name);
                                 $tmp_ro = $read_only;
@@ -444,7 +445,7 @@ foreach($scrape_apis as $scrape_api) {
             }
 
             // Do some processing once we are at the last node.
-            if($node->getNode(0)->nodeValue === $last->getNode(0)->nodeValue) {
+            if($node->getNode(0)->nodeValue === $last->getNode(0)->nodeValue && $primary_model instanceof ParsedObjectInterface) {
                 $models = array($primary_model);
                 if($primary_model->getName() !== $current_model->getName()) {$models[] = $current_model;}
                 foreach($models as $model) {
@@ -485,7 +486,7 @@ foreach($apis as $api){
     foreach($api->getModels() as $model){
 
         $model_class = sprintf('\\XeroPHP\\Models\\%s', $model->getClassName(true));
-        if(class_exists($model_class)){
+        if(class_exists($model_class) && method_exists($model_class, 'getProperties')){
             $property_position = 0;
             /** @var XeroPHP\Remote\ObjectInterface $model_class */
             foreach($model_class::getProperties() as $name => $property_meta){
