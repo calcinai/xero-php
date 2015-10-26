@@ -21,9 +21,44 @@ class Item extends Remote\Object
      */
 
     /**
+     * The inventory asset account for the item. The account must be of type INVENTORY. The 
+     * COGSAccountCode in PurchaseDetails is also required to create a tracked item
+     *
+     * @property string InventoryAssetAccountCode
+     */
+
+    /**
+     * The name of the item (max length = 50)
+     *
+     * @property string Name
+     */
+
+    /**
+     * Boolean value, defaults to true. When IsSold is true the item will be available on sales
+     * transactions in the Xero UI. If IsSold is updated to false then Description and SalesDetails values
+     * will be nulled.
+     *
+     * @property bool IsSold
+     */
+
+    /**
+     * Boolean value, defaults to true. When IsPurchased is true the item is available for purchase
+     * transactions in the Xero UI. If IsPurchased is updated to false then PurchaseDescription and
+     * PurchaseDetails values will be nulled.
+     *
+     * @property bool IsPurchased
+     */
+
+    /**
      * The sales description of the item (max length = 4000)
      *
      * @property string Description
+     */
+
+    /**
+     * The purchase description of the item (max length = 4000)
+     *
+     * @property string PurchaseDescription
      */
 
     /**
@@ -36,6 +71,25 @@ class Item extends Remote\Object
      * See Purchases & Sales
      *
      * @property Sale[] SalesDetails
+     */
+
+    /**
+     * True for items that are tracked as inventory. An item will be tracked as inventory if the
+     * InventoryAssetAccountCode and COGSAccountCode are set.
+     *
+     * @property bool IsTrackedAsInventory
+     */
+
+    /**
+     * The value of the item on hand. Calculated using average cost accounting.
+     *
+     * @property string TotalCostPool
+     */
+
+    /**
+     * The quantity of the item on hand
+     *
+     * @property string QuantityOnHand
      */
 
     /**
@@ -118,9 +172,17 @@ class Item extends Remote\Object
         return array(
             'ItemID' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'Code' => array (true, self::PROPERTY_TYPE_STRING, null, false, false),
+            'InventoryAssetAccountCode' => array (true, self::PROPERTY_TYPE_STRING, null, false, false),
+            'Name' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
+            'IsSold' => array (false, self::PROPERTY_TYPE_BOOLEAN, null, false, false),
+            'IsPurchased' => array (false, self::PROPERTY_TYPE_BOOLEAN, null, false, false),
             'Description' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
+            'PurchaseDescription' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'PurchaseDetails' => array (false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Item\\Purchase', true, false),
             'SalesDetails' => array (false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Item\\Sale', true, false),
+            'IsTrackedAsInventory' => array (false, self::PROPERTY_TYPE_BOOLEAN, null, false, false),
+            'TotalCostPool' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
+            'QuantityOnHand' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'UpdatedDateUTC' => array (false, self::PROPERTY_TYPE_TIMESTAMP, '\\DateTime', false, false)
         );
     }
@@ -171,6 +233,82 @@ class Item extends Remote\Object
     /**
      * @return string
      */
+    public function getInventoryAssetAccountCode()
+    {
+        return $this->_data['InventoryAssetAccountCode'];
+    }
+
+    /**
+     * @param string $value
+     * @return Item
+     */
+    public function setInventoryAssetAccountCode($value)
+    {
+        $this->propertyUpdated('InventoryAssetAccountCode', $value);
+        $this->_data['InventoryAssetAccountCode'] = $value;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->_data['Name'];
+    }
+
+    /**
+     * @param string $value
+     * @return Item
+     */
+    public function setName($value)
+    {
+        $this->propertyUpdated('Name', $value);
+        $this->_data['Name'] = $value;
+        return $this;
+    }
+
+    /**
+     * @return bool
+     */
+    public function getIsSold()
+    {
+        return $this->_data['IsSold'];
+    }
+
+    /**
+     * @param bool $value
+     * @return Item
+     */
+    public function setIsSold($value)
+    {
+        $this->propertyUpdated('IsSold', $value);
+        $this->_data['IsSold'] = $value;
+        return $this;
+    }
+
+    /**
+     * @return bool
+     */
+    public function getIsPurchased()
+    {
+        return $this->_data['IsPurchased'];
+    }
+
+    /**
+     * @param bool $value
+     * @return Item
+     */
+    public function setIsPurchased($value)
+    {
+        $this->propertyUpdated('IsPurchased', $value);
+        $this->_data['IsPurchased'] = $value;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
     public function getDescription()
     {
         return $this->_data['Description'];
@@ -184,6 +322,25 @@ class Item extends Remote\Object
     {
         $this->propertyUpdated('Description', $value);
         $this->_data['Description'] = $value;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getPurchaseDescription()
+    {
+        return $this->_data['PurchaseDescription'];
+    }
+
+    /**
+     * @param string $value
+     * @return Item
+     */
+    public function setPurchaseDescription($value)
+    {
+        $this->propertyUpdated('PurchaseDescription', $value);
+        $this->_data['PurchaseDescription'] = $value;
         return $this;
     }
 
@@ -234,6 +391,63 @@ class Item extends Remote\Object
     }
 
     /**
+     * @return bool
+     */
+    public function getIsTrackedAsInventory()
+    {
+        return $this->_data['IsTrackedAsInventory'];
+    }
+
+    /**
+     * @param bool $value
+     * @return Item
+     */
+    public function setIsTrackedAsInventory($value)
+    {
+        $this->propertyUpdated('IsTrackedAsInventory', $value);
+        $this->_data['IsTrackedAsInventory'] = $value;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getTotalCostPool()
+    {
+        return $this->_data['TotalCostPool'];
+    }
+
+    /**
+     * @param string $value
+     * @return Item
+     */
+    public function setTotalCostPool($value)
+    {
+        $this->propertyUpdated('TotalCostPool', $value);
+        $this->_data['TotalCostPool'] = $value;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getQuantityOnHand()
+    {
+        return $this->_data['QuantityOnHand'];
+    }
+
+    /**
+     * @param string $value
+     * @return Item
+     */
+    public function setQuantityOnHand($value)
+    {
+        $this->propertyUpdated('QuantityOnHand', $value);
+        $this->_data['QuantityOnHand'] = $value;
+        return $this;
+    }
+
+    /**
      * @return \DateTime
      */
     public function getUpdatedDateUTC()
@@ -241,6 +455,16 @@ class Item extends Remote\Object
         return $this->_data['UpdatedDateUTC'];
     }
 
+    /**
+     * @param \DateTime $value
+     * @return Item
+     */
+    public function setUpdatedDateUTC(\DateTime $value)
+    {
+        $this->propertyUpdated('UpdatedDateUTC', $value);
+        $this->_data['UpdatedDateUTC'] = $value;
+        return $this;
+    }
 
 
 }

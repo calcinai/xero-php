@@ -14,16 +14,16 @@ class Purchase extends Remote\Object
      */
 
     /**
-     * Account code to be used for purchased item
+     * Default account code to be used for purchased/sale. Not applicable to the purchase details of
+     * tracked items
      *
      * @property string AccountCode
      */
 
     /**
-     * Used as an override if the default Tax Code for the selected <AccountCode> is not correct – see
-     * TaxTypes.
+     * Cost of goods sold account. Only applicable to the purchase details of tracked items.
      *
-     * @property string TaxType
+     * @property string COGSAccountCode
      */
 
     /**
@@ -31,6 +31,13 @@ class Purchase extends Remote\Object
      *
      * @property \DateTime UpdatedDateUTC
      * @deprecated
+     */
+
+    /**
+     * Used as an override if the default Tax Code for the selected <AccountCode> is not correct – see
+     * TaxTypes.
+     *
+     * @property string TaxType
      */
 
 
@@ -104,8 +111,9 @@ class Purchase extends Remote\Object
         return array(
             'UnitPrice' => array (false, self::PROPERTY_TYPE_FLOAT, null, false, false),
             'AccountCode' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'TaxType' => array (false, self::PROPERTY_TYPE_ENUM, null, false, false),
-            'UpdatedDateUTC' => array (false, self::PROPERTY_TYPE_TIMESTAMP, '\\DateTime', false, false)
+            'COGSAccountCode' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
+            'UpdatedDateUTC' => array (false, self::PROPERTY_TYPE_TIMESTAMP, '\\DateTime', false, false),
+            'TaxType' => array (false, self::PROPERTY_TYPE_ENUM, null, false, false)
         );
     }
 
@@ -155,19 +163,19 @@ class Purchase extends Remote\Object
     /**
      * @return string
      */
-    public function getTaxType()
+    public function getCOGSAccountCode()
     {
-        return $this->_data['TaxType'];
+        return $this->_data['COGSAccountCode'];
     }
 
     /**
      * @param string $value
      * @return Purchase
      */
-    public function setTaxType($value)
+    public function setCOGSAccountCode($value)
     {
-        $this->propertyUpdated('TaxType', $value);
-        $this->_data['TaxType'] = $value;
+        $this->propertyUpdated('COGSAccountCode', $value);
+        $this->_data['COGSAccountCode'] = $value;
         return $this;
     }
 
@@ -189,6 +197,25 @@ class Purchase extends Remote\Object
     {
         $this->propertyUpdated('UpdatedDateUTC', $value);
         $this->_data['UpdatedDateUTC'] = $value;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getTaxType()
+    {
+        return $this->_data['TaxType'];
+    }
+
+    /**
+     * @param string $value
+     * @return Purchase
+     */
+    public function setTaxType($value)
+    {
+        $this->propertyUpdated('TaxType', $value);
+        $this->_data['TaxType'] = $value;
         return $this;
     }
 

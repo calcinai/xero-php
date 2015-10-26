@@ -44,14 +44,21 @@ class EarningsType extends Remote\Object
      */
 
     /**
-     * Xero identifier
+     * This property has been removed from the Xero API
      *
      * @property string EarningsRateID
+     * @deprecated
+     */
+
+    /**
+     * Xero identifier
+     *
+     * @property string EarningsTypeID
      */
 
     /**
      * This is the multiplier used to calculate the rate per unit, based on the employee’s ordinary
-     * earnings rate. For example, for time and a half enter 1.5. Only applicable if RateType is MULTIPLE
+     * earnings type. For example, for time and a half enter 1.5. Only applicable if RateType is MULTIPLE
      *
      * @property float Multiple
      */
@@ -126,7 +133,7 @@ class EarningsType extends Remote\Object
      */
     public static function getGUIDProperty()
     {
-        return '';
+        return 'EarningsTypeID';
     }
 
 
@@ -171,6 +178,7 @@ class EarningsType extends Remote\Object
             'RateType' => array (true, self::PROPERTY_TYPE_ENUM, null, false, false),
             'TypeOfUnits' => array (true, self::PROPERTY_TYPE_ENUM, null, false, false),
             'EarningsRateID' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
+            'EarningsTypeID' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'Multiple' => array (false, self::PROPERTY_TYPE_FLOAT, null, false, false),
             'DoNotAccrueTimeOff' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'IsSupplemental' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
@@ -301,6 +309,7 @@ class EarningsType extends Remote\Object
 
     /**
      * @return string
+     * @deprecated
      */
     public function getEarningsRateID()
     {
@@ -310,11 +319,31 @@ class EarningsType extends Remote\Object
     /**
      * @param string $value
      * @return EarningsType
+     * @deprecated
      */
     public function setEarningsRateID($value)
     {
         $this->propertyUpdated('EarningsRateID', $value);
         $this->_data['EarningsRateID'] = $value;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getEarningsTypeID()
+    {
+        return $this->_data['EarningsTypeID'];
+    }
+
+    /**
+     * @param string $value
+     * @return EarningsType
+     */
+    public function setEarningsTypeID($value)
+    {
+        $this->propertyUpdated('EarningsTypeID', $value);
+        $this->_data['EarningsTypeID'] = $value;
         return $this;
     }
 
