@@ -58,6 +58,15 @@ foreach ($contacts as $contact) {
 }
 ```
 
+Search for objects meeting certain criteria
+```php
+$xero->load('Accounting\\Invoices')->where('Status','AUTHORISED')->where('Type', 'ACCREC')->execute();
+```
+or
+```php
+$xero->load('Accounting\\Invoices')->where('Status=="AUTHORISED" AND Type=="ACCREC"')->execute();
+```
+
 Load something by its GUID
 ```php
 $contact = $xero->loadByGUID('Accounting\\Contact', [GUID]);
