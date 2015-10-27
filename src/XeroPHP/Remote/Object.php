@@ -249,7 +249,9 @@ abstract class Object implements ObjectInterface, \JsonSerializable, \ArrayAcces
                     return $value->toStringArray();
                 return '';
             default:
-                return (string) $value;
+                if(is_scalar($value))
+                    return (string) $value;
+                return '';
         }
     }
 
