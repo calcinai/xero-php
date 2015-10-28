@@ -60,11 +60,17 @@ foreach ($contacts as $contact) {
 
 Search for objects meeting certain criteria
 ```php
-$xero->load('Accounting\\Invoices')->where('Status','AUTHORISED')->where('Type', 'ACCREC')->execute();
+$xero->load('Accounting\\Invoices')
+	->where('Status', \XeroPHP\Models\Accounting\Invoice::INVOICE_STATUS_AUTHORISED)
+	->where('Type', \XeroPHP\Models\Accounting\Invoice::INVOICE_TYPE_ACCREC)
+	->execute();
 ```
 or
 ```php
-$xero->load('Accounting\\Invoices')->where('Status=="AUTHORISED" AND Type=="ACCREC"')->execute();
+$xero->load('Accounting\\Invoices')->where('
+	Status=="' . \XeroPHP\Models\Accounting\Invoice::INVOICE_STATUS_AUTHORISED . '" AND
+	Type=="' . \XeroPHP\Models\Accounting\Invoice::INVOICE_TYPE_ACCREC . '"
+')->execute();
 ```
 
 Load something by its GUID
