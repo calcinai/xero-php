@@ -41,6 +41,13 @@ class LineItem extends Remote\Object
      */
 
     /**
+     * The Xero generated identifier for a LineItem. If LineItemIDs are not included with line items in an
+     * update request then the line items are deleted and recreated.
+     *
+     * @property string LineItemID
+     */
+
+    /**
      * Used as an override if the default Tax Code for the selected <AccountCode> is not correct – see
      * TaxTypes.
      *
@@ -92,7 +99,7 @@ class LineItem extends Remote\Object
      */
     public static function getGUIDProperty()
     {
-        return '';
+        return 'LineItemID';
     }
 
 
@@ -135,6 +142,7 @@ class LineItem extends Remote\Object
             'UnitAmount' => array (false, self::PROPERTY_TYPE_FLOAT, null, false, false),
             'AccountCode' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'ItemCode' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
+            'LineItemID' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'TaxType' => array (false, self::PROPERTY_TYPE_ENUM, null, false, false),
             'LineAmount' => array (false, self::PROPERTY_TYPE_FLOAT, null, false, false),
             'Tracking' => array (false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\TrackingCategory', true, false)
@@ -238,6 +246,25 @@ class LineItem extends Remote\Object
     {
         $this->propertyUpdated('ItemCode', $value);
         $this->_data['ItemCode'] = $value;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getLineItemID()
+    {
+        return $this->_data['LineItemID'];
+    }
+
+    /**
+     * @param string $value
+     * @return LineItem
+     */
+    public function setLineItemID($value)
+    {
+        $this->propertyUpdated('LineItemID', $value);
+        $this->_data['LineItemID'] = $value;
         return $this;
     }
 

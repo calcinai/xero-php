@@ -54,7 +54,8 @@ class BankTransaction extends Remote\Object
      */
 
     /**
-     * The currency that bank transaction has been raised in (see Currencies)
+     * The currency that bank transaction has been raised in (see Currencies). Setting currency is only
+     * supported on overpayments.
      *
      * @property string CurrencyCode
      */
@@ -62,7 +63,8 @@ class BankTransaction extends Remote\Object
     /**
      * Exchange rate to base currency when money is spent or received. e.g. 0.7500 Only used for bank
      * transactions in non base currency. If this isn’t specified for non base currency accounts then
-     * either the user-defined rate (preference) or the XE.com day rate will be used
+     * either the user-defined rate (preference) or the XE.com day rate will be used. Setting currency is
+     * only supported on overpayments.
      *
      * @property float CurrencyRate
      */
