@@ -364,7 +364,9 @@ foreach($scrape_apis as $scrape_api) {
                             } elseif(preg_match('/(required|mandatory)/i', $children->eq(0)->text())){
                                 $mandatory = true;
                                 $read_only = false;
-                            } elseif(preg_match('/(optional|recommended)/i', $children->eq(0)->text())){
+                            }
+
+                            if(preg_match('/(optional|recommended)/i', $children->eq(0)->text())){
                                 $mandatory = false;
                                 $read_only = false;
                             } elseif(preg_match('/(updatable)/i', $children->eq(0)->text())){
