@@ -28,6 +28,12 @@ class Account extends Remote\Object
      */
 
     /**
+     * For bank accounts only (Account Type BANK)
+     *
+     * @property string BankAccountNumber
+     */
+
+    /**
      * Accounts with a status of ACTIVE can be updated to ARCHIVED. See Account Status Codes
      *
      * @property string Status
@@ -75,12 +81,6 @@ e.g.
      * If this is a system account then this element is returned. See System Account types
      *
      * @property string SystemAccount
-     */
-
-    /**
-     * Shown for bank accounts only
-     *
-     * @property string BankAccountNumber
      */
 
     /**
@@ -236,9 +236,10 @@ e.g.
     public static function getProperties()
     {
         return array(
-            'Code' => array (true, self::PROPERTY_TYPE_STRING, null, false, false),
-            'Name' => array (true, self::PROPERTY_TYPE_STRING, null, false, false),
-            'Type' => array (true, self::PROPERTY_TYPE_ENUM, null, false, false),
+            'Code' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
+            'Name' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
+            'Type' => array (false, self::PROPERTY_TYPE_ENUM, null, false, false),
+            'BankAccountNumber' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'Status' => array (false, self::PROPERTY_TYPE_ENUM, null, false, false),
             'Description' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'TaxType' => array (false, self::PROPERTY_TYPE_ENUM, null, false, false),
@@ -247,7 +248,6 @@ e.g.
             'AccountID' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'Class' => array (false, self::PROPERTY_TYPE_ENUM, null, false, false),
             'SystemAccount' => array (false, self::PROPERTY_TYPE_ENUM, null, false, false),
-            'BankAccountNumber' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'BankAccountType' => array (false, self::PROPERTY_TYPE_ENUM, null, false, false),
             'CurrencyCode' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'ReportingCode' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
@@ -315,6 +315,25 @@ e.g.
     {
         $this->propertyUpdated('Type', $value);
         $this->_data['Type'] = $value;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getBankAccountNumber()
+    {
+        return $this->_data['BankAccountNumber'];
+    }
+
+    /**
+     * @param string $value
+     * @return Account
+     */
+    public function setBankAccountNumber($value)
+    {
+        $this->propertyUpdated('BankAccountNumber', $value);
+        $this->_data['BankAccountNumber'] = $value;
         return $this;
     }
 
@@ -447,15 +466,6 @@ e.g.
     public function getSystemAccount()
     {
         return $this->_data['SystemAccount'];
-    }
-
-
-    /**
-     * @return string
-     */
-    public function getBankAccountNumber()
-    {
-        return $this->_data['BankAccountNumber'];
     }
 
 

@@ -128,7 +128,7 @@ class File extends Remote\Object
     public static function getProperties()
     {
         return array(
-            'Name' => array (true, self::PROPERTY_TYPE_STRING, null, false, false),
+            'Name' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'FolderId' => array (false, self::PROPERTY_TYPE_OBJECT, 'Files\\Folder', false, false),
             'MimeType' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'Size' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),

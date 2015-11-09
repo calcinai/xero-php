@@ -402,6 +402,16 @@ class Payment extends Remote\Object
         return $this->_data['Status'];
     }
 
+    /**
+     * @param string $value
+     * @return Payment
+     */
+    public function setStatus($value)
+    {
+        $this->propertyUpdated('Status', $value);
+        $this->_data['Status'] = $value;
+        return $this;
+    }
 
     /**
      * @return string
