@@ -6,6 +6,7 @@ use XeroPHP\Models\PayrollAU\Employee\HomeAddress;
 use XeroPHP\Models\PayrollAU\Employee\BankAccount;
 use XeroPHP\Models\PayrollAU\Employee\PayTemplate;
 use XeroPHP\Models\PayrollAU\Employee\OpeningBalance;
+use XeroPHP\Models\PayrollAU\Employee\LeaveBalance;
 use XeroPHP\Models\PayrollAU\Employee\SuperMembership;
 
 class Employee extends Remote\Object
@@ -149,6 +150,12 @@ class Employee extends Remote\Object
      */
 
     /**
+     * See LeaveBalances
+     *
+     * @property LeaveBalance[] LeaveBalances
+     */
+
+    /**
      * See SuperMemberships
      *
      * @property SuperMembership[] SuperMemberships
@@ -283,6 +290,7 @@ class Employee extends Remote\Object
             'BankAccounts' => array (false, self::PROPERTY_TYPE_OBJECT, 'PayrollAU\\Employee\\BankAccount', true, false),
             'PayTemplate' => array (false, self::PROPERTY_TYPE_OBJECT, 'PayrollAU\\Employee\\PayTemplate', false, false),
             'OpeningBalances' => array (false, self::PROPERTY_TYPE_OBJECT, 'PayrollAU\\Employee\\OpeningBalance', true, false),
+            'LeaveBalances' => array (false, self::PROPERTY_TYPE_OBJECT, 'PayrollAU\\Employee\\LeaveBalance', true, false),
             'SuperMemberships' => array (false, self::PROPERTY_TYPE_OBJECT, 'PayrollAU\\Employee\\SuperMembership', true, false),
             'TerminationDate' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTime', false, false),
             'EmployeeID' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
@@ -721,6 +729,29 @@ class Employee extends Remote\Object
             $this->_data['OpeningBalances'] = new Remote\Collection();
         }
         $this->_data['OpeningBalances'][] = $value;
+        return $this;
+    }
+
+    /**
+     * @return LeaveBalance[]|Remote\Collection
+     * Always returns a collection, switch is for type hinting
+     */
+    public function getLeaveBalances()
+    {
+        return $this->_data['LeaveBalances'];
+    }
+
+    /**
+     * @param LeaveBalance $value
+     * @return Employee
+     */
+    public function addLeaveBalance(LeaveBalance $value)
+    {
+        $this->propertyUpdated('LeaveBalances', $value);
+        if(!isset($this->_data['LeaveBalances'])){
+            $this->_data['LeaveBalances'] = new Remote\Collection();
+        }
+        $this->_data['LeaveBalances'][] = $value;
         return $this;
     }
 

@@ -65,9 +65,10 @@ class OpeningBalance extends Remote\Object
      */
 
     /**
-     * The Xero identifier for an employee e.g. 297c2dc5-cc47-4afd-8ec8-74990b8761e9
+     * This property has been removed from the Xero API
      *
      * @property string EmployeeID
+     * @deprecated
      */
 
 
@@ -346,6 +347,7 @@ class OpeningBalance extends Remote\Object
 
     /**
      * @return string
+     * @deprecated
      */
     public function getEmployeeID()
     {
@@ -355,6 +357,7 @@ class OpeningBalance extends Remote\Object
     /**
      * @param string $value
      * @return OpeningBalance
+     * @deprecated
      */
     public function setEmployeeID($value)
     {

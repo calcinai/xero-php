@@ -9,6 +9,7 @@ use XeroPHP\Models\PayrollUS\Employee\WorkLocation;
 use XeroPHP\Models\PayrollUS\Employee\PaymentMethod;
 use XeroPHP\Models\PayrollUS\Employee\PayTemplate;
 use XeroPHP\Models\PayrollUS\Employee\OpeningBalance;
+use XeroPHP\Models\PayrollUS\Employee\TimeOffBalance;
 
 class Employee extends Remote\Object
 {
@@ -165,6 +166,12 @@ class Employee extends Remote\Object
      */
 
     /**
+     * See TimeOffBalances
+     *
+     * @property TimeOffBalance[] TimeOffBalances
+     */
+
+    /**
      * Xero unique identifier for an Employee
      *
      * @property string EmployeeID
@@ -278,6 +285,7 @@ class Employee extends Remote\Object
             'PaymentMethod' => array (false, self::PROPERTY_TYPE_OBJECT, 'PayrollUS\\Employee\\PaymentMethod', false, false),
             'PayTemplate' => array (false, self::PROPERTY_TYPE_OBJECT, 'PayrollUS\\Employee\\PayTemplate', false, false),
             'OpeningBalances' => array (false, self::PROPERTY_TYPE_OBJECT, 'PayrollUS\\Employee\\OpeningBalance', true, false),
+            'TimeOffBalances' => array (false, self::PROPERTY_TYPE_OBJECT, 'PayrollUS\\Employee\\TimeOffBalance', true, false),
             'EmployeeID' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'Status' => array (false, self::PROPERTY_TYPE_ENUM, null, false, false),
             'UpdatedDateUTC' => array (false, self::PROPERTY_TYPE_TIMESTAMP, '\\DateTime', false, false)
@@ -773,6 +781,29 @@ class Employee extends Remote\Object
             $this->_data['OpeningBalances'] = new Remote\Collection();
         }
         $this->_data['OpeningBalances'][] = $value;
+        return $this;
+    }
+
+    /**
+     * @return TimeOffBalance[]|Remote\Collection
+     * Always returns a collection, switch is for type hinting
+     */
+    public function getTimeOffBalances()
+    {
+        return $this->_data['TimeOffBalances'];
+    }
+
+    /**
+     * @param TimeOffBalance $value
+     * @return Employee
+     */
+    public function addTimeOffBalance(TimeOffBalance $value)
+    {
+        $this->propertyUpdated('TimeOffBalances', $value);
+        if(!isset($this->_data['TimeOffBalances'])){
+            $this->_data['TimeOffBalances'] = new Remote\Collection();
+        }
+        $this->_data['TimeOffBalances'][] = $value;
         return $this;
     }
 

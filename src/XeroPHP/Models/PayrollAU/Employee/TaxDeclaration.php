@@ -61,9 +61,16 @@ class TaxDeclaration extends Remote\Object
      */
 
     /**
-     * If employee has trade support loan. e.g true or false
+     * This property has been removed from the Xero API
      *
      * @property bool HasTSLDebt
+     * @deprecated
+     */
+
+    /**
+     * If employee has trade support loan. e.g true or false
+     *
+     * @property bool HasTradeSupportLoanDebt
      */
 
     /**
@@ -175,6 +182,7 @@ class TaxDeclaration extends Remote\Object
             'HasHELPDebt' => array (false, self::PROPERTY_TYPE_BOOLEAN, null, false, false),
             'HasSFSSDebt' => array (false, self::PROPERTY_TYPE_BOOLEAN, null, false, false),
             'HasTSLDebt' => array (false, self::PROPERTY_TYPE_BOOLEAN, null, false, false),
+            'HasTradeSupportLoanDebt' => array (false, self::PROPERTY_TYPE_BOOLEAN, null, false, false),
             'UpwardVariationTaxWithholdingAmount' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'EligibleToReceiveLeaveLoading' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'ApprovedWithholdingVariationPercentage' => array (false, self::PROPERTY_TYPE_STRING, null, false, false)
@@ -359,6 +367,7 @@ class TaxDeclaration extends Remote\Object
 
     /**
      * @return bool
+     * @deprecated
      */
     public function getHasTSLDebt()
     {
@@ -368,11 +377,31 @@ class TaxDeclaration extends Remote\Object
     /**
      * @param bool $value
      * @return TaxDeclaration
+     * @deprecated
      */
     public function setHasTSLDebt($value)
     {
         $this->propertyUpdated('HasTSLDebt', $value);
         $this->_data['HasTSLDebt'] = $value;
+        return $this;
+    }
+
+    /**
+     * @return bool
+     */
+    public function getHasTradeSupportLoanDebt()
+    {
+        return $this->_data['HasTradeSupportLoanDebt'];
+    }
+
+    /**
+     * @param bool $value
+     * @return TaxDeclaration
+     */
+    public function setHasTradeSupportLoanDebt($value)
+    {
+        $this->propertyUpdated('HasTradeSupportLoanDebt', $value);
+        $this->_data['HasTradeSupportLoanDebt'] = $value;
         return $this;
     }
 
