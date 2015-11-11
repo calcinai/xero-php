@@ -2,6 +2,7 @@
 
 namespace XeroPHP;
 
+use XeroPHP\Remote\Collection;
 use XeroPHP\Remote\OAuth\Client;
 use XeroPHP\Remote\Object;
 use XeroPHP\Remote\Query;
@@ -205,11 +206,11 @@ abstract class Application {
 
 
     /**
-     * @param array $objects
+     * @param Collection|array $objects
      * @return null
      * @throws Exception
      */
-    public function saveAll(array $objects) {
+    public function saveAll($objects) {
 
         //Just get one type to compare with, doesn't matter which.
         $current_object = current($objects);
