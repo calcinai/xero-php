@@ -361,6 +361,9 @@ foreach($scrape_apis as $scrape_api) {
                             if(preg_match('/at least (one|two)/i', $children->eq(0)->text())){
                                 $mandatory = false;
                                 $read_only = false;
+                            } elseif(preg_match('/^Either/i', $children->eq(0)->text())){
+                                $mandatory = false;
+                                $read_only = false;
                             } elseif(preg_match('/(required|mandatory)/i', $children->eq(0)->text())){
                                 $mandatory = true;
                                 $read_only = false;
