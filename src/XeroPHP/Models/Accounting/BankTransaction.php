@@ -48,7 +48,7 @@ class BankTransaction extends Remote\Object
      */
 
     /**
-     * reference for the transaction
+     * Reference for the transaction. Only supported for SPEND and RECEIVE transactions.
      *
      * @property string Reference
      */

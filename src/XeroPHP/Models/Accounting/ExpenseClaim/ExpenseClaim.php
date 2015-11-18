@@ -2,6 +2,7 @@
 namespace XeroPHP\Models\Accounting\ExpenseClaim;
 
 use XeroPHP\Remote;
+use XeroPHP\Models\Accounting\Payment;
 
 class ExpenseClaim extends Remote\Object
 {
@@ -10,6 +11,12 @@ class ExpenseClaim extends Remote\Object
      * Xero generated unique identifier for an expense claim
      *
      * @property string ExpenseClaimID
+     */
+
+    /**
+     * See Payments
+     *
+     * @property Payment[] Payments
      */
 
     /**
@@ -130,6 +137,7 @@ class ExpenseClaim extends Remote\Object
     {
         return array(
             'ExpenseClaimID' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
+            'Payments' => array (false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Payment', true, false),
             'Status' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'UpdatedDateUTC' => array (false, self::PROPERTY_TYPE_TIMESTAMP, '\\DateTime', false, false),
             'Total' => array (false, self::PROPERTY_TYPE_FLOAT, null, false, false),
@@ -164,6 +172,16 @@ class ExpenseClaim extends Remote\Object
         $this->_data['ExpenseClaimID'] = $value;
         return $this;
     }
+
+    /**
+     * @return Payment[]|Remote\Collection
+     * Always returns a collection, switch is for type hinting
+     */
+    public function getPayments()
+    {
+        return $this->_data['Payments'];
+    }
+
 
     /**
      * @return string
