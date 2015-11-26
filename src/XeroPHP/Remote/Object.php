@@ -167,8 +167,10 @@ abstract class Object implements ObjectInterface, \JsonSerializable, \ArrayAcces
                 continue;
             }
 
-            if(!isset($input_array[$property]))
+            if(!isset($input_array[$property])) {
+                $this->_data[$property] = null;
                 continue;
+            }
 
             //Fix for an earlier assumption that the API didn't return more than two levels of nested objects.
             //Handles Invoice > Contact > Address etc. in one build.
