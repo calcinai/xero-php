@@ -58,6 +58,14 @@ foreach ($contacts as $contact) {
 }
 ```
 
+Load collection of objects, for a single page, and loop through them [(Why?)](<http://developer.xero.com/documentation/getting-started/xero-api-limits/#title10>)
+```php
+$contacts = $xero->load('Accounting\\Contact')->page(1)->execute();
+foreach ($contacts as $contact) {
+    print_r($contact);
+}
+```
+
 Search for objects meeting certain criteria
 ```php
 $xero->load('Accounting\\Invoices')
