@@ -241,7 +241,7 @@ abstract class Object implements ObjectInterface, \JsonSerializable, \ArrayAcces
 
             case self::PROPERTY_TYPE_DATE:
             case self::PROPERTY_TYPE_TIMESTAMP:
-                /** @var \DateTime $value */
+                /** @var \DateTimeInterface $value */
                 return $value->format('c');
 
             case self::PROPERTY_TYPE_OBJECT:
