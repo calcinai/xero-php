@@ -33,7 +33,7 @@ class User extends Remote\Object
     /**
      * Timestamp of last change to user
      *
-     * @property \DateTime UpdatedDateUTC
+     * @property \DateTimeInterface UpdatedDateUTC
      */
 
     /**

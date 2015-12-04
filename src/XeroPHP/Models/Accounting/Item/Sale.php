@@ -29,7 +29,7 @@ class Sale extends Remote\Object
     /**
      * This property has been removed from the Xero API
      *
-     * @property \DateTime UpdatedDateUTC
+     * @property \DateTimeInterface UpdatedDateUTC
      * @deprecated
      */
 

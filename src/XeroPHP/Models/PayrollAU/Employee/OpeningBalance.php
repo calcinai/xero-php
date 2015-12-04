@@ -12,7 +12,7 @@ class OpeningBalance extends Remote\Object
     /**
      * Opening Balance Date. (YYYY-MM-DD)
      *
-     * @property \DateTime OpeningBalanceDate
+     * @property \DateTimeInterface OpeningBalanceDate
      */
 
     /**

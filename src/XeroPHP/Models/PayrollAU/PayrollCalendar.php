@@ -28,13 +28,13 @@ class PayrollCalendar extends Remote\Object
      * The start date of the upcoming pay period. The end date will be calculated based upon this date, and
      * the calendar type selected (YYYY-MM-DD), more details.
      *
-     * @property \DateTime StartDate
+     * @property \DateTimeInterface StartDate
      */
 
     /**
      * The date on which employees will be paid for the upcoming pay period (YYYY-MM-DD), more details.
      *
-     * @property \DateTime PaymentDate
+     * @property \DateTimeInterface PaymentDate
      */
 
 

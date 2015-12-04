@@ -65,7 +65,7 @@ class LinkedTransaction extends Remote\Object
     /**
      * The last modified date in UTC format
      *
-     * @property \DateTime UpdatedDateUTC
+     * @property \DateTimeInterface UpdatedDateUTC
      */
 
 

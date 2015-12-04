@@ -82,7 +82,7 @@ class Paystub extends Remote\Object
     /**
      * 
      *
-     * @property \DateTime UpdatedDateUTC
+     * @property \DateTimeInterface UpdatedDateUTC
      */
 
     /**

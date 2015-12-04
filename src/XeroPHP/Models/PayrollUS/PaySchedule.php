@@ -15,13 +15,13 @@ class PaySchedule extends Remote\Object
     /**
      * The Payment Date of the Pay Schedule
      *
-     * @property \DateTime PaymentDate
+     * @property \DateTimeInterface PaymentDate
      */
 
     /**
      * The Start Date of the Pay Schedule
      *
-     * @property \DateTime StartDate
+     * @property \DateTimeInterface StartDate
      */
 
     /**

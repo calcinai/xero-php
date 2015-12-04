@@ -16,7 +16,7 @@ class Journal extends Remote\Object
     /**
      * Date the journal was posted
      *
-     * @property \DateTime JournalDate
+     * @property \DateTimeInterface JournalDate
      */
 
     /**
@@ -28,7 +28,7 @@ class Journal extends Remote\Object
     /**
      * Created date UTC format
      *
-     * @property \DateTime CreatedDateUTC
+     * @property \DateTimeInterface CreatedDateUTC
      */
 
     /**

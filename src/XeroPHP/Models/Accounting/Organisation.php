@@ -113,7 +113,7 @@ class Organisation extends Remote\Object
     /**
      * Timestamp when the organisation was created in Xero
      *
-     * @property \DateTime CreatedDateUTC
+     * @property \DateTimeInterface CreatedDateUTC
      */
 
     /**

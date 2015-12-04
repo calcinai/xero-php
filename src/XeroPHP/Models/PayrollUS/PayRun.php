@@ -15,7 +15,7 @@ class PayRun extends Remote\Object
     /**
      * Pay run period end date. Needed if it is an unscheduled pay run
      *
-     * @property \DateTime PayRunPeriodEndDate
+     * @property \DateTimeInterface PayRunPeriodEndDate
      */
 
     /**
@@ -33,13 +33,13 @@ class PayRun extends Remote\Object
     /**
      * Period Start Date for the PayRun
      *
-     * @property \DateTime PayRunPeriodStartDate
+     * @property \DateTimeInterface PayRunPeriodStartDate
      */
 
     /**
      * Payment Date for the PayRun
      *
-     * @property \DateTime PaymentDate
+     * @property \DateTimeInterface PaymentDate
      */
 
     /**
@@ -69,7 +69,7 @@ class PayRun extends Remote\Object
     /**
      * The update date for the PayRun
      *
-     * @property \DateTime UpdateDateUTC
+     * @property \DateTimeInterface UpdateDateUTC
      */
 
     /**

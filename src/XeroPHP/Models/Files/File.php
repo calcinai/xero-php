@@ -33,13 +33,13 @@ class File extends Remote\Object
     /**
      * UTC timestamp of the file creation
      *
-     * @property \DateTime CreatedDateUTC
+     * @property \DateTimeInterface CreatedDateUTC
      */
 
     /**
      * UTC timestamp of the last modified date
      *
-     * @property \DateTime UpdatedDateUTC
+     * @property \DateTimeInterface UpdatedDateUTC
      */
 
     /**

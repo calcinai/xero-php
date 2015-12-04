@@ -15,13 +15,13 @@ class LeavePeriod extends Remote\Object
     /**
      * The Pay Period End Date (YYYY-MM-DD)
      *
-     * @property \DateTime PayPeriodEndDate
+     * @property \DateTimeInterface PayPeriodEndDate
      */
 
     /**
      * The Pay Period Start Date (YYYY-MM-DD)
      *
-     * @property \DateTime PayPeriodStartDate
+     * @property \DateTimeInterface PayPeriodStartDate
      */
 
     /**

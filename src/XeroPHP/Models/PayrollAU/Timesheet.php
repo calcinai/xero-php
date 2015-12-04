@@ -16,13 +16,13 @@ class Timesheet extends Remote\Object
     /**
      * Period start date (YYYY-MM-DD)
      *
-     * @property \DateTime StartDate
+     * @property \DateTimeInterface StartDate
      */
 
     /**
      * Period end date (YYYY-MM-DD)
      *
-     * @property \DateTime EndDate
+     * @property \DateTimeInterface EndDate
      */
 
     /**

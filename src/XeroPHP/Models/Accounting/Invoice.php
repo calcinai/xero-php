@@ -33,13 +33,13 @@ class Invoice extends Remote\Object
     /**
      * Date invoice was issued – YYYY-MM-DD. Learn more
      *
-     * @property \DateTime Date
+     * @property \DateTimeInterface Date
      */
 
     /**
      * Date invoice is due – YYYY-MM-DD
      *
-     * @property \DateTime DueDate
+     * @property \DateTimeInterface DueDate
      */
 
     /**
@@ -181,7 +181,7 @@ class Invoice extends Remote\Object
     /**
      * The date the invoice was fully paid. Only returned on fully paid invoices
      *
-     * @property \DateTime FullyPaidOnDate
+     * @property \DateTimeInterface FullyPaidOnDate
      */
 
     /**
@@ -193,7 +193,7 @@ class Invoice extends Remote\Object
     /**
      * Last modified date UTC format
      *
-     * @property \DateTime UpdatedDateUTC
+     * @property \DateTimeInterface UpdatedDateUTC
      */
 
     /**

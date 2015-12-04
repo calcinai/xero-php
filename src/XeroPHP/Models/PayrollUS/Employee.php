@@ -29,7 +29,7 @@ class Employee extends Remote\Object
     /**
      * Date of birth of employee (YYYY-MM-DD)
      *
-     * @property \DateTime DateOfBirth
+     * @property \DateTimeInterface DateOfBirth
      */
 
     /**
@@ -89,14 +89,14 @@ class Employee extends Remote\Object
     /**
      * Start date of employee (YYYY-MM-DD)
      *
-     * @property \DateTime StartDate
+     * @property \DateTimeInterface StartDate
      */
 
     /**
      * Termination date of employee (YYYY-MM-DD). Note this is only returned when retrieving an individual
      * Employee with a Status of TERMINATED
      *
-     * @property \DateTime TerminationDate
+     * @property \DateTimeInterface TerminationDate
      */
 
     /**
@@ -186,7 +186,7 @@ class Employee extends Remote\Object
     /**
      * Last modified timestamp
      *
-     * @property \DateTime UpdatedDateUTC
+     * @property \DateTimeInterface UpdatedDateUTC
      */
 
 

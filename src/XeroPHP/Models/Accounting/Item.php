@@ -95,7 +95,7 @@ class Item extends Remote\Object
     /**
      * Last modified date in UTC format
      *
-     * @property \DateTime UpdatedDateUTC
+     * @property \DateTimeInterface UpdatedDateUTC
      */
 
 

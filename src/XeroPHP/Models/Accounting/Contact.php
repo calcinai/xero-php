@@ -172,7 +172,7 @@ class Contact extends Remote\Object
     /**
      * UTC timestamp of last update to contact
      *
-     * @property \DateTime UpdatedDateUTC
+     * @property \DateTimeInterface UpdatedDateUTC
      */
 
     /**

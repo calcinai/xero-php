@@ -34,7 +34,7 @@ class CreditNote extends Remote\Object
     /**
      * The date the credit note is issued YYYY-MM-DD
      *
-     * @property \DateTime Date
+     * @property \DateTimeInterface Date
      */
 
     /**
@@ -76,7 +76,7 @@ class CreditNote extends Remote\Object
     /**
      * UTC timestamp of last update to the credit note
      *
-     * @property \DateTime UpdatedDateUTC
+     * @property \DateTimeInterface UpdatedDateUTC
      */
 
     /**
@@ -88,7 +88,7 @@ class CreditNote extends Remote\Object
     /**
      * Date when credit note was fully paid(UTC format)
      *
-     * @property \DateTime FullyPaidOnDate
+     * @property \DateTimeInterface FullyPaidOnDate
      */
 
     /**

@@ -39,7 +39,7 @@ class Payment extends Remote\Object
     /**
      * Date the payment is being made (YYYY-MM-DD) e.g. 2009-09-06
      *
-     * @property \DateTime Date
+     * @property \DateTimeInterface Date
      */
 
     /**
@@ -84,7 +84,7 @@ class Payment extends Remote\Object
     /**
      * UTC timestamp of last update to the payment
      *
-     * @property \DateTime UpdatedDateUTC
+     * @property \DateTimeInterface UpdatedDateUTC
      */
 
     /**

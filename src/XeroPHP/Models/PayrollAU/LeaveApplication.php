@@ -34,13 +34,13 @@ class LeaveApplication extends Remote\Object
     /**
      * Start date of the leave (YYYY-MM-DD)
      *
-     * @property \DateTime StartDate
+     * @property \DateTimeInterface StartDate
      */
 
     /**
      * End date of the leave (YYYY-MM-DD)
      *
-     * @property \DateTime EndDate
+     * @property \DateTimeInterface EndDate
      */
 
     /**

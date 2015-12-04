@@ -27,7 +27,7 @@ class BrandingTheme extends Remote\Object
     /**
      * UTC timestamp of creation date of branding theme
      *
-     * @property \DateTime CreatedDateUTC
+     * @property \DateTimeInterface CreatedDateUTC
      */
 
 

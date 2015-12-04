@@ -32,7 +32,7 @@ class BankTransfer extends Remote\Object
     /**
      * The date of the Transfer YYYY-MM-DD
      *
-     * @property \DateTime Date
+     * @property \DateTimeInterface Date
      */
 
     /**
@@ -68,7 +68,7 @@ class BankTransfer extends Remote\Object
     /**
      * UTC timestamp of creation date of bank transfer
      *
-     * @property \DateTime CreatedDateUTC
+     * @property \DateTimeInterface CreatedDateUTC
      */
 
 

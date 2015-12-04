@@ -27,7 +27,7 @@ class Employee extends Remote\Object
     /**
      * Date of birth of the employee (YYYY-MM-DD)
      *
-     * @property \DateTime DateOfBirth
+     * @property \DateTimeInterface DateOfBirth
      */
 
     /**
@@ -40,7 +40,7 @@ class Employee extends Remote\Object
      * If you aren’t sure of the exact start date for an employee, you can just enter the start of the
      * current financial year (YYYY-MM-DD)
      *
-     * @property \DateTime StartDate
+     * @property \DateTimeInterface StartDate
      */
 
     /**
@@ -164,7 +164,7 @@ class Employee extends Remote\Object
     /**
      * Employee Termination Date (YYYY-MM-DD)
      *
-     * @property \DateTime TerminationDate
+     * @property \DateTimeInterface TerminationDate
      */
 
     /**
@@ -182,7 +182,7 @@ class Employee extends Remote\Object
     /**
      * Last modified timestamp
      *
-     * @property \DateTime UpdatedDateUTC
+     * @property \DateTimeInterface UpdatedDateUTC
      */
 
 

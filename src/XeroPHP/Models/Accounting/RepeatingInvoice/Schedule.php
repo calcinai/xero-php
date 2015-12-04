@@ -34,19 +34,19 @@ class Schedule extends Remote\Object
     /**
      * Invoice date the first invoice in the repeating schedule
      *
-     * @property \DateTime StartDate
+     * @property \DateTimeInterface StartDate
      */
 
     /**
      * The calendar date of the next invoice in the schedule to be generated
      *
-     * @property \DateTime NextScheduledDate
+     * @property \DateTimeInterface NextScheduledDate
      */
 
     /**
      * Invoice end date – only returned if the template has an end date set
      *
-     * @property \DateTime EndDate
+     * @property \DateTimeInterface EndDate
      */
 
 

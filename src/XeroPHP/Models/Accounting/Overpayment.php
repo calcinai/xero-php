@@ -33,7 +33,7 @@ class Overpayment extends Remote\Object
     /**
      * The date the overpayment is created YYYY-MM-DD
      *
-     * @property \DateTime Date
+     * @property \DateTimeInterface Date
      */
 
     /**
@@ -75,7 +75,7 @@ class Overpayment extends Remote\Object
     /**
      * UTC timestamp of last update to the overpayment
      *
-     * @property \DateTime UpdatedDateUTC
+     * @property \DateTimeInterface UpdatedDateUTC
      */
 
     /**
@@ -87,7 +87,7 @@ class Overpayment extends Remote\Object
     /**
      * Date when the overpayment was fully allocated (UTC format)
      *
-     * @property \DateTime FullyPaidOnDate
+     * @property \DateTimeInterface FullyPaidOnDate
      */
 
     /**

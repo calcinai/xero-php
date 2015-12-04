@@ -33,7 +33,7 @@ class Prepayment extends Remote\Object
     /**
      * The date the prepayment is created YYYY-MM-DD
      *
-     * @property \DateTime Date
+     * @property \DateTimeInterface Date
      */
 
     /**
@@ -75,7 +75,7 @@ class Prepayment extends Remote\Object
     /**
      * UTC timestamp of last update to the prepayment
      *
-     * @property \DateTime UpdatedDateUTC
+     * @property \DateTimeInterface UpdatedDateUTC
      */
 
     /**
@@ -87,7 +87,7 @@ class Prepayment extends Remote\Object
     /**
      * Date when the prepayment was fully allocated (UTC format)
      *
-     * @property \DateTime FullyPaidOnDate
+     * @property \DateTimeInterface FullyPaidOnDate
      */
 
     /**

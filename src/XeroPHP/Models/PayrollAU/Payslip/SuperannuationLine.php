@@ -45,7 +45,7 @@ class SuperannuationLine extends Remote\Object
     /**
      * Superannuation payment date for the current period (YYYY-MM-DD)
      *
-     * @property \DateTime PaymentDateForThisPeriod
+     * @property \DateTimeInterface PaymentDateForThisPeriod
      */
 
     /**

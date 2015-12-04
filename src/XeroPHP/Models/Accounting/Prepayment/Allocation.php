@@ -23,7 +23,7 @@ class Allocation extends Remote\Object
      * the date the prepayment is applied YYYY-MM-DD (read-only). This will be the latter of the invoice
      * date and the prepayment date.
      *
-     * @property \DateTime Date
+     * @property \DateTimeInterface Date
      */
 
 

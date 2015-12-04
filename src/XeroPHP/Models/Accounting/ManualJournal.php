@@ -31,7 +31,7 @@ class ManualJournal extends Remote\Object
     /**
      * Date journal was posted – YYYY-MM-DD
      *
-     * @property \DateTime Date
+     * @property \DateTimeInterface Date
      */
 
     /**
@@ -67,7 +67,7 @@ class ManualJournal extends Remote\Object
     /**
      * Last modified date UTC format
      *
-     * @property \DateTime UpdatedDateUTC
+     * @property \DateTimeInterface UpdatedDateUTC
      */
 
 

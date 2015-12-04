@@ -44,7 +44,7 @@ class BankTransaction extends Remote\Object
     /**
      * Date of transaction – YYYY-MM-DD
      *
-     * @property \DateTime Date
+     * @property \DateTimeInterface Date
      */
 
     /**
@@ -115,7 +115,7 @@ class BankTransaction extends Remote\Object
     /**
      * Last modified date UTC format
      *
-     * @property \DateTime UpdatedDateUTC
+     * @property \DateTimeInterface UpdatedDateUTC
      */
 
     /**

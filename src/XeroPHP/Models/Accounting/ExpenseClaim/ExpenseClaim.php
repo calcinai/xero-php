@@ -21,7 +21,7 @@ class ExpenseClaim extends Remote\Object
     /**
      * Last modified date UTC format
      *
-     * @property \DateTime UpdatedDateUTC
+     * @property \DateTimeInterface UpdatedDateUTC
      */
 
     /**
@@ -45,13 +45,13 @@ class ExpenseClaim extends Remote\Object
     /**
      * The date when the expense claim is due to be paid YYYY-MM-DD
      *
-     * @property \DateTime PaymentDueDate
+     * @property \DateTimeInterface PaymentDueDate
      */
 
     /**
      * The date the expense claim will be reported in Xero YYYY-MM-DD
      *
-     * @property \DateTime ReportingDate
+     * @property \DateTimeInterface ReportingDate
      */
 
     /**

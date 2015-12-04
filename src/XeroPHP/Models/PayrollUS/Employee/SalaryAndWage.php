@@ -45,7 +45,7 @@ class SalaryAndWage extends Remote\Object
     /**
      * The effective date of the Salary and Wages
      *
-     * @property \DateTime EffectiveDate
+     * @property \DateTimeInterface EffectiveDate
      */
 
 

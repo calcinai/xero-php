@@ -21,13 +21,13 @@ class PayRun extends Remote\Object
     /**
      * Period Start Date for the PayRun (YYYY-MM-DD)
      *
-     * @property \DateTime PayRunPeriodStartDate
+     * @property \DateTimeInterface PayRunPeriodStartDate
      */
 
     /**
      * Period End Date for the PayRun (YYYY-MM-DD)
      *
-     * @property \DateTime PayRunPeriodEndDate
+     * @property \DateTimeInterface PayRunPeriodEndDate
      */
 
     /**
@@ -39,7 +39,7 @@ class PayRun extends Remote\Object
     /**
      * Payment Date for the PayRun (YYYY-MM-DD)
      *
-     * @property \DateTime PaymentDate
+     * @property \DateTimeInterface PaymentDate
      */
 
     /**
