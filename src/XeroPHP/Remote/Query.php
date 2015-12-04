@@ -71,7 +71,7 @@ class Query {
     }
 
     /**
-     * @param \DateTime|null $modifiedAfter
+     * @param \DateTimeInterface|null $modifiedAfter
      * @return $this
      */
     public function modifiedAfter(\DateTime $modifiedAfter = null) {
