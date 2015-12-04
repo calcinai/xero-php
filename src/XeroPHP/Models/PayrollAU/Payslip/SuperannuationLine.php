@@ -272,7 +272,7 @@ class SuperannuationLine extends Remote\Object
      * @param \DateTimeInterface $value
      * @return SuperannuationLine
      */
-    public function setPaymentDateForThisPeriod(\DateTime $value)
+    public function setPaymentDateForThisPeriod(\DateTimeInterface $value)
     {
         $this->propertyUpdated('PaymentDateForThisPeriod', $value);
         $this->_data['PaymentDateForThisPeriod'] = $value;

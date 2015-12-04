@@ -258,7 +258,7 @@ class SalaryAndWage extends Remote\Object
      * @param \DateTimeInterface $value
      * @return SalaryAndWage
      */
-    public function setEffectiveDate(\DateTime $value)
+    public function setEffectiveDate(\DateTimeInterface $value)
     {
         $this->propertyUpdated('EffectiveDate', $value);
         $this->_data['EffectiveDate'] = $value;

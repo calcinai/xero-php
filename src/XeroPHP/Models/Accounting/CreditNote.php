@@ -312,7 +312,7 @@ class CreditNote extends Remote\Object
      * @param \DateTimeInterface $value
      * @return CreditNote
      */
-    public function setDate(\DateTime $value)
+    public function setDate(\DateTimeInterface $value)
     {
         $this->propertyUpdated('Date', $value);
         $this->_data['Date'] = $value;
@@ -449,7 +449,7 @@ class CreditNote extends Remote\Object
      * @param \DateTimeInterface $value
      * @return CreditNote
      */
-    public function setUpdatedDateUTC(\DateTime $value)
+    public function setUpdatedDateUTC(\DateTimeInterface $value)
     {
         $this->propertyUpdated('UpdatedDateUTC', $value);
         $this->_data['UpdatedDateUTC'] = $value;
@@ -487,7 +487,7 @@ class CreditNote extends Remote\Object
      * @param \DateTimeInterface $value
      * @return CreditNote
      */
-    public function setFullyPaidOnDate(\DateTime $value)
+    public function setFullyPaidOnDate(\DateTimeInterface $value)
     {
         $this->propertyUpdated('FullyPaidOnDate', $value);
         $this->_data['FullyPaidOnDate'] = $value;

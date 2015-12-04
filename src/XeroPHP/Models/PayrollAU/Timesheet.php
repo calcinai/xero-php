@@ -170,7 +170,7 @@ class Timesheet extends Remote\Object
      * @param \DateTimeInterface $value
      * @return Timesheet
      */
-    public function setStartDate(\DateTime $value)
+    public function setStartDate(\DateTimeInterface $value)
     {
         $this->propertyUpdated('StartDate', $value);
         $this->_data['StartDate'] = $value;
@@ -189,7 +189,7 @@ class Timesheet extends Remote\Object
      * @param \DateTimeInterface $value
      * @return Timesheet
      */
-    public function setEndDate(\DateTime $value)
+    public function setEndDate(\DateTimeInterface $value)
     {
         $this->propertyUpdated('EndDate', $value);
         $this->_data['EndDate'] = $value;

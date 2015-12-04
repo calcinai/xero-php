@@ -200,7 +200,7 @@ class PayRun extends Remote\Object
      * @param \DateTimeInterface $value
      * @return PayRun
      */
-    public function setPayRunPeriodEndDate(\DateTime $value)
+    public function setPayRunPeriodEndDate(\DateTimeInterface $value)
     {
         $this->propertyUpdated('PayRunPeriodEndDate', $value);
         $this->_data['PayRunPeriodEndDate'] = $value;

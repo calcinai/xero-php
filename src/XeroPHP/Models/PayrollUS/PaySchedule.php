@@ -151,7 +151,7 @@ class PaySchedule extends Remote\Object
      * @param \DateTimeInterface $value
      * @return PaySchedule
      */
-    public function setPaymentDate(\DateTime $value)
+    public function setPaymentDate(\DateTimeInterface $value)
     {
         $this->propertyUpdated('PaymentDate', $value);
         $this->_data['PaymentDate'] = $value;
@@ -170,7 +170,7 @@ class PaySchedule extends Remote\Object
      * @param \DateTimeInterface $value
      * @return PaySchedule
      */
-    public function setStartDate(\DateTime $value)
+    public function setStartDate(\DateTimeInterface $value)
     {
         $this->propertyUpdated('StartDate', $value);
         $this->_data['StartDate'] = $value;

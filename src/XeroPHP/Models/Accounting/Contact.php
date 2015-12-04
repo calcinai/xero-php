@@ -845,7 +845,7 @@ class Contact extends Remote\Object
      * @param \DateTimeInterface $value
      * @return Contact
      */
-    public function setUpdatedDateUTC(\DateTime $value)
+    public function setUpdatedDateUTC(\DateTimeInterface $value)
     {
         $this->propertyUpdated('UpdatedDateUTC', $value);
         $this->_data['UpdatedDateUTC'] = $value;

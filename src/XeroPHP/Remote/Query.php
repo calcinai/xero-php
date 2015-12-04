@@ -74,7 +74,7 @@ class Query {
      * @param \DateTimeInterface|null $modifiedAfter
      * @return $this
      */
-    public function modifiedAfter(\DateTime $modifiedAfter = null) {
+    public function modifiedAfter(\DateTimeInterface $modifiedAfter = null) {
         if($modifiedAfter === null) {
             $modifiedAfter = new \DateTime('@0'); // since ever
         }

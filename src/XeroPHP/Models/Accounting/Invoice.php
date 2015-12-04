@@ -400,7 +400,7 @@ class Invoice extends Remote\Object
      * @param \DateTimeInterface $value
      * @return Invoice
      */
-    public function setDate(\DateTime $value)
+    public function setDate(\DateTimeInterface $value)
     {
         $this->propertyUpdated('Date', $value);
         $this->_data['Date'] = $value;
@@ -419,7 +419,7 @@ class Invoice extends Remote\Object
      * @param \DateTimeInterface $value
      * @return Invoice
      */
-    public function setDueDate(\DateTime $value)
+    public function setDueDate(\DateTimeInterface $value)
     {
         $this->propertyUpdated('DueDate', $value);
         $this->_data['DueDate'] = $value;

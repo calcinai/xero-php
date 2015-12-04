@@ -221,7 +221,7 @@ class Schedule extends Remote\Object
      * @param \DateTimeInterface $value
      * @return Schedule
      */
-    public function setStartDate(\DateTime $value)
+    public function setStartDate(\DateTimeInterface $value)
     {
         $this->propertyUpdated('StartDate', $value);
         $this->_data['StartDate'] = $value;
@@ -240,7 +240,7 @@ class Schedule extends Remote\Object
      * @param \DateTimeInterface $value
      * @return Schedule
      */
-    public function setNextScheduledDate(\DateTime $value)
+    public function setNextScheduledDate(\DateTimeInterface $value)
     {
         $this->propertyUpdated('NextScheduledDate', $value);
         $this->_data['NextScheduledDate'] = $value;
@@ -259,7 +259,7 @@ class Schedule extends Remote\Object
      * @param \DateTimeInterface $value
      * @return Schedule
      */
-    public function setEndDate(\DateTime $value)
+    public function setEndDate(\DateTimeInterface $value)
     {
         $this->propertyUpdated('EndDate', $value);
         $this->_data['EndDate'] = $value;

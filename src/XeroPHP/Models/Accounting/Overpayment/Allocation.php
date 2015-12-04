@@ -156,7 +156,7 @@ class Allocation extends Remote\Object
      * @param \DateTimeInterface $value
      * @return Allocation
      */
-    public function setDate(\DateTime $value)
+    public function setDate(\DateTimeInterface $value)
     {
         $this->propertyUpdated('Date', $value);
         $this->_data['Date'] = $value;

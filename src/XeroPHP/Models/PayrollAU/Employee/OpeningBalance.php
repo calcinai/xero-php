@@ -203,7 +203,7 @@ class OpeningBalance extends Remote\Object
      * @param \DateTimeInterface $value
      * @return OpeningBalance
      */
-    public function setOpeningBalanceDate(\DateTime $value)
+    public function setOpeningBalanceDate(\DateTimeInterface $value)
     {
         $this->propertyUpdated('OpeningBalanceDate', $value);
         $this->_data['OpeningBalanceDate'] = $value;

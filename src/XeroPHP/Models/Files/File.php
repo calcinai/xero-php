@@ -232,7 +232,7 @@ class File extends Remote\Object
      * @param \DateTimeInterface $value
      * @return File
      */
-    public function setCreatedDateUTC(\DateTime $value)
+    public function setCreatedDateUTC(\DateTimeInterface $value)
     {
         $this->propertyUpdated('CreatedDateUTC', $value);
         $this->_data['CreatedDateUTC'] = $value;
@@ -251,7 +251,7 @@ class File extends Remote\Object
      * @param \DateTimeInterface $value
      * @return File
      */
-    public function setUpdatedDateUTC(\DateTime $value)
+    public function setUpdatedDateUTC(\DateTimeInterface $value)
     {
         $this->propertyUpdated('UpdatedDateUTC', $value);
         $this->_data['UpdatedDateUTC'] = $value;

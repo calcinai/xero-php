@@ -197,7 +197,7 @@ class Journal extends Remote\Object
      * @param \DateTimeInterface $value
      * @return Journal
      */
-    public function setJournalDate(\DateTime $value)
+    public function setJournalDate(\DateTimeInterface $value)
     {
         $this->propertyUpdated('JournalDate', $value);
         $this->_data['JournalDate'] = $value;
@@ -235,7 +235,7 @@ class Journal extends Remote\Object
      * @param \DateTimeInterface $value
      * @return Journal
      */
-    public function setCreatedDateUTC(\DateTime $value)
+    public function setCreatedDateUTC(\DateTimeInterface $value)
     {
         $this->propertyUpdated('CreatedDateUTC', $value);
         $this->_data['CreatedDateUTC'] = $value;

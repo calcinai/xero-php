@@ -347,7 +347,7 @@ class Employee extends Remote\Object
      * @param \DateTimeInterface $value
      * @return Employee
      */
-    public function setDateOfBirth(\DateTime $value)
+    public function setDateOfBirth(\DateTimeInterface $value)
     {
         $this->propertyUpdated('DateOfBirth', $value);
         $this->_data['DateOfBirth'] = $value;
@@ -537,7 +537,7 @@ class Employee extends Remote\Object
      * @param \DateTimeInterface $value
      * @return Employee
      */
-    public function setStartDate(\DateTime $value)
+    public function setStartDate(\DateTimeInterface $value)
     {
         $this->propertyUpdated('StartDate', $value);
         $this->_data['StartDate'] = $value;
@@ -556,7 +556,7 @@ class Employee extends Remote\Object
      * @param \DateTimeInterface $value
      * @return Employee
      */
-    public function setTerminationDate(\DateTime $value)
+    public function setTerminationDate(\DateTimeInterface $value)
     {
         $this->propertyUpdated('TerminationDate', $value);
         $this->_data['TerminationDate'] = $value;
@@ -857,7 +857,7 @@ class Employee extends Remote\Object
      * @param \DateTimeInterface $value
      * @return Employee
      */
-    public function setUpdatedDateUTC(\DateTime $value)
+    public function setUpdatedDateUTC(\DateTimeInterface $value)
     {
         $this->propertyUpdated('UpdatedDateUTC', $value);
         $this->_data['UpdatedDateUTC'] = $value;

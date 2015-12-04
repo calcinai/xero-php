@@ -345,7 +345,7 @@ class BankTransaction extends Remote\Object
      * @param \DateTimeInterface $value
      * @return BankTransaction
      */
-    public function setDate(\DateTime $value)
+    public function setDate(\DateTimeInterface $value)
     {
         $this->propertyUpdated('Date', $value);
         $this->_data['Date'] = $value;

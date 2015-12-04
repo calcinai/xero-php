@@ -212,7 +212,7 @@ class Receipt extends Remote\Object
      * @param \DateTimeInterface $value
      * @return Receipt
      */
-    public function setDate(\DateTime $value)
+    public function setDate(\DateTimeInterface $value)
     {
         $this->propertyUpdated('Date', $value);
         $this->_data['Date'] = $value;

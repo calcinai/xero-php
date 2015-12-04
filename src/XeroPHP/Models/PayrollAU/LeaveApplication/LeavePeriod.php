@@ -142,7 +142,7 @@ class LeavePeriod extends Remote\Object
      * @param \DateTimeInterface $value
      * @return LeavePeriod
      */
-    public function setPayPeriodEndDate(\DateTime $value)
+    public function setPayPeriodEndDate(\DateTimeInterface $value)
     {
         $this->propertyUpdated('PayPeriodEndDate', $value);
         $this->_data['PayPeriodEndDate'] = $value;
@@ -161,7 +161,7 @@ class LeavePeriod extends Remote\Object
      * @param \DateTimeInterface $value
      * @return LeavePeriod
      */
-    public function setPayPeriodStartDate(\DateTime $value)
+    public function setPayPeriodStartDate(\DateTimeInterface $value)
     {
         $this->propertyUpdated('PayPeriodStartDate', $value);
         $this->_data['PayPeriodStartDate'] = $value;

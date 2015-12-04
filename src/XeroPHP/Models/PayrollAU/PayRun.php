@@ -233,7 +233,7 @@ class PayRun extends Remote\Object
      * @param \DateTimeInterface $value
      * @return PayRun
      */
-    public function setPayRunPeriodStartDate(\DateTime $value)
+    public function setPayRunPeriodStartDate(\DateTimeInterface $value)
     {
         $this->propertyUpdated('PayRunPeriodStartDate', $value);
         $this->_data['PayRunPeriodStartDate'] = $value;
@@ -252,7 +252,7 @@ class PayRun extends Remote\Object
      * @param \DateTimeInterface $value
      * @return PayRun
      */
-    public function setPayRunPeriodEndDate(\DateTime $value)
+    public function setPayRunPeriodEndDate(\DateTimeInterface $value)
     {
         $this->propertyUpdated('PayRunPeriodEndDate', $value);
         $this->_data['PayRunPeriodEndDate'] = $value;
@@ -290,7 +290,7 @@ class PayRun extends Remote\Object
      * @param \DateTimeInterface $value
      * @return PayRun
      */
-    public function setPaymentDate(\DateTime $value)
+    public function setPaymentDate(\DateTimeInterface $value)
     {
         $this->propertyUpdated('PaymentDate', $value);
         $this->_data['PaymentDate'] = $value;
