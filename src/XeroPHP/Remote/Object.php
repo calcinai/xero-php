@@ -261,7 +261,7 @@ abstract class Object implements ObjectInterface, \JsonSerializable, \ArrayAcces
      * @param $type
      * @param $value
      * @param $php_type
-     * @return bool|\DateTime|float|int|string
+     * @return bool|\DateTimeInterface|float|int|string
      */
     public static function castFromString($type, $value, $php_type) {
 
