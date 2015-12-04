@@ -218,7 +218,7 @@ class User extends Remote\Object
     }
 
     /**
-     * @param \DateTime $value
+     * @param \DateTimeInterface $value
      * @return User
      */
     public function setUpdatedDateUTC(\DateTime $value)

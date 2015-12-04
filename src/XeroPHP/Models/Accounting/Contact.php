@@ -842,7 +842,7 @@ class Contact extends Remote\Object
     }
 
     /**
-     * @param \DateTime $value
+     * @param \DateTimeInterface $value
      * @return Contact
      */
     public function setUpdatedDateUTC(\DateTime $value)

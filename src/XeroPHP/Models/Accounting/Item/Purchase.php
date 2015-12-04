@@ -189,7 +189,7 @@ class Purchase extends Remote\Object
     }
 
     /**
-     * @param \DateTime $value
+     * @param \DateTimeInterface $value
      * @return Purchase
      * @deprecated
      */

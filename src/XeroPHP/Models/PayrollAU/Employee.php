@@ -351,7 +351,7 @@ class Employee extends Remote\Object
     }
 
     /**
-     * @param \DateTime $value
+     * @param \DateTimeInterface $value
      * @return Employee
      */
     public function setDateOfBirth(\DateTime $value)
@@ -389,7 +389,7 @@ class Employee extends Remote\Object
     }
 
     /**
-     * @param \DateTime $value
+     * @param \DateTimeInterface $value
      * @return Employee
      */
     public function setStartDate(\DateTime $value)
@@ -787,7 +787,7 @@ class Employee extends Remote\Object
     }
 
     /**
-     * @param \DateTime $value
+     * @param \DateTimeInterface $value
      * @return Employee
      */
     public function setTerminationDate(\DateTime $value)
@@ -844,7 +844,7 @@ class Employee extends Remote\Object
     }
 
     /**
-     * @param \DateTime $value
+     * @param \DateTimeInterface $value
      * @return Employee
      */
     public function setUpdatedDateUTC(\DateTime $value)

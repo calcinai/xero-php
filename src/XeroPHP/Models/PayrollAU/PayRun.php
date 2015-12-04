@@ -230,7 +230,7 @@ class PayRun extends Remote\Object
     }
 
     /**
-     * @param \DateTime $value
+     * @param \DateTimeInterface $value
      * @return PayRun
      */
     public function setPayRunPeriodStartDate(\DateTime $value)
@@ -249,7 +249,7 @@ class PayRun extends Remote\Object
     }
 
     /**
-     * @param \DateTime $value
+     * @param \DateTimeInterface $value
      * @return PayRun
      */
     public function setPayRunPeriodEndDate(\DateTime $value)
@@ -287,7 +287,7 @@ class PayRun extends Remote\Object
     }
 
     /**
-     * @param \DateTime $value
+     * @param \DateTimeInterface $value
      * @return PayRun
      */
     public function setPaymentDate(\DateTime $value)

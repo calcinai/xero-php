@@ -342,7 +342,7 @@ class BankTransaction extends Remote\Object
     }
 
     /**
-     * @param \DateTime $value
+     * @param \DateTimeInterface $value
      * @return BankTransaction
      */
     public function setDate(\DateTime $value)

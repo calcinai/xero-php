@@ -178,7 +178,7 @@ class BrandingTheme extends Remote\Object
     }
 
     /**
-     * @param \DateTime $value
+     * @param \DateTimeInterface $value
      * @return BrandingTheme
      */
     public function setCreatedDateUTC(\DateTime $value)

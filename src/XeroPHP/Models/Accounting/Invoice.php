@@ -397,7 +397,7 @@ class Invoice extends Remote\Object
     }
 
     /**
-     * @param \DateTime $value
+     * @param \DateTimeInterface $value
      * @return Invoice
      */
     public function setDate(\DateTime $value)
@@ -416,7 +416,7 @@ class Invoice extends Remote\Object
     }
 
     /**
-     * @param \DateTime $value
+     * @param \DateTimeInterface $value
      * @return Invoice
      */
     public function setDueDate(\DateTime $value)

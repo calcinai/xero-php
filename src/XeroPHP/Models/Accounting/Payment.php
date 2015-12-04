@@ -308,7 +308,7 @@ class Payment extends Remote\Object
     }
 
     /**
-     * @param \DateTime $value
+     * @param \DateTimeInterface $value
      * @return Payment
      */
     public function setDate(\DateTime $value)

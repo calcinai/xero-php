@@ -455,7 +455,7 @@ class Paystub extends Remote\Object
     }
 
     /**
-     * @param \DateTime $value
+     * @param \DateTimeInterface $value
      * @return Paystub
      */
     public function setUpdatedDateUTC(\DateTime $value)

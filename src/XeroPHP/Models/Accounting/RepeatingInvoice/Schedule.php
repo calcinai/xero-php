@@ -218,7 +218,7 @@ class Schedule extends Remote\Object
     }
 
     /**
-     * @param \DateTime $value
+     * @param \DateTimeInterface $value
      * @return Schedule
      */
     public function setStartDate(\DateTime $value)
@@ -237,7 +237,7 @@ class Schedule extends Remote\Object
     }
 
     /**
-     * @param \DateTime $value
+     * @param \DateTimeInterface $value
      * @return Schedule
      */
     public function setNextScheduledDate(\DateTime $value)
@@ -256,7 +256,7 @@ class Schedule extends Remote\Object
     }
 
     /**
-     * @param \DateTime $value
+     * @param \DateTimeInterface $value
      * @return Schedule
      */
     public function setEndDate(\DateTime $value)

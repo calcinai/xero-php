@@ -229,7 +229,7 @@ class File extends Remote\Object
     }
 
     /**
-     * @param \DateTime $value
+     * @param \DateTimeInterface $value
      * @return File
      */
     public function setCreatedDateUTC(\DateTime $value)
@@ -248,7 +248,7 @@ class File extends Remote\Object
     }
 
     /**
-     * @param \DateTime $value
+     * @param \DateTimeInterface $value
      * @return File
      */
     public function setUpdatedDateUTC(\DateTime $value)

@@ -200,7 +200,7 @@ class OpeningBalance extends Remote\Object
     }
 
     /**
-     * @param \DateTime $value
+     * @param \DateTimeInterface $value
      * @return OpeningBalance
      */
     public function setOpeningBalanceDate(\DateTime $value)

@@ -230,7 +230,7 @@ class LeaveApplication extends Remote\Object
     }
 
     /**
-     * @param \DateTime $value
+     * @param \DateTimeInterface $value
      * @return LeaveApplication
      */
     public function setStartDate(\DateTime $value)
@@ -249,7 +249,7 @@ class LeaveApplication extends Remote\Object
     }
 
     /**
-     * @param \DateTime $value
+     * @param \DateTimeInterface $value
      * @return LeaveApplication
      */
     public function setEndDate(\DateTime $value)

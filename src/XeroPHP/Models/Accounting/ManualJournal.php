@@ -235,7 +235,7 @@ class ManualJournal extends Remote\Object
     }
 
     /**
-     * @param \DateTime $value
+     * @param \DateTimeInterface $value
      * @return ManualJournal
      */
     public function setDate(\DateTime $value)

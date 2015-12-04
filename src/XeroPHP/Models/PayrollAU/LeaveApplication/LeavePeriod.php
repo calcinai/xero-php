@@ -139,7 +139,7 @@ class LeavePeriod extends Remote\Object
     }
 
     /**
-     * @param \DateTime $value
+     * @param \DateTimeInterface $value
      * @return LeavePeriod
      */
     public function setPayPeriodEndDate(\DateTime $value)
@@ -158,7 +158,7 @@ class LeavePeriod extends Remote\Object
     }
 
     /**
-     * @param \DateTime $value
+     * @param \DateTimeInterface $value
      * @return LeavePeriod
      */
     public function setPayPeriodStartDate(\DateTime $value)

@@ -194,7 +194,7 @@ class PayrollCalendar extends Remote\Object
     }
 
     /**
-     * @param \DateTime $value
+     * @param \DateTimeInterface $value
      * @return PayrollCalendar
      */
     public function setStartDate(\DateTime $value)
@@ -213,7 +213,7 @@ class PayrollCalendar extends Remote\Object
     }
 
     /**
-     * @param \DateTime $value
+     * @param \DateTimeInterface $value
      * @return PayrollCalendar
      */
     public function setPaymentDate(\DateTime $value)

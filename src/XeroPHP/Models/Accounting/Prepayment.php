@@ -293,7 +293,7 @@ class Prepayment extends Remote\Object
     }
 
     /**
-     * @param \DateTime $value
+     * @param \DateTimeInterface $value
      * @return Prepayment
      */
     public function setDate(\DateTime $value)
@@ -430,7 +430,7 @@ class Prepayment extends Remote\Object
     }
 
     /**
-     * @param \DateTime $value
+     * @param \DateTimeInterface $value
      * @return Prepayment
      */
     public function setUpdatedDateUTC(\DateTime $value)
@@ -468,7 +468,7 @@ class Prepayment extends Remote\Object
     }
 
     /**
-     * @param \DateTime $value
+     * @param \DateTimeInterface $value
      * @return Prepayment
      */
     public function setFullyPaidOnDate(\DateTime $value)

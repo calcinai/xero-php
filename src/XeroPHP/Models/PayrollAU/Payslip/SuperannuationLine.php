@@ -269,7 +269,7 @@ class SuperannuationLine extends Remote\Object
     }
 
     /**
-     * @param \DateTime $value
+     * @param \DateTimeInterface $value
      * @return SuperannuationLine
      */
     public function setPaymentDateForThisPeriod(\DateTime $value)

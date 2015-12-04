@@ -189,7 +189,7 @@ class Sale extends Remote\Object
     }
 
     /**
-     * @param \DateTime $value
+     * @param \DateTimeInterface $value
      * @return Sale
      * @deprecated
      */

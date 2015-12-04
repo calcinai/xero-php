@@ -148,7 +148,7 @@ class PaySchedule extends Remote\Object
     }
 
     /**
-     * @param \DateTime $value
+     * @param \DateTimeInterface $value
      * @return PaySchedule
      */
     public function setPaymentDate(\DateTime $value)
@@ -167,7 +167,7 @@ class PaySchedule extends Remote\Object
     }
 
     /**
-     * @param \DateTime $value
+     * @param \DateTimeInterface $value
      * @return PaySchedule
      */
     public function setStartDate(\DateTime $value)

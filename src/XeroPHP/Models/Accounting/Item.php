@@ -456,7 +456,7 @@ class Item extends Remote\Object
     }
 
     /**
-     * @param \DateTime $value
+     * @param \DateTimeInterface $value
      * @return Item
      */
     public function setUpdatedDateUTC(\DateTime $value)

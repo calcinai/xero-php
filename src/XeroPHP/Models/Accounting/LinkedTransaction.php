@@ -325,7 +325,7 @@ class LinkedTransaction extends Remote\Object
     }
 
     /**
-     * @param \DateTime $value
+     * @param \DateTimeInterface $value
      * @return LinkedTransaction
      */
     public function setUpdatedDateUTC(\DateTime $value)

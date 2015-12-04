@@ -153,7 +153,7 @@ class Allocation extends Remote\Object
     }
 
     /**
-     * @param \DateTime $value
+     * @param \DateTimeInterface $value
      * @return Allocation
      */
     public function setDate(\DateTime $value)

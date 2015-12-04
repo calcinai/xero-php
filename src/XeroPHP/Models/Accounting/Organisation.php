@@ -622,7 +622,7 @@ class Organisation extends Remote\Object
     }
 
     /**
-     * @param \DateTime $value
+     * @param \DateTimeInterface $value
      * @return Organisation
      */
     public function setCreatedDateUTC(\DateTime $value)

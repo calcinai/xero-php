@@ -167,7 +167,7 @@ class Timesheet extends Remote\Object
     }
 
     /**
-     * @param \DateTime $value
+     * @param \DateTimeInterface $value
      * @return Timesheet
      */
     public function setStartDate(\DateTime $value)
@@ -186,7 +186,7 @@ class Timesheet extends Remote\Object
     }
 
     /**
-     * @param \DateTime $value
+     * @param \DateTimeInterface $value
      * @return Timesheet
      */
     public function setEndDate(\DateTime $value)

@@ -309,7 +309,7 @@ class CreditNote extends Remote\Object
     }
 
     /**
-     * @param \DateTime $value
+     * @param \DateTimeInterface $value
      * @return CreditNote
      */
     public function setDate(\DateTime $value)
@@ -446,7 +446,7 @@ class CreditNote extends Remote\Object
     }
 
     /**
-     * @param \DateTime $value
+     * @param \DateTimeInterface $value
      * @return CreditNote
      */
     public function setUpdatedDateUTC(\DateTime $value)
@@ -484,7 +484,7 @@ class CreditNote extends Remote\Object
     }
 
     /**
-     * @param \DateTime $value
+     * @param \DateTimeInterface $value
      * @return CreditNote
      */
     public function setFullyPaidOnDate(\DateTime $value)

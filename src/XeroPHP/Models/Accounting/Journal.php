@@ -194,7 +194,7 @@ class Journal extends Remote\Object
     }
 
     /**
-     * @param \DateTime $value
+     * @param \DateTimeInterface $value
      * @return Journal
      */
     public function setJournalDate(\DateTime $value)
@@ -232,7 +232,7 @@ class Journal extends Remote\Object
     }
 
     /**
-     * @param \DateTime $value
+     * @param \DateTimeInterface $value
      * @return Journal
      */
     public function setCreatedDateUTC(\DateTime $value)

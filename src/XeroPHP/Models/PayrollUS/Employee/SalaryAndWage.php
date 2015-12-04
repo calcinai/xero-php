@@ -255,7 +255,7 @@ class SalaryAndWage extends Remote\Object
     }
 
     /**
-     * @param \DateTime $value
+     * @param \DateTimeInterface $value
      * @return SalaryAndWage
      */
     public function setEffectiveDate(\DateTime $value)
