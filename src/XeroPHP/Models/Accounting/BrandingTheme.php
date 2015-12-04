@@ -103,7 +103,7 @@ class BrandingTheme extends Remote\Object
             'BrandingThemeID' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'Name' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'SortOrder' => array (false, self::PROPERTY_TYPE_INT, null, false, false),
-            'CreatedDateUTC' => array (false, self::PROPERTY_TYPE_TIMESTAMP, '\\DateTime', false, false)
+            'CreatedDateUTC' => array (false, self::PROPERTY_TYPE_TIMESTAMP, '\\DateTimeInterface', false, false)
         );
     }
 

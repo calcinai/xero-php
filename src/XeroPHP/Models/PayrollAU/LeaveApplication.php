@@ -133,8 +133,8 @@ class LeaveApplication extends Remote\Object
             'EmployeeID' => array (true, self::PROPERTY_TYPE_STRING, null, false, false),
             'LeaveTypeID' => array (true, self::PROPERTY_TYPE_STRING, null, false, false),
             'Title' => array (true, self::PROPERTY_TYPE_STRING, null, false, false),
-            'StartDate' => array (true, self::PROPERTY_TYPE_DATE, '\\DateTime', false, false),
-            'EndDate' => array (true, self::PROPERTY_TYPE_DATE, '\\DateTime', false, false),
+            'StartDate' => array (true, self::PROPERTY_TYPE_DATE, '\\DateTimeInterface', false, false),
+            'EndDate' => array (true, self::PROPERTY_TYPE_DATE, '\\DateTimeInterface', false, false),
             'Description' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'LeavePeriods' => array (false, self::PROPERTY_TYPE_OBJECT, 'PayrollAU\\LeaveApplication\\LeavePeriod', true, false)
         );

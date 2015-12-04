@@ -273,7 +273,7 @@ class Organisation extends Remote\Object
             'SalesTaxPeriod' => array (false, self::PROPERTY_TYPE_ENUM, null, false, false),
             'PeriodLockDate' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'EndOfYearLockDate' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'CreatedDateUTC' => array (false, self::PROPERTY_TYPE_TIMESTAMP, '\\DateTime', false, false),
+            'CreatedDateUTC' => array (false, self::PROPERTY_TYPE_TIMESTAMP, '\\DateTimeInterface', false, false),
             'OrganisationEntityType' => array (false, self::PROPERTY_TYPE_ENUM, null, false, false),
             'Timezone' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'ShortCode' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),

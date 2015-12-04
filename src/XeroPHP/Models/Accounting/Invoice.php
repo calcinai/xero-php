@@ -291,8 +291,8 @@ class Invoice extends Remote\Object
             'Type' => array (true, self::PROPERTY_TYPE_ENUM, null, false, false),
             'Contact' => array (true, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Contact', false, false),
             'LineItems' => array (true, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Invoice\\LineItem', true, false),
-            'Date' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTime', false, false),
-            'DueDate' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTime', false, false),
+            'Date' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTimeInterface', false, false),
+            'DueDate' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTimeInterface', false, false),
             'LineAmountTypes' => array (false, self::PROPERTY_TYPE_ENUM, null, false, false),
             'InvoiceNumber' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'Reference' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
@@ -315,9 +315,9 @@ class Invoice extends Remote\Object
             'Overpayments' => array (false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Overpayment', true, false),
             'AmountDue' => array (false, self::PROPERTY_TYPE_FLOAT, null, false, false),
             'AmountPaid' => array (false, self::PROPERTY_TYPE_FLOAT, null, false, false),
-            'FullyPaidOnDate' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTime', false, false),
+            'FullyPaidOnDate' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTimeInterface', false, false),
             'AmountCredited' => array (false, self::PROPERTY_TYPE_FLOAT, null, false, false),
-            'UpdatedDateUTC' => array (false, self::PROPERTY_TYPE_TIMESTAMP, '\\DateTime', false, false),
+            'UpdatedDateUTC' => array (false, self::PROPERTY_TYPE_TIMESTAMP, '\\DateTimeInterface', false, false),
             'CreditNotes' => array (false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\CreditNote', true, false)
         );
     }

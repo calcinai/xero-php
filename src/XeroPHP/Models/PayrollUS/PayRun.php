@@ -150,16 +150,16 @@ class PayRun extends Remote\Object
     {
         return array(
             'PayScheduleID' => array (true, self::PROPERTY_TYPE_STRING, null, false, false),
-            'PayRunPeriodEndDate' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTime', false, false),
+            'PayRunPeriodEndDate' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTimeInterface', false, false),
             'PayRunStatus' => array (false, self::PROPERTY_TYPE_ENUM, null, false, false),
             'PayRunID' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'PayRunPeriodStartDate' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTime', false, false),
-            'PaymentDate' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTime', false, false),
+            'PayRunPeriodStartDate' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTimeInterface', false, false),
+            'PaymentDate' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTimeInterface', false, false),
             'Earnings' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'Deductions' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'Reimbursement' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'NetPay' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'UpdateDateUTC' => array (false, self::PROPERTY_TYPE_TIMESTAMP, '\\DateTime', false, false),
+            'UpdateDateUTC' => array (false, self::PROPERTY_TYPE_TIMESTAMP, '\\DateTimeInterface', false, false),
             'PayStubs' => array (false, self::PROPERTY_TYPE_STRING, null, false, false)
         );
     }

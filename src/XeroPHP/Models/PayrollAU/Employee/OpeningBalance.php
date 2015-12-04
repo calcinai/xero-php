@@ -168,7 +168,7 @@ class OpeningBalance extends Remote\Object
     public static function getProperties()
     {
         return array(
-            'OpeningBalanceDate' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTime', false, false),
+            'OpeningBalanceDate' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTimeInterface', false, false),
             'Tax' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'EarningsLines' => array (false, self::PROPERTY_TYPE_OBJECT, 'PayrollAU\\Payslip\\EarningsLine', true, false),
             'DeductionLines' => array (false, self::PROPERTY_TYPE_OBJECT, 'PayrollAU\\Payslip\\DeductionLine', true, false),

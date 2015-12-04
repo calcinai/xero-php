@@ -163,10 +163,10 @@ class PayRun extends Remote\Object
         return array(
             'PayrollCalendarID' => array (true, self::PROPERTY_TYPE_STRING, null, false, false),
             'PayRunID' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'PayRunPeriodStartDate' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTime', false, false),
-            'PayRunPeriodEndDate' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTime', false, false),
+            'PayRunPeriodStartDate' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTimeInterface', false, false),
+            'PayRunPeriodEndDate' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTimeInterface', false, false),
             'PayRunStatus' => array (false, self::PROPERTY_TYPE_ENUM, null, false, false),
-            'PaymentDate' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTime', false, false),
+            'PaymentDate' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTimeInterface', false, false),
             'PayslipMessage' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'Payslips' => array (false, self::PROPERTY_TYPE_OBJECT, 'PayrollAU\\Payslip', true, false),
             'Wages' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),

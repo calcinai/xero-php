@@ -150,13 +150,13 @@ class ManualJournal extends Remote\Object
             'ManualJournalID' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'Narration' => array (true, self::PROPERTY_TYPE_STRING, null, false, false),
             'JournalLines' => array (true, self::PROPERTY_TYPE_OBJECT, 'Accounting\\ManualJournal\\JournalLine', true, false),
-            'Date' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTime', false, false),
+            'Date' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTimeInterface', false, false),
             'LineAmountTypes' => array (false, self::PROPERTY_TYPE_ENUM, null, false, false),
             'Status' => array (false, self::PROPERTY_TYPE_ENUM, null, false, false),
             'Url' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'ShowOnCashBasisReports' => array (false, self::PROPERTY_TYPE_BOOLEAN, null, false, false),
             'HasAttachments' => array (false, self::PROPERTY_TYPE_BOOLEAN, null, false, false),
-            'UpdatedDateUTC' => array (false, self::PROPERTY_TYPE_TIMESTAMP, '\\DateTime', false, false)
+            'UpdatedDateUTC' => array (false, self::PROPERTY_TYPE_TIMESTAMP, '\\DateTimeInterface', false, false)
         );
     }
 

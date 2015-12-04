@@ -145,13 +145,13 @@ class BankTransfer extends Remote\Object
             'FromBankAccount' => array (true, self::PROPERTY_TYPE_OBJECT, 'Accounting\\BankTransfer\\FromBankAccount', false, false),
             'ToBankAccount' => array (true, self::PROPERTY_TYPE_OBJECT, 'Accounting\\BankTransfer\\ToBankAccount', false, false),
             'Amount' => array (true, self::PROPERTY_TYPE_STRING, null, false, false),
-            'Date' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTime', false, false),
+            'Date' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTimeInterface', false, false),
             'BankTransferID' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'CurrencyRate' => array (false, self::PROPERTY_TYPE_FLOAT, null, false, false),
             'FromBankTransactionID' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'ToBankTransactionID' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'HasAttachments' => array (false, self::PROPERTY_TYPE_BOOLEAN, null, false, false),
-            'CreatedDateUTC' => array (false, self::PROPERTY_TYPE_TIMESTAMP, '\\DateTime', false, false)
+            'CreatedDateUTC' => array (false, self::PROPERTY_TYPE_TIMESTAMP, '\\DateTimeInterface', false, false)
         );
     }
 

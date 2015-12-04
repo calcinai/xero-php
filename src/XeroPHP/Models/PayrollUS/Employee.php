@@ -262,7 +262,7 @@ class Employee extends Remote\Object
         return array(
             'FirstName' => array (true, self::PROPERTY_TYPE_STRING, null, false, false),
             'LastName' => array (true, self::PROPERTY_TYPE_STRING, null, false, false),
-            'DateOfBirth' => array (true, self::PROPERTY_TYPE_DATE, '\\DateTime', false, false),
+            'DateOfBirth' => array (true, self::PROPERTY_TYPE_DATE, '\\DateTimeInterface', false, false),
             'HomeAddress' => array (true, self::PROPERTY_TYPE_OBJECT, 'PayrollUS\\Employee\\HomeAddress', false, false),
             'MiddleNames' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'JobTitle' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
@@ -272,8 +272,8 @@ class Employee extends Remote\Object
             'Phone' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'EmployeeNumber' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'SocialSecurityNumber' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'StartDate' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTime', false, false),
-            'TerminationDate' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTime', false, false),
+            'StartDate' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTimeInterface', false, false),
+            'TerminationDate' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTimeInterface', false, false),
             'PayScheduleID' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'EmployeeGroupName' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'EmploymentBasis' => array (false, self::PROPERTY_TYPE_ENUM, null, false, false),
@@ -288,7 +288,7 @@ class Employee extends Remote\Object
             'TimeOffBalances' => array (false, self::PROPERTY_TYPE_OBJECT, 'PayrollUS\\Employee\\TimeOffBalance', true, false),
             'EmployeeID' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'Status' => array (false, self::PROPERTY_TYPE_ENUM, null, false, false),
-            'UpdatedDateUTC' => array (false, self::PROPERTY_TYPE_TIMESTAMP, '\\DateTime', false, false)
+            'UpdatedDateUTC' => array (false, self::PROPERTY_TYPE_TIMESTAMP, '\\DateTimeInterface', false, false)
         );
     }
 

@@ -209,7 +209,7 @@ class Paystub extends Remote\Object
             'Tax' => array (false, self::PROPERTY_TYPE_FLOAT, null, false, false),
             'Reimbursements' => array (false, self::PROPERTY_TYPE_FLOAT, null, true, false),
             'NetPay' => array (false, self::PROPERTY_TYPE_FLOAT, null, false, false),
-            'UpdatedDateUTC' => array (false, self::PROPERTY_TYPE_TIMESTAMP, '\\DateTime', false, false),
+            'UpdatedDateUTC' => array (false, self::PROPERTY_TYPE_TIMESTAMP, '\\DateTimeInterface', false, false),
             'EarningsLines' => array (false, self::PROPERTY_TYPE_OBJECT, 'PayrollUS\\Paystub\\EarningsLine', true, false),
             'LeaveEarningsLines' => array (false, self::PROPERTY_TYPE_OBJECT, 'PayrollUS\\Paystub\\LeaveEarningsLine', true, false),
             'TimesheetEarningsLines' => array (false, self::PROPERTY_TYPE_OBJECT, 'PayrollUS\\Paystub\\TimesheetEarningsLine', true, false),

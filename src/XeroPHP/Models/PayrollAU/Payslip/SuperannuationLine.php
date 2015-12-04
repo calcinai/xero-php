@@ -135,7 +135,7 @@ class SuperannuationLine extends Remote\Object
             'MinimumMonthlyEarnings' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'ExpenseAccountCode' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'LiabilityAccountCode' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'PaymentDateForThisPeriod' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTime', false, false),
+            'PaymentDateForThisPeriod' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTimeInterface', false, false),
             'Percentage' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'Amount' => array (false, self::PROPERTY_TYPE_FLOAT, null, false, false)
         );

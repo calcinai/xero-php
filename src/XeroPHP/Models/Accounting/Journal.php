@@ -151,9 +151,9 @@ class Journal extends Remote\Object
     {
         return array(
             'JournalID' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'JournalDate' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTime', false, false),
+            'JournalDate' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTimeInterface', false, false),
             'JournalNumber' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'CreatedDateUTC' => array (false, self::PROPERTY_TYPE_TIMESTAMP, '\\DateTime', false, false),
+            'CreatedDateUTC' => array (false, self::PROPERTY_TYPE_TIMESTAMP, '\\DateTimeInterface', false, false),
             'Reference' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'SourceID' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'SourceType' => array (false, self::PROPERTY_TYPE_ENUM, null, false, false),

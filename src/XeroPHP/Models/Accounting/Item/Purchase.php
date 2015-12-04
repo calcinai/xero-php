@@ -112,7 +112,7 @@ class Purchase extends Remote\Object
             'UnitPrice' => array (false, self::PROPERTY_TYPE_FLOAT, null, false, false),
             'AccountCode' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'COGSAccountCode' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'UpdatedDateUTC' => array (false, self::PROPERTY_TYPE_TIMESTAMP, '\\DateTime', false, false),
+            'UpdatedDateUTC' => array (false, self::PROPERTY_TYPE_TIMESTAMP, '\\DateTimeInterface', false, false),
             'TaxType' => array (false, self::PROPERTY_TYPE_ENUM, null, false, false)
         );
     }

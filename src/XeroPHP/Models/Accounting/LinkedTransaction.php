@@ -155,7 +155,7 @@ class LinkedTransaction extends Remote\Object
             'LinkedTransactionID' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'Status' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'Type' => array (false, self::PROPERTY_TYPE_ENUM, null, false, false),
-            'UpdatedDateUTC' => array (false, self::PROPERTY_TYPE_TIMESTAMP, '\\DateTime', false, false)
+            'UpdatedDateUTC' => array (false, self::PROPERTY_TYPE_TIMESTAMP, '\\DateTimeInterface', false, false)
         );
     }
 

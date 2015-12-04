@@ -97,7 +97,7 @@ class Allocation extends Remote\Object
         return array(
             'Invoice' => array (false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Invoice', false, false),
             'AppliedAmount' => array (false, self::PROPERTY_TYPE_FLOAT, null, false, false),
-            'Date' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTime', false, false)
+            'Date' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTimeInterface', false, false)
         );
     }
 

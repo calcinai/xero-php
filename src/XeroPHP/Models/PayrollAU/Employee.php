@@ -270,9 +270,9 @@ class Employee extends Remote\Object
         return array(
             'FirstName' => array (true, self::PROPERTY_TYPE_STRING, null, false, false),
             'LastName' => array (true, self::PROPERTY_TYPE_STRING, null, false, false),
-            'DateOfBirth' => array (true, self::PROPERTY_TYPE_DATE, '\\DateTime', false, false),
+            'DateOfBirth' => array (true, self::PROPERTY_TYPE_DATE, '\\DateTimeInterface', false, false),
             'HomeAddress' => array (true, self::PROPERTY_TYPE_OBJECT, 'PayrollAU\\Employee\\HomeAddress', false, false),
-            'StartDate' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTime', false, false),
+            'StartDate' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTimeInterface', false, false),
             'Title' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'MiddleNames' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'Email' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
@@ -292,10 +292,10 @@ class Employee extends Remote\Object
             'OpeningBalances' => array (false, self::PROPERTY_TYPE_OBJECT, 'PayrollAU\\Employee\\OpeningBalance', true, false),
             'LeaveBalances' => array (false, self::PROPERTY_TYPE_OBJECT, 'PayrollAU\\Employee\\LeaveBalance', true, false),
             'SuperMemberships' => array (false, self::PROPERTY_TYPE_OBJECT, 'PayrollAU\\Employee\\SuperMembership', true, false),
-            'TerminationDate' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTime', false, false),
+            'TerminationDate' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTimeInterface', false, false),
             'EmployeeID' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'Status' => array (false, self::PROPERTY_TYPE_ENUM, null, false, false),
-            'UpdatedDateUTC' => array (false, self::PROPERTY_TYPE_TIMESTAMP, '\\DateTime', false, false)
+            'UpdatedDateUTC' => array (false, self::PROPERTY_TYPE_TIMESTAMP, '\\DateTimeInterface', false, false)
         );
     }
 

@@ -123,7 +123,7 @@ class SalaryAndWage extends Remote\Object
             'HourlyRate' => array (false, self::PROPERTY_TYPE_FLOAT, null, false, false),
             'AnnualSalary' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'StandardHoursPerWeek' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'EffectiveDate' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTime', false, false)
+            'EffectiveDate' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTimeInterface', false, false)
         );
     }
 

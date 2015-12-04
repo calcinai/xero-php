@@ -125,8 +125,8 @@ class Timesheet extends Remote\Object
     {
         return array(
             'EmployeeID' => array (true, self::PROPERTY_TYPE_STRING, null, false, false),
-            'StartDate' => array (true, self::PROPERTY_TYPE_DATE, '\\DateTime', false, false),
-            'EndDate' => array (true, self::PROPERTY_TYPE_DATE, '\\DateTime', false, false),
+            'StartDate' => array (true, self::PROPERTY_TYPE_DATE, '\\DateTimeInterface', false, false),
+            'EndDate' => array (true, self::PROPERTY_TYPE_DATE, '\\DateTimeInterface', false, false),
             'TimesheetLines' => array (false, self::PROPERTY_TYPE_OBJECT, 'PayrollUS\\Timesheet\\TimesheetLine', true, false),
             'Status' => array (false, self::PROPERTY_TYPE_ENUM, null, false, false),
             'TimesheetID' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),

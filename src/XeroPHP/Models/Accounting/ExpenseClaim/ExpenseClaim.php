@@ -131,12 +131,12 @@ class ExpenseClaim extends Remote\Object
         return array(
             'ExpenseClaimID' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'Status' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'UpdatedDateUTC' => array (false, self::PROPERTY_TYPE_TIMESTAMP, '\\DateTime', false, false),
+            'UpdatedDateUTC' => array (false, self::PROPERTY_TYPE_TIMESTAMP, '\\DateTimeInterface', false, false),
             'Total' => array (false, self::PROPERTY_TYPE_FLOAT, null, false, false),
             'AmountDue' => array (false, self::PROPERTY_TYPE_FLOAT, null, false, false),
             'AmountPaid' => array (false, self::PROPERTY_TYPE_FLOAT, null, false, false),
-            'PaymentDueDate' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTime', false, false),
-            'ReportingDate' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTime', false, false),
+            'PaymentDueDate' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTimeInterface', false, false),
+            'ReportingDate' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTimeInterface', false, false),
             'ReceiptID' => array (true, self::PROPERTY_TYPE_STRING, null, false, false)
         );
     }

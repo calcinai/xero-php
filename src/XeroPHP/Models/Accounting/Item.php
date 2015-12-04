@@ -183,7 +183,7 @@ class Item extends Remote\Object
             'IsTrackedAsInventory' => array (false, self::PROPERTY_TYPE_BOOLEAN, null, false, false),
             'TotalCostPool' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'QuantityOnHand' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'UpdatedDateUTC' => array (false, self::PROPERTY_TYPE_TIMESTAMP, '\\DateTime', false, false)
+            'UpdatedDateUTC' => array (false, self::PROPERTY_TYPE_TIMESTAMP, '\\DateTimeInterface', false, false)
         );
     }
 
