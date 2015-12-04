@@ -16,7 +16,7 @@ class Journal extends Remote\Object
     /**
      * Date the journal was posted
      *
-     * @property \DateTime JournalDate
+     * @property \DateTimeInterface JournalDate
      */
 
     /**
@@ -28,7 +28,7 @@ class Journal extends Remote\Object
     /**
      * Created date UTC format
      *
-     * @property \DateTime CreatedDateUTC
+     * @property \DateTimeInterface CreatedDateUTC
      */
 
     /**
@@ -151,9 +151,9 @@ class Journal extends Remote\Object
     {
         return array(
             'JournalID' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'JournalDate' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTime', false, false),
+            'JournalDate' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTimeInterface', false, false),
             'JournalNumber' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'CreatedDateUTC' => array (false, self::PROPERTY_TYPE_TIMESTAMP, '\\DateTime', false, false),
+            'CreatedDateUTC' => array (false, self::PROPERTY_TYPE_TIMESTAMP, '\\DateTimeInterface', false, false),
             'Reference' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'SourceID' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'SourceType' => array (false, self::PROPERTY_TYPE_ENUM, null, false, false),
@@ -186,7 +186,7 @@ class Journal extends Remote\Object
     }
 
     /**
-     * @return \DateTime
+     * @return \DateTimeInterface
      */
     public function getJournalDate()
     {
@@ -194,10 +194,10 @@ class Journal extends Remote\Object
     }
 
     /**
-     * @param \DateTime $value
+     * @param \DateTimeInterface $value
      * @return Journal
      */
-    public function setJournalDate(\DateTime $value)
+    public function setJournalDate(\DateTimeInterface $value)
     {
         $this->propertyUpdated('JournalDate', $value);
         $this->_data['JournalDate'] = $value;
@@ -224,7 +224,7 @@ class Journal extends Remote\Object
     }
 
     /**
-     * @return \DateTime
+     * @return \DateTimeInterface
      */
     public function getCreatedDateUTC()
     {
@@ -232,10 +232,10 @@ class Journal extends Remote\Object
     }
 
     /**
-     * @param \DateTime $value
+     * @param \DateTimeInterface $value
      * @return Journal
      */
-    public function setCreatedDateUTC(\DateTime $value)
+    public function setCreatedDateUTC(\DateTimeInterface $value)
     {
         $this->propertyUpdated('CreatedDateUTC', $value);
         $this->_data['CreatedDateUTC'] = $value;

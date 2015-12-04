@@ -44,7 +44,7 @@ class BankTransaction extends Remote\Object
     /**
      * Date of transaction – YYYY-MM-DD
      *
-     * @property \DateTime Date
+     * @property \DateTimeInterface Date
      */
 
     /**
@@ -115,7 +115,7 @@ class BankTransaction extends Remote\Object
     /**
      * Last modified date UTC format
      *
-     * @property \DateTime UpdatedDateUTC
+     * @property \DateTimeInterface UpdatedDateUTC
      */
 
     /**
@@ -213,7 +213,7 @@ class BankTransaction extends Remote\Object
             'LineItems' => array (true, self::PROPERTY_TYPE_OBJECT, 'Accounting\\BankTransaction\\LineItem', true, false),
             'BankAccount' => array (true, self::PROPERTY_TYPE_OBJECT, 'Accounting\\BankTransaction\\BankAccount', false, false),
             'IsReconciled' => array (false, self::PROPERTY_TYPE_BOOLEAN, null, false, false),
-            'Date' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTime', false, false),
+            'Date' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTimeInterface', false, false),
             'Reference' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'CurrencyCode' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'CurrencyRate' => array (false, self::PROPERTY_TYPE_FLOAT, null, false, false),
@@ -224,7 +224,7 @@ class BankTransaction extends Remote\Object
             'TotalTax' => array (false, self::PROPERTY_TYPE_FLOAT, null, false, false),
             'Total' => array (false, self::PROPERTY_TYPE_FLOAT, null, false, false),
             'BankTransactionID' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'UpdatedDateUTC' => array (false, self::PROPERTY_TYPE_TIMESTAMP, '\\DateTime', false, false),
+            'UpdatedDateUTC' => array (false, self::PROPERTY_TYPE_TIMESTAMP, '\\DateTimeInterface', false, false),
             'HasAttachments' => array (false, self::PROPERTY_TYPE_BOOLEAN, null, false, false)
         );
     }
@@ -334,7 +334,7 @@ class BankTransaction extends Remote\Object
     }
 
     /**
-     * @return \DateTime
+     * @return \DateTimeInterface
      */
     public function getDate()
     {
@@ -342,10 +342,10 @@ class BankTransaction extends Remote\Object
     }
 
     /**
-     * @param \DateTime $value
+     * @param \DateTimeInterface $value
      * @return BankTransaction
      */
-    public function setDate(\DateTime $value)
+    public function setDate(\DateTimeInterface $value)
     {
         $this->propertyUpdated('Date', $value);
         $this->_data['Date'] = $value;
@@ -543,7 +543,7 @@ class BankTransaction extends Remote\Object
     }
 
     /**
-     * @return \DateTime
+     * @return \DateTimeInterface
      */
     public function getUpdatedDateUTC()
     {

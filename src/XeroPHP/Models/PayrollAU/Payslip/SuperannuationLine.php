@@ -45,7 +45,7 @@ class SuperannuationLine extends Remote\Object
     /**
      * Superannuation payment date for the current period (YYYY-MM-DD)
      *
-     * @property \DateTime PaymentDateForThisPeriod
+     * @property \DateTimeInterface PaymentDateForThisPeriod
      */
 
     /**
@@ -135,7 +135,7 @@ class SuperannuationLine extends Remote\Object
             'MinimumMonthlyEarnings' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'ExpenseAccountCode' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'LiabilityAccountCode' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'PaymentDateForThisPeriod' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTime', false, false),
+            'PaymentDateForThisPeriod' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTimeInterface', false, false),
             'Percentage' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'Amount' => array (false, self::PROPERTY_TYPE_FLOAT, null, false, false)
         );
@@ -261,7 +261,7 @@ class SuperannuationLine extends Remote\Object
     }
 
     /**
-     * @return \DateTime
+     * @return \DateTimeInterface
      */
     public function getPaymentDateForThisPeriod()
     {
@@ -269,10 +269,10 @@ class SuperannuationLine extends Remote\Object
     }
 
     /**
-     * @param \DateTime $value
+     * @param \DateTimeInterface $value
      * @return SuperannuationLine
      */
-    public function setPaymentDateForThisPeriod(\DateTime $value)
+    public function setPaymentDateForThisPeriod(\DateTimeInterface $value)
     {
         $this->propertyUpdated('PaymentDateForThisPeriod', $value);
         $this->_data['PaymentDateForThisPeriod'] = $value;

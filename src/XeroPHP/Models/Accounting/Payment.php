@@ -39,7 +39,7 @@ class Payment extends Remote\Object
     /**
      * Date the payment is being made (YYYY-MM-DD) e.g. 2009-09-06
      *
-     * @property \DateTime Date
+     * @property \DateTimeInterface Date
      */
 
     /**
@@ -84,7 +84,7 @@ class Payment extends Remote\Object
     /**
      * UTC timestamp of last update to the payment
      *
-     * @property \DateTime UpdatedDateUTC
+     * @property \DateTimeInterface UpdatedDateUTC
      */
 
     /**
@@ -187,14 +187,14 @@ class Payment extends Remote\Object
             'Prepayment' => array (false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Prepayment', false, false),
             'Overpayment' => array (false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Overpayment', false, false),
             'Account' => array (false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Account', false, false),
-            'Date' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTime', false, false),
+            'Date' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTimeInterface', false, false),
             'CurrencyRate' => array (false, self::PROPERTY_TYPE_FLOAT, null, false, false),
             'Amount' => array (false, self::PROPERTY_TYPE_FLOAT, null, false, false),
             'Reference' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'IsReconciled' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'Status' => array (false, self::PROPERTY_TYPE_ENUM, null, false, false),
             'PaymentType' => array (false, self::PROPERTY_TYPE_ENUM, null, false, false),
-            'UpdatedDateUTC' => array (false, self::PROPERTY_TYPE_TIMESTAMP, '\\DateTime', false, false),
+            'UpdatedDateUTC' => array (false, self::PROPERTY_TYPE_TIMESTAMP, '\\DateTimeInterface', false, false),
             'PaymentID' => array (false, self::PROPERTY_TYPE_STRING, null, false, false)
         );
     }
@@ -300,7 +300,7 @@ class Payment extends Remote\Object
     }
 
     /**
-     * @return \DateTime
+     * @return \DateTimeInterface
      */
     public function getDate()
     {
@@ -308,10 +308,10 @@ class Payment extends Remote\Object
     }
 
     /**
-     * @param \DateTime $value
+     * @param \DateTimeInterface $value
      * @return Payment
      */
-    public function setDate(\DateTime $value)
+    public function setDate(\DateTimeInterface $value)
     {
         $this->propertyUpdated('Date', $value);
         $this->_data['Date'] = $value;
@@ -423,7 +423,7 @@ class Payment extends Remote\Object
 
 
     /**
-     * @return \DateTime
+     * @return \DateTimeInterface
      */
     public function getUpdatedDateUTC()
     {

@@ -178,7 +178,7 @@ class Property {
 
             case Object::PROPERTY_TYPE_DATE:
             case Object::PROPERTY_TYPE_TIMESTAMP:
-                return '\DateTime';
+                return '\DateTimeInterface';
 
             case Object::PROPERTY_TYPE_OBJECT:
                 return $this->related_object->getClassName($with_ns);

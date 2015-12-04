@@ -120,10 +120,10 @@ class Response {
 			$field_errors = [];
 			foreach ($this->elements as $n => $element){
 				if (isset($element['ValidationErrors'])){
-					$errors[] = $element['ValidationErrors'][0]['Message'];
+					$field_errors[] = $element['ValidationErrors'][0]['Message'];
 				}
 			}
-			return "\nValidation errors:\n".implode("\n", $errors);
+			return "\nValidation errors:\n".implode("\n", $field_errors);
 		}
 		return '';
 	}

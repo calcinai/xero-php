@@ -29,7 +29,7 @@ class Sale extends Remote\Object
     /**
      * This property has been removed from the Xero API
      *
-     * @property \DateTime UpdatedDateUTC
+     * @property \DateTimeInterface UpdatedDateUTC
      * @deprecated
      */
 
@@ -112,7 +112,7 @@ class Sale extends Remote\Object
             'UnitPrice' => array (false, self::PROPERTY_TYPE_FLOAT, null, false, false),
             'AccountCode' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'COGSAccountCode' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'UpdatedDateUTC' => array (false, self::PROPERTY_TYPE_TIMESTAMP, '\\DateTime', false, false),
+            'UpdatedDateUTC' => array (false, self::PROPERTY_TYPE_TIMESTAMP, '\\DateTimeInterface', false, false),
             'TaxType' => array (false, self::PROPERTY_TYPE_ENUM, null, false, false)
         );
     }
@@ -180,7 +180,7 @@ class Sale extends Remote\Object
     }
 
     /**
-     * @return \DateTime
+     * @return \DateTimeInterface
      * @deprecated
      */
     public function getUpdatedDateUTC()
@@ -189,11 +189,11 @@ class Sale extends Remote\Object
     }
 
     /**
-     * @param \DateTime $value
+     * @param \DateTimeInterface $value
      * @return Sale
      * @deprecated
      */
-    public function setUpdatedDateUTC(\DateTime $value)
+    public function setUpdatedDateUTC(\DateTimeInterface $value)
     {
         $this->propertyUpdated('UpdatedDateUTC', $value);
         $this->_data['UpdatedDateUTC'] = $value;

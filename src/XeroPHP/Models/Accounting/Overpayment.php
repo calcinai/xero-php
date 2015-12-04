@@ -33,7 +33,7 @@ class Overpayment extends Remote\Object
     /**
      * The date the overpayment is created YYYY-MM-DD
      *
-     * @property \DateTime Date
+     * @property \DateTimeInterface Date
      */
 
     /**
@@ -75,7 +75,7 @@ class Overpayment extends Remote\Object
     /**
      * UTC timestamp of last update to the overpayment
      *
-     * @property \DateTime UpdatedDateUTC
+     * @property \DateTimeInterface UpdatedDateUTC
      */
 
     /**
@@ -87,7 +87,7 @@ class Overpayment extends Remote\Object
     /**
      * Date when the overpayment was fully allocated (UTC format)
      *
-     * @property \DateTime FullyPaidOnDate
+     * @property \DateTimeInterface FullyPaidOnDate
      */
 
     /**
@@ -202,16 +202,16 @@ class Overpayment extends Remote\Object
             'Reference' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'Type' => array (false, self::PROPERTY_TYPE_ENUM, null, false, false),
             'Contact' => array (false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Contact', false, false),
-            'Date' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTime', false, false),
+            'Date' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTimeInterface', false, false),
             'Status' => array (false, self::PROPERTY_TYPE_ENUM, null, false, false),
             'LineAmountTypes' => array (false, self::PROPERTY_TYPE_ENUM, null, false, false),
             'LineItems' => array (false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\BankTransaction\\LineItem', true, false),
             'SubTotal' => array (false, self::PROPERTY_TYPE_FLOAT, null, false, false),
             'TotalTax' => array (false, self::PROPERTY_TYPE_FLOAT, null, false, false),
             'Total' => array (false, self::PROPERTY_TYPE_FLOAT, null, false, false),
-            'UpdatedDateUTC' => array (false, self::PROPERTY_TYPE_TIMESTAMP, '\\DateTime', false, false),
+            'UpdatedDateUTC' => array (false, self::PROPERTY_TYPE_TIMESTAMP, '\\DateTimeInterface', false, false),
             'CurrencyCode' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'FullyPaidOnDate' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTime', false, false),
+            'FullyPaidOnDate' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTimeInterface', false, false),
             'OverpaymentID' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'CurrencyRate' => array (false, self::PROPERTY_TYPE_FLOAT, null, false, false),
             'RemainingCredit' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
@@ -285,7 +285,7 @@ class Overpayment extends Remote\Object
     }
 
     /**
-     * @return \DateTime
+     * @return \DateTimeInterface
      */
     public function getDate()
     {
@@ -293,10 +293,10 @@ class Overpayment extends Remote\Object
     }
 
     /**
-     * @param \DateTime $value
+     * @param \DateTimeInterface $value
      * @return Overpayment
      */
-    public function setDate(\DateTime $value)
+    public function setDate(\DateTimeInterface $value)
     {
         $this->propertyUpdated('Date', $value);
         $this->_data['Date'] = $value;
@@ -422,7 +422,7 @@ class Overpayment extends Remote\Object
     }
 
     /**
-     * @return \DateTime
+     * @return \DateTimeInterface
      */
     public function getUpdatedDateUTC()
     {
@@ -430,10 +430,10 @@ class Overpayment extends Remote\Object
     }
 
     /**
-     * @param \DateTime $value
+     * @param \DateTimeInterface $value
      * @return Overpayment
      */
-    public function setUpdatedDateUTC(\DateTime $value)
+    public function setUpdatedDateUTC(\DateTimeInterface $value)
     {
         $this->propertyUpdated('UpdatedDateUTC', $value);
         $this->_data['UpdatedDateUTC'] = $value;
@@ -460,7 +460,7 @@ class Overpayment extends Remote\Object
     }
 
     /**
-     * @return \DateTime
+     * @return \DateTimeInterface
      */
     public function getFullyPaidOnDate()
     {
@@ -468,10 +468,10 @@ class Overpayment extends Remote\Object
     }
 
     /**
-     * @param \DateTime $value
+     * @param \DateTimeInterface $value
      * @return Overpayment
      */
-    public function setFullyPaidOnDate(\DateTime $value)
+    public function setFullyPaidOnDate(\DateTimeInterface $value)
     {
         $this->propertyUpdated('FullyPaidOnDate', $value);
         $this->_data['FullyPaidOnDate'] = $value;

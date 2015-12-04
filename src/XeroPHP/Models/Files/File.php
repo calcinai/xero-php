@@ -33,13 +33,13 @@ class File extends Remote\Object
     /**
      * UTC timestamp of the file creation
      *
-     * @property \DateTime CreatedDateUTC
+     * @property \DateTimeInterface CreatedDateUTC
      */
 
     /**
      * UTC timestamp of the last modified date
      *
-     * @property \DateTime UpdatedDateUTC
+     * @property \DateTimeInterface UpdatedDateUTC
      */
 
     /**
@@ -132,8 +132,8 @@ class File extends Remote\Object
             'FolderId' => array (false, self::PROPERTY_TYPE_OBJECT, 'Files\\Folder', false, false),
             'MimeType' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'Size' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'CreatedDateUTC' => array (false, self::PROPERTY_TYPE_TIMESTAMP, '\\DateTime', false, false),
-            'UpdatedDateUTC' => array (false, self::PROPERTY_TYPE_TIMESTAMP, '\\DateTime', false, false),
+            'CreatedDateUTC' => array (false, self::PROPERTY_TYPE_TIMESTAMP, '\\DateTimeInterface', false, false),
+            'UpdatedDateUTC' => array (false, self::PROPERTY_TYPE_TIMESTAMP, '\\DateTimeInterface', false, false),
             'User' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'Id' => array (false, self::PROPERTY_TYPE_GUID, null, false, false)
         );
@@ -221,7 +221,7 @@ class File extends Remote\Object
     }
 
     /**
-     * @return \DateTime
+     * @return \DateTimeInterface
      */
     public function getCreatedDateUTC()
     {
@@ -229,10 +229,10 @@ class File extends Remote\Object
     }
 
     /**
-     * @param \DateTime $value
+     * @param \DateTimeInterface $value
      * @return File
      */
-    public function setCreatedDateUTC(\DateTime $value)
+    public function setCreatedDateUTC(\DateTimeInterface $value)
     {
         $this->propertyUpdated('CreatedDateUTC', $value);
         $this->_data['CreatedDateUTC'] = $value;
@@ -240,7 +240,7 @@ class File extends Remote\Object
     }
 
     /**
-     * @return \DateTime
+     * @return \DateTimeInterface
      */
     public function getUpdatedDateUTC()
     {
@@ -248,10 +248,10 @@ class File extends Remote\Object
     }
 
     /**
-     * @param \DateTime $value
+     * @param \DateTimeInterface $value
      * @return File
      */
-    public function setUpdatedDateUTC(\DateTime $value)
+    public function setUpdatedDateUTC(\DateTimeInterface $value)
     {
         $this->propertyUpdated('UpdatedDateUTC', $value);
         $this->_data['UpdatedDateUTC'] = $value;

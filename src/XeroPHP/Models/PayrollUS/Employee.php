@@ -29,7 +29,7 @@ class Employee extends Remote\Object
     /**
      * Date of birth of employee (YYYY-MM-DD)
      *
-     * @property \DateTime DateOfBirth
+     * @property \DateTimeInterface DateOfBirth
      */
 
     /**
@@ -89,14 +89,14 @@ class Employee extends Remote\Object
     /**
      * Start date of employee (YYYY-MM-DD)
      *
-     * @property \DateTime StartDate
+     * @property \DateTimeInterface StartDate
      */
 
     /**
      * Termination date of employee (YYYY-MM-DD). Note this is only returned when retrieving an individual
      * Employee with a Status of TERMINATED
      *
-     * @property \DateTime TerminationDate
+     * @property \DateTimeInterface TerminationDate
      */
 
     /**
@@ -186,7 +186,7 @@ class Employee extends Remote\Object
     /**
      * Last modified timestamp
      *
-     * @property \DateTime UpdatedDateUTC
+     * @property \DateTimeInterface UpdatedDateUTC
      */
 
 
@@ -262,7 +262,7 @@ class Employee extends Remote\Object
         return array(
             'FirstName' => array (true, self::PROPERTY_TYPE_STRING, null, false, false),
             'LastName' => array (true, self::PROPERTY_TYPE_STRING, null, false, false),
-            'DateOfBirth' => array (true, self::PROPERTY_TYPE_DATE, '\\DateTime', false, false),
+            'DateOfBirth' => array (true, self::PROPERTY_TYPE_DATE, '\\DateTimeInterface', false, false),
             'HomeAddress' => array (true, self::PROPERTY_TYPE_OBJECT, 'PayrollUS\\Employee\\HomeAddress', false, false),
             'MiddleNames' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'JobTitle' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
@@ -272,8 +272,8 @@ class Employee extends Remote\Object
             'Phone' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'EmployeeNumber' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'SocialSecurityNumber' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'StartDate' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTime', false, false),
-            'TerminationDate' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTime', false, false),
+            'StartDate' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTimeInterface', false, false),
+            'TerminationDate' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTimeInterface', false, false),
             'PayScheduleID' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'EmployeeGroupName' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'EmploymentBasis' => array (false, self::PROPERTY_TYPE_ENUM, null, false, false),
@@ -288,7 +288,7 @@ class Employee extends Remote\Object
             'TimeOffBalances' => array (false, self::PROPERTY_TYPE_OBJECT, 'PayrollUS\\Employee\\TimeOffBalance', true, false),
             'EmployeeID' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'Status' => array (false, self::PROPERTY_TYPE_ENUM, null, false, false),
-            'UpdatedDateUTC' => array (false, self::PROPERTY_TYPE_TIMESTAMP, '\\DateTime', false, false)
+            'UpdatedDateUTC' => array (false, self::PROPERTY_TYPE_TIMESTAMP, '\\DateTimeInterface', false, false)
         );
     }
 
@@ -336,7 +336,7 @@ class Employee extends Remote\Object
     }
 
     /**
-     * @return \DateTime
+     * @return \DateTimeInterface
      */
     public function getDateOfBirth()
     {
@@ -344,10 +344,10 @@ class Employee extends Remote\Object
     }
 
     /**
-     * @param \DateTime $value
+     * @param \DateTimeInterface $value
      * @return Employee
      */
-    public function setDateOfBirth(\DateTime $value)
+    public function setDateOfBirth(\DateTimeInterface $value)
     {
         $this->propertyUpdated('DateOfBirth', $value);
         $this->_data['DateOfBirth'] = $value;
@@ -526,7 +526,7 @@ class Employee extends Remote\Object
     }
 
     /**
-     * @return \DateTime
+     * @return \DateTimeInterface
      */
     public function getStartDate()
     {
@@ -534,10 +534,10 @@ class Employee extends Remote\Object
     }
 
     /**
-     * @param \DateTime $value
+     * @param \DateTimeInterface $value
      * @return Employee
      */
-    public function setStartDate(\DateTime $value)
+    public function setStartDate(\DateTimeInterface $value)
     {
         $this->propertyUpdated('StartDate', $value);
         $this->_data['StartDate'] = $value;
@@ -545,7 +545,7 @@ class Employee extends Remote\Object
     }
 
     /**
-     * @return \DateTime
+     * @return \DateTimeInterface
      */
     public function getTerminationDate()
     {
@@ -553,10 +553,10 @@ class Employee extends Remote\Object
     }
 
     /**
-     * @param \DateTime $value
+     * @param \DateTimeInterface $value
      * @return Employee
      */
-    public function setTerminationDate(\DateTime $value)
+    public function setTerminationDate(\DateTimeInterface $value)
     {
         $this->propertyUpdated('TerminationDate', $value);
         $this->_data['TerminationDate'] = $value;
@@ -846,7 +846,7 @@ class Employee extends Remote\Object
     }
 
     /**
-     * @return \DateTime
+     * @return \DateTimeInterface
      */
     public function getUpdatedDateUTC()
     {
@@ -854,10 +854,10 @@ class Employee extends Remote\Object
     }
 
     /**
-     * @param \DateTime $value
+     * @param \DateTimeInterface $value
      * @return Employee
      */
-    public function setUpdatedDateUTC(\DateTime $value)
+    public function setUpdatedDateUTC(\DateTimeInterface $value)
     {
         $this->propertyUpdated('UpdatedDateUTC', $value);
         $this->_data['UpdatedDateUTC'] = $value;

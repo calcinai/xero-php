@@ -95,7 +95,7 @@ class Item extends Remote\Object
     /**
      * Last modified date in UTC format
      *
-     * @property \DateTime UpdatedDateUTC
+     * @property \DateTimeInterface UpdatedDateUTC
      */
 
 
@@ -184,7 +184,7 @@ class Item extends Remote\Object
             'IsTrackedAsInventory' => array (false, self::PROPERTY_TYPE_BOOLEAN, null, false, false),
             'TotalCostPool' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'QuantityOnHand' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'UpdatedDateUTC' => array (false, self::PROPERTY_TYPE_TIMESTAMP, '\\DateTime', false, false)
+            'UpdatedDateUTC' => array (false, self::PROPERTY_TYPE_TIMESTAMP, '\\DateTimeInterface', false, false)
         );
     }
 
@@ -449,7 +449,7 @@ class Item extends Remote\Object
     }
 
     /**
-     * @return \DateTime
+     * @return \DateTimeInterface
      */
     public function getUpdatedDateUTC()
     {
@@ -457,10 +457,10 @@ class Item extends Remote\Object
     }
 
     /**
-     * @param \DateTime $value
+     * @param \DateTimeInterface $value
      * @return Item
      */
-    public function setUpdatedDateUTC(\DateTime $value)
+    public function setUpdatedDateUTC(\DateTimeInterface $value)
     {
         $this->propertyUpdated('UpdatedDateUTC', $value);
         $this->_data['UpdatedDateUTC'] = $value;
