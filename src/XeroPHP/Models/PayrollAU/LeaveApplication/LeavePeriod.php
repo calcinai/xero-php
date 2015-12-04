@@ -131,7 +131,7 @@ class LeavePeriod extends Remote\Object
     }
 
     /**
-     * @return \DateTime
+     * @return \DateTimeInterface
      */
     public function getPayPeriodEndDate()
     {
@@ -150,7 +150,7 @@ class LeavePeriod extends Remote\Object
     }
 
     /**
-     * @return \DateTime
+     * @return \DateTimeInterface
      */
     public function getPayPeriodStartDate()
     {

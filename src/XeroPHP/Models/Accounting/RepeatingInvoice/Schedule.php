@@ -210,7 +210,7 @@ class Schedule extends Remote\Object
     }
 
     /**
-     * @return \DateTime
+     * @return \DateTimeInterface
      */
     public function getStartDate()
     {
@@ -229,7 +229,7 @@ class Schedule extends Remote\Object
     }
 
     /**
-     * @return \DateTime
+     * @return \DateTimeInterface
      */
     public function getNextScheduledDate()
     {
@@ -248,7 +248,7 @@ class Schedule extends Remote\Object
     }
 
     /**
-     * @return \DateTime
+     * @return \DateTimeInterface
      */
     public function getEndDate()
     {

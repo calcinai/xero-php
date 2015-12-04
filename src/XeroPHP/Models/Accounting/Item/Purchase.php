@@ -180,7 +180,7 @@ class Purchase extends Remote\Object
     }
 
     /**
-     * @return \DateTime
+     * @return \DateTimeInterface
      * @deprecated
      */
     public function getUpdatedDateUTC()

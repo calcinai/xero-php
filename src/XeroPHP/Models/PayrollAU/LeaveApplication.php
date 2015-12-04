@@ -222,7 +222,7 @@ class LeaveApplication extends Remote\Object
     }
 
     /**
-     * @return \DateTime
+     * @return \DateTimeInterface
      */
     public function getStartDate()
     {
@@ -241,7 +241,7 @@ class LeaveApplication extends Remote\Object
     }
 
     /**
-     * @return \DateTime
+     * @return \DateTimeInterface
      */
     public function getEndDate()
     {

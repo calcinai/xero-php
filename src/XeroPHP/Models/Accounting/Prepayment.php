@@ -285,7 +285,7 @@ class Prepayment extends Remote\Object
     }
 
     /**
-     * @return \DateTime
+     * @return \DateTimeInterface
      */
     public function getDate()
     {
@@ -422,7 +422,7 @@ class Prepayment extends Remote\Object
     }
 
     /**
-     * @return \DateTime
+     * @return \DateTimeInterface
      */
     public function getUpdatedDateUTC()
     {
@@ -460,7 +460,7 @@ class Prepayment extends Remote\Object
     }
 
     /**
-     * @return \DateTime
+     * @return \DateTimeInterface
      */
     public function getFullyPaidOnDate()
     {

@@ -221,7 +221,7 @@ class File extends Remote\Object
     }
 
     /**
-     * @return \DateTime
+     * @return \DateTimeInterface
      */
     public function getCreatedDateUTC()
     {
@@ -240,7 +240,7 @@ class File extends Remote\Object
     }
 
     /**
-     * @return \DateTime
+     * @return \DateTimeInterface
      */
     public function getUpdatedDateUTC()
     {

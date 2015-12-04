@@ -389,7 +389,7 @@ class Invoice extends Remote\Object
     }
 
     /**
-     * @return \DateTime
+     * @return \DateTimeInterface
      */
     public function getDate()
     {
@@ -408,7 +408,7 @@ class Invoice extends Remote\Object
     }
 
     /**
-     * @return \DateTime
+     * @return \DateTimeInterface
      */
     public function getDueDate()
     {
@@ -748,7 +748,7 @@ class Invoice extends Remote\Object
 
 
     /**
-     * @return \DateTime
+     * @return \DateTimeInterface
      */
     public function getFullyPaidOnDate()
     {
@@ -766,7 +766,7 @@ class Invoice extends Remote\Object
 
 
     /**
-     * @return \DateTime
+     * @return \DateTimeInterface
      */
     public function getUpdatedDateUTC()
     {

@@ -186,7 +186,7 @@ class Journal extends Remote\Object
     }
 
     /**
-     * @return \DateTime
+     * @return \DateTimeInterface
      */
     public function getJournalDate()
     {
@@ -224,7 +224,7 @@ class Journal extends Remote\Object
     }
 
     /**
-     * @return \DateTime
+     * @return \DateTimeInterface
      */
     public function getCreatedDateUTC()
     {

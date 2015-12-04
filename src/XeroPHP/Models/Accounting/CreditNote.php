@@ -301,7 +301,7 @@ class CreditNote extends Remote\Object
     }
 
     /**
-     * @return \DateTime
+     * @return \DateTimeInterface
      */
     public function getDate()
     {
@@ -438,7 +438,7 @@ class CreditNote extends Remote\Object
     }
 
     /**
-     * @return \DateTime
+     * @return \DateTimeInterface
      */
     public function getUpdatedDateUTC()
     {
@@ -476,7 +476,7 @@ class CreditNote extends Remote\Object
     }
 
     /**
-     * @return \DateTime
+     * @return \DateTimeInterface
      */
     public function getFullyPaidOnDate()
     {

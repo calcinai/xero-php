@@ -159,7 +159,7 @@ class Timesheet extends Remote\Object
     }
 
     /**
-     * @return \DateTime
+     * @return \DateTimeInterface
      */
     public function getStartDate()
     {
@@ -178,7 +178,7 @@ class Timesheet extends Remote\Object
     }
 
     /**
-     * @return \DateTime
+     * @return \DateTimeInterface
      */
     public function getEndDate()
     {

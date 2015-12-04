@@ -189,7 +189,7 @@ class PayRun extends Remote\Object
     }
 
     /**
-     * @return \DateTime
+     * @return \DateTimeInterface
      */
     public function getPayRunPeriodEndDate()
     {
@@ -246,7 +246,7 @@ class PayRun extends Remote\Object
     }
 
     /**
-     * @return \DateTime
+     * @return \DateTimeInterface
      */
     public function getPayRunPeriodStartDate()
     {
@@ -255,7 +255,7 @@ class PayRun extends Remote\Object
 
 
     /**
-     * @return \DateTime
+     * @return \DateTimeInterface
      */
     public function getPaymentDate()
     {
@@ -300,7 +300,7 @@ class PayRun extends Remote\Object
 
 
     /**
-     * @return \DateTime
+     * @return \DateTimeInterface
      */
     public function getUpdateDateUTC()
     {

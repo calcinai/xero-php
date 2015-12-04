@@ -170,7 +170,7 @@ class BrandingTheme extends Remote\Object
     }
 
     /**
-     * @return \DateTime
+     * @return \DateTimeInterface
      */
     public function getCreatedDateUTC()
     {

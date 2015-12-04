@@ -186,7 +186,7 @@ class PayrollCalendar extends Remote\Object
     }
 
     /**
-     * @return \DateTime
+     * @return \DateTimeInterface
      */
     public function getStartDate()
     {
@@ -205,7 +205,7 @@ class PayrollCalendar extends Remote\Object
     }
 
     /**
-     * @return \DateTime
+     * @return \DateTimeInterface
      */
     public function getPaymentDate()
     {

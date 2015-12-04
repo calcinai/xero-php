@@ -261,7 +261,7 @@ class SuperannuationLine extends Remote\Object
     }
 
     /**
-     * @return \DateTime
+     * @return \DateTimeInterface
      */
     public function getPaymentDateForThisPeriod()
     {

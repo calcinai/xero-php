@@ -175,7 +175,7 @@ class ExpenseClaim extends Remote\Object
 
 
     /**
-     * @return \DateTime
+     * @return \DateTimeInterface
      */
     public function getUpdatedDateUTC()
     {
@@ -211,7 +211,7 @@ class ExpenseClaim extends Remote\Object
 
 
     /**
-     * @return \DateTime
+     * @return \DateTimeInterface
      */
     public function getPaymentDueDate()
     {
@@ -220,7 +220,7 @@ class ExpenseClaim extends Remote\Object
 
 
     /**
-     * @return \DateTime
+     * @return \DateTimeInterface
      */
     public function getReportingDate()
     {

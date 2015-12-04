@@ -140,7 +140,7 @@ class PaySchedule extends Remote\Object
     }
 
     /**
-     * @return \DateTime
+     * @return \DateTimeInterface
      */
     public function getPaymentDate()
     {
@@ -159,7 +159,7 @@ class PaySchedule extends Remote\Object
     }
 
     /**
-     * @return \DateTime
+     * @return \DateTimeInterface
      */
     public function getStartDate()
     {

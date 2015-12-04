@@ -192,7 +192,7 @@ class OpeningBalance extends Remote\Object
     }
 
     /**
-     * @return \DateTime
+     * @return \DateTimeInterface
      */
     public function getOpeningBalanceDate()
     {

@@ -247,7 +247,7 @@ class SalaryAndWage extends Remote\Object
     }
 
     /**
-     * @return \DateTime
+     * @return \DateTimeInterface
      */
     public function getEffectiveDate()
     {
