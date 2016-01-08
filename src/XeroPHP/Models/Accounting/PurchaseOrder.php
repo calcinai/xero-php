@@ -1,0 +1,14 @@
+<?php
+
+namespace XeroPHP\Models\Accounting;
+
+class PurchaseOrder {
+
+    const PURCHASE_ORDER_STATUS_DRAFT      = 'DRAFT';
+    const PURCHASE_ORDER_STATUS_SUBMITTED  = 'SUBMITTED';
+    const PURCHASE_ORDER_STATUS_AUTHORISED = 'AUTHORISED';
+    const PURCHASE_ORDER_STATUS_BILLED     = 'BILLED';
+    const PURCHASE_ORDER_STATUS_DELETED    = 'DELETED';
+
+
+}
