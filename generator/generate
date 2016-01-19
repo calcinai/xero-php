@@ -51,6 +51,8 @@ $scrape_apis = array(
             'overpayments',
             'payments',
             'prepayments',
+            'purchase-orders',
+            'quotes',
             'receipts',
             'repeating-invoices',
             //'reports', - this is in a way different format
