@@ -60,7 +60,7 @@ if(null === $oauth_session = getOAuthSession()){
         $request->send();
         $oauth_response = $request->getResponse()->getOAuthResponse();
 
-        setOAuthSession($oauth_response['oauth_token'], $oauth_response['oauth_token_secret'], $oauth_response['expires']);
+        setOAuthSession($oauth_response['oauth_token'], $oauth_response['oauth_token_secret'], $oauth_response['oauth_expires_in']);
 
         //drop the qs
         $uri_parts = explode('?', $_SERVER['REQUEST_URI']);
