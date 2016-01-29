@@ -47,6 +47,15 @@ class Query {
         $args = func_get_args();
 
         if(func_num_args() === 2) {
+            if($args[1] === true) {
+                $this->where[] = sprintf('%s=%s', $args[0], 'true');
+            } elseif($args[1] === false) {
+                $this->where[] = sprintf('%s=%s', $args[0], 'false');
+            } elseif(preg_match('/^(\'|")?(true|false)("|\')?$/i', $args[1])) {
+                $this->where[] = sprintf('%s=%s', $args[0], $args[1]);
+            } else {
+                $this->where[] = sprintf('%s==%s', $args[0], $args[1]);
+            }            
             $this->where[] = sprintf('%s=="%s"', $args[0], $args[1]);
         } else {
             $this->where[] = $args[0];

@@ -79,7 +79,7 @@ print_r($xero->load('Accounting\\Organisation')->execute());
 function setOAuthSession($token, $secret, $expires = null){
     // expires sends back an int
     if($expires !== null) {
-        $expires = time() + $expires;
+        $expires = time() + intval($expires);
     }
 
     $_SESSION['oauth'] = array(
