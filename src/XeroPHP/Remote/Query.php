@@ -58,7 +58,6 @@ class Query {
             } else {
                 $this->where[] = sprintf('%s==%s', $args[0], $args[1]);
             }            
-            $this->where[] = sprintf('%s=="%s"', $args[0], $args[1]);
         } else {
             $this->where[] = $args[0];
         }
