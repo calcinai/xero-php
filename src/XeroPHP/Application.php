@@ -69,16 +69,18 @@ abstract class Application {
     }
 
     /**
-     * @param string|null $oAuthToken
+     * @param string|null $oauth_token
      * @return string
      */
-    public function getAuthorizeURL($oAuthToken = null) {
-        $authorizeUrl = $this->oauth_client->getAuthorizeURL();
-        if ($oAuthToken) {
-            return sprintf('%s?oauth_token=%s', $authorizeUrl, $oAuthToken);
+    public function getAuthorizeURL($oauth_token = null) {
+        $authorize_url = $this->oauth_client->getAuthorizeURL();
+
+        if ($oauth_token !== null) {
+            $operator = parse_url($authorize_url, PHP_URL_QUERY) !== null ? '&' : '?';
+            $authorize_url .= sprintf('%soauth_token=%s', $operator, $oauth_token);
         }
 
-        return $authorizeUrl;
+        return $authorize_url;
     }
 
     /**
