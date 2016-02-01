@@ -158,7 +158,7 @@ abstract class Application {
 
 
     /**
-     * @param Remote\Object $object
+     * @param Object $object
      * @return null
      * @throws Exception
      */
@@ -171,7 +171,7 @@ abstract class Application {
             $object->validate();
 
             //In this case it's new
-            if($object->hasGUID()) {
+            if($object->hasGUID() || !$object::supportsMethod(Request::METHOD_PUT)) {
                 $method = Request::METHOD_POST;
                 $uri = sprintf('%s/%s', $object::getResourceURI(), $object->getGUID());
 
