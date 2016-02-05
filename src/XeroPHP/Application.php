@@ -158,7 +158,7 @@ abstract class Application {
 
 
     /**
-     * @param Remote\Object $object
+     * @param Object $object
      * @return null
      * @throws Exception
      */
@@ -174,9 +174,8 @@ abstract class Application {
             if($object->hasGUID()) {
                 $method = Request::METHOD_POST;
                 $uri = sprintf('%s/%s', $object::getResourceURI(), $object->getGUID());
-
             } else {
-                $method = Request::METHOD_PUT;
+                $method = $object::supportsMethod(Request::METHOD_PUT) ? Request::METHOD_PUT : Request::METHOD_POST;
                 $uri = $object::getResourceURI();
                 //@todo, bump version so you must create objects with app context.
                 $object->setApplication($this);
