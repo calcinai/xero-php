@@ -73,7 +73,6 @@ class Response {
                 //This catches actual app errors
                 if(isset($this->root_error)) {
                     $message = sprintf('%s (%s)', $this->root_error['message'], implode(', ', $this->element_errors));
-                    $message .= $this->parseBadRequest();
                     throw new BadRequestException($message, $this->root_error['code']);
                 } else {
                     throw new BadRequestException();
@@ -111,22 +110,6 @@ class Response {
                 }
         }
     }
-
-	/**
-	 * @return string
-	 */
-	private function parseBadRequest(){
-		if (isset($this->elements)){
-			$field_errors = [];
-			foreach ($this->elements as $n => $element){
-				if (isset($element['ValidationErrors'])){
-					$errors[] = $element['ValidationErrors'][0]['Message'];
-				}
-			}
-			return "\nValidation errors:\n".implode("\n", $errors);
-		}
-		return '';
-	}
 
     public function getResponseBody(){
         return $this->response_body;
@@ -190,10 +173,10 @@ class Response {
                 return;
         }
 
-        foreach($this->elements as $index => $element)
+        foreach($this->elements as $index => $element){
             $this->findElementErrors($element, $index);
+        }
     }
-
 
     public function findElementErrors($element, $element_index) {
         foreach($element as $property => $value) {
