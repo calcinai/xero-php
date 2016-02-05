@@ -151,7 +151,7 @@ class Query {
         if($this->offset !== null) {
             $request->setParameter('offset', $this->offset);
         }
-print_r($request);
+
         $request->send();
 
         $elements = new Collection();
