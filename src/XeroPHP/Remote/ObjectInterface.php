@@ -34,6 +34,8 @@ interface ObjectInterface {
      */
     static function getResourceURI();
 
+    static function getAPIStem();
+
     static function isPageable();
 
 }
