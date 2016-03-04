@@ -118,3 +118,50 @@ $invoice->addAttachment($attachment);
 PDF - Models that support PDF export will inherit a ```->getPDF()``` method, which returns the raw content of the PDF.  Currently this is limited to Invoices and CreditNotes.
 
 Refer to the [examples](examples) for more complex usage and nested/related objects.
+
+## Rate Limits
+
+To help manage with rates limits it's recommended to implement functions to check no more than 1/request per second is issued. Examples provided below.
+
+### Laravel
+
+```php
+
+/**
+* Send Bulk Data to Xero
+*
+* @param array  $data
+*/
+protected function sendBulk(array $data)
+{
+	$this->checkRateLimits();
+	
+	$xero->saveAll($data);
+	
+	$this->touchRateLimit();
+}
+
+/**
+* Check timings on rate limit and sleep if needed
+*/
+protected function checkRateLimits()
+{
+	# Check cache for rate limit times
+	if ($time = Cache::get('xero.rate_limit', time())) {
+	$elapsed = time() - $time;
+	
+	if ($elapsed < 1) {
+		sleep(1 - $elapsed);
+	}
+}
+
+/**
+* Update time for rate limit
+*/
+protected function touchRateLimit()
+{
+	Cache::forever('xero.rate_limit', time());
+}
+```
+
+
