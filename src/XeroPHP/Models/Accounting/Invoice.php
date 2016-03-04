@@ -784,5 +784,13 @@ class Invoice extends Remote\Object
     }
 
 
+    /**
+    * Get any warnings from OAuth client when invoice is created
+    * @return string
+    */
+    public function getWarnings()
+    {
+        return $this->_application->getOAuthClient()->getRequest()->getResponse()->getElementWarnings();
+    }
 
 }

@@ -288,5 +288,9 @@ class Client {
         return null;
     }
 
+    public function getRequest(){
+        return $this->request;
+    }
+
 
 }
