@@ -309,7 +309,7 @@ class Model implements ParsedObjectInterface {
     /**
      * Shortcut for getting them from $api where the group is the same as this name
      *
-     * @return array
+     * @return Enum[]
      */
     public function getEnums(){
         return $this->getAPI()->getEnumsByGroup($this->getName());
@@ -347,7 +347,6 @@ class Model implements ParsedObjectInterface {
         return in_array(Request::METHOD_POST, $this->methods) ||
             in_array(Request::METHOD_PUT, $this->methods);
     }
-
 
     /**
      * Pretty ugly eh!
