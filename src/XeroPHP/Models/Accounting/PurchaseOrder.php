@@ -248,7 +248,7 @@ class PurchaseOrder extends Remote\Object
             'BrandingThemeID' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'CurrencyCode' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'CurrencyRate' => array (false, self::PROPERTY_TYPE_FLOAT, null, false, false),
-            'Status' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
+            'Status' => array (false, self::PROPERTY_TYPE_ENUM, null, false, false),
             'SentToContact' => array (false, self::PROPERTY_TYPE_BOOLEAN, null, false, false),
             'DeliveryAddress' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'AttentionTo' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),

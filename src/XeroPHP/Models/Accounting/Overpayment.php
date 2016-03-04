@@ -3,7 +3,7 @@ namespace XeroPHP\Models\Accounting;
 
 use XeroPHP\Remote;
 use XeroPHP\Traits\AttachmentTrait;
-use XeroPHP\Models\Accounting\BankTransaction\LineItem;
+use XeroPHP\Models\Accounting\Overpayment\LineItem;
 use XeroPHP\Models\Accounting\Overpayment\Allocation;
 
 class Overpayment extends Remote\Object
@@ -85,9 +85,10 @@ class Overpayment extends Remote\Object
      */
 
     /**
-     * Date when the overpayment was fully allocated (UTC format)
+     * This property has been removed from the Xero API
      *
-     * @property \DateTime FullyPaidOnDate
+     * @property string FullyPaidOnDate
+     * @deprecated
      */
 
     /**
@@ -113,6 +114,12 @@ class Overpayment extends Remote\Object
      * See Allocations
      *
      * @property Allocation[] Allocations
+     */
+
+    /**
+     * See Payments
+     *
+     * @property Payment[] Payments
      */
 
     /**
@@ -205,17 +212,18 @@ class Overpayment extends Remote\Object
             'Date' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTime', false, false),
             'Status' => array (false, self::PROPERTY_TYPE_ENUM, null, false, false),
             'LineAmountTypes' => array (false, self::PROPERTY_TYPE_ENUM, null, false, false),
-            'LineItems' => array (false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\BankTransaction\\LineItem', true, false),
+            'LineItems' => array (false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Overpayment\\LineItem', true, false),
             'SubTotal' => array (false, self::PROPERTY_TYPE_FLOAT, null, false, false),
             'TotalTax' => array (false, self::PROPERTY_TYPE_FLOAT, null, false, false),
             'Total' => array (false, self::PROPERTY_TYPE_FLOAT, null, false, false),
             'UpdatedDateUTC' => array (false, self::PROPERTY_TYPE_TIMESTAMP, '\\DateTime', false, false),
             'CurrencyCode' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'FullyPaidOnDate' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTime', false, false),
+            'FullyPaidOnDate' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'OverpaymentID' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'CurrencyRate' => array (false, self::PROPERTY_TYPE_FLOAT, null, false, false),
             'RemainingCredit' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'Allocations' => array (false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Overpayment\\Allocation', true, true),
+            'Payments' => array (false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Payment', true, false),
             'HasAttachments' => array (false, self::PROPERTY_TYPE_BOOLEAN, null, false, false)
         );
     }
@@ -460,7 +468,8 @@ class Overpayment extends Remote\Object
     }
 
     /**
-     * @return \DateTime
+     * @return string
+     * @deprecated
      */
     public function getFullyPaidOnDate()
     {
@@ -468,10 +477,11 @@ class Overpayment extends Remote\Object
     }
 
     /**
-     * @param \DateTime $value
+     * @param string $value
      * @return Overpayment
+     * @deprecated
      */
-    public function setFullyPaidOnDate(\DateTime $value)
+    public function setFullyPaidOnDate($value)
     {
         $this->propertyUpdated('FullyPaidOnDate', $value);
         $this->_data['FullyPaidOnDate'] = $value;
@@ -555,6 +565,29 @@ class Overpayment extends Remote\Object
             $this->_data['Allocations'] = new Remote\Collection();
         }
         $this->_data['Allocations'][] = $value;
+        return $this;
+    }
+
+    /**
+     * @return Payment[]|Remote\Collection
+     * Always returns a collection, switch is for type hinting
+     */
+    public function getPayments()
+    {
+        return $this->_data['Payments'];
+    }
+
+    /**
+     * @param Payment $value
+     * @return Overpayment
+     */
+    public function addPayment(Payment $value)
+    {
+        $this->propertyUpdated('Payments', $value);
+        if(!isset($this->_data['Payments'])){
+            $this->_data['Payments'] = new Remote\Collection();
+        }
+        $this->_data['Payments'][] = $value;
         return $this;
     }
 
