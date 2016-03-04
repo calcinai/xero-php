@@ -144,6 +144,14 @@ class Enum implements ParsedObjectInterface {
         return $this->anchor;
     }
 
+    public function hasValue($string) {
+        foreach($this->getValues() as $value) {
+            if($value['value'] === $string){
+                return true;
+            }
+        }
+        return false;
+    }
 
 
-} 
+}

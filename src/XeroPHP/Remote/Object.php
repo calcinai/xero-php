@@ -357,6 +357,18 @@ abstract class Object implements ObjectInterface, \JsonSerializable, \ArrayAcces
     }
 
     /**
+     * Shorthand delete an object if it is instantiated with app context.
+     *
+     * @throws Exception
+     */
+    public function delete(){
+        if($this->_application === null){
+            throw new Exception('->delete() is only available on objects that have an injected application context.');
+        }
+        $this->_application->delete($this);
+    }
+
+    /**
      * @param string $property
      * @param self $object
      */
