@@ -176,7 +176,7 @@ abstract class Application {
 
             //In this case it's new
             if($object->hasGUID()) {
-                $method = Request::METHOD_POST;
+                $method = $object::supportsMethod(Request::METHOD_POST) ? Request::METHOD_POST : Request::METHOD_PUT;
                 $uri = sprintf('%s/%s', $object::getResourceURI(), $object->getGUID());
             } else {
                 $method = $object::supportsMethod(Request::METHOD_PUT) ? Request::METHOD_PUT : Request::METHOD_POST;
