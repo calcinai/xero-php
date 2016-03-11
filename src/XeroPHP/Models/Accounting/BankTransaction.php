@@ -48,7 +48,7 @@ class BankTransaction extends Remote\Object
      */
 
     /**
-     * reference for the transaction
+     * Reference for the transaction. Only supported for SPEND and RECEIVE transactions.
      *
      * @property string Reference
      */
@@ -110,6 +110,20 @@ class BankTransaction extends Remote\Object
      * Xero generated unique identifier for bank transaction
      *
      * @property string BankTransactionID
+     */
+
+    /**
+     * Xero generated unique identifier for a Prepayment. This will be returned on BankTransactions with a
+     * Type of SPEND-PREPAYMENT or RECEIVE-PREPAYMENT
+     *
+     * @property string PrepaymentID
+     */
+
+    /**
+     * Xero generated unique identifier for an Overpayment. This will be returned on BankTransactions with
+     * a Type of SPEND-OVERPAYMENT or RECEIVE-OVERPAYMENT
+     *
+     * @property string OverpaymentID
      */
 
     /**
@@ -224,6 +238,8 @@ class BankTransaction extends Remote\Object
             'TotalTax' => array (false, self::PROPERTY_TYPE_FLOAT, null, false, false),
             'Total' => array (false, self::PROPERTY_TYPE_FLOAT, null, false, false),
             'BankTransactionID' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
+            'PrepaymentID' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
+            'OverpaymentID' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'UpdatedDateUTC' => array (false, self::PROPERTY_TYPE_TIMESTAMP, '\\DateTimeInterface', false, false),
             'HasAttachments' => array (false, self::PROPERTY_TYPE_BOOLEAN, null, false, false)
         );
@@ -541,6 +557,24 @@ class BankTransaction extends Remote\Object
         $this->_data['BankTransactionID'] = $value;
         return $this;
     }
+
+    /**
+     * @return string
+     */
+    public function getPrepaymentID()
+    {
+        return $this->_data['PrepaymentID'];
+    }
+
+
+    /**
+     * @return string
+     */
+    public function getOverpaymentID()
+    {
+        return $this->_data['OverpaymentID'];
+    }
+
 
     /**
      * @return \DateTimeInterface

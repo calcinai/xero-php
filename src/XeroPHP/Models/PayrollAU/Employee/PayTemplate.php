@@ -158,6 +158,12 @@ class PayTemplate extends Remote\Object
      * @property string NumberOfUnits
      */
 
+    /**
+     * See Final Pay Payout Types If you do not provide any value then by Default it will be NOTPAIDOUT.
+     *
+     * @property string EntitlementFinalPayPayoutType
+     */
+
 
 
     /**
@@ -233,7 +239,7 @@ class PayTemplate extends Remote\Object
             'ReimbursementLines' => array (false, self::PROPERTY_TYPE_OBJECT, 'PayrollAU\\Payslip\\ReimbursementLine', true, false),
             'LeaveLines' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'EarningsRateID' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'CalculationType' => array (false, self::PROPERTY_TYPE_ENUM, null, false, false),
+            'CalculationType' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'NumberOfUnitsPerWeek' => array (false, self::PROPERTY_TYPE_ENUM, null, false, false),
             'AnnualSalary' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'RatePerUnit' => array (false, self::PROPERTY_TYPE_FLOAT, null, false, false),
@@ -251,7 +257,8 @@ class PayTemplate extends Remote\Object
             'LeaveTypeID' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'AnnualNumberOfUnits' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'FullTimeNumberOfUnitsPerPeriod' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'NumberOfUnits' => array (false, self::PROPERTY_TYPE_STRING, null, false, false)
+            'NumberOfUnits' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
+            'EntitlementFinalPayPayoutType' => array (false, self::PROPERTY_TYPE_ENUM, null, false, false)
         );
     }
 
@@ -744,6 +751,25 @@ class PayTemplate extends Remote\Object
     {
         $this->propertyUpdated('NumberOfUnits', $value);
         $this->_data['NumberOfUnits'] = $value;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getEntitlementFinalPayPayoutType()
+    {
+        return $this->_data['EntitlementFinalPayPayoutType'];
+    }
+
+    /**
+     * @param string $value
+     * @return PayTemplate
+     */
+    public function setEntitlementFinalPayPayoutType($value)
+    {
+        $this->propertyUpdated('EntitlementFinalPayPayoutType', $value);
+        $this->_data['EntitlementFinalPayPayoutType'] = $value;
         return $this;
     }
 

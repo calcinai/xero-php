@@ -69,7 +69,8 @@ class Organisation extends Remote\Object
      */
 
     /**
-     * Shown if set
+     * Shown if set. Displays in the Xero UI as Tax File Number (AU), GST Number (NZ), VAT Number (UK) and
+     * Tax ID Number (US & Global).
      *
      * @property string TaxNumber
      */

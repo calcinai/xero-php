@@ -113,6 +113,12 @@ e.g.
      * @property bool HasAttachments
      */
 
+    /**
+     * Last modified date UTC format
+     *
+     * @property \DateTimeInterface UpdatedDateUTC
+     */
+
 
     const ACCOUNT_CLASS_TYPE_ASSET     = 'ASSET';
     const ACCOUNT_CLASS_TYPE_EQUITY    = 'EQUITY';
@@ -252,7 +258,8 @@ e.g.
             'CurrencyCode' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'ReportingCode' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'ReportingCodeName' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'HasAttachments' => array (false, self::PROPERTY_TYPE_BOOLEAN, null, false, false)
+            'HasAttachments' => array (false, self::PROPERTY_TYPE_BOOLEAN, null, false, false),
+            'UpdatedDateUTC' => array (false, self::PROPERTY_TYPE_TIMESTAMP, '\\DateTimeInterface', false, false)
         );
     }
 
@@ -511,6 +518,15 @@ e.g.
     public function getHasAttachments()
     {
         return $this->_data['HasAttachments'];
+    }
+
+
+    /**
+     * @return \DateTimeInterface
+     */
+    public function getUpdatedDateUTC()
+    {
+        return $this->_data['UpdatedDateUTC'];
     }
 
 

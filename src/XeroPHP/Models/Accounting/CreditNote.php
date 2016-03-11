@@ -38,7 +38,7 @@ class CreditNote extends Remote\Object
      */
 
     /**
-     * See Invoice Status Codes
+     * See Credit Note Status Codes
      *
      * @property string Status
      */
@@ -218,7 +218,7 @@ class CreditNote extends Remote\Object
             'Type' => array (false, self::PROPERTY_TYPE_ENUM, null, false, false),
             'Contact' => array (false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Contact', false, false),
             'Date' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTimeInterface', false, false),
-            'Status' => array (false, self::PROPERTY_TYPE_ENUM, null, false, false),
+            'Status' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'LineAmountTypes' => array (false, self::PROPERTY_TYPE_ENUM, null, false, false),
             'LineItems' => array (false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Invoice\\LineItem', true, false),
             'SubTotal' => array (false, self::PROPERTY_TYPE_FLOAT, null, false, false),

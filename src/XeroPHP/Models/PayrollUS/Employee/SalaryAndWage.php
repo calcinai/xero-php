@@ -7,9 +7,16 @@ class SalaryAndWage extends Remote\Object
 {
 
     /**
-     * Xero unique identifier for SalaryAndWage item. e.g c56b19ef-75bf-45e8-98a4-e699a96609f7
+     * This property has been removed from the Xero API
      *
      * @property string SalaryAndWageID
+     * @deprecated
+     */
+
+    /**
+     * Xero unique identifier for SalaryAndWage item. e.g c56b19ef-75bf-45e8-98a4-e699a96609f7
+     *
+     * @property string SalaryAndWagesID
      */
 
     /**
@@ -118,6 +125,7 @@ class SalaryAndWage extends Remote\Object
     {
         return array(
             'SalaryAndWageID' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
+            'SalaryAndWagesID' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'EarningsTypeID' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'SalaryWagesType' => array (false, self::PROPERTY_TYPE_ENUM, null, false, false),
             'HourlyRate' => array (false, self::PROPERTY_TYPE_FLOAT, null, false, false),
@@ -134,6 +142,7 @@ class SalaryAndWage extends Remote\Object
 
     /**
      * @return string
+     * @deprecated
      */
     public function getSalaryAndWageID()
     {
@@ -143,11 +152,31 @@ class SalaryAndWage extends Remote\Object
     /**
      * @param string $value
      * @return SalaryAndWage
+     * @deprecated
      */
     public function setSalaryAndWageID($value)
     {
         $this->propertyUpdated('SalaryAndWageID', $value);
         $this->_data['SalaryAndWageID'] = $value;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getSalaryAndWagesID()
+    {
+        return $this->_data['SalaryAndWagesID'];
+    }
+
+    /**
+     * @param string $value
+     * @return SalaryAndWage
+     */
+    public function setSalaryAndWagesID($value)
+    {
+        $this->propertyUpdated('SalaryAndWagesID', $value);
+        $this->_data['SalaryAndWagesID'] = $value;
         return $this;
     }
 
