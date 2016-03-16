@@ -3,7 +3,7 @@
 namespace XeroPHP\Remote;
 
 use XeroPHP\Application;
-use XeroPHP\Exception;
+use XeroPHP\XeroException;
 
 /**
  * Object for representing a complete endpoint on the Xero APIs.  It also handles special URLs that may be passed in, eg
@@ -39,7 +39,7 @@ class URL {
      * @param Application $app
      * @param $endpoint
      * @param null $api
-     * @throws \XeroPHP\Exception
+     * @throws \XeroPHP\XeroException
      */
     public function __construct(Application $app, $endpoint, $api = null) {
 
@@ -93,7 +93,7 @@ class URL {
                     $version = $xero_config['file_version'];
                     break;
                 default:
-                    throw new Exception('Invalid API passed to XeroPHP\URL::__construct(). Must be XeroPHP\URL::API_*');
+                    throw new XeroException('Invalid API passed to XeroPHP\URL::__construct(). Must be XeroPHP\URL::API_*');
             }
 
             $this->path = sprintf('%s/%s/%s', $api, $version, $this->endpoint);

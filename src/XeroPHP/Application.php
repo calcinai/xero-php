@@ -86,12 +86,12 @@ abstract class Application {
     /**
      * @param mixed $key
      * @return mixed
-     * @throws Exception
+     * @throws XeroException
      */
     public function getConfig($key) {
 
         if(!isset($this->config[$key]))
-            throw new Exception("Invalid configuration key [$key]");
+            throw new XeroException("Invalid configuration key [$key]");
 
         return $this->config[$key];
     }
@@ -102,7 +102,7 @@ abstract class Application {
      *
      * @param string $class
      * @return string
-     * @throws Exception
+     * @throws XeroException
      */
     public function validateModelClass($class){
         $config = $this->getConfig('xero');
@@ -111,7 +111,7 @@ abstract class Application {
             $class = sprintf('%s\\%s', $config['model_namespace'], $class);
 
         if(!class_exists($class))
-            throw new Exception("Class does not exist [$class]");
+            throw new XeroException("Class does not exist [$class]");
 
         return $class;
     }
@@ -123,7 +123,7 @@ abstract class Application {
      * @param $model
      * @param $guid
      * @return mixed
-     * @throws Exception
+     * @throws XeroException
      * @throws Remote\Exception\NotFoundException
      */
     public function loadByGUID($model, $guid) {
@@ -152,7 +152,7 @@ abstract class Application {
     /**
      * @param string $model
      * @return Query
-     * @throws Remote\Exception
+     * @throws Remote\RemoteException
      */
     public function load($model) {
 
@@ -164,7 +164,7 @@ abstract class Application {
     /**
      * @param Remote\Object $object
      * @return null
-     * @throws Exception
+     * @throws XeroException
      */
     public function save(Remote\Object $object) {
 
@@ -186,7 +186,7 @@ abstract class Application {
             }
 
             if(!$object::supportsMethod($method)){
-                throw new Exception('%s doesn\'t support [%s] via the API', get_class($object), $method);
+                throw new XeroException('%s doesn\'t support [%s] via the API', get_class($object), $method);
             }
 
             //Put in an array with the first level containing only the 'root node'.
@@ -212,7 +212,7 @@ abstract class Application {
     /**
      * @param Collection|array $objects
      * @return null
-     * @throws Exception
+     * @throws XeroException
      */
     public function saveAll($objects) {
 
@@ -224,7 +224,7 @@ abstract class Application {
 
         foreach($objects as $object) {
             if($type !== get_class($object)) {
-                throw new Exception('Array passed to ->saveAll() must be homogeneous.');
+                throw new XeroException('Array passed to ->saveAll() must be homogeneous.');
             }
 
             // Check if we have a GUID
@@ -267,7 +267,7 @@ abstract class Application {
      * This is called automatically from the save method for things like adding contacts to ContactGroups
      *
      * @param Remote\Object $object
-     * @throws Exception
+     * @throws XeroException
      */
     private function savePropertiesDirectly(Remote\Object $object){
         foreach($object::getProperties() as $property_name => $meta){
@@ -307,11 +307,11 @@ abstract class Application {
     /**
      * @param Remote\Object $object
      * @return Remote\Response
-     * @throws Exception
+     * @throws XeroException
      */
     public function delete(Remote\Object $object) {
         if(!$object::supportsMethod(Request::METHOD_DELETE)){
-            throw new Exception('%s doesn\'t support [DELETE] via the API', get_class($object));
+            throw new XeroException('%s doesn\'t support [DELETE] via the API', get_class($object));
         }
 
         $uri = sprintf('%s/%s', $object::getResourceURI(), $object->getGUID());

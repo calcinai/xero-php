@@ -2,7 +2,7 @@
 
 namespace XeroPHP\Traits;
 
-use XeroPHP\Exception;
+use XeroPHP\XeroException;
 use XeroPHP\Remote\Request;
 use XeroPHP\Remote\URL;
 
@@ -13,7 +13,7 @@ trait PDFTrait {
         /** @var Object $this */
 
         if($this->hasGUID() === false){
-            throw new Exception('PDF files are only available to objects that exist remotely.');
+            throw new XeroException('PDF files are only available to objects that exist remotely.');
         }
 
         $uri = sprintf('%s/%s', $this::getResourceURI(), $this->getGUID());

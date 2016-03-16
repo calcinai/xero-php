@@ -2,10 +2,10 @@
 
 namespace XeroPHP\Remote\Exception;
 
-use XeroPHP\Remote\Exception;
+use XeroPHP\Remote\RemoteException;
 use XeroPHP\Remote\Response;
 
-class BadRequestException extends Exception {
+class BadRequestException extends RemoteException {
 
     public function __construct($message = null, $code = null, $previous = null) {
 

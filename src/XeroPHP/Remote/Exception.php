@@ -3,5 +3,5 @@
 namespace XeroPHP\Remote;
 
 
-class Exception extends \XeroPHP\Exception {
+class RemoteException extends \XeroPHP\XeroException {
 }

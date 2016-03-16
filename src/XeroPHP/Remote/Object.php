@@ -3,7 +3,7 @@
 namespace XeroPHP\Remote;
 
 use XeroPHP\Application;
-use XeroPHP\Exception;
+use XeroPHP\XeroException;
 use XeroPHP\Helpers;
 
 /**
@@ -311,7 +311,7 @@ abstract class Object implements ObjectInterface, \JsonSerializable, \ArrayAcces
      *
      * @param bool $check_children
      * @return bool
-     * @throws Exception
+     * @throws XeroException
      */
     public function validate($check_children = true) {
 
@@ -321,7 +321,7 @@ abstract class Object implements ObjectInterface, \JsonSerializable, \ArrayAcces
 
             if($mandatory) {
                 if(!isset($this->_data[$property]) || empty($this->_data[$property]))
-                    throw new Exception(sprintf('%s::$%s is mandatory and is either missing or empty.', get_class($this), $property));
+                    throw new XeroException(sprintf('%s::$%s is mandatory and is either missing or empty.', get_class($this), $property));
 
                 if($check_children) {
                     if($this->_data[$property] instanceof Object) {
@@ -347,11 +347,11 @@ abstract class Object implements ObjectInterface, \JsonSerializable, \ArrayAcces
     /**
      * Shorthand save an object if it is instantiated with app context.
      *
-     * @throws Exception
+     * @throws XeroException
      */
     public function save(){
         if($this->_application === null){
-            throw new Exception('->save() is only available on objects that have an injected application context.');
+            throw new XeroException('->save() is only available on objects that have an injected application context.');
         }
         $this->_application->save($this);
     }
@@ -359,11 +359,11 @@ abstract class Object implements ObjectInterface, \JsonSerializable, \ArrayAcces
     /**
      * Shorthand delete an object if it is instantiated with app context.
      *
-     * @throws Exception
+     * @throws XeroException
      */
     public function delete(){
         if($this->_application === null){
-            throw new Exception('->delete() is only available on objects that have an injected application context.');
+            throw new XeroException('->delete() is only available on objects that have an injected application context.');
         }
         $this->_application->delete($this);
     }
