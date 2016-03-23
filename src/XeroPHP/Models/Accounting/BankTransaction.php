@@ -577,24 +577,6 @@ class BankTransaction extends Remote\Object
 
 
     /**
-     * @return string
-     */
-    public function getPrepaymentID()
-    {
-        return $this->_data['PrepaymentID'];
-    }
-
-
-    /**
-     * @return string
-     */
-    public function getOverpaymentID()
-    {
-        return $this->_data['OverpaymentID'];
-    }
-
-
-    /**
      * @return \DateTimeInterface
      */
     public function getUpdatedDateUTC()

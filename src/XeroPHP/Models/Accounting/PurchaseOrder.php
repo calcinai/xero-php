@@ -28,13 +28,13 @@ class PurchaseOrder extends Remote\Object
     /**
      * Date purchase order was issued – YYYY-MM-DD. Learn more
      *
-     * @property \DateTime Date
+     * @property \DateTimeInterface Date
      */
 
     /**
      * Date the goods are to be delivered – YYYY-MM-DD
      *
-     * @property \DateTime DeliveryDate
+     * @property \DateTimeInterface DeliveryDate
      */
 
     /**
@@ -116,7 +116,7 @@ class PurchaseOrder extends Remote\Object
     /**
      * The date the goods are expected to arrive.
      *
-     * @property \DateTime ExpectedArrivalDate
+     * @property \DateTimeInterface ExpectedArrivalDate
      */
 
     /**
@@ -158,7 +158,7 @@ class PurchaseOrder extends Remote\Object
     /**
      * Last modified date UTC format
      *
-     * @property \DateTime UpdatedDateUTC
+     * @property \DateTimeInterface UpdatedDateUTC
      */
 
 
@@ -220,7 +220,8 @@ class PurchaseOrder extends Remote\Object
     {
         return array(
             Remote\Request::METHOD_GET,
-            Remote\Request::METHOD_PUT
+            Remote\Request::METHOD_PUT,
+            Remote\Request::METHOD_POST
         );
     }
 
@@ -240,8 +241,8 @@ class PurchaseOrder extends Remote\Object
         return array(
             'Contact' => array (true, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Contact', false, false),
             'LineItems' => array (true, self::PROPERTY_TYPE_OBJECT, 'Accounting\\PurchaseOrder\\LineItem', true, false),
-            'Date' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTime', false, false),
-            'DeliveryDate' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTime', false, false),
+            'Date' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTimeInterface', false, false),
+            'DeliveryDate' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTimeInterface', false, false),
             'LineAmountTypes' => array (false, self::PROPERTY_TYPE_ENUM, null, false, false),
             'PurchaseOrderNumber' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'Reference' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
@@ -254,14 +255,14 @@ class PurchaseOrder extends Remote\Object
             'AttentionTo' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'Telephone' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'DeliveryInstructions' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'ExpectedArrivalDate' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTime', false, false),
+            'ExpectedArrivalDate' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTimeInterface', false, false),
             'PurchaseOrderID' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'SubTotal' => array (false, self::PROPERTY_TYPE_FLOAT, null, false, false),
             'TotalTax' => array (false, self::PROPERTY_TYPE_FLOAT, null, false, false),
             'Total' => array (false, self::PROPERTY_TYPE_FLOAT, null, false, false),
             'TotalDiscount' => array (false, self::PROPERTY_TYPE_FLOAT, null, false, false),
             'HasAttachments' => array (false, self::PROPERTY_TYPE_BOOLEAN, null, false, false),
-            'UpdatedDateUTC' => array (false, self::PROPERTY_TYPE_TIMESTAMP, '\\DateTime', false, false)
+            'UpdatedDateUTC' => array (false, self::PROPERTY_TYPE_TIMESTAMP, '\\DateTimeInterface', false, false)
         );
     }
 
@@ -313,7 +314,7 @@ class PurchaseOrder extends Remote\Object
     }
 
     /**
-     * @return \DateTime
+     * @return \DateTimeInterface
      */
     public function getDate()
     {
@@ -321,10 +322,10 @@ class PurchaseOrder extends Remote\Object
     }
 
     /**
-     * @param \DateTime $value
+     * @param \DateTimeInterface $value
      * @return PurchaseOrder
      */
-    public function setDate(\DateTime $value)
+    public function setDate(\DateTimeInterface $value)
     {
         $this->propertyUpdated('Date', $value);
         $this->_data['Date'] = $value;
@@ -332,7 +333,7 @@ class PurchaseOrder extends Remote\Object
     }
 
     /**
-     * @return \DateTime
+     * @return \DateTimeInterface
      */
     public function getDeliveryDate()
     {
@@ -340,10 +341,10 @@ class PurchaseOrder extends Remote\Object
     }
 
     /**
-     * @param \DateTime $value
+     * @param \DateTimeInterface $value
      * @return PurchaseOrder
      */
-    public function setDeliveryDate(\DateTime $value)
+    public function setDeliveryDate(\DateTimeInterface $value)
     {
         $this->propertyUpdated('DeliveryDate', $value);
         $this->_data['DeliveryDate'] = $value;
@@ -579,7 +580,7 @@ class PurchaseOrder extends Remote\Object
     }
 
     /**
-     * @return \DateTime
+     * @return \DateTimeInterface
      */
     public function getExpectedArrivalDate()
     {
@@ -587,10 +588,10 @@ class PurchaseOrder extends Remote\Object
     }
 
     /**
-     * @param \DateTime $value
+     * @param \DateTimeInterface $value
      * @return PurchaseOrder
      */
-    public function setExpectedArrivalDate(\DateTime $value)
+    public function setExpectedArrivalDate(\DateTimeInterface $value)
     {
         $this->propertyUpdated('ExpectedArrivalDate', $value);
         $this->_data['ExpectedArrivalDate'] = $value;
@@ -662,7 +663,7 @@ class PurchaseOrder extends Remote\Object
 
 
     /**
-     * @return \DateTime
+     * @return \DateTimeInterface
      */
     public function getUpdatedDateUTC()
     {
