@@ -72,6 +72,10 @@ class SimpleObject extends Object
         return false;
     }
 
+    static function getAPIStem() {
+        return 'test';
+    }
+
     /**
      * @return mixed
      */
@@ -87,5 +91,6 @@ class SimpleObject extends Object
     {
         $this->_data['test'] = $test;
     }
+
 
 }

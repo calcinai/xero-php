@@ -190,10 +190,10 @@ class Response {
                 return;
         }
 
-        foreach($this->elements as $index => $element)
+        foreach($this->elements as $index => $element){
             $this->findElementErrors($element, $index);
+        }
     }
-
 
     public function findElementErrors($element, $element_index) {
         foreach($element as $property => $value) {

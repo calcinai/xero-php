@@ -75,6 +75,13 @@ class LinkedTransaction extends Remote\Object
      * @property string SourceTransactionTypeCode
      */
 
+    /**
+     * The Type of the source tranasction. This will be ACCPAY if the linked transaction was created from
+     * an invoice and SPEND if it was created from a bank transaction.
+     *
+     * @property string SourceTransactionTypeCode
+     */
+
 
     const LINKED_TRANSACTION_STATUS_DRAFT    = 'DRAFT';
     const LINKED_TRANSACTION_STATUS_APPROVED = 'APPROVED';

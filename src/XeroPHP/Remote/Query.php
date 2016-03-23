@@ -47,7 +47,17 @@ class Query {
         $args = func_get_args();
 
         if(func_num_args() === 2) {
-            $this->where[] = sprintf('%s=="%s"', $args[0], $args[1]);
+            if(is_bool($args[1])) {
+                $this->where[] = sprintf('%s=%s', $args[0], $args[1] ? 'true' : 'false');
+            } elseif(is_int($args[1])) {
+                $this->where[] = sprintf('%s==%s', $args[0], $args[1]);
+            } elseif(preg_match('/^(\'|")?(true|false)("|\')?$/i', $args[1])) {
+                $this->where[] = sprintf('%s=%s', $args[0], $args[1]);
+            } elseif(preg_match('/^([a-z]+)\.\1ID$/i', $args[0]) && preg_match('/^[0-9a-f]{8}-([0-9a-f]{4}-){3}[0-9a-f]{12}$/i', $args[1])) {
+                $this->where[] = sprintf('%s=Guid("%s")', $args[0], $args[1]);
+            } else {
+                $this->where[] = sprintf('%s=="%s"', $args[0], $args[1]);
+            }
         } else {
             $this->where[] = $args[0];
         }

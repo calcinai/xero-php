@@ -167,8 +167,10 @@ abstract class Object implements ObjectInterface, \JsonSerializable, \ArrayAcces
                 continue;
             }
 
-            if(!isset($input_array[$property]))
+            if(!isset($input_array[$property])) {
+                $this->_data[$property] = null;
                 continue;
+            }
 
             //Fix for an earlier assumption that the API didn't return more than two levels of nested objects.
             //Handles Invoice > Contact > Address etc. in one build.
@@ -352,6 +354,18 @@ abstract class Object implements ObjectInterface, \JsonSerializable, \ArrayAcces
             throw new Exception('->save() is only available on objects that have an injected application context.');
         }
         $this->_application->save($this);
+    }
+
+    /**
+     * Shorthand delete an object if it is instantiated with app context.
+     *
+     * @throws Exception
+     */
+    public function delete(){
+        if($this->_application === null){
+            throw new Exception('->delete() is only available on objects that have an injected application context.');
+        }
+        $this->_application->delete($this);
     }
 
     /**

@@ -60,7 +60,7 @@ if(null === $oauth_session = getOAuthSession()){
         $request->send();
         $oauth_response = $request->getResponse()->getOAuthResponse();
 
-        setOAuthSession($oauth_response['oauth_token'], $oauth_response['oauth_token_secret'], $oauth_response['expires']);
+        setOAuthSession($oauth_response['oauth_token'], $oauth_response['oauth_token_secret'], $oauth_response['oauth_expires_in']);
 
         //drop the qs
         $uri_parts = explode('?', $_SERVER['REQUEST_URI']);
@@ -77,6 +77,11 @@ print_r($xero->load('Accounting\\Organisation')->execute());
 
 //The following two functions are just for a demo - you should use a more robust mechanism of storing tokens than this!
 function setOAuthSession($token, $secret, $expires = null){
+    // expires sends back an int
+    if($expires !== null) {
+        $expires = time() + intval($expires);
+    }
+
     $_SESSION['oauth'] = array(
         'token' => $token,
         'token_secret' => $secret,
