@@ -7,6 +7,7 @@ use XeroPHP\Remote\Collection;
 use XeroPHP\Remote\OAuth\Client;
 use XeroPHP\Remote\Query;
 use XeroPHP\Remote\Request;
+use XeroPHP\Remote\URL;
 
 
 abstract class Application {
@@ -162,12 +163,12 @@ abstract class Application {
 
 
     /**
-     * @param Object $object
+     * @param Remote\Object $object
      * @param bool $replace_data
      * @return null
      * @throws Exception
      */
-    public function save(Object $object, $replace_data = false) {
+    public function save(Remote\Object $object, $replace_data = false) {
 
         //Saves any properties that don't want to be included in the normal loop (special saving endpoints)
         $this->savePropertiesDirectly($object);
