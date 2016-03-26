@@ -26,7 +26,7 @@ class Contact extends Remote\Object
      */
 
     /**
-     * A user defined account number.  This can be updated via the API and the Xero UI (max length = 50)
+     * A user defined account number. This can be updated via the API and the Xero UI (max length = 50)
      *
      * @property string AccountNumber
      */
