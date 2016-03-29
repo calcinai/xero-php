@@ -9,6 +9,7 @@ use XeroPHP\Remote\Query;
 use XeroPHP\Remote\Request;
 use XeroPHP\Remote\URL;
 
+
 abstract class Application {
 
     protected static $_config_defaults = array(
@@ -163,10 +164,11 @@ abstract class Application {
 
     /**
      * @param Remote\Object $object
+     * @param bool $replace_data
      * @return null
      * @throws Exception
      */
-    public function save(Remote\Object $object) {
+    public function save(Remote\Object $object, $replace_data = false) {
 
         //Saves any properties that don't want to be included in the normal loop (special saving endpoints)
         $this->savePropertiesDirectly($object);
@@ -198,7 +200,7 @@ abstract class Application {
             $response = $request->getResponse();
 
             if(false !== $element = current($response->getElements())) {
-                $object->fromStringArray($element);
+                $object->fromStringArray($element, $replace_data);
             }
             //Mark the object as clean since no exception was thrown
             $object->setClean();
