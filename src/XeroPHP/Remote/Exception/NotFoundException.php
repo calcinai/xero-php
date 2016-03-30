@@ -2,10 +2,10 @@
 
 namespace XeroPHP\Remote\Exception;
 
-use XeroPHP\Remote\Exception;
+use XeroPHP\Remote\RemoteException;
 use XeroPHP\Remote\Response;
 
-class NotFoundException extends Exception {
+class NotFoundException extends RemoteException {
 
     public function __construct($message = null, $code = null, $previous = null) {
 

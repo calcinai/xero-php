@@ -3,7 +3,7 @@
 namespace XeroPHP\Remote;
 
 use XeroPHP\Application;
-use XeroPHP\Exception;
+use XeroPHP\XeroException;
 
 class Query {
 
@@ -97,13 +97,13 @@ class Query {
     /**
      * @param int $page
      * @return $this
-     * @throws Exception
+     * @throws XeroException
      */
     public function page($page = 1) {
         /** @var ObjectInterface $from_class */
         $from_class = $this->from_class;
         if(!$from_class::isPageable()){
-            throw new Exception(sprintf('%s does not support paging.', $from_class));
+            throw new XeroException(sprintf('%s does not support paging.', $from_class));
         }
 
         $this->page = intval($page);

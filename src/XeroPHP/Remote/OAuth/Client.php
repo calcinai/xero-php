@@ -2,7 +2,7 @@
 
 namespace XeroPHP\Remote\OAuth;
 
-use XeroPHP\Exception;
+use XeroPHP\XeroException;
 use XeroPHP\Helpers;
 use XeroPHP\Remote\OAuth\SignatureMethod\HMACSHA1;
 use XeroPHP\Remote\OAuth\SignatureMethod\PLAINTEXT;
@@ -52,7 +52,7 @@ class Client {
      * of the client.  This method puts it in the oauth params in the Authorization header by default.
      *
      * @param Request $request Request to sign
-     * @throws Exception
+     * @throws XeroException
      */
     public function sign(Request $request) {
 
@@ -77,7 +77,7 @@ class Client {
                 break;
 
             default:
-                throw new Exception('Invalid signing location specified.');
+                throw new XeroException('Invalid signing location specified.');
         }
 
         //Reset so this instance of the Client can sign subsequent requests.  Mainly for the nonce.
@@ -127,7 +127,7 @@ class Client {
      * consistency, pass the same constructor to each one.
      *
      * @return string
-     * @throws Exception
+     * @throws XeroException
      */
     private function getSignature() {
 
@@ -142,7 +142,7 @@ class Client {
                 $signature = PLAINTEXT::generateSignature($this->config, $this->getSBS(), $this->getSigningSecret());
                 break;
             default:
-                throw new Exception("Invalid signature method [{$this->config['signature_method']}]");
+                throw new XeroException("Invalid signature method [{$this->config['signature_method']}]");
         }
 
         return $signature;
