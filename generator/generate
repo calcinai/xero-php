@@ -13,6 +13,7 @@
 use Symfony\Component\DomCrawler\Crawler;
 
 define('GEN_ROOT', __DIR__);
+define('GEN_OUTPUT', __DIR__.'/../src/XeroPHP/Models');
 
 require GEN_ROOT.'/../vendor/autoload.php';
 require GEN_ROOT.'/objects/ParsedObjectInterface.php';
@@ -507,7 +508,7 @@ foreach($apis as $api){
             }
         }
 
-        $dir = sprintf('%s/output/%s', GEN_ROOT, strtr($model->getNamespace(), array('\\' => '/')));
+        $dir = sprintf('%s/%s', GEN_OUTPUT, strtr($model->getNamespace(), array('\\' => '/')));
         if(!is_dir($dir))
             mkdir($dir);
 
@@ -519,7 +520,7 @@ foreach($apis as $api){
     }
 
     foreach($api->getStrayEnums() as $class_name => $enums){
-        $dir = sprintf('%s/output/%s', GEN_ROOT, strtr($api->getNamespace(), array('\\' => '/')));
+        $dir = sprintf('%s/%s', GEN_OUTPUT, strtr($api->getNamespace(), array('\\' => '/')));
 
         $template = $twig->render('enum.twig', array(
             'class_name' => $class_name,
