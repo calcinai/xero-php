@@ -33,7 +33,7 @@ class User extends Remote\Object
     /**
      * Timestamp of last change to user
      *
-     * @property \DateTime UpdatedDateUTC
+     * @property \DateTimeInterface UpdatedDateUTC
      */
 
     /**
@@ -122,7 +122,7 @@ class User extends Remote\Object
             'EmailAddress' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'FirstName' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'LastName' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'UpdatedDateUTC' => array (false, self::PROPERTY_TYPE_TIMESTAMP, '\\DateTime', false, false),
+            'UpdatedDateUTC' => array (false, self::PROPERTY_TYPE_TIMESTAMP, '\\DateTimeInterface', false, false),
             'IsSubscriber' => array (false, self::PROPERTY_TYPE_BOOLEAN, null, false, false),
             'OrganisationRole' => array (false, self::PROPERTY_TYPE_ENUM, null, false, false)
         );
@@ -210,7 +210,7 @@ class User extends Remote\Object
     }
 
     /**
-     * @return \DateTime
+     * @return \DateTimeInterface
      */
     public function getUpdatedDateUTC()
     {
@@ -218,10 +218,10 @@ class User extends Remote\Object
     }
 
     /**
-     * @param \DateTime $value
+     * @param \DateTimeInterface $value
      * @return User
      */
-    public function setUpdatedDateUTC(\DateTime $value)
+    public function setUpdatedDateUTC(\DateTimeInterface $value)
     {
         $this->propertyUpdated('UpdatedDateUTC', $value);
         $this->_data['UpdatedDateUTC'] = $value;

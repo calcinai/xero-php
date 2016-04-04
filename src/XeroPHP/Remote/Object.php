@@ -243,7 +243,7 @@ abstract class Object implements ObjectInterface, \JsonSerializable, \ArrayAcces
 
             case self::PROPERTY_TYPE_DATE:
             case self::PROPERTY_TYPE_TIMESTAMP:
-                /** @var \DateTime $value */
+                /** @var \DateTimeInterface $value */
                 return $value->format('c');
 
             case self::PROPERTY_TYPE_OBJECT:
@@ -263,7 +263,7 @@ abstract class Object implements ObjectInterface, \JsonSerializable, \ArrayAcces
      * @param $type
      * @param $value
      * @param $php_type
-     * @return bool|\DateTime|float|int|string
+     * @return bool|\DateTimeInterface|float|int|string
      */
     public static function castFromString($type, $value, $php_type) {
 

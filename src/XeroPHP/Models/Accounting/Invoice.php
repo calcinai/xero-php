@@ -33,13 +33,13 @@ class Invoice extends Remote\Object
     /**
      * Date invoice was issued – YYYY-MM-DD. Learn more
      *
-     * @property \DateTime Date
+     * @property \DateTimeInterface Date
      */
 
     /**
      * Date invoice is due – YYYY-MM-DD
      *
-     * @property \DateTime DueDate
+     * @property \DateTimeInterface DueDate
      */
 
     /**
@@ -181,7 +181,7 @@ class Invoice extends Remote\Object
     /**
      * The date the invoice was fully paid. Only returned on fully paid invoices
      *
-     * @property \DateTime FullyPaidOnDate
+     * @property \DateTimeInterface FullyPaidOnDate
      */
 
     /**
@@ -193,7 +193,7 @@ class Invoice extends Remote\Object
     /**
      * Last modified date UTC format
      *
-     * @property \DateTime UpdatedDateUTC
+     * @property \DateTimeInterface UpdatedDateUTC
      */
 
     /**
@@ -291,8 +291,8 @@ class Invoice extends Remote\Object
             'Type' => array (true, self::PROPERTY_TYPE_ENUM, null, false, false),
             'Contact' => array (true, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Contact', false, false),
             'LineItems' => array (true, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Invoice\\LineItem', true, false),
-            'Date' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTime', false, false),
-            'DueDate' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTime', false, false),
+            'Date' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTimeInterface', false, false),
+            'DueDate' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTimeInterface', false, false),
             'LineAmountTypes' => array (false, self::PROPERTY_TYPE_ENUM, null, false, false),
             'InvoiceNumber' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'Reference' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
@@ -315,9 +315,9 @@ class Invoice extends Remote\Object
             'Overpayments' => array (false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Overpayment', true, false),
             'AmountDue' => array (false, self::PROPERTY_TYPE_FLOAT, null, false, false),
             'AmountPaid' => array (false, self::PROPERTY_TYPE_FLOAT, null, false, false),
-            'FullyPaidOnDate' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTime', false, false),
+            'FullyPaidOnDate' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTimeInterface', false, false),
             'AmountCredited' => array (false, self::PROPERTY_TYPE_FLOAT, null, false, false),
-            'UpdatedDateUTC' => array (false, self::PROPERTY_TYPE_TIMESTAMP, '\\DateTime', false, false),
+            'UpdatedDateUTC' => array (false, self::PROPERTY_TYPE_TIMESTAMP, '\\DateTimeInterface', false, false),
             'CreditNotes' => array (false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\CreditNote', true, false)
         );
     }
@@ -389,7 +389,7 @@ class Invoice extends Remote\Object
     }
 
     /**
-     * @return \DateTime
+     * @return \DateTimeInterface
      */
     public function getDate()
     {
@@ -397,10 +397,10 @@ class Invoice extends Remote\Object
     }
 
     /**
-     * @param \DateTime $value
+     * @param \DateTimeInterface $value
      * @return Invoice
      */
-    public function setDate(\DateTime $value)
+    public function setDate(\DateTimeInterface $value)
     {
         $this->propertyUpdated('Date', $value);
         $this->_data['Date'] = $value;
@@ -408,7 +408,7 @@ class Invoice extends Remote\Object
     }
 
     /**
-     * @return \DateTime
+     * @return \DateTimeInterface
      */
     public function getDueDate()
     {
@@ -416,10 +416,10 @@ class Invoice extends Remote\Object
     }
 
     /**
-     * @param \DateTime $value
+     * @param \DateTimeInterface $value
      * @return Invoice
      */
-    public function setDueDate(\DateTime $value)
+    public function setDueDate(\DateTimeInterface $value)
     {
         $this->propertyUpdated('DueDate', $value);
         $this->_data['DueDate'] = $value;
@@ -748,7 +748,7 @@ class Invoice extends Remote\Object
 
 
     /**
-     * @return \DateTime
+     * @return \DateTimeInterface
      */
     public function getFullyPaidOnDate()
     {
@@ -766,7 +766,7 @@ class Invoice extends Remote\Object
 
 
     /**
-     * @return \DateTime
+     * @return \DateTimeInterface
      */
     public function getUpdatedDateUTC()
     {

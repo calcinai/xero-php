@@ -15,13 +15,13 @@ class PaySchedule extends Remote\Object
     /**
      * The Payment Date of the Pay Schedule
      *
-     * @property \DateTime PaymentDate
+     * @property \DateTimeInterface PaymentDate
      */
 
     /**
      * The Start Date of the Pay Schedule
      *
-     * @property \DateTime StartDate
+     * @property \DateTimeInterface StartDate
      */
 
     /**
@@ -108,8 +108,8 @@ class PaySchedule extends Remote\Object
     {
         return array(
             'PayScheduleName' => array (true, self::PROPERTY_TYPE_STRING, null, false, false),
-            'PaymentDate' => array (true, self::PROPERTY_TYPE_DATE, '\\DateTime', false, false),
-            'StartDate' => array (true, self::PROPERTY_TYPE_DATE, '\\DateTime', false, false),
+            'PaymentDate' => array (true, self::PROPERTY_TYPE_DATE, '\\DateTimeInterface', false, false),
+            'StartDate' => array (true, self::PROPERTY_TYPE_DATE, '\\DateTimeInterface', false, false),
             'ScheduleType' => array (true, self::PROPERTY_TYPE_ENUM, null, false, false),
             'PayScheduleId' => array (false, self::PROPERTY_TYPE_GUID, null, false, false)
         );
@@ -140,7 +140,7 @@ class PaySchedule extends Remote\Object
     }
 
     /**
-     * @return \DateTime
+     * @return \DateTimeInterface
      */
     public function getPaymentDate()
     {
@@ -148,10 +148,10 @@ class PaySchedule extends Remote\Object
     }
 
     /**
-     * @param \DateTime $value
+     * @param \DateTimeInterface $value
      * @return PaySchedule
      */
-    public function setPaymentDate(\DateTime $value)
+    public function setPaymentDate(\DateTimeInterface $value)
     {
         $this->propertyUpdated('PaymentDate', $value);
         $this->_data['PaymentDate'] = $value;
@@ -159,7 +159,7 @@ class PaySchedule extends Remote\Object
     }
 
     /**
-     * @return \DateTime
+     * @return \DateTimeInterface
      */
     public function getStartDate()
     {
@@ -167,10 +167,10 @@ class PaySchedule extends Remote\Object
     }
 
     /**
-     * @param \DateTime $value
+     * @param \DateTimeInterface $value
      * @return PaySchedule
      */
-    public function setStartDate(\DateTime $value)
+    public function setStartDate(\DateTimeInterface $value)
     {
         $this->propertyUpdated('StartDate', $value);
         $this->_data['StartDate'] = $value;

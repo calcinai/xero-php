@@ -34,13 +34,13 @@ class LeaveApplication extends Remote\Object
     /**
      * Start date of the leave (YYYY-MM-DD)
      *
-     * @property \DateTime StartDate
+     * @property \DateTimeInterface StartDate
      */
 
     /**
      * End date of the leave (YYYY-MM-DD)
      *
-     * @property \DateTime EndDate
+     * @property \DateTimeInterface EndDate
      */
 
     /**
@@ -133,8 +133,8 @@ class LeaveApplication extends Remote\Object
             'EmployeeID' => array (true, self::PROPERTY_TYPE_STRING, null, false, false),
             'LeaveTypeID' => array (true, self::PROPERTY_TYPE_STRING, null, false, false),
             'Title' => array (true, self::PROPERTY_TYPE_STRING, null, false, false),
-            'StartDate' => array (true, self::PROPERTY_TYPE_DATE, '\\DateTime', false, false),
-            'EndDate' => array (true, self::PROPERTY_TYPE_DATE, '\\DateTime', false, false),
+            'StartDate' => array (true, self::PROPERTY_TYPE_DATE, '\\DateTimeInterface', false, false),
+            'EndDate' => array (true, self::PROPERTY_TYPE_DATE, '\\DateTimeInterface', false, false),
             'Description' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'LeavePeriods' => array (false, self::PROPERTY_TYPE_OBJECT, 'PayrollAU\\LeaveApplication\\LeavePeriod', true, false)
         );
@@ -222,7 +222,7 @@ class LeaveApplication extends Remote\Object
     }
 
     /**
-     * @return \DateTime
+     * @return \DateTimeInterface
      */
     public function getStartDate()
     {
@@ -230,10 +230,10 @@ class LeaveApplication extends Remote\Object
     }
 
     /**
-     * @param \DateTime $value
+     * @param \DateTimeInterface $value
      * @return LeaveApplication
      */
-    public function setStartDate(\DateTime $value)
+    public function setStartDate(\DateTimeInterface $value)
     {
         $this->propertyUpdated('StartDate', $value);
         $this->_data['StartDate'] = $value;
@@ -241,7 +241,7 @@ class LeaveApplication extends Remote\Object
     }
 
     /**
-     * @return \DateTime
+     * @return \DateTimeInterface
      */
     public function getEndDate()
     {
@@ -249,10 +249,10 @@ class LeaveApplication extends Remote\Object
     }
 
     /**
-     * @param \DateTime $value
+     * @param \DateTimeInterface $value
      * @return LeaveApplication
      */
-    public function setEndDate(\DateTime $value)
+    public function setEndDate(\DateTimeInterface $value)
     {
         $this->propertyUpdated('EndDate', $value);
         $this->_data['EndDate'] = $value;

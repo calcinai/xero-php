@@ -28,13 +28,13 @@ class PayrollCalendar extends Remote\Object
      * The start date of the upcoming pay period. The end date will be calculated based upon this date, and
      * the calendar type selected (YYYY-MM-DD), more details.
      *
-     * @property \DateTime StartDate
+     * @property \DateTimeInterface StartDate
      */
 
     /**
      * The date on which employees will be paid for the upcoming pay period (YYYY-MM-DD), more details.
      *
-     * @property \DateTime PaymentDate
+     * @property \DateTimeInterface PaymentDate
      */
 
 
@@ -118,8 +118,8 @@ class PayrollCalendar extends Remote\Object
             'PayrollCalendarID' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'Name' => array (true, self::PROPERTY_TYPE_STRING, null, false, false),
             'CalendarType' => array (true, self::PROPERTY_TYPE_ENUM, null, false, false),
-            'StartDate' => array (true, self::PROPERTY_TYPE_DATE, '\\DateTime', false, false),
-            'PaymentDate' => array (true, self::PROPERTY_TYPE_DATE, '\\DateTime', false, false)
+            'StartDate' => array (true, self::PROPERTY_TYPE_DATE, '\\DateTimeInterface', false, false),
+            'PaymentDate' => array (true, self::PROPERTY_TYPE_DATE, '\\DateTimeInterface', false, false)
         );
     }
 
@@ -186,7 +186,7 @@ class PayrollCalendar extends Remote\Object
     }
 
     /**
-     * @return \DateTime
+     * @return \DateTimeInterface
      */
     public function getStartDate()
     {
@@ -194,10 +194,10 @@ class PayrollCalendar extends Remote\Object
     }
 
     /**
-     * @param \DateTime $value
+     * @param \DateTimeInterface $value
      * @return PayrollCalendar
      */
-    public function setStartDate(\DateTime $value)
+    public function setStartDate(\DateTimeInterface $value)
     {
         $this->propertyUpdated('StartDate', $value);
         $this->_data['StartDate'] = $value;
@@ -205,7 +205,7 @@ class PayrollCalendar extends Remote\Object
     }
 
     /**
-     * @return \DateTime
+     * @return \DateTimeInterface
      */
     public function getPaymentDate()
     {
@@ -213,10 +213,10 @@ class PayrollCalendar extends Remote\Object
     }
 
     /**
-     * @param \DateTime $value
+     * @param \DateTimeInterface $value
      * @return PayrollCalendar
      */
-    public function setPaymentDate(\DateTime $value)
+    public function setPaymentDate(\DateTimeInterface $value)
     {
         $this->propertyUpdated('PaymentDate', $value);
         $this->_data['PaymentDate'] = $value;

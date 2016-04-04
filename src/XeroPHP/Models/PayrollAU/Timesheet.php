@@ -16,13 +16,13 @@ class Timesheet extends Remote\Object
     /**
      * Period start date (YYYY-MM-DD)
      *
-     * @property \DateTime StartDate
+     * @property \DateTimeInterface StartDate
      */
 
     /**
      * Period end date (YYYY-MM-DD)
      *
-     * @property \DateTime EndDate
+     * @property \DateTimeInterface EndDate
      */
 
     /**
@@ -125,8 +125,8 @@ class Timesheet extends Remote\Object
     {
         return array(
             'EmployeeID' => array (true, self::PROPERTY_TYPE_STRING, null, false, false),
-            'StartDate' => array (true, self::PROPERTY_TYPE_DATE, '\\DateTime', false, false),
-            'EndDate' => array (true, self::PROPERTY_TYPE_DATE, '\\DateTime', false, false),
+            'StartDate' => array (true, self::PROPERTY_TYPE_DATE, '\\DateTimeInterface', false, false),
+            'EndDate' => array (true, self::PROPERTY_TYPE_DATE, '\\DateTimeInterface', false, false),
             'TimesheetLines' => array (false, self::PROPERTY_TYPE_OBJECT, 'PayrollAU\\Timesheet\\TimesheetLine', true, false),
             'Status' => array (false, self::PROPERTY_TYPE_ENUM, null, false, false),
             'Hours' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
@@ -159,7 +159,7 @@ class Timesheet extends Remote\Object
     }
 
     /**
-     * @return \DateTime
+     * @return \DateTimeInterface
      */
     public function getStartDate()
     {
@@ -167,10 +167,10 @@ class Timesheet extends Remote\Object
     }
 
     /**
-     * @param \DateTime $value
+     * @param \DateTimeInterface $value
      * @return Timesheet
      */
-    public function setStartDate(\DateTime $value)
+    public function setStartDate(\DateTimeInterface $value)
     {
         $this->propertyUpdated('StartDate', $value);
         $this->_data['StartDate'] = $value;
@@ -178,7 +178,7 @@ class Timesheet extends Remote\Object
     }
 
     /**
-     * @return \DateTime
+     * @return \DateTimeInterface
      */
     public function getEndDate()
     {
@@ -186,10 +186,10 @@ class Timesheet extends Remote\Object
     }
 
     /**
-     * @param \DateTime $value
+     * @param \DateTimeInterface $value
      * @return Timesheet
      */
-    public function setEndDate(\DateTime $value)
+    public function setEndDate(\DateTimeInterface $value)
     {
         $this->propertyUpdated('EndDate', $value);
         $this->_data['EndDate'] = $value;

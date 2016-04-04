@@ -23,7 +23,7 @@ class Allocation extends Remote\Object
      * the date the overpayment is applied YYYY-MM-DD (read-only). This will be the latter of the invoice
      * date and the overpayment date.
      *
-     * @property \DateTime Date
+     * @property \DateTimeInterface Date
      */
 
 
@@ -97,7 +97,7 @@ class Allocation extends Remote\Object
         return array(
             'Invoice' => array (false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Invoice', false, false),
             'AppliedAmount' => array (false, self::PROPERTY_TYPE_FLOAT, null, false, false),
-            'Date' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTime', false, false)
+            'Date' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTimeInterface', false, false)
         );
     }
 
@@ -145,7 +145,7 @@ class Allocation extends Remote\Object
     }
 
     /**
-     * @return \DateTime
+     * @return \DateTimeInterface
      */
     public function getDate()
     {
@@ -153,10 +153,10 @@ class Allocation extends Remote\Object
     }
 
     /**
-     * @param \DateTime $value
+     * @param \DateTimeInterface $value
      * @return Allocation
      */
-    public function setDate(\DateTime $value)
+    public function setDate(\DateTimeInterface $value)
     {
         $this->propertyUpdated('Date', $value);
         $this->_data['Date'] = $value;

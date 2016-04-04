@@ -28,7 +28,7 @@ class ExpenseClaim extends Remote\Object
     /**
      * Last modified date UTC format
      *
-     * @property \DateTime UpdatedDateUTC
+     * @property \DateTimeInterface UpdatedDateUTC
      */
 
     /**
@@ -52,13 +52,13 @@ class ExpenseClaim extends Remote\Object
     /**
      * The date when the expense claim is due to be paid YYYY-MM-DD
      *
-     * @property \DateTime PaymentDueDate
+     * @property \DateTimeInterface PaymentDueDate
      */
 
     /**
      * The date the expense claim will be reported in Xero YYYY-MM-DD
      *
-     * @property \DateTime ReportingDate
+     * @property \DateTimeInterface ReportingDate
      */
 
     /**
@@ -139,12 +139,12 @@ class ExpenseClaim extends Remote\Object
             'ExpenseClaimID' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'Payments' => array (false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Payment', true, false),
             'Status' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'UpdatedDateUTC' => array (false, self::PROPERTY_TYPE_TIMESTAMP, '\\DateTime', false, false),
+            'UpdatedDateUTC' => array (false, self::PROPERTY_TYPE_TIMESTAMP, '\\DateTimeInterface', false, false),
             'Total' => array (false, self::PROPERTY_TYPE_FLOAT, null, false, false),
             'AmountDue' => array (false, self::PROPERTY_TYPE_FLOAT, null, false, false),
             'AmountPaid' => array (false, self::PROPERTY_TYPE_FLOAT, null, false, false),
-            'PaymentDueDate' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTime', false, false),
-            'ReportingDate' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTime', false, false),
+            'PaymentDueDate' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTimeInterface', false, false),
+            'ReportingDate' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTimeInterface', false, false),
             'ReceiptID' => array (true, self::PROPERTY_TYPE_STRING, null, false, false)
         );
     }
@@ -193,7 +193,7 @@ class ExpenseClaim extends Remote\Object
 
 
     /**
-     * @return \DateTime
+     * @return \DateTimeInterface
      */
     public function getUpdatedDateUTC()
     {
@@ -229,7 +229,7 @@ class ExpenseClaim extends Remote\Object
 
 
     /**
-     * @return \DateTime
+     * @return \DateTimeInterface
      */
     public function getPaymentDueDate()
     {
@@ -238,7 +238,7 @@ class ExpenseClaim extends Remote\Object
 
 
     /**
-     * @return \DateTime
+     * @return \DateTimeInterface
      */
     public function getReportingDate()
     {

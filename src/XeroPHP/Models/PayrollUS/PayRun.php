@@ -15,7 +15,7 @@ class PayRun extends Remote\Object
     /**
      * Pay run period end date. Needed if it is an unscheduled pay run
      *
-     * @property \DateTime PayRunPeriodEndDate
+     * @property \DateTimeInterface PayRunPeriodEndDate
      */
 
     /**
@@ -33,13 +33,13 @@ class PayRun extends Remote\Object
     /**
      * Period Start Date for the PayRun
      *
-     * @property \DateTime PayRunPeriodStartDate
+     * @property \DateTimeInterface PayRunPeriodStartDate
      */
 
     /**
      * Payment Date for the PayRun
      *
-     * @property \DateTime PaymentDate
+     * @property \DateTimeInterface PaymentDate
      */
 
     /**
@@ -69,7 +69,7 @@ class PayRun extends Remote\Object
     /**
      * The update date for the PayRun
      *
-     * @property \DateTime UpdateDateUTC
+     * @property \DateTimeInterface UpdateDateUTC
      */
 
     /**
@@ -150,16 +150,16 @@ class PayRun extends Remote\Object
     {
         return array(
             'PayScheduleID' => array (true, self::PROPERTY_TYPE_STRING, null, false, false),
-            'PayRunPeriodEndDate' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTime', false, false),
+            'PayRunPeriodEndDate' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTimeInterface', false, false),
             'PayRunStatus' => array (false, self::PROPERTY_TYPE_ENUM, null, false, false),
             'PayRunID' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'PayRunPeriodStartDate' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTime', false, false),
-            'PaymentDate' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTime', false, false),
+            'PayRunPeriodStartDate' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTimeInterface', false, false),
+            'PaymentDate' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTimeInterface', false, false),
             'Earnings' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'Deductions' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'Reimbursement' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'NetPay' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'UpdateDateUTC' => array (false, self::PROPERTY_TYPE_TIMESTAMP, '\\DateTime', false, false),
+            'UpdateDateUTC' => array (false, self::PROPERTY_TYPE_TIMESTAMP, '\\DateTimeInterface', false, false),
             'PayStubs' => array (false, self::PROPERTY_TYPE_STRING, null, false, false)
         );
     }
@@ -189,7 +189,7 @@ class PayRun extends Remote\Object
     }
 
     /**
-     * @return \DateTime
+     * @return \DateTimeInterface
      */
     public function getPayRunPeriodEndDate()
     {
@@ -197,10 +197,10 @@ class PayRun extends Remote\Object
     }
 
     /**
-     * @param \DateTime $value
+     * @param \DateTimeInterface $value
      * @return PayRun
      */
-    public function setPayRunPeriodEndDate(\DateTime $value)
+    public function setPayRunPeriodEndDate(\DateTimeInterface $value)
     {
         $this->propertyUpdated('PayRunPeriodEndDate', $value);
         $this->_data['PayRunPeriodEndDate'] = $value;
@@ -246,7 +246,7 @@ class PayRun extends Remote\Object
     }
 
     /**
-     * @return \DateTime
+     * @return \DateTimeInterface
      */
     public function getPayRunPeriodStartDate()
     {
@@ -255,7 +255,7 @@ class PayRun extends Remote\Object
 
 
     /**
-     * @return \DateTime
+     * @return \DateTimeInterface
      */
     public function getPaymentDate()
     {
@@ -300,7 +300,7 @@ class PayRun extends Remote\Object
 
 
     /**
-     * @return \DateTime
+     * @return \DateTimeInterface
      */
     public function getUpdateDateUTC()
     {

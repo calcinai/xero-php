@@ -114,7 +114,7 @@ class Organisation extends Remote\Object
     /**
      * Timestamp when the organisation was created in Xero
      *
-     * @property \DateTime CreatedDateUTC
+     * @property \DateTimeInterface CreatedDateUTC
      */
 
     /**
@@ -274,7 +274,7 @@ class Organisation extends Remote\Object
             'SalesTaxPeriod' => array (false, self::PROPERTY_TYPE_ENUM, null, false, false),
             'PeriodLockDate' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'EndOfYearLockDate' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'CreatedDateUTC' => array (false, self::PROPERTY_TYPE_TIMESTAMP, '\\DateTime', false, false),
+            'CreatedDateUTC' => array (false, self::PROPERTY_TYPE_TIMESTAMP, '\\DateTimeInterface', false, false),
             'OrganisationEntityType' => array (false, self::PROPERTY_TYPE_ENUM, null, false, false),
             'Timezone' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'ShortCode' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
@@ -615,7 +615,7 @@ class Organisation extends Remote\Object
     }
 
     /**
-     * @return \DateTime
+     * @return \DateTimeInterface
      */
     public function getCreatedDateUTC()
     {
@@ -623,10 +623,10 @@ class Organisation extends Remote\Object
     }
 
     /**
-     * @param \DateTime $value
+     * @param \DateTimeInterface $value
      * @return Organisation
      */
-    public function setCreatedDateUTC(\DateTime $value)
+    public function setCreatedDateUTC(\DateTimeInterface $value)
     {
         $this->propertyUpdated('CreatedDateUTC', $value);
         $this->_data['CreatedDateUTC'] = $value;

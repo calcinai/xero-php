@@ -52,7 +52,7 @@ class SalaryAndWage extends Remote\Object
     /**
      * The effective date of the Salary and Wages
      *
-     * @property \DateTime EffectiveDate
+     * @property \DateTimeInterface EffectiveDate
      */
 
 
@@ -131,7 +131,7 @@ class SalaryAndWage extends Remote\Object
             'HourlyRate' => array (false, self::PROPERTY_TYPE_FLOAT, null, false, false),
             'AnnualSalary' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'StandardHoursPerWeek' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'EffectiveDate' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTime', false, false)
+            'EffectiveDate' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTimeInterface', false, false)
         );
     }
 
@@ -276,7 +276,7 @@ class SalaryAndWage extends Remote\Object
     }
 
     /**
-     * @return \DateTime
+     * @return \DateTimeInterface
      */
     public function getEffectiveDate()
     {
@@ -284,10 +284,10 @@ class SalaryAndWage extends Remote\Object
     }
 
     /**
-     * @param \DateTime $value
+     * @param \DateTimeInterface $value
      * @return SalaryAndWage
      */
-    public function setEffectiveDate(\DateTime $value)
+    public function setEffectiveDate(\DateTimeInterface $value)
     {
         $this->propertyUpdated('EffectiveDate', $value);
         $this->_data['EffectiveDate'] = $value;

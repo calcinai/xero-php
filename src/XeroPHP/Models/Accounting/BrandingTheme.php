@@ -27,7 +27,7 @@ class BrandingTheme extends Remote\Object
     /**
      * UTC timestamp of creation date of branding theme
      *
-     * @property \DateTime CreatedDateUTC
+     * @property \DateTimeInterface CreatedDateUTC
      */
 
 
@@ -103,7 +103,7 @@ class BrandingTheme extends Remote\Object
             'BrandingThemeID' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'Name' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'SortOrder' => array (false, self::PROPERTY_TYPE_INT, null, false, false),
-            'CreatedDateUTC' => array (false, self::PROPERTY_TYPE_TIMESTAMP, '\\DateTime', false, false)
+            'CreatedDateUTC' => array (false, self::PROPERTY_TYPE_TIMESTAMP, '\\DateTimeInterface', false, false)
         );
     }
 
@@ -170,7 +170,7 @@ class BrandingTheme extends Remote\Object
     }
 
     /**
-     * @return \DateTime
+     * @return \DateTimeInterface
      */
     public function getCreatedDateUTC()
     {
@@ -178,10 +178,10 @@ class BrandingTheme extends Remote\Object
     }
 
     /**
-     * @param \DateTime $value
+     * @param \DateTimeInterface $value
      * @return BrandingTheme
      */
-    public function setCreatedDateUTC(\DateTime $value)
+    public function setCreatedDateUTC(\DateTimeInterface $value)
     {
         $this->propertyUpdated('CreatedDateUTC', $value);
         $this->_data['CreatedDateUTC'] = $value;

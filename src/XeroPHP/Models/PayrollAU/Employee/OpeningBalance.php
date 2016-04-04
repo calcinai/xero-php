@@ -12,7 +12,7 @@ class OpeningBalance extends Remote\Object
     /**
      * Opening Balance Date. (YYYY-MM-DD)
      *
-     * @property \DateTime OpeningBalanceDate
+     * @property \DateTimeInterface OpeningBalanceDate
      */
 
     /**
@@ -168,7 +168,7 @@ class OpeningBalance extends Remote\Object
     public static function getProperties()
     {
         return array(
-            'OpeningBalanceDate' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTime', false, false),
+            'OpeningBalanceDate' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTimeInterface', false, false),
             'Tax' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'EarningsLines' => array (false, self::PROPERTY_TYPE_OBJECT, 'PayrollAU\\Payslip\\EarningsLine', true, false),
             'DeductionLines' => array (false, self::PROPERTY_TYPE_OBJECT, 'PayrollAU\\Payslip\\DeductionLine', true, false),
@@ -192,7 +192,7 @@ class OpeningBalance extends Remote\Object
     }
 
     /**
-     * @return \DateTime
+     * @return \DateTimeInterface
      */
     public function getOpeningBalanceDate()
     {
@@ -200,10 +200,10 @@ class OpeningBalance extends Remote\Object
     }
 
     /**
-     * @param \DateTime $value
+     * @param \DateTimeInterface $value
      * @return OpeningBalance
      */
-    public function setOpeningBalanceDate(\DateTime $value)
+    public function setOpeningBalanceDate(\DateTimeInterface $value)
     {
         $this->propertyUpdated('OpeningBalanceDate', $value);
         $this->_data['OpeningBalanceDate'] = $value;

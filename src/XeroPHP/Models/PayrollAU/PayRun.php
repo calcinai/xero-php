@@ -21,13 +21,13 @@ class PayRun extends Remote\Object
     /**
      * Period Start Date for the PayRun (YYYY-MM-DD)
      *
-     * @property \DateTime PayRunPeriodStartDate
+     * @property \DateTimeInterface PayRunPeriodStartDate
      */
 
     /**
      * Period End Date for the PayRun (YYYY-MM-DD)
      *
-     * @property \DateTime PayRunPeriodEndDate
+     * @property \DateTimeInterface PayRunPeriodEndDate
      */
 
     /**
@@ -39,7 +39,7 @@ class PayRun extends Remote\Object
     /**
      * Payment Date for the PayRun (YYYY-MM-DD)
      *
-     * @property \DateTime PaymentDate
+     * @property \DateTimeInterface PaymentDate
      */
 
     /**
@@ -163,10 +163,10 @@ class PayRun extends Remote\Object
         return array(
             'PayrollCalendarID' => array (true, self::PROPERTY_TYPE_STRING, null, false, false),
             'PayRunID' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'PayRunPeriodStartDate' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTime', false, false),
-            'PayRunPeriodEndDate' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTime', false, false),
+            'PayRunPeriodStartDate' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTimeInterface', false, false),
+            'PayRunPeriodEndDate' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTimeInterface', false, false),
             'PayRunStatus' => array (false, self::PROPERTY_TYPE_ENUM, null, false, false),
-            'PaymentDate' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTime', false, false),
+            'PaymentDate' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTimeInterface', false, false),
             'PayslipMessage' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'Payslips' => array (false, self::PROPERTY_TYPE_OBJECT, 'PayrollAU\\Payslip', true, false),
             'Wages' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
@@ -222,7 +222,7 @@ class PayRun extends Remote\Object
     }
 
     /**
-     * @return \DateTime
+     * @return \DateTimeInterface
      */
     public function getPayRunPeriodStartDate()
     {
@@ -230,10 +230,10 @@ class PayRun extends Remote\Object
     }
 
     /**
-     * @param \DateTime $value
+     * @param \DateTimeInterface $value
      * @return PayRun
      */
-    public function setPayRunPeriodStartDate(\DateTime $value)
+    public function setPayRunPeriodStartDate(\DateTimeInterface $value)
     {
         $this->propertyUpdated('PayRunPeriodStartDate', $value);
         $this->_data['PayRunPeriodStartDate'] = $value;
@@ -241,7 +241,7 @@ class PayRun extends Remote\Object
     }
 
     /**
-     * @return \DateTime
+     * @return \DateTimeInterface
      */
     public function getPayRunPeriodEndDate()
     {
@@ -249,10 +249,10 @@ class PayRun extends Remote\Object
     }
 
     /**
-     * @param \DateTime $value
+     * @param \DateTimeInterface $value
      * @return PayRun
      */
-    public function setPayRunPeriodEndDate(\DateTime $value)
+    public function setPayRunPeriodEndDate(\DateTimeInterface $value)
     {
         $this->propertyUpdated('PayRunPeriodEndDate', $value);
         $this->_data['PayRunPeriodEndDate'] = $value;
@@ -279,7 +279,7 @@ class PayRun extends Remote\Object
     }
 
     /**
-     * @return \DateTime
+     * @return \DateTimeInterface
      */
     public function getPaymentDate()
     {
@@ -287,10 +287,10 @@ class PayRun extends Remote\Object
     }
 
     /**
-     * @param \DateTime $value
+     * @param \DateTimeInterface $value
      * @return PayRun
      */
-    public function setPaymentDate(\DateTime $value)
+    public function setPaymentDate(\DateTimeInterface $value)
     {
         $this->propertyUpdated('PaymentDate', $value);
         $this->_data['PaymentDate'] = $value;

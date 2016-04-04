@@ -15,13 +15,13 @@ class LeavePeriod extends Remote\Object
     /**
      * The Pay Period End Date (YYYY-MM-DD)
      *
-     * @property \DateTime PayPeriodEndDate
+     * @property \DateTimeInterface PayPeriodEndDate
      */
 
     /**
      * The Pay Period Start Date (YYYY-MM-DD)
      *
-     * @property \DateTime PayPeriodStartDate
+     * @property \DateTimeInterface PayPeriodStartDate
      */
 
     /**
@@ -100,8 +100,8 @@ class LeavePeriod extends Remote\Object
     {
         return array(
             'NumberOfUnits' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'PayPeriodEndDate' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTime', false, false),
-            'PayPeriodStartDate' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTime', false, false),
+            'PayPeriodEndDate' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTimeInterface', false, false),
+            'PayPeriodStartDate' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTimeInterface', false, false),
             'LeavePeriodStatus' => array (false, self::PROPERTY_TYPE_ENUM, null, false, false)
         );
     }
@@ -131,7 +131,7 @@ class LeavePeriod extends Remote\Object
     }
 
     /**
-     * @return \DateTime
+     * @return \DateTimeInterface
      */
     public function getPayPeriodEndDate()
     {
@@ -139,10 +139,10 @@ class LeavePeriod extends Remote\Object
     }
 
     /**
-     * @param \DateTime $value
+     * @param \DateTimeInterface $value
      * @return LeavePeriod
      */
-    public function setPayPeriodEndDate(\DateTime $value)
+    public function setPayPeriodEndDate(\DateTimeInterface $value)
     {
         $this->propertyUpdated('PayPeriodEndDate', $value);
         $this->_data['PayPeriodEndDate'] = $value;
@@ -150,7 +150,7 @@ class LeavePeriod extends Remote\Object
     }
 
     /**
-     * @return \DateTime
+     * @return \DateTimeInterface
      */
     public function getPayPeriodStartDate()
     {
@@ -158,10 +158,10 @@ class LeavePeriod extends Remote\Object
     }
 
     /**
-     * @param \DateTime $value
+     * @param \DateTimeInterface $value
      * @return LeavePeriod
      */
-    public function setPayPeriodStartDate(\DateTime $value)
+    public function setPayPeriodStartDate(\DateTimeInterface $value)
     {
         $this->propertyUpdated('PayPeriodStartDate', $value);
         $this->_data['PayPeriodStartDate'] = $value;
