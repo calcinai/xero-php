@@ -14,12 +14,6 @@ class CreditNote extends Remote\Object
     use AttachmentTrait;
 
     /**
-     * An optional field to store a reference
-     *
-     * @property string Reference
-     */
-
-    /**
      * See Credit Note Types
      *
      * @property string Type
@@ -98,9 +92,16 @@ class CreditNote extends Remote\Object
      */
 
     /**
-     * The user friendly unique identifier for a credit note e.g. CN 1001
+     * ACCRECCREDIT – Unique alpha numeric code identifying credit note (when missing will auto-generate
+     * from your Organisation Invoice Settings)
      *
      * @property string CreditNoteNumber
+     */
+
+    /**
+     * ACCRECCREDIT only – additional reference number
+     *
+     * @property string Reference
      */
 
     /**
@@ -214,7 +215,6 @@ class CreditNote extends Remote\Object
     public static function getProperties()
     {
         return array(
-            'Reference' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'Type' => array (false, self::PROPERTY_TYPE_ENUM, null, false, false),
             'Contact' => array (false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Contact', false, false),
             'Date' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTimeInterface', false, false),
@@ -229,6 +229,7 @@ class CreditNote extends Remote\Object
             'FullyPaidOnDate' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTimeInterface', false, false),
             'CreditNoteID' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'CreditNoteNumber' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
+            'Reference' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'SentToContact' => array (false, self::PROPERTY_TYPE_BOOLEAN, null, false, false),
             'CurrencyRate' => array (false, self::PROPERTY_TYPE_FLOAT, null, false, false),
             'RemainingCredit' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
@@ -241,25 +242,6 @@ class CreditNote extends Remote\Object
     public static function isPageable()
     {
         return false;
-    }
-
-    /**
-     * @return string
-     */
-    public function getReference()
-    {
-        return $this->_data['Reference'];
-    }
-
-    /**
-     * @param string $value
-     * @return CreditNote
-     */
-    public function setReference($value)
-    {
-        $this->propertyUpdated('Reference', $value);
-        $this->_data['Reference'] = $value;
-        return $this;
     }
 
     /**
@@ -529,6 +511,25 @@ class CreditNote extends Remote\Object
     {
         $this->propertyUpdated('CreditNoteNumber', $value);
         $this->_data['CreditNoteNumber'] = $value;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getReference()
+    {
+        return $this->_data['Reference'];
+    }
+
+    /**
+     * @param string $value
+     * @return CreditNote
+     */
+    public function setReference($value)
+    {
+        $this->propertyUpdated('Reference', $value);
+        $this->_data['Reference'] = $value;
         return $this;
     }
 

@@ -12,7 +12,7 @@ class LineItem extends Remote\Object
      * amount or quantity) can be created by specifying just a <Description> element that contains at least
      * 1 character
      *
-     * @property float Description
+     * @property string Description
      */
 
     /**
@@ -133,7 +133,7 @@ class LineItem extends Remote\Object
     public static function getProperties()
     {
         return array(
-            'Description' => array (true, self::PROPERTY_TYPE_FLOAT, null, false, false),
+            'Description' => array (true, self::PROPERTY_TYPE_STRING, null, false, false),
             'UnitAmount' => array (true, self::PROPERTY_TYPE_FLOAT, null, false, false),
             'AccountCode' => array (true, self::PROPERTY_TYPE_STRING, null, false, false),
             'Quantity' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
@@ -150,7 +150,7 @@ class LineItem extends Remote\Object
     }
 
     /**
-     * @return float
+     * @return string
      */
     public function getDescription()
     {
@@ -158,7 +158,7 @@ class LineItem extends Remote\Object
     }
 
     /**
-     * @param float $value
+     * @param string $value
      * @return LineItem
      */
     public function setDescription($value)
