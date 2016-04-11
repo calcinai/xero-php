@@ -227,7 +227,7 @@ class Property {
 
         if(preg_match('/(^sum\b|decimal|the\stotal|total\s(of|tax)|rate\b|amount\b)/i', $this->description)){
             //If not the name of the field itself and not an 'amount type'
-            if(stripos($this->name, 'name') === false && stripos($this->description, 'amount type') === false){
+            if(stripos($this->name, 'name') === false && stripos($this->name, 'description') === false && stripos($this->description, 'amount type') === false){
                 $type = Object::PROPERTY_TYPE_FLOAT;
             }
         }
