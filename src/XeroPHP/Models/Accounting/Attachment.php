@@ -225,4 +225,7 @@ class Attachment extends Object {
         return false;
     }
 
+    static function getAPIStem() {
+        return '';
+    }
 }
