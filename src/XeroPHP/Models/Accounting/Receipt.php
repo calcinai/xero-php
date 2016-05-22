@@ -179,7 +179,7 @@ class Receipt extends Remote\Object
         return array(
             'Date' => array (true, self::PROPERTY_TYPE_DATE, '\\DateTimeInterface', false, false),
             'Contact' => array (true, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Contact', false, false),
-            'LineItems' => array (true, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Receipt\\LineItem', true, false),
+            'LineItems' => array (false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Receipt\\LineItem', true, false),
             'User' => array (true, self::PROPERTY_TYPE_OBJECT, 'Accounting\\User', false, false),
             'Reference' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'LineAmountTypes' => array (false, self::PROPERTY_TYPE_ENUM, null, false, false),
@@ -400,6 +400,17 @@ class Receipt extends Remote\Object
     public function getStatus()
     {
         return $this->_data['Status'];
+    }
+
+    /**
+     * @param string $value
+     * @return Receipt
+     */
+    public function setStatus($value)
+    {
+        $this->propertyUpdated('Status', $value);
+        $this->_data['Status'] = $value;
+        return $this;
     }
 
 
