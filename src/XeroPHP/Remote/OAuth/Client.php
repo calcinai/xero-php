@@ -2,7 +2,6 @@
 
 namespace XeroPHP\Remote\OAuth;
 
-use XeroPHP\Exception;
 use XeroPHP\Helpers;
 use XeroPHP\Remote\OAuth\SignatureMethod\HMACSHA1;
 use XeroPHP\Remote\OAuth\SignatureMethod\PLAINTEXT;
@@ -29,6 +28,10 @@ class Client {
     const SIGN_LOCATION_QUERY  = 'query_string';
 
     private $config;
+
+    /**
+     * @var Request $request
+     */
     private $request;
 
     /*

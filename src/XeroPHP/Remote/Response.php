@@ -3,7 +3,6 @@
 namespace XeroPHP\Remote;
 
 use SimpleXMLElement;
-use XeroPHP\Exception;
 use XeroPHP\Helpers;
 use XeroPHP\Remote\Exception\BadRequestException;
 use XeroPHP\Remote\Exception\InternalErrorException;
