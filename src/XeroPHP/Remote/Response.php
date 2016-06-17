@@ -116,7 +116,7 @@ class Response {
 	 */
 	private function parseBadRequest(){
 		if (isset($this->elements)){
-			$field_errors = [];
+			$errors = [];
 			foreach ($this->elements as $n => $element){
 				if (isset($element['ValidationErrors'])){
 					$field_errors[] = $element['ValidationErrors'][0]['Message'];
