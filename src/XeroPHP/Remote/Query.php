@@ -17,6 +17,8 @@ class Query {
     private $order;
     private $modifiedAfter;
     private $page;
+    private $fromDate;
+    private $toDate;
     private $offset;
 
     public function __construct(Application $app) {
@@ -94,6 +96,36 @@ class Query {
     }
 
     /**
+     * @param string $fromDate
+     * @return $this
+     * @throws Exception
+     */
+    public function fromDate($fromDate) {
+        if (preg_match('/^[0-9]{4}-[0-9]{2}-[0-9]{2}$/', $fromDate) !== 1) {
+            throw new Exception(sprintf('%s is not a valid date. Please use the format YYYY-MM-DD.', $fromDate));
+        }
+
+        $this->fromDate = $fromDate;
+
+        return $this;
+    }
+
+    /**
+     * @param string $toDate
+     * @return $this
+     * @throws Exception
+     */
+    public function toDate($toDate) {
+        if (preg_match('/^[0-9]{4}-[0-9]{2}-[0-9]{2}$/', $toDate) !== 1) {
+            throw new Exception(sprintf('%s is not a valid date. Please use the format YYYY-MM-DD.', $toDate));
+        }
+
+        $this->toDate = $toDate;
+
+        return $this;
+    }
+
+    /**
      * @param int $page
      * @return $this
      * @throws Exception
@@ -141,6 +173,14 @@ class Query {
 
         if($this->modifiedAfter !== null) {
             $request->setHeader('If-Modified-Since', $this->modifiedAfter);
+        }
+
+        if($this->fromDate !== null) {
+            $request->setParameter('fromDate', $this->fromDate);
+        }
+
+        if($this->toDate !== null) {
+            $request->setParameter('toDate', $this->toDate);
         }
 
         if($this->page !== null) {
