@@ -1,8 +1,6 @@
 <?php
 namespace XeroPHP\Models\Accounting\Report;
 
-use XeroPHP\Remote;
-
 class BalanceSheet extends Report
 {
     /**
