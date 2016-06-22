@@ -61,7 +61,7 @@ abstract class Report extends Remote\Object
      */
     public static function getGUIDProperty()
     {
-        return 'Id';
+        return '';
     }
 
 
