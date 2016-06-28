@@ -15,7 +15,7 @@ class ExternalLink extends Remote\Object
     /**
      * URL for service e.g. http://twitter.com/xeroapi
      *
-     * @property string URL
+     * @property string Url
      */
 
 
@@ -94,7 +94,7 @@ class ExternalLink extends Remote\Object
     {
         return array(
             'LinkType' => array (false, self::PROPERTY_TYPE_ENUM, null, false, false),
-            'URL' => array (false, self::PROPERTY_TYPE_STRING, null, false, false)
+            'Url' => array (false, self::PROPERTY_TYPE_STRING, null, false, false)
         );
     }
 
@@ -125,19 +125,19 @@ class ExternalLink extends Remote\Object
     /**
      * @return string
      */
-    public function getURL()
+    public function getUrl()
     {
-        return $this->_data['URL'];
+        return $this->_data['Url'];
     }
 
     /**
      * @param string $value
      * @return ExternalLink
      */
-    public function setURL($value)
+    public function setUrl($value)
     {
-        $this->propertyUpdated('URL', $value);
-        $this->_data['URL'] = $value;
+        $this->propertyUpdated('Url', $value);
+        $this->_data['Url'] = $value;
         return $this;
     }
 

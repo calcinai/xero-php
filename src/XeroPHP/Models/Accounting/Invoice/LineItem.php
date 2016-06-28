@@ -61,9 +61,8 @@ class LineItem extends Remote\Object
      */
 
     /**
-     * If you wish to omit either of the <Quantity> or <UnitAmount> you can provide a LineAmount and Xero
-     * will calculate the missing amount for you. The line amount reflects the discounted price if a
-     * DiscountRate has been used . i.e LineAmount = Quantity * Unit Amount * ((100 – DiscountRate)/100)
+     * The line amount reflects the discounted price if a DiscountRate has been used i.e LineAmount =
+     * Quantity * Unit Amount * ((100 – DiscountRate)/100)
      *
      * @property float LineAmount
      */

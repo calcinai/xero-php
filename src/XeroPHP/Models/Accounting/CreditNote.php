@@ -105,7 +105,8 @@ class CreditNote extends Remote\Object
      */
 
     /**
-     * boolean to indicate if a credit note has been sent to a contact via the Xero app
+     * boolean to indicate if a credit note has been sent to a contact via the Xero app (currently read
+     * only)
      *
      * @property bool SentToContact
      */

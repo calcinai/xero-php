@@ -38,7 +38,7 @@ class Contact extends Remote\Object
      */
 
     /**
-     * Name of contact organisation (max length = 500)
+     * Full name of contact/organisation (max length = 500)
      *
      * @property string Name
      */
