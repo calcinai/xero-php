@@ -26,7 +26,7 @@ This library has been tested with Private, Public and Partner apps but is still 
 Any files in the XeroPHP/Models directory are system generated.  Ideally, these shouldn't be modified directly, as it will be difficult to track/update.  Instead, if you notice something wrong with them, have a look at the ```generate/``` folder.  This contains the generation code, which actually just scrapes <http://developer.xero.com/documentation/> and parses out model/property/relation information.
 
 ## Requirements
-* PHP 5.4+
+* PHP 5.5+
 * php\_curl extension - ensure a recent version (7.30+)
 * php\_openssl extension
 
