@@ -3,6 +3,7 @@
 namespace XeroPHP\Remote;
 
 use XeroPHP\Application;
+use DateTime;
 
 class Query {
 
@@ -19,6 +20,7 @@ class Query {
     private $page;
     private $fromDate;
     private $toDate;
+    private $date;
     private $offset;
 
     public function __construct(Application $app) {
@@ -96,32 +98,29 @@ class Query {
     }
 
     /**
-     * @param string $fromDate
+     * @param DateTime $fromDate
      * @return $this
-     * @throws Exception
      */
-    public function fromDate($fromDate) {
-        if (preg_match('/^[0-9]{4}-[0-9]{2}-[0-9]{2}$/', $fromDate) !== 1) {
-            throw new Exception(sprintf('%s is not a valid date. Please use the format YYYY-MM-DD.', $fromDate));
-        }
-
-        $this->fromDate = $fromDate;
-
+    public function fromDate(DateTime $fromDate) {
+        $this->fromDate = $fromDate->format('Y-m-d');
         return $this;
     }
 
     /**
-     * @param string $toDate
+     * @param DateTime $toDate
      * @return $this
-     * @throws Exception
      */
-    public function toDate($toDate) {
-        if (preg_match('/^[0-9]{4}-[0-9]{2}-[0-9]{2}$/', $toDate) !== 1) {
-            throw new Exception(sprintf('%s is not a valid date. Please use the format YYYY-MM-DD.', $toDate));
-        }
+    public function toDate(DateTime $toDate) {
+        $this->toDate = $toDate->format('Y-m-d');
+        return $this;
+    }
 
-        $this->toDate = $toDate;
-
+    /**
+     * @param DateTime $date
+     * @return $this
+     */
+    public function date(DateTime $date) {
+        $this->date = $date->format('Y-m-d');
         return $this;
     }
 
@@ -181,6 +180,10 @@ class Query {
 
         if($this->toDate !== null) {
             $request->setParameter('toDate', $this->toDate);
+        }
+
+        if($this->date !== null) {
+            $request->setParameter('date', $this->date);
         }
 
         if($this->page !== null) {
