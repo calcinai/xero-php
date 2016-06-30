@@ -198,11 +198,14 @@ class Client {
      * @return string
      */
     private function getNonce($length = 20) {
-        $nonce = '';
+        // Add more uniqueness to the nonce
+        $parts = explode('.', microtime(true));
+        $nonce = base_convert($parts[1], 10, 36);
 
-        for($i = 0; $i < $length; $i++) {
+        for($i = 0; $i < $length - strlen($nonce); $i++) {
             $nonce .= base_convert(mt_rand(0, 35), 10, 36);
         }
+
         return $nonce;
     }
 
