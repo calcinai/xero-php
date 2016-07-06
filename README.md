@@ -68,14 +68,14 @@ foreach ($contacts as $contact) {
 
 Search for objects meeting certain criteria
 ```php
-$xero->load('Accounting\\Invoices')
+$xero->load('Accounting\\Invoice')
 	->where('Status', \XeroPHP\Models\Accounting\Invoice::INVOICE_STATUS_AUTHORISED)
 	->where('Type', \XeroPHP\Models\Accounting\Invoice::INVOICE_TYPE_ACCREC)
 	->execute();
 ```
 or
 ```php
-$xero->load('Accounting\\Invoices')->where('
+$xero->load('Accounting\\Invoice')->where('
 	Status=="' . \XeroPHP\Models\Accounting\Invoice::INVOICE_STATUS_AUTHORISED . '" AND
 	Type=="' . \XeroPHP\Models\Accounting\Invoice::INVOICE_TYPE_ACCREC . '"
 ')->execute();
