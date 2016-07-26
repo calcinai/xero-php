@@ -35,8 +35,8 @@ class LinkedTransaction extends Remote\Object
      */
 
     /**
-     * The line item identifier from the target transaction. When allocating a billable expense to a target
-     * transaction the TargetLineItemID is optional.
+     * The line item identifier from the target transaction. It is possible to link multiple billable
+     * expenses to the same TargetLineItemID.
      *
      * @property string TargetLineItemID
      */
