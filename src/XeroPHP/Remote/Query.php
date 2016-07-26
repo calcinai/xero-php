@@ -42,14 +42,48 @@ class Query {
 
         return $this;
     }
-
+    
     /**
+     * Adds a WHERE statment to the query. Can also be used to chain an AND WHERE statement to
+     * a query.
+     *
      * @return $this
      */
     public function where() {
-        $args = func_get_args();
+        return $this->addWhere('AND', func_get_args());
+    }
+    
+    /**
+     * Chains an OR WHERE statement on to the query
+     *
+     * @return $this
+     **/
+    public function orWhere() {
+        return $this->addWhere('OR', func_get_args());
+    }
+    
+    /**
+     * Chains an AND WHERE statement on to the query.
+     * ( Note this method is effectively an alias for where() to help make fluent
+     * queries more readable and less ambiguous )
+     *
+     * @return $this
+     **/
+    public function andWhere() {
+        return $this->addWhere('AND', func_get_args());
+    }
+    
+    /**
+     * @return $this
+     **/
+    public function addWhere($operator, $args)
+    {
+        // Add operator unless this is the first where statement
+        if (count($this->where) > 0) {
+            $this->where[] = $operator;
+        }
 
-        if(func_num_args() === 2) {
+        if(count($args) === 2) {
             if(is_bool($args[1])) {
                 $this->where[] = sprintf('%s=%s', $args[0], $args[1] ? 'true' : 'false');
             } elseif(is_int($args[1])) {
@@ -68,8 +102,15 @@ class Query {
         return $this;
     }
 
-    public function getWhere() {
-        return implode(' AND ', $this->where);
+    /**
+     * Concatenates the array of where statements stored in $this->where and returns
+     * them as a string
+     *
+     * @return $string
+     **/
+    public function getWhere()
+    {
+        return implode(' ', $this->where);
     }
 
     /**
@@ -161,7 +202,9 @@ class Query {
         $url = new URL($this->app, $from_class::getResourceURI(), $from_class::getAPIStem());
         $request = new Request($this->app, $url, Request::METHOD_GET);
 
+        // Concatenate where statements
         $where = $this->getWhere();
+        
         if(!empty($where)) {
             $request->setParameter('where', $where);
         }
