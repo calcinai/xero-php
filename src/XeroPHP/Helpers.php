@@ -15,8 +15,7 @@ class Helpers {
      * in which case, the parent key is singularised and used.
      *
      * @param array $array
-     * @param int $depth
-     * @param string $singular_parent_key
+     * @param null $key_override
      * @return string
      */
     public static function arrayToXML(array $array, $key_override = null) {
@@ -26,10 +25,17 @@ class Helpers {
             if(is_array($element)) {
 
                 //recurse and replace.
-                if(self::isAssoc($element))
+                if(self::isAssoc($element)){
                     $element = self::arrayToXML($element);
-                else
-                    $element = self::arrayToXML($element, self::singularize($key));
+                } else {
+                    //Dirty dirty hack to make the 1.x branch work for tracking categories
+                    //This is the only instance in the whole app of 'Tracking' so should be ok for BC.
+                    if($key === 'Tracking'){
+                        $element = self::arrayToXML($element, 'TrackingCategory');
+                    } else {
+                        $element = self::arrayToXML($element, self::singularize($key));
+                    }
+                }
 
             } else {
                 //Element escaping for the http://www.w3.org/TR/REC-xml/#sec-predefined-ent
