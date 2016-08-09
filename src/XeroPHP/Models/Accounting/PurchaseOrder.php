@@ -70,13 +70,6 @@ class PurchaseOrder extends Remote\Object
      */
 
     /**
-     * The currency rate for a multicurrency purchase order. If no rate is specified, the XE.com day rate
-     * is used.
-     *
-     * @property float CurrencyRate
-     */
-
-    /**
      * See Purchase Order Status Codes
      *
      * @property string Status
@@ -123,6 +116,13 @@ class PurchaseOrder extends Remote\Object
      * Xero generated unique identifier for purchase order
      *
      * @property string PurchaseOrderID
+     */
+
+    /**
+     * The currency rate for a multicurrency purchase order. As no rate can be specified, the XE.com day
+     * rate is used.
+     *
+     * @property float CurrencyRate
      */
 
     /**
@@ -248,7 +248,6 @@ class PurchaseOrder extends Remote\Object
             'Reference' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'BrandingThemeID' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'CurrencyCode' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'CurrencyRate' => array (false, self::PROPERTY_TYPE_FLOAT, null, false, false),
             'Status' => array (false, self::PROPERTY_TYPE_ENUM, null, false, false),
             'SentToContact' => array (false, self::PROPERTY_TYPE_BOOLEAN, null, false, false),
             'DeliveryAddress' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
@@ -257,6 +256,7 @@ class PurchaseOrder extends Remote\Object
             'DeliveryInstructions' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'ExpectedArrivalDate' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTimeInterface', false, false),
             'PurchaseOrderID' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
+            'CurrencyRate' => array (false, self::PROPERTY_TYPE_FLOAT, null, false, false),
             'SubTotal' => array (false, self::PROPERTY_TYPE_FLOAT, null, false, false),
             'TotalTax' => array (false, self::PROPERTY_TYPE_FLOAT, null, false, false),
             'Total' => array (false, self::PROPERTY_TYPE_FLOAT, null, false, false),
@@ -447,25 +447,6 @@ class PurchaseOrder extends Remote\Object
     }
 
     /**
-     * @return float
-     */
-    public function getCurrencyRate()
-    {
-        return $this->_data['CurrencyRate'];
-    }
-
-    /**
-     * @param float $value
-     * @return PurchaseOrder
-     */
-    public function setCurrencyRate($value)
-    {
-        $this->propertyUpdated('CurrencyRate', $value);
-        $this->_data['CurrencyRate'] = $value;
-        return $this;
-    }
-
-    /**
      * @return string
      */
     public function getStatus()
@@ -616,6 +597,15 @@ class PurchaseOrder extends Remote\Object
         $this->_data['PurchaseOrderID'] = $value;
         return $this;
     }
+
+    /**
+     * @return float
+     */
+    public function getCurrencyRate()
+    {
+        return $this->_data['CurrencyRate'];
+    }
+
 
     /**
      * @return float

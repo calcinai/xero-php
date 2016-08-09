@@ -100,6 +100,18 @@ class Organisation extends Remote\Object
      */
 
     /**
+     * The default for LineAmountTypes on sales transactions
+     *
+     * @property string DefaultSalesTax
+     */
+
+    /**
+     * The default for LineAmountTypes on purchase transactions
+     *
+     * @property string DefaultPurchasesTax
+     */
+
+    /**
      * Shown if set. See lock dates
      *
      * @property string PeriodLockDate
@@ -272,6 +284,8 @@ class Organisation extends Remote\Object
             'FinancialYearEndMonth' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'SalesTaxBasis' => array (false, self::PROPERTY_TYPE_ENUM, null, false, false),
             'SalesTaxPeriod' => array (false, self::PROPERTY_TYPE_ENUM, null, false, false),
+            'DefaultSalesTax' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
+            'DefaultPurchasesTax' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'PeriodLockDate' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'EndOfYearLockDate' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'CreatedDateUTC' => array (false, self::PROPERTY_TYPE_TIMESTAMP, '\\DateTimeInterface', false, false),
@@ -573,6 +587,44 @@ class Organisation extends Remote\Object
     {
         $this->propertyUpdated('SalesTaxPeriod', $value);
         $this->_data['SalesTaxPeriod'] = $value;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getDefaultSalesTax()
+    {
+        return $this->_data['DefaultSalesTax'];
+    }
+
+    /**
+     * @param string $value
+     * @return Organisation
+     */
+    public function setDefaultSalesTax($value)
+    {
+        $this->propertyUpdated('DefaultSalesTax', $value);
+        $this->_data['DefaultSalesTax'] = $value;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getDefaultPurchasesTax()
+    {
+        return $this->_data['DefaultPurchasesTax'];
+    }
+
+    /**
+     * @param string $value
+     * @return Organisation
+     */
+    public function setDefaultPurchasesTax($value)
+    {
+        $this->propertyUpdated('DefaultPurchasesTax', $value);
+        $this->_data['DefaultPurchasesTax'] = $value;
         return $this;
     }
 

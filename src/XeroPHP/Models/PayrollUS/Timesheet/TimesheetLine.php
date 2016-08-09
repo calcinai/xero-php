@@ -25,6 +25,13 @@ class TimesheetLine extends Remote\Object
      * @property string NumberOfUnits
      */
 
+    /**
+     * The Xero identifier for a Work Location, which must have been added for this employee under Payroll
+     * -> Employees -> Employment.
+     *
+     * @property string WorkLocationID
+     */
+
 
 
     /**
@@ -96,7 +103,8 @@ class TimesheetLine extends Remote\Object
         return array(
             'EarningsTypeID' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'TrackingItemID' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'NumberOfUnits' => array (false, self::PROPERTY_TYPE_STRING, null, false, false)
+            'NumberOfUnits' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
+            'WorkLocationID' => array (false, self::PROPERTY_TYPE_STRING, null, false, false)
         );
     }
 
@@ -159,6 +167,25 @@ class TimesheetLine extends Remote\Object
     {
         $this->propertyUpdated('NumberOfUnits', $value);
         $this->_data['NumberOfUnits'] = $value;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getWorkLocationID()
+    {
+        return $this->_data['WorkLocationID'];
+    }
+
+    /**
+     * @param string $value
+     * @return TimesheetLine
+     */
+    public function setWorkLocationID($value)
+    {
+        $this->propertyUpdated('WorkLocationID', $value);
+        $this->_data['WorkLocationID'] = $value;
         return $this;
     }
 
