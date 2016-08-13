@@ -78,7 +78,7 @@ class BookDepreciationSetting extends Remote\Object
      */
     public static function getAPIStem()
     {
-        return Remote\URL::API_ASSETS;
+        return Remote\URL::API_ASSET;
     }
 
 

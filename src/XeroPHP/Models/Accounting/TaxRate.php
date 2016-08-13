@@ -40,31 +40,31 @@ class TaxRate extends Remote\Object
     /**
      * Boolean to describe if tax rate can be used for asset accounts i.e. true,false
      *
-     * @property float[] CanApplyToAssets
+     * @property bool CanApplyToAssets
      */
 
     /**
      * Boolean to describe if tax rate can be used for equity accounts i.e. true,false
      *
-     * @property float CanApplyToEquity
+     * @property bool CanApplyToEquity
      */
 
     /**
      * Boolean to describe if tax rate can be used for expense accounts i.e. true,false
      *
-     * @property float[] CanApplyToExpenses
+     * @property bool CanApplyToExpenses
      */
 
     /**
      * Boolean to describe if tax rate can be used for liability accounts i.e. true,false
      *
-     * @property float[] CanApplyToLiabilities
+     * @property bool CanApplyToLiabilities
      */
 
     /**
      * Boolean to describe if tax rate can be used for revenue accounts i.e. true,false
      *
-     * @property float CanApplyToRevenue
+     * @property bool CanApplyToRevenue
      */
 
     /**
@@ -160,11 +160,11 @@ class TaxRate extends Remote\Object
             'TaxComponents' => array (false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\TaxRate\\TaxComponent', true, false),
             'Status' => array (false, self::PROPERTY_TYPE_ENUM, null, false, false),
             'ReportTaxType' => array (true, self::PROPERTY_TYPE_ENUM, null, false, false),
-            'CanApplyToAssets' => array (false, self::PROPERTY_TYPE_FLOAT, null, true, false),
-            'CanApplyToEquity' => array (false, self::PROPERTY_TYPE_FLOAT, null, false, false),
-            'CanApplyToExpenses' => array (false, self::PROPERTY_TYPE_FLOAT, null, true, false),
-            'CanApplyToLiabilities' => array (false, self::PROPERTY_TYPE_FLOAT, null, true, false),
-            'CanApplyToRevenue' => array (false, self::PROPERTY_TYPE_FLOAT, null, false, false),
+            'CanApplyToAssets' => array (false, self::PROPERTY_TYPE_BOOLEAN, null, false, false),
+            'CanApplyToEquity' => array (false, self::PROPERTY_TYPE_BOOLEAN, null, false, false),
+            'CanApplyToExpenses' => array (false, self::PROPERTY_TYPE_BOOLEAN, null, false, false),
+            'CanApplyToLiabilities' => array (false, self::PROPERTY_TYPE_BOOLEAN, null, false, false),
+            'CanApplyToRevenue' => array (false, self::PROPERTY_TYPE_BOOLEAN, null, false, false),
             'DisplayTaxRate' => array (false, self::PROPERTY_TYPE_FLOAT, null, false, false),
             'EffectiveRate' => array (false, self::PROPERTY_TYPE_FLOAT, null, false, false)
         );
@@ -275,8 +275,7 @@ class TaxRate extends Remote\Object
     }
 
     /**
-     * @return float[]|Remote\Collection
-     * Always returns a collection, switch is for type hinting
+     * @return bool
      */
     public function getCanApplyToAssets()
     {
@@ -285,7 +284,7 @@ class TaxRate extends Remote\Object
 
 
     /**
-     * @return float
+     * @return bool
      */
     public function getCanApplyToEquity()
     {
@@ -294,8 +293,7 @@ class TaxRate extends Remote\Object
 
 
     /**
-     * @return float[]|Remote\Collection
-     * Always returns a collection, switch is for type hinting
+     * @return bool
      */
     public function getCanApplyToExpenses()
     {
@@ -304,8 +302,7 @@ class TaxRate extends Remote\Object
 
 
     /**
-     * @return float[]|Remote\Collection
-     * Always returns a collection, switch is for type hinting
+     * @return bool
      */
     public function getCanApplyToLiabilities()
     {
@@ -314,7 +311,7 @@ class TaxRate extends Remote\Object
 
 
     /**
-     * @return float
+     * @return bool
      */
     public function getCanApplyToRevenue()
     {

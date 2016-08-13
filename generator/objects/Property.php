@@ -215,10 +215,6 @@ class Property {
     private function parseType(){
 
         //Spelling errors in the docs
-        if(preg_match('/^((a\s)?bool|true\b|booelan)/i', $this->description))
-            $type = Object::PROPERTY_TYPE_BOOLEAN;
-
-        //Spelling errors in the docs
         if(preg_match('/UTC$/', $this->getName()))
             $type = Object::PROPERTY_TYPE_TIMESTAMP;
 
@@ -231,6 +227,10 @@ class Property {
                 $type = Object::PROPERTY_TYPE_FLOAT;
             }
         }
+
+        //Spelling errors in the docs
+        if(preg_match('/^((a\s)?bool|true\b|booelan)/i', $this->description))
+            $type = Object::PROPERTY_TYPE_BOOLEAN;
 
         if(preg_match('/(alpha numeric)/i', $this->description))
             $type = Object::PROPERTY_TYPE_STRING;
