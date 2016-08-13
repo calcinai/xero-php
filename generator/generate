@@ -109,7 +109,20 @@ $scrape_apis = array(
             'folders',
             'associations'
         )
+    ),
+    array(
+        'name' => 'Assets API',
+        'uri' => 'assets-api',
+        'types' => 'types',
+        'namespace' => 'Assets',
+        'api_stem_constant' => 'API_ASSET',
+        'model_uris' => array(
+            'asset',
+            'asset-types',
+            'settings'
+        )
     )
+
 );
 
 
