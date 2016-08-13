@@ -206,8 +206,8 @@ class Contact extends Remote\Object
      */
 
     /**
-     * The AccountsReceivable(sales invoices) and AccountsPayable(bills) outstanding and overdue amounts
-     * (read only)
+     * The raw AccountsReceivable(sales invoices) and AccountsPayable(bills) outstanding and overdue
+     * amounts, not converted to base currency (read only)
      *
      * @property string Balances
      */
