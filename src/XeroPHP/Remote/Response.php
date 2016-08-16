@@ -238,6 +238,11 @@ class Response {
                 case 'Message':
                     $this->root_error['message'] = (string) $root_child;
                     break;
+                case 'Payslip':
+                    // payslip API always returns Payslip as a single node rather than array of nodes
+                    // as a result we need to parse it straight away without looping through it
+                    $this->elements[] = Helpers::XMLToArray($root_child);
+                    break;
 
                 default:
                     //Happy to make the assumption that there will only be one root node with > than 2D children.
