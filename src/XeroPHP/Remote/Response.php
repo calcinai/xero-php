@@ -269,8 +269,8 @@ class Response {
                     $this->root_error['message'] = $root_child;
                     break;
                 case 'Payslip':
-                    // payslip API always returns Payslip as a single node rather than array of nodes
-                    // as a result we need to parse it straight away without looping through it
+                case 'PayItems':
+                    // some xero endpoints are 1D so we can parse them straight away
                     $this->elements[] = $root_child;
                     break;
 
