@@ -164,6 +164,20 @@ class Contact extends Remote\Object
      */
 
     /**
+     * The name of the Tracking Category assigned to the contact under SalesTrackingCategories and
+     * PurchasesTrackingCategories
+     *
+     * @property string TrackingCategoryName
+     */
+
+    /**
+     * The name of the Tracking Option assigned to the contact under SalesTrackingCategories and
+     * PurchasesTrackingCategories
+     *
+     * @property string TrackingCategoryOption
+     */
+
+    /**
      * The default payment terms for the contact – see Payment Terms
      *
      * @property PaymentTerm[] PaymentTerms
@@ -317,6 +331,8 @@ class Contact extends Remote\Object
             'PurchasesDefaultAccountCode' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'SalesTrackingCategories' => array (false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\TrackingCategory', true, false),
             'PurchasesTrackingCategories' => array (false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\TrackingCategory', true, false),
+            'TrackingCategoryName' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
+            'TrackingCategoryOption' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'PaymentTerms' => array (false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Organisation\\PaymentTerm', true, false),
             'UpdatedDateUTC' => array (false, self::PROPERTY_TYPE_TIMESTAMP, '\\DateTimeInterface', false, false),
             'ContactGroups' => array (false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\ContactGroup', true, false),
@@ -807,6 +823,44 @@ class Contact extends Remote\Object
             $this->_data['PurchasesTrackingCategories'] = new Remote\Collection();
         }
         $this->_data['PurchasesTrackingCategories'][] = $value;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getTrackingCategoryName()
+    {
+        return $this->_data['TrackingCategoryName'];
+    }
+
+    /**
+     * @param string $value
+     * @return Contact
+     */
+    public function setTrackingCategoryName($value)
+    {
+        $this->propertyUpdated('TrackingCategoryName', $value);
+        $this->_data['TrackingCategoryName'] = $value;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getTrackingCategoryOption()
+    {
+        return $this->_data['TrackingCategoryOption'];
+    }
+
+    /**
+     * @param string $value
+     * @return Contact
+     */
+    public function setTrackingCategoryOption($value)
+    {
+        $this->propertyUpdated('TrackingCategoryOption', $value);
+        $this->_data['TrackingCategoryOption'] = $value;
         return $this;
     }
 
