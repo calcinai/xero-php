@@ -234,7 +234,7 @@ class CreditNote extends Remote\Object
             'SentToContact' => array (false, self::PROPERTY_TYPE_BOOLEAN, null, false, false),
             'CurrencyRate' => array (false, self::PROPERTY_TYPE_FLOAT, null, false, false),
             'RemainingCredit' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'Allocations' => array (false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\CreditNote\\Allocation', true, false),
+            'Allocations' => array (false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\CreditNote\\Allocation', true, true),
             'BrandingThemeID' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'HasAttachments' => array (false, self::PROPERTY_TYPE_BOOLEAN, null, false, false)
         );
