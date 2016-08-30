@@ -446,6 +446,10 @@ foreach($scrape_apis as $scrape_api) {
                                 // Don't make Primary GUID readonly
                                 if($column_name === $current_model->getClassName() . 'ID') {
                                     $read_only = false;
+                                } elseif(stripos($column_description, 'cannot be set') !== false){
+                                    $read_only = true;
+                                } elseif(stripos($column_description, 'has an attachment') !== false) {
+                                    $read_only = true;
                                 }
                                 $property = new Property($column_name, $column_description, $mandatory, $read_only);
                                 $current_model->addProperty($property, null, $get_only);
