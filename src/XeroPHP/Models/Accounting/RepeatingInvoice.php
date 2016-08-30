@@ -447,16 +447,6 @@ class RepeatingInvoice extends Remote\Object
         return $this->_data['HasAttachments'];
     }
 
-    /**
-     * @param bool $value
-     * @return RepeatingInvoice
-     */
-    public function setHasAttachment($value)
-    {
-        $this->propertyUpdated('HasAttachments', $value);
-        $this->_data['HasAttachments'] = $value;
-        return $this;
-    }
 
 
 }

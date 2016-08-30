@@ -569,16 +569,6 @@ class Prepayment extends Remote\Object
         return $this->_data['HasAttachments'];
     }
 
-    /**
-     * @param bool $value
-     * @return Prepayment
-     */
-    public function setHasAttachment($value)
-    {
-        $this->propertyUpdated('HasAttachments', $value);
-        $this->_data['HasAttachments'] = $value;
-        return $this;
-    }
 
 
 }

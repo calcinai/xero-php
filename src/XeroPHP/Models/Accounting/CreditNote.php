@@ -641,16 +641,6 @@ class CreditNote extends Remote\Object
         return $this->_data['HasAttachments'];
     }
 
-    /**
-     * @param bool $value
-     * @return CreditNote
-     */
-    public function setHasAttachment($value)
-    {
-        $this->propertyUpdated('HasAttachments', $value);
-        $this->_data['HasAttachments'] = $value;
-        return $this;
-    }
 
 
 }

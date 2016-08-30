@@ -674,16 +674,6 @@ class Contact extends Remote\Object
         return $this->_data['IsSupplier'];
     }
 
-    /**
-     * @param bool $value
-     * @return Contact
-     */
-    public function setIsSupplier($value)
-    {
-        $this->propertyUpdated('IsSupplier', $value);
-        $this->_data['IsSupplier'] = $value;
-        return $this;
-    }
 
     /**
      * @return bool
@@ -693,16 +683,6 @@ class Contact extends Remote\Object
         return $this->_data['IsCustomer'];
     }
 
-    /**
-     * @param bool $value
-     * @return Contact
-     */
-    public function setIsCustomer($value)
-    {
-        $this->propertyUpdated('IsCustomer', $value);
-        $this->_data['IsCustomer'] = $value;
-        return $this;
-    }
 
     /**
      * @return string
@@ -1032,16 +1012,6 @@ class Contact extends Remote\Object
         return $this->_data['HasAttachments'];
     }
 
-    /**
-     * @param bool $value
-     * @return Contact
-     */
-    public function setHasAttachment($value)
-    {
-        $this->propertyUpdated('HasAttachments', $value);
-        $this->_data['HasAttachments'] = $value;
-        return $this;
-    }
 
 
 }
