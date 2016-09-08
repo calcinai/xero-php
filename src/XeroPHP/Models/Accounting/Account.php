@@ -78,7 +78,8 @@ e.g.
      */
 
     /**
-     * If this is a system account then this element is returned. See System Account types
+     * If this is a system account then this element is returned. See System Account types. Note that
+     * non-system accounts may have this element set as either “” or null.
      *
      * @property string SystemAccount
      */
