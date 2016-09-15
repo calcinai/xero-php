@@ -93,4 +93,7 @@ class SimpleObject extends Object
     }
 
 
+    static function getRootNodeName() {
+        return 'test';
+    }
 }

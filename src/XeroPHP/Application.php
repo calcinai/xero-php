@@ -2,6 +2,7 @@
 
 namespace XeroPHP;
 
+use XeroPHP\Models\Files\Object;
 use XeroPHP\Remote;
 use XeroPHP\Remote\Collection;
 use XeroPHP\Remote\OAuth\Client;
