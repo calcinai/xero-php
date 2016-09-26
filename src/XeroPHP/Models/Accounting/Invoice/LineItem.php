@@ -14,7 +14,7 @@ class LineItem extends Remote\Object
      */
 
     /**
-     * LineItem Quantity
+     * LineItem Quantity (max length = 13)
      *
      * @property string Quantity
      */
@@ -62,7 +62,7 @@ class LineItem extends Remote\Object
 
     /**
      * The line amount reflects the discounted price if a DiscountRate has been used i.e LineAmount =
-     * Quantity * Unit Amount * ((100 – DiscountRate)/100)
+     * Quantity * Unit Amount * ((100 – DiscountRate)/100)  (can’t exceed 9,999,999,999.99 )
      *
      * @property float LineAmount
      */

@@ -13,7 +13,7 @@ class TrackingOption extends Remote\Object
      */
 
     /**
-     * The name of the tracking option e.g. Marketing, East
+     * The name of the tracking option e.g. Marketing, East (max length = 50)
      *
      * @property string Name
      */

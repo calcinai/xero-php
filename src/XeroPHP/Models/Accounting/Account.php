@@ -10,13 +10,13 @@ class Account extends Remote\Object
     use AttachmentTrait;
 
     /**
-     * Customer defined alpha numeric account code e.g 200 or SALES
+     * Customer defined alpha numeric account code e.g 200 or SALES (max length = 10)
      *
      * @property string Code
      */
 
     /**
-     * Name of account
+     * Name of account (max length = 150)
      *
      * @property string Name
      */
@@ -40,7 +40,7 @@ class Account extends Remote\Object
      */
 
     /**
-     * Description of the Account. Valid for all types of accounts except bank accounts
+     * Description of the Account. Valid for all types of accounts except bank accounts (max length = 4000)
      *
      * @property string Description
      */

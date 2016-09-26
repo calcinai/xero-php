@@ -52,7 +52,8 @@ class LineItem extends Remote\Object
 
     /**
      * Optional Tracking Category – see Tracking.  Any LineItem can have a maximum of 2
-     * <TrackingCategory> elements.
+     * <TrackingCategory> elements.  You must use the <Name> and <Option> elements instead of the
+     * <TrackingCategoryID> and <TrackingOptionID> fields.
      *
      * @property TrackingCategory[] Tracking
      */

@@ -14,7 +14,7 @@ class TrackingCategory extends Remote\Object
      */
 
     /**
-     * The name of the tracking category e.g. Department, Region
+     * The name of the tracking category e.g. Department, Region (max length = 100)
      *
      * @property string Name
      */

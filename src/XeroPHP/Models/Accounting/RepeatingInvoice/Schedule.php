@@ -32,7 +32,8 @@ class Schedule extends Remote\Object
      */
 
     /**
-     * Invoice date the first invoice in the repeating schedule
+     * Date the first invoice of the current version of the repeating schedule was generated (changes when
+     * repeating invoice is edited)
      *
      * @property \DateTimeInterface StartDate
      */

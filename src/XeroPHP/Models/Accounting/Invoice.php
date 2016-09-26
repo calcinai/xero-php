@@ -51,13 +51,13 @@ class Invoice extends Remote\Object
 
     /**
      * ACCREC – Unique alpha numeric code identifying invoice (when missing will auto-generate from your
-     * Organisation Invoice Settings)
+     * Organisation Invoice Settings) (max length = 255)
      *
      * @property string InvoiceNumber
      */
 
     /**
-     * ACCREC only – additional reference number
+     * ACCREC only – additional reference number (max length = 255)
      *
      * @property string Reference
      */
@@ -82,6 +82,7 @@ class Invoice extends Remote\Object
 
     /**
      * The currency rate for a multicurrency invoice. If no rate is specified, the XE.com day rate is used.
+     * (max length = [18].[6])
      *
      * @property float CurrencyRate
      */
