@@ -46,6 +46,18 @@ class Account extends Remote\Object
      */
 
     /**
+     * For bank accounts only. See Bank Account types
+     *
+     * @property string BankAccountType
+     */
+
+    /**
+     * For bank accounts only
+     *
+     * @property string CurrencyCode
+     */
+
+    /**
      * See Tax Types
      *
      * @property string TaxType
@@ -82,18 +94,6 @@ e.g.
      * non-system accounts may have this element set as either “” or null.
      *
      * @property string SystemAccount
-     */
-
-    /**
-     * Shown for bank accounts only. See Bank Account types
-     *
-     * @property string BankAccountType
-     */
-
-    /**
-     * Shown for bank accounts only
-     *
-     * @property string CurrencyCode
      */
 
     /**
@@ -249,14 +249,14 @@ e.g.
             'BankAccountNumber' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'Status' => array (false, self::PROPERTY_TYPE_ENUM, null, false, false),
             'Description' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
+            'BankAccountType' => array (false, self::PROPERTY_TYPE_ENUM, null, false, false),
+            'CurrencyCode' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'TaxType' => array (false, self::PROPERTY_TYPE_ENUM, null, false, false),
             'EnablePaymentsToAccount' => array (false, self::PROPERTY_TYPE_BOOLEAN, null, false, false),
             'ShowInExpenseClaims' => array (false, self::PROPERTY_TYPE_BOOLEAN, null, false, false),
             'AccountID' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'Class' => array (false, self::PROPERTY_TYPE_ENUM, null, false, false),
             'SystemAccount' => array (false, self::PROPERTY_TYPE_ENUM, null, false, false),
-            'BankAccountType' => array (false, self::PROPERTY_TYPE_ENUM, null, false, false),
-            'CurrencyCode' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'ReportingCode' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'ReportingCodeName' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'HasAttachments' => array (false, self::PROPERTY_TYPE_BOOLEAN, null, false, false),
@@ -386,6 +386,44 @@ e.g.
     /**
      * @return string
      */
+    public function getBankAccountType()
+    {
+        return $this->_data['BankAccountType'];
+    }
+
+    /**
+     * @param string $value
+     * @return Account
+     */
+    public function setBankAccountType($value)
+    {
+        $this->propertyUpdated('BankAccountType', $value);
+        $this->_data['BankAccountType'] = $value;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getCurrencyCode()
+    {
+        return $this->_data['CurrencyCode'];
+    }
+
+    /**
+     * @param string $value
+     * @return Account
+     */
+    public function setCurrencyCode($value)
+    {
+        $this->propertyUpdated('CurrencyCode', $value);
+        $this->_data['CurrencyCode'] = $value;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
     public function getTaxType()
     {
         return $this->_data['TaxType'];
@@ -474,24 +512,6 @@ e.g.
     public function getSystemAccount()
     {
         return $this->_data['SystemAccount'];
-    }
-
-
-    /**
-     * @return string
-     */
-    public function getBankAccountType()
-    {
-        return $this->_data['BankAccountType'];
-    }
-
-
-    /**
-     * @return string
-     */
-    public function getCurrencyCode()
-    {
-        return $this->_data['CurrencyCode'];
     }
 
 
