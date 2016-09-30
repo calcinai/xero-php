@@ -2,6 +2,8 @@ XeroPHP
 -----------------------
 
 [![Build Status](https://travis-ci.org/calcinai/xero-php.svg?branch=master)](https://travis-ci.org/calcinai/xero-php)
+[![Latest Stable Version](https://poser.pugx.org/calcinai/xero-php/v/stable)](https://packagist.org/packages/calcinai/xero-php)
+[![Total Downloads](https://poser.pugx.org/calcinai/xero-php/downloads)](https://packagist.org/packages/calcinai/xero-php)
 
 A client implementation of the [Xero API](<http://developer.xero.com>), with a cleaner OAuth interface and ORM-like abstraction.
 
