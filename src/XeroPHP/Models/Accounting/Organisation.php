@@ -39,6 +39,12 @@ class Organisation extends Remote\Object
      */
 
     /**
+     * Organisation Type
+     *
+     * @property string OrganisationType
+     */
+
+    /**
      * Default currency for organisation. See ISO 4217 Currency Codes
      *
      * @property string BaseCurrency
@@ -274,6 +280,7 @@ class Organisation extends Remote\Object
             'LegalName' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'PaysTax' => array (false, self::PROPERTY_TYPE_BOOLEAN, null, false, false),
             'Version' => array (false, self::PROPERTY_TYPE_ENUM, null, false, false),
+            'OrganisationType' => array (false, self::PROPERTY_TYPE_ENUM, null, false, false),
             'BaseCurrency' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'CountryCode' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
             'IsDemoCompany' => array (false, self::PROPERTY_TYPE_BOOLEAN, null, false, false),
@@ -397,6 +404,25 @@ class Organisation extends Remote\Object
     {
         $this->propertyUpdated('Version', $value);
         $this->_data['Version'] = $value;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getOrganisationType()
+    {
+        return $this->_data['OrganisationType'];
+    }
+
+    /**
+     * @param string $value
+     * @return Organisation
+     */
+    public function setOrganisationType($value)
+    {
+        $this->propertyUpdated('OrganisationType', $value);
+        $this->_data['OrganisationType'] = $value;
         return $this;
     }
 

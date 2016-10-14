@@ -33,7 +33,7 @@ class JournalLine extends Remote\Object
      */
 
     /**
-     * Optional Tracking Category – see Tracking.  Any JournalLine can have a maximum of 2
+     * Optional Tracking Category – see Tracking. Any JournalLine can have a maximum of 2
      * <TrackingCategory> elements.
      *
      * @property TrackingCategory[] Tracking
