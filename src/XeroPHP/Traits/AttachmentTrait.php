@@ -5,6 +5,7 @@ namespace XeroPHP\Traits;
 use XeroPHP\Models\Accounting\Attachment;
 use XeroPHP\Remote\Request;
 use XeroPHP\Remote\URL;
+use XeroPHP\Exception;
 
 trait AttachmentTrait {
 
@@ -35,7 +36,7 @@ trait AttachmentTrait {
         /** @var Object $this */
 
         if($this->hasGUID() === false){
-            throw new \XeroPHP\Exception('Attachments are only available to objects that exist remotely.');
+            throw new Exception('Attachments are only available to objects that exist remotely.');
         }
 
         $uri = sprintf('%s/%s/Attachments', $this::getResourceURI(), $this->getGUID());
