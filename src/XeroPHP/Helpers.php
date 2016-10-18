@@ -67,6 +67,9 @@ class Helpers {
         $singular_node_name = self::singularize($sxml->getName());
 
         foreach($sxml->children() as $child_name => $child) {
+            /**
+             * @var \SimpleXMLElement $child
+             */
             if($child->count() > 0) {
                 $node = self::XMLToArray($child);
             } else {

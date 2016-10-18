@@ -2,7 +2,6 @@
 
 namespace XeroPHP\Tests\Remote;
 
-use XeroPHP\Application;
 use XeroPHP\Remote\Object;
 
 class ObjectTest extends \PHPUnit_Framework_TestCase
