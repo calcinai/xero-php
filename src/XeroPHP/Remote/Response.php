@@ -166,10 +166,10 @@ class Response {
             return;
         }
 
-        $this->elements = array();
-        $this->element_errors = array();
-        $this->element_warnings = array();
-        $this->root_error = array();
+        $this->elements = [];
+        $this->element_errors = [];
+        $this->element_warnings = [];
+        $this->root_error = [];
 
         switch($this->content_type) {
             case Request::CONTENT_TYPE_XML:

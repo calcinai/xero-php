@@ -8,16 +8,16 @@ class PublicApplicationTest extends \PHPUnit_Framework_TestCase
 {
     public function testNewInstance()
     {
-        $config = array(
-            'oauth' => array(
+        $config = [
+            'oauth' => [
                 'callback'    => 'http://localhost/',
                 'consumer_key'      => 'k',
                 'consumer_secret'   => 's',
-            ),
-            'curl' => array(
+            ],
+            'curl' => [
                 CURLOPT_CAINFO => __DIR__.'/certs/ca-bundle.crt',
-            ),
-        );
+            ],
+        ];
 
         new PublicApplication($config);
     }

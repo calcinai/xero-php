@@ -45,7 +45,7 @@ trait AttachmentTrait {
         $request = new Request($this->_application, $url, Request::METHOD_GET);
         $request->send();
 
-        $attachments = array();
+        $attachments = [];
         foreach($request->getResponse()->getElements() as $element) {
             $attachment = new Attachment($this->_application);
             $attachment->fromStringArray($element);

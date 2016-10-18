@@ -12,24 +12,24 @@ use XeroPHP\Remote\URL;
 
 abstract class Application {
 
-    protected static $_config_defaults = array(
-        'xero'  => array(
+    protected static $_config_defaults = [
+        'xero'  => [
             'site'            => 'https://api.xero.com',
             'base_url'        => 'https://api.xero.com',
             'core_version'    => '2.0',
             'payroll_version' => '1.0',
             'file_version'    => '1.0',
             'model_namespace' => '\\XeroPHP\\Models'
-        ),
+        ],
         //OAuth config
-        'oauth' => array(
+        'oauth' => [
             'signature_method'   => Client::SIGNATURE_RSA_SHA1,
             'signature_location' => Client::SIGN_LOCATION_HEADER,
             'authorize_url'      => 'https://api.xero.com/oauth/Authorize',
             'request_token_path' => 'oauth/RequestToken',
             'access_token_path'  => 'oauth/AccessToken'
-        ),
-        'curl'  => array(
+        ],
+        'curl'  => [
             CURLOPT_USERAGENT      => 'XeroPHP',
             CURLOPT_CONNECTTIMEOUT => 30,
             CURLOPT_TIMEOUT        => 20,
@@ -39,8 +39,8 @@ abstract class Application {
             CURLOPT_PROXY          => false,
             CURLOPT_PROXYUSERPWD   => false,
             CURLOPT_ENCODING       => '',
-        )
-    );
+        ]
+    ];
 
     /**
      * @var array
@@ -194,7 +194,7 @@ abstract class Application {
         }
 
         //Put in an array with the first level containing only the 'root node'.
-        $data = array($object::getRootNodeName() => $object->toStringArray());
+        $data = [$object::getRootNodeName() => $object->toStringArray()];
         $url = new URL($this, $uri);
         $request = new Request($this, $url, $method);
 
@@ -222,7 +222,7 @@ abstract class Application {
         $current_object = current($objects);
         $type = get_class($current_object);
         $has_guid =  $current_object->hasGUID();
-        $object_arrays = array();
+        $object_arrays = [];
 
         foreach($objects as $object) {
             if($type !== get_class($object)) {
@@ -244,7 +244,7 @@ abstract class Application {
 
         //This might need to be parsed and stored some day.
         $root_node_name = Helpers::pluralize($type::getRootNodeName());
-        $data = array($root_node_name => $object_arrays);
+        $data = [$root_node_name => $object_arrays];
 
         $request->setBody(Helpers::arrayToXML($data));
         $request->setParameter('SummarizeErrors', 'false');
@@ -281,13 +281,13 @@ abstract class Application {
                 $url = new URL($this, sprintf('%s/%s/%s', $object::getResourceURI(), $object->getGUID(), $property_type::getResourceURI()));
                 $request = new Request($this, $url, Request::METHOD_PUT);
 
-                $property_array = array();
+                $property_array = [];
                 foreach($property_objects as $property_object){
                     $property_array[] = $property_object->toStringArray();
                 }
 
                 $root_node_name = Helpers::pluralize($property_type::getRootNodeName());
-                $request->setBody(Helpers::arrayToXML(array($root_node_name => $property_array)));
+                $request->setBody(Helpers::arrayToXML([$root_node_name => $property_array]));
 
                 $request->send();
 

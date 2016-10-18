@@ -25,7 +25,7 @@ class Query {
 
     public function __construct(Application $app) {
         $this->app = $app;
-        $this->where = array();
+        $this->where = [];
         $this->order = null;
         $this->modifiedAfter = null;
         $this->page = null;

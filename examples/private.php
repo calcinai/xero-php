@@ -3,17 +3,17 @@
 use XeroPHP\Application\PrivateApplication;
 
 //These are the minimum settings - for more options, refer to examples/config.php
-$config = array(
-    'oauth' => array(
+$config = [
+    'oauth' => [
         'callback'         => 'http://localhost/',
         'consumer_key'     => 'k',
         'consumer_secret'  => 's',
         'rsa_private_key'  => 'file://certs/private.pem',
-    ),
-    'curl' => array(
+    ],
+    'curl' => [
         CURLOPT_CAINFO => __DIR__.'/certs/ca-bundle.crt',
-    ),
-);
+    ],
+];
 
 $xero = new PrivateApplication($config);
 
