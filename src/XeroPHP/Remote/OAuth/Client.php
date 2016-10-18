@@ -104,14 +104,14 @@ class Client {
     private function getOAuthParams() {
         //this needs to be stateful until the request is signed, then it gets unset
         if(!isset($this->oauth_params)) {
-            $this->oauth_params = array(
+            $this->oauth_params = [
                 'oauth_consumer_key'     => $this->getConsumerKey(),
                 'oauth_signature_method' => $this->getSignatureMethod(),
                 'oauth_timestamp'        => $this->getTimestamp(),
                 'oauth_nonce'            => $this->getNonce(),
                 'oauth_callback'         => $this->getCallback(),
                 'oauth_version'          => self::OAUTH_VERSION
-            );
+            ];
 
             if(null !== $token = $this->getToken())
                 $this->oauth_params['oauth_token'] = $token;

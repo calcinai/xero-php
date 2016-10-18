@@ -23,14 +23,14 @@ require GEN_ROOT.'/objects/Property.php';
 require GEN_ROOT.'/objects/Enum.php';
 
 $documentation_base = 'http://developer.xero.com/documentation';
-$scrape_apis = array(
-    array(
+$scrape_apis = [
+    [
         'name' => 'Accounting API',
         'uri' => 'api',
         'types' => 'types',
         'namespace' => 'Accounting',
         'api_stem_constant' => 'API_CORE',
-        'model_uris' => array(
+        'model_uris' => [
             //'attachments',
             'accounts',
             //'bankstatements',
@@ -60,15 +60,15 @@ $scrape_apis = array(
             'tax-rates',
             'tracking-categories',
             'users'
-        )
-    ),
-    array(
+        ]
+    ],
+    [
         'name' => 'Payroll - AU',
         'uri' => 'payroll-api',
         'types' => 'types-and-codes',
         'namespace' => 'PayrollAU',
         'api_stem_constant' => 'API_PAYROLL',
-        'model_uris' => array(
+        'model_uris' => [
             'employees',
             'leaveapplications',
             'payitems',
@@ -79,15 +79,15 @@ $scrape_apis = array(
             'superfunds',
             'superfundproducts',
             'timesheets'
-        )
-    ),
-    array(
+        ]
+    ],
+    [
         'name' => 'Payroll - US',
         'uri' => 'payroll-api-us',
         'types' => 'types-codes',
         'namespace' => 'PayrollUS',
         'api_stem_constant' => 'API_PAYROLL',
-        'model_uris' => array(
+        'model_uris' => [
             'employees',
             'pay-items',
             'pay-runs',
@@ -96,38 +96,38 @@ $scrape_apis = array(
             'settings',
             'timesheets',
             'work-locations'
-        )
-    ),
-    array(
+        ]
+    ],
+    [
         'name' => 'Files API',
         'uri' => 'files-api',
         'types' => 'types',
         'namespace' => 'Files',
         'api_stem_constant' => 'API_FILE',
-        'model_uris' => array(
+        'model_uris' => [
             'files',
             'folders',
             'associations'
-        )
-    ),
-    array(
+        ]
+    ],
+    [
         'name' => 'Assets API',
         'uri' => 'assets-api',
         'types' => 'types',
         'namespace' => 'Assets',
         'api_stem_constant' => 'API_ASSET',
-        'model_uris' => array(
+        'model_uris' => [
             'asset',
             'asset-types',
             'settings'
-        )
-    )
+        ]
+    ]
 
-);
+];
 
 
 
-$apis = array();
+$apis = [];
 
 $client = new Goutte\Client();
 
@@ -146,7 +146,7 @@ foreach($scrape_apis as $scrape_api) {
         $current_tag = $node->getNode(0)->tagName;
 
         //don't start till there's a section
-        if(!isset($section_name) && !in_array($current_tag, array('h3', 'h4')))
+        if(!isset($section_name) && !in_array($current_tag, ['h3', 'h4']))
             return false;
 
         switch($current_tag){
@@ -199,7 +199,7 @@ foreach($scrape_apis as $scrape_api) {
                     $description =  $has_description ? $children->eq(1)->text() : null;
 
                     if($swap_name_description)
-                        list($name, $description) = array($description, $name);
+                        list($name, $description) = [$description, $name];
 
                     if($current_object instanceof Model){
                         //if there are commas in the name, it needs splitting.  eg. AddressLine 1,2,3,4
@@ -471,7 +471,7 @@ foreach($scrape_apis as $scrape_api) {
 
             // Do some processing once we are at the last node.
             if($node->getNode(0)->nodeValue === $last->getNode(0)->nodeValue && $primary_model instanceof ParsedObjectInterface) {
-                $models = array($primary_model);
+                $models = [$primary_model];
                 if($primary_model->getName() !== $current_model->getName()) {$models[] = $current_model;}
                 foreach($models as $model) {
                     /** @var Model $model */
@@ -499,7 +499,7 @@ foreach($scrape_apis as $scrape_api) {
 }
 
 $loader = new Twig_Loader_Filesystem('generator/templates/');
-$twig = new Twig_Environment($loader, array());
+$twig = new Twig_Environment($loader, []);
 $twig->addFilter(new Twig_SimpleFilter('wordwrap', 'wordwrap'));
 $twig->addFilter(new Twig_SimpleFilter('addslashes', 'addslashes'));
 
@@ -525,25 +525,25 @@ foreach($apis as $api){
             }
         }
 
-        $dir = sprintf('%s/%s', GEN_OUTPUT, strtr($model->getNamespace(), array('\\' => '/')));
+        $dir = sprintf('%s/%s', GEN_OUTPUT, strtr($model->getNamespace(), ['\\' => '/']));
         if(!is_dir($dir))
             mkdir($dir);
 
-        $template = $twig->render('model.twig', array(
+        $template = $twig->render('model.twig', [
             'model' => $model,
-        ));
+        ]);
         $filename = sprintf('%s/%s.php', $dir, $model->getClassName());
         file_put_contents($filename, $template);
     }
 
     foreach($api->getStrayEnums() as $class_name => $enums){
-        $dir = sprintf('%s/%s', GEN_OUTPUT, strtr($api->getNamespace(), array('\\' => '/')));
+        $dir = sprintf('%s/%s', GEN_OUTPUT, strtr($api->getNamespace(), ['\\' => '/']));
 
-        $template = $twig->render('enum.twig', array(
+        $template = $twig->render('enum.twig', [
             'class_name' => $class_name,
             'enums' => $enums,
             'api' => $api
-        ));
+        ]);
         $filename = sprintf('%s/%s.php', $dir, $class_name);
         file_put_contents($filename, $template);
 

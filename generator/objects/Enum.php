@@ -36,10 +36,10 @@ class Enum implements ParsedObjectInterface {
      * @param $description
      */
     public function addValue($name, $description){
-        $this->values[$name] = array(
+        $this->values[$name] = [
             'name' => $name,
             'description' => $description
-        );
+        ];
 
         $name_length = strlen($name);
         if($name_length > $this->longest_name)
@@ -50,7 +50,6 @@ class Enum implements ParsedObjectInterface {
      * Remove an the Enum set.  This requires at least a name
      *
      * @param $name
-     * @param $description
      */
     public function removeValue($name){
         unset($this->values[$name]);
@@ -63,13 +62,13 @@ class Enum implements ParsedObjectInterface {
      */
     public function getValues(){
 
-        $values = array();
+        $values = [];
         foreach($this->values as $value){
-            $values[] = array(
+            $values[] = [
                 'constant_name' => $this->getConstantName($value['name']),
                 'value' => $value['name'],
                 'description' > $value['description']
-            );
+            ];
         }
         return $values;
     }
@@ -103,7 +102,7 @@ class Enum implements ParsedObjectInterface {
     }
 
     /**
-     * @param The raw name
+     * @param string $name The raw name
      */
     public function setRawName($name) {
         $this->raw_name = $name;

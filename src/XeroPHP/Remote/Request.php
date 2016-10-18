@@ -41,8 +41,8 @@ class Request {
 
         $this->app = $app;
         $this->url = $url;
-        $this->headers = array();
-        $this->parameters = array();
+        $this->headers = [];
+        $this->parameters = [];
 
         switch($method) {
             case self::METHOD_GET:

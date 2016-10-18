@@ -10,23 +10,23 @@ use XeroPHP\Application\PartnerApplication;
 
 require '../vendor/autoload.php';
 
-$config = array(
-    'oauth' => array(
+$config = [
+    'oauth' => [
         'callback'    => 'http://localhost/',
 
         'consumer_key'      => 'k',
         'consumer_secret'   => 's',
 
-    ),
+    ],
 
-    'curl' => array(
+    'curl' => [
         CURLOPT_CAINFO          => 'certs/ca-bundle.crt',
 
         CURLOPT_SSLCERT         => 'certs/entrust-cert-RQ3.pem',
         CURLOPT_SSLKEYPASSWD    => '1234',
         CURLOPT_SSLKEY          => 'certs/entrust-private-RQ3.pem'
-    )
-);
+    ]
+];
 
 $xero = new PartnerApplication($config);
 

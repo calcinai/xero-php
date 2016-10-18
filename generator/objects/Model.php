@@ -21,6 +21,11 @@ class Model implements ParsedObjectInterface {
     private $parent_model;
 
     /**
+     * @var Model[] $sub_models
+     */
+    private $sub_models = [];
+
+    /**
      * @var Property of the object that holds the GUID
      */
     private $guid_property;
@@ -29,6 +34,11 @@ class Model implements ParsedObjectInterface {
      * @var bool $supports_pdf
      */
     private $supports_pdf;
+
+    /**
+     * @var bool $supports_page
+     */
+    private $supports_page;
 
     /**
      * @var bool $supports_page
@@ -43,9 +53,9 @@ class Model implements ParsedObjectInterface {
      */
     public function __construct(){
 
-        $this->properties = array();
-        $this->methods = array();
-        $this->sub_models = array();
+        $this->properties = [];
+        $this->methods = [];
+        $this->sub_models = [];
         $this->supports_pdf = false;
         $this->supports_page = false;
     }
@@ -126,7 +136,7 @@ class Model implements ParsedObjectInterface {
      */
     public function getUsedClasses(){
 
-        $classes = array();
+        $classes = [];
         foreach($this->getProperties() as $property){
             if($property->getType() === Object::PROPERTY_TYPE_OBJECT) {
                 if($property->getRelatedObject()->getNamespace() !== $this->getNamespace()){
@@ -144,8 +154,8 @@ class Model implements ParsedObjectInterface {
      * It's not crucial that the order stays the same either.
      *
      * @param Property $property
-	 * @param null $insert_position
-	 * @param boolean $get_only
+     * @param null $insert_position
+     * @param boolean $get_only
      */
     public function addProperty(Property $property, $insert_position = null, $get_only = false) {
         $key_name = strtolower($property->getName());
@@ -158,7 +168,7 @@ class Model implements ParsedObjectInterface {
 
         //This is so it can be retrospectively added in the case of deprecation.
         if($insert_position !== null){
-            $properties = array();
+            $properties = [];
             $property_position = 0;
             foreach($this->properties as $existing_name => $existing_property){
                 if($property_position++ === $insert_position){
@@ -354,11 +364,11 @@ class Model implements ParsedObjectInterface {
      *
      */
     public function printPropertyTable(){
-        $rows = array();
-        $column_sizes = array();
+        $rows = [];
+        $column_sizes = [];
 
         foreach($this->getProperties() as $key => $property){
-            $rows[$key] = array($property->getName(), $string = substr(preg_replace('/[^\w\s.\-\(\)]|\n/', '', $property->getDescription()), 0, 100));
+            $rows[$key] = [$property->getName(), $string = substr(preg_replace('/[^\w\s.\-\(\)]|\n/', '', $property->getDescription()), 0, 100)];
 
             foreach($rows[$key] as $column_index => $column){
                 $column_sizes[$column_index] = max(isset($column_sizes[$column_index]) ? $column_sizes[$column_index] : 0, iconv_strlen($column));
