@@ -2,7 +2,8 @@
 <?php
 
 /*
- * This is one big nasty file, not designed to really be maintained, just to speed up the process of building the models
+ * This is one big nasty file, not designed to really be maintained,
+ * just to speed up the process of building the models
  * for each request.
  *
  * It is disgusting.
@@ -131,14 +132,14 @@ $apis = [];
 
 $client = new Goutte\Client();
 
-foreach($scrape_apis as $scrape_api) {
+foreach ($scrape_apis as $scrape_api) {
     $api = new API($scrape_api['name'], $scrape_api['namespace'], $scrape_api['api_stem_constant']);
 
     //Get the types
     $full_uri = sprintf('%s/%s/%s/', $documentation_base, $scrape_api['uri'], $scrape_api['types']);
     $crawler = $client->request('GET', $full_uri);
 
-    $crawler->filter('.entry-content')->children()->each(function(Crawler $node) use($api){
+    $crawler->filter('.entry-content')->children()->each(function(Crawler $node) use($api) {
         //keep static in closure.
         /** @var Enum|Model $current_object */
         static $section_name, $current_object;
@@ -146,34 +147,36 @@ foreach($scrape_apis as $scrape_api) {
         $current_tag = $node->getNode(0)->tagName;
 
         //don't start till there's a section
-        if(!isset($section_name) && !in_array($current_tag, ['h3', 'h4']))
+        if (!isset($section_name) && !in_array($current_tag, ['h3', 'h4'])) {
             return false;
-
-        switch($current_tag){
+        }
+        switch ($current_tag) {
             case 'h3':
             case 'h4':
                 $section_name = str_replace(' ', '', $node->text());
                 break;
             case 'p':
-
                 //Skip empty sections
-                if('' == $subsection_name = preg_replace('/\([\s\w]+\)/', '', str_replace(' ', '', $node->text())))
+                if ('' == $subsection_name = preg_replace('/\([\s\w]+\)/', '', str_replace(' ', '', $node->text()))) {
                     return null;
-
+                }
                 //Take the first line only.
                 list($subsection_name) = explode("\n", $subsection_name);
 
                 //Try record the anchor on page for searching
                 $anchor = null;
-                $node->filter('a')->each(function(Crawler $node) use(&$anchor){ $anchor = $node->attr('name'); });
+                $node->filter('a')->each(function(Crawler $node) use(&$anchor) {
+                    $anchor = $node->attr('name');
+                });
 
                 //Fix for doc update for BC.
-                //todo - reassess if these cases should belong in 'TaxRates' class from 2.x (maybe Xero will have a machine-readable spec by then)
-                if(strpos($anchor, 'TaxTypes') !== false){
+                //todo - reassess if these cases should belong in 'TaxRates' class
+                //from 2.x (maybe Xero will have a machine-readable spec by then)
+                if (strpos($anchor, 'TaxTypes') !== false) {
                     $section_name = $anchor;
                 }
 
-                if($section_name === $subsection_name){
+                if ($section_name === $subsection_name) {
                     $current_object = new Model();
                     $current_object->setName($section_name);
                 } else {
@@ -183,14 +186,15 @@ foreach($scrape_apis as $scrape_api) {
                 break;
             case 'table':
                 $possible_name_override = null;
-                $node->filter('tr')->each(function(Crawler $node, $row_index) use($current_object, &$possible_name_override){
+                $node->filter('tr')->each(function(Crawler $node, $row_index) use($current_object, &$possible_name_override) {
 
                     //Why is this table different to every other one in the docs?
                     $swap_name_description = $current_object->getName() == 'SystemAccounts';
                     $skip_first_row = $current_object->getName() == 'SystemAccounts';
 
-                    if($skip_first_row && $row_index == 0)
+                    if ($skip_first_row && 0 == $row_index) {
                         return false;
+                    }
 
                     $children = $node->children();
                     $has_description = count($children) > 1;
@@ -198,14 +202,14 @@ foreach($scrape_apis as $scrape_api) {
                     $name = $children->eq(0)->text();
                     $description =  $has_description ? $children->eq(1)->text() : null;
 
-                    if($swap_name_description)
+                    if ($swap_name_description) {
                         list($name, $description) = [$description, $name];
-
-                    if($current_object instanceof Model){
+                    }
+                    if ($current_object instanceof Model) {
                         //if there are commas in the name, it needs splitting.  eg. AddressLine 1,2,3,4
-                        if(false !== strpos($name, ',')){
+                        if (false !== strpos($name, ',')) {
                             list($name, $suffixes) = explode(' ', $name);
-                            foreach(explode(',', $suffixes) as $suffix){
+                            foreach (explode(',', $suffixes) as $suffix) {
                                 $current_object->addProperty(new Property($name.$suffix, $description));
                             }
                         } else {
@@ -213,17 +217,20 @@ foreach($scrape_apis as $scrape_api) {
                             $current_object->addProperty(new Property($name, $description));
                         }
 
-                    } elseif($current_object instanceof Enum) {
+                    } elseif ($current_object instanceof Enum) {
 
                         //Override the enum name if it is bold only in the first row (and it's a 2 column table)
-                        if($row_index === 0 && $children->count() === 2 && $children->eq(1)->filter('strong')->count() !== 0){
+                        if ($row_index === 0 &&
+                            $children->count() === 2 &&
+                            $children->eq(1)->filter('strong')->count() !== 0
+                        ) {
                             $possible_name_override = $children->eq(0)->text();
-                        } elseif ($row_index === 1 && $children->eq(1)->filter('strong')->count() === 0 && $possible_name_override !== null){
+                        } elseif ($row_index === 1 && $children->eq(1)->filter('strong')->count() === 0 && $possible_name_override !== null) {
                             $current_object->setRawName($possible_name_override);
                             $current_object->removeValue($possible_name_override);
                         }
 
-                        if($children->eq(0)->filter('em')->count()){
+                        if ($children->eq(0)->filter('em')->count()) {
                             //Skip if the first child has an em in it
                         } else {
                             $current_object->addValue($name, $description);
@@ -234,12 +241,12 @@ foreach($scrape_apis as $scrape_api) {
                 });
 
                 //Add here
-                if($current_object instanceof Model){
+                if ($current_object instanceof Model) {
                     $api->addModel($current_object);
                     //debug
                     /** @var Model $current_object */
                     $current_object->printPropertyTable();
-                } elseif($current_object instanceof Enum) {
+                } elseif ($current_object instanceof Enum) {
                     $api->addEnum($current_object);
                 }
 
@@ -250,7 +257,7 @@ foreach($scrape_apis as $scrape_api) {
     });
 
     //Parse actual classes
-    foreach($scrape_api['model_uris'] as $uri) {
+    foreach ($scrape_api['model_uris'] as $uri) {
 
         $full_uri = sprintf('%s/%s/%s/', $documentation_base, $scrape_api['uri'], $uri);
         $crawler = $client->request('GET', $full_uri);
@@ -267,27 +274,32 @@ foreach($scrape_apis as $scrape_api) {
 
             $current_tag = $node->getNode(0)->tagName;
 
-            switch($current_tag) {
+            switch ($current_tag) {
                 case 'h1':
                     $h1_parts = explode("\n", $node->text());
                     $page_heading = trim($h1_parts[0]);
                     break;
                 case 'h3':
                 case 'h4':
-                    if(false === stripos($node->text(), 'optional')){
+                    if (false === stripos($node->text(), 'optional')) {
                         $section_name = str_replace("\xc2\xa0", ' ', $node->text()); //remove &nbsp;
                     }
                     break;
                 case 'p':
-                    $node->filter('strong')->each(function(Crawler $node) use (&$section_name){
-                        if($node->parents()->getNode(0)->tagName != 'em')
+                    $node->filter('strong')->each(function(Crawler $node) use (&$section_name) {
+                        if ($node->parents()->getNode(0)->tagName != 'em') {
                             $section_name = $node->text();
+                        }
                     });
 
                     //filtering for properties that have special PUT/DELETE URI
-                    if(preg_match('/PUT\s\/?(?<primary_model>[a-z]+)\/{?[a-z0-9\-]+}?\/(?<secondary_model>[a-z]+)/i', $node->text(), $matches)){
-                        /** @var Model $primary_model */
-                        if($matches['primary_model'] === $primary_model->getName() && $primary_model->hasProperty($matches['secondary_model'])){
+                    if (preg_match('/PUT\s\/?(?<primary_model>[a-z]+)\/{?[a-z0-9\-]+}?\/(?<secondary_model>[a-z]+)/i', $node->text(), $matches)) {
+                        /**
+                         * @var Model $primary_model
+                         */
+                        if ($matches['primary_model'] === $primary_model->getName() &&
+                            $primary_model->hasProperty($matches['secondary_model'])
+                        ) {
                             $primary_model->getProperty($matches['secondary_model'])->save_directly = true;
                         }
                     }
@@ -295,17 +307,17 @@ foreach($scrape_apis as $scrape_api) {
                     break;
                 case 'table':
                     //If no section, we're in the overview table.
-                    if($current_model === null){
-
+                    if ($current_model === null) {
                         //The primary model
                         $primary_model = new Model();
                         $current_model = $primary_model;
 
-                        $node->filter('tr')->each(function(Crawler $node) use($primary_model){
+                        $node->filter('tr')->each(function(Crawler $node) use($primary_model) {
                             $columns = $node->children();
-                            if(count($columns) == 0)
+                            if (count($columns) == 0) {
                                 return;
-                            switch(strtolower($columns->eq(0)->text())){
+                            }
+                            switch (strtolower($columns->eq(0)->text())) {
                                 case 'url':
                                     $primary_model->setUrl($columns->eq(1)->text());
                                     break;
@@ -317,16 +329,17 @@ foreach($scrape_apis as $scrape_api) {
                         return;
                     }
 
-                    if(strpos($section_name, 'Example') === 0){
+                    if (strpos($section_name, 'Example') === 0) {
                         return;
                     }
 
                     //try to work out what's next
-                    if(preg_match('/(xml )?elements( returned)? for( adding)?( an| get| a)? (?<model_name>[\w\s]+)/i', $section_name, $matches)){
+                    if (preg_match('/(xml )?elements( returned)? for( adding)?( an| get| a)? (?<model_name>[\w\s]+)/i', $section_name, $matches)) {
 
                         //too messy to add to the above regex - juse override model name.  This will pick off any lower case words preceding the actual name.
-                        if(preg_match('/^[a-z\s]+(?<model_name>[A-Z][\w\s]+)/', $matches['model_name'], $uc_words_matches))
+                        if (preg_match('/^[a-z\s]+(?<model_name>[A-Z][\w\s]+)/', $matches['model_name'], $uc_words_matches)) {
                             $matches = $uc_words_matches;
+                        }
 
                         $exploded_name = preg_split('/\b(and|or)\b/', $matches['model_name']);
                         $model_name = str_replace(' ', '', ucwords($exploded_name[0]));
@@ -334,11 +347,11 @@ foreach($scrape_apis as $scrape_api) {
                         $current_model->rawHTML = $crawler->filter('body')->text();
 
                         //if it hasn't been set, set it.
-                        if($primary_model->getName() === null){
+                        if ($primary_model->getName() === null) {
                             $primary_model_name = str_replace(' ', '', $page_heading);
                             $primary_model->setName($primary_model_name);
                             $api->addModel($primary_model);
-                        } elseif($current_model->getName() !== $model_name){
+                        } elseif ($current_model->getName() !== $model_name) {
                             //If its not the same, we've reached a new one
                             //create the sub one and add its parent
                             $current_model = new Model();
@@ -347,7 +360,7 @@ foreach($scrape_apis as $scrape_api) {
 
                             $current_model->setParentModel($primary_model);
 
-                            if(isset($exploded_name[1])){
+                            if (isset($exploded_name[1])) {
                                 //there are two models with the same format.
                                 //only allow for sub models
                                 $api->addModelAlias($current_model, str_replace(' ', '', ucwords($exploded_name[1])));
@@ -358,11 +371,11 @@ foreach($scrape_apis as $scrape_api) {
                     $finished_scraping = preg_match('/^GET (?<model_name>[\w\s]+)/i', $section_name, $matches);
 
                     //At this point, we will have a $current_model, so parse properties
-                    $node->filter('tr')->each(function(Crawler $node) use ($current_model, $primary_model, $finished_scraping){
+                    $node->filter('tr')->each(function(Crawler $node) use ($current_model, $primary_model, $finished_scraping) {
                         static $mandatory, $read_only, $get_only, $skip_next;
 
                         //this is for skipping rowspans
-                        if(isset($skip_next) && $skip_next){
+                        if (isset($skip_next) && $skip_next) {
                             $skip_next = false;
                             return;
                         }
@@ -371,52 +384,52 @@ foreach($scrape_apis as $scrape_api) {
                         $num_children = count($children);
 
                         //Breaks in the table with colspans
-                        if($num_children === 1){
+                        if ($num_children === 1) {
                             $get_only = false;
                             //best that can be done really..  
-                            if(preg_match('/at least (one|two)/i', $children->eq(0)->text())){
+                            if (preg_match('/at least (one|two)/i', $children->eq(0)->text())) {
                                 $mandatory = false;
                                 $read_only = false;
-                            } elseif(preg_match('/^Either/i', $children->eq(0)->text())){
+                            } elseif (preg_match('/^Either/i', $children->eq(0)->text())) {
                                 $mandatory = false;
                                 $read_only = false;
-                            } elseif(preg_match('/(required|mandatory)/i', $children->eq(0)->text())){
+                            } elseif (preg_match('/(required|mandatory)/i', $children->eq(0)->text())) {
                                 $mandatory = true;
                                 $read_only = false;
                             }
 
-                            if(preg_match('/(optional|recommended)/i', $children->eq(0)->text())){
+                            if (preg_match('/(optional|recommended)/i', $children->eq(0)->text())) {
                                 $mandatory = false;
                                 $read_only = false;
-                            } elseif(preg_match('/(updatable)/i', $children->eq(0)->text())){
+                            } elseif (preg_match('/(updatable)/i', $children->eq(0)->text())) {
                                 $read_only = false;
                                 $mandatory = false;
-                            } elseif(preg_match('/(only )?returned on (a )?GET requests?( only)?\.?$/i', $children->eq(0)->text())){
+                            } elseif (preg_match('/(only )?returned on (a )?GET requests?( only)?\.?$/i', $children->eq(0)->text())) {
                                 $read_only = true;
                                 $mandatory = false;
                                 $get_only = true;
                             }
-                            if(preg_match('/(PUT|POST)/i', $children->eq(0)->text())){
+                            if (preg_match('/(PUT|POST)/i', $children->eq(0)->text())) {
                                 $read_only = false;
                             }
                         } else {
-                            if(!isset($mandatory)){
+                            if (!isset($mandatory)) {
                                 $mandatory = false;
                             }
 
-                            if(!isset($read_only)){
+                            if (!isset($read_only)) {
                                 $read_only = false;
                             }
 
-                            if(!isset($get_only)){
+                            if (!isset($get_only)) {
                                 $get_only = false;
                             }
 
                             //Handle tables with rowspans
-                            if($num_children === 2){
+                            if (2 === $num_children) {
                                 $column_name = trim($children->eq(0)->text(), "<> \n");
                                 $column_description = trim($children->eq(1)->text());
-                            } elseif($num_children === 0) {
+                            } elseif (0 === $num_children) {
                                 return;
                             } else {
                                 //at least 3 children in here
@@ -425,30 +438,31 @@ foreach($scrape_apis as $scrape_api) {
                             }
 
                             //@todo Here should handle making these methods available on the models
-                            if(preg_match('/^(?<special_function>where|order|sort|filter|page|offset|pagesize|modified( after)?|record filter|include ?archived)$/i', $column_name, $matches) || $finished_scraping || strpos($column_name, '–') !== false){
-
-                                if(isset($matches['special_function'])){
-                                    switch($matches['special_function']){
+                            if (preg_match('/^(?<special_function>where|order|sort|filter|page|offset|pagesize|modified( after)?|record filter|include ?archived)$/i',
+                                    $column_name, $matches) || $finished_scraping ||
+                                strpos($column_name, '–') !== false
+                            ) {
+                                if (isset($matches['special_function'])) {
+                                    switch ($matches['special_function']) {
                                         case 'page':
                                             $primary_model->setIsPagable(true);
                                             break;
                                     }
                                 }
-
                                 return;
                             }
 
                             $property = null;
-                            foreach(preg_split('/(>\s*or\s*<|\s&\s)/', $column_name) as $column_name){
+                            foreach (preg_split('/(>\s*or\s*<|\s&\s)/', $column_name) as $column_name) {
                                 //make it into another param
                                 $column_name = str_replace(' ', '', $column_name);
                                 $tmp_ro = $read_only;
                                 // Don't make Primary GUID readonly
-                                if($column_name === $current_model->getClassName() . 'ID') {
+                                if ($column_name === $current_model->getClassName() . 'ID') {
                                     $read_only = false;
-                                } elseif(stripos($column_description, 'cannot be set') !== false){
+                                } elseif (stripos($column_description, 'cannot be set') !== false) {
                                     $read_only = true;
-                                } elseif(stripos($column_description, 'has an attachment') !== false) {
+                                } elseif (stripos($column_description, 'has an attachment') !== false) {
                                     $read_only = true;
                                 }
                                 $property = new Property($column_name, $column_description, $mandatory, $read_only);
@@ -457,7 +471,7 @@ foreach($scrape_apis as $scrape_api) {
                             }
 
                             //add links to property (for parsing types)
-                            $children->eq(1)->filter('a')->each(function(Crawler $node) use($property){
+                            $children->eq(1)->filter('a')->each(function(Crawler $node) use($property) {
                                 $property->addLink($node->text(), $node->attr('href'));
                             });
 
@@ -470,15 +484,22 @@ foreach($scrape_apis as $scrape_api) {
             }
 
             // Do some processing once we are at the last node.
-            if($node->getNode(0)->nodeValue === $last->getNode(0)->nodeValue && $primary_model instanceof ParsedObjectInterface) {
+            if ($node->getNode(0)->nodeValue === $last->getNode(0)->nodeValue && $primary_model instanceof ParsedObjectInterface) {
                 $models = [$primary_model];
-                if($primary_model->getName() !== $current_model->getName()) {$models[] = $current_model;}
-                foreach($models as $model) {
+                if  ($primary_model->getName() !== $current_model->getName()) {
+                    $models[] = $current_model;
+                }
+                foreach ($models as $model) {
                     /** @var Model $model */
                     // If we don't have a GUID make a last ditch effort to get one...
                     if ($model->hasProperty($model->getClassName() . 'ID') === false && isset($model->rawHTML)) {
                         if (preg_match('/' . $model->getClassName() . 'ID/', $model->rawHTML)) {
-                            $property = new Property($model->getClassName() . 'ID', 'Xero identifier', false, false, false);
+                            $property = new Property($model->getClassName() . 'ID',
+                                'Xero identifier',
+                                false,
+                                false,
+                                false
+                            );
                             $model->addProperty($property, 0);
                         }
                     }
@@ -487,7 +508,7 @@ foreach($scrape_apis as $scrape_api) {
                     $model->printPropertyTable();
                 }
 
-                if(strpos($primary_model->rawHTML, 'returned as PDF') !== false){
+                if (strpos($primary_model->rawHTML, 'returned as PDF') !== false) {
                     //Assume that it does support it.
                     $primary_model->setSupportsPDF(true);
                 }
@@ -506,17 +527,17 @@ $twig->addFilter(new Twig_SimpleFilter('addslashes', 'addslashes'));
 //print_r($apis[0]->getSearchKeys());
 //exit;
 
-foreach($apis as $api){
+foreach ($apis as $api) {
     /* @var API $api */
-    foreach($api->getModels() as $model){
+    foreach ($api->getModels() as $model) {
 
         $model_class = sprintf('\\XeroPHP\\Models\\%s', $model->getClassName(true));
-        if(class_exists($model_class) && method_exists($model_class, 'getProperties')){
+        if (class_exists($model_class) && method_exists($model_class, 'getProperties')) {
             $property_position = 0;
             /** @var XeroPHP\Remote\ObjectInterface $model_class */
-            foreach($model_class::getProperties() as $name => $property_meta){
+            foreach ($model_class::getProperties() as $name => $property_meta) {
                 //At this point, it's been removed from the API (and not deprecated).  Thanks Xero!
-                if(!$model->hasProperty($name)){
+                if (!$model->hasProperty($name)) {
                     //Make it and deprecate it.
                     $property = new Property($name, 'This property has been removed from the Xero API', $property_meta[0], false, true);
                     $model->addProperty($property, $property_position);
@@ -526,8 +547,9 @@ foreach($apis as $api){
         }
 
         $dir = sprintf('%s/%s', GEN_OUTPUT, strtr($model->getNamespace(), ['\\' => '/']));
-        if(!is_dir($dir))
+        if (!is_dir($dir)) {
             mkdir($dir);
+        }
 
         $template = $twig->render('model.twig', [
             'model' => $model,
@@ -536,7 +558,7 @@ foreach($apis as $api){
         file_put_contents($filename, $template);
     }
 
-    foreach($api->getStrayEnums() as $class_name => $enums){
+    foreach ($api->getStrayEnums() as $class_name => $enums) {
         $dir = sprintf('%s/%s', GEN_OUTPUT, strtr($api->getNamespace(), ['\\' => '/']));
 
         $template = $twig->render('enum.twig', [

@@ -10,8 +10,8 @@ use XeroPHP\Remote\Request;
 use XeroPHP\Remote\URL;
 
 
-abstract class Application {
-
+abstract class Application
+{
     protected static $_config_defaults = [
         'xero'  => [
             'site'            => 'https://api.xero.com',
@@ -56,12 +56,18 @@ abstract class Application {
      * @var array
      */
     protected static $_type_config_defaults = [];
+
     /**
      * @param array $user_config
      */
-    public function __construct(array $user_config) {
+    public function __construct(array $user_config)
+    {
         //better here for overriding
-        $this->config = array_replace_recursive(self::$_config_defaults, static::$_type_config_defaults, $user_config);
+        $this->config = array_replace_recursive(
+            self::$_config_defaults,
+            static::$_type_config_defaults,
+            $user_config
+        );
 
         $this->oauth_client = new Client($this->config['oauth']);
     }
@@ -69,7 +75,8 @@ abstract class Application {
     /**
      * @return Client
      */
-    public function getOAuthClient() {
+    public function getOAuthClient()
+    {
         return $this->oauth_client;
     }
 
@@ -77,7 +84,8 @@ abstract class Application {
      * @param string|null $oauth_token
      * @return string
      */
-    public function getAuthorizeURL($oauth_token = null) {
+    public function getAuthorizeURL($oauth_token = null)
+    {
         $authorize_url = $this->oauth_client->getAuthorizeURL();
 
         if ($oauth_token !== null) {
@@ -93,11 +101,11 @@ abstract class Application {
      * @return mixed
      * @throws Exception
      */
-    public function getConfig($key) {
-
-        if(!isset($this->config[$key]))
+    public function getConfig($key)
+    {
+        if (!isset($this->config[$key])) {
             throw new Exception("Invalid configuration key [$key]");
-
+        }
         return $this->config[$key];
     }
 
@@ -109,14 +117,16 @@ abstract class Application {
      * @return string
      * @throws Exception
      */
-    public function validateModelClass($class){
+    public function validateModelClass($class)
+    {
         $config = $this->getConfig('xero');
 
-        if($class[0] !== '\\')
+        if ($class[0] !== '\\') {
             $class = sprintf('%s\\%s', $config['model_namespace'], $class);
-
-        if(!class_exists($class))
+        }
+        if (!class_exists($class)) {
             throw new Exception("Class does not exist [$class]");
+        }
 
         return $class;
     }
@@ -131,9 +141,11 @@ abstract class Application {
      * @throws Exception
      * @throws Remote\Exception\NotFoundException
      */
-    public function loadByGUID($model, $guid) {
-
-        /** @var Remote\Object $class */
+    public function loadByGUID($model, $guid)
+    {
+        /**
+         * @var Remote\Object $class
+         */
         $class = $this->validateModelClass($model);
 
         $uri = sprintf('%s/%s', $class::getResourceURI(), $guid);
@@ -144,8 +156,10 @@ abstract class Application {
         $request->send();
 
         //Return the first (if any) element from the response.
-        foreach($request->getResponse()->getElements() as $element){
-            /** @var Remote\Object $object */
+        foreach ($request->getResponse()->getElements() as $element) {
+            /**
+             * @var Remote\Object $object
+             */
             $object = new $class($this);
             $object->fromStringArray($element);
             return $object;
@@ -153,18 +167,16 @@ abstract class Application {
         return null;
     }
 
-
     /**
      * @param string $model
      * @return Query
      * @throws Remote\Exception
      */
-    public function load($model) {
-
+    public function load($model)
+    {
         $query = new Query($this);
         return $query->from($model);
     }
-
 
     /**
      * @param Remote\Object $object
@@ -172,18 +184,19 @@ abstract class Application {
      * @return Remote\Response|null
      * @throws Exception
      */
-    public function save(Remote\Object $object, $replace_data = false) {
-
-        //Saves any properties that don't want to be included in the normal loop (special saving endpoints)
+    public function save(Remote\Object $object, $replace_data = false)
+    {
+        //Saves any properties that don't want to be included in the normal loop
+        //(special saving endpoints)
         $this->savePropertiesDirectly($object);
 
-        if(!$object->isDirty()) {
+        if (!$object->isDirty()) {
             return null;
         }
         $object->validate();
 
         //In this case it's new
-        if($object->hasGUID()) {
+        if ($object->hasGUID()) {
             $method = $object::supportsMethod(Request::METHOD_POST) ? Request::METHOD_POST : Request::METHOD_PUT;
             $uri = sprintf('%s/%s', $object::getResourceURI(), $object->getGUID());
         } else {
@@ -193,7 +206,7 @@ abstract class Application {
             $object->setApplication($this);
         }
 
-        if(!$object::supportsMethod($method)){
+        if (!$object::supportsMethod($method)) {
             throw new Exception(sprintf('%s doesn\'t support [%s] via the API', get_class($object), $method));
         }
 
@@ -205,7 +218,7 @@ abstract class Application {
         $request->setBody(Helpers::arrayToXML($data))->send();
         $response = $request->getResponse();
 
-        if(false !== $element = current($response->getElements())) {
+        if (false !== $element = current($response->getElements())) {
             $object->fromStringArray($element, $replace_data);
         }
         //Mark the object as clean since no exception was thrown
@@ -214,28 +227,29 @@ abstract class Application {
         return $response;
     }
 
-
     /**
      * @param Collection|array $objects
      * @return null
      * @throws Exception
      */
-    public function saveAll($objects) {
-
+    public function saveAll($objects)
+    {
         //Just get one type to compare with, doesn't matter which.
         $current_object = current($objects);
-        /** @var Object $type */
+        /**
+         * @var Object $type
+         */
         $type = get_class($current_object);
         $has_guid =  $current_object->hasGUID();
         $object_arrays = [];
 
-        foreach($objects as $object) {
-            if($type !== get_class($object)) {
+        foreach ($objects as $object) {
+            if ($type !== get_class($object)) {
                 throw new Exception('Array passed to ->saveAll() must be homogeneous.');
             }
 
             // Check if we have a GUID
-            if($object->hasGUID() && $has_guid === false) {
+            if ($object->hasGUID() && $has_guid === false) {
                 $has_guid = true;
             }
 
@@ -257,8 +271,8 @@ abstract class Application {
 
         $response = $request->getResponse();
 
-        foreach($response->getElements() as $element_index => $element) {
-            if($response->getErrorsForElement($element_index) === null) {
+        foreach ($response->getElements() as $element_index => $element) {
+            if ($response->getErrorsForElement($element_index) === null) {
                 $objects[$element_index]->fromStringArray($element);
                 $objects[$element_index]->setClean();
             }
@@ -267,18 +281,19 @@ abstract class Application {
         return $response;
     }
 
-
     /**
-     * Function to save properties directly which do not update via a POST
+     * Function to save properties directly which do not update via a POST.
      *
-     * This is called automatically from the save method for things like adding contacts to ContactGroups
+     * This is called automatically from the save method for things like
+     * adding contacts to ContactGroups
      *
      * @param Remote\Object $object
      * @throws Exception
      */
-    private function savePropertiesDirectly(Remote\Object $object){
-        foreach($object::getProperties() as $property_name => $meta){
-            if($meta[Remote\Object::KEY_SAVE_DIRECTLY] && $object->isDirty($property_name)){
+    private function savePropertiesDirectly(Remote\Object $object)
+    {
+        foreach ($object::getProperties() as $property_name => $meta) {
+            if ($meta[Remote\Object::KEY_SAVE_DIRECTLY] && $object->isDirty($property_name)) {
                 //Then actually save
                 $property_objects = $object->$property_name;
                 /** @var Object $property_type */
@@ -289,7 +304,7 @@ abstract class Application {
 
                 $property_array = [];
                 /** @var Object[] $property_objects */
-                foreach($property_objects as $property_object){
+                foreach ($property_objects as $property_object) {
                     $property_array[] = $property_object->toStringArray();
                 }
 
@@ -299,8 +314,8 @@ abstract class Application {
                 $request->send();
 
                 $response = $request->getResponse();
-                foreach($response->getElements() as $element_index => $element) {
-                    if($response->getErrorsForElement($element_index) === null) {
+                foreach ($response->getElements() as $element_index => $element) {
+                    if ($response->getErrorsForElement($element_index) === null) {
                         $property_objects[$element_index]->fromStringArray($element);
                         $property_objects[$element_index]->setClean();
                     }
@@ -312,14 +327,14 @@ abstract class Application {
         }
     }
 
-
     /**
      * @param Remote\Object $object
      * @return Remote\Response
      * @throws Exception
      */
-    public function delete(Remote\Object $object) {
-        if(!$object::supportsMethod(Request::METHOD_DELETE)){
+    public function delete(Remote\Object $object)
+    {
+        if (!$object::supportsMethod(Request::METHOD_DELETE)) {
             throw new Exception(sprintf('%s doesn\'t support [DELETE] via the API', get_class($object)));
         }
 
@@ -330,5 +345,4 @@ abstract class Application {
 
         return $request->getResponse();
     }
-
 }

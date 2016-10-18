@@ -12,8 +12,8 @@ use XeroPHP\Application;
  * @author Michael Calcinai
  * @package XeroPHP\Remote
  */
-class URL {
-
+class URL
+{
     const API_CORE    = 'api.xro';
     const API_PAYROLL = 'payroll.xro';
     const API_FILE    = 'files.xro';
@@ -41,25 +41,25 @@ class URL {
      * @param null $api
      * @throws Exception
      */
-    public function __construct(Application $app, $endpoint, $api = null) {
-
+    public function __construct(Application $app, $endpoint, $api = null)
+    {
         //Handle full URLs and pull them back apart.
         //Annoying internal references are http??? and absolute.
-        if(strpos($endpoint, 'http') === 0){
-            if(preg_match('@^http(s)?://[^/]+/(?<api>[^/]+)/(?<version>[^/]+)/(?<endpoint>.+)$@i', $endpoint, $matches)) {
+        if (strpos($endpoint, 'http') === 0) {
+            if (preg_match('@^http(s)?://[^/]+/(?<api>[^/]+)/(?<version>[^/]+)/(?<endpoint>.+)$@i', $endpoint, $matches)) {
                 $endpoint = $matches['endpoint'];
                 $api = $matches['api'];
                 //$version = $matches['version'];
             }
         }
 
-        if($api === null) {
+        if ($api === null) {
             //Assume that it's an OAuth endpoint if no API is given.
             //If this becomes an issue it can just check every time, but it seems a little redundant
             $oauth_endpoints = $app->getConfig('oauth');
             $this->is_oauth = false;
 
-            switch($endpoint) {
+            switch ($endpoint) {
                 case self::OAUTH_REQUEST_TOKEN:
                     $this->path = $oauth_endpoints['request_token_path'];
                     $this->is_oauth = true;
@@ -74,15 +74,14 @@ class URL {
             }
         }
 
-
         //This contains API versions and base URLs
         $xero_config = $app->getConfig('xero');
         $this->base_url = $xero_config['base_url'];
         $this->endpoint = $endpoint;
 
         //Check here that the URI hasn't been set by one of the OAuth methods and handle as normal
-        if(!isset($this->path)) {
-            switch($api) {
+        if (!isset($this->path)) {
+            switch ($api) {
                 case self::API_CORE:
                     $version = $xero_config['core_version'];
                     break;
@@ -101,15 +100,16 @@ class URL {
     }
 
 
-    public function isOAuth() {
+    public function isOAuth()
+    {
         return $this->is_oauth;
     }
 
     /**
      * @return string
      */
-    public function getFullURL() {
+    public function getFullURL()
+    {
         return sprintf('%s/%s', $this->base_url, $this->path);
     }
-
 }
