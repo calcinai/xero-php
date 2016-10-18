@@ -125,7 +125,7 @@ abstract class Report extends Remote\Object
 
     /**
      * @param string $value
-     * @return BalanceSheet
+     * @return Report
      */
     public function setReportID($value)
     {
@@ -144,7 +144,7 @@ abstract class Report extends Remote\Object
 
     /**
      * @param string $value
-     * @return BalanceSheet
+     * @return Report
      */
     public function setReportName($value)
     {
@@ -163,7 +163,7 @@ abstract class Report extends Remote\Object
 
     /**
      * @param string $value
-     * @return BalanceSheet
+     * @return Report
      */
     public function setReportType($value)
     {
@@ -182,7 +182,7 @@ abstract class Report extends Remote\Object
 
     /**
      * @param string $value
-     * @return BalanceSheet
+     * @return Report
      */
     public function setReportTitles($value)
     {
@@ -201,7 +201,7 @@ abstract class Report extends Remote\Object
 
     /**
      * @param string $value
-     * @return BalanceSheet
+     * @return Report
      */
     public function setReportDate($value)
     {
@@ -220,7 +220,7 @@ abstract class Report extends Remote\Object
 
     /**
      * @param string $value
-     * @return BalanceSheet
+     * @return Report
      */
     public function setUpdatedDateUTC($value)
     {
@@ -239,7 +239,7 @@ abstract class Report extends Remote\Object
 
     /**
      * @param string $value
-     * @return BalanceSheet
+     * @return Report
      */
     public function setRows($value)
     {

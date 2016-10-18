@@ -153,7 +153,6 @@ abstract class Object implements ObjectInterface, \JsonSerializable, \ArrayAcces
      *
      * @param $input_array
      * @param $replace_data
-     * @return Object
      */
     public function fromStringArray($input_array, $replace_data = false) {
 
@@ -372,7 +371,7 @@ abstract class Object implements ObjectInterface, \JsonSerializable, \ArrayAcces
 
     /**
      * @param string $property
-     * @param self $object
+     * @param Object $object
      */
     public function addAssociatedObject($property, Object $object) {
         $this->_associated_objects[$property] = $object;

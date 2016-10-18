@@ -2,7 +2,6 @@
 
 namespace XeroPHP;
 
-use XeroPHP\Models\Files\Object;
 use XeroPHP\Remote;
 use XeroPHP\Remote\Collection;
 use XeroPHP\Remote\OAuth\Client;
@@ -124,7 +123,7 @@ abstract class Application {
      *
      * @param $model
      * @param $guid
-     * @return mixed
+     * @return Remote\Object|null
      * @throws Exception
      * @throws Remote\Exception\NotFoundException
      */
@@ -147,7 +146,7 @@ abstract class Application {
             $object->fromStringArray($element);
             return $object;
         }
-
+        return null;
     }
 
 
@@ -166,7 +165,7 @@ abstract class Application {
     /**
      * @param Remote\Object $object
      * @param bool $replace_data
-     * @return null
+     * @return Remote\Response|null
      * @throws Exception
      */
     public function save(Remote\Object $object, $replace_data = false) {
@@ -174,41 +173,41 @@ abstract class Application {
         //Saves any properties that don't want to be included in the normal loop (special saving endpoints)
         $this->savePropertiesDirectly($object);
 
-        if($object->isDirty()) {
-            $object->validate();
-
-            //In this case it's new
-            if($object->hasGUID()) {
-                $method = $object::supportsMethod(Request::METHOD_POST) ? Request::METHOD_POST : Request::METHOD_PUT;
-                $uri = sprintf('%s/%s', $object::getResourceURI(), $object->getGUID());
-            } else {
-                $method = $object::supportsMethod(Request::METHOD_PUT) ? Request::METHOD_PUT : Request::METHOD_POST;
-                $uri = $object::getResourceURI();
-                //@todo, bump version so you must create objects with app context.
-                $object->setApplication($this);
-            }
-
-            if(!$object::supportsMethod($method)){
-                throw new Exception(sprintf('%s doesn\'t support [%s] via the API', get_class($object), $method));
-            }
-
-            //Put in an array with the first level containing only the 'root node'.
-            $data = array($object::getRootNodeName() => $object->toStringArray());
-            $url = new URL($this, $uri);
-            $request = new Request($this, $url, $method);
-
-            $request->setBody(Helpers::arrayToXML($data))->send();
-            $response = $request->getResponse();
-
-            if(false !== $element = current($response->getElements())) {
-                $object->fromStringArray($element, $replace_data);
-            }
-            //Mark the object as clean since no exception was thrown
-            $object->setClean();
-
-            return $response;
-
+        if(!$object->isDirty()) {
+            return null;
         }
+        $object->validate();
+
+        //In this case it's new
+        if($object->hasGUID()) {
+            $method = $object::supportsMethod(Request::METHOD_POST) ? Request::METHOD_POST : Request::METHOD_PUT;
+            $uri = sprintf('%s/%s', $object::getResourceURI(), $object->getGUID());
+        } else {
+            $method = $object::supportsMethod(Request::METHOD_PUT) ? Request::METHOD_PUT : Request::METHOD_POST;
+            $uri = $object::getResourceURI();
+            //@todo, bump version so you must create objects with app context.
+            $object->setApplication($this);
+        }
+
+        if(!$object::supportsMethod($method)){
+            throw new Exception(sprintf('%s doesn\'t support [%s] via the API', get_class($object), $method));
+        }
+
+        //Put in an array with the first level containing only the 'root node'.
+        $data = array($object::getRootNodeName() => $object->toStringArray());
+        $url = new URL($this, $uri);
+        $request = new Request($this, $url, $method);
+
+        $request->setBody(Helpers::arrayToXML($data))->send();
+        $response = $request->getResponse();
+
+        if(false !== $element = current($response->getElements())) {
+            $object->fromStringArray($element, $replace_data);
+        }
+        //Mark the object as clean since no exception was thrown
+        $object->setClean();
+
+        return $response;
     }
 
 
