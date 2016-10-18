@@ -91,7 +91,6 @@ class SimpleObject extends Object
         $this->_data['test'] = $test;
     }
 
-
     static function getRootNodeName() {
         return 'test';
     }

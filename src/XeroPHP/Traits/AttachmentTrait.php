@@ -7,12 +7,14 @@ use XeroPHP\Remote\Request;
 use XeroPHP\Remote\URL;
 use XeroPHP\Exception;
 
-trait AttachmentTrait {
+trait AttachmentTrait
+{
 
-    public function addAttachment(Attachment $attachment){
-
-        /** @var Object $this */
-
+    public function addAttachment(Attachment $attachment)
+    {
+        /**
+         * @var Object $this
+         */
         $uri = sprintf('%s/%s/Attachments/%s', $this::getResourceURI(), $this->getGUID(), $attachment->getFileName());
 
         $url = new URL($this->_application, $uri);
@@ -23,19 +25,19 @@ trait AttachmentTrait {
 
         $response = $request->getResponse();
 
-        if(false !== $element = current($response->getElements())) {
+        if (false !== $element = current($response->getElements())) {
             $attachment->fromStringArray($element);
         }
 
         return $this;
-
     }
 
-    public function getAttachments(){
-
-        /** @var Object $this */
-
-        if($this->hasGUID() === false){
+    public function getAttachments()
+    {
+        /**
+         * @var Object $this
+         */
+        if ($this->hasGUID() === false) {
             throw new Exception('Attachments are only available to objects that exist remotely.');
         }
 
@@ -46,15 +48,12 @@ trait AttachmentTrait {
         $request->send();
 
         $attachments = [];
-        foreach($request->getResponse()->getElements() as $element) {
+        foreach ($request->getResponse()->getElements() as $element) {
             $attachment = new Attachment($this->_application);
             $attachment->fromStringArray($element);
             $attachments[] = $attachment;
         }
 
         return $attachments;
-
-
     }
-
 }

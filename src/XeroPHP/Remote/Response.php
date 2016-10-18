@@ -13,8 +13,8 @@ use XeroPHP\Remote\Exception\OrganisationOfflineException;
 use XeroPHP\Remote\Exception\RateLimitExceededException;
 use XeroPHP\Remote\Exception\UnauthorizedException;
 
-class Response {
-
+class Response
+{
     const STATUS_OK                   = 200;
     const STATUS_BAD_REQUEST          = 400;
     const STATUS_UNAUTHORISED         = 401;
@@ -43,8 +43,8 @@ class Response {
 
     private $root_error;
 
-    public function __construct(Request $request, $response_body, array $curl_info) {
-
+    public function __construct(Request $request, $response_body, array $curl_info)
+    {
         $this->request = $request;
         $this->response_body = $response_body;
         $this->status = $curl_info['http_code'];
@@ -63,14 +63,14 @@ class Response {
      * @throws RateLimitExceededException
      * @throws UnauthorizedException
      */
-    public function parse() {
-
+    public function parse()
+    {
         $this->parseBody();
 
-        switch($this->status) {
+        switch ($this->status) {
             case Response::STATUS_BAD_REQUEST:
                 //This catches actual app errors
-                if(isset($this->root_error)) {
+                if (isset($this->root_error)) {
                     $message = sprintf('%s (%s)', $this->root_error['message'], implode(', ', $this->element_errors));
                     $message .= $this->parseBadRequest();
                     throw new BadRequestException($message, $this->root_error['code']);
@@ -78,10 +78,12 @@ class Response {
                     throw new BadRequestException();
                 }
 
-            /** @noinspection PhpMissingBreakStatementInspection */
+            /**
+             * @noinspection PhpMissingBreakStatementInspection
+             */
             case Response::STATUS_UNAUTHORISED:
                 //This is where OAuth errors end up, this could maybe change to an OAuth exception
-                if(isset($this->oauth_response['oauth_problem_advice'])) {
+                if (isset($this->oauth_response['oauth_problem_advice'])) {
                     throw new UnauthorizedException($this->oauth_response['oauth_problem_advice']);
                 }
             case Response::STATUS_FORBIDDEN:
@@ -101,9 +103,9 @@ class Response {
             case Response::STATUS_ORGANISATION_OFFLINE:
                 //There must be a better way than this?
                 $response = urldecode($this->response_body);
-                if(false !== stripos($response, 'Organisation is offline')){
+                if (false !== stripos($response, 'Organisation is offline')) {
                     throw new OrganisationOfflineException();
-                } elseif(false !== stripos($response, 'Rate limit exceeded')){
+                } elseif (false !== stripos($response, 'Rate limit exceeded')) {
                     throw new RateLimitExceededException();
                 } else {
                     throw new NotAvailableException();
@@ -111,57 +113,64 @@ class Response {
         }
     }
 
-	/**
-	 * @return string
-	 */
-	private function parseBadRequest(){
-		if (isset($this->elements)){
-			$field_errors = [];
-			foreach ($this->elements as $n => $element){
-				if (isset($element['ValidationErrors'])){
-					$field_errors[] = $element['ValidationErrors'][0]['Message'];
-				}
-			}
-			return "\nValidation errors:\n".implode("\n", $field_errors);
-		}
-		return '';
-	}
+    /**
+     * @return string
+     */
+    private function parseBadRequest()
+    {
+        if (isset($this->elements)) {
+            $field_errors = [];
+            foreach ($this->elements as $n => $element) {
+                if (isset($element['ValidationErrors'])) {
+                    $field_errors[] = $element['ValidationErrors'][0]['Message'];
+                }
+            }
+            return "\nValidation errors:\n".implode("\n", $field_errors);
+        }
+        return '';
+    }
 
-    public function getResponseBody(){
+    public function getResponseBody()
+    {
         return $this->response_body;
     }
 
-    public function getElements() {
+    public function getElements()
+    {
         return $this->elements;
     }
 
-    public function getErrorsForElement($element_id) {
-        if(isset($this->element_errors[$element_id])) {
+    public function getErrorsForElement($element_id)
+    {
+        if (isset($this->element_errors[$element_id])) {
             return $this->element_errors[$element_id];
         }
-
         return null;
     }
 
-    public function getElementErrors() {
+    public function getElementErrors()
+    {
         return $this->element_errors;
     }
 
-    public function getElementWarnings() {
+    public function getElementWarnings()
+    {
         return $this->element_warnings;
     }
 
-    public function getRootError() {
+    public function getRootError()
+    {
         return $this->root_error;
     }
 
-    public function getOAuthResponse() {
+    public function getOAuthResponse()
+    {
         return $this->oauth_response;
     }
 
-    public function parseBody() {
-
-        if($this->request->getUrl()->isOAuth()){
+    public function parseBody()
+    {
+        if ($this->request->getUrl()->isOAuth()) {
             $this->parseHTML();
             return;
         }
@@ -171,7 +180,7 @@ class Response {
         $this->element_warnings = [];
         $this->root_error = [];
 
-        switch($this->content_type) {
+        switch ($this->content_type) {
             case Request::CONTENT_TYPE_XML:
                 $this->parseXML();
                 break;
@@ -189,46 +198,45 @@ class Response {
                 return;
         }
 
-        foreach($this->elements as $index => $element){
+        foreach ($this->elements as $index => $element) {
             $this->findElementErrors($element, $index);
         }
     }
 
-    public function findElementErrors($element, $element_index) {
-        foreach($element as $property => $value) {
-            switch((string) $property) {
+    public function findElementErrors($element, $element_index)
+    {
+        foreach ($element as $property => $value) {
+            switch ((string) $property) {
                 case 'ValidationErrors':
-                    if(is_array($value)) {
-                        foreach($value as $error)
+                    if (is_array($value)) {
+                        foreach ($value as $error)
                             $this->element_errors[$element_index] = trim($error['Message'], '.');
                     }
                     break;
                 case 'Warnings':
-                    if(is_array($value)) {
-                        foreach($value as $warning)
+                    if (is_array($value)) {
+                        foreach ($value as $warning)
                             $this->element_warnings[$element_index] = trim($warning['Message'], '.');
                     }
                     break;
 
                 default:
-                    if(is_array($value)) {
+                    if (is_array($value)) {
                         $this->findElementErrors($value, $element_index);
                     }
             }
         }
     }
 
-
-    public function parseXML() {
-
+    public function parseXML()
+    {
         $sxml = new SimpleXMLElement($this->response_body);
 
         // For lack of a better way to find the elements returned (every time)
         // XML has an array 2 levels deep due to its non-unique key nature.
         /** @var SimpleXMLElement $root_child */
-        foreach($sxml as $child_index => $root_child) {
-
-            switch($child_index) {
+        foreach ($sxml as $child_index => $root_child) {
+            switch ($child_index) {
                 case 'ErrorNumber':
                     $this->root_error['code'] = (string) $root_child;
                     break;
@@ -245,20 +253,21 @@ class Response {
                     break;
 
                 default:
-                    //Happy to make the assumption that there will only be one root node with > than 2D children.
-                    foreach($root_child->children() as $element_index => $element)
+                    //Happy to make the assumption that there will only be one
+                    //root node with > than 2D children.
+                    foreach ($root_child->children() as $element_index => $element) {
                         $this->elements[] = Helpers::XMLToArray($element);
+                    }
             }
         }
-
     }
 
-    public function parseJSON() {
+    public function parseJSON()
+    {
         $json = json_decode($this->response_body, true);
 
-        foreach($json as $child_index => $root_child) {
-
-            switch($child_index) {
+        foreach ($json as $child_index => $root_child) {
+            switch ($child_index) {
                 case 'ErrorNumber':
                     $this->root_error['code'] = $root_child;
                     break;
@@ -276,18 +285,18 @@ class Response {
 
                 default:
                     //Happy to make the assumption that there will only be one root node with > than 2D children.
-                    if(is_array($root_child))
-                        foreach($root_child as $element)
+                    if (is_array($root_child)) {
+                        foreach ($root_child as $element) {
                             $this->elements[] = $element;
+                        }
+                    }
             }
         }
-
     }
 
     //Xero sends text/html when it's an oauth response for some reason.
-    public function parseHTML() {
+    public function parseHTML()
+    {
         parse_str($this->response_body, $this->oauth_response);
     }
-
-
-} 
+}

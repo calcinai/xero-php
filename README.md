@@ -38,7 +38,7 @@ Using composer:
 
 ```json
   "require": {
-  	"calcinai/xero-php": "1.3.*"
+    "calcinai/xero-php": "1.3.*"
   }
 ```
 
@@ -71,15 +71,15 @@ foreach ($contacts as $contact) {
 Search for objects meeting certain criteria
 ```php
 $xero->load('Accounting\\Invoice')
-	->where('Status', \XeroPHP\Models\Accounting\Invoice::INVOICE_STATUS_AUTHORISED)
-	->where('Type', \XeroPHP\Models\Accounting\Invoice::INVOICE_TYPE_ACCREC)
-	->execute();
+    ->where('Status', \XeroPHP\Models\Accounting\Invoice::INVOICE_STATUS_AUTHORISED)
+    ->where('Type', \XeroPHP\Models\Accounting\Invoice::INVOICE_TYPE_ACCREC)
+    ->execute();
 ```
 or
 ```php
 $xero->load('Accounting\\Invoice')->where('
-	Status=="' . \XeroPHP\Models\Accounting\Invoice::INVOICE_STATUS_AUTHORISED . '" AND
-	Type=="' . \XeroPHP\Models\Accounting\Invoice::INVOICE_TYPE_ACCREC . '"
+    Status=="' . \XeroPHP\Models\Accounting\Invoice::INVOICE_STATUS_AUTHORISED . '" AND
+    Type=="' . \XeroPHP\Models\Accounting\Invoice::INVOICE_TYPE_ACCREC . '"
 ')->execute();
 ```
 
@@ -92,9 +92,9 @@ Or create & populate it
 ```php
 $contact = new \XeroPHP\Models\Accounting\Contact($xero);
 $contact->setName('Test Contact')
-	->setFirstName('Test')
-	->setLastName('Contact')
-	->setEmailAddress('test@example.com');
+    ->setFirstName('Test')
+    ->setLastName('Contact')
+    ->setEmailAddress('test@example.com');
 ```
 
 Save it
@@ -115,8 +115,8 @@ $invoice->setContact($contact);
 Attachments
 ```php
 $attachments = $invoice->getAttachments();
-foreach($attachment as $attachment){
-	//Do something with them
+foreach ($attachment as $attachment) {
+    //Do something with them
     file_put_contents($attachment->getFileName(), $attachment->getContent());
 }
 

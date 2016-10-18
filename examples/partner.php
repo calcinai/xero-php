@@ -29,28 +29,32 @@ $xero = new PartnerApplication($config);
 $oauth_session = getOAuthSession();
 
 // If no session found
-if($oauth_session === null){
+if ($oauth_session === null) {
 
     $url = new URL($xero, URL::OAUTH_REQUEST_TOKEN);
 
     $request = new Request($xero, $url);
 
-    //Here's where you'll see if your keys are valid.  You can catch a BadRequestException.
+    //Here's where you'll see if your keys are valid.
+    //You can catch a BadRequestException.
     try {
         $request->send();
-    } catch (Exception $e){
+    } catch (Exception $e) {
         echo($e->getCode());
         print_r($request->getResponse()->getOAuthResponse());
     }
 
     $oauth_response = $request->getResponse()->getOAuthResponse();
 
-    setOAuthSession($oauth_response['oauth_token'], $oauth_response['oauth_token_secret']);
+    setOAuthSession(
+        $oauth_response['oauth_token'],
+        $oauth_response['oauth_token_secret']
+    );
 
     printf('<a href="%s">Click here to Authorize</a>', $xero->getAuthorizeURL($oauth_response['oauth_token']));
     exit;
 
-} elseif(isset($oauth_session['session_handle']) && !isset($oauth_session['expires'])) {
+} elseif (isset($oauth_session['session_handle']) && !isset($oauth_session['expires'])) {
     // If session is expired refresh the token
     $url = new URL($xero, URL::OAUTH_ACCESS_TOKEN);
     $request = new Request($xero, $url);
@@ -63,7 +67,12 @@ if($oauth_session === null){
 
     $expires = time() + intval($oauth_response['oauth_expires_in']);
 
-    setOAuthSession($oauth_response['oauth_token'], $oauth_response['oauth_token_secret'], $expires, $oauth_response['oauth_session_handle']);
+    setOAuthSession(
+        $oauth_response['oauth_token'],
+        $oauth_response['oauth_token_secret'],
+        $expires,
+        $oauth_response['oauth_session_handle']
+    );
 
     $xero->getOAuthClient()
         ->setToken($oauth_response['oauth_token'])
@@ -75,7 +84,7 @@ if($oauth_session === null){
         ->setToken($oauth_session['token'])
         ->setTokenSecret($oauth_session['token_secret']);
 
-    if(isset($_REQUEST['oauth_verifier'])){
+    if (isset($_REQUEST['oauth_verifier'])) {
         $xero->getOAuthClient()->setVerifier($_REQUEST['oauth_verifier']);
 
         $url = new URL($xero, URL::OAUTH_ACCESS_TOKEN);
@@ -86,7 +95,12 @@ if($oauth_session === null){
 
         $expires = time() + intval($oauth_response['oauth_expires_in']);
 
-        setOAuthSession($oauth_response['oauth_token'], $oauth_response['oauth_token_secret'], $expires, $oauth_response['oauth_session_handle']);
+        setOAuthSession(
+            $oauth_response['oauth_token'],
+            $oauth_response['oauth_token_secret'],
+            $expires,
+            $oauth_response['oauth_session_handle']
+        );
 
         //drop the qs
         $uri_parts = explode('?', $_SERVER['REQUEST_URI']);
@@ -101,8 +115,10 @@ if($oauth_session === null){
 // We are in! Print organisation details...
 print_r($xero->load('Accounting\\Organisation')->execute());
 
-//The following two functions are just for a demo - you should use a more robust mechanism of storing tokens than this!
-function setOAuthSession($token, $secret, $expires = null, $session_handle = null){
+//The following two functions are just for a demo
+//You should use a more robust mechanism of storing tokens than this!
+function setOAuthSession($token, $secret, $expires = null, $session_handle = null)
+{
     $_SESSION['oauth'] = [
         'token' => $token,
         'token_secret' => $secret,
@@ -111,14 +127,15 @@ function setOAuthSession($token, $secret, $expires = null, $session_handle = nul
     ];
 }
 
-function getOAuthSession(){
+function getOAuthSession()
+{
     //If it doesn't exist, return null
-    if(!isset($_SESSION['oauth'])) {
+    if (!isset($_SESSION['oauth'])) {
         return null;
     }
 
     // If the session is expired or expiring, unset the expires key
-    if($_SESSION['oauth']['expires'] !== null && $_SESSION['oauth']['expires'] <= (time() + 100)) {
+    if ($_SESSION['oauth']['expires'] !== null && $_SESSION['oauth']['expires'] <= (time() + 100)) {
         unset($_SESSION['oauth']['expires']);
     }
 

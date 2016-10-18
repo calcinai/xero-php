@@ -6,13 +6,14 @@ use XeroPHP\Remote\Request;
 use XeroPHP\Remote\URL;
 use XeroPHP\Exception;
 
-trait PDFTrait {
-
-    public function getPDF(){
-
-        /** @var Object $this */
-
-        if($this->hasGUID() === false){
+trait PDFTrait
+{
+    public function getPDF()
+    {
+        /**
+         * @var Object $this
+         */
+        if ($this->hasGUID() === false) {
             throw new Exception('PDF files are only available to objects that exist remotely.');
         }
 
@@ -25,7 +26,5 @@ trait PDFTrait {
         $request->send();
 
         return $request->getResponse()->getResponseBody();
-
     }
-
 }
