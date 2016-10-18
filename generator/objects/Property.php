@@ -35,7 +35,7 @@ class Property {
         $this->is_read_only = $read_only;
         $this->name = $name;
         $this->description = $description;
-        $this->links = array();
+        $this->links = [];
         $this->related_object = null;
         $this->save_directly = false;
 
@@ -108,10 +108,10 @@ class Property {
      * @param $href
      */
     public function addLink($text, $href){
-        $this->links[] = array(
+        $this->links[] = [
             'text' => $text,
             'href' => $href
-        );
+        ];
     }
 
     /**
@@ -157,6 +157,7 @@ class Property {
     }
 
     /**
+     * @param bool $with_ns
      * @return string
      */
     public function getPHPType($with_ns = false) {

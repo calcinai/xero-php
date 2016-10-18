@@ -90,12 +90,12 @@ class {{ model.ClassName }} extends Remote\Object
      */
     public static function getSupportedMethods()
     {
-        return array(
+        return [
 {% for method in model.Methods %}
             Remote\Request::METHOD_{{ method }}{% if not loop.last %},{% endif %}
 
 {% endfor %}
-        );
+        ];
     }
 
     /**
@@ -111,12 +111,12 @@ class {{ model.ClassName }} extends Remote\Object
      */
     public static function getProperties()
     {
-        return array(
+        return [
 {% for property in model.Properties %}
-            '{{ property.name }}' => array ({% if property.isMandatory %}true{% else %}false{% endif %}, self::{{ property.getTypeConstant }}, {% if property.isHintable %}'{{ property.getPHPType(true)|addslashes }}'{% else %}null{% endif %}, {% if property.isArray %}true{% else %}false{% endif %}, {% if property.save_directly %}true{% else %}false{% endif %}){% if not loop.last %},{% endif %}
+            '{{ property.name }}' => [{% if property.isMandatory %}true{% else %}false{% endif %}, self::{{ property.getTypeConstant }}, {% if property.isHintable %}'{{ property.getPHPType(true)|addslashes }}'{% else %}null{% endif %}, {% if property.isArray %}true{% else %}false{% endif %}, {% if property.save_directly %}true{% else %}false{% endif %}]{% if not loop.last %},{% endif %}
 
 {% endfor %}
-        );
+        ];
     }
 
     public static function isPageable()

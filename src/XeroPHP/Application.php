@@ -2,7 +2,6 @@
 
 namespace XeroPHP;
 
-use XeroPHP\Models\Files\Object;
 use XeroPHP\Remote;
 use XeroPHP\Remote\Collection;
 use XeroPHP\Remote\OAuth\Client;
@@ -13,24 +12,24 @@ use XeroPHP\Remote\URL;
 
 abstract class Application {
 
-    protected static $_config_defaults = array(
-        'xero'  => array(
+    protected static $_config_defaults = [
+        'xero'  => [
             'site'            => 'https://api.xero.com',
             'base_url'        => 'https://api.xero.com',
             'core_version'    => '2.0',
             'payroll_version' => '1.0',
             'file_version'    => '1.0',
             'model_namespace' => '\\XeroPHP\\Models'
-        ),
+        ],
         //OAuth config
-        'oauth' => array(
+        'oauth' => [
             'signature_method'   => Client::SIGNATURE_RSA_SHA1,
             'signature_location' => Client::SIGN_LOCATION_HEADER,
             'authorize_url'      => 'https://api.xero.com/oauth/Authorize',
             'request_token_path' => 'oauth/RequestToken',
             'access_token_path'  => 'oauth/AccessToken'
-        ),
-        'curl'  => array(
+        ],
+        'curl'  => [
             CURLOPT_USERAGENT      => 'XeroPHP',
             CURLOPT_CONNECTTIMEOUT => 30,
             CURLOPT_TIMEOUT        => 20,
@@ -40,8 +39,8 @@ abstract class Application {
             CURLOPT_PROXY          => false,
             CURLOPT_PROXYUSERPWD   => false,
             CURLOPT_ENCODING       => '',
-        )
-    );
+        ]
+    ];
 
     /**
      * @var array
@@ -124,7 +123,7 @@ abstract class Application {
      *
      * @param $model
      * @param $guid
-     * @return mixed
+     * @return Remote\Object|null
      * @throws Exception
      * @throws Remote\Exception\NotFoundException
      */
@@ -147,7 +146,7 @@ abstract class Application {
             $object->fromStringArray($element);
             return $object;
         }
-
+        return null;
     }
 
 
@@ -166,7 +165,7 @@ abstract class Application {
     /**
      * @param Remote\Object $object
      * @param bool $replace_data
-     * @return null
+     * @return Remote\Response|null
      * @throws Exception
      */
     public function save(Remote\Object $object, $replace_data = false) {
@@ -174,41 +173,41 @@ abstract class Application {
         //Saves any properties that don't want to be included in the normal loop (special saving endpoints)
         $this->savePropertiesDirectly($object);
 
-        if($object->isDirty()) {
-            $object->validate();
-
-            //In this case it's new
-            if($object->hasGUID()) {
-                $method = $object::supportsMethod(Request::METHOD_POST) ? Request::METHOD_POST : Request::METHOD_PUT;
-                $uri = sprintf('%s/%s', $object::getResourceURI(), $object->getGUID());
-            } else {
-                $method = $object::supportsMethod(Request::METHOD_PUT) ? Request::METHOD_PUT : Request::METHOD_POST;
-                $uri = $object::getResourceURI();
-                //@todo, bump version so you must create objects with app context.
-                $object->setApplication($this);
-            }
-
-            if(!$object::supportsMethod($method)){
-                throw new Exception(sprintf('%s doesn\'t support [%s] via the API', get_class($object), $method));
-            }
-
-            //Put in an array with the first level containing only the 'root node'.
-            $data = array($object::getRootNodeName() => $object->toStringArray());
-            $url = new URL($this, $uri);
-            $request = new Request($this, $url, $method);
-
-            $request->setBody(Helpers::arrayToXML($data))->send();
-            $response = $request->getResponse();
-
-            if(false !== $element = current($response->getElements())) {
-                $object->fromStringArray($element, $replace_data);
-            }
-            //Mark the object as clean since no exception was thrown
-            $object->setClean();
-
-            return $response;
-
+        if(!$object->isDirty()) {
+            return null;
         }
+        $object->validate();
+
+        //In this case it's new
+        if($object->hasGUID()) {
+            $method = $object::supportsMethod(Request::METHOD_POST) ? Request::METHOD_POST : Request::METHOD_PUT;
+            $uri = sprintf('%s/%s', $object::getResourceURI(), $object->getGUID());
+        } else {
+            $method = $object::supportsMethod(Request::METHOD_PUT) ? Request::METHOD_PUT : Request::METHOD_POST;
+            $uri = $object::getResourceURI();
+            //@todo, bump version so you must create objects with app context.
+            $object->setApplication($this);
+        }
+
+        if(!$object::supportsMethod($method)){
+            throw new Exception(sprintf('%s doesn\'t support [%s] via the API', get_class($object), $method));
+        }
+
+        //Put in an array with the first level containing only the 'root node'.
+        $data = [$object::getRootNodeName() => $object->toStringArray()];
+        $url = new URL($this, $uri);
+        $request = new Request($this, $url, $method);
+
+        $request->setBody(Helpers::arrayToXML($data))->send();
+        $response = $request->getResponse();
+
+        if(false !== $element = current($response->getElements())) {
+            $object->fromStringArray($element, $replace_data);
+        }
+        //Mark the object as clean since no exception was thrown
+        $object->setClean();
+
+        return $response;
     }
 
 
@@ -223,7 +222,7 @@ abstract class Application {
         $current_object = current($objects);
         $type = get_class($current_object);
         $has_guid =  $current_object->hasGUID();
-        $object_arrays = array();
+        $object_arrays = [];
 
         foreach($objects as $object) {
             if($type !== get_class($object)) {
@@ -245,7 +244,7 @@ abstract class Application {
 
         //This might need to be parsed and stored some day.
         $root_node_name = Helpers::pluralize($type::getRootNodeName());
-        $data = array($root_node_name => $object_arrays);
+        $data = [$root_node_name => $object_arrays];
 
         $request->setBody(Helpers::arrayToXML($data));
         $request->setParameter('SummarizeErrors', 'false');
@@ -282,13 +281,13 @@ abstract class Application {
                 $url = new URL($this, sprintf('%s/%s/%s', $object::getResourceURI(), $object->getGUID(), $property_type::getResourceURI()));
                 $request = new Request($this, $url, Request::METHOD_PUT);
 
-                $property_array = array();
+                $property_array = [];
                 foreach($property_objects as $property_object){
                     $property_array[] = $property_object->toStringArray();
                 }
 
                 $root_node_name = Helpers::pluralize($property_type::getRootNodeName());
-                $request->setBody(Helpers::arrayToXML(array($root_node_name => $property_array)));
+                $request->setBody(Helpers::arrayToXML([$root_node_name => $property_array]));
 
                 $request->send();
 

@@ -42,13 +42,13 @@ class Helpers {
                 //Full DOMDocument not really necessary as we don't use attributes (which are more strict)
                 $element = strtr(
                     $element,
-                    array(
+                    [
                         '<' => '&lt;',
                         '>' => '&gt;',
                         '"' => '&quot;',
                         "'" => '&apos;',
                         '&' => '&amp;',
-                    )
+                    ]
                 );
             }
 
@@ -63,7 +63,7 @@ class Helpers {
 
     public static function XMLToArray(\SimpleXMLElement $sxml) {
 
-        $output = array();
+        $output = [];
         $singular_node_name = self::singularize($sxml->getName());
 
         foreach($sxml->children() as $child_name => $child) {
@@ -93,7 +93,7 @@ class Helpers {
      * @return mixed
      */
     public static function singularize($string) {
-        $singular = array(
+        $singular = [
             '/(vert|ind)ices$/i'    => "$1ex",
             '/(alias)es$/i'         => "$1",
             '/(x|ch|ss|sh)es$/i'    => "$1",
@@ -105,7 +105,7 @@ class Helpers {
             '/(us)es$/i'            => "$1",
             '/(basis)$/i'           => "$1",
             '/([^s])s$/i'           => "$1"
-        );
+        ];
 
         // check for matches using regular expressions
         foreach($singular as $pattern => $result) {
@@ -119,7 +119,7 @@ class Helpers {
 
     public static function pluralize($string) {
 
-        $plural = array(
+        $plural = [
             '/(quiz)$/i'                     => "$1zes",
             '/(matr|vert|ind)ix|ex$/i'       => "$1ices",
             '/(x|ch|ss|sh)$/i'               => "$1es",
@@ -136,7 +136,7 @@ class Helpers {
             '/(us)$/i'                       => "$1es",
             '/s$/i'                          => "s",
             '/$/'                            => "s"
-        );
+        ];
 
         // check for matches using regular expressions
         foreach($plural as $pattern => $result) {
@@ -163,7 +163,7 @@ class Helpers {
      */
     public static function flattenAssocArray(array $array, $format, $glue = null, $escape = false) {
 
-        $pairs = array();
+        $pairs = [];
         foreach($array as $key => $val) {
             if($escape) {
                 $key = self::escape($key);

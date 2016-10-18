@@ -35,7 +35,7 @@ class Collection extends \ArrayObject {
     /**
      * Remove a specific object from the collection
      *
-     * @param \XeroPHP\Remote\Object $object
+     * @param Object $object
      */
     public function remove(Object $object){
         foreach($this as $index => $item){
