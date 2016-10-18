@@ -53,6 +53,10 @@ abstract class Application {
     protected $oauth_client;
 
     /**
+     * @var array
+     */
+    protected static $_type_config_defaults = [];
+    /**
      * @param array $user_config
      */
     public function __construct(array $user_config) {
@@ -220,6 +224,7 @@ abstract class Application {
 
         //Just get one type to compare with, doesn't matter which.
         $current_object = current($objects);
+        /** @var Object $type */
         $type = get_class($current_object);
         $has_guid =  $current_object->hasGUID();
         $object_arrays = [];
@@ -276,12 +281,14 @@ abstract class Application {
             if($meta[Remote\Object::KEY_SAVE_DIRECTLY] && $object->isDirty($property_name)){
                 //Then actually save
                 $property_objects = $object->$property_name;
+                /** @var Object $property_type */
                 $property_type = get_class(current($property_objects));
 
                 $url = new URL($this, sprintf('%s/%s/%s', $object::getResourceURI(), $object->getGUID(), $property_type::getResourceURI()));
                 $request = new Request($this, $url, Request::METHOD_PUT);
 
                 $property_array = [];
+                /** @var Object[] $property_objects */
                 foreach($property_objects as $property_object){
                     $property_array[] = $property_object->toStringArray();
                 }
