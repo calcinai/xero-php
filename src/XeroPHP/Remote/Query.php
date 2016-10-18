@@ -25,7 +25,7 @@ class Query {
 
     public function __construct(Application $app) {
         $this->app = $app;
-        $this->where = array();
+        $this->where = [];
         $this->order = null;
         $this->modifiedAfter = null;
         $this->page = null;
@@ -72,10 +72,12 @@ class Query {
     public function andWhere() {
         return $this->addWhere('AND', func_get_args());
     }
-    
+
     /**
+     * @param string $operator
+     * @param array $args
      * @return $this
-     **/
+     */
     public function addWhere($operator, $args)
     {
         // Add operator unless this is the first where statement
@@ -106,7 +108,7 @@ class Query {
      * Concatenates the array of where statements stored in $this->where and returns
      * them as a string
      *
-     * @return $string
+     * @return string
      **/
     public function getWhere()
     {

@@ -8,16 +8,16 @@ use XeroPHP\Remote\URL;
 session_start();
 
 //These are the minimum settings - for more options, refer to examples/config.php
-$config = array(
-    'oauth' => array(
+$config = [
+    'oauth' => [
         'callback'        => 'http://localhost/',
         'consumer_key'    => 'k',
         'consumer_secret' => 's',
-    ),
-    'curl' => array(
+    ],
+    'curl' => [
         CURLOPT_CAINFO => __DIR__.'/certs/ca-bundle.crt',
-    ),
-);
+    ],
+];
 
 
 $xero = new PublicApplication($config);
@@ -82,11 +82,11 @@ function setOAuthSession($token, $secret, $expires = null){
         $expires = time() + intval($expires);
     }
 
-    $_SESSION['oauth'] = array(
+    $_SESSION['oauth'] = [
         'token' => $token,
         'token_secret' => $secret,
         'expires' => $expires
-    );
+    ];
 }
 
 function getOAuthSession(){

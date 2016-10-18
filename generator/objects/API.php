@@ -32,12 +32,12 @@ class API {
         $this->namespace = $namespace;
         $this->stem_constant  = $stem;
 
-        $this->models = array();
-        $this->enums = array();
+        $this->models = [];
+        $this->enums = [];
 
-        $this->model_aliases = array();
+        $this->model_aliases = [];
 
-        $this->search_keys = array();
+        $this->search_keys = [];
         $this->is_indexed = false;
 
     }
@@ -49,7 +49,7 @@ class API {
      * @return array
      */
     public function getEnumsByGroup($group){
-        $enums = array();
+        $enums = [];
         foreach($this->getEnums() as $enum){
             if($enum->getGroup() == $group)
                 $enums[] = $enum;
@@ -64,13 +64,13 @@ class API {
      * @return array
      */
     public function getStrayEnums(){
-        $names = array();
+        $names = [];
         foreach($this->getModels() as $model){
             //just so we're comparing apples with apples
             $names[] = Helpers::singularize($model->getName());
         }
 
-        $strays = array();
+        $strays = [];
         foreach($this->getEnums() as $enum){
             //just so we're comparing apples with apples
             $singular_group = Helpers::singularize($enum->getGroup());
@@ -135,10 +135,10 @@ class API {
      * @param $class_name
      */
     public function addModelAlias(Model $model, $class_name){
-        $this->model_aliases[] = array(
+        $this->model_aliases[] = [
             'name' => $class_name,
             'model' => $model
-        );
+        ];
     }
 
     /**
@@ -257,7 +257,7 @@ class API {
         if(!$this->isIndexed())
             $this->buildSearchIndex();
 
-        $keys = array();
+        $keys = [];
         foreach($this->search_keys as $key => $model){
             $keys[$key] = sprintf('%s\\%s', get_class($model), $model->getName());
         }

@@ -67,9 +67,9 @@ abstract class Object implements ObjectInterface, \JsonSerializable, \ArrayAcces
 
     public function __construct(Application $application = null) {
         $this->_application = $application;
-        $this->_dirty = array();
-        $this->_data = array();
-        $this->_associated_objects = array();
+        $this->_dirty = [];
+        $this->_data = [];
+        $this->_associated_objects = [];
     }
 
     /**
@@ -114,7 +114,7 @@ abstract class Object implements ObjectInterface, \JsonSerializable, \ArrayAcces
      */
     public function setClean($property = null) {
         if($property === null)
-            $this->_dirty = array();
+            $this->_dirty = [];
         else
             unset($this->_dirty[$property]);
 
@@ -153,7 +153,6 @@ abstract class Object implements ObjectInterface, \JsonSerializable, \ArrayAcces
      *
      * @param $input_array
      * @param $replace_data
-     * @return Object
      */
     public function fromStringArray($input_array, $replace_data = false) {
 
@@ -202,7 +201,7 @@ abstract class Object implements ObjectInterface, \JsonSerializable, \ArrayAcces
      * @return array
      */
     public function toStringArray() {
-        $out = array();
+        $out = [];
         foreach(static::getProperties() as $property => $meta) {
 
             if(!isset($this->_data[$property]))
@@ -211,7 +210,7 @@ abstract class Object implements ObjectInterface, \JsonSerializable, \ArrayAcces
             $type = $meta[self::KEY_TYPE];
 
             if($this->_data[$property] instanceof Collection) {
-                $out[$property] = array();
+                $out[$property] = [];
                 foreach($this->_data[$property] as $assoc_property) {
                     $out[$property][] = self::castToString($type, $assoc_property);
                 }
@@ -281,7 +280,7 @@ abstract class Object implements ObjectInterface, \JsonSerializable, \ArrayAcces
                 return floatval($value);
 
             case self::PROPERTY_TYPE_BOOLEAN:
-                return in_array(strtolower($value), array('true', '1', 'yes'));
+                return in_array(strtolower($value), ['true', '1', 'yes']);
 
             case self::PROPERTY_TYPE_TIMESTAMP:
                 $timezone = new \DateTimeZone('UTC');
@@ -372,7 +371,7 @@ abstract class Object implements ObjectInterface, \JsonSerializable, \ArrayAcces
 
     /**
      * @param string $property
-     * @param self $object
+     * @param Object $object
      */
     public function addAssociatedObject($property, Object $object) {
         $this->_associated_objects[$property] = $object;
@@ -427,7 +426,7 @@ abstract class Object implements ObjectInterface, \JsonSerializable, \ArrayAcces
     protected function propertyUpdated($property, $value) {
         if(!isset($this->_data[$property]) || $this->_data[$property] !== $value){
             //If this object can update itself, set its own dirty flag, otherwise, set its parent's.
-            if(count(array_intersect($this::getSupportedMethods(), array(Request::METHOD_PUT, Request::METHOD_POST))) > 0){
+            if(count(array_intersect($this::getSupportedMethods(), [Request::METHOD_PUT, Request::METHOD_POST])) > 0){
                 //Object can update itself
                 $this->setDirty($property);
             } else {
