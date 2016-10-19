@@ -75,8 +75,8 @@ class TaxComponent extends Remote\Object
      */
     public static function getSupportedMethods()
     {
-        return array(
-        );
+        return [
+        ];
     }
 
     /**
@@ -92,11 +92,11 @@ class TaxComponent extends Remote\Object
      */
     public static function getProperties()
     {
-        return array(
-            'Name' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'Rate' => array (false, self::PROPERTY_TYPE_FLOAT, null, false, false),
-            'IsCompound' => array (false, self::PROPERTY_TYPE_BOOLEAN, null, false, false)
-        );
+        return [
+            'Name' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'Rate' => [false, self::PROPERTY_TYPE_FLOAT, null, false, false],
+            'IsCompound' => [false, self::PROPERTY_TYPE_BOOLEAN, null, false, false]
+        ];
     }
 
     public static function isPageable()

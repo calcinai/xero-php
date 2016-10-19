@@ -95,10 +95,10 @@ class PayrollCalendar extends Remote\Object
      */
     public static function getSupportedMethods()
     {
-        return array(
+        return [
             Remote\Request::METHOD_POST,
             Remote\Request::METHOD_GET
-        );
+        ];
     }
 
     /**
@@ -114,13 +114,13 @@ class PayrollCalendar extends Remote\Object
      */
     public static function getProperties()
     {
-        return array(
-            'PayrollCalendarID' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'Name' => array (true, self::PROPERTY_TYPE_STRING, null, false, false),
-            'CalendarType' => array (true, self::PROPERTY_TYPE_ENUM, null, false, false),
-            'StartDate' => array (true, self::PROPERTY_TYPE_DATE, '\\DateTimeInterface', false, false),
-            'PaymentDate' => array (true, self::PROPERTY_TYPE_DATE, '\\DateTimeInterface', false, false)
-        );
+        return [
+            'PayrollCalendarID' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'Name' => [true, self::PROPERTY_TYPE_STRING, null, false, false],
+            'CalendarType' => [true, self::PROPERTY_TYPE_ENUM, null, false, false],
+            'StartDate' => [true, self::PROPERTY_TYPE_DATE, '\\DateTimeInterface', false, false],
+            'PaymentDate' => [true, self::PROPERTY_TYPE_DATE, '\\DateTimeInterface', false, false]
+        ];
     }
 
     public static function isPageable()

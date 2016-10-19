@@ -85,10 +85,10 @@ class PayItem extends Remote\Object
      */
     public static function getSupportedMethods()
     {
-        return array(
+        return [
             Remote\Request::METHOD_POST,
             Remote\Request::METHOD_GET
-        );
+        ];
     }
 
     /**
@@ -104,12 +104,12 @@ class PayItem extends Remote\Object
      */
     public static function getProperties()
     {
-        return array(
-            'EarningsRates' => array (false, self::PROPERTY_TYPE_OBJECT, 'PayrollAU\\PayItem\\EarningsRate', true, false),
-            'DeductionTypes' => array (false, self::PROPERTY_TYPE_OBJECT, 'PayrollAU\\PayItem\\DeductionType', true, false),
-            'LeaveTypes' => array (false, self::PROPERTY_TYPE_OBJECT, 'PayrollAU\\PayItem\\LeaveType', true, false),
-            'ReimbursementTypes' => array (false, self::PROPERTY_TYPE_OBJECT, 'PayrollAU\\PayItem\\ReimbursementType', true, false)
-        );
+        return [
+            'EarningsRates' => [false, self::PROPERTY_TYPE_OBJECT, 'PayrollAU\\PayItem\\EarningsRate', true, false],
+            'DeductionTypes' => [false, self::PROPERTY_TYPE_OBJECT, 'PayrollAU\\PayItem\\DeductionType', true, false],
+            'LeaveTypes' => [false, self::PROPERTY_TYPE_OBJECT, 'PayrollAU\\PayItem\\LeaveType', true, false],
+            'ReimbursementTypes' => [false, self::PROPERTY_TYPE_OBJECT, 'PayrollAU\\PayItem\\ReimbursementType', true, false]
+        ];
     }
 
     public static function isPageable()
@@ -133,7 +133,7 @@ class PayItem extends Remote\Object
     public function addEarningsRate(EarningsRate $value)
     {
         $this->propertyUpdated('EarningsRates', $value);
-        if(!isset($this->_data['EarningsRates'])){
+        if (!isset($this->_data['EarningsRates'])) {
             $this->_data['EarningsRates'] = new Remote\Collection();
         }
         $this->_data['EarningsRates'][] = $value;
@@ -156,7 +156,7 @@ class PayItem extends Remote\Object
     public function addDeductionType(DeductionType $value)
     {
         $this->propertyUpdated('DeductionTypes', $value);
-        if(!isset($this->_data['DeductionTypes'])){
+        if (!isset($this->_data['DeductionTypes'])) {
             $this->_data['DeductionTypes'] = new Remote\Collection();
         }
         $this->_data['DeductionTypes'][] = $value;
@@ -179,7 +179,7 @@ class PayItem extends Remote\Object
     public function addLeaveType(LeaveType $value)
     {
         $this->propertyUpdated('LeaveTypes', $value);
-        if(!isset($this->_data['LeaveTypes'])){
+        if (!isset($this->_data['LeaveTypes'])) {
             $this->_data['LeaveTypes'] = new Remote\Collection();
         }
         $this->_data['LeaveTypes'][] = $value;
@@ -202,7 +202,7 @@ class PayItem extends Remote\Object
     public function addReimbursementType(ReimbursementType $value)
     {
         $this->propertyUpdated('ReimbursementTypes', $value);
-        if(!isset($this->_data['ReimbursementTypes'])){
+        if (!isset($this->_data['ReimbursementTypes'])) {
             $this->_data['ReimbursementTypes'] = new Remote\Collection();
         }
         $this->_data['ReimbursementTypes'][] = $value;

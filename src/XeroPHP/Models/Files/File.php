@@ -106,12 +106,12 @@ class File extends Remote\Object
      */
     public static function getSupportedMethods()
     {
-        return array(
+        return [
             Remote\Request::METHOD_GET,
             Remote\Request::METHOD_POST,
             Remote\Request::METHOD_PUT,
             Remote\Request::METHOD_DELETE
-        );
+        ];
     }
 
     /**
@@ -127,16 +127,16 @@ class File extends Remote\Object
      */
     public static function getProperties()
     {
-        return array(
-            'Name' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'FolderId' => array (false, self::PROPERTY_TYPE_OBJECT, 'Files\\Folder', false, false),
-            'MimeType' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'Size' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'CreatedDateUTC' => array (false, self::PROPERTY_TYPE_TIMESTAMP, '\\DateTimeInterface', false, false),
-            'UpdatedDateUTC' => array (false, self::PROPERTY_TYPE_TIMESTAMP, '\\DateTimeInterface', false, false),
-            'User' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'Id' => array (false, self::PROPERTY_TYPE_GUID, null, false, false)
-        );
+        return [
+            'Name' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'FolderId' => [false, self::PROPERTY_TYPE_OBJECT, 'Files\\Folder', false, false],
+            'MimeType' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'Size' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'CreatedDateUTC' => [false, self::PROPERTY_TYPE_TIMESTAMP, '\\DateTimeInterface', false, false],
+            'UpdatedDateUTC' => [false, self::PROPERTY_TYPE_TIMESTAMP, '\\DateTimeInterface', false, false],
+            'User' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'Id' => [false, self::PROPERTY_TYPE_GUID, null, false, false]
+        ];
     }
 
     public static function isPageable()

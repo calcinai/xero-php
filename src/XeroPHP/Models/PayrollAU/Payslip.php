@@ -185,10 +185,10 @@ class Payslip extends Remote\Object
      */
     public static function getSupportedMethods()
     {
-        return array(
+        return [
             Remote\Request::METHOD_POST,
             Remote\Request::METHOD_GET
-        );
+        ];
     }
 
     /**
@@ -204,28 +204,28 @@ class Payslip extends Remote\Object
      */
     public static function getProperties()
     {
-        return array(
-            'EmployeeID' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'PayslipID' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'EarningsLines' => array (false, self::PROPERTY_TYPE_OBJECT, 'PayrollAU\\Payslip\\EarningsLine', true, false),
-            'TimesheetEarningsLines' => array (false, self::PROPERTY_TYPE_OBJECT, 'PayrollAU\\Payslip\\TimesheetEarningsLine', true, false),
-            'DeductionLines' => array (false, self::PROPERTY_TYPE_OBJECT, 'PayrollAU\\Payslip\\DeductionLine', true, false),
-            'LeaveAccrualLines' => array (false, self::PROPERTY_TYPE_OBJECT, 'PayrollAU\\Payslip\\LeaveAccrualLine', true, false),
-            'ReimbursementLines' => array (false, self::PROPERTY_TYPE_OBJECT, 'PayrollAU\\Payslip\\ReimbursementLine', true, false),
-            'SuperannuationLines' => array (false, self::PROPERTY_TYPE_OBJECT, 'PayrollAU\\Payslip\\SuperannuationLine', true, false),
-            'TaxLines' => array (false, self::PROPERTY_TYPE_OBJECT, 'PayrollAU\\Payslip\\TaxLine', true, false),
-            'FirstName' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'LastName' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'EmployeeGroup' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'LastEdited' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'Wages' => array (false, self::PROPERTY_TYPE_FLOAT, null, true, false),
-            'Deductions' => array (false, self::PROPERTY_TYPE_FLOAT, null, true, false),
-            'NetPay' => array (false, self::PROPERTY_TYPE_FLOAT, null, false, false),
-            'Tax' => array (false, self::PROPERTY_TYPE_FLOAT, null, false, false),
-            'Super' => array (false, self::PROPERTY_TYPE_FLOAT, null, false, false),
-            'Reimbursements' => array (false, self::PROPERTY_TYPE_FLOAT, null, true, false),
-            'LeaveEarningsLines' => array (false, self::PROPERTY_TYPE_OBJECT, 'PayrollAU\\Payslip\\LeaveEarningsLine', true, false)
-        );
+        return [
+            'EmployeeID' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'PayslipID' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'EarningsLines' => [false, self::PROPERTY_TYPE_OBJECT, 'PayrollAU\\Payslip\\EarningsLine', true, false],
+            'TimesheetEarningsLines' => [false, self::PROPERTY_TYPE_OBJECT, 'PayrollAU\\Payslip\\TimesheetEarningsLine', true, false],
+            'DeductionLines' => [false, self::PROPERTY_TYPE_OBJECT, 'PayrollAU\\Payslip\\DeductionLine', true, false],
+            'LeaveAccrualLines' => [false, self::PROPERTY_TYPE_OBJECT, 'PayrollAU\\Payslip\\LeaveAccrualLine', true, false],
+            'ReimbursementLines' => [false, self::PROPERTY_TYPE_OBJECT, 'PayrollAU\\Payslip\\ReimbursementLine', true, false],
+            'SuperannuationLines' => [false, self::PROPERTY_TYPE_OBJECT, 'PayrollAU\\Payslip\\SuperannuationLine', true, false],
+            'TaxLines' => [false, self::PROPERTY_TYPE_OBJECT, 'PayrollAU\\Payslip\\TaxLine', true, false],
+            'FirstName' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'LastName' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'EmployeeGroup' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'LastEdited' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'Wages' => [false, self::PROPERTY_TYPE_FLOAT, null, true, false],
+            'Deductions' => [false, self::PROPERTY_TYPE_FLOAT, null, true, false],
+            'NetPay' => [false, self::PROPERTY_TYPE_FLOAT, null, false, false],
+            'Tax' => [false, self::PROPERTY_TYPE_FLOAT, null, false, false],
+            'Super' => [false, self::PROPERTY_TYPE_FLOAT, null, false, false],
+            'Reimbursements' => [false, self::PROPERTY_TYPE_FLOAT, null, true, false],
+            'LeaveEarningsLines' => [false, self::PROPERTY_TYPE_OBJECT, 'PayrollAU\\Payslip\\LeaveEarningsLine', true, false]
+        ];
     }
 
     public static function isPageable()
@@ -287,7 +287,7 @@ class Payslip extends Remote\Object
     public function addEarningsLine(EarningsLine $value)
     {
         $this->propertyUpdated('EarningsLines', $value);
-        if(!isset($this->_data['EarningsLines'])){
+        if (!isset($this->_data['EarningsLines'])) {
             $this->_data['EarningsLines'] = new Remote\Collection();
         }
         $this->_data['EarningsLines'][] = $value;
@@ -310,7 +310,7 @@ class Payslip extends Remote\Object
     public function addTimesheetEarningsLine(TimesheetEarningsLine $value)
     {
         $this->propertyUpdated('TimesheetEarningsLines', $value);
-        if(!isset($this->_data['TimesheetEarningsLines'])){
+        if (!isset($this->_data['TimesheetEarningsLines'])) {
             $this->_data['TimesheetEarningsLines'] = new Remote\Collection();
         }
         $this->_data['TimesheetEarningsLines'][] = $value;
@@ -333,7 +333,7 @@ class Payslip extends Remote\Object
     public function addDeductionLine(DeductionLine $value)
     {
         $this->propertyUpdated('DeductionLines', $value);
-        if(!isset($this->_data['DeductionLines'])){
+        if (!isset($this->_data['DeductionLines'])) {
             $this->_data['DeductionLines'] = new Remote\Collection();
         }
         $this->_data['DeductionLines'][] = $value;
@@ -356,7 +356,7 @@ class Payslip extends Remote\Object
     public function addLeaveAccrualLine(LeaveAccrualLine $value)
     {
         $this->propertyUpdated('LeaveAccrualLines', $value);
-        if(!isset($this->_data['LeaveAccrualLines'])){
+        if (!isset($this->_data['LeaveAccrualLines'])) {
             $this->_data['LeaveAccrualLines'] = new Remote\Collection();
         }
         $this->_data['LeaveAccrualLines'][] = $value;
@@ -379,7 +379,7 @@ class Payslip extends Remote\Object
     public function addReimbursementLine(ReimbursementLine $value)
     {
         $this->propertyUpdated('ReimbursementLines', $value);
-        if(!isset($this->_data['ReimbursementLines'])){
+        if (!isset($this->_data['ReimbursementLines'])) {
             $this->_data['ReimbursementLines'] = new Remote\Collection();
         }
         $this->_data['ReimbursementLines'][] = $value;
@@ -402,7 +402,7 @@ class Payslip extends Remote\Object
     public function addSuperannuationLine(SuperannuationLine $value)
     {
         $this->propertyUpdated('SuperannuationLines', $value);
-        if(!isset($this->_data['SuperannuationLines'])){
+        if (!isset($this->_data['SuperannuationLines'])) {
             $this->_data['SuperannuationLines'] = new Remote\Collection();
         }
         $this->_data['SuperannuationLines'][] = $value;
@@ -425,7 +425,7 @@ class Payslip extends Remote\Object
     public function addTaxLine(TaxLine $value)
     {
         $this->propertyUpdated('TaxLines', $value);
-        if(!isset($this->_data['TaxLines'])){
+        if (!isset($this->_data['TaxLines'])) {
             $this->_data['TaxLines'] = new Remote\Collection();
         }
         $this->_data['TaxLines'][] = $value;

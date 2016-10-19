@@ -82,8 +82,8 @@ class LeaveBalance extends Remote\Object
      */
     public static function getSupportedMethods()
     {
-        return array(
-        );
+        return [
+        ];
     }
 
     /**
@@ -99,12 +99,12 @@ class LeaveBalance extends Remote\Object
      */
     public static function getProperties()
     {
-        return array(
-            'LeaveName' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'LeaveTypeID' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'NumberOfUnits' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'TypeOfUnits' => array (false, self::PROPERTY_TYPE_OBJECT, 'PayrollAU\\PayItem', true, false)
-        );
+        return [
+            'LeaveName' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'LeaveTypeID' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'NumberOfUnits' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'TypeOfUnits' => [false, self::PROPERTY_TYPE_OBJECT, 'PayrollAU\\PayItem', true, false]
+        ];
     }
 
     public static function isPageable()
@@ -185,7 +185,7 @@ class LeaveBalance extends Remote\Object
     public function addTypeOfUnit(PayItem $value)
     {
         $this->propertyUpdated('TypeOfUnits', $value);
-        if(!isset($this->_data['TypeOfUnits'])){
+        if (!isset($this->_data['TypeOfUnits'])) {
             $this->_data['TypeOfUnits'] = new Remote\Collection();
         }
         $this->_data['TypeOfUnits'][] = $value;

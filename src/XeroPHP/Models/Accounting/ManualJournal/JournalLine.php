@@ -96,8 +96,8 @@ class JournalLine extends Remote\Object
      */
     public static function getSupportedMethods()
     {
-        return array(
-        );
+        return [
+        ];
     }
 
     /**
@@ -113,14 +113,14 @@ class JournalLine extends Remote\Object
      */
     public static function getProperties()
     {
-        return array(
-            'LineAmount' => array (true, self::PROPERTY_TYPE_STRING, null, false, false),
-            'AccountCode' => array (true, self::PROPERTY_TYPE_STRING, null, false, false),
-            'Description' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'TaxType' => array (false, self::PROPERTY_TYPE_ENUM, null, false, false),
-            'Tracking' => array (false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\TrackingCategory', true, false),
-            'TaxAmount' => array (false, self::PROPERTY_TYPE_FLOAT, null, false, false)
-        );
+        return [
+            'LineAmount' => [true, self::PROPERTY_TYPE_STRING, null, false, false],
+            'AccountCode' => [true, self::PROPERTY_TYPE_STRING, null, false, false],
+            'Description' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'TaxType' => [false, self::PROPERTY_TYPE_ENUM, null, false, false],
+            'Tracking' => [false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\TrackingCategory', true, false],
+            'TaxAmount' => [false, self::PROPERTY_TYPE_FLOAT, null, false, false]
+        ];
     }
 
     public static function isPageable()
@@ -220,7 +220,7 @@ class JournalLine extends Remote\Object
     public function addTracking(TrackingCategory $value)
     {
         $this->propertyUpdated('Tracking', $value);
-        if(!isset($this->_data['Tracking'])){
+        if (!isset($this->_data['Tracking'])) {
             $this->_data['Tracking'] = new Remote\Collection();
         }
         $this->_data['Tracking'][] = $value;

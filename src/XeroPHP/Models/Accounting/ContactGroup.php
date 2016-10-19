@@ -85,12 +85,12 @@ e.g.
      */
     public static function getSupportedMethods()
     {
-        return array(
+        return [
             Remote\Request::METHOD_GET,
             Remote\Request::METHOD_PUT,
             Remote\Request::METHOD_POST,
             Remote\Request::METHOD_DELETE
-        );
+        ];
     }
 
     /**
@@ -106,12 +106,12 @@ e.g.
      */
     public static function getProperties()
     {
-        return array(
-            'Name' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'Status' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'ContactGroupID' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'Contacts' => array (false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Contact', true, true)
-        );
+        return [
+            'Name' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'Status' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'ContactGroupID' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'Contacts' => [false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Contact', true, true]
+        ];
     }
 
     public static function isPageable()
@@ -192,7 +192,7 @@ e.g.
     public function addContact(Contact $value)
     {
         $this->propertyUpdated('Contacts', $value);
-        if(!isset($this->_data['Contacts'])){
+        if (!isset($this->_data['Contacts'])) {
             $this->_data['Contacts'] = new Remote\Collection();
         }
         $this->_data['Contacts'][] = $value;

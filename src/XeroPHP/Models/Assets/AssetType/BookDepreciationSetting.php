@@ -87,8 +87,8 @@ class BookDepreciationSetting extends Remote\Object
      */
     public static function getSupportedMethods()
     {
-        return array(
-        );
+        return [
+        ];
     }
 
     /**
@@ -104,13 +104,13 @@ class BookDepreciationSetting extends Remote\Object
      */
     public static function getProperties()
     {
-        return array(
-            'depreciationMethod' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'averagingMethod' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'depreciationRate' => array (false, self::PROPERTY_TYPE_FLOAT, null, false, false),
-            'effectiveLifeYears' => array (false, self::PROPERTY_TYPE_FLOAT, null, true, false),
-            'depreciationCalculationMethod' => array (false, self::PROPERTY_TYPE_STRING, null, false, false)
-        );
+        return [
+            'depreciationMethod' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'averagingMethod' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'depreciationRate' => [false, self::PROPERTY_TYPE_FLOAT, null, false, false],
+            'effectiveLifeYears' => [false, self::PROPERTY_TYPE_FLOAT, null, true, false],
+            'depreciationCalculationMethod' => [false, self::PROPERTY_TYPE_STRING, null, false, false]
+        ];
     }
 
     public static function isPageable()
@@ -191,7 +191,7 @@ class BookDepreciationSetting extends Remote\Object
     public function addeffectiveLifeYear($value)
     {
         $this->propertyUpdated('effectiveLifeYears', $value);
-        if(!isset($this->_data['effectiveLifeYears'])){
+        if (!isset($this->_data['effectiveLifeYears'])) {
             $this->_data['effectiveLifeYears'] = new Remote\Collection();
         }
         $this->_data['effectiveLifeYears'][] = $value;

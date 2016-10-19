@@ -100,8 +100,8 @@ class BankAccount extends Remote\Object
      */
     public static function getSupportedMethods()
     {
-        return array(
-        );
+        return [
+        ];
     }
 
     /**
@@ -117,15 +117,15 @@ class BankAccount extends Remote\Object
      */
     public static function getProperties()
     {
-        return array(
-            'AccountHolderName' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'StatementText' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'AccountType' => array (false, self::PROPERTY_TYPE_ENUM, null, false, false),
-            'RoutingNumber' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'AccountNumber' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'Amount' => array (false, self::PROPERTY_TYPE_FLOAT, null, false, false),
-            'Remainder' => array (false, self::PROPERTY_TYPE_STRING, null, false, false)
-        );
+        return [
+            'AccountHolderName' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'StatementText' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'AccountType' => [false, self::PROPERTY_TYPE_ENUM, null, false, false],
+            'RoutingNumber' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'AccountNumber' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'Amount' => [false, self::PROPERTY_TYPE_FLOAT, null, false, false],
+            'Remainder' => [false, self::PROPERTY_TYPE_STRING, null, false, false]
+        ];
     }
 
     public static function isPageable()

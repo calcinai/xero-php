@@ -98,8 +98,8 @@ If Paid Time Off is selected the employee will get paid when taking this time of
      */
     public static function getSupportedMethods()
     {
-        return array(
-        );
+        return [
+        ];
     }
 
     /**
@@ -115,14 +115,14 @@ If Paid Time Off is selected the employee will get paid when taking this time of
      */
     public static function getProperties()
     {
-        return array(
-            'TimeOffType' => array (true, self::PROPERTY_TYPE_OBJECT, 'PayrollUS\\PayItem\\TimeOffType', false, false),
-            'TimeOffCategory' => array (true, self::PROPERTY_TYPE_ENUM, null, false, false),
-            'ExpenseAccountCode' => array (true, self::PROPERTY_TYPE_STRING, null, false, false),
-            'LiabilityAccountCode' => array (true, self::PROPERTY_TYPE_STRING, null, false, false),
-            'TimeOffTypeID' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'ShowBalanceToEmployee' => array (false, self::PROPERTY_TYPE_STRING, null, false, false)
-        );
+        return [
+            'TimeOffType' => [true, self::PROPERTY_TYPE_OBJECT, 'PayrollUS\\PayItem\\TimeOffType', false, false],
+            'TimeOffCategory' => [true, self::PROPERTY_TYPE_ENUM, null, false, false],
+            'ExpenseAccountCode' => [true, self::PROPERTY_TYPE_STRING, null, false, false],
+            'LiabilityAccountCode' => [true, self::PROPERTY_TYPE_STRING, null, false, false],
+            'TimeOffTypeID' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'ShowBalanceToEmployee' => [false, self::PROPERTY_TYPE_STRING, null, false, false]
+        ];
     }
 
     public static function isPageable()
