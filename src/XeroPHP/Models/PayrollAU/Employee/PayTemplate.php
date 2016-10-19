@@ -215,8 +215,8 @@ class PayTemplate extends Remote\Object
      */
     public static function getSupportedMethods()
     {
-        return array(
-        );
+        return [
+        ];
     }
 
     /**
@@ -232,34 +232,34 @@ class PayTemplate extends Remote\Object
      */
     public static function getProperties()
     {
-        return array(
-            'EarningsLines' => array (false, self::PROPERTY_TYPE_FLOAT, null, true, false),
-            'DeductionLines' => array (false, self::PROPERTY_TYPE_OBJECT, 'PayrollAU\\Payslip\\DeductionLine', true, false),
-            'SuperLines' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'ReimbursementLines' => array (false, self::PROPERTY_TYPE_OBJECT, 'PayrollAU\\Payslip\\ReimbursementLine', true, false),
-            'LeaveLines' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'EarningsRateID' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'CalculationType' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'NumberOfUnitsPerWeek' => array (false, self::PROPERTY_TYPE_ENUM, null, false, false),
-            'AnnualSalary' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'RatePerUnit' => array (false, self::PROPERTY_TYPE_FLOAT, null, false, false),
-            'NormalNumberOfUnits' => array (false, self::PROPERTY_TYPE_ENUM, null, false, false),
-            'DeductionTypeID' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'Percentage' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'Amount' => array (false, self::PROPERTY_TYPE_FLOAT, null, false, false),
-            'SuperMembershipID' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'ContributionType' => array (false, self::PROPERTY_TYPE_ENUM, null, false, false),
-            'ExpenseAccountCode' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'LiabilityAccountCode' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'MinimumMonthlyEarnings' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'ReimbursementTypeID' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'Description' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'LeaveTypeID' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'AnnualNumberOfUnits' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'FullTimeNumberOfUnitsPerPeriod' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'NumberOfUnits' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'EntitlementFinalPayPayoutType' => array (false, self::PROPERTY_TYPE_ENUM, null, false, false)
-        );
+        return [
+            'EarningsLines' => [false, self::PROPERTY_TYPE_FLOAT, null, true, false],
+            'DeductionLines' => [false, self::PROPERTY_TYPE_OBJECT, 'PayrollAU\\Payslip\\DeductionLine', true, false],
+            'SuperLines' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'ReimbursementLines' => [false, self::PROPERTY_TYPE_OBJECT, 'PayrollAU\\Payslip\\ReimbursementLine', true, false],
+            'LeaveLines' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'EarningsRateID' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'CalculationType' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'NumberOfUnitsPerWeek' => [false, self::PROPERTY_TYPE_ENUM, null, false, false],
+            'AnnualSalary' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'RatePerUnit' => [false, self::PROPERTY_TYPE_FLOAT, null, false, false],
+            'NormalNumberOfUnits' => [false, self::PROPERTY_TYPE_ENUM, null, false, false],
+            'DeductionTypeID' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'Percentage' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'Amount' => [false, self::PROPERTY_TYPE_FLOAT, null, false, false],
+            'SuperMembershipID' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'ContributionType' => [false, self::PROPERTY_TYPE_ENUM, null, false, false],
+            'ExpenseAccountCode' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'LiabilityAccountCode' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'MinimumMonthlyEarnings' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'ReimbursementTypeID' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'Description' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'LeaveTypeID' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'AnnualNumberOfUnits' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'FullTimeNumberOfUnitsPerPeriod' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'NumberOfUnits' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'EntitlementFinalPayPayoutType' => [false, self::PROPERTY_TYPE_ENUM, null, false, false]
+        ];
     }
 
     public static function isPageable()
@@ -283,7 +283,7 @@ class PayTemplate extends Remote\Object
     public function addEarningsLine($value)
     {
         $this->propertyUpdated('EarningsLines', $value);
-        if(!isset($this->_data['EarningsLines'])){
+        if (!isset($this->_data['EarningsLines'])) {
             $this->_data['EarningsLines'] = new Remote\Collection();
         }
         $this->_data['EarningsLines'][] = $value;
@@ -306,7 +306,7 @@ class PayTemplate extends Remote\Object
     public function addDeductionLine(DeductionLine $value)
     {
         $this->propertyUpdated('DeductionLines', $value);
-        if(!isset($this->_data['DeductionLines'])){
+        if (!isset($this->_data['DeductionLines'])) {
             $this->_data['DeductionLines'] = new Remote\Collection();
         }
         $this->_data['DeductionLines'][] = $value;
@@ -348,7 +348,7 @@ class PayTemplate extends Remote\Object
     public function addReimbursementLine(ReimbursementLine $value)
     {
         $this->propertyUpdated('ReimbursementLines', $value);
-        if(!isset($this->_data['ReimbursementLines'])){
+        if (!isset($this->_data['ReimbursementLines'])) {
             $this->_data['ReimbursementLines'] = new Remote\Collection();
         }
         $this->_data['ReimbursementLines'][] = $value;

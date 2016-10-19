@@ -265,6 +265,10 @@ foreach ($scrape_apis as $scrape_api) {
         /** @var Model $current_model */
         $current_model = null;
 
+        if($last = $crawler->filter('.entry-content')->count() === 0){
+            continue;
+        }
+
         $last = $crawler->filter('.entry-content')->children()->last();
 
         $crawler->filter('.entry-content')->children()->each(function (Crawler $node) use ($api, &$current_model, $crawler, $last) {

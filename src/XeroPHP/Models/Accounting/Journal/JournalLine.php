@@ -131,8 +131,8 @@ class JournalLine extends Remote\Object
      */
     public static function getSupportedMethods()
     {
-        return array(
-        );
+        return [
+        ];
     }
 
     /**
@@ -148,20 +148,20 @@ class JournalLine extends Remote\Object
      */
     public static function getProperties()
     {
-        return array(
-            'JournalLineID' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'AccountID' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'AccountCode' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'AccountType' => array (false, self::PROPERTY_TYPE_ENUM, null, false, false),
-            'AccountName' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'Description' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'NetAmount' => array (false, self::PROPERTY_TYPE_FLOAT, null, false, false),
-            'GrossAmount' => array (false, self::PROPERTY_TYPE_FLOAT, null, false, false),
-            'TaxAmount' => array (false, self::PROPERTY_TYPE_FLOAT, null, false, false),
-            'TaxType' => array (false, self::PROPERTY_TYPE_ENUM, null, false, false),
-            'TaxName' => array (false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\TaxRate', false, false),
-            'TrackingCategories' => array (false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\TrackingCategory', true, false)
-        );
+        return [
+            'JournalLineID' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'AccountID' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'AccountCode' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'AccountType' => [false, self::PROPERTY_TYPE_ENUM, null, false, false],
+            'AccountName' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'Description' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'NetAmount' => [false, self::PROPERTY_TYPE_FLOAT, null, false, false],
+            'GrossAmount' => [false, self::PROPERTY_TYPE_FLOAT, null, false, false],
+            'TaxAmount' => [false, self::PROPERTY_TYPE_FLOAT, null, false, false],
+            'TaxType' => [false, self::PROPERTY_TYPE_ENUM, null, false, false],
+            'TaxName' => [false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\TaxRate', false, false],
+            'TrackingCategories' => [false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\TrackingCategory', true, false]
+        ];
     }
 
     public static function isPageable()
@@ -394,7 +394,7 @@ class JournalLine extends Remote\Object
     public function addTrackingCategory(TrackingCategory $value)
     {
         $this->propertyUpdated('TrackingCategories', $value);
-        if(!isset($this->_data['TrackingCategories'])){
+        if (!isset($this->_data['TrackingCategories'])) {
             $this->_data['TrackingCategories'] = new Remote\Collection();
         }
         $this->_data['TrackingCategories'][] = $value;

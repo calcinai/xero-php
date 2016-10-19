@@ -178,10 +178,10 @@ class Paystub extends Remote\Object
      */
     public static function getSupportedMethods()
     {
-        return array(
+        return [
             Remote\Request::METHOD_POST,
             Remote\Request::METHOD_GET
-        );
+        ];
     }
 
     /**
@@ -197,27 +197,27 @@ class Paystub extends Remote\Object
      */
     public static function getProperties()
     {
-        return array(
-            'EmployeeID' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'PaystubID' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'PayRunID' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'FirstName' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'LastName' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'LastEdited' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'Earnings' => array (false, self::PROPERTY_TYPE_FLOAT, null, true, false),
-            'Deductions' => array (false, self::PROPERTY_TYPE_FLOAT, null, true, false),
-            'Tax' => array (false, self::PROPERTY_TYPE_FLOAT, null, false, false),
-            'Reimbursements' => array (false, self::PROPERTY_TYPE_FLOAT, null, true, false),
-            'NetPay' => array (false, self::PROPERTY_TYPE_FLOAT, null, false, false),
-            'UpdatedDateUTC' => array (false, self::PROPERTY_TYPE_TIMESTAMP, '\\DateTimeInterface', false, false),
-            'EarningsLines' => array (false, self::PROPERTY_TYPE_OBJECT, 'PayrollUS\\Paystub\\EarningsLine', true, false),
-            'LeaveEarningsLines' => array (false, self::PROPERTY_TYPE_OBJECT, 'PayrollUS\\Paystub\\LeaveEarningsLine', true, false),
-            'TimesheetEarningsLines' => array (false, self::PROPERTY_TYPE_OBJECT, 'PayrollUS\\Paystub\\TimesheetEarningsLine', true, false),
-            'DeductionLines' => array (false, self::PROPERTY_TYPE_OBJECT, 'PayrollUS\\Paystub\\DeductionLine', true, false),
-            'ReimbursementLines' => array (false, self::PROPERTY_TYPE_OBJECT, 'PayrollUS\\Paystub\\ReimbursementLine', true, false),
-            'BenefitLines' => array (false, self::PROPERTY_TYPE_OBJECT, 'PayrollUS\\Paystub\\BenefitLine', true, false),
-            'TimeOffLines' => array (false, self::PROPERTY_TYPE_OBJECT, 'PayrollUS\\Paystub\\TimeOffLine', true, false)
-        );
+        return [
+            'EmployeeID' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'PaystubID' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'PayRunID' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'FirstName' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'LastName' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'LastEdited' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'Earnings' => [false, self::PROPERTY_TYPE_FLOAT, null, true, false],
+            'Deductions' => [false, self::PROPERTY_TYPE_FLOAT, null, true, false],
+            'Tax' => [false, self::PROPERTY_TYPE_FLOAT, null, false, false],
+            'Reimbursements' => [false, self::PROPERTY_TYPE_FLOAT, null, true, false],
+            'NetPay' => [false, self::PROPERTY_TYPE_FLOAT, null, false, false],
+            'UpdatedDateUTC' => [false, self::PROPERTY_TYPE_TIMESTAMP, '\\DateTimeInterface', false, false],
+            'EarningsLines' => [false, self::PROPERTY_TYPE_OBJECT, 'PayrollUS\\Paystub\\EarningsLine', true, false],
+            'LeaveEarningsLines' => [false, self::PROPERTY_TYPE_OBJECT, 'PayrollUS\\Paystub\\LeaveEarningsLine', true, false],
+            'TimesheetEarningsLines' => [false, self::PROPERTY_TYPE_OBJECT, 'PayrollUS\\Paystub\\TimesheetEarningsLine', true, false],
+            'DeductionLines' => [false, self::PROPERTY_TYPE_OBJECT, 'PayrollUS\\Paystub\\DeductionLine', true, false],
+            'ReimbursementLines' => [false, self::PROPERTY_TYPE_OBJECT, 'PayrollUS\\Paystub\\ReimbursementLine', true, false],
+            'BenefitLines' => [false, self::PROPERTY_TYPE_OBJECT, 'PayrollUS\\Paystub\\BenefitLine', true, false],
+            'TimeOffLines' => [false, self::PROPERTY_TYPE_OBJECT, 'PayrollUS\\Paystub\\TimeOffLine', true, false]
+        ];
     }
 
     public static function isPageable()
@@ -355,7 +355,7 @@ class Paystub extends Remote\Object
     public function addEarning($value)
     {
         $this->propertyUpdated('Earnings', $value);
-        if(!isset($this->_data['Earnings'])){
+        if (!isset($this->_data['Earnings'])) {
             $this->_data['Earnings'] = new Remote\Collection();
         }
         $this->_data['Earnings'][] = $value;
@@ -378,7 +378,7 @@ class Paystub extends Remote\Object
     public function addDeduction($value)
     {
         $this->propertyUpdated('Deductions', $value);
-        if(!isset($this->_data['Deductions'])){
+        if (!isset($this->_data['Deductions'])) {
             $this->_data['Deductions'] = new Remote\Collection();
         }
         $this->_data['Deductions'][] = $value;
@@ -420,7 +420,7 @@ class Paystub extends Remote\Object
     public function addReimbursement($value)
     {
         $this->propertyUpdated('Reimbursements', $value);
-        if(!isset($this->_data['Reimbursements'])){
+        if (!isset($this->_data['Reimbursements'])) {
             $this->_data['Reimbursements'] = new Remote\Collection();
         }
         $this->_data['Reimbursements'][] = $value;
@@ -481,7 +481,7 @@ class Paystub extends Remote\Object
     public function addEarningsLine(EarningsLine $value)
     {
         $this->propertyUpdated('EarningsLines', $value);
-        if(!isset($this->_data['EarningsLines'])){
+        if (!isset($this->_data['EarningsLines'])) {
             $this->_data['EarningsLines'] = new Remote\Collection();
         }
         $this->_data['EarningsLines'][] = $value;
@@ -504,7 +504,7 @@ class Paystub extends Remote\Object
     public function addLeaveEarningsLine(LeaveEarningsLine $value)
     {
         $this->propertyUpdated('LeaveEarningsLines', $value);
-        if(!isset($this->_data['LeaveEarningsLines'])){
+        if (!isset($this->_data['LeaveEarningsLines'])) {
             $this->_data['LeaveEarningsLines'] = new Remote\Collection();
         }
         $this->_data['LeaveEarningsLines'][] = $value;
@@ -527,7 +527,7 @@ class Paystub extends Remote\Object
     public function addTimesheetEarningsLine(TimesheetEarningsLine $value)
     {
         $this->propertyUpdated('TimesheetEarningsLines', $value);
-        if(!isset($this->_data['TimesheetEarningsLines'])){
+        if (!isset($this->_data['TimesheetEarningsLines'])) {
             $this->_data['TimesheetEarningsLines'] = new Remote\Collection();
         }
         $this->_data['TimesheetEarningsLines'][] = $value;
@@ -550,7 +550,7 @@ class Paystub extends Remote\Object
     public function addDeductionLine(DeductionLine $value)
     {
         $this->propertyUpdated('DeductionLines', $value);
-        if(!isset($this->_data['DeductionLines'])){
+        if (!isset($this->_data['DeductionLines'])) {
             $this->_data['DeductionLines'] = new Remote\Collection();
         }
         $this->_data['DeductionLines'][] = $value;
@@ -573,7 +573,7 @@ class Paystub extends Remote\Object
     public function addReimbursementLine(ReimbursementLine $value)
     {
         $this->propertyUpdated('ReimbursementLines', $value);
-        if(!isset($this->_data['ReimbursementLines'])){
+        if (!isset($this->_data['ReimbursementLines'])) {
             $this->_data['ReimbursementLines'] = new Remote\Collection();
         }
         $this->_data['ReimbursementLines'][] = $value;
@@ -596,7 +596,7 @@ class Paystub extends Remote\Object
     public function addBenefitLine(BenefitLine $value)
     {
         $this->propertyUpdated('BenefitLines', $value);
-        if(!isset($this->_data['BenefitLines'])){
+        if (!isset($this->_data['BenefitLines'])) {
             $this->_data['BenefitLines'] = new Remote\Collection();
         }
         $this->_data['BenefitLines'][] = $value;
@@ -619,7 +619,7 @@ class Paystub extends Remote\Object
     public function addTimeOffLine(TimeOffLine $value)
     {
         $this->propertyUpdated('TimeOffLines', $value);
-        if(!isset($this->_data['TimeOffLines'])){
+        if (!isset($this->_data['TimeOffLines'])) {
             $this->_data['TimeOffLines'] = new Remote\Collection();
         }
         $this->_data['TimeOffLines'][] = $value;

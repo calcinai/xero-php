@@ -130,8 +130,8 @@ SECTION125PLAN
      */
     public static function getSupportedMethods()
     {
-        return array(
-        );
+        return [
+        ];
     }
 
     /**
@@ -147,15 +147,15 @@ SECTION125PLAN
      */
     public static function getProperties()
     {
-        return array(
-            'DeductionType' => array (true, self::PROPERTY_TYPE_OBJECT, 'PayrollUS\\PayItem\\DeductionType', false, false),
-            'DeductionCategory' => array (true, self::PROPERTY_TYPE_ENUM, null, false, false),
-            'CalculationType' => array (true, self::PROPERTY_TYPE_FLOAT, null, false, false),
-            'LiabilityAccountCode' => array (true, self::PROPERTY_TYPE_STRING, null, false, false),
-            'DeductionTypeID' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'StandardAmount' => array (false, self::PROPERTY_TYPE_FLOAT, null, false, false),
-            'CompanyMax' => array (false, self::PROPERTY_TYPE_FLOAT, null, false, false)
-        );
+        return [
+            'DeductionType' => [true, self::PROPERTY_TYPE_OBJECT, 'PayrollUS\\PayItem\\DeductionType', false, false],
+            'DeductionCategory' => [true, self::PROPERTY_TYPE_ENUM, null, false, false],
+            'CalculationType' => [true, self::PROPERTY_TYPE_FLOAT, null, false, false],
+            'LiabilityAccountCode' => [true, self::PROPERTY_TYPE_STRING, null, false, false],
+            'DeductionTypeID' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'StandardAmount' => [false, self::PROPERTY_TYPE_FLOAT, null, false, false],
+            'CompanyMax' => [false, self::PROPERTY_TYPE_FLOAT, null, false, false]
+        ];
     }
 
     public static function isPageable()

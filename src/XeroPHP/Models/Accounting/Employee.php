@@ -91,11 +91,11 @@ The description of the link is auto-generated in the form “Go to <App name>”
      */
     public static function getSupportedMethods()
     {
-        return array(
+        return [
             Remote\Request::METHOD_POST,
             Remote\Request::METHOD_PUT,
             Remote\Request::METHOD_GET
-        );
+        ];
     }
 
     /**
@@ -111,13 +111,13 @@ The description of the link is auto-generated in the form “Go to <App name>”
      */
     public static function getProperties()
     {
-        return array(
-            'EmployeeID' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'Status' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'FirstName' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'LastName' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'ExternalLink' => array (false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Organisation\\ExternalLink', false, false)
-        );
+        return [
+            'EmployeeID' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'Status' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'FirstName' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'LastName' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'ExternalLink' => [false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Organisation\\ExternalLink', false, false]
+        ];
     }
 
     public static function isPageable()

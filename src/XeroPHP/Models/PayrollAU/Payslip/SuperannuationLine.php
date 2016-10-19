@@ -111,8 +111,8 @@ class SuperannuationLine extends Remote\Object
      */
     public static function getSupportedMethods()
     {
-        return array(
-        );
+        return [
+        ];
     }
 
     /**
@@ -128,17 +128,17 @@ class SuperannuationLine extends Remote\Object
      */
     public static function getProperties()
     {
-        return array(
-            'SuperMembershipID' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'ContributionType' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'CalculationType' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'MinimumMonthlyEarnings' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'ExpenseAccountCode' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'LiabilityAccountCode' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'PaymentDateForThisPeriod' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTimeInterface', false, false),
-            'Percentage' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'Amount' => array (false, self::PROPERTY_TYPE_FLOAT, null, false, false)
-        );
+        return [
+            'SuperMembershipID' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'ContributionType' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'CalculationType' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'MinimumMonthlyEarnings' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'ExpenseAccountCode' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'LiabilityAccountCode' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'PaymentDateForThisPeriod' => [false, self::PROPERTY_TYPE_DATE, '\\DateTimeInterface', false, false],
+            'Percentage' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'Amount' => [false, self::PROPERTY_TYPE_FLOAT, null, false, false]
+        ];
     }
 
     public static function isPageable()

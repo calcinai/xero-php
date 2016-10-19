@@ -69,8 +69,8 @@ class Sale extends Remote\Object
      */
     public static function getSupportedMethods()
     {
-        return array(
-        );
+        return [
+        ];
     }
 
     /**
@@ -86,10 +86,10 @@ class Sale extends Remote\Object
      */
     public static function getProperties()
     {
-        return array(
-            'Day' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'Type' => array (false, self::PROPERTY_TYPE_ENUM, null, false, false)
-        );
+        return [
+            'Day' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'Type' => [false, self::PROPERTY_TYPE_ENUM, null, false, false]
+        ];
     }
 
     public static function isPageable()

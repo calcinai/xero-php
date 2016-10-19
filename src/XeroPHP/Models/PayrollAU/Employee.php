@@ -248,10 +248,10 @@ class Employee extends Remote\Object
      */
     public static function getSupportedMethods()
     {
-        return array(
+        return [
             Remote\Request::METHOD_POST,
             Remote\Request::METHOD_GET
-        );
+        ];
     }
 
     /**
@@ -267,36 +267,36 @@ class Employee extends Remote\Object
      */
     public static function getProperties()
     {
-        return array(
-            'FirstName' => array (true, self::PROPERTY_TYPE_STRING, null, false, false),
-            'LastName' => array (true, self::PROPERTY_TYPE_STRING, null, false, false),
-            'DateOfBirth' => array (true, self::PROPERTY_TYPE_DATE, '\\DateTimeInterface', false, false),
-            'HomeAddress' => array (true, self::PROPERTY_TYPE_OBJECT, 'PayrollAU\\Employee\\HomeAddress', false, false),
-            'StartDate' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTimeInterface', false, false),
-            'Title' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'MiddleNames' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'Email' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'Gender' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'Mobile' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'TwitterUserName' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'IsAuthorisedToApproveLeave' => array (false, self::PROPERTY_TYPE_BOOLEAN, null, false, false),
-            'IsAuthorisedToApproveTimesheets' => array (false, self::PROPERTY_TYPE_BOOLEAN, null, false, false),
-            'Occupation' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'JobTitle' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'Classification' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'OrdinaryEarningsRateID' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'PayrollCalendarID' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'EmployeeGroupName' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'BankAccounts' => array (false, self::PROPERTY_TYPE_OBJECT, 'PayrollAU\\Employee\\BankAccount', true, false),
-            'PayTemplate' => array (false, self::PROPERTY_TYPE_OBJECT, 'PayrollAU\\Employee\\PayTemplate', false, false),
-            'OpeningBalances' => array (false, self::PROPERTY_TYPE_OBJECT, 'PayrollAU\\Employee\\OpeningBalance', true, false),
-            'LeaveBalances' => array (false, self::PROPERTY_TYPE_OBJECT, 'PayrollAU\\Employee\\LeaveBalance', true, false),
-            'SuperMemberships' => array (false, self::PROPERTY_TYPE_OBJECT, 'PayrollAU\\Employee\\SuperMembership', true, false),
-            'TerminationDate' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTimeInterface', false, false),
-            'EmployeeID' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'Status' => array (false, self::PROPERTY_TYPE_ENUM, null, false, false),
-            'UpdatedDateUTC' => array (false, self::PROPERTY_TYPE_TIMESTAMP, '\\DateTimeInterface', false, false)
-        );
+        return [
+            'FirstName' => [true, self::PROPERTY_TYPE_STRING, null, false, false],
+            'LastName' => [true, self::PROPERTY_TYPE_STRING, null, false, false],
+            'DateOfBirth' => [true, self::PROPERTY_TYPE_DATE, '\\DateTimeInterface', false, false],
+            'HomeAddress' => [true, self::PROPERTY_TYPE_OBJECT, 'PayrollAU\\Employee\\HomeAddress', false, false],
+            'StartDate' => [false, self::PROPERTY_TYPE_DATE, '\\DateTimeInterface', false, false],
+            'Title' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'MiddleNames' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'Email' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'Gender' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'Mobile' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'TwitterUserName' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'IsAuthorisedToApproveLeave' => [false, self::PROPERTY_TYPE_BOOLEAN, null, false, false],
+            'IsAuthorisedToApproveTimesheets' => [false, self::PROPERTY_TYPE_BOOLEAN, null, false, false],
+            'Occupation' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'JobTitle' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'Classification' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'OrdinaryEarningsRateID' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'PayrollCalendarID' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'EmployeeGroupName' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'BankAccounts' => [false, self::PROPERTY_TYPE_OBJECT, 'PayrollAU\\Employee\\BankAccount', true, false],
+            'PayTemplate' => [false, self::PROPERTY_TYPE_OBJECT, 'PayrollAU\\Employee\\PayTemplate', false, false],
+            'OpeningBalances' => [false, self::PROPERTY_TYPE_OBJECT, 'PayrollAU\\Employee\\OpeningBalance', true, false],
+            'LeaveBalances' => [false, self::PROPERTY_TYPE_OBJECT, 'PayrollAU\\Employee\\LeaveBalance', true, false],
+            'SuperMemberships' => [false, self::PROPERTY_TYPE_OBJECT, 'PayrollAU\\Employee\\SuperMembership', true, false],
+            'TerminationDate' => [false, self::PROPERTY_TYPE_DATE, '\\DateTimeInterface', false, false],
+            'EmployeeID' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'Status' => [false, self::PROPERTY_TYPE_ENUM, null, false, false],
+            'UpdatedDateUTC' => [false, self::PROPERTY_TYPE_TIMESTAMP, '\\DateTimeInterface', false, false]
+        ];
     }
 
     public static function isPageable()
@@ -683,7 +683,7 @@ class Employee extends Remote\Object
     public function addBankAccount(BankAccount $value)
     {
         $this->propertyUpdated('BankAccounts', $value);
-        if(!isset($this->_data['BankAccounts'])){
+        if (!isset($this->_data['BankAccounts'])) {
             $this->_data['BankAccounts'] = new Remote\Collection();
         }
         $this->_data['BankAccounts'][] = $value;
@@ -725,7 +725,7 @@ class Employee extends Remote\Object
     public function addOpeningBalance(OpeningBalance $value)
     {
         $this->propertyUpdated('OpeningBalances', $value);
-        if(!isset($this->_data['OpeningBalances'])){
+        if (!isset($this->_data['OpeningBalances'])) {
             $this->_data['OpeningBalances'] = new Remote\Collection();
         }
         $this->_data['OpeningBalances'][] = $value;
@@ -748,7 +748,7 @@ class Employee extends Remote\Object
     public function addLeaveBalance(LeaveBalance $value)
     {
         $this->propertyUpdated('LeaveBalances', $value);
-        if(!isset($this->_data['LeaveBalances'])){
+        if (!isset($this->_data['LeaveBalances'])) {
             $this->_data['LeaveBalances'] = new Remote\Collection();
         }
         $this->_data['LeaveBalances'][] = $value;
@@ -771,7 +771,7 @@ class Employee extends Remote\Object
     public function addSuperMembership(SuperMembership $value)
     {
         $this->propertyUpdated('SuperMemberships', $value);
-        if(!isset($this->_data['SuperMemberships'])){
+        if (!isset($this->_data['SuperMemberships'])) {
             $this->_data['SuperMemberships'] = new Remote\Collection();
         }
         $this->_data['SuperMemberships'][] = $value;

@@ -81,8 +81,8 @@ class ReimbursementLine extends Remote\Object
      */
     public static function getSupportedMethods()
     {
-        return array(
-        );
+        return [
+        ];
     }
 
     /**
@@ -98,12 +98,12 @@ class ReimbursementLine extends Remote\Object
      */
     public static function getProperties()
     {
-        return array(
-            'ReimbursementTypeID' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'Description' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'ExpenseAccount' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'Amount' => array (false, self::PROPERTY_TYPE_FLOAT, null, false, false)
-        );
+        return [
+            'ReimbursementTypeID' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'Description' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'ExpenseAccount' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'Amount' => [false, self::PROPERTY_TYPE_FLOAT, null, false, false]
+        ];
     }
 
     public static function isPageable()

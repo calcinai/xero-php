@@ -105,9 +105,9 @@ class Setting extends Remote\Object
      */
     public static function getSupportedMethods()
     {
-        return array(
+        return [
             Remote\Request::METHOD_GET
-        );
+        ];
     }
 
     /**
@@ -123,16 +123,16 @@ class Setting extends Remote\Object
      */
     public static function getProperties()
     {
-        return array(
-            'assetNumberPrefix' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'assetNumberSequence' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'assetStartDate' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTimeInterface', false, false),
-            'lastDepreciationDate' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTimeInterface', false, false),
-            'defaultGainOnDisposalAccountId' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'defaultLossOnDisposalAccountId' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'defaultCapitalGainOnDisposalAccount' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'optInForTax' => array (false, self::PROPERTY_TYPE_STRING, null, false, false)
-        );
+        return [
+            'assetNumberPrefix' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'assetNumberSequence' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'assetStartDate' => [false, self::PROPERTY_TYPE_DATE, '\\DateTimeInterface', false, false],
+            'lastDepreciationDate' => [false, self::PROPERTY_TYPE_DATE, '\\DateTimeInterface', false, false],
+            'defaultGainOnDisposalAccountId' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'defaultLossOnDisposalAccountId' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'defaultCapitalGainOnDisposalAccount' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'optInForTax' => [false, self::PROPERTY_TYPE_STRING, null, false, false]
+        ];
     }
 
     public static function isPageable()

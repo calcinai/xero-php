@@ -129,10 +129,10 @@ class PayRun extends Remote\Object
      */
     public static function getSupportedMethods()
     {
-        return array(
+        return [
             Remote\Request::METHOD_POST,
             Remote\Request::METHOD_GET
-        );
+        ];
     }
 
     /**
@@ -148,20 +148,20 @@ class PayRun extends Remote\Object
      */
     public static function getProperties()
     {
-        return array(
-            'PayScheduleID' => array (true, self::PROPERTY_TYPE_STRING, null, false, false),
-            'PayRunPeriodEndDate' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTimeInterface', false, false),
-            'PayRunStatus' => array (false, self::PROPERTY_TYPE_ENUM, null, false, false),
-            'PayRunID' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'PayRunPeriodStartDate' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTimeInterface', false, false),
-            'PaymentDate' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTimeInterface', false, false),
-            'Earnings' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'Deductions' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'Reimbursement' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'NetPay' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'UpdateDateUTC' => array (false, self::PROPERTY_TYPE_TIMESTAMP, '\\DateTimeInterface', false, false),
-            'PayStubs' => array (false, self::PROPERTY_TYPE_STRING, null, false, false)
-        );
+        return [
+            'PayScheduleID' => [true, self::PROPERTY_TYPE_STRING, null, false, false],
+            'PayRunPeriodEndDate' => [false, self::PROPERTY_TYPE_DATE, '\\DateTimeInterface', false, false],
+            'PayRunStatus' => [false, self::PROPERTY_TYPE_ENUM, null, false, false],
+            'PayRunID' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'PayRunPeriodStartDate' => [false, self::PROPERTY_TYPE_DATE, '\\DateTimeInterface', false, false],
+            'PaymentDate' => [false, self::PROPERTY_TYPE_DATE, '\\DateTimeInterface', false, false],
+            'Earnings' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'Deductions' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'Reimbursement' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'NetPay' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'UpdateDateUTC' => [false, self::PROPERTY_TYPE_TIMESTAMP, '\\DateTimeInterface', false, false],
+            'PayStubs' => [false, self::PROPERTY_TYPE_STRING, null, false, false]
+        ];
     }
 
     public static function isPageable()

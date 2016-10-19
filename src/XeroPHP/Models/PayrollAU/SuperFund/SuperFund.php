@@ -124,8 +124,8 @@ class SuperFund extends Remote\Object
      */
     public static function getSupportedMethods()
     {
-        return array(
-        );
+        return [
+        ];
     }
 
     /**
@@ -141,18 +141,18 @@ class SuperFund extends Remote\Object
      */
     public static function getProperties()
     {
-        return array(
-            'Type' => array (false, self::PROPERTY_TYPE_ENUM, null, false, false),
-            'Name' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'ABN' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'BSB' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'AccountNumber' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'AccountName' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'ElectronicServiceAddress' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'SuperFundID' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'EmployerNumber' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'SPIN' => array (false, self::PROPERTY_TYPE_STRING, null, false, false)
-        );
+        return [
+            'Type' => [false, self::PROPERTY_TYPE_ENUM, null, false, false],
+            'Name' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'ABN' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'BSB' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'AccountNumber' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'AccountName' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'ElectronicServiceAddress' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'SuperFundID' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'EmployerNumber' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'SPIN' => [false, self::PROPERTY_TYPE_STRING, null, false, false]
+        ];
     }
 
     public static function isPageable()

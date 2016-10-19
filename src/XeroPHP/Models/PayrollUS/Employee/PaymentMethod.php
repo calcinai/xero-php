@@ -73,8 +73,8 @@ class PaymentMethod extends Remote\Object
      */
     public static function getSupportedMethods()
     {
-        return array(
-        );
+        return [
+        ];
     }
 
     /**
@@ -90,10 +90,10 @@ class PaymentMethod extends Remote\Object
      */
     public static function getProperties()
     {
-        return array(
-            'PaymentMethodType' => array (false, self::PROPERTY_TYPE_ENUM, null, false, false),
-            'BankAccounts' => array (false, self::PROPERTY_TYPE_OBJECT, 'PayrollUS\\Employee\\BankAccount', true, false)
-        );
+        return [
+            'PaymentMethodType' => [false, self::PROPERTY_TYPE_ENUM, null, false, false],
+            'BankAccounts' => [false, self::PROPERTY_TYPE_OBJECT, 'PayrollUS\\Employee\\BankAccount', true, false]
+        ];
     }
 
     public static function isPageable()
@@ -136,7 +136,7 @@ class PaymentMethod extends Remote\Object
     public function addBankAccount(BankAccount $value)
     {
         $this->propertyUpdated('BankAccounts', $value);
-        if(!isset($this->_data['BankAccounts'])){
+        if (!isset($this->_data['BankAccounts'])) {
             $this->_data['BankAccounts'] = new Remote\Collection();
         }
         $this->_data['BankAccounts'][] = $value;

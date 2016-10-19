@@ -71,9 +71,9 @@ class Setting extends Remote\Object
      */
     public static function getSupportedMethods()
     {
-        return array(
+        return [
             Remote\Request::METHOD_GET
-        );
+        ];
     }
 
     /**
@@ -89,10 +89,10 @@ class Setting extends Remote\Object
      */
     public static function getProperties()
     {
-        return array(
-            'Accounts' => array (false, self::PROPERTY_TYPE_OBJECT, 'PayrollUS\\Setting\\Account', true, false),
-            'TrackingCategories' => array (false, self::PROPERTY_TYPE_OBJECT, 'PayrollUS\\Setting\\TrackingCategory', true, false)
-        );
+        return [
+            'Accounts' => [false, self::PROPERTY_TYPE_OBJECT, 'PayrollUS\\Setting\\Account', true, false],
+            'TrackingCategories' => [false, self::PROPERTY_TYPE_OBJECT, 'PayrollUS\\Setting\\TrackingCategory', true, false]
+        ];
     }
 
     public static function isPageable()
@@ -116,7 +116,7 @@ class Setting extends Remote\Object
     public function addAccount(Account $value)
     {
         $this->propertyUpdated('Accounts', $value);
-        if(!isset($this->_data['Accounts'])){
+        if (!isset($this->_data['Accounts'])) {
             $this->_data['Accounts'] = new Remote\Collection();
         }
         $this->_data['Accounts'][] = $value;
@@ -139,7 +139,7 @@ class Setting extends Remote\Object
     public function addTrackingCategory(TrackingCategory $value)
     {
         $this->propertyUpdated('TrackingCategories', $value);
-        if(!isset($this->_data['TrackingCategories'])){
+        if (!isset($this->_data['TrackingCategories'])) {
             $this->_data['TrackingCategories'] = new Remote\Collection();
         }
         $this->_data['TrackingCategories'][] = $value;

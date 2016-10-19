@@ -77,8 +77,8 @@ class Allocation extends Remote\Object
      */
     public static function getSupportedMethods()
     {
-        return array(
-        );
+        return [
+        ];
     }
 
     /**
@@ -94,11 +94,11 @@ class Allocation extends Remote\Object
      */
     public static function getProperties()
     {
-        return array(
-            'Invoice' => array (false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Invoice', false, false),
-            'AppliedAmount' => array (false, self::PROPERTY_TYPE_FLOAT, null, false, false),
-            'Date' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTimeInterface', false, false)
-        );
+        return [
+            'Invoice' => [false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Invoice', false, false],
+            'AppliedAmount' => [false, self::PROPERTY_TYPE_FLOAT, null, false, false],
+            'Date' => [false, self::PROPERTY_TYPE_DATE, '\\DateTimeInterface', false, false]
+        ];
     }
 
     public static function isPageable()

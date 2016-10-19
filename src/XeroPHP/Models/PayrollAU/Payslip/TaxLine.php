@@ -82,8 +82,8 @@ class TaxLine extends Remote\Object
      */
     public static function getSupportedMethods()
     {
-        return array(
-        );
+        return [
+        ];
     }
 
     /**
@@ -99,12 +99,12 @@ class TaxLine extends Remote\Object
      */
     public static function getProperties()
     {
-        return array(
-            'TaxTypeName' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'Description' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'Amount' => array (false, self::PROPERTY_TYPE_FLOAT, null, false, false),
-            'LiabilityAccount' => array (false, self::PROPERTY_TYPE_STRING, null, false, false)
-        );
+        return [
+            'TaxTypeName' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'Description' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'Amount' => [false, self::PROPERTY_TYPE_FLOAT, null, false, false],
+            'LiabilityAccount' => [false, self::PROPERTY_TYPE_STRING, null, false, false]
+        ];
     }
 
     public static function isPageable()

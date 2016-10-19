@@ -147,9 +147,9 @@ class RepeatingInvoice extends Remote\Object
      */
     public static function getSupportedMethods()
     {
-        return array(
+        return [
             Remote\Request::METHOD_GET
-        );
+        ];
     }
 
     /**
@@ -165,22 +165,22 @@ class RepeatingInvoice extends Remote\Object
      */
     public static function getProperties()
     {
-        return array(
-            'Type' => array (false, self::PROPERTY_TYPE_ENUM, null, false, false),
-            'Contact' => array (false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Contact', false, false),
-            'Schedule' => array (false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\RepeatingInvoice\\Schedule', false, false),
-            'LineItems' => array (false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\RepeatingInvoice\\LineItem', true, false),
-            'LineAmountTypes' => array (false, self::PROPERTY_TYPE_ENUM, null, false, false),
-            'Reference' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'BrandingThemeID' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'CurrencyCode' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'Status' => array (false, self::PROPERTY_TYPE_ENUM, null, false, false),
-            'SubTotal' => array (false, self::PROPERTY_TYPE_FLOAT, null, false, false),
-            'TotalTax' => array (false, self::PROPERTY_TYPE_FLOAT, null, false, false),
-            'Total' => array (false, self::PROPERTY_TYPE_FLOAT, null, false, false),
-            'RepeatingInvoiceID' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'HasAttachments' => array (false, self::PROPERTY_TYPE_BOOLEAN, null, false, false)
-        );
+        return [
+            'Type' => [false, self::PROPERTY_TYPE_ENUM, null, false, false],
+            'Contact' => [false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Contact', false, false],
+            'Schedule' => [false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\RepeatingInvoice\\Schedule', false, false],
+            'LineItems' => [false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\RepeatingInvoice\\LineItem', true, false],
+            'LineAmountTypes' => [false, self::PROPERTY_TYPE_ENUM, null, false, false],
+            'Reference' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'BrandingThemeID' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'CurrencyCode' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'Status' => [false, self::PROPERTY_TYPE_ENUM, null, false, false],
+            'SubTotal' => [false, self::PROPERTY_TYPE_FLOAT, null, false, false],
+            'TotalTax' => [false, self::PROPERTY_TYPE_FLOAT, null, false, false],
+            'Total' => [false, self::PROPERTY_TYPE_FLOAT, null, false, false],
+            'RepeatingInvoiceID' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'HasAttachments' => [false, self::PROPERTY_TYPE_BOOLEAN, null, false, false]
+        ];
     }
 
     public static function isPageable()
@@ -261,7 +261,7 @@ class RepeatingInvoice extends Remote\Object
     public function addLineItem(LineItem $value)
     {
         $this->propertyUpdated('LineItems', $value);
-        if(!isset($this->_data['LineItems'])){
+        if (!isset($this->_data['LineItems'])) {
             $this->_data['LineItems'] = new Remote\Collection();
         }
         $this->_data['LineItems'][] = $value;

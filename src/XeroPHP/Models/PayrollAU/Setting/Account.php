@@ -81,8 +81,8 @@ class Account extends Remote\Object
      */
     public static function getSupportedMethods()
     {
-        return array(
-        );
+        return [
+        ];
     }
 
     /**
@@ -98,12 +98,12 @@ class Account extends Remote\Object
      */
     public static function getProperties()
     {
-        return array(
-            'AccountID' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'Type' => array (false, self::PROPERTY_TYPE_ENUM, null, false, false),
-            'Code' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'Name' => array (false, self::PROPERTY_TYPE_STRING, null, false, false)
-        );
+        return [
+            'AccountID' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'Type' => [false, self::PROPERTY_TYPE_ENUM, null, false, false],
+            'Code' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'Name' => [false, self::PROPERTY_TYPE_STRING, null, false, false]
+        ];
     }
 
     public static function isPageable()

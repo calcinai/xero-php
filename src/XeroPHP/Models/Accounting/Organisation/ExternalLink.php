@@ -75,8 +75,8 @@ class ExternalLink extends Remote\Object
      */
     public static function getSupportedMethods()
     {
-        return array(
-        );
+        return [
+        ];
     }
 
     /**
@@ -92,10 +92,10 @@ class ExternalLink extends Remote\Object
      */
     public static function getProperties()
     {
-        return array(
-            'LinkType' => array (false, self::PROPERTY_TYPE_ENUM, null, false, false),
-            'Url' => array (false, self::PROPERTY_TYPE_STRING, null, false, false)
-        );
+        return [
+            'LinkType' => [false, self::PROPERTY_TYPE_ENUM, null, false, false],
+            'Url' => [false, self::PROPERTY_TYPE_STRING, null, false, false]
+        ];
     }
 
     public static function isPageable()

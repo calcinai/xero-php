@@ -75,8 +75,8 @@ class TrackingOption extends Remote\Object
      */
     public static function getSupportedMethods()
     {
-        return array(
-        );
+        return [
+        ];
     }
 
     /**
@@ -92,11 +92,11 @@ class TrackingOption extends Remote\Object
      */
     public static function getProperties()
     {
-        return array(
-            'TrackingOptionID' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'Name' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'Status' => array (false, self::PROPERTY_TYPE_STRING, null, false, false)
-        );
+        return [
+            'TrackingOptionID' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'Name' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'Status' => [false, self::PROPERTY_TYPE_STRING, null, false, false]
+        ];
     }
 
     public static function isPageable()

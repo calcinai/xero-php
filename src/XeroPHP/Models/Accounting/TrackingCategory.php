@@ -82,12 +82,12 @@ class TrackingCategory extends Remote\Object
      */
     public static function getSupportedMethods()
     {
-        return array(
+        return [
             Remote\Request::METHOD_GET,
             Remote\Request::METHOD_PUT,
             Remote\Request::METHOD_POST,
             Remote\Request::METHOD_DELETE
-        );
+        ];
     }
 
     /**
@@ -103,12 +103,12 @@ class TrackingCategory extends Remote\Object
      */
     public static function getProperties()
     {
-        return array(
-            'TrackingCategoryID' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'Name' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'Status' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'Options' => array (false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\TrackingCategory\\TrackingOption', true, true)
-        );
+        return [
+            'TrackingCategoryID' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'Name' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'Status' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'Options' => [false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\TrackingCategory\\TrackingOption', true, true]
+        ];
     }
 
     public static function isPageable()
@@ -189,7 +189,7 @@ class TrackingCategory extends Remote\Object
     public function addOption(TrackingOption $value)
     {
         $this->propertyUpdated('Options', $value);
-        if(!isset($this->_data['Options'])){
+        if (!isset($this->_data['Options'])) {
             $this->_data['Options'] = new Remote\Collection();
         }
         $this->_data['Options'][] = $value;

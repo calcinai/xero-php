@@ -81,8 +81,8 @@ class DeductionLine extends Remote\Object
      */
     public static function getSupportedMethods()
     {
-        return array(
-        );
+        return [
+        ];
     }
 
     /**
@@ -98,12 +98,12 @@ class DeductionLine extends Remote\Object
      */
     public static function getProperties()
     {
-        return array(
-            'DeductionTypeID' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'CalculationType' => array (false, self::PROPERTY_TYPE_ENUM, null, false, false),
-            'Percentage' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'Amount' => array (false, self::PROPERTY_TYPE_FLOAT, null, false, false)
-        );
+        return [
+            'DeductionTypeID' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'CalculationType' => [false, self::PROPERTY_TYPE_ENUM, null, false, false],
+            'Percentage' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'Amount' => [false, self::PROPERTY_TYPE_FLOAT, null, false, false]
+        ];
     }
 
     public static function isPageable()

@@ -91,8 +91,8 @@ class Purchase extends Remote\Object
      */
     public static function getSupportedMethods()
     {
-        return array(
-        );
+        return [
+        ];
     }
 
     /**
@@ -108,13 +108,13 @@ class Purchase extends Remote\Object
      */
     public static function getProperties()
     {
-        return array(
-            'UnitPrice' => array (false, self::PROPERTY_TYPE_FLOAT, null, false, false),
-            'AccountCode' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'COGSAccountCode' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'UpdatedDateUTC' => array (false, self::PROPERTY_TYPE_TIMESTAMP, '\\DateTimeInterface', false, false),
-            'TaxType' => array (false, self::PROPERTY_TYPE_ENUM, null, false, false)
-        );
+        return [
+            'UnitPrice' => [false, self::PROPERTY_TYPE_FLOAT, null, false, false],
+            'AccountCode' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'COGSAccountCode' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'UpdatedDateUTC' => [false, self::PROPERTY_TYPE_TIMESTAMP, '\\DateTimeInterface', false, false],
+            'TaxType' => [false, self::PROPERTY_TYPE_ENUM, null, false, false]
+        ];
     }
 
     public static function isPageable()

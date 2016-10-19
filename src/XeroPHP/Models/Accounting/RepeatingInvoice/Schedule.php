@@ -101,8 +101,8 @@ class Schedule extends Remote\Object
      */
     public static function getSupportedMethods()
     {
-        return array(
-        );
+        return [
+        ];
     }
 
     /**
@@ -118,15 +118,15 @@ class Schedule extends Remote\Object
      */
     public static function getProperties()
     {
-        return array(
-            'Period' => array (false, self::PROPERTY_TYPE_INT, null, false, false),
-            'Unit' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'DueDate' => array (false, self::PROPERTY_TYPE_INT, null, false, false),
-            'DueDateType' => array (false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Organisation\\PaymentTerm', false, false),
-            'StartDate' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTimeInterface', false, false),
-            'NextScheduledDate' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTimeInterface', false, false),
-            'EndDate' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTimeInterface', false, false)
-        );
+        return [
+            'Period' => [false, self::PROPERTY_TYPE_INT, null, false, false],
+            'Unit' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'DueDate' => [false, self::PROPERTY_TYPE_INT, null, false, false],
+            'DueDateType' => [false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Organisation\\PaymentTerm', false, false],
+            'StartDate' => [false, self::PROPERTY_TYPE_DATE, '\\DateTimeInterface', false, false],
+            'NextScheduledDate' => [false, self::PROPERTY_TYPE_DATE, '\\DateTimeInterface', false, false],
+            'EndDate' => [false, self::PROPERTY_TYPE_DATE, '\\DateTimeInterface', false, false]
+        ];
     }
 
     public static function isPageable()
