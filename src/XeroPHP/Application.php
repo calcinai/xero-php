@@ -9,7 +9,6 @@ use XeroPHP\Remote\Query;
 use XeroPHP\Remote\Request;
 use XeroPHP\Remote\URL;
 
-
 abstract class Application
 {
     protected static $_config_defaults = [
@@ -335,7 +334,12 @@ abstract class Application
     public function delete(Remote\Object $object)
     {
         if (!$object::supportsMethod(Request::METHOD_DELETE)) {
-            throw new Exception(sprintf('%s doesn\'t support [DELETE] via the API', get_class($object)));
+            throw new Exception(
+                sprintf(
+                    '%s doesn\'t support [DELETE] via the API',
+                    get_class($object)
+                )
+            );
         }
 
         $uri = sprintf('%s/%s', $object::getResourceURI(), $object->getGUID());

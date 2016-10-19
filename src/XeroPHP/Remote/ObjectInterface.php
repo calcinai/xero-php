@@ -10,32 +10,32 @@ interface ObjectInterface
      *
      * @return string|null
      */
-    static function getGUIDProperty();
+    public static function getGUIDProperty();
 
     /**
      * Get a list of properties
      *
      * @return array
      */
-    static function getProperties();
+    public static function getProperties();
 
     /**
      * Get a list of the supported HTTP Methods
      *
      * @return array
      */
-    static function getSupportedMethods();
+    public static function getSupportedMethods();
 
     /**
      * return the URI of the resource (if any)
      *
      * @return string
      */
-    static function getResourceURI();
+    public static function getResourceURI();
 
-    static function getRootNodeName();
+    public static function getRootNodeName();
 
-    static function getAPIStem();
+    public static function getAPIStem();
 
-    static function isPageable();
+    public static function isPageable();
 }
