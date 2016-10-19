@@ -9,7 +9,6 @@ use XeroPHP\Exception;
 
 trait AttachmentTrait
 {
-
     public function addAttachment(Attachment $attachment)
     {
         /**
@@ -38,10 +37,16 @@ trait AttachmentTrait
          * @var Object $this
          */
         if ($this->hasGUID() === false) {
-            throw new Exception('Attachments are only available to objects that exist remotely.');
+            throw new Exception(
+                'Attachments are only available to objects that exist remotely.'
+            );
         }
 
-        $uri = sprintf('%s/%s/Attachments', $this::getResourceURI(), $this->getGUID());
+        $uri = sprintf(
+            '%s/%s/Attachments',
+            $this::getResourceURI(),
+            $this->getGUID()
+        );
 
         $url = new URL($this->_application, $uri);
         $request = new Request($this->_application, $url, Request::METHOD_GET);

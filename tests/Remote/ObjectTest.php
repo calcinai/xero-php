@@ -46,32 +46,33 @@ class ObjectTest extends \PHPUnit_Framework_TestCase
 
 class SimpleObject extends Object
 {
-    static function getGUIDProperty()
+    public static function getGUIDProperty()
     {
         return 'test';
     }
 
-    static function getProperties()
+    public static function getProperties()
     {
         return ['test'];
     }
 
-    static function getSupportedMethods()
+    public static function getSupportedMethods()
     {
         return ['test'];
     }
 
-    static function getResourceURI()
+    public static function getResourceURI()
     {
         return 'test';
     }
 
-    static function isPageable()
+    public static function isPageable()
     {
         return false;
     }
 
-    static function getAPIStem() {
+    public static function getAPIStem()
+    {
         return 'test';
     }
 
@@ -91,7 +92,8 @@ class SimpleObject extends Object
         $this->_data['test'] = $test;
     }
 
-    static function getRootNodeName() {
+    public static function getRootNodeName()
+    {
         return 'test';
     }
 }

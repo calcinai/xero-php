@@ -87,7 +87,8 @@ class Client
                 throw new Exception('Invalid signing location specified.');
         }
 
-        //Reset so this instance of the Client can sign subsequent requests.  Mainly for the nonce.
+        //Reset so this instance of the Client can sign subsequent requests.
+        //Mainly for the nonce.
         $this->resetOAuthParams();
     }
 
@@ -143,16 +144,29 @@ class Client
     {
         switch ($this->getSignatureMethod()) {
             case self::SIGNATURE_RSA_SHA1:
-                $signature = RSASHA1::generateSignature($this->config, $this->getSBS(), $this->getSigningSecret());
+                $signature = RSASHA1::generateSignature(
+                    $this->config,
+                    $this->getSBS(),
+                    $this->getSigningSecret()
+                );
                 break;
             case self::SIGNATURE_HMAC_SHA1:
-                $signature = HMACSHA1::generateSignature($this->config, $this->getSBS(), $this->getSigningSecret());
+                $signature = HMACSHA1::generateSignature(
+                    $this->config,
+                    $this->getSBS(),
+                    $this->getSigningSecret()
+                );
                 break;
             case self::SIGNATURE_PLAINTEXT:
-                $signature = PLAINTEXT::generateSignature($this->config, $this->getSBS(), $this->getSigningSecret());
+                $signature = PLAINTEXT::generateSignature(
+                    $this->config, $this->getSBS(),
+                    $this->getSigningSecret()
+                );
                 break;
             default:
-                throw new Exception("Invalid signature method [{$this->config['signature_method']}]");
+                throw new Exception(
+                    "Invalid signature method [{$this->config['signature_method']}]"
+                );
         }
 
         return $signature;
@@ -179,7 +193,12 @@ class Client
         $url = $this->request->getUrl()->getFullURL();
 
         //Every second thing seems to need escaping!
-        return sprintf('%s&%s&%s', $this->request->getMethod(), Helpers::escape($url), Helpers::escape($sbs_string));
+        return sprintf(
+            '%s&%s&%s',
+            $this->request->getMethod(),
+            Helpers::escape($url),
+            Helpers::escape($sbs_string)
+        );
     }
 
     /**
@@ -212,7 +231,7 @@ class Client
         $parts = explode('.', microtime(true));
         $nonce = base_convert($parts[1], 10, 36);
 
-        for($i = 0; $i < $length - strlen($nonce); $i++) {
+        for ($i = 0; $i < $length - strlen($nonce); $i++) {
             $nonce .= base_convert(mt_rand(0, 35), 10, 36);
         }
 
