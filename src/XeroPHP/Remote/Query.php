@@ -5,8 +5,8 @@ namespace XeroPHP\Remote;
 use XeroPHP\Application;
 use DateTime;
 
-class Query {
-
+class Query
+{
     const ORDER_ASC  = 'ASC';
     const ORDER_DESC = 'DESC';
 
@@ -23,7 +23,8 @@ class Query {
     private $date;
     private $offset;
 
-    public function __construct(Application $app) {
+    public function __construct(Application $app)
+    {
         $this->app = $app;
         $this->where = [];
         $this->order = null;
@@ -36,20 +37,20 @@ class Query {
      * @param string $class
      * @return $this
      */
-    public function from($class) {
-
+    public function from($class)
+    {
         $this->from_class = $this->app->validateModelClass($class);
-
         return $this;
     }
     
     /**
-     * Adds a WHERE statment to the query. Can also be used to chain an AND WHERE statement to
-     * a query.
+     * Adds a WHERE statement to the query.
+     * Can also be used to chain an AND WHERE statement to a query.
      *
      * @return $this
      */
-    public function where() {
+    public function where()
+    {
         return $this->addWhere('AND', func_get_args());
     }
     
@@ -58,7 +59,8 @@ class Query {
      *
      * @return $this
      **/
-    public function orWhere() {
+    public function orWhere()
+    {
         return $this->addWhere('OR', func_get_args());
     }
     
@@ -69,7 +71,8 @@ class Query {
      *
      * @return $this
      **/
-    public function andWhere() {
+    public function andWhere()
+    {
         return $this->addWhere('AND', func_get_args());
     }
 
@@ -85,14 +88,19 @@ class Query {
             $this->where[] = $operator;
         }
 
-        if(count($args) === 2) {
-            if(is_bool($args[1])) {
+        if (count($args) === 2) {
+            if (is_bool($args[1])) {
                 $this->where[] = sprintf('%s=%s', $args[0], $args[1] ? 'true' : 'false');
-            } elseif(is_int($args[1])) {
+            } elseif (is_int($args[1])) {
                 $this->where[] = sprintf('%s==%s', $args[0], $args[1]);
-            } elseif(preg_match('/^(\'|")?(true|false)("|\')?$/i', $args[1])) {
+            } elseif (preg_match('/^(\'|")?(true|false)("|\')?$/i', $args[1])) {
                 $this->where[] = sprintf('%s=%s', $args[0], $args[1]);
-            } elseif(preg_match('/^([a-z]+)\.\1ID$/i', $args[0]) && preg_match('/^[0-9a-f]{8}-([0-9a-f]{4}-){3}[0-9a-f]{12}$/i', $args[1])) {
+            } elseif (preg_match('/^([a-z]+)\.\1ID$/i', $args[0])
+                && preg_match(
+                    '/^[0-9a-f]{8}-([0-9a-f]{4}-){3}[0-9a-f]{12}$/i',
+                    $args[1]
+                )
+            ) {
                 $this->where[] = sprintf('%s=Guid("%s")', $args[0], $args[1]);
             } else {
                 $this->where[] = sprintf('%s=="%s"', $args[0], $args[1]);
@@ -120,9 +128,9 @@ class Query {
      * @param string $direction
      * @return $this
      */
-    public function orderBy($order, $direction = self::ORDER_ASC) {
+    public function orderBy($order, $direction = self::ORDER_ASC)
+    {
         $this->order = sprintf('%s %s', $order, $direction);
-
         return $this;
     }
 
@@ -130,13 +138,13 @@ class Query {
      * @param \DateTimeInterface|null $modifiedAfter
      * @return $this
      */
-    public function modifiedAfter(\DateTimeInterface $modifiedAfter = null) {
-        if($modifiedAfter === null) {
+    public function modifiedAfter(\DateTimeInterface $modifiedAfter = null)
+    {
+        if ($modifiedAfter === null) {
             $modifiedAfter = new \DateTime('@0'); // since ever
         }
 
         $this->modifiedAfter = $modifiedAfter->format('c');
-
         return $this;
     }
 
@@ -144,7 +152,8 @@ class Query {
      * @param DateTime $fromDate
      * @return $this
      */
-    public function fromDate(DateTime $fromDate) {
+    public function fromDate(DateTime $fromDate)
+    {
         $this->fromDate = $fromDate->format('Y-m-d');
         return $this;
     }
@@ -153,7 +162,8 @@ class Query {
      * @param DateTime $toDate
      * @return $this
      */
-    public function toDate(DateTime $toDate) {
+    public function toDate(DateTime $toDate)
+    {
         $this->toDate = $toDate->format('Y-m-d');
         return $this;
     }
@@ -162,7 +172,8 @@ class Query {
      * @param DateTime $date
      * @return $this
      */
-    public function date(DateTime $date) {
+    public function date(DateTime $date)
+    {
         $this->date = $date->format('Y-m-d');
         return $this;
     }
@@ -172,13 +183,15 @@ class Query {
      * @return $this
      * @throws Exception
      */
-    public function page($page = 1) {
-        /** @var ObjectInterface $from_class */
+    public function page($page = 1)
+    {
+        /**
+         * @var ObjectInterface $from_class
+         */
         $from_class = $this->from_class;
-        if(!$from_class::isPageable()){
+        if (!$from_class::isPageable()) {
             throw new Exception(sprintf('%s does not support paging.', $from_class));
         }
-
         $this->page = intval($page);
 
         return $this;
@@ -188,62 +201,70 @@ class Query {
      * @param int $offset
      * @return $this
      */
-    public function offset($offset = 0) {
+    public function offset($offset = 0)
+    {
         $this->offset = intval($offset);
-
         return $this;
     }
 
     /**
      * @return Collection
      */
-    public function execute() {
-
-        /** @var ObjectInterface $from_class */
+    public function execute()
+    {
+        /**
+         * @var ObjectInterface $from_class
+         */
         $from_class = $this->from_class;
-        $url = new URL($this->app, $from_class::getResourceURI(), $from_class::getAPIStem());
+        $url = new URL(
+            $this->app,
+            $from_class::getResourceURI(),
+            $from_class::getAPIStem()
+        );
         $request = new Request($this->app, $url, Request::METHOD_GET);
 
         // Concatenate where statements
         $where = $this->getWhere();
         
-        if(!empty($where)) {
+        if (!empty($where)) {
             $request->setParameter('where', $where);
         }
 
-        if($this->order !== null) {
+        if ($this->order !== null) {
             $request->setParameter('order', $this->order);
         }
 
-        if($this->modifiedAfter !== null) {
+        if ($this->modifiedAfter !== null) {
             $request->setHeader('If-Modified-Since', $this->modifiedAfter);
         }
 
-        if($this->fromDate !== null) {
+        if ($this->fromDate !== null) {
             $request->setParameter('fromDate', $this->fromDate);
         }
 
-        if($this->toDate !== null) {
+        if ($this->toDate !== null) {
             $request->setParameter('toDate', $this->toDate);
         }
 
-        if($this->date !== null) {
+        if ($this->date !== null) {
             $request->setParameter('date', $this->date);
         }
 
-        if($this->page !== null) {
+        if ($this->page !== null) {
             $request->setParameter('page', $this->page);
         }
 
-        if($this->offset !== null) {
+        if ($this->offset !== null) {
             $request->setParameter('offset', $this->offset);
         }
 
         $request->send();
 
         $elements = new Collection();
-        foreach($request->getResponse()->getElements() as $element) {
-            /** @var Object $built_element */
+        foreach ($request->getResponse()->getElements() as $element) {
+            /**
+             * @var Object $built_element
+             */
             $built_element = new $from_class($this->app);
             $built_element->fromStringArray($element);
             $elements->append($built_element);
@@ -255,7 +276,8 @@ class Query {
     /**
      * @return mixed
      */
-    public function getFrom() {
+    public function getFrom()
+    {
         return $this->from_class;
     }
 }

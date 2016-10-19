@@ -2,7 +2,6 @@
 
 namespace XeroPHP\Tests\Remote;
 
-use XeroPHP\Application;
 use XeroPHP\Remote\Object;
 
 class ObjectTest extends \PHPUnit_Framework_TestCase
@@ -91,7 +90,6 @@ class SimpleObject extends Object
     {
         $this->_data['test'] = $test;
     }
-
 
     static function getRootNodeName() {
         return 'test';
