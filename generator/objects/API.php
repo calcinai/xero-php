@@ -241,22 +241,16 @@ class API
 
         if (isset($this->search_keys[$ns_key])) {
             return $this->search_keys[$ns_key];
-
         } elseif (isset($this->search_keys[$plural_ns_key])) {
             return $this->search_keys[$plural_ns_key];
-
         } elseif (isset($this->search_keys[$singular_ns_key])) {
             return $this->search_keys[$singular_ns_key];
-
         } elseif (isset($this->search_keys[$key])) {
             return $this->search_keys[$key];
-
         } elseif (isset($this->search_keys[$plural_key])) {
             return $this->search_keys[$plural_key];
-
         } elseif (isset($this->search_keys[$singular_key])) {
             return $this->search_keys[$singular_key];
-
         } else {
             return null;
         }

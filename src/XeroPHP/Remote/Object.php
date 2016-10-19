@@ -58,7 +58,8 @@ abstract class Object implements ObjectInterface, \JsonSerializable, \ArrayAcces
     protected $_associated_objects;
 
     /**
-     * Holds a ref to the application that was used to load the object, enables shorthand $object->save();
+     * Holds a ref to the application that was used to load the object,
+     * enables shorthand $object->save();
      *
      * @var Application $_application
      */
@@ -73,7 +74,8 @@ abstract class Object implements ObjectInterface, \JsonSerializable, \ArrayAcces
     }
 
     /**
-     * This should be compulsory in the constructor int he future, but will have to be like this for BC until the next major version.
+     * This should be compulsory in the constructor int he future,
+     * but will have to be like this for BC until the next major version.
      *
      * @param Application $application
      */
@@ -177,7 +179,8 @@ abstract class Object implements ObjectInterface, \JsonSerializable, \ArrayAcces
                 continue;
             }
 
-            //Fix for an earlier assumption that the API didn't return more than two levels of nested objects.
+            //Fix for an earlier assumption that the API didn't return more than
+            //two levels of nested objects.
             //Handles Invoice > Contact > Address etc. in one build.
             if (is_array($input_array[$property]) && Helpers::isAssoc($input_array[$property]) === false) {
                 $collection = new Collection();
@@ -225,7 +228,6 @@ abstract class Object implements ObjectInterface, \JsonSerializable, \ArrayAcces
             } else {
                 $out[$property] = self::castToString($type, $this->_data[$property]);
             }
-
         }
         return $out;
     }
@@ -337,8 +339,13 @@ abstract class Object implements ObjectInterface, \JsonSerializable, \ArrayAcces
 
             if ($mandatory) {
                 if (!isset($this->_data[$property]) || empty($this->_data[$property])) {
-                    throw new Exception(sprintf('%s::$%s is mandatory and is either missing or empty.',
-                        get_class($this), $property));
+                    throw new Exception(
+                        sprintf(
+                            '%s::$%s is mandatory and is either missing or empty.',
+                            get_class($this),
+                            $property
+                        )
+                    );
                 }
 
                 if ($check_children) {
@@ -347,7 +354,6 @@ abstract class Object implements ObjectInterface, \JsonSerializable, \ArrayAcces
                         /** @var self $obj */
                         $obj = $this->_data[$property];
                         $obj->validate();
-
                     } elseif ($this->_data[$property] instanceof Collection) {
                         foreach ($this->_data[$property] as $element) {
                             if ($element instanceof Object) {
@@ -371,7 +377,9 @@ abstract class Object implements ObjectInterface, \JsonSerializable, \ArrayAcces
     public function save()
     {
         if ($this->_application === null) {
-            throw new Exception('->save() is only available on objects that have an injected application context.');
+            throw new Exception(
+                '->save() is only available on objects that have an injected application context.'
+            );
         }
         $this->_application->save($this);
     }
@@ -384,7 +392,9 @@ abstract class Object implements ObjectInterface, \JsonSerializable, \ArrayAcces
     public function delete()
     {
         if ($this->_application === null) {
-            throw new Exception('->delete() is only available on objects that have an injected application context.');
+            throw new Exception(
+                '->delete() is only available on objects that have an injected application context.'
+            );
         }
         $this->_application->delete($this);
     }

@@ -37,7 +37,6 @@ class Helpers
                         $element = self::arrayToXML($element, self::singularize($key));
                     }
                 }
-
             } else {
                 //Element escaping for the http://www.w3.org/TR/REC-xml/#sec-predefined-ent
                 //Full DOMDocument not really necessary as we don't use attributes (which are more strict)
@@ -90,7 +89,8 @@ class Helpers
 
     /**
      * This function is based on Wave\Inflector::singularize().
-     * It only contains a fraction of the rules from its predecessor, so only good for a quick basic singularisation.
+     * It only contains a fraction of the rules from its predecessor,
+     * so only good for a quick basic singularisation.
      *
      * @param $string
      * @return mixed
