@@ -209,14 +209,16 @@ class Response
             switch ((string) $property) {
                 case 'ValidationErrors':
                     if (is_array($value)) {
-                        foreach ($value as $error)
+                        foreach ($value as $error) {
                             $this->element_errors[$element_index] = trim($error['Message'], '.');
+                        }
                     }
                     break;
                 case 'Warnings':
                     if (is_array($value)) {
-                        foreach ($value as $warning)
+                        foreach ($value as $warning) {
                             $this->element_warnings[$element_index] = trim($warning['Message'], '.');
+                        }
                     }
                     break;
 
@@ -284,7 +286,8 @@ class Response
                     break;
 
                 default:
-                    //Happy to make the assumption that there will only be one root node with > than 2D children.
+                    //Happy to make the assumption that there will only be one
+                    //root node with > than 2D children.
                     if (is_array($root_child)) {
                         foreach ($root_child as $element) {
                             $this->elements[] = $element;
