@@ -81,9 +81,9 @@ class BrandingTheme extends Remote\Object
      */
     public static function getSupportedMethods()
     {
-        return array(
+        return [
             Remote\Request::METHOD_GET
-        );
+        ];
     }
 
     /**
@@ -99,12 +99,12 @@ class BrandingTheme extends Remote\Object
      */
     public static function getProperties()
     {
-        return array(
-            'BrandingThemeID' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'Name' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'SortOrder' => array (false, self::PROPERTY_TYPE_INT, null, false, false),
-            'CreatedDateUTC' => array (false, self::PROPERTY_TYPE_TIMESTAMP, '\\DateTimeInterface', false, false)
-        );
+        return [
+            'BrandingThemeID' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'Name' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'SortOrder' => [false, self::PROPERTY_TYPE_INT, null, false, false],
+            'CreatedDateUTC' => [false, self::PROPERTY_TYPE_TIMESTAMP, '\\DateTimeInterface', false, false]
+        ];
     }
 
     public static function isPageable()

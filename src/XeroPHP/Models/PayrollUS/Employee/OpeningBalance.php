@@ -122,8 +122,8 @@ class OpeningBalance extends Remote\Object
      */
     public static function getSupportedMethods()
     {
-        return array(
-        );
+        return [
+        ];
     }
 
     /**
@@ -139,18 +139,18 @@ class OpeningBalance extends Remote\Object
      */
     public static function getProperties()
     {
-        return array(
-            'EarningsLines' => array (false, self::PROPERTY_TYPE_OBJECT, 'PayrollUS\\Paystub\\EarningsLine', true, false),
-            'BenefitLines' => array (false, self::PROPERTY_TYPE_OBJECT, 'PayrollUS\\Paystub\\BenefitLine', true, false),
-            'DeductionLines' => array (false, self::PROPERTY_TYPE_OBJECT, 'PayrollUS\\Paystub\\DeductionLine', true, false),
-            'ReimbursementLines' => array (false, self::PROPERTY_TYPE_OBJECT, 'PayrollUS\\Paystub\\ReimbursementLine', true, false),
-            'EarningsTypeID' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'Amount' => array (false, self::PROPERTY_TYPE_FLOAT, null, false, false),
-            'BenefitTypeID' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'DeductionTypeID' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'ReimbursementTypeID' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'EmployeeID' => array (false, self::PROPERTY_TYPE_STRING, null, false, false)
-        );
+        return [
+            'EarningsLines' => [false, self::PROPERTY_TYPE_OBJECT, 'PayrollUS\\Paystub\\EarningsLine', true, false],
+            'BenefitLines' => [false, self::PROPERTY_TYPE_OBJECT, 'PayrollUS\\Paystub\\BenefitLine', true, false],
+            'DeductionLines' => [false, self::PROPERTY_TYPE_OBJECT, 'PayrollUS\\Paystub\\DeductionLine', true, false],
+            'ReimbursementLines' => [false, self::PROPERTY_TYPE_OBJECT, 'PayrollUS\\Paystub\\ReimbursementLine', true, false],
+            'EarningsTypeID' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'Amount' => [false, self::PROPERTY_TYPE_FLOAT, null, false, false],
+            'BenefitTypeID' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'DeductionTypeID' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'ReimbursementTypeID' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'EmployeeID' => [false, self::PROPERTY_TYPE_STRING, null, false, false]
+        ];
     }
 
     public static function isPageable()
@@ -174,7 +174,7 @@ class OpeningBalance extends Remote\Object
     public function addEarningsLine(EarningsLine $value)
     {
         $this->propertyUpdated('EarningsLines', $value);
-        if(!isset($this->_data['EarningsLines'])){
+        if (!isset($this->_data['EarningsLines'])) {
             $this->_data['EarningsLines'] = new Remote\Collection();
         }
         $this->_data['EarningsLines'][] = $value;
@@ -197,7 +197,7 @@ class OpeningBalance extends Remote\Object
     public function addBenefitLine(BenefitLine $value)
     {
         $this->propertyUpdated('BenefitLines', $value);
-        if(!isset($this->_data['BenefitLines'])){
+        if (!isset($this->_data['BenefitLines'])) {
             $this->_data['BenefitLines'] = new Remote\Collection();
         }
         $this->_data['BenefitLines'][] = $value;
@@ -220,7 +220,7 @@ class OpeningBalance extends Remote\Object
     public function addDeductionLine(DeductionLine $value)
     {
         $this->propertyUpdated('DeductionLines', $value);
-        if(!isset($this->_data['DeductionLines'])){
+        if (!isset($this->_data['DeductionLines'])) {
             $this->_data['DeductionLines'] = new Remote\Collection();
         }
         $this->_data['DeductionLines'][] = $value;
@@ -243,7 +243,7 @@ class OpeningBalance extends Remote\Object
     public function addReimbursementLine(ReimbursementLine $value)
     {
         $this->propertyUpdated('ReimbursementLines', $value);
-        if(!isset($this->_data['ReimbursementLines'])){
+        if (!isset($this->_data['ReimbursementLines'])) {
             $this->_data['ReimbursementLines'] = new Remote\Collection();
         }
         $this->_data['ReimbursementLines'][] = $value;

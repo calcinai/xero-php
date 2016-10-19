@@ -121,8 +121,8 @@ class Address extends Remote\Object
      */
     public static function getSupportedMethods()
     {
-        return array(
-        );
+        return [
+        ];
     }
 
     /**
@@ -138,18 +138,18 @@ class Address extends Remote\Object
      */
     public static function getProperties()
     {
-        return array(
-            'AddressType' => array (false, self::PROPERTY_TYPE_ENUM, null, false, false),
-            'AddressLine1' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'AddressLine2' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'AddressLine3' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'AddressLine4' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'City' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'Region' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'PostalCode' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'Country' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'AttentionTo' => array (false, self::PROPERTY_TYPE_STRING, null, false, false)
-        );
+        return [
+            'AddressType' => [false, self::PROPERTY_TYPE_ENUM, null, false, false],
+            'AddressLine1' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'AddressLine2' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'AddressLine3' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'AddressLine4' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'City' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'Region' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'PostalCode' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'Country' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'AttentionTo' => [false, self::PROPERTY_TYPE_STRING, null, false, false]
+        ];
     }
 
     public static function isPageable()

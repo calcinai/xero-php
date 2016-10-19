@@ -218,11 +218,11 @@ class PurchaseOrder extends Remote\Object
      */
     public static function getSupportedMethods()
     {
-        return array(
+        return [
             Remote\Request::METHOD_GET,
             Remote\Request::METHOD_PUT,
             Remote\Request::METHOD_POST
-        );
+        ];
     }
 
     /**
@@ -238,32 +238,32 @@ class PurchaseOrder extends Remote\Object
      */
     public static function getProperties()
     {
-        return array(
-            'Contact' => array (true, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Contact', false, false),
-            'LineItems' => array (true, self::PROPERTY_TYPE_OBJECT, 'Accounting\\PurchaseOrder\\LineItem', true, false),
-            'Date' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTimeInterface', false, false),
-            'DeliveryDate' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTimeInterface', false, false),
-            'LineAmountTypes' => array (false, self::PROPERTY_TYPE_ENUM, null, false, false),
-            'PurchaseOrderNumber' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'Reference' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'BrandingThemeID' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'CurrencyCode' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'Status' => array (false, self::PROPERTY_TYPE_ENUM, null, false, false),
-            'SentToContact' => array (false, self::PROPERTY_TYPE_BOOLEAN, null, false, false),
-            'DeliveryAddress' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'AttentionTo' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'Telephone' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'DeliveryInstructions' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'ExpectedArrivalDate' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTimeInterface', false, false),
-            'PurchaseOrderID' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'CurrencyRate' => array (false, self::PROPERTY_TYPE_FLOAT, null, false, false),
-            'SubTotal' => array (false, self::PROPERTY_TYPE_FLOAT, null, false, false),
-            'TotalTax' => array (false, self::PROPERTY_TYPE_FLOAT, null, false, false),
-            'Total' => array (false, self::PROPERTY_TYPE_FLOAT, null, false, false),
-            'TotalDiscount' => array (false, self::PROPERTY_TYPE_FLOAT, null, false, false),
-            'HasAttachments' => array (false, self::PROPERTY_TYPE_BOOLEAN, null, false, false),
-            'UpdatedDateUTC' => array (false, self::PROPERTY_TYPE_TIMESTAMP, '\\DateTimeInterface', false, false)
-        );
+        return [
+            'Contact' => [true, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Contact', false, false],
+            'LineItems' => [true, self::PROPERTY_TYPE_OBJECT, 'Accounting\\PurchaseOrder\\LineItem', true, false],
+            'Date' => [false, self::PROPERTY_TYPE_DATE, '\\DateTimeInterface', false, false],
+            'DeliveryDate' => [false, self::PROPERTY_TYPE_DATE, '\\DateTimeInterface', false, false],
+            'LineAmountTypes' => [false, self::PROPERTY_TYPE_ENUM, null, false, false],
+            'PurchaseOrderNumber' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'Reference' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'BrandingThemeID' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'CurrencyCode' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'Status' => [false, self::PROPERTY_TYPE_ENUM, null, false, false],
+            'SentToContact' => [false, self::PROPERTY_TYPE_BOOLEAN, null, false, false],
+            'DeliveryAddress' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'AttentionTo' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'Telephone' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'DeliveryInstructions' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'ExpectedArrivalDate' => [false, self::PROPERTY_TYPE_DATE, '\\DateTimeInterface', false, false],
+            'PurchaseOrderID' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'CurrencyRate' => [false, self::PROPERTY_TYPE_FLOAT, null, false, false],
+            'SubTotal' => [false, self::PROPERTY_TYPE_FLOAT, null, false, false],
+            'TotalTax' => [false, self::PROPERTY_TYPE_FLOAT, null, false, false],
+            'Total' => [false, self::PROPERTY_TYPE_FLOAT, null, false, false],
+            'TotalDiscount' => [false, self::PROPERTY_TYPE_FLOAT, null, false, false],
+            'HasAttachments' => [false, self::PROPERTY_TYPE_BOOLEAN, null, false, false],
+            'UpdatedDateUTC' => [false, self::PROPERTY_TYPE_TIMESTAMP, '\\DateTimeInterface', false, false]
+        ];
     }
 
     public static function isPageable()
@@ -306,7 +306,7 @@ class PurchaseOrder extends Remote\Object
     public function addLineItem(LineItem $value)
     {
         $this->propertyUpdated('LineItems', $value);
-        if(!isset($this->_data['LineItems'])){
+        if (!isset($this->_data['LineItems'])) {
             $this->_data['LineItems'] = new Remote\Collection();
         }
         $this->_data['LineItems'][] = $value;

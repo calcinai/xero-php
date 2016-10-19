@@ -109,10 +109,10 @@ class LeaveApplication extends Remote\Object
      */
     public static function getSupportedMethods()
     {
-        return array(
+        return [
             Remote\Request::METHOD_POST,
             Remote\Request::METHOD_GET
-        );
+        ];
     }
 
     /**
@@ -128,16 +128,16 @@ class LeaveApplication extends Remote\Object
      */
     public static function getProperties()
     {
-        return array(
-            'LeaveApplicationID' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'EmployeeID' => array (true, self::PROPERTY_TYPE_STRING, null, false, false),
-            'LeaveTypeID' => array (true, self::PROPERTY_TYPE_STRING, null, false, false),
-            'Title' => array (true, self::PROPERTY_TYPE_STRING, null, false, false),
-            'StartDate' => array (true, self::PROPERTY_TYPE_DATE, '\\DateTimeInterface', false, false),
-            'EndDate' => array (true, self::PROPERTY_TYPE_DATE, '\\DateTimeInterface', false, false),
-            'Description' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'LeavePeriods' => array (false, self::PROPERTY_TYPE_OBJECT, 'PayrollAU\\LeaveApplication\\LeavePeriod', true, false)
-        );
+        return [
+            'LeaveApplicationID' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'EmployeeID' => [true, self::PROPERTY_TYPE_STRING, null, false, false],
+            'LeaveTypeID' => [true, self::PROPERTY_TYPE_STRING, null, false, false],
+            'Title' => [true, self::PROPERTY_TYPE_STRING, null, false, false],
+            'StartDate' => [true, self::PROPERTY_TYPE_DATE, '\\DateTimeInterface', false, false],
+            'EndDate' => [true, self::PROPERTY_TYPE_DATE, '\\DateTimeInterface', false, false],
+            'Description' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'LeavePeriods' => [false, self::PROPERTY_TYPE_OBJECT, 'PayrollAU\\LeaveApplication\\LeavePeriod', true, false]
+        ];
     }
 
     public static function isPageable()
@@ -294,7 +294,7 @@ class LeaveApplication extends Remote\Object
     public function addLeavePeriod(LeavePeriod $value)
     {
         $this->propertyUpdated('LeavePeriods', $value);
-        if(!isset($this->_data['LeavePeriods'])){
+        if (!isset($this->_data['LeavePeriods'])) {
             $this->_data['LeavePeriods'] = new Remote\Collection();
         }
         $this->_data['LeavePeriods'][] = $value;

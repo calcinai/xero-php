@@ -89,8 +89,8 @@ class DeductionType extends Remote\Object
      */
     public static function getSupportedMethods()
     {
-        return array(
-        );
+        return [
+        ];
     }
 
     /**
@@ -106,13 +106,13 @@ class DeductionType extends Remote\Object
      */
     public static function getProperties()
     {
-        return array(
-            'Name' => array (true, self::PROPERTY_TYPE_STRING, null, false, false),
-            'AccountCode' => array (true, self::PROPERTY_TYPE_STRING, null, false, false),
-            'ReducesTax' => array (true, self::PROPERTY_TYPE_FLOAT, null, false, false),
-            'ReducesSuper' => array (true, self::PROPERTY_TYPE_STRING, null, false, false),
-            'DeductionTypeID' => array (false, self::PROPERTY_TYPE_STRING, null, false, false)
-        );
+        return [
+            'Name' => [true, self::PROPERTY_TYPE_STRING, null, false, false],
+            'AccountCode' => [true, self::PROPERTY_TYPE_STRING, null, false, false],
+            'ReducesTax' => [true, self::PROPERTY_TYPE_FLOAT, null, false, false],
+            'ReducesSuper' => [true, self::PROPERTY_TYPE_STRING, null, false, false],
+            'DeductionTypeID' => [false, self::PROPERTY_TYPE_STRING, null, false, false]
+        ];
     }
 
     public static function isPageable()

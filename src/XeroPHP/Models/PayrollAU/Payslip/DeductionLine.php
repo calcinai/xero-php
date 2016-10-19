@@ -81,8 +81,8 @@ class DeductionLine extends Remote\Object
      */
     public static function getSupportedMethods()
     {
-        return array(
-        );
+        return [
+        ];
     }
 
     /**
@@ -98,12 +98,12 @@ class DeductionLine extends Remote\Object
      */
     public static function getProperties()
     {
-        return array(
-            'DeductionTypeID' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'CalculationType' => array (false, self::PROPERTY_TYPE_FLOAT, null, false, false),
-            'Percentage' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'NumberOfUnits' => array (false, self::PROPERTY_TYPE_FLOAT, null, true, false)
-        );
+        return [
+            'DeductionTypeID' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'CalculationType' => [false, self::PROPERTY_TYPE_FLOAT, null, false, false],
+            'Percentage' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'NumberOfUnits' => [false, self::PROPERTY_TYPE_FLOAT, null, true, false]
+        ];
     }
 
     public static function isPageable()
@@ -184,7 +184,7 @@ class DeductionLine extends Remote\Object
     public function addNumberOfUnit($value)
     {
         $this->propertyUpdated('NumberOfUnits', $value);
-        if(!isset($this->_data['NumberOfUnits'])){
+        if (!isset($this->_data['NumberOfUnits'])) {
             $this->_data['NumberOfUnits'] = new Remote\Collection();
         }
         $this->_data['NumberOfUnits'][] = $value;

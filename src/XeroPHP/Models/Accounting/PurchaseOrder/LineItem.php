@@ -129,8 +129,8 @@ class LineItem extends Remote\Object
      */
     public static function getSupportedMethods()
     {
-        return array(
-        );
+        return [
+        ];
     }
 
     /**
@@ -146,19 +146,19 @@ class LineItem extends Remote\Object
      */
     public static function getProperties()
     {
-        return array(
-            'Description' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'Quantity' => array (false, self::PROPERTY_TYPE_FLOAT, null, false, false),
-            'UnitAmount' => array (false, self::PROPERTY_TYPE_FLOAT, null, false, false),
-            'ItemCode' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'AccountCode' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'TaxType' => array (false, self::PROPERTY_TYPE_ENUM, null, false, false),
-            'DiscountRate' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'Tracking' => array (false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\TrackingCategory', true, false),
-            'LineItemID' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'TaxAmount' => array (false, self::PROPERTY_TYPE_FLOAT, null, false, false),
-            'LineAmount' => array (false, self::PROPERTY_TYPE_FLOAT, null, false, false)
-        );
+        return [
+            'Description' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'Quantity' => [false, self::PROPERTY_TYPE_FLOAT, null, false, false],
+            'UnitAmount' => [false, self::PROPERTY_TYPE_FLOAT, null, false, false],
+            'ItemCode' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'AccountCode' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'TaxType' => [false, self::PROPERTY_TYPE_ENUM, null, false, false],
+            'DiscountRate' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'Tracking' => [false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\TrackingCategory', true, false],
+            'LineItemID' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'TaxAmount' => [false, self::PROPERTY_TYPE_FLOAT, null, false, false],
+            'LineAmount' => [false, self::PROPERTY_TYPE_FLOAT, null, false, false]
+        ];
     }
 
     public static function isPageable()
@@ -315,7 +315,7 @@ class LineItem extends Remote\Object
     public function addTracking(TrackingCategory $value)
     {
         $this->propertyUpdated('Tracking', $value);
-        if(!isset($this->_data['Tracking'])){
+        if (!isset($this->_data['Tracking'])) {
             $this->_data['Tracking'] = new Remote\Collection();
         }
         $this->_data['Tracking'][] = $value;

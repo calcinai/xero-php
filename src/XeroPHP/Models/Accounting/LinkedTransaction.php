@@ -132,12 +132,12 @@ class LinkedTransaction extends Remote\Object
      */
     public static function getSupportedMethods()
     {
-        return array(
+        return [
             Remote\Request::METHOD_GET,
             Remote\Request::METHOD_PUT,
             Remote\Request::METHOD_POST,
             Remote\Request::METHOD_DELETE
-        );
+        ];
     }
 
     /**
@@ -153,18 +153,18 @@ class LinkedTransaction extends Remote\Object
      */
     public static function getProperties()
     {
-        return array(
-            'SourceTransactionID' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'SourceLineItemID' => array (true, self::PROPERTY_TYPE_STRING, null, false, false),
-            'ContactID' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'TargetTransactionID' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'TargetLineItemID' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'LinkedTransactionID' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'Status' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'Type' => array (false, self::PROPERTY_TYPE_ENUM, null, false, false),
-            'UpdatedDateUTC' => array (false, self::PROPERTY_TYPE_TIMESTAMP, '\\DateTimeInterface', false, false),
-            'SourceTransactionTypeCode' => array (false, self::PROPERTY_TYPE_STRING, null, false, false)
-        );
+        return [
+            'SourceTransactionID' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'SourceLineItemID' => [true, self::PROPERTY_TYPE_STRING, null, false, false],
+            'ContactID' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'TargetTransactionID' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'TargetLineItemID' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'LinkedTransactionID' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'Status' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'Type' => [false, self::PROPERTY_TYPE_ENUM, null, false, false],
+            'UpdatedDateUTC' => [false, self::PROPERTY_TYPE_TIMESTAMP, '\\DateTimeInterface', false, false],
+            'SourceTransactionTypeCode' => [false, self::PROPERTY_TYPE_STRING, null, false, false]
+        ];
     }
 
     public static function isPageable()

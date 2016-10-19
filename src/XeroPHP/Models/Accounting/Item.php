@@ -149,12 +149,12 @@ class Item extends Remote\Object
      */
     public static function getSupportedMethods()
     {
-        return array(
+        return [
             Remote\Request::METHOD_GET,
             Remote\Request::METHOD_PUT,
             Remote\Request::METHOD_POST,
             Remote\Request::METHOD_DELETE
-        );
+        ];
     }
 
     /**
@@ -170,22 +170,22 @@ class Item extends Remote\Object
      */
     public static function getProperties()
     {
-        return array(
-            'ItemID' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'Code' => array (true, self::PROPERTY_TYPE_STRING, null, false, false),
-            'InventoryAssetAccountCode' => array (true, self::PROPERTY_TYPE_STRING, null, false, false),
-            'Name' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'IsSold' => array (false, self::PROPERTY_TYPE_BOOLEAN, null, false, false),
-            'IsPurchased' => array (false, self::PROPERTY_TYPE_BOOLEAN, null, false, false),
-            'Description' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'PurchaseDescription' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'PurchaseDetails' => array (false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Item\\Purchase', true, false),
-            'SalesDetails' => array (false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Item\\Sale', true, false),
-            'IsTrackedAsInventory' => array (false, self::PROPERTY_TYPE_BOOLEAN, null, false, false),
-            'TotalCostPool' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'QuantityOnHand' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'UpdatedDateUTC' => array (false, self::PROPERTY_TYPE_TIMESTAMP, '\\DateTimeInterface', false, false)
-        );
+        return [
+            'ItemID' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'Code' => [true, self::PROPERTY_TYPE_STRING, null, false, false],
+            'InventoryAssetAccountCode' => [true, self::PROPERTY_TYPE_STRING, null, false, false],
+            'Name' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'IsSold' => [false, self::PROPERTY_TYPE_BOOLEAN, null, false, false],
+            'IsPurchased' => [false, self::PROPERTY_TYPE_BOOLEAN, null, false, false],
+            'Description' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'PurchaseDescription' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'PurchaseDetails' => [false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Item\\Purchase', true, false],
+            'SalesDetails' => [false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Item\\Sale', true, false],
+            'IsTrackedAsInventory' => [false, self::PROPERTY_TYPE_BOOLEAN, null, false, false],
+            'TotalCostPool' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'QuantityOnHand' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'UpdatedDateUTC' => [false, self::PROPERTY_TYPE_TIMESTAMP, '\\DateTimeInterface', false, false]
+        ];
     }
 
     public static function isPageable()
@@ -361,7 +361,7 @@ class Item extends Remote\Object
     public function addPurchaseDetail(Purchase $value)
     {
         $this->propertyUpdated('PurchaseDetails', $value);
-        if(!isset($this->_data['PurchaseDetails'])){
+        if (!isset($this->_data['PurchaseDetails'])) {
             $this->_data['PurchaseDetails'] = new Remote\Collection();
         }
         $this->_data['PurchaseDetails'][] = $value;
@@ -384,7 +384,7 @@ class Item extends Remote\Object
     public function addSalesDetail(Sale $value)
     {
         $this->propertyUpdated('SalesDetails', $value);
-        if(!isset($this->_data['SalesDetails'])){
+        if (!isset($this->_data['SalesDetails'])) {
             $this->_data['SalesDetails'] = new Remote\Collection();
         }
         $this->_data['SalesDetails'][] = $value;

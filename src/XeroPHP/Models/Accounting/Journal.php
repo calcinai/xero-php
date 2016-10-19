@@ -132,9 +132,9 @@ class Journal extends Remote\Object
      */
     public static function getSupportedMethods()
     {
-        return array(
+        return [
             Remote\Request::METHOD_GET
-        );
+        ];
     }
 
     /**
@@ -150,16 +150,16 @@ class Journal extends Remote\Object
      */
     public static function getProperties()
     {
-        return array(
-            'JournalID' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'JournalDate' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTimeInterface', false, false),
-            'JournalNumber' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'CreatedDateUTC' => array (false, self::PROPERTY_TYPE_TIMESTAMP, '\\DateTimeInterface', false, false),
-            'Reference' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'SourceID' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'SourceType' => array (false, self::PROPERTY_TYPE_ENUM, null, false, false),
-            'JournalLines' => array (false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Journal\\JournalLine', true, false)
-        );
+        return [
+            'JournalID' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'JournalDate' => [false, self::PROPERTY_TYPE_DATE, '\\DateTimeInterface', false, false],
+            'JournalNumber' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'CreatedDateUTC' => [false, self::PROPERTY_TYPE_TIMESTAMP, '\\DateTimeInterface', false, false],
+            'Reference' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'SourceID' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'SourceType' => [false, self::PROPERTY_TYPE_ENUM, null, false, false],
+            'JournalLines' => [false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Journal\\JournalLine', true, false]
+        ];
     }
 
     public static function isPageable()
@@ -316,7 +316,7 @@ class Journal extends Remote\Object
     public function addJournalLine(JournalLine $value)
     {
         $this->propertyUpdated('JournalLines', $value);
-        if(!isset($this->_data['JournalLines'])){
+        if (!isset($this->_data['JournalLines'])) {
             $this->_data['JournalLines'] = new Remote\Collection();
         }
         $this->_data['JournalLines'][] = $value;

@@ -99,9 +99,9 @@ class User extends Remote\Object
      */
     public static function getSupportedMethods()
     {
-        return array(
+        return [
             Remote\Request::METHOD_GET
-        );
+        ];
     }
 
     /**
@@ -117,15 +117,15 @@ class User extends Remote\Object
      */
     public static function getProperties()
     {
-        return array(
-            'UserID' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'EmailAddress' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'FirstName' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'LastName' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'UpdatedDateUTC' => array (false, self::PROPERTY_TYPE_TIMESTAMP, '\\DateTimeInterface', false, false),
-            'IsSubscriber' => array (false, self::PROPERTY_TYPE_BOOLEAN, null, false, false),
-            'OrganisationRole' => array (false, self::PROPERTY_TYPE_ENUM, null, false, false)
-        );
+        return [
+            'UserID' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'EmailAddress' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'FirstName' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'LastName' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'UpdatedDateUTC' => [false, self::PROPERTY_TYPE_TIMESTAMP, '\\DateTimeInterface', false, false],
+            'IsSubscriber' => [false, self::PROPERTY_TYPE_BOOLEAN, null, false, false],
+            'OrganisationRole' => [false, self::PROPERTY_TYPE_ENUM, null, false, false]
+        ];
     }
 
     public static function isPageable()

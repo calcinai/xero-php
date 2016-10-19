@@ -101,10 +101,10 @@ class AssetType extends Remote\Object
      */
     public static function getSupportedMethods()
     {
-        return array(
+        return [
             Remote\Request::METHOD_GET,
             Remote\Request::METHOD_POST
-        );
+        ];
     }
 
     /**
@@ -120,15 +120,15 @@ class AssetType extends Remote\Object
      */
     public static function getProperties()
     {
-        return array(
-            'assetTypeName' => array (true, self::PROPERTY_TYPE_STRING, null, false, false),
-            'fixedAssetAccountId' => array (true, self::PROPERTY_TYPE_STRING, null, false, false),
-            'depreciationExpenseAccountId' => array (true, self::PROPERTY_TYPE_STRING, null, false, false),
-            'accumulatedDepreciationAccountId' => array (true, self::PROPERTY_TYPE_STRING, null, false, false),
-            'BookDepreciationSetting' => array (true, self::PROPERTY_TYPE_OBJECT, 'Assets\\AssetType\\BookDepreciationSetting', false, false),
-            'assetTypeId' => array (true, self::PROPERTY_TYPE_GUID, null, false, false),
-            'Locks' => array (true, self::PROPERTY_TYPE_STRING, null, false, false)
-        );
+        return [
+            'assetTypeName' => [true, self::PROPERTY_TYPE_STRING, null, false, false],
+            'fixedAssetAccountId' => [true, self::PROPERTY_TYPE_STRING, null, false, false],
+            'depreciationExpenseAccountId' => [true, self::PROPERTY_TYPE_STRING, null, false, false],
+            'accumulatedDepreciationAccountId' => [true, self::PROPERTY_TYPE_STRING, null, false, false],
+            'BookDepreciationSetting' => [true, self::PROPERTY_TYPE_OBJECT, 'Assets\\AssetType\\BookDepreciationSetting', false, false],
+            'assetTypeId' => [true, self::PROPERTY_TYPE_GUID, null, false, false],
+            'Locks' => [true, self::PROPERTY_TYPE_STRING, null, false, false]
+        ];
     }
 
     public static function isPageable()

@@ -14,7 +14,7 @@ class TaxRate extends Remote\Object
      */
 
     /**
-     * See Tax Types
+     * See Tax Types – can only be used on update calls
      *
      * @property string TaxType
      */
@@ -134,11 +134,11 @@ class TaxRate extends Remote\Object
      */
     public static function getSupportedMethods()
     {
-        return array(
+        return [
             Remote\Request::METHOD_GET,
             Remote\Request::METHOD_PUT,
             Remote\Request::METHOD_POST
-        );
+        ];
     }
 
     /**
@@ -154,20 +154,20 @@ class TaxRate extends Remote\Object
      */
     public static function getProperties()
     {
-        return array(
-            'Name' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'TaxType' => array (false, self::PROPERTY_TYPE_ENUM, null, false, false),
-            'TaxComponents' => array (false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\TaxRate\\TaxComponent', true, false),
-            'Status' => array (false, self::PROPERTY_TYPE_ENUM, null, false, false),
-            'ReportTaxType' => array (true, self::PROPERTY_TYPE_ENUM, null, false, false),
-            'CanApplyToAssets' => array (false, self::PROPERTY_TYPE_BOOLEAN, null, false, false),
-            'CanApplyToEquity' => array (false, self::PROPERTY_TYPE_BOOLEAN, null, false, false),
-            'CanApplyToExpenses' => array (false, self::PROPERTY_TYPE_BOOLEAN, null, false, false),
-            'CanApplyToLiabilities' => array (false, self::PROPERTY_TYPE_BOOLEAN, null, false, false),
-            'CanApplyToRevenue' => array (false, self::PROPERTY_TYPE_BOOLEAN, null, false, false),
-            'DisplayTaxRate' => array (false, self::PROPERTY_TYPE_FLOAT, null, false, false),
-            'EffectiveRate' => array (false, self::PROPERTY_TYPE_FLOAT, null, false, false)
-        );
+        return [
+            'Name' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'TaxType' => [false, self::PROPERTY_TYPE_ENUM, null, false, false],
+            'TaxComponents' => [false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\TaxRate\\TaxComponent', true, false],
+            'Status' => [false, self::PROPERTY_TYPE_ENUM, null, false, false],
+            'ReportTaxType' => [true, self::PROPERTY_TYPE_ENUM, null, false, false],
+            'CanApplyToAssets' => [false, self::PROPERTY_TYPE_BOOLEAN, null, false, false],
+            'CanApplyToEquity' => [false, self::PROPERTY_TYPE_BOOLEAN, null, false, false],
+            'CanApplyToExpenses' => [false, self::PROPERTY_TYPE_BOOLEAN, null, false, false],
+            'CanApplyToLiabilities' => [false, self::PROPERTY_TYPE_BOOLEAN, null, false, false],
+            'CanApplyToRevenue' => [false, self::PROPERTY_TYPE_BOOLEAN, null, false, false],
+            'DisplayTaxRate' => [false, self::PROPERTY_TYPE_FLOAT, null, false, false],
+            'EffectiveRate' => [false, self::PROPERTY_TYPE_FLOAT, null, false, false]
+        ];
     }
 
     public static function isPageable()
@@ -229,7 +229,7 @@ class TaxRate extends Remote\Object
     public function addTaxComponent(TaxComponent $value)
     {
         $this->propertyUpdated('TaxComponents', $value);
-        if(!isset($this->_data['TaxComponents'])){
+        if (!isset($this->_data['TaxComponents'])) {
             $this->_data['TaxComponents'] = new Remote\Collection();
         }
         $this->_data['TaxComponents'][] = $value;

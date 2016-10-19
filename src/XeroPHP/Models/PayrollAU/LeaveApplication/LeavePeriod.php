@@ -81,8 +81,8 @@ class LeavePeriod extends Remote\Object
      */
     public static function getSupportedMethods()
     {
-        return array(
-        );
+        return [
+        ];
     }
 
     /**
@@ -98,12 +98,12 @@ class LeavePeriod extends Remote\Object
      */
     public static function getProperties()
     {
-        return array(
-            'NumberOfUnits' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'PayPeriodEndDate' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTimeInterface', false, false),
-            'PayPeriodStartDate' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTimeInterface', false, false),
-            'LeavePeriodStatus' => array (false, self::PROPERTY_TYPE_ENUM, null, false, false)
-        );
+        return [
+            'NumberOfUnits' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'PayPeriodEndDate' => [false, self::PROPERTY_TYPE_DATE, '\\DateTimeInterface', false, false],
+            'PayPeriodStartDate' => [false, self::PROPERTY_TYPE_DATE, '\\DateTimeInterface', false, false],
+            'LeavePeriodStatus' => [false, self::PROPERTY_TYPE_ENUM, null, false, false]
+        ];
     }
 
     public static function isPageable()

@@ -79,11 +79,11 @@ class ExpenseClaim extends Remote\Object
      */
     public static function getSupportedMethods()
     {
-        return array(
+        return [
             Remote\Request::METHOD_GET,
             Remote\Request::METHOD_PUT,
             Remote\Request::METHOD_POST
-        );
+        ];
     }
 
     /**
@@ -99,11 +99,11 @@ class ExpenseClaim extends Remote\Object
      */
     public static function getProperties()
     {
-        return array(
-            'ExpenseClaimID' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'User' => array (true, self::PROPERTY_TYPE_OBJECT, 'Accounting\\User', false, false),
-            'Receipts' => array (true, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Receipt', true, false)
-        );
+        return [
+            'ExpenseClaimID' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'User' => [true, self::PROPERTY_TYPE_OBJECT, 'Accounting\\User', false, false],
+            'Receipts' => [true, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Receipt', true, false]
+        ];
     }
 
     public static function isPageable()
@@ -165,7 +165,7 @@ class ExpenseClaim extends Remote\Object
     public function addReceipt(Receipt $value)
     {
         $this->propertyUpdated('Receipts', $value);
-        if(!isset($this->_data['Receipts'])){
+        if (!isset($this->_data['Receipts'])) {
             $this->_data['Receipts'] = new Remote\Collection();
         }
         $this->_data['Receipts'][] = $value;

@@ -101,12 +101,12 @@ class Folder extends Remote\Object
      */
     public static function getSupportedMethods()
     {
-        return array(
+        return [
             Remote\Request::METHOD_GET,
             Remote\Request::METHOD_PUT,
             Remote\Request::METHOD_POST,
             Remote\Request::METHOD_DELETE
-        );
+        ];
     }
 
     /**
@@ -122,15 +122,15 @@ class Folder extends Remote\Object
      */
     public static function getProperties()
     {
-        return array(
-            'Name' => array (true, self::PROPERTY_TYPE_STRING, null, false, false),
-            'FileCount' => array (true, self::PROPERTY_TYPE_STRING, null, false, false),
-            'Email' => array (true, self::PROPERTY_TYPE_STRING, null, false, false),
-            'IsInbox' => array (true, self::PROPERTY_TYPE_BOOLEAN, null, false, false),
-            'Id' => array (true, self::PROPERTY_TYPE_GUID, null, false, false),
-            'Files' => array (true, self::PROPERTY_TYPE_OBJECT, 'Files\\File', true, false),
-            'FolderId' => array (false, self::PROPERTY_TYPE_STRING, null, false, false)
-        );
+        return [
+            'Name' => [true, self::PROPERTY_TYPE_STRING, null, false, false],
+            'FileCount' => [true, self::PROPERTY_TYPE_STRING, null, false, false],
+            'Email' => [true, self::PROPERTY_TYPE_STRING, null, false, false],
+            'IsInbox' => [true, self::PROPERTY_TYPE_BOOLEAN, null, false, false],
+            'Id' => [true, self::PROPERTY_TYPE_GUID, null, false, false],
+            'Files' => [true, self::PROPERTY_TYPE_OBJECT, 'Files\\File', true, false],
+            'FolderId' => [false, self::PROPERTY_TYPE_STRING, null, false, false]
+        ];
     }
 
     public static function isPageable()
@@ -249,7 +249,7 @@ class Folder extends Remote\Object
     public function addFile(File $value)
     {
         $this->propertyUpdated('Files', $value);
-        if(!isset($this->_data['Files'])){
+        if (!isset($this->_data['Files'])) {
             $this->_data['Files'] = new Remote\Collection();
         }
         $this->_data['Files'][] = $value;

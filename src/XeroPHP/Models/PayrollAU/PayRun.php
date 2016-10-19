@@ -141,10 +141,10 @@ class PayRun extends Remote\Object
      */
     public static function getSupportedMethods()
     {
-        return array(
+        return [
             Remote\Request::METHOD_POST,
             Remote\Request::METHOD_GET
-        );
+        ];
     }
 
     /**
@@ -160,22 +160,22 @@ class PayRun extends Remote\Object
      */
     public static function getProperties()
     {
-        return array(
-            'PayrollCalendarID' => array (true, self::PROPERTY_TYPE_STRING, null, false, false),
-            'PayRunID' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'PayRunPeriodStartDate' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTimeInterface', false, false),
-            'PayRunPeriodEndDate' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTimeInterface', false, false),
-            'PayRunStatus' => array (false, self::PROPERTY_TYPE_ENUM, null, false, false),
-            'PaymentDate' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTimeInterface', false, false),
-            'PayslipMessage' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'Payslips' => array (false, self::PROPERTY_TYPE_OBJECT, 'PayrollAU\\Payslip', true, false),
-            'Wages' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'Deductions' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'Tax' => array (false, self::PROPERTY_TYPE_FLOAT, null, false, false),
-            'Super' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'Reimbursement' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'NetPay' => array (false, self::PROPERTY_TYPE_STRING, null, false, false)
-        );
+        return [
+            'PayrollCalendarID' => [true, self::PROPERTY_TYPE_STRING, null, false, false],
+            'PayRunID' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'PayRunPeriodStartDate' => [false, self::PROPERTY_TYPE_DATE, '\\DateTimeInterface', false, false],
+            'PayRunPeriodEndDate' => [false, self::PROPERTY_TYPE_DATE, '\\DateTimeInterface', false, false],
+            'PayRunStatus' => [false, self::PROPERTY_TYPE_ENUM, null, false, false],
+            'PaymentDate' => [false, self::PROPERTY_TYPE_DATE, '\\DateTimeInterface', false, false],
+            'PayslipMessage' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'Payslips' => [false, self::PROPERTY_TYPE_OBJECT, 'PayrollAU\\Payslip', true, false],
+            'Wages' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'Deductions' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'Tax' => [false, self::PROPERTY_TYPE_FLOAT, null, false, false],
+            'Super' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'Reimbursement' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'NetPay' => [false, self::PROPERTY_TYPE_STRING, null, false, false]
+        ];
     }
 
     public static function isPageable()

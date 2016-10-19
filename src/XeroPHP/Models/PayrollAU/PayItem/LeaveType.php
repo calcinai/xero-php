@@ -101,8 +101,8 @@ class LeaveType extends Remote\Object
      */
     public static function getSupportedMethods()
     {
-        return array(
-        );
+        return [
+        ];
     }
 
     /**
@@ -118,15 +118,15 @@ class LeaveType extends Remote\Object
      */
     public static function getProperties()
     {
-        return array(
-            'Name' => array (true, self::PROPERTY_TYPE_STRING, null, false, false),
-            'TypeOfUnits' => array (true, self::PROPERTY_TYPE_FLOAT, null, true, false),
-            'IsPaidLeave' => array (true, self::PROPERTY_TYPE_STRING, null, false, false),
-            'ShowOnPayslip' => array (true, self::PROPERTY_TYPE_STRING, null, false, false),
-            'LeaveTypeID' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'NormalEntitlement' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'LeaveLoadingRate' => array (false, self::PROPERTY_TYPE_FLOAT, null, false, false)
-        );
+        return [
+            'Name' => [true, self::PROPERTY_TYPE_STRING, null, false, false],
+            'TypeOfUnits' => [true, self::PROPERTY_TYPE_FLOAT, null, true, false],
+            'IsPaidLeave' => [true, self::PROPERTY_TYPE_STRING, null, false, false],
+            'ShowOnPayslip' => [true, self::PROPERTY_TYPE_STRING, null, false, false],
+            'LeaveTypeID' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'NormalEntitlement' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'LeaveLoadingRate' => [false, self::PROPERTY_TYPE_FLOAT, null, false, false]
+        ];
     }
 
     public static function isPageable()
@@ -169,7 +169,7 @@ class LeaveType extends Remote\Object
     public function addTypeOfUnit($value)
     {
         $this->propertyUpdated('TypeOfUnits', $value);
-        if(!isset($this->_data['TypeOfUnits'])){
+        if (!isset($this->_data['TypeOfUnits'])) {
             $this->_data['TypeOfUnits'] = new Remote\Collection();
         }
         $this->_data['TypeOfUnits'][] = $value;

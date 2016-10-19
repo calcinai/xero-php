@@ -161,11 +161,11 @@ class Payment extends Remote\Object
      */
     public static function getSupportedMethods()
     {
-        return array(
+        return [
             Remote\Request::METHOD_GET,
             Remote\Request::METHOD_PUT,
             Remote\Request::METHOD_POST
-        );
+        ];
     }
 
     /**
@@ -181,22 +181,22 @@ class Payment extends Remote\Object
      */
     public static function getProperties()
     {
-        return array(
-            'Invoice' => array (false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Invoice', false, false),
-            'CreditNote' => array (false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\CreditNote', false, false),
-            'Prepayment' => array (false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Prepayment', false, false),
-            'Overpayment' => array (false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Overpayment', false, false),
-            'Account' => array (false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Account', false, false),
-            'Date' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTimeInterface', false, false),
-            'CurrencyRate' => array (false, self::PROPERTY_TYPE_FLOAT, null, false, false),
-            'Amount' => array (false, self::PROPERTY_TYPE_FLOAT, null, false, false),
-            'Reference' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'IsReconciled' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'Status' => array (false, self::PROPERTY_TYPE_ENUM, null, false, false),
-            'PaymentType' => array (false, self::PROPERTY_TYPE_ENUM, null, false, false),
-            'UpdatedDateUTC' => array (false, self::PROPERTY_TYPE_TIMESTAMP, '\\DateTimeInterface', false, false),
-            'PaymentID' => array (false, self::PROPERTY_TYPE_STRING, null, false, false)
-        );
+        return [
+            'Invoice' => [false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Invoice', false, false],
+            'CreditNote' => [false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\CreditNote', false, false],
+            'Prepayment' => [false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Prepayment', false, false],
+            'Overpayment' => [false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Overpayment', false, false],
+            'Account' => [false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Account', false, false],
+            'Date' => [false, self::PROPERTY_TYPE_DATE, '\\DateTimeInterface', false, false],
+            'CurrencyRate' => [false, self::PROPERTY_TYPE_FLOAT, null, false, false],
+            'Amount' => [false, self::PROPERTY_TYPE_FLOAT, null, false, false],
+            'Reference' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'IsReconciled' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'Status' => [false, self::PROPERTY_TYPE_ENUM, null, false, false],
+            'PaymentType' => [false, self::PROPERTY_TYPE_ENUM, null, false, false],
+            'UpdatedDateUTC' => [false, self::PROPERTY_TYPE_TIMESTAMP, '\\DateTimeInterface', false, false],
+            'PaymentID' => [false, self::PROPERTY_TYPE_STRING, null, false, false]
+        ];
     }
 
     public static function isPageable()

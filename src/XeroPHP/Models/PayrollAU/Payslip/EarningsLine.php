@@ -81,8 +81,8 @@ class EarningsLine extends Remote\Object
      */
     public static function getSupportedMethods()
     {
-        return array(
-        );
+        return [
+        ];
     }
 
     /**
@@ -98,12 +98,12 @@ class EarningsLine extends Remote\Object
      */
     public static function getProperties()
     {
-        return array(
-            'EarningsRateID' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'RatePerUnit' => array (false, self::PROPERTY_TYPE_FLOAT, null, false, false),
-            'NumberOfUnits' => array (false, self::PROPERTY_TYPE_FLOAT, null, true, false),
-            'FixedAmount' => array (false, self::PROPERTY_TYPE_FLOAT, null, false, false)
-        );
+        return [
+            'EarningsRateID' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'RatePerUnit' => [false, self::PROPERTY_TYPE_FLOAT, null, false, false],
+            'NumberOfUnits' => [false, self::PROPERTY_TYPE_FLOAT, null, true, false],
+            'FixedAmount' => [false, self::PROPERTY_TYPE_FLOAT, null, false, false]
+        ];
     }
 
     public static function isPageable()
@@ -165,7 +165,7 @@ class EarningsLine extends Remote\Object
     public function addNumberOfUnit($value)
     {
         $this->propertyUpdated('NumberOfUnits', $value);
-        if(!isset($this->_data['NumberOfUnits'])){
+        if (!isset($this->_data['NumberOfUnits'])) {
             $this->_data['NumberOfUnits'] = new Remote\Collection();
         }
         $this->_data['NumberOfUnits'][] = $value;
