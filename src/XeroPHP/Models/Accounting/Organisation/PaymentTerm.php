@@ -69,8 +69,8 @@ class PaymentTerm extends Remote\Object
      */
     public static function getSupportedMethods()
     {
-        return array(
-        );
+        return [
+        ];
     }
 
     /**
@@ -86,10 +86,10 @@ class PaymentTerm extends Remote\Object
      */
     public static function getProperties()
     {
-        return array(
-            'Bills' => array (false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Organisation\\Bill', true, false),
-            'Sales' => array (false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Organisation\\Sale', true, false)
-        );
+        return [
+            'Bills' => [false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Organisation\\Bill', true, false],
+            'Sales' => [false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Organisation\\Sale', true, false]
+        ];
     }
 
     public static function isPageable()
@@ -113,7 +113,7 @@ class PaymentTerm extends Remote\Object
     public function addBill(Bill $value)
     {
         $this->propertyUpdated('Bills', $value);
-        if(!isset($this->_data['Bills'])){
+        if (!isset($this->_data['Bills'])) {
             $this->_data['Bills'] = new Remote\Collection();
         }
         $this->_data['Bills'][] = $value;
@@ -136,7 +136,7 @@ class PaymentTerm extends Remote\Object
     public function addSale(Sale $value)
     {
         $this->propertyUpdated('Sales', $value);
-        if(!isset($this->_data['Sales'])){
+        if (!isset($this->_data['Sales'])) {
             $this->_data['Sales'] = new Remote\Collection();
         }
         $this->_data['Sales'][] = $value;

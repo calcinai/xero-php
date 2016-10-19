@@ -186,10 +186,10 @@ class Overpayment extends Remote\Object
      */
     public static function getSupportedMethods()
     {
-        return array(
+        return [
             Remote\Request::METHOD_GET,
             Remote\Request::METHOD_PUT
-        );
+        ];
     }
 
     /**
@@ -205,27 +205,27 @@ class Overpayment extends Remote\Object
      */
     public static function getProperties()
     {
-        return array(
-            'Reference' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'Type' => array (false, self::PROPERTY_TYPE_ENUM, null, false, false),
-            'Contact' => array (false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Contact', false, false),
-            'Date' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTimeInterface', false, false),
-            'Status' => array (false, self::PROPERTY_TYPE_ENUM, null, false, false),
-            'LineAmountTypes' => array (false, self::PROPERTY_TYPE_ENUM, null, false, false),
-            'LineItems' => array (false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Overpayment\\LineItem', true, false),
-            'SubTotal' => array (false, self::PROPERTY_TYPE_FLOAT, null, false, false),
-            'TotalTax' => array (false, self::PROPERTY_TYPE_FLOAT, null, false, false),
-            'Total' => array (false, self::PROPERTY_TYPE_FLOAT, null, false, false),
-            'UpdatedDateUTC' => array (false, self::PROPERTY_TYPE_TIMESTAMP, '\\DateTimeInterface', false, false),
-            'CurrencyCode' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'FullyPaidOnDate' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'OverpaymentID' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'CurrencyRate' => array (false, self::PROPERTY_TYPE_FLOAT, null, false, false),
-            'RemainingCredit' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'Allocations' => array (false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Overpayment\\Allocation', true, true),
-            'Payments' => array (false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Payment', true, false),
-            'HasAttachments' => array (false, self::PROPERTY_TYPE_BOOLEAN, null, false, false)
-        );
+        return [
+            'Reference' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'Type' => [false, self::PROPERTY_TYPE_ENUM, null, false, false],
+            'Contact' => [false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Contact', false, false],
+            'Date' => [false, self::PROPERTY_TYPE_DATE, '\\DateTimeInterface', false, false],
+            'Status' => [false, self::PROPERTY_TYPE_ENUM, null, false, false],
+            'LineAmountTypes' => [false, self::PROPERTY_TYPE_ENUM, null, false, false],
+            'LineItems' => [false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Overpayment\\LineItem', true, false],
+            'SubTotal' => [false, self::PROPERTY_TYPE_FLOAT, null, false, false],
+            'TotalTax' => [false, self::PROPERTY_TYPE_FLOAT, null, false, false],
+            'Total' => [false, self::PROPERTY_TYPE_FLOAT, null, false, false],
+            'UpdatedDateUTC' => [false, self::PROPERTY_TYPE_TIMESTAMP, '\\DateTimeInterface', false, false],
+            'CurrencyCode' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'FullyPaidOnDate' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'OverpaymentID' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'CurrencyRate' => [false, self::PROPERTY_TYPE_FLOAT, null, false, false],
+            'RemainingCredit' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'Allocations' => [false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Overpayment\\Allocation', true, true],
+            'Payments' => [false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Payment', true, false],
+            'HasAttachments' => [false, self::PROPERTY_TYPE_BOOLEAN, null, false, false]
+        ];
     }
 
     public static function isPageable()
@@ -365,7 +365,7 @@ class Overpayment extends Remote\Object
     public function addLineItem(LineItem $value)
     {
         $this->propertyUpdated('LineItems', $value);
-        if(!isset($this->_data['LineItems'])){
+        if (!isset($this->_data['LineItems'])) {
             $this->_data['LineItems'] = new Remote\Collection();
         }
         $this->_data['LineItems'][] = $value;
@@ -561,7 +561,7 @@ class Overpayment extends Remote\Object
     public function addAllocation(Allocation $value)
     {
         $this->propertyUpdated('Allocations', $value);
-        if(!isset($this->_data['Allocations'])){
+        if (!isset($this->_data['Allocations'])) {
             $this->_data['Allocations'] = new Remote\Collection();
         }
         $this->_data['Allocations'][] = $value;
@@ -584,7 +584,7 @@ class Overpayment extends Remote\Object
     public function addPayment(Payment $value)
     {
         $this->propertyUpdated('Payments', $value);
-        if(!isset($this->_data['Payments'])){
+        if (!isset($this->_data['Payments'])) {
             $this->_data['Payments'] = new Remote\Collection();
         }
         $this->_data['Payments'][] = $value;

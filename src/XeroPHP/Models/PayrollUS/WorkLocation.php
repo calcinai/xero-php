@@ -105,10 +105,10 @@ class WorkLocation extends Remote\Object
      */
     public static function getSupportedMethods()
     {
-        return array(
+        return [
             Remote\Request::METHOD_POST,
             Remote\Request::METHOD_GET
-        );
+        ];
     }
 
     /**
@@ -124,16 +124,16 @@ class WorkLocation extends Remote\Object
      */
     public static function getProperties()
     {
-        return array(
-            'StreetAddress' => array (true, self::PROPERTY_TYPE_STRING, null, false, false),
-            'City' => array (true, self::PROPERTY_TYPE_STRING, null, false, false),
-            'State' => array (true, self::PROPERTY_TYPE_STRING, null, false, false),
-            'Latitude' => array (true, self::PROPERTY_TYPE_STRING, null, false, false),
-            'Longitude' => array (true, self::PROPERTY_TYPE_STRING, null, false, false),
-            'WorkLocationID' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'SuitOrAptOrUnit' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'IsPrimary' => array (false, self::PROPERTY_TYPE_STRING, null, false, false)
-        );
+        return [
+            'StreetAddress' => [true, self::PROPERTY_TYPE_STRING, null, false, false],
+            'City' => [true, self::PROPERTY_TYPE_STRING, null, false, false],
+            'State' => [true, self::PROPERTY_TYPE_STRING, null, false, false],
+            'Latitude' => [true, self::PROPERTY_TYPE_STRING, null, false, false],
+            'Longitude' => [true, self::PROPERTY_TYPE_STRING, null, false, false],
+            'WorkLocationID' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'SuitOrAptOrUnit' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'IsPrimary' => [false, self::PROPERTY_TYPE_STRING, null, false, false]
+        ];
     }
 
     public static function isPageable()

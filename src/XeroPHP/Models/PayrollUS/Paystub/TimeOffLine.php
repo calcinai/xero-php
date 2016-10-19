@@ -75,8 +75,8 @@ class TimeOffLine extends Remote\Object
      */
     public static function getSupportedMethods()
     {
-        return array(
-        );
+        return [
+        ];
     }
 
     /**
@@ -92,11 +92,11 @@ class TimeOffLine extends Remote\Object
      */
     public static function getProperties()
     {
-        return array(
-            'TimeOffTypeID' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'Hours' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'Balance' => array (false, self::PROPERTY_TYPE_STRING, null, false, false)
-        );
+        return [
+            'TimeOffTypeID' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'Hours' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'Balance' => [false, self::PROPERTY_TYPE_STRING, null, false, false]
+        ];
     }
 
     public static function isPageable()

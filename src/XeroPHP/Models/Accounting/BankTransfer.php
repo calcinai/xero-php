@@ -122,10 +122,10 @@ class BankTransfer extends Remote\Object
      */
     public static function getSupportedMethods()
     {
-        return array(
+        return [
             Remote\Request::METHOD_GET,
             Remote\Request::METHOD_PUT
-        );
+        ];
     }
 
     /**
@@ -141,18 +141,18 @@ class BankTransfer extends Remote\Object
      */
     public static function getProperties()
     {
-        return array(
-            'FromBankAccount' => array (true, self::PROPERTY_TYPE_OBJECT, 'Accounting\\BankTransfer\\FromBankAccount', false, false),
-            'ToBankAccount' => array (true, self::PROPERTY_TYPE_OBJECT, 'Accounting\\BankTransfer\\ToBankAccount', false, false),
-            'Amount' => array (true, self::PROPERTY_TYPE_STRING, null, false, false),
-            'Date' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTimeInterface', false, false),
-            'BankTransferID' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'CurrencyRate' => array (false, self::PROPERTY_TYPE_FLOAT, null, false, false),
-            'FromBankTransactionID' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'ToBankTransactionID' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'HasAttachments' => array (false, self::PROPERTY_TYPE_BOOLEAN, null, false, false),
-            'CreatedDateUTC' => array (false, self::PROPERTY_TYPE_TIMESTAMP, '\\DateTimeInterface', false, false)
-        );
+        return [
+            'FromBankAccount' => [true, self::PROPERTY_TYPE_OBJECT, 'Accounting\\BankTransfer\\FromBankAccount', false, false],
+            'ToBankAccount' => [true, self::PROPERTY_TYPE_OBJECT, 'Accounting\\BankTransfer\\ToBankAccount', false, false],
+            'Amount' => [true, self::PROPERTY_TYPE_STRING, null, false, false],
+            'Date' => [false, self::PROPERTY_TYPE_DATE, '\\DateTimeInterface', false, false],
+            'BankTransferID' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'CurrencyRate' => [false, self::PROPERTY_TYPE_FLOAT, null, false, false],
+            'FromBankTransactionID' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'ToBankTransactionID' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'HasAttachments' => [false, self::PROPERTY_TYPE_BOOLEAN, null, false, false],
+            'CreatedDateUTC' => [false, self::PROPERTY_TYPE_TIMESTAMP, '\\DateTimeInterface', false, false]
+        ];
     }
 
     public static function isPageable()

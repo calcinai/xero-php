@@ -153,8 +153,8 @@ class EarningsType extends Remote\Object
      */
     public static function getSupportedMethods()
     {
-        return array(
-        );
+        return [
+        ];
     }
 
     /**
@@ -170,20 +170,20 @@ class EarningsType extends Remote\Object
      */
     public static function getProperties()
     {
-        return array(
-            'EarningsType' => array (true, self::PROPERTY_TYPE_OBJECT, 'PayrollUS\\PayItem\\EarningsType', false, false),
-            'DisplayName' => array (true, self::PROPERTY_TYPE_STRING, null, false, false),
-            'ExpenseAccountCode' => array (true, self::PROPERTY_TYPE_STRING, null, false, false),
-            'EarningsCategory' => array (true, self::PROPERTY_TYPE_ENUM, null, false, false),
-            'RateType' => array (true, self::PROPERTY_TYPE_ENUM, null, false, false),
-            'TypeOfUnits' => array (true, self::PROPERTY_TYPE_ENUM, null, false, false),
-            'EarningsRateID' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'EarningsTypeID' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'Multiple' => array (false, self::PROPERTY_TYPE_FLOAT, null, false, false),
-            'DoNotAccrueTimeOff' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'IsSupplemental' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'Amount' => array (false, self::PROPERTY_TYPE_FLOAT, null, false, false)
-        );
+        return [
+            'EarningsType' => [true, self::PROPERTY_TYPE_OBJECT, 'PayrollUS\\PayItem\\EarningsType', false, false],
+            'DisplayName' => [true, self::PROPERTY_TYPE_STRING, null, false, false],
+            'ExpenseAccountCode' => [true, self::PROPERTY_TYPE_STRING, null, false, false],
+            'EarningsCategory' => [true, self::PROPERTY_TYPE_ENUM, null, false, false],
+            'RateType' => [true, self::PROPERTY_TYPE_ENUM, null, false, false],
+            'TypeOfUnits' => [true, self::PROPERTY_TYPE_ENUM, null, false, false],
+            'EarningsRateID' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'EarningsTypeID' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'Multiple' => [false, self::PROPERTY_TYPE_FLOAT, null, false, false],
+            'DoNotAccrueTimeOff' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'IsSupplemental' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'Amount' => [false, self::PROPERTY_TYPE_FLOAT, null, false, false]
+        ];
     }
 
     public static function isPageable()

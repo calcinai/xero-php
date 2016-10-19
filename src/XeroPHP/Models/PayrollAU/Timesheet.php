@@ -104,10 +104,10 @@ class Timesheet extends Remote\Object
      */
     public static function getSupportedMethods()
     {
-        return array(
+        return [
             Remote\Request::METHOD_POST,
             Remote\Request::METHOD_GET
-        );
+        ];
     }
 
     /**
@@ -123,15 +123,15 @@ class Timesheet extends Remote\Object
      */
     public static function getProperties()
     {
-        return array(
-            'EmployeeID' => array (true, self::PROPERTY_TYPE_STRING, null, false, false),
-            'StartDate' => array (true, self::PROPERTY_TYPE_DATE, '\\DateTimeInterface', false, false),
-            'EndDate' => array (true, self::PROPERTY_TYPE_DATE, '\\DateTimeInterface', false, false),
-            'TimesheetLines' => array (false, self::PROPERTY_TYPE_OBJECT, 'PayrollAU\\Timesheet\\TimesheetLine', true, false),
-            'Status' => array (false, self::PROPERTY_TYPE_ENUM, null, false, false),
-            'Hours' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'TimesheetID' => array (false, self::PROPERTY_TYPE_STRING, null, false, false)
-        );
+        return [
+            'EmployeeID' => [true, self::PROPERTY_TYPE_STRING, null, false, false],
+            'StartDate' => [true, self::PROPERTY_TYPE_DATE, '\\DateTimeInterface', false, false],
+            'EndDate' => [true, self::PROPERTY_TYPE_DATE, '\\DateTimeInterface', false, false],
+            'TimesheetLines' => [false, self::PROPERTY_TYPE_OBJECT, 'PayrollAU\\Timesheet\\TimesheetLine', true, false],
+            'Status' => [false, self::PROPERTY_TYPE_ENUM, null, false, false],
+            'Hours' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'TimesheetID' => [false, self::PROPERTY_TYPE_STRING, null, false, false]
+        ];
     }
 
     public static function isPageable()
@@ -212,7 +212,7 @@ class Timesheet extends Remote\Object
     public function addTimesheetLine(TimesheetLine $value)
     {
         $this->propertyUpdated('TimesheetLines', $value);
-        if(!isset($this->_data['TimesheetLines'])){
+        if (!isset($this->_data['TimesheetLines'])) {
             $this->_data['TimesheetLines'] = new Remote\Collection();
         }
         $this->_data['TimesheetLines'][] = $value;

@@ -81,8 +81,8 @@ class SuperMembership extends Remote\Object
      */
     public static function getSupportedMethods()
     {
-        return array(
-        );
+        return [
+        ];
     }
 
     /**
@@ -98,12 +98,12 @@ class SuperMembership extends Remote\Object
      */
     public static function getProperties()
     {
-        return array(
-            'SuperFundID' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'EmployeeNumber' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'SuperMembershipID' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'EmployeeID' => array (false, self::PROPERTY_TYPE_STRING, null, false, false)
-        );
+        return [
+            'SuperFundID' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'EmployeeNumber' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'SuperMembershipID' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'EmployeeID' => [false, self::PROPERTY_TYPE_STRING, null, false, false]
+        ];
     }
 
     public static function isPageable()

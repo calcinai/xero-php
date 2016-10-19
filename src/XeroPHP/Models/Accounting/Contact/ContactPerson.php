@@ -81,8 +81,8 @@ class ContactPerson extends Remote\Object
      */
     public static function getSupportedMethods()
     {
-        return array(
-        );
+        return [
+        ];
     }
 
     /**
@@ -98,12 +98,12 @@ class ContactPerson extends Remote\Object
      */
     public static function getProperties()
     {
-        return array(
-            'FirstName' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'LastName' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'EmailAddress' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'IncludeInEmails' => array (false, self::PROPERTY_TYPE_BOOLEAN, null, false, false)
-        );
+        return [
+            'FirstName' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'LastName' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'EmailAddress' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'IncludeInEmails' => [false, self::PROPERTY_TYPE_BOOLEAN, null, false, false]
+        ];
     }
 
     public static function isPageable()

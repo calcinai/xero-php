@@ -99,8 +99,8 @@ class HomeAddress extends Remote\Object
      */
     public static function getSupportedMethods()
     {
-        return array(
-        );
+        return [
+        ];
     }
 
     /**
@@ -116,15 +116,15 @@ class HomeAddress extends Remote\Object
      */
     public static function getProperties()
     {
-        return array(
-            'StreetAddress' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'SuiteOrAptOrUnit' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'City' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'State' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'Zip' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'Lattitude' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'Longitude' => array (false, self::PROPERTY_TYPE_STRING, null, false, false)
-        );
+        return [
+            'StreetAddress' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'SuiteOrAptOrUnit' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'City' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'State' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'Zip' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'Lattitude' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'Longitude' => [false, self::PROPERTY_TYPE_STRING, null, false, false]
+        ];
     }
 
     public static function isPageable()

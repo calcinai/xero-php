@@ -126,11 +126,11 @@ class ManualJournal extends Remote\Object
      */
     public static function getSupportedMethods()
     {
-        return array(
+        return [
             Remote\Request::METHOD_GET,
             Remote\Request::METHOD_PUT,
             Remote\Request::METHOD_POST
-        );
+        ];
     }
 
     /**
@@ -146,18 +146,18 @@ class ManualJournal extends Remote\Object
      */
     public static function getProperties()
     {
-        return array(
-            'ManualJournalID' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'Narration' => array (true, self::PROPERTY_TYPE_STRING, null, false, false),
-            'JournalLines' => array (true, self::PROPERTY_TYPE_OBJECT, 'Accounting\\ManualJournal\\JournalLine', true, false),
-            'Date' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTimeInterface', false, false),
-            'LineAmountTypes' => array (false, self::PROPERTY_TYPE_ENUM, null, false, false),
-            'Status' => array (false, self::PROPERTY_TYPE_ENUM, null, false, false),
-            'Url' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'ShowOnCashBasisReports' => array (false, self::PROPERTY_TYPE_BOOLEAN, null, false, false),
-            'HasAttachments' => array (false, self::PROPERTY_TYPE_BOOLEAN, null, false, false),
-            'UpdatedDateUTC' => array (false, self::PROPERTY_TYPE_TIMESTAMP, '\\DateTimeInterface', false, false)
-        );
+        return [
+            'ManualJournalID' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'Narration' => [true, self::PROPERTY_TYPE_STRING, null, false, false],
+            'JournalLines' => [true, self::PROPERTY_TYPE_OBJECT, 'Accounting\\ManualJournal\\JournalLine', true, false],
+            'Date' => [false, self::PROPERTY_TYPE_DATE, '\\DateTimeInterface', false, false],
+            'LineAmountTypes' => [false, self::PROPERTY_TYPE_ENUM, null, false, false],
+            'Status' => [false, self::PROPERTY_TYPE_ENUM, null, false, false],
+            'Url' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'ShowOnCashBasisReports' => [false, self::PROPERTY_TYPE_BOOLEAN, null, false, false],
+            'HasAttachments' => [false, self::PROPERTY_TYPE_BOOLEAN, null, false, false],
+            'UpdatedDateUTC' => [false, self::PROPERTY_TYPE_TIMESTAMP, '\\DateTimeInterface', false, false]
+        ];
     }
 
     public static function isPageable()
@@ -219,7 +219,7 @@ class ManualJournal extends Remote\Object
     public function addJournalLine(JournalLine $value)
     {
         $this->propertyUpdated('JournalLines', $value);
-        if(!isset($this->_data['JournalLines'])){
+        if (!isset($this->_data['JournalLines'])) {
             $this->_data['JournalLines'] = new Remote\Collection();
         }
         $this->_data['JournalLines'][] = $value;

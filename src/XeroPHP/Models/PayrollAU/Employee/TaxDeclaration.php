@@ -154,8 +154,8 @@ class TaxDeclaration extends Remote\Object
      */
     public static function getSupportedMethods()
     {
-        return array(
-        );
+        return [
+        ];
     }
 
     /**
@@ -171,22 +171,22 @@ class TaxDeclaration extends Remote\Object
      */
     public static function getProperties()
     {
-        return array(
-            'EmployeeID' => array (true, self::PROPERTY_TYPE_STRING, null, false, false),
-            'EmploymentBasis' => array (true, self::PROPERTY_TYPE_ENUM, null, false, false),
-            'TFNExemptionType' => array (false, self::PROPERTY_TYPE_ENUM, null, false, false),
-            'TaxFileNumber' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'AustralianResidentForTaxPurposes' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'TaxFreeThresholdClaimed' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'TaxOffsetEstimatedAmount' => array (false, self::PROPERTY_TYPE_FLOAT, null, false, false),
-            'HasHELPDebt' => array (false, self::PROPERTY_TYPE_BOOLEAN, null, false, false),
-            'HasSFSSDebt' => array (false, self::PROPERTY_TYPE_BOOLEAN, null, false, false),
-            'HasTSLDebt' => array (false, self::PROPERTY_TYPE_BOOLEAN, null, false, false),
-            'HasTradeSupportLoanDebt' => array (false, self::PROPERTY_TYPE_BOOLEAN, null, false, false),
-            'UpwardVariationTaxWithholdingAmount' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'EligibleToReceiveLeaveLoading' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'ApprovedWithholdingVariationPercentage' => array (false, self::PROPERTY_TYPE_STRING, null, false, false)
-        );
+        return [
+            'EmployeeID' => [true, self::PROPERTY_TYPE_STRING, null, false, false],
+            'EmploymentBasis' => [true, self::PROPERTY_TYPE_ENUM, null, false, false],
+            'TFNExemptionType' => [false, self::PROPERTY_TYPE_ENUM, null, false, false],
+            'TaxFileNumber' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'AustralianResidentForTaxPurposes' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'TaxFreeThresholdClaimed' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'TaxOffsetEstimatedAmount' => [false, self::PROPERTY_TYPE_FLOAT, null, false, false],
+            'HasHELPDebt' => [false, self::PROPERTY_TYPE_BOOLEAN, null, false, false],
+            'HasSFSSDebt' => [false, self::PROPERTY_TYPE_BOOLEAN, null, false, false],
+            'HasTSLDebt' => [false, self::PROPERTY_TYPE_BOOLEAN, null, false, false],
+            'HasTradeSupportLoanDebt' => [false, self::PROPERTY_TYPE_BOOLEAN, null, false, false],
+            'UpwardVariationTaxWithholdingAmount' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'EligibleToReceiveLeaveLoading' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'ApprovedWithholdingVariationPercentage' => [false, self::PROPERTY_TYPE_STRING, null, false, false]
+        ];
     }
 
     public static function isPageable()

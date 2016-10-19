@@ -69,8 +69,8 @@ class BankAccount extends Remote\Object
      */
     public static function getSupportedMethods()
     {
-        return array(
-        );
+        return [
+        ];
     }
 
     /**
@@ -86,10 +86,10 @@ class BankAccount extends Remote\Object
      */
     public static function getProperties()
     {
-        return array(
-            'Code' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'AccountID' => array (false, self::PROPERTY_TYPE_STRING, null, false, false)
-        );
+        return [
+            'Code' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'AccountID' => [false, self::PROPERTY_TYPE_STRING, null, false, false]
+        ];
     }
 
     public static function isPageable()

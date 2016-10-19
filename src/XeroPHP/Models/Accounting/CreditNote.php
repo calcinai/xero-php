@@ -195,11 +195,11 @@ class CreditNote extends Remote\Object
      */
     public static function getSupportedMethods()
     {
-        return array(
+        return [
             Remote\Request::METHOD_POST,
             Remote\Request::METHOD_PUT,
             Remote\Request::METHOD_GET
-        );
+        ];
     }
 
     /**
@@ -215,29 +215,29 @@ class CreditNote extends Remote\Object
      */
     public static function getProperties()
     {
-        return array(
-            'Type' => array (false, self::PROPERTY_TYPE_ENUM, null, false, false),
-            'Contact' => array (false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Contact', false, false),
-            'Date' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTimeInterface', false, false),
-            'Status' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'LineAmountTypes' => array (false, self::PROPERTY_TYPE_ENUM, null, false, false),
-            'LineItems' => array (false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Invoice\\LineItem', true, false),
-            'SubTotal' => array (false, self::PROPERTY_TYPE_FLOAT, null, false, false),
-            'TotalTax' => array (false, self::PROPERTY_TYPE_FLOAT, null, false, false),
-            'Total' => array (false, self::PROPERTY_TYPE_FLOAT, null, false, false),
-            'UpdatedDateUTC' => array (false, self::PROPERTY_TYPE_TIMESTAMP, '\\DateTimeInterface', false, false),
-            'CurrencyCode' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'FullyPaidOnDate' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTimeInterface', false, false),
-            'CreditNoteID' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'CreditNoteNumber' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'Reference' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'SentToContact' => array (false, self::PROPERTY_TYPE_BOOLEAN, null, false, false),
-            'CurrencyRate' => array (false, self::PROPERTY_TYPE_FLOAT, null, false, false),
-            'RemainingCredit' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'Allocations' => array (false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\CreditNote\\Allocation', true, true),
-            'BrandingThemeID' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'HasAttachments' => array (false, self::PROPERTY_TYPE_BOOLEAN, null, false, false)
-        );
+        return [
+            'Type' => [false, self::PROPERTY_TYPE_ENUM, null, false, false],
+            'Contact' => [false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Contact', false, false],
+            'Date' => [false, self::PROPERTY_TYPE_DATE, '\\DateTimeInterface', false, false],
+            'Status' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'LineAmountTypes' => [false, self::PROPERTY_TYPE_ENUM, null, false, false],
+            'LineItems' => [false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Invoice\\LineItem', true, false],
+            'SubTotal' => [false, self::PROPERTY_TYPE_FLOAT, null, false, false],
+            'TotalTax' => [false, self::PROPERTY_TYPE_FLOAT, null, false, false],
+            'Total' => [false, self::PROPERTY_TYPE_FLOAT, null, false, false],
+            'UpdatedDateUTC' => [false, self::PROPERTY_TYPE_TIMESTAMP, '\\DateTimeInterface', false, false],
+            'CurrencyCode' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'FullyPaidOnDate' => [false, self::PROPERTY_TYPE_DATE, '\\DateTimeInterface', false, false],
+            'CreditNoteID' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'CreditNoteNumber' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'Reference' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'SentToContact' => [false, self::PROPERTY_TYPE_BOOLEAN, null, false, false],
+            'CurrencyRate' => [false, self::PROPERTY_TYPE_FLOAT, null, false, false],
+            'RemainingCredit' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'Allocations' => [false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\CreditNote\\Allocation', true, true],
+            'BrandingThemeID' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'HasAttachments' => [false, self::PROPERTY_TYPE_BOOLEAN, null, false, false]
+        ];
     }
 
     public static function isPageable()
@@ -356,7 +356,7 @@ class CreditNote extends Remote\Object
     public function addLineItem(LineItem $value)
     {
         $this->propertyUpdated('LineItems', $value);
-        if(!isset($this->_data['LineItems'])){
+        if (!isset($this->_data['LineItems'])) {
             $this->_data['LineItems'] = new Remote\Collection();
         }
         $this->_data['LineItems'][] = $value;
@@ -607,7 +607,7 @@ class CreditNote extends Remote\Object
     public function addAllocation(Allocation $value)
     {
         $this->propertyUpdated('Allocations', $value);
-        if(!isset($this->_data['Allocations'])){
+        if (!isset($this->_data['Allocations'])) {
             $this->_data['Allocations'] = new Remote\Collection();
         }
         $this->_data['Allocations'][] = $value;

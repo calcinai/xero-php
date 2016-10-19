@@ -201,11 +201,11 @@ class BankTransaction extends Remote\Object
      */
     public static function getSupportedMethods()
     {
-        return array(
+        return [
             Remote\Request::METHOD_GET,
             Remote\Request::METHOD_PUT,
             Remote\Request::METHOD_POST
-        );
+        ];
     }
 
     /**
@@ -221,28 +221,28 @@ class BankTransaction extends Remote\Object
      */
     public static function getProperties()
     {
-        return array(
-            'Type' => array (true, self::PROPERTY_TYPE_ENUM, null, false, false),
-            'Contact' => array (true, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Contact', false, false),
-            'LineItems' => array (true, self::PROPERTY_TYPE_OBJECT, 'Accounting\\BankTransaction\\LineItem', true, false),
-            'BankAccount' => array (true, self::PROPERTY_TYPE_OBJECT, 'Accounting\\BankTransaction\\BankAccount', false, false),
-            'IsReconciled' => array (false, self::PROPERTY_TYPE_BOOLEAN, null, false, false),
-            'Date' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTimeInterface', false, false),
-            'Reference' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'CurrencyCode' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'CurrencyRate' => array (false, self::PROPERTY_TYPE_FLOAT, null, false, false),
-            'Url' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'Status' => array (false, self::PROPERTY_TYPE_ENUM, null, false, false),
-            'LineAmountTypes' => array (false, self::PROPERTY_TYPE_ENUM, null, false, false),
-            'SubTotal' => array (false, self::PROPERTY_TYPE_FLOAT, null, false, false),
-            'TotalTax' => array (false, self::PROPERTY_TYPE_FLOAT, null, false, false),
-            'Total' => array (false, self::PROPERTY_TYPE_FLOAT, null, false, false),
-            'BankTransactionID' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'PrepaymentID' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'OverpaymentID' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'UpdatedDateUTC' => array (false, self::PROPERTY_TYPE_TIMESTAMP, '\\DateTimeInterface', false, false),
-            'HasAttachments' => array (false, self::PROPERTY_TYPE_BOOLEAN, null, false, false)
-        );
+        return [
+            'Type' => [true, self::PROPERTY_TYPE_ENUM, null, false, false],
+            'Contact' => [true, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Contact', false, false],
+            'LineItems' => [true, self::PROPERTY_TYPE_OBJECT, 'Accounting\\BankTransaction\\LineItem', true, false],
+            'BankAccount' => [true, self::PROPERTY_TYPE_OBJECT, 'Accounting\\BankTransaction\\BankAccount', false, false],
+            'IsReconciled' => [false, self::PROPERTY_TYPE_BOOLEAN, null, false, false],
+            'Date' => [false, self::PROPERTY_TYPE_DATE, '\\DateTimeInterface', false, false],
+            'Reference' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'CurrencyCode' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'CurrencyRate' => [false, self::PROPERTY_TYPE_FLOAT, null, false, false],
+            'Url' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'Status' => [false, self::PROPERTY_TYPE_ENUM, null, false, false],
+            'LineAmountTypes' => [false, self::PROPERTY_TYPE_ENUM, null, false, false],
+            'SubTotal' => [false, self::PROPERTY_TYPE_FLOAT, null, false, false],
+            'TotalTax' => [false, self::PROPERTY_TYPE_FLOAT, null, false, false],
+            'Total' => [false, self::PROPERTY_TYPE_FLOAT, null, false, false],
+            'BankTransactionID' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'PrepaymentID' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'OverpaymentID' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'UpdatedDateUTC' => [false, self::PROPERTY_TYPE_TIMESTAMP, '\\DateTimeInterface', false, false],
+            'HasAttachments' => [false, self::PROPERTY_TYPE_BOOLEAN, null, false, false]
+        ];
     }
 
     public static function isPageable()
@@ -304,7 +304,7 @@ class BankTransaction extends Remote\Object
     public function addLineItem(LineItem $value)
     {
         $this->propertyUpdated('LineItems', $value);
-        if(!isset($this->_data['LineItems'])){
+        if (!isset($this->_data['LineItems'])) {
             $this->_data['LineItems'] = new Remote\Collection();
         }
         $this->_data['LineItems'][] = $value;

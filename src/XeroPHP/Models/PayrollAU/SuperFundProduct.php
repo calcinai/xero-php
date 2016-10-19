@@ -83,9 +83,9 @@ class SuperFundProduct extends Remote\Object
      */
     public static function getSupportedMethods()
     {
-        return array(
+        return [
             Remote\Request::METHOD_GET
-        );
+        ];
     }
 
     /**
@@ -101,12 +101,12 @@ class SuperFundProduct extends Remote\Object
      */
     public static function getProperties()
     {
-        return array(
-            'ABN' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'USI' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'SPIN' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'ProductName' => array (false, self::PROPERTY_TYPE_STRING, null, false, false)
-        );
+        return [
+            'ABN' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'USI' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'SPIN' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'ProductName' => [false, self::PROPERTY_TYPE_STRING, null, false, false]
+        ];
     }
 
     public static function isPageable()

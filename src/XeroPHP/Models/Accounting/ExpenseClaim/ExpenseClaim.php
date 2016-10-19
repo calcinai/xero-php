@@ -118,8 +118,8 @@ class ExpenseClaim extends Remote\Object
      */
     public static function getSupportedMethods()
     {
-        return array(
-        );
+        return [
+        ];
     }
 
     /**
@@ -135,18 +135,18 @@ class ExpenseClaim extends Remote\Object
      */
     public static function getProperties()
     {
-        return array(
-            'ExpenseClaimID' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'Payments' => array (false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Payment', true, false),
-            'Status' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'UpdatedDateUTC' => array (false, self::PROPERTY_TYPE_TIMESTAMP, '\\DateTimeInterface', false, false),
-            'Total' => array (false, self::PROPERTY_TYPE_FLOAT, null, false, false),
-            'AmountDue' => array (false, self::PROPERTY_TYPE_FLOAT, null, false, false),
-            'AmountPaid' => array (false, self::PROPERTY_TYPE_FLOAT, null, false, false),
-            'PaymentDueDate' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTimeInterface', false, false),
-            'ReportingDate' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTimeInterface', false, false),
-            'ReceiptID' => array (true, self::PROPERTY_TYPE_STRING, null, false, false)
-        );
+        return [
+            'ExpenseClaimID' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'Payments' => [false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Payment', true, false],
+            'Status' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'UpdatedDateUTC' => [false, self::PROPERTY_TYPE_TIMESTAMP, '\\DateTimeInterface', false, false],
+            'Total' => [false, self::PROPERTY_TYPE_FLOAT, null, false, false],
+            'AmountDue' => [false, self::PROPERTY_TYPE_FLOAT, null, false, false],
+            'AmountPaid' => [false, self::PROPERTY_TYPE_FLOAT, null, false, false],
+            'PaymentDueDate' => [false, self::PROPERTY_TYPE_DATE, '\\DateTimeInterface', false, false],
+            'ReportingDate' => [false, self::PROPERTY_TYPE_DATE, '\\DateTimeInterface', false, false],
+            'ReceiptID' => [true, self::PROPERTY_TYPE_STRING, null, false, false]
+        ];
     }
 
     public static function isPageable()

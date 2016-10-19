@@ -75,8 +75,8 @@ class LeaveAccrualLine extends Remote\Object
      */
     public static function getSupportedMethods()
     {
-        return array(
-        );
+        return [
+        ];
     }
 
     /**
@@ -92,11 +92,11 @@ class LeaveAccrualLine extends Remote\Object
      */
     public static function getProperties()
     {
-        return array(
-            'LeaveTypeID' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'NumberOfUnits' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'AutoCalculate' => array (false, self::PROPERTY_TYPE_STRING, null, false, false)
-        );
+        return [
+            'LeaveTypeID' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'NumberOfUnits' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'AutoCalculate' => [false, self::PROPERTY_TYPE_STRING, null, false, false]
+        ];
     }
 
     public static function isPageable()

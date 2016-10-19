@@ -221,12 +221,12 @@ e.g.
      */
     public static function getSupportedMethods()
     {
-        return array(
+        return [
             Remote\Request::METHOD_GET,
             Remote\Request::METHOD_PUT,
             Remote\Request::METHOD_POST,
             Remote\Request::METHOD_DELETE
-        );
+        ];
     }
 
     /**
@@ -242,26 +242,26 @@ e.g.
      */
     public static function getProperties()
     {
-        return array(
-            'Code' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'Name' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'Type' => array (false, self::PROPERTY_TYPE_ENUM, null, false, false),
-            'BankAccountNumber' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'Status' => array (false, self::PROPERTY_TYPE_ENUM, null, false, false),
-            'Description' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'BankAccountType' => array (false, self::PROPERTY_TYPE_ENUM, null, false, false),
-            'CurrencyCode' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'TaxType' => array (false, self::PROPERTY_TYPE_ENUM, null, false, false),
-            'EnablePaymentsToAccount' => array (false, self::PROPERTY_TYPE_BOOLEAN, null, false, false),
-            'ShowInExpenseClaims' => array (false, self::PROPERTY_TYPE_BOOLEAN, null, false, false),
-            'AccountID' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'Class' => array (false, self::PROPERTY_TYPE_ENUM, null, false, false),
-            'SystemAccount' => array (false, self::PROPERTY_TYPE_ENUM, null, false, false),
-            'ReportingCode' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'ReportingCodeName' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'HasAttachments' => array (false, self::PROPERTY_TYPE_BOOLEAN, null, false, false),
-            'UpdatedDateUTC' => array (false, self::PROPERTY_TYPE_TIMESTAMP, '\\DateTimeInterface', false, false)
-        );
+        return [
+            'Code' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'Name' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'Type' => [false, self::PROPERTY_TYPE_ENUM, null, false, false],
+            'BankAccountNumber' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'Status' => [false, self::PROPERTY_TYPE_ENUM, null, false, false],
+            'Description' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'BankAccountType' => [false, self::PROPERTY_TYPE_ENUM, null, false, false],
+            'CurrencyCode' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'TaxType' => [false, self::PROPERTY_TYPE_ENUM, null, false, false],
+            'EnablePaymentsToAccount' => [false, self::PROPERTY_TYPE_BOOLEAN, null, false, false],
+            'ShowInExpenseClaims' => [false, self::PROPERTY_TYPE_BOOLEAN, null, false, false],
+            'AccountID' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'Class' => [false, self::PROPERTY_TYPE_ENUM, null, false, false],
+            'SystemAccount' => [false, self::PROPERTY_TYPE_ENUM, null, false, false],
+            'ReportingCode' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'ReportingCodeName' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'HasAttachments' => [false, self::PROPERTY_TYPE_BOOLEAN, null, false, false],
+            'UpdatedDateUTC' => [false, self::PROPERTY_TYPE_TIMESTAMP, '\\DateTimeInterface', false, false]
+        ];
     }
 
     public static function isPageable()

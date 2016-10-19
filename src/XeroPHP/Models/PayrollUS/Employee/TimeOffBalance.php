@@ -88,8 +88,8 @@ class TimeOffBalance extends Remote\Object
      */
     public static function getSupportedMethods()
     {
-        return array(
-        );
+        return [
+        ];
     }
 
     /**
@@ -105,13 +105,13 @@ class TimeOffBalance extends Remote\Object
      */
     public static function getProperties()
     {
-        return array(
-            'TimeOffName' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'TimeOffTypeId' => array (false, self::PROPERTY_TYPE_OBJECT, 'PayrollUS\\PayItem', false, false),
-            'NumberOfUnits' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'TypeOfUnits' => array (false, self::PROPERTY_TYPE_OBJECT, 'PayrollUS\\PayItem', true, false),
-            'EmployeeID' => array (false, self::PROPERTY_TYPE_STRING, null, false, false)
-        );
+        return [
+            'TimeOffName' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'TimeOffTypeId' => [false, self::PROPERTY_TYPE_OBJECT, 'PayrollUS\\PayItem', false, false],
+            'NumberOfUnits' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'TypeOfUnits' => [false, self::PROPERTY_TYPE_OBJECT, 'PayrollUS\\PayItem', true, false],
+            'EmployeeID' => [false, self::PROPERTY_TYPE_STRING, null, false, false]
+        ];
     }
 
     public static function isPageable()
@@ -192,7 +192,7 @@ class TimeOffBalance extends Remote\Object
     public function addTypeOfUnit(PayItem $value)
     {
         $this->propertyUpdated('TypeOfUnits', $value);
-        if(!isset($this->_data['TypeOfUnits'])){
+        if (!isset($this->_data['TypeOfUnits'])) {
             $this->_data['TypeOfUnits'] = new Remote\Collection();
         }
         $this->_data['TypeOfUnits'][] = $value;

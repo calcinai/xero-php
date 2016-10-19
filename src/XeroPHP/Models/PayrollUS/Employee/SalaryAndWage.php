@@ -106,8 +106,8 @@ class SalaryAndWage extends Remote\Object
      */
     public static function getSupportedMethods()
     {
-        return array(
-        );
+        return [
+        ];
     }
 
     /**
@@ -123,16 +123,16 @@ class SalaryAndWage extends Remote\Object
      */
     public static function getProperties()
     {
-        return array(
-            'SalaryAndWageID' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'SalaryAndWagesID' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'EarningsTypeID' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'SalaryWagesType' => array (false, self::PROPERTY_TYPE_ENUM, null, false, false),
-            'HourlyRate' => array (false, self::PROPERTY_TYPE_FLOAT, null, false, false),
-            'AnnualSalary' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'StandardHoursPerWeek' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'EffectiveDate' => array (false, self::PROPERTY_TYPE_DATE, '\\DateTimeInterface', false, false)
-        );
+        return [
+            'SalaryAndWageID' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'SalaryAndWagesID' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'EarningsTypeID' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'SalaryWagesType' => [false, self::PROPERTY_TYPE_ENUM, null, false, false],
+            'HourlyRate' => [false, self::PROPERTY_TYPE_FLOAT, null, false, false],
+            'AnnualSalary' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'StandardHoursPerWeek' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'EffectiveDate' => [false, self::PROPERTY_TYPE_DATE, '\\DateTimeInterface', false, false]
+        ];
     }
 
     public static function isPageable()

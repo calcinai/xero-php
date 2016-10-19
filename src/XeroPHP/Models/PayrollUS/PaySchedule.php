@@ -87,10 +87,10 @@ class PaySchedule extends Remote\Object
      */
     public static function getSupportedMethods()
     {
-        return array(
+        return [
             Remote\Request::METHOD_POST,
             Remote\Request::METHOD_GET
-        );
+        ];
     }
 
     /**
@@ -106,13 +106,13 @@ class PaySchedule extends Remote\Object
      */
     public static function getProperties()
     {
-        return array(
-            'PayScheduleName' => array (true, self::PROPERTY_TYPE_STRING, null, false, false),
-            'PaymentDate' => array (true, self::PROPERTY_TYPE_DATE, '\\DateTimeInterface', false, false),
-            'StartDate' => array (true, self::PROPERTY_TYPE_DATE, '\\DateTimeInterface', false, false),
-            'ScheduleType' => array (true, self::PROPERTY_TYPE_ENUM, null, false, false),
-            'PayScheduleId' => array (false, self::PROPERTY_TYPE_GUID, null, false, false)
-        );
+        return [
+            'PayScheduleName' => [true, self::PROPERTY_TYPE_STRING, null, false, false],
+            'PaymentDate' => [true, self::PROPERTY_TYPE_DATE, '\\DateTimeInterface', false, false],
+            'StartDate' => [true, self::PROPERTY_TYPE_DATE, '\\DateTimeInterface', false, false],
+            'ScheduleType' => [true, self::PROPERTY_TYPE_ENUM, null, false, false],
+            'PayScheduleId' => [false, self::PROPERTY_TYPE_GUID, null, false, false]
+        ];
     }
 
     public static function isPageable()

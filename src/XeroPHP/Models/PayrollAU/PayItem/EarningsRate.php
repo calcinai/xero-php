@@ -148,8 +148,8 @@ class EarningsRate extends Remote\Object
      */
     public static function getSupportedMethods()
     {
-        return array(
-        );
+        return [
+        ];
     }
 
     /**
@@ -165,21 +165,21 @@ class EarningsRate extends Remote\Object
      */
     public static function getProperties()
     {
-        return array(
-            'Name' => array (true, self::PROPERTY_TYPE_STRING, null, false, false),
-            'DisplayName' => array (true, self::PROPERTY_TYPE_STRING, null, false, false),
-            'AccountCode' => array (true, self::PROPERTY_TYPE_STRING, null, false, false),
-            'TypeOfUnits' => array (true, self::PROPERTY_TYPE_STRING, null, false, false),
-            'IsExemptFromTax' => array (true, self::PROPERTY_TYPE_STRING, null, false, false),
-            'IsExemptFromSuper' => array (true, self::PROPERTY_TYPE_STRING, null, false, false),
-            'EarningsType' => array (true, self::PROPERTY_TYPE_ENUM, null, false, false),
-            'EarningsRateID' => array (false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'RateType' => array (false, self::PROPERTY_TYPE_ENUM, null, false, false),
-            'RatePerUnit' => array (false, self::PROPERTY_TYPE_FLOAT, null, false, false),
-            'Multiplier' => array (false, self::PROPERTY_TYPE_FLOAT, null, false, false),
-            'AccrueLeave' => array (false, self::PROPERTY_TYPE_FLOAT, null, false, false),
-            'Amount' => array (false, self::PROPERTY_TYPE_FLOAT, null, false, false)
-        );
+        return [
+            'Name' => [true, self::PROPERTY_TYPE_STRING, null, false, false],
+            'DisplayName' => [true, self::PROPERTY_TYPE_STRING, null, false, false],
+            'AccountCode' => [true, self::PROPERTY_TYPE_STRING, null, false, false],
+            'TypeOfUnits' => [true, self::PROPERTY_TYPE_STRING, null, false, false],
+            'IsExemptFromTax' => [true, self::PROPERTY_TYPE_STRING, null, false, false],
+            'IsExemptFromSuper' => [true, self::PROPERTY_TYPE_STRING, null, false, false],
+            'EarningsType' => [true, self::PROPERTY_TYPE_ENUM, null, false, false],
+            'EarningsRateID' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'RateType' => [false, self::PROPERTY_TYPE_ENUM, null, false, false],
+            'RatePerUnit' => [false, self::PROPERTY_TYPE_FLOAT, null, false, false],
+            'Multiplier' => [false, self::PROPERTY_TYPE_FLOAT, null, false, false],
+            'AccrueLeave' => [false, self::PROPERTY_TYPE_FLOAT, null, false, false],
+            'Amount' => [false, self::PROPERTY_TYPE_FLOAT, null, false, false]
+        ];
     }
 
     public static function isPageable()
