@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Actual tests should be written at some point.
  *
@@ -18,10 +17,8 @@ $config = [
         'consumer_secret'   => 's',
 
     ],
-
     'curl' => [
         CURLOPT_CAINFO          => 'certs/ca-bundle.crt',
-
         CURLOPT_SSLCERT         => 'certs/entrust-cert-RQ3.pem',
         CURLOPT_SSLKEYPASSWD    => '1234',
         CURLOPT_SSLKEY          => 'certs/entrust-private-RQ3.pem'
@@ -29,5 +26,3 @@ $config = [
 ];
 
 $xero = new PartnerApplication($config);
-
-

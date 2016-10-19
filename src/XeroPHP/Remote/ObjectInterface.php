@@ -1,10 +1,9 @@
 <?php
 
-
 namespace XeroPHP\Remote;
 
-
-interface ObjectInterface {
+interface ObjectInterface
+{
 
     /**
      * Get the GUID Property if it exists
@@ -39,6 +38,4 @@ interface ObjectInterface {
     static function getAPIStem();
 
     static function isPageable();
-
-
 }

@@ -148,7 +148,7 @@ class {{ model.ClassName }} extends Remote\Object
     public function {% if property.isArray %}add{% else %}set{% endif %}{{ property.NameSingular }}({% if property.isHintable %}{{ property.PHPType }} {% endif %}$value)
     {
         $this->propertyUpdated('{{ property.Name }}', $value);
-        {% if property.isArray %}if(!isset($this->_data['{{ property.Name }}'])){
+        {% if property.isArray %}if (!isset($this->_data['{{ property.Name }}'])) {
             $this->_data['{{ property.Name }}'] = new Remote\Collection();
         }
         $this->_data['{{ property.Name }}'][] = $value;

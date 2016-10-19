@@ -2,8 +2,8 @@
 
 use XeroPHP\Helpers;
 
-class API {
-
+class API
+{
     private $name;
     private $namespace;
     private $uri;
@@ -26,8 +26,8 @@ class API {
      * @param $namespace
      * @param $stem
      */
-    public function __construct($name, $namespace, $stem) {
-
+    public function __construct($name, $namespace, $stem)
+    {
         $this->name = $name;
         $this->namespace = $namespace;
         $this->stem_constant  = $stem;
@@ -39,7 +39,6 @@ class API {
 
         $this->search_keys = [];
         $this->is_indexed = false;
-
     }
 
     /**
@@ -48,11 +47,13 @@ class API {
      * @param $group
      * @return array
      */
-    public function getEnumsByGroup($group){
+    public function getEnumsByGroup($group)
+    {
         $enums = [];
-        foreach($this->getEnums() as $enum){
-            if($enum->getGroup() == $group)
+        foreach ($this->getEnums() as $enum) {
+            if ($enum->getGroup() == $group) {
                 $enums[] = $enum;
+            }
         }
         return $enums;
     }
@@ -63,19 +64,21 @@ class API {
      *
      * @return array
      */
-    public function getStrayEnums(){
+    public function getStrayEnums()
+    {
         $names = [];
-        foreach($this->getModels() as $model){
+        foreach ($this->getModels() as $model) {
             //just so we're comparing apples with apples
             $names[] = Helpers::singularize($model->getName());
         }
 
         $strays = [];
-        foreach($this->getEnums() as $enum){
+        foreach ($this->getEnums() as $enum) {
             //just so we're comparing apples with apples
             $singular_group = Helpers::singularize($enum->getGroup());
-            if(!in_array($singular_group, $names))
+            if (!in_array($singular_group, $names)) {
                 $strays[$singular_group][] = $enum;
+            }
         }
         return $strays;
     }
@@ -85,7 +88,8 @@ class API {
      *
      * @return Enum[]
      */
-    public function getEnums() {
+    public function getEnums()
+    {
         return $this->enums;
     }
 
@@ -94,7 +98,8 @@ class API {
      *
      * @param Enum $enum
      */
-    public function addEnum(Enum $enum) {
+    public function addEnum(Enum $enum)
+    {
         $this->enums[$enum->getGroup().$enum->getName()] = $enum;
     }
 
@@ -103,17 +108,19 @@ class API {
      *
      * @return Model[]
      */
-    public function getModels($include_aliases = true) {
+    public function getModels($include_aliases = true)
+    {
         $models = $this->models;
 
-        if($include_aliases){
-            foreach($this->model_aliases as $alias){
-                /** @var Model $clone */
+        if ($include_aliases) {
+            foreach ($this->model_aliases as $alias) {
+                /**
+                 * @var Model $clone
+                 */
                 $clone = clone $alias['model'];
                 $clone->setName($alias['name']);
                 $models[] = $clone;
             }
-
         }
         return $models;
     }
@@ -123,7 +130,8 @@ class API {
      *
      * @param Model $model
      */
-    public function addModel(Model $model) {
+    public function addModel(Model $model)
+    {
         $model->setAPI($this);
         $this->models[] = $model;
     }
@@ -134,7 +142,8 @@ class API {
      * @param Model $model
      * @param $class_name
      */
-    public function addModelAlias(Model $model, $class_name){
+    public function addModelAlias(Model $model, $class_name)
+    {
         $this->model_aliases[] = [
             'name' => $class_name,
             'model' => $model
@@ -144,46 +153,50 @@ class API {
     /**
      * @return string
      */
-    public function getName() {
+    public function getName()
+    {
         return $this->name;
     }
 
     /**
      * @return string
      */
-    public function getNamespace() {
+    public function getNamespace()
+    {
         return $this->namespace;
     }
 
     /**
      * @return string
      */
-    public function getUri() {
+    public function getUri()
+    {
         return $this->uri;
     }
 
     /**
      * @param string $uri
      */
-    public function setUri($uri) {
+    public function setUri($uri)
+    {
         $this->uri = $uri;
     }
 
     /**
      * @return string
      */
-    public function getStemConstant() {
+    public function getStemConstant()
+    {
         return $this->stem_constant;
     }
-
-
 
     //Following functions are for matching data types and relations.
 
     /**
      * @return bool
      */
-    public function isIndexed(){
+    public function isIndexed()
+    {
         return $this->is_indexed;
     }
 
@@ -193,17 +206,18 @@ class API {
      * @param string $key
      * @param string $object
      */
-    public function addSearchKey($key, $object){
-
+    public function addSearchKey($key, $object)
+    {
         //Models take precedence (I think this only happens in one case)
-        if(isset($this->search_keys[$key]) && $this->search_keys[$key] instanceof Model)
+        if (isset($this->search_keys[$key]) && $this->search_keys[$key] instanceof Model) {
             return;
-
+        }
         $this->search_keys[$key] = $object;
     }
 
     /**
-     * Search for an entity based on a term. Search by class name, FQ class name - both as-is, plural and singular
+     * Search for an entity based on a term.
+     * Search by class name, FQ class name - both as-is, plural and singular
      *
      * Crude.
      *
@@ -211,10 +225,11 @@ class API {
      * @param string $namespace_hint
      * @return null
      */
-    public function searchByKey($key, $namespace_hint = ''){
-
-        if(!$this->isIndexed())
+    public function searchByKey($key, $namespace_hint = '')
+    {
+        if (!$this->isIndexed()) {
             $this->buildSearchIndex();
+        }
 
         //Yuck
         $plural_key = Helpers::pluralize($key);
@@ -224,22 +239,22 @@ class API {
         $plural_ns_key = Helpers::pluralize($ns_key);
         $singular_ns_key = Helpers::singularize($ns_key);
 
-        if(isset($this->search_keys[$ns_key])) {
+        if (isset($this->search_keys[$ns_key])) {
             return $this->search_keys[$ns_key];
 
-        } elseif(isset($this->search_keys[$plural_ns_key])) {
+        } elseif (isset($this->search_keys[$plural_ns_key])) {
             return $this->search_keys[$plural_ns_key];
 
-        } elseif(isset($this->search_keys[$singular_ns_key])) {
+        } elseif (isset($this->search_keys[$singular_ns_key])) {
             return $this->search_keys[$singular_ns_key];
 
-        } elseif(isset($this->search_keys[$key])) {
+        } elseif (isset($this->search_keys[$key])) {
             return $this->search_keys[$key];
 
-        } elseif(isset($this->search_keys[$plural_key])){
+        } elseif (isset($this->search_keys[$plural_key])) {
             return $this->search_keys[$plural_key];
 
-        } elseif(isset($this->search_keys[$singular_key])){
+        } elseif (isset($this->search_keys[$singular_key])) {
             return $this->search_keys[$singular_key];
 
         } else {
@@ -252,13 +267,14 @@ class API {
      *
      * @return array
      */
-    public function getSearchKeys(){
-
-        if(!$this->isIndexed())
+    public function getSearchKeys()
+    {
+        if (!$this->isIndexed()) {
             $this->buildSearchIndex();
+        }
 
         $keys = [];
-        foreach($this->search_keys as $key => $model){
+        foreach ($this->search_keys as $key => $model) {
             $keys[$key] = sprintf('%s\\%s', get_class($model), $model->getName());
         }
 
@@ -269,21 +285,20 @@ class API {
     /**
      * Build the search index
      */
-    public function buildSearchIndex(){
-
-        //possibly not the best place to do this, but you want it to be done as late as possible so all classes are indexed
-        foreach($this->getModels() as $model){
+    public function buildSearchIndex()
+    {
+        //possibly not the best place to do this, but you want it to be done
+        //as late as possible so all classes are indexed
+        foreach ($this->getModels() as $model) {
             $this->addSearchKey(sprintf('%s\\%s', $model->getNamespace(), $model->getClassName()), $model);
             $this->addSearchKey($model->getName(), $model);
         }
 
-        foreach($this->getEnums() as $enum){
+        foreach ($this->getEnums() as $enum) {
             $this->addSearchKey($enum->getGroup(), $enum);
             $this->addSearchKey($enum->getName(), $enum);
             $this->addSearchKey($enum->getAnchor(), $enum);
         }
-
         $this->is_indexed = true;
-
     }
-} 
+}
