@@ -1,4 +1,8 @@
 <?php
+//php-cs-fixer config file.
+//See: https://github.com/FriendsOfPHP/PHP-CS-Fixer
+//Run like this from the project root:
+//php-cs-fixer fix --config-file=.php_cs
 
 return Symfony\CS\Config::create()
     ->finder(
