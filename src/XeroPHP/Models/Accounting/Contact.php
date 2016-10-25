@@ -674,6 +674,11 @@ class Contact extends Remote\Object
         return $this->_data['IsSupplier'];
     }
 
+    /**
+     * @deprecated - this is a read only property and this method will be removed in future versions
+     * @param $value
+     */
+    public function setIsSupplier($value){}
 
     /**
      * @return bool
@@ -683,6 +688,11 @@ class Contact extends Remote\Object
         return $this->_data['IsCustomer'];
     }
 
+    /**
+     * @deprecated - this is a read only property and this method will be removed in future versions
+     * @param $value
+     */
+    public function setIsCustomer($value){}
 
     /**
      * @return string
@@ -1012,6 +1022,11 @@ class Contact extends Remote\Object
         return $this->_data['HasAttachments'];
     }
 
+    /**
+     * @deprecated - this is a read only property and this method will be removed in future versions
+     * @param $value
+     */
+    public function setHasAttachment($value){}
 
 
 }

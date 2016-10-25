@@ -447,6 +447,10 @@ class RepeatingInvoice extends Remote\Object
         return $this->_data['HasAttachments'];
     }
 
-
+    /**
+     * @deprecated - this is a read only property and this method will be removed in future versions
+     * @param $value
+     */
+    public function setHasAttachment($value){}
 
 }
