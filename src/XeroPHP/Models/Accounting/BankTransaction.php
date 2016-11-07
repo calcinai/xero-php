@@ -70,7 +70,7 @@ class BankTransaction extends Remote\Object
      */
 
     /**
-     * URL link to a source document – shown as "Go to App Name"
+     * URL link to a source document – shown as “Go to App Name”
      *
      * @property string Url
      */
@@ -247,7 +247,7 @@ class BankTransaction extends Remote\Object
 
     public static function isPageable()
     {
-        return false;
+        return true;
     }
 
     /**
