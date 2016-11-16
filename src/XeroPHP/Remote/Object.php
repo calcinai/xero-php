@@ -372,6 +372,7 @@ abstract class Object implements ObjectInterface, \JsonSerializable, \ArrayAcces
     /**
      * Shorthand save an object if it is instantiated with app context.
      *
+     * @return Response|null
      * @throws Exception
      */
     public function save()
@@ -381,12 +382,14 @@ abstract class Object implements ObjectInterface, \JsonSerializable, \ArrayAcces
                 '->save() is only available on objects that have an injected application context.'
             );
         }
-        $this->_application->save($this);
+
+        return $this->_application->save($this);
     }
 
     /**
      * Shorthand delete an object if it is instantiated with app context.
      *
+     * @return Response|null
      * @throws Exception
      */
     public function delete()
@@ -396,7 +399,8 @@ abstract class Object implements ObjectInterface, \JsonSerializable, \ArrayAcces
                 '->delete() is only available on objects that have an injected application context.'
             );
         }
-        $this->_application->delete($this);
+
+        return $this->_application->delete($this);
     }
 
     /**
