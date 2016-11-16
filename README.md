@@ -128,3 +128,7 @@ $invoice->addAttachment($attachment);
 PDF - Models that support PDF export will inherit a ```->getPDF()``` method, which returns the raw content of the PDF.  Currently this is limited to Invoices and CreditNotes.
 
 Refer to the [examples](examples) for more complex usage and nested/related objects.
+
+## 3rd-party integration
+
+- [Symfony bundle](https://github.com/fourlabsldn/XeroBundle)
