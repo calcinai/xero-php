@@ -228,7 +228,7 @@ abstract class Application
 
     /**
      * @param Collection|array $objects
-     * @return null
+     * @return Remote\Response
      * @throws Exception
      */
     public function saveAll($objects)
