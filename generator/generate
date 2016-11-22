@@ -170,7 +170,7 @@ foreach ($scrape_apis as $scrape_api) {
                 });
 
                 //Fix for doc update for BC.
-                //todo - reassess if these cases should belong in 'TaxRates' class
+                //todo - reassess if these cases should belong in 'TaxRates'` class
                 //from 2.x (maybe Xero will have a machine-readable spec by then)
                 if (strpos($anchor, 'TaxTypes') !== false) {
                     $section_name = $anchor;
