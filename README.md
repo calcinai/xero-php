@@ -125,6 +125,8 @@ $attachment = \XeroPHP\Models\Accounting\Attachment::createFromLocalFile('/path/
 $invoice->addAttachment($attachment);
 ```
 
+To set the `IncludeOnline` flag on the attachment, pass `true` as the second parameter for `->addAttachment()`.
+
 PDF - Models that support PDF export will inherit a ```->getPDF()``` method, which returns the raw content of the PDF.  Currently this is limited to Invoices and CreditNotes.
 
 Refer to the [examples](examples) for more complex usage and nested/related objects.
