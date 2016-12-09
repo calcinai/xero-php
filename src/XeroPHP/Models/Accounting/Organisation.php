@@ -136,15 +136,15 @@ class Organisation extends Remote\Object
      */
 
     /**
-     * Organisation Type
-     *
-     * @property string OrganisationEntityType
-     */
-
-    /**
      * Timezone specifications
      *
      * @property string Timezone
+     */
+
+    /**
+     * Organisation Type
+     *
+     * @property string OrganisationEntityType
      */
 
     /**
@@ -296,8 +296,8 @@ class Organisation extends Remote\Object
             'PeriodLockDate' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
             'EndOfYearLockDate' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
             'CreatedDateUTC' => [false, self::PROPERTY_TYPE_TIMESTAMP, '\\DateTimeInterface', false, false],
-            'OrganisationEntityType' => [false, self::PROPERTY_TYPE_ENUM, null, false, false],
             'Timezone' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'OrganisationEntityType' => [false, self::PROPERTY_TYPE_ENUM, null, false, false],
             'ShortCode' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
             'LineOfBusiness' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
             'Addresses' => [false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Address', true, false],
@@ -714,25 +714,6 @@ class Organisation extends Remote\Object
     /**
      * @return string
      */
-    public function getOrganisationEntityType()
-    {
-        return $this->_data['OrganisationEntityType'];
-    }
-
-    /**
-     * @param string $value
-     * @return Organisation
-     */
-    public function setOrganisationEntityType($value)
-    {
-        $this->propertyUpdated('OrganisationEntityType', $value);
-        $this->_data['OrganisationEntityType'] = $value;
-        return $this;
-    }
-
-    /**
-     * @return string
-     */
     public function getTimezone()
     {
         return $this->_data['Timezone'];
@@ -746,6 +727,25 @@ class Organisation extends Remote\Object
     {
         $this->propertyUpdated('Timezone', $value);
         $this->_data['Timezone'] = $value;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getOrganisationEntityType()
+    {
+        return $this->_data['OrganisationEntityType'];
+    }
+
+    /**
+     * @param string $value
+     * @return Organisation
+     */
+    public function setOrganisationEntityType($value)
+    {
+        $this->propertyUpdated('OrganisationEntityType', $value);
+        $this->_data['OrganisationEntityType'] = $value;
         return $this;
     }
 
