@@ -211,7 +211,7 @@ abstract class Application
 
         //Put in an array with the first level containing only the 'root node'.
         $data = [$object::getRootNodeName() => $object->toStringArray()];
-        $url = new URL($this, $uri);
+        $url = new URL($this, $uri, $object::getAPIStem());
         $request = new Request($this, $url, $method);
 
         $request->setBody(Helpers::arrayToXML($data))->send();
