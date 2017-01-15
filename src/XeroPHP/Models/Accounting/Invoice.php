@@ -31,7 +31,8 @@ class Invoice extends Remote\Object
      */
 
     /**
-     * Date invoice was issued – YYYY-MM-DD. Learn more
+     * Date invoice was issued – YYYY-MM-DD. If the Date element is not specified it will default to the
+     * current date based on the timezone setting of the organisation
      *
      * @property \DateTimeInterface Date
      */

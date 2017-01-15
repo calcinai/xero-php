@@ -26,7 +26,8 @@ class CreditNote extends Remote\Object
      */
 
     /**
-     * The date the credit note is issued YYYY-MM-DD
+     * The date the credit note is issued YYYY-MM-DD. If the Date element is not specified then it will
+     * default to the current date based on the timezone setting of the organisation
      *
      * @property \DateTimeInterface Date
      */
@@ -641,10 +642,6 @@ class CreditNote extends Remote\Object
         return $this->_data['HasAttachments'];
     }
 
-    /**
-     * @deprecated - this is a read only property and this method will be removed in future versions
-     * @param $value
-     */
-    public function setHasAttachment($value){}
+
 
 }
