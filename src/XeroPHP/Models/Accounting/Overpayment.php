@@ -224,6 +224,7 @@ class Overpayment extends Remote\Model
             'Allocations' => [false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Overpayment\\Allocation', true, true],
             'Payments' => [false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Payment', true, false],
             'HasAttachments' => [false, self::PROPERTY_TYPE_BOOLEAN, null, false, false],
+            'AppliedAmount' => [false, self::PROPERTY_TYPE_FLOAT, null, false, false]
         ];
     }
 
@@ -603,6 +604,14 @@ class Overpayment extends Remote\Model
         return $this;
     }
 
+    /**
+     * @return float
+     */
+    public function getAppliedAmount()
+    {
+        return $this->_data['AppliedAmount'];
+    }
+    
     /**
      * @return Payment[]|Remote\Collection
      */
