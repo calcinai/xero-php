@@ -233,6 +233,8 @@ abstract class Application
      */
     public function saveAll($objects)
     {
+        $objects = array_values($objects);
+        
         //Just get one type to compare with, doesn't matter which.
         $current_object = current($objects);
         /**
