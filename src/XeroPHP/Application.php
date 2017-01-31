@@ -236,7 +236,7 @@ abstract class Application
         $objects = array_values($objects);
         
         //Just get one type to compare with, doesn't matter which.
-        $current_object = current($objects);
+        $current_object = $objects[0];
         /**
          * @var Object $type
          */
