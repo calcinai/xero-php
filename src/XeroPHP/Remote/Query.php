@@ -22,6 +22,7 @@ class Query
     private $toDate;
     private $date;
     private $offset;
+    private $includeArchived;
 
     public function __construct(Application $app)
     {
@@ -31,6 +32,7 @@ class Query
         $this->modifiedAfter = null;
         $this->page = null;
         $this->offset = null;
+        $this->includeArchived = false;
     }
 
     /**
@@ -207,6 +209,11 @@ class Query
         return $this;
     }
 
+    public function includeArchived($includeArchived = true) {
+        $this->includeArchived = (bool) $includeArchived;
+        return $this;
+    }
+
     /**
      * @return Collection
      */
@@ -256,6 +263,10 @@ class Query
 
         if ($this->offset !== null) {
             $request->setParameter('offset', $this->offset);
+        }
+
+        if ($this->includeArchived !== false) {
+            $request->setParameter('includeArchived', 'true');
         }
 
         $request->send();
