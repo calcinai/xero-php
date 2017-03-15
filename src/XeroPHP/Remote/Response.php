@@ -70,7 +70,7 @@ class Response
         switch ($this->status) {
             case Response::STATUS_BAD_REQUEST:
                 //This catches actual app errors
-                if (isset($this->root_error)) {
+                if (!empty($this->root_error)) {
                     $message = sprintf('%s (%s)', $this->root_error['message'], implode(', ', $this->element_errors));
                     $message .= $this->parseBadRequest();
                     throw new BadRequestException($message, $this->root_error['code']);
