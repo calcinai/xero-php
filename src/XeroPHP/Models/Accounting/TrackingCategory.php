@@ -31,6 +31,12 @@ class TrackingCategory extends Remote\Object
      * @property TrackingOption[] Options
      */
 
+    /**
+     * Selected Option name
+     *
+     * @property string Option
+     */
+
 
 
     /**
@@ -107,7 +113,8 @@ class TrackingCategory extends Remote\Object
             'TrackingCategoryID' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
             'Name' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
             'Status' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
-            'Options' => [false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\TrackingCategory\\TrackingOption', true, true]
+            'Options' => [false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\TrackingCategory\\TrackingOption', true, true],
+            'Option' => [false, self::PROPERTY_TYPE_STRING, null, false, true]
         ];
     }
 
@@ -193,6 +200,26 @@ class TrackingCategory extends Remote\Object
             $this->_data['Options'] = new Remote\Collection();
         }
         $this->_data['Options'][] = $value;
+        return $this;
+    }
+
+    /**
+     * @return string $value
+     * Returns selected option name
+     */
+    public function getOption()
+    {
+        return $this->_data['Option'];
+    }
+
+    /**
+     * @param string $value
+     * @return TrackingCategory
+     */
+    public function setOption($value)
+    {
+        $this->propertyUpdated('Option', $value);
+        $this->_data['Option'] = $value;
         return $this;
     }
 
