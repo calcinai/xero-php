@@ -269,7 +269,7 @@ class LineItem extends Remote\Object
      */
     public function getLineItemID()
     {
-        return $this->_data['LineItemID'];
+        return !empty($this->_data['LineItemID']) ? $this->_data['LineItemID'] : false;
     }
 
     /**

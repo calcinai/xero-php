@@ -108,6 +108,14 @@ abstract class Application
         return $this->config[$key];
     }
 
+    /**
+     * @param mixed $key
+     * @param mixed $value
+     */
+    public function setConfig($key, $value)
+    {
+        array_set($this->config, $key, $value);
+    }
 
     /**
      * Validates and expands the provided model class to a full PHP class

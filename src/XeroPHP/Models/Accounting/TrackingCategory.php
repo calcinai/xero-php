@@ -107,6 +107,7 @@ class TrackingCategory extends Remote\Object
             'TrackingCategoryID' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
             'Name' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
             'Status' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'Option' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
             'Options' => [false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\TrackingCategory\\TrackingOption', true, true]
         ];
     }
@@ -174,6 +175,25 @@ class TrackingCategory extends Remote\Object
     }
 
     /**
+     * @return string
+     */
+    public function getOption()
+    {
+        return $this->_data['Option'];
+    }
+
+    /**
+     * @param string $value
+     * @return TrackingCategory
+     */
+    public function setOption($value)
+    {
+        $this->propertyUpdated('Option', $value);
+        $this->_data['Option'] = $value;
+        return $this;
+    }
+
+    /**
      * @return TrackingOption[]|Remote\Collection
      * Always returns a collection, switch is for type hinting
      */
@@ -195,6 +215,4 @@ class TrackingCategory extends Remote\Object
         $this->_data['Options'][] = $value;
         return $this;
     }
-
-
 }
