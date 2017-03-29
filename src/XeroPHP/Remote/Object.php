@@ -74,7 +74,7 @@ abstract class Object implements ObjectInterface, \JsonSerializable, \ArrayAcces
     }
 
     /**
-     * This should be compulsory in the constructor int he future,
+     * This should be compulsory in the constructor in the future,
      * but will have to be like this for BC until the next major version.
      *
      * @param Application $application
