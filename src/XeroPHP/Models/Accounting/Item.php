@@ -173,7 +173,7 @@ class Item extends Remote\Object
         return [
             'ItemID' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
             'Code' => [true, self::PROPERTY_TYPE_STRING, null, false, false],
-            'InventoryAssetAccountCode' => [true, self::PROPERTY_TYPE_STRING, null, false, false],
+            'InventoryAssetAccountCode' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
             'Name' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
             'IsSold' => [false, self::PROPERTY_TYPE_BOOLEAN, null, false, false],
             'IsPurchased' => [false, self::PROPERTY_TYPE_BOOLEAN, null, false, false],
