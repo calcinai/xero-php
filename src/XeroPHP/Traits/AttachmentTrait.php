@@ -14,7 +14,7 @@ trait AttachmentTrait
         /**
          * @var Object $this
          */
-        $uri = sprintf('%s/%s/Attachments/%s', $this::getResourceURI(), $this->getGUID(), $attachment->getFileName());
+        $uri = sprintf('%s/%s/Attachments/%s', $this::getResourceURI(), $this->getGUID(), rawurlencode($attachment->getFileName()));
 
         $url = new URL($this->_application, $uri);
         $request = new Request($this->_application, $url, Request::METHOD_POST);
