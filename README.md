@@ -85,7 +85,7 @@ $xero->load('Accounting\\Invoice')->where('
 
 Load something by its GUID
 ```php
-$contact = $xero->loadByGUID('Accounting\\Contact', [GUID]);
+$contact = $xero->loadByGUID('Accounting\\Contact', $guid);
 ```
 
 Or create & populate it
