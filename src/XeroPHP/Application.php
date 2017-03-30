@@ -194,11 +194,11 @@ abstract class Application
         }
         $object->validate();
 
-        //In this case it's new
         if ($object->hasGUID()) {
             $method = $object::supportsMethod(Request::METHOD_POST) ? Request::METHOD_POST : Request::METHOD_PUT;
             $uri = sprintf('%s/%s', $object::getResourceURI(), $object->getGUID());
         } else {
+            //In this case it's new
             $method = $object::supportsMethod(Request::METHOD_PUT) ? Request::METHOD_PUT : Request::METHOD_POST;
             $uri = $object::getResourceURI();
             //@todo, bump version so you must create objects with app context.
