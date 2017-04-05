@@ -23,6 +23,7 @@ class Query
     private $date;
     private $offset;
     private $includeArchived;
+    private $params;
 
     public function __construct(Application $app)
     {
@@ -33,6 +34,7 @@ class Query
         $this->page = null;
         $this->offset = null;
         $this->includeArchived = false;
+        $this->params = [];
     }
 
     /**
@@ -214,6 +216,13 @@ class Query
         return $this;
     }
 
+
+    public function setParameter($key, $value)
+    {
+        $this->params[(string) $key] = (string) $value;
+        return $this;
+    }
+
     /**
      * @return Collection
      */
@@ -229,6 +238,11 @@ class Query
             $from_class::getAPIStem()
         );
         $request = new Request($this->app, $url, Request::METHOD_GET);
+
+        // Add params
+        foreach($this->params as $key => $value) {
+            $request->setParameter($key, $value);
+        }
 
         // Concatenate where statements
         $where = $this->getWhere();
