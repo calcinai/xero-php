@@ -234,7 +234,7 @@ abstract class Application
     public function saveAll($objects)
     {
         $objects = array_values($objects);
-        
+
         //Just get one type to compare with, doesn't matter which.
         $current_object = $objects[0];
         /**
@@ -259,7 +259,7 @@ abstract class Application
 
         $request_method = $has_guid ? Request::METHOD_POST : Request::METHOD_PUT;
 
-        $url = new URL($this, $type::getResourceURI());
+        $url = new URL($this, $type::getResourceURI(), $current_object::getAPIStem());
         $request = new Request($this, $url, $request_method);
 
         //This might need to be parsed and stored some day.

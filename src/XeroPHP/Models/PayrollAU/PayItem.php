@@ -54,7 +54,7 @@ class PayItem extends Remote\Object
      */
     public static function getRootNodeName()
     {
-        return 'PayItem';
+        return 'PayItems';
     }
 
 
