@@ -227,8 +227,10 @@ class Client
      */
     private function getNonce($length = 20)
     {
-        // Add more uniqueness to the nonce
         $parts = explode('.', microtime(true));
+        if (!isset($parts[1])) {
+            $parts[1] = 0;
+        }
         $nonce = base_convert($parts[1], 10, 36);
 
         for ($i = 0; $i < $length - strlen($nonce); $i++) {
