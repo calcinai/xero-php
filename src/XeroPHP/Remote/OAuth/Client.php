@@ -227,9 +227,13 @@ class Client
      */
     private function getNonce($length = 20)
     {
-        $nonce = "";
+        $parts = explode('.', microtime(true));
+        if (!isset($parts[1])) {
+            $parts[1] = 0;
+        }
+        $nonce = base_convert($parts[1], 10, 36);
 
-        while (strlen($nonce) < $length) {
+        for ($i = 0; $i < $length - strlen($nonce); $i++) {
             $nonce .= base_convert(mt_rand(0, 35), 10, 36);
         }
 
