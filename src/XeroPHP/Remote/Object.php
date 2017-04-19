@@ -165,6 +165,11 @@ abstract class Object implements ObjectInterface, \JsonSerializable, \ArrayAcces
      */
     public function fromStringArray($input_array, $replace_data = false)
     {
+
+        if(count($input_array) === 1 && isset($input_array[static::getRootNodeName()])){
+            $input_array = $input_array[static::getRootNodeName()];
+        }
+
         foreach (static::getProperties() as $property => $meta) {
             $type = $meta[self::KEY_TYPE];
             $php_type = $meta[self::KEY_PHP_TYPE];
