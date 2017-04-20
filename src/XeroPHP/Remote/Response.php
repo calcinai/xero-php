@@ -78,9 +78,7 @@ class Response
                     throw new BadRequestException();
                 }
 
-            /**
-             * @noinspection PhpMissingBreakStatementInspection
-             */
+            /** @noinspection PhpMissingBreakStatementInspection */
             case Response::STATUS_UNAUTHORISED:
                 //This is where OAuth errors end up, this could maybe change to an OAuth exception
                 if (isset($this->oauth_response['oauth_problem_advice'])) {

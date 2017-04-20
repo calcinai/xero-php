@@ -2,6 +2,8 @@
 
 namespace XeroPHP;
 
+use XeroPHP\Models\Accounting\TrackingCategory;
+
 /**
  * Unfortunate class for methods that don't really have a home.
  * This is to avoid external dependencies.
@@ -77,7 +79,9 @@ class Helpers
             }
 
             //don't make it assoc, as the keys will all be the same
-            if ($child_name === $singular_node_name) {
+            if ($child_name === $singular_node_name ||
+                //Handle strange XML
+                ($singular_node_name === 'Tracking' && $child_name === TrackingCategory::getRootNodeName())) {
                 $output[] = $node;
             } else {
                 $output[$child_name] = $node;
