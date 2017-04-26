@@ -126,7 +126,7 @@ abstract class Application
         $this->config = array_replace_recursive(
             self::$_config_defaults,
             static::$_type_config_defaults,
-            $user_config
+            $config
         );
 
         return $this->config;
@@ -272,7 +272,7 @@ abstract class Application
     public function saveAll($objects)
     {
         $objects = array_values($objects);
-        
+
         //Just get one type to compare with, doesn't matter which.
         $current_object = $objects[0];
         /**
