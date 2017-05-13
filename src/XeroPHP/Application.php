@@ -62,11 +62,7 @@ abstract class Application
     public function __construct(array $user_config)
     {
         //better here for overriding
-        $this->config = array_replace_recursive(
-            self::$_config_defaults,
-            static::$_type_config_defaults,
-            $user_config
-        );
+        $this->setConfig($user_config);
 
         $this->oauth_client = new Client($this->config['oauth']);
     }
@@ -108,6 +104,48 @@ abstract class Application
         return $this->config[$key];
     }
 
+    /**
+    * @param string $config
+    * @param mixed $option
+    * @param mixed $value
+    * @return mixed
+    * @throws Exception
+    */
+    public function getConfigOption($config, $option) {
+        if (!isset($this->config[$config])) {
+            throw new Exception("Invalid configuration key [$key]");
+        }
+        return $this->config[$config][$option];
+    }
+
+    /**
+     * @param array $config
+     * @return array
+     */
+    public function setConfig($config) {
+        $this->config = array_replace_recursive(
+            self::$_config_defaults,
+            static::$_type_config_defaults,
+            $config
+        );
+
+        return $this->config;
+    }
+
+    /**
+     * @param string $config
+     * @param mixed $option
+     * @param mixed $value
+     * @return array
+     * @throws Exception
+     */
+    public function setConfigOption($config, $option, $value) {
+        if (!isset($this->config[$config])) {
+            throw new Exception("Invalid configuration key [$key]");
+        }
+        $this->config[$config][$option] = $value;
+        return $this->config;
+    }
 
     /**
      * Validates and expands the provided model class to a full PHP class
@@ -234,7 +272,7 @@ abstract class Application
     public function saveAll($objects)
     {
         $objects = array_values($objects);
-        
+
         //Just get one type to compare with, doesn't matter which.
         $current_object = $objects[0];
         /**
