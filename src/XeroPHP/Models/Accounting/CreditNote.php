@@ -363,6 +363,15 @@ class CreditNote extends Remote\Object
         $this->_data['LineItems'][] = $value;
         return $this;
     }
+    
+    /**
+     * @return LineItem[]|Remote\Collection
+     * Always returns a collection, switch is for type hinting
+     */
+    public function getPayments()
+    {
+        return $this->_data['Payments'];
+    }
 
     /**
      * @return float
