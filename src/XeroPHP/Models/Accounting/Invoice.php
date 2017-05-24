@@ -385,7 +385,27 @@ class Invoice extends Remote\Object
         if (!isset($this->_data['LineItems'])) {
             $this->_data['LineItems'] = new Remote\Collection();
         }
+
+        if($value->getLineItemId()) {
+            foreach ($this->_data['LineItems'] as $index => $line_item) {
+                if($line_item->getLineItemId() == $value->getLineItemId()) {
+                    $this->_data['LineItems']->offsetSet($index, $value);
+                    return $this;
+                }
+            }
+        }
+
         $this->_data['LineItems'][] = $value;
+
+        return $this;
+    }
+
+    /**
+     * @return Invoice
+     */
+    public function clearLineItems()
+    {
+        $this->_data['LineItems'] = new Remote\Collection();
         return $this;
     }
 
@@ -783,7 +803,4 @@ class Invoice extends Remote\Object
     {
         return $this->_data['CreditNotes'];
     }
-
-
-
 }
