@@ -785,7 +785,7 @@ class Invoice extends Remote\Object
     }
 
 
-        /**
+    /**
      * Retrieve the online invoice URL.
      *
      * @return string
