@@ -10,9 +10,6 @@ $config = [
         'consumer_secret'  => 's',
         'rsa_private_key'  => 'file://certs/private.pem',
     ],
-    'curl' => [
-        CURLOPT_CAINFO => __DIR__.'/certs/ca-bundle.crt',
-    ],
 ];
 
 $xero = new PrivateApplication($config);
