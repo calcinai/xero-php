@@ -785,5 +785,46 @@ class Invoice extends Remote\Object
     }
 
 
+    /**
+     * Retrieve the online invoice URL.
+     *
+     * @return string
+     * @throws \XeroPHP\Exception
+     */
+    public function getOnlineInvoiceUrl()
+    {
+        if (!$this->hasGUID()) {
+            throw new Exception('Unable to retrieve the online invoice URL as the invoice has no GUID');
+        }
+
+        return $this->onlineInvoiceRequest()
+                    ->send()
+                    ->getElements()[0]['OnlineInvoiceUrl'];
+    }
+
+    /**
+     * Build the online invoice request object.
+     *
+     * @return \XeroPHP\Remote\Request
+     */
+    protected function onlineInvoiceRequest()
+    {
+        return new Remote\Request(
+            $this->_application, $this->onlineInvoiceRemoteUrl()
+        );
+    }
+
+    /**
+     * Build the online invoice URL object.
+     *
+     * @return \XeroPHP\Remote\URL
+     */
+    protected function onlineInvoiceRemoteUrl()
+    {
+        return new Remote\URL(
+            $this->_application, 'Invoices/'.$this->getGUID().'/OnlineInvoice'
+        );
+    }
+
 
 }
