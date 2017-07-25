@@ -70,10 +70,12 @@ class Response
         switch ($this->status) {
             case Response::STATUS_BAD_REQUEST:
                 //This catches actual app errors
-                if (isset($this->root_error)) {
+                if(isset($this->root_error['message'])) {
                     $message = sprintf('%s (%s)', $this->root_error['message'], implode(', ', $this->element_errors));
                     $message .= $this->parseBadRequest();
                     throw new BadRequestException($message, $this->root_error['code']);
+                } else if(isset($this->oauth_response['oauth_problem_advice'])) {
+                    throw new BadRequestException($this->oauth_response['oauth_problem_advice']);
                 } else {
                     throw new BadRequestException();
                 }
