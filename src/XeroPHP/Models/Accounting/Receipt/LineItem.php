@@ -134,6 +134,7 @@ class LineItem extends Remote\Object
     public static function getProperties()
     {
         return [
+            'LineItemID' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
             'Description' => [true, self::PROPERTY_TYPE_STRING, null, false, false],
             'UnitAmount' => [true, self::PROPERTY_TYPE_FLOAT, null, false, false],
             'AccountCode' => [true, self::PROPERTY_TYPE_STRING, null, false, false],
@@ -148,6 +149,25 @@ class LineItem extends Remote\Object
     public static function isPageable()
     {
         return false;
+    }
+
+    /**
+     * @return string
+     */
+    public function getLineItemID()
+    {
+        return $this->_data['LineItemID'];
+    }
+
+    /**
+     * @param string $value
+     * @return LineItem
+     */
+    public function setLineItemID($value)
+    {
+        $this->propertyUpdated('LineItemID', $value);
+        $this->_data['LineItemID'] = $value;
+        return $this;
     }
 
     /**
