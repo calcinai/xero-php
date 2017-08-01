@@ -156,16 +156,29 @@ abstract class Application
      */
     public function validateModelClass($class)
     {
-        $config = $this->getConfig('xero');
-
-        if ($class[0] !== '\\') {
-            $class = sprintf('%s\\%s', $config['model_namespace'], $class);
+        if (class_exists($class)) {
+            return $class;
         }
+
+        $class = $this->prependConfigNamespace($class);
+
         if (!class_exists($class)) {
             throw new Exception("Class does not exist [$class]");
         }
 
         return $class;
+    }
+
+
+    /**
+     * Prepend the configuration namespace to the class.
+     *
+     * @param  string  $class
+     * @return string
+     */
+    protected function prependConfigNamespace($class)
+    {
+        return $this->getConfig('xero')['model_namespace'].'\\'.$class;
     }
 
 
