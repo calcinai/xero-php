@@ -11,7 +11,10 @@ use XeroPHP\Remote\URL;
 
 abstract class Application
 {
-    protected static $_config_defaults = [
+    /**
+     * @var array
+     */
+    protected $config = [
         'xero'  => [
             'site'            => 'https://api.xero.com',
             'base_url'        => 'https://api.xero.com',
@@ -42,19 +45,10 @@ abstract class Application
     ];
 
     /**
-     * @var array
-     */
-    protected $config;
-
-    /**
      * @var Client
      */
     protected $oauth_client;
 
-    /**
-     * @var array
-     */
-    protected static $_type_config_defaults = [];
 
     /**
      * @param array $user_config
@@ -123,11 +117,7 @@ abstract class Application
      * @return array
      */
     public function setConfig($config) {
-        $this->config = array_replace_recursive(
-            self::$_config_defaults,
-            static::$_type_config_defaults,
-            $config
-        );
+        $this->config = array_replace_recursive($this->config, $config);
 
         return $this->config;
     }
