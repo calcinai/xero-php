@@ -27,6 +27,16 @@ class ApplicationTest extends \PHPUnit_Framework_TestCase
         );
     }
 
+    public function test_allows_FQN_beginning_with_backslash_when_validating_model_class()
+    {
+        $class = '\XeroPHP\Models\Accounting\Invoice';
+
+        $this->assertEquals(
+            $this->instance()->validateModelClass($class),
+            $class
+        );
+    }
+
     public function test_throws_exception_when_unable_to_validate_class()
     {
         $this->setExpectedException(\Exception::class);
