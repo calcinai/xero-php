@@ -18,6 +18,19 @@ class ApplicationTest extends \PHPUnit_Framework_TestCase
         );
     }
 
+    public function test_setting_configs_twice_does_not_overrides_with_config_defaults()
+    {
+        $site = 'http://my.custom.site/';
+        $app = $this->instance();
+        $app->setConfig(['xero' => ['site' => $site]]);
+        $app->setConfig(['xero' => ['core_version' => '9.9']]);
+
+        $this->assertEquals(
+            $site,
+            $app->getConfigOption('xero', 'site')
+        );
+    }
+
     public function test_prepends_config_namespace_when_validating_model_class()
     {
         $app = $this->instance();
