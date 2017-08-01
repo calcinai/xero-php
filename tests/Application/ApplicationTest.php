@@ -6,12 +6,6 @@ use XeroPHP\Application\PrivateApplication;
 
 class ApplicationTest extends \PHPUnit_Framework_TestCase
 {
-    const CONFIG = [
-        'oauth' => [
-            'consumer_key' => 'CONSUMER_KEY',
-        ],
-    ];
-
     public function test_prepends_config_namespace_when_validating_model_class()
     {
         $app = $this->instance();
@@ -43,7 +37,9 @@ class ApplicationTest extends \PHPUnit_Framework_TestCase
     protected function instance($config = [])
     {
         return new PrivateApplication(
-            array_merge_recursive(static::CONFIG, $config)
+            array_merge_recursive([
+                'oauth' => ['consumer_key' => 'CONSUMER_KEY'],
+            ], $config)
         );
     }
 }
