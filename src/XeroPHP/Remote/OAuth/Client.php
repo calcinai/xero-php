@@ -295,11 +295,43 @@ class Client
     }
 
     /**
+     * @param string|null $oauth_token
      * @return string
      */
-    public function getAuthorizeURL()
+    public function getAuthorizeURL($oauth_token = null)
     {
-        return $this->config['authorize_url'];
+        if ($oauth_token == null) {
+            return $this->config['authorize_url'];
+        }
+
+        return $this->appendUrlQuery(
+            $this->config['authorize_url'], compact('oauth_token')
+        );
+    }
+
+    /**
+     * Prepend URL with query string.
+     *
+     * @param  string  $url
+     * @param  array  $query
+     * @return string
+     */
+    protected function appendUrlQuery($url, $query)
+    {
+        $glue = $this->urlHasQuery($url) ? '&' : '?';
+
+        return $url.$glue.http_build_query($query);
+    }
+
+    /**
+     * Determine if the URL has a query string.
+     *
+     * @param  string  $url
+     * @return bool
+     */
+    protected function urlHasQuery($url)
+    {
+        return (bool) parse_url($url, PHP_URL_QUERY);
     }
 
     //Populated during 3-legged auth
