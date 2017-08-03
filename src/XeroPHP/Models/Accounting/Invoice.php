@@ -390,6 +390,25 @@ class Invoice extends Remote\Object
     }
 
     /**
+     * @return Invoice
+     */
+    public function removeLineItems()
+    {
+        $this->_data['LineItems'] = new Remote\Collection();
+        return $this;
+    }
+
+    /**
+     * @param  $index
+     * @return Invoice
+     */
+    public function removeLineItem($index)
+    {
+        $this->_data['LineItems']->removeAt($index);
+        return $this;
+    }
+
+    /**
      * @return \DateTimeInterface
      */
     public function getDate()
