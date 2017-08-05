@@ -44,6 +44,20 @@ class ApplicationTest extends \PHPUnit_Framework_TestCase
         $this->instance()->validateModelClass('Unknown\\Namespaced\\Class');
     }
 
+    public function test_set_config_option_updates_configuration()
+    {
+        $key = 'oauth';
+        $subkey = 'test_sub_key';
+        $expected = 'test_value';
+        $app = $this->instance();
+        $app->setConfigOption($key, $subkey, $expected);
+
+        $this->assertEquals(
+            $expected,
+            $app->getConfigOption($key, $subkey, $expected)
+        );
+    }
+
     protected function instance($config = [])
     {
         return new PrivateApplication(

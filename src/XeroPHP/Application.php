@@ -141,7 +141,7 @@ abstract class Application
      */
     public function setConfigOption($config, $option, $value) {
         if (!isset($this->config[$config])) {
-            throw new Exception("Invalid configuration key [$key]");
+            throw new Exception("Invalid configuration key [$config]");
         }
         $this->config[$config][$option] = $value;
         return $this->config;
