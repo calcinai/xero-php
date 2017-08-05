@@ -44,6 +44,24 @@ class ApplicationTest extends \PHPUnit_Framework_TestCase
         $this->instance()->validateModelClass('Unknown\\Namespaced\\Class');
     }
 
+    public function test_can_retrieve_config()
+    {
+        $key = 'test_key';
+        $expected = ['sub_test_key' => 'test_value'];
+
+        $this->assertEquals(
+            $expected,
+            $this->instance([$key => $expected])->getConfig($key)
+        );
+    }
+
+    public function test_accessing_missing_config_throws_exception()
+    {
+        $this->setExpectedException(\Exception::class);
+
+        $this->instance()->getConfig('non_existent_key');
+    }
+
     protected function instance($config = [])
     {
         return new PrivateApplication(
