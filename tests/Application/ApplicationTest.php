@@ -44,6 +44,13 @@ class ApplicationTest extends \PHPUnit_Framework_TestCase
         $this->instance()->validateModelClass('Unknown\\Namespaced\\Class');
     }
 
+    public function test_setting_missing_config_option_throws_exception()
+    {
+        $this->setExpectedException(\Exception::class);
+
+        $this->instance()->setConfigOption('non_exitant_key', 'sub_key', 'value');
+    }
+
     public function test_set_config_option_updates_configuration()
     {
         $key = 'oauth';
