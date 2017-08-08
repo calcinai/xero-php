@@ -65,6 +65,43 @@ class ApplicationTest extends \PHPUnit_Framework_TestCase
         );
     }
 
+    public function test_can_retrieve_config()
+    {
+        $key = 'test_key';
+        $expected = ['sub_test_key' => 'test_value'];
+
+        $this->assertEquals(
+            $expected,
+            $this->instance([$key => $expected])->getConfig($key)
+        );
+    }
+
+    public function test_can_retrieve_config_option()
+    {
+        $key = 'test_key';
+        $subKey = 'sub_test_key';
+        $expected = 'test_value';
+
+        $this->assertEquals(
+            $expected,
+            $this->instance([$key => [$subKey => $expected]])->getConfigOption($key, $subKey)
+        );
+    }
+
+    public function test_accessing_missing_config_option_throws_exception()
+    {
+        $this->setExpectedException(\Exception::class);
+
+        $this->instance()->getConfigOption('oauth', 'non_existent_key');
+    }
+
+    public function test_accessing_missing_config_throws_exception()
+    {
+        $this->setExpectedException(\Exception::class);
+
+        $this->instance()->getConfig('non_existent_key');
+    }
+
     protected function instance($config = [])
     {
         return new PrivateApplication(
