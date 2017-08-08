@@ -105,10 +105,10 @@ abstract class Application
     * @throws Exception
     */
     public function getConfigOption($config, $option) {
-        if (!isset($this->config[$config])) {
-            throw new Exception("Invalid configuration key [$key]");
+        if (!isset($this->getConfig($config)[$option])) {
+            throw new Exception("Invalid configuration option [$option]");
         }
-        return $this->config[$config][$option];
+        return $this->getConfig($config)[$option];
     }
 
     /**
