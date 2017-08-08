@@ -87,7 +87,6 @@ class ApplicationTest extends \PHPUnit_Framework_TestCase
         $this->setExpectedException(\Exception::class);
 
         $this->instance()->getConfig('non_existent_key');
-
     }
 
     protected function instance($config = [])
