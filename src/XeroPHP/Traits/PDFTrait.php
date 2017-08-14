@@ -65,7 +65,7 @@ trait PDFTrait
      *
      * @return string
      */
-    abstract public static function getResourceURI();
+    // abstract public static function getResourceURI();
 
     /**
      * Determine if the resource has a GUID.
