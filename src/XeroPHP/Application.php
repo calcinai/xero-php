@@ -310,7 +310,7 @@ abstract class Application
 
         $request_method = $has_guid ? Request::METHOD_POST : Request::METHOD_PUT;
 
-        $url = new URL($this, $type::getResourceURI());
+        $url = new URL($this, $type::getResourceURI(), $type::getAPIStem());
         $request = new Request($this, $url, $request_method);
 
         //This might need to be parsed and stored some day.
