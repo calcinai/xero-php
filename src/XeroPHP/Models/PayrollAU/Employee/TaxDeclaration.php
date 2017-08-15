@@ -154,8 +154,7 @@ class TaxDeclaration extends Remote\Object
      */
     public static function getSupportedMethods()
     {
-        return [
-        ];
+        return [];
     }
 
     /**
@@ -176,24 +175,43 @@ class TaxDeclaration extends Remote\Object
             'EmploymentBasis' => [true, self::PROPERTY_TYPE_ENUM, null, false, false],
             'TFNExemptionType' => [false, self::PROPERTY_TYPE_ENUM, null, false, false],
             'TaxFileNumber' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
-            'AustralianResidentForTaxPurposes' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
-            'TaxFreeThresholdClaimed' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'AustralianResidentForTaxPurposes' => [false, self::PROPERTY_TYPE_BOOLEAN, null, false, false],
+			'ResidencyStatus' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'TaxFreeThresholdClaimed' => [false, self::PROPERTY_TYPE_BOOLEAN, null, false, false],
             'TaxOffsetEstimatedAmount' => [false, self::PROPERTY_TYPE_FLOAT, null, false, false],
             'HasHELPDebt' => [false, self::PROPERTY_TYPE_BOOLEAN, null, false, false],
             'HasSFSSDebt' => [false, self::PROPERTY_TYPE_BOOLEAN, null, false, false],
-            'HasTSLDebt' => [false, self::PROPERTY_TYPE_BOOLEAN, null, false, false],
             'HasTradeSupportLoanDebt' => [false, self::PROPERTY_TYPE_BOOLEAN, null, false, false],
             'UpwardVariationTaxWithholdingAmount' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
             'EligibleToReceiveLeaveLoading' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
             'ApprovedWithholdingVariationPercentage' => [false, self::PROPERTY_TYPE_STRING, null, false, false]
         ];
     }
+	
+	
 
     public static function isPageable()
     {
         return false;
     }
-
+	
+	/** @param string $value
+	 * @return $this
+	 */
+	public function setResidencyStatus($value)
+	{
+		$this->propertyUpdated('ResidencyStatus', $value);
+        $this->_data['ResidencyStatus'] = $value;
+        return $this;
+	}
+	
+	/**
+	 * @return string
+	 */
+	public function getResidencyStatus()
+	{
+		return $this->_data['ResidencyStatus'];
+	}
     /**
      * @return string
      */
@@ -345,7 +363,8 @@ class TaxDeclaration extends Remote\Object
         $this->_data['HasHELPDebt'] = $value;
         return $this;
     }
-
+    
+	
     /**
      * @return bool
      */
