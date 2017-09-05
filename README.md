@@ -60,7 +60,7 @@ foreach ($contacts as $contact) {
 }
 ```
 
-Load collection of objects, for a single page, and loop through them [(Why?)](<http://developer.xero.com/documentation/getting-started/xero-api-limits/#title10>)
+Load collection of objects, for a single page, and loop through them [(Why?)](<https://developer.xero.com/documentation/auth-and-limits/xero-api-limits#Systemlimits>)
 ```php
 $contacts = $xero->load('Accounting\\Contact')->page(1)->execute();
 foreach ($contacts as $contact) {
