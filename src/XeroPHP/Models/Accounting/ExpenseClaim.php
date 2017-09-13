@@ -103,7 +103,7 @@ class ExpenseClaim extends Remote\Object
             'ExpenseClaimID' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
             'User' => [true, self::PROPERTY_TYPE_OBJECT, 'Accounting\\User', false, false],
             'Receipts' => [true, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Receipt', true, false],
-            'Payments' => [true, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Payment', true, false],
+            'Payments' => [false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Payment', true, false],
             'Status' => [false, self::PROPERTY_TYPE_ENUM, null, false, false],
             'UpdatedDateUTC' => [false, self::PROPERTY_TYPE_TIMESTAMP, '\\DateTimeInterface', false, false],
             'Total' => [false, self::PROPERTY_TYPE_FLOAT, null, false, false],
@@ -196,6 +196,17 @@ class ExpenseClaim extends Remote\Object
     public function getStatus()
     {
         return $this->_data['Status'];
+    }
+
+    /**
+     * @param string $value
+     * @return ExpenseClaim
+     */
+    public function setStatus($value)
+    {
+        $this->propertyUpdated('Status', $value);
+        $this->_data['Status'] = $value;
+        return $this;
     }
 
     /**
