@@ -282,7 +282,7 @@ abstract class Application
      * @return Remote\Response
      * @throws Exception
      */
-    public function saveAll($objects)
+    public function saveAll($objects, $checkGuid = true)
     {
         $objects = array_values($objects);
 
@@ -292,7 +292,7 @@ abstract class Application
          * @var Object $type
          */
         $type = get_class($current_object);
-        $has_guid =  $current_object->hasGUID();
+        $has_guid = $checkGuid ? $current_object->hasGUID() : true;
         $object_arrays = [];
 
         foreach ($objects as $object) {
