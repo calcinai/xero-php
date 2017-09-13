@@ -364,7 +364,7 @@ class Item extends Remote\Object
         if (!isset($this->_data['PurchaseDetails'])) {
             $this->_data['PurchaseDetails'] = new Remote\Collection();
         }
-        $this->_data['PurchaseDetails'][] = $value;
+        $this->_data['PurchaseDetails'] = $value;
         return $this;
     }
 
@@ -387,7 +387,7 @@ class Item extends Remote\Object
         if (!isset($this->_data['SalesDetails'])) {
             $this->_data['SalesDetails'] = new Remote\Collection();
         }
-        $this->_data['SalesDetails'][] = $value;
+        $this->_data['SalesDetails'] = $value;
         return $this;
     }
 
