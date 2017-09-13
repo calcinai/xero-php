@@ -338,7 +338,8 @@ abstract class Object implements ObjectInterface, \JsonSerializable, \ArrayAcces
         foreach (static::getProperties() as $property => $meta) {
             $mandatory = $meta[self::KEY_MANDATORY];
 
-            if ($mandatory) {
+            //If it's got a GUID, it's already going to be valid almost all cases
+            if (!$this->hasGUID() && $mandatory) {
                 if (!isset($this->_data[$property]) || empty($this->_data[$property])) {
                     throw new Exception(
                         sprintf(
