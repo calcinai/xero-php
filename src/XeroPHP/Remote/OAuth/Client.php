@@ -227,7 +227,7 @@ class Client
      */
     private function getNonce($length = 20)
     {
-        $parts = explode('.', microtime(true));
+        $parts = explode('.', number_format(microtime(true), 22, '.', ''));
         if (!isset($parts[1])) {
             $parts[1] = 0;
         }
