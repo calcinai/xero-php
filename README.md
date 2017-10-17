@@ -38,7 +38,7 @@ Using composer:
 
 ```json
   "require": {
-    "calcinai/xero-php": "1.5.*"
+    "calcinai/xero-php": "^1.6"
   }
 ```
 
