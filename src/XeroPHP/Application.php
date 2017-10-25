@@ -218,6 +218,43 @@ abstract class Application
     }
 
     /**
+     * Filter by comma separated string of guid's
+     *
+     * @param $model
+     * @param string $guids
+     * @return Collection
+     * @throws Exception
+     * @throws Remote\Exception\NotFoundException
+     */
+    public function loadByGUIDs($model, $guids)
+    {
+        /**
+         * @var Remote\Object $class
+         */
+        $class = $this->validateModelClass($model);
+
+        $uri = sprintf('%s', $class::getResourceURI());
+        $api = $class::getAPIStem();
+
+        $url = new URL($this, $uri, $api);
+        $request = new Request($this, $url, Request::METHOD_GET);
+        $request->setParameter("IDs", $guids);
+        $request->send();
+//        var_dump($request->getResponse());
+        $elements = new Collection();
+        foreach ($request->getResponse()->getElements() as $element) {
+            /**
+             * @var Remote\Object $object
+             */
+            $object = new $class($this);
+            $object->fromStringArray($element);
+            $elements->append($object);
+        }
+
+        return $elements;
+    }
+
+    /**
      * @param string $model
      * @return Query
      * @throws Remote\Exception
