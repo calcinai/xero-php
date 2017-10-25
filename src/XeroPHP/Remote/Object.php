@@ -85,6 +85,16 @@ abstract class Object implements ObjectInterface, \JsonSerializable, \ArrayAcces
     }
 
     /**
+     * Get the application.
+     *
+     * @return \XeroPHP\Application
+     */
+    protected function getApplication()
+    {
+        return $this->_application;
+    }
+
+    /**
      * If there have been any properties changed since load
      *
      * @param null $property
