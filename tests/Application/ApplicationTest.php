@@ -44,6 +44,13 @@ class ApplicationTest extends \PHPUnit_Framework_TestCase
         $this->instance()->validateModelClass('Unknown\\Namespaced\\Class');
     }
 
+    public function test_oauth_client_instantiated_with_app_instantiation()
+    {
+        $app = $this->instance();
+
+        $this->assertNotNull($app->getOAuthClient());
+    }
+
     public function test_setting_missing_config_option_throws_exception()
     {
         $this->setExpectedException(\Exception::class);
