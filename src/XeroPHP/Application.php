@@ -81,14 +81,7 @@ abstract class Application
      */
     public function getAuthorizeURL($oauth_token = null)
     {
-        $authorize_url = $this->oauth_client->getAuthorizeURL();
-
-        if ($oauth_token !== null) {
-            $operator = parse_url($authorize_url, PHP_URL_QUERY) !== null ? '&' : '?';
-            $authorize_url .= sprintf('%soauth_token=%s', $operator, $oauth_token);
-        }
-
-        return $authorize_url;
+        return $this->oauth_client->getAuthorizeURL($oauth_token);
     }
 
     /**
