@@ -159,7 +159,7 @@ class TaxRate extends Remote\Object
             'TaxType' => [false, self::PROPERTY_TYPE_ENUM, null, false, false],
             'TaxComponents' => [false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\TaxRate\\TaxComponent', true, false],
             'Status' => [false, self::PROPERTY_TYPE_ENUM, null, false, false],
-            'ReportTaxType' => [true, self::PROPERTY_TYPE_ENUM, null, false, false],
+            'ReportTaxType' => [false, self::PROPERTY_TYPE_ENUM, null, false, false],
             'CanApplyToAssets' => [false, self::PROPERTY_TYPE_BOOLEAN, null, false, false],
             'CanApplyToEquity' => [false, self::PROPERTY_TYPE_BOOLEAN, null, false, false],
             'CanApplyToExpenses' => [false, self::PROPERTY_TYPE_BOOLEAN, null, false, false],
