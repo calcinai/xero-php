@@ -3,7 +3,7 @@ namespace XeroPHP\Models\PayrollAU\SuperFund;
 
 use XeroPHP\Remote;
 
-class SuperFund extends Remote\Object
+class SuperFund extends Remote\Model
 {
 
     /**

@@ -5,7 +5,7 @@ use XeroPHP\Remote;
 use XeroPHP\Models\PayrollAU\Setting\Account;
 use XeroPHP\Models\PayrollAU\Setting\TrackingCategory;
 
-class Setting extends Remote\Object
+class Setting extends Remote\Model
 {
 
     /**

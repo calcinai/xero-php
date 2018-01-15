@@ -6,7 +6,7 @@ use XeroPHP\Traits\AttachmentTrait;
 use XeroPHP\Models\Accounting\Prepayment\LineItem;
 use XeroPHP\Models\Accounting\Prepayment\Allocation;
 
-class Prepayment extends Remote\Object
+class Prepayment extends Remote\Model
 {
 
     use AttachmentTrait;

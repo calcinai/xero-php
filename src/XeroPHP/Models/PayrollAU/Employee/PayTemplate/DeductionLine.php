@@ -3,7 +3,7 @@ namespace XeroPHP\Models\PayrollAU\Employee\PayTemplate;
 
 use XeroPHP\Remote;
 
-class DeductionLine extends Remote\Object
+class DeductionLine extends Remote\Model
 {
 
     /**

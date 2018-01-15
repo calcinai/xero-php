@@ -4,7 +4,7 @@ namespace XeroPHP\Models\Accounting\RepeatingInvoice;
 use XeroPHP\Remote;
 use XeroPHP\Models\Accounting\Organisation\PaymentTerm;
 
-class Schedule extends Remote\Object
+class Schedule extends Remote\Model
 {
 
     /**

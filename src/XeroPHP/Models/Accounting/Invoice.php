@@ -6,7 +6,7 @@ use XeroPHP\Traits\PDFTrait;
 use XeroPHP\Traits\AttachmentTrait;
 use XeroPHP\Models\Accounting\Invoice\LineItem;
 
-class Invoice extends Remote\Object
+class Invoice extends Remote\Model
 {
 
     use PDFTrait;

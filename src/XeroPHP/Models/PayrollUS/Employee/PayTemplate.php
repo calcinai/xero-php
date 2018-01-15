@@ -6,7 +6,7 @@ use XeroPHP\Models\PayrollUS\Paystub\DeductionLine;
 use XeroPHP\Models\PayrollUS\Paystub\ReimbursementLine;
 use XeroPHP\Models\PayrollUS\Paystub\BenefitLine;
 
-class PayTemplate extends Remote\Object
+class PayTemplate extends Remote\Model
 {
 
     /**

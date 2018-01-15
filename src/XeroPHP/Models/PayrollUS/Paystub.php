@@ -10,7 +10,7 @@ use XeroPHP\Models\PayrollUS\Paystub\ReimbursementLine;
 use XeroPHP\Models\PayrollUS\Paystub\BenefitLine;
 use XeroPHP\Models\PayrollUS\Paystub\TimeOffLine;
 
-class Paystub extends Remote\Object
+class Paystub extends Remote\Model
 {
 
     /**
