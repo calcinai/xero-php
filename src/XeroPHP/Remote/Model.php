@@ -12,7 +12,7 @@ use XeroPHP\Helpers;
  * todo - at 2.x, move this into the root of the project and refer to it as a model.
  * Also make this an ArrayObject to simplify storage
  */
-abstract class Object implements ObjectInterface, \JsonSerializable, \ArrayAccess
+abstract class Model implements ObjectInterface, \JsonSerializable, \ArrayAccess
 {
     /**
      * Keys for the meta properties array
@@ -199,7 +199,7 @@ abstract class Object implements ObjectInterface, \JsonSerializable, \ArrayAcces
                 foreach ($input_array[$property] as $assoc_element) {
                     $cast = self::castFromString($type, $assoc_element, $php_type);
                     //Do this here so that you know it's not a static method call to ::castFromString
-                    if ($cast instanceof Object) {
+                    if ($cast instanceof Model) {
                         $cast->addAssociatedObject($property, $this);
                     }
                     $collection->append($cast);
@@ -208,7 +208,7 @@ abstract class Object implements ObjectInterface, \JsonSerializable, \ArrayAcces
             } else {
                 $cast = self::castFromString($type, $input_array[$property], $php_type);
                 //Do this here so that you know it's not a static method call to ::castFromString
-                if ($cast instanceof Object) {
+                if ($cast instanceof Model) {
                     $cast->addAssociatedObject($property, $this);
                 }
                 $this->_data[$property] = $cast;
@@ -274,7 +274,7 @@ abstract class Object implements ObjectInterface, \JsonSerializable, \ArrayAcces
                 return $value->format('c');
 
             case self::PROPERTY_TYPE_OBJECT:
-                if ($value instanceof Object) {
+                if ($value instanceof Model) {
                     return $value->toStringArray();
                 }
                 return '';
@@ -361,14 +361,14 @@ abstract class Object implements ObjectInterface, \JsonSerializable, \ArrayAcces
                 }
 
                 if ($check_children) {
-                    if ($this->_data[$property] instanceof Object) {
+                    if ($this->_data[$property] instanceof Model) {
                         //Keep IDEs happy
                         /** @var self $obj */
                         $obj = $this->_data[$property];
                         $obj->validate();
                     } elseif ($this->_data[$property] instanceof Collection) {
                         foreach ($this->_data[$property] as $element) {
-                            if ($element instanceof Object) {
+                            if ($element instanceof Model) {
                                 $element->validate();
                             }
                         }
@@ -419,7 +419,7 @@ abstract class Object implements ObjectInterface, \JsonSerializable, \ArrayAcces
      * @param string $property
      * @param Object $object
      */
-    public function addAssociatedObject($property, Object $object)
+    public function addAssociatedObject($property, Model $object)
     {
         $this->_associated_objects[$property] = $object;
     }

@@ -4,7 +4,7 @@ namespace XeroPHP\Models\Accounting;
 use XeroPHP\Remote;
 use XeroPHP\Models\Accounting\TaxRate\TaxComponent;
 
-class TaxRate extends Remote\Object
+class TaxRate extends Remote\Model
 {
 
     /**

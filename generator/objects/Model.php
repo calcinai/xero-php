@@ -1,7 +1,7 @@
 <?php
 
 use XeroPHP\Helpers;
-use XeroPHP\Remote\Object;
+use XeroPHP\Remote\Model;
 use XeroPHP\Remote\Request;
 
 class Model implements ParsedObjectInterface
@@ -143,7 +143,7 @@ class Model implements ParsedObjectInterface
     {
         $classes = [];
         foreach ($this->getProperties() as $property) {
-            if ($property->getType() === Object::PROPERTY_TYPE_OBJECT) {
+            if ($property->getType() === Model::PROPERTY_TYPE_OBJECT) {
                 if ($property->getRelatedObject()->getNamespace() !== $this->getNamespace()) {
                     $key = $property->getRelatedObject()->getClassName(true);
                     $classes[$key] = $key;
@@ -256,7 +256,7 @@ class Model implements ParsedObjectInterface
         //Otherwise just pick one.
         //This will only happen if the property isn't called [Model]ID
         foreach ($this->properties as $property) {
-            if ($property->getType() === Object::PROPERTY_TYPE_GUID) {
+            if ($property->getType() === Model::PROPERTY_TYPE_GUID) {
                 return $property;
             }
         }

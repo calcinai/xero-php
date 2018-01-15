@@ -3,7 +3,7 @@ namespace XeroPHP\Models\PayrollAU\Payslip;
 
 use XeroPHP\Remote;
 
-class LeaveAccrualLine extends Remote\Object
+class LeaveAccrualLine extends Remote\Model
 {
 
     /**

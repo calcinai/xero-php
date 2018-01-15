@@ -180,14 +180,14 @@ abstract class Application
      *
      * @param $model
      * @param $guid
-     * @return Remote\Object|null
+     * @return Remote\Model|null
      * @throws Exception
      * @throws Remote\Exception\NotFoundException
      */
     public function loadByGUID($model, $guid)
     {
         /**
-         * @var Remote\Object $class
+         * @var Remote\Model $class
          */
         $class = $this->validateModelClass($model);
 
@@ -201,7 +201,7 @@ abstract class Application
         //Return the first (if any) element from the response.
         foreach ($request->getResponse()->getElements() as $element) {
             /**
-             * @var Remote\Object $object
+             * @var Remote\Model $object
              */
             $object = new $class($this);
             $object->fromStringArray($element);
@@ -222,7 +222,7 @@ abstract class Application
     public function loadByGUIDs($model, $guids)
     {
         /**
-         * @var Remote\Object $class
+         * @var Remote\Model $class
          */
         $class = $this->validateModelClass($model);
 
@@ -237,7 +237,7 @@ abstract class Application
         $elements = new Collection();
         foreach ($request->getResponse()->getElements() as $element) {
             /**
-             * @var Remote\Object $object
+             * @var Remote\Model $object
              */
             $object = new $class($this);
             $object->fromStringArray($element);
@@ -259,12 +259,12 @@ abstract class Application
     }
 
     /**
-     * @param Remote\Object $object
+     * @param Remote\Model $object
      * @param bool $replace_data
      * @return Remote\Response|null
      * @throws Exception
      */
-    public function save(Remote\Object $object, $replace_data = false)
+    public function save(Remote\Model $object, $replace_data = false)
     {
         //Saves any properties that don't want to be included in the normal loop
         //(special saving endpoints)
@@ -369,13 +369,13 @@ abstract class Application
      * This is called automatically from the save method for things like
      * adding contacts to ContactGroups
      *
-     * @param Remote\Object $object
+     * @param Remote\Model $object
      * @throws Exception
      */
-    private function savePropertiesDirectly(Remote\Object $object)
+    private function savePropertiesDirectly(Remote\Model $object)
     {
         foreach ($object::getProperties() as $property_name => $meta) {
-            if ($meta[Remote\Object::KEY_SAVE_DIRECTLY] && $object->isDirty($property_name)) {
+            if ($meta[Remote\Model::KEY_SAVE_DIRECTLY] && $object->isDirty($property_name)) {
                 //Then actually save
                 $property_objects = $object->$property_name;
                 /** @var Object $property_type */
@@ -410,11 +410,11 @@ abstract class Application
     }
 
     /**
-     * @param Remote\Object $object
+     * @param Remote\Model $object
      * @return Remote\Response
      * @throws Exception
      */
-    public function delete(Remote\Object $object)
+    public function delete(Remote\Model $object)
     {
         if (!$object::supportsMethod(Request::METHOD_DELETE)) {
             throw new Exception(

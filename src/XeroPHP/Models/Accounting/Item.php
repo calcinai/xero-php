@@ -5,7 +5,7 @@ use XeroPHP\Remote;
 use XeroPHP\Models\Accounting\Item\Purchase;
 use XeroPHP\Models\Accounting\Item\Sale;
 
-class Item extends Remote\Object
+class Item extends Remote\Model
 {
 
     /**

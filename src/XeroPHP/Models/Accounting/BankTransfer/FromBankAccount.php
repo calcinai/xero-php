@@ -3,7 +3,7 @@ namespace XeroPHP\Models\Accounting\BankTransfer;
 
 use XeroPHP\Remote;
 
-class FromBankAccount extends Remote\Object
+class FromBankAccount extends Remote\Model
 {
 
     /**

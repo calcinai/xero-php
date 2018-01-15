@@ -3,7 +3,7 @@ namespace XeroPHP\Models\PayrollAU\Employee\PayTemplate;
 
 use XeroPHP\Remote;
 
-class SuperLine extends Remote\Object
+class SuperLine extends Remote\Model
 {
 
 

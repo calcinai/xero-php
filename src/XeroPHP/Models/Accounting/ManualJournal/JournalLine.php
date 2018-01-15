@@ -4,7 +4,7 @@ namespace XeroPHP\Models\Accounting\ManualJournal;
 use XeroPHP\Remote;
 use XeroPHP\Models\Accounting\TrackingCategory;
 
-class JournalLine extends Remote\Object
+class JournalLine extends Remote\Model
 {
 
     /**
