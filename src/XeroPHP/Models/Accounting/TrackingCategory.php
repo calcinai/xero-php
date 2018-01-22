@@ -4,7 +4,7 @@ namespace XeroPHP\Models\Accounting;
 use XeroPHP\Remote;
 use XeroPHP\Models\Accounting\TrackingCategory\TrackingOption;
 
-class TrackingCategory extends Remote\Object
+class TrackingCategory extends Remote\Model
 {
 
     /**

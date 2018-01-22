@@ -7,7 +7,7 @@ use XeroPHP\Models\PayrollUS\Paystub\BenefitLine;
 use XeroPHP\Models\PayrollUS\Paystub\DeductionLine;
 use XeroPHP\Models\PayrollUS\Paystub\ReimbursementLine;
 
-class OpeningBalance extends Remote\Object
+class OpeningBalance extends Remote\Model
 {
 
     /**

@@ -8,7 +8,7 @@ use XeroPHP\Models\PayrollAU\Employee\PayTemplate\DeductionLine;
 use XeroPHP\Models\PayrollAU\Employee\PayTemplate\ReimbursementLine;
 use XeroPHP\Models\PayrollAU\Employee\PayTemplate\LeaveLine;
 
-class PayTemplate extends Remote\Object
+class PayTemplate extends Remote\Model
 {
 
     /**

@@ -3,7 +3,7 @@ namespace XeroPHP\Models\PayrollUS\PayItem;
 
 use XeroPHP\Remote;
 
-class TimeOffType extends Remote\Object
+class TimeOffType extends Remote\Model
 {
 
     /**

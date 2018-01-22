@@ -4,7 +4,7 @@ namespace XeroPHP\Models\PayrollUS;
 use XeroPHP\Remote;
 use XeroPHP\Models\PayrollUS\Timesheet\TimesheetLine;
 
-class Timesheet extends Remote\Object
+class Timesheet extends Remote\Model
 {
 
     /**

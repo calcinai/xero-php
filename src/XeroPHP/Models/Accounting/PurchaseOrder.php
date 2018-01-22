@@ -6,7 +6,7 @@ use XeroPHP\Traits\PDFTrait;
 use XeroPHP\Traits\AttachmentTrait;
 use XeroPHP\Models\Accounting\PurchaseOrder\LineItem;
 
-class PurchaseOrder extends Remote\Object
+class PurchaseOrder extends Remote\Model
 {
 
     use PDFTrait;

@@ -3,7 +3,7 @@ namespace XeroPHP\Models\PayrollAU\Employee\PayTemplate;
 
 use XeroPHP\Remote;
 
-class LeaveLine extends Remote\Object
+class LeaveLine extends Remote\Model
 {
     /**
      * Xero leave type identifier.

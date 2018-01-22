@@ -4,7 +4,7 @@ namespace XeroPHP\Models\Accounting\Prepayment;
 use XeroPHP\Remote;
 use XeroPHP\Models\Accounting\Invoice;
 
-class Allocation extends Remote\Object
+class Allocation extends Remote\Model
 {
 
     /**
