@@ -11,7 +11,7 @@ use XeroPHP\Models\PayrollUS\Employee\PayTemplate;
 use XeroPHP\Models\PayrollUS\Employee\OpeningBalance;
 use XeroPHP\Models\PayrollUS\Employee\TimeOffBalance;
 
-class Employee extends Remote\Object
+class Employee extends Remote\Model
 {
 
     /**

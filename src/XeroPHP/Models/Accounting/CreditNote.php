@@ -7,7 +7,7 @@ use XeroPHP\Traits\AttachmentTrait;
 use XeroPHP\Models\Accounting\Invoice\LineItem;
 use XeroPHP\Models\Accounting\CreditNote\Allocation;
 
-class CreditNote extends Remote\Object
+class CreditNote extends Remote\Model
 {
 
     use PDFTrait;

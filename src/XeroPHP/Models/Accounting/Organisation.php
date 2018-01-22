@@ -5,7 +5,7 @@ use XeroPHP\Remote;
 use XeroPHP\Models\Accounting\Organisation\ExternalLink;
 use XeroPHP\Models\Accounting\Organisation\PaymentTerm;
 
-class Organisation extends Remote\Object
+class Organisation extends Remote\Model
 {
 
     /**

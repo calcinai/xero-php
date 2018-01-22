@@ -3,7 +3,7 @@ namespace XeroPHP\Models\PayrollAU\Timesheet;
 
 use XeroPHP\Remote;
 
-class TimesheetLine extends Remote\Object
+class TimesheetLine extends Remote\Model
 {
 
     /**

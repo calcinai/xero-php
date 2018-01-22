@@ -8,7 +8,7 @@ use XeroPHP\Models\PayrollUS\PayItem\DeductionType;
 use XeroPHP\Models\PayrollUS\PayItem\ReimbursementType;
 use XeroPHP\Models\PayrollUS\PayItem\TimeOffType;
 
-class PayItem extends Remote\Object
+class PayItem extends Remote\Model
 {
 
     /**

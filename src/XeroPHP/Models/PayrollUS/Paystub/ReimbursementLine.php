@@ -3,7 +3,7 @@ namespace XeroPHP\Models\PayrollUS\Paystub;
 
 use XeroPHP\Remote;
 
-class ReimbursementLine extends Remote\Object
+class ReimbursementLine extends Remote\Model
 {
 
     /**

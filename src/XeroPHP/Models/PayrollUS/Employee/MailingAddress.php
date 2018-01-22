@@ -3,7 +3,7 @@ namespace XeroPHP\Models\PayrollUS\Employee;
 
 use XeroPHP\Remote;
 
-class MailingAddress extends Remote\Object
+class MailingAddress extends Remote\Model
 {
 
     /**
