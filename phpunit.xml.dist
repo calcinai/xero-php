@@ -20,10 +20,11 @@
 
     <filter>
         <whitelist>
-            <directory>.</directory>
-            <exclude>
-                <directory>./tests</directory>
-            </exclude>
+            <directory>src</directory>
         </whitelist>
     </filter>
+    <logging>
+        <log type="junit" target="build/logs/junit/phpunit.xml" logIncompleteSkipped="false"/>
+        <log type="coverage-html" target="build/coverage" />
+    </logging>
 </phpunit>
