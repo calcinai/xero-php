@@ -11,7 +11,7 @@ use XeroPHP\Models\PayrollAU\Payslip\SuperannuationLine;
 use XeroPHP\Models\PayrollAU\Payslip\TaxLine;
 use XeroPHP\Models\PayrollAU\Payslip\LeaveEarningsLine;
 
-class Payslip extends Remote\Object
+class Payslip extends Remote\Model
 {
 
     /**

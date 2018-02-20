@@ -3,7 +3,7 @@ namespace XeroPHP\Models\PayrollAU;
 
 use XeroPHP\Remote;
 
-class PayrollCalendar extends Remote\Object
+class PayrollCalendar extends Remote\Model
 {
 
     /**

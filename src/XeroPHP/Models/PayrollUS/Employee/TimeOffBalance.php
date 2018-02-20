@@ -4,7 +4,7 @@ namespace XeroPHP\Models\PayrollUS\Employee;
 use XeroPHP\Remote;
 use XeroPHP\Models\PayrollUS\PayItem;
 
-class TimeOffBalance extends Remote\Object
+class TimeOffBalance extends Remote\Model
 {
 
     /**

@@ -3,7 +3,7 @@ namespace XeroPHP\Models\Accounting\TaxRate;
 
 use XeroPHP\Remote;
 
-class TaxComponent extends Remote\Object
+class TaxComponent extends Remote\Model
 {
 
     /**

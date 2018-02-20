@@ -3,7 +3,7 @@ namespace XeroPHP\Models\PayrollUS\Paystub;
 
 use XeroPHP\Remote;
 
-class TimeOffLine extends Remote\Object
+class TimeOffLine extends Remote\Model
 {
 
     /**

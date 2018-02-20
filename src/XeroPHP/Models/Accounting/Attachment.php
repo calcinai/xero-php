@@ -5,11 +5,11 @@
 namespace XeroPHP\Models\Accounting;
 
 use XeroPHP\Application;
-use XeroPHP\Remote\Object;
+use XeroPHP\Remote\Model;
 use XeroPHP\Remote\Request;
 use XeroPHP\Remote\URL;
 
-class Attachment extends Object {
+class Attachment extends Model {
 
     /**
      * Xero Unique Identifier

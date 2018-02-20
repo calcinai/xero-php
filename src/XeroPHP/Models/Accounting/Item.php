@@ -5,7 +5,7 @@ use XeroPHP\Remote;
 use XeroPHP\Models\Accounting\Item\Purchase;
 use XeroPHP\Models\Accounting\Item\Sale;
 
-class Item extends Remote\Object
+class Item extends Remote\Model
 {
 
     /**
@@ -173,7 +173,7 @@ class Item extends Remote\Object
         return [
             'ItemID' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
             'Code' => [true, self::PROPERTY_TYPE_STRING, null, false, false],
-            'InventoryAssetAccountCode' => [true, self::PROPERTY_TYPE_STRING, null, false, false],
+            'InventoryAssetAccountCode' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
             'Name' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
             'IsSold' => [false, self::PROPERTY_TYPE_BOOLEAN, null, false, false],
             'IsPurchased' => [false, self::PROPERTY_TYPE_BOOLEAN, null, false, false],
@@ -364,7 +364,7 @@ class Item extends Remote\Object
         if (!isset($this->_data['PurchaseDetails'])) {
             $this->_data['PurchaseDetails'] = new Remote\Collection();
         }
-        $this->_data['PurchaseDetails'][] = $value;
+        $this->_data['PurchaseDetails'] = $value;
         return $this;
     }
 
@@ -387,7 +387,7 @@ class Item extends Remote\Object
         if (!isset($this->_data['SalesDetails'])) {
             $this->_data['SalesDetails'] = new Remote\Collection();
         }
-        $this->_data['SalesDetails'][] = $value;
+        $this->_data['SalesDetails'] = $value;
         return $this;
     }
 
