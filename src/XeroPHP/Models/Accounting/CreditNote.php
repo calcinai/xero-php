@@ -7,7 +7,7 @@ use XeroPHP\Traits\AttachmentTrait;
 use XeroPHP\Models\Accounting\Invoice\LineItem;
 use XeroPHP\Models\Accounting\CreditNote\Allocation;
 
-class CreditNote extends Remote\Object
+class CreditNote extends Remote\Model
 {
 
     use PDFTrait;
@@ -222,6 +222,7 @@ class CreditNote extends Remote\Object
             'Status' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
             'LineAmountTypes' => [false, self::PROPERTY_TYPE_ENUM, null, false, false],
             'LineItems' => [false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Invoice\\LineItem', true, false],
+            'Payments' => [false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Payment', true, false],
             'SubTotal' => [false, self::PROPERTY_TYPE_FLOAT, null, false, false],
             'TotalTax' => [false, self::PROPERTY_TYPE_FLOAT, null, false, false],
             'Total' => [false, self::PROPERTY_TYPE_FLOAT, null, false, false],
@@ -242,7 +243,7 @@ class CreditNote extends Remote\Object
 
     public static function isPageable()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -361,6 +362,15 @@ class CreditNote extends Remote\Object
         }
         $this->_data['LineItems'][] = $value;
         return $this;
+    }
+    
+    /**
+     * @return LineItem[]|Remote\Collection
+     * Always returns a collection, switch is for type hinting
+     */
+    public function getPayments()
+    {
+        return $this->_data['Payments'];
     }
 
     /**

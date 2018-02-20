@@ -22,6 +22,8 @@ class Query
     private $toDate;
     private $date;
     private $offset;
+    private $includeArchived;
+    private $params;
 
     public function __construct(Application $app)
     {
@@ -31,6 +33,8 @@ class Query
         $this->modifiedAfter = null;
         $this->page = null;
         $this->offset = null;
+        $this->includeArchived = false;
+        $this->params = [];
     }
 
     /**
@@ -207,6 +211,18 @@ class Query
         return $this;
     }
 
+    public function includeArchived($includeArchived = true) {
+        $this->includeArchived = (bool) $includeArchived;
+        return $this;
+    }
+
+
+    public function setParameter($key, $value)
+    {
+        $this->params[(string) $key] = (string) $value;
+        return $this;
+    }
+
     /**
      * @return Collection
      */
@@ -222,6 +238,11 @@ class Query
             $from_class::getAPIStem()
         );
         $request = new Request($this->app, $url, Request::METHOD_GET);
+
+        // Add params
+        foreach($this->params as $key => $value) {
+            $request->setParameter($key, $value);
+        }
 
         // Concatenate where statements
         $where = $this->getWhere();
@@ -256,6 +277,10 @@ class Query
 
         if ($this->offset !== null) {
             $request->setParameter('offset', $this->offset);
+        }
+
+        if ($this->includeArchived !== false) {
+            $request->setParameter('includeArchived', 'true');
         }
 
         $request->send();

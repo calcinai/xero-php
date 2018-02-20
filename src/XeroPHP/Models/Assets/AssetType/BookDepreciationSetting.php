@@ -3,7 +3,7 @@ namespace XeroPHP\Models\Assets\AssetType;
 
 use XeroPHP\Remote;
 
-class BookDepreciationSetting extends Remote\Object
+class BookDepreciationSetting extends Remote\Model
 {
 
     /**

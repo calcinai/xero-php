@@ -78,9 +78,7 @@ class Response
                     throw new BadRequestException();
                 }
 
-            /**
-             * @noinspection PhpMissingBreakStatementInspection
-             */
+            /** @noinspection PhpMissingBreakStatementInspection */
             case Response::STATUS_UNAUTHORISED:
                 //This is where OAuth errors end up, this could maybe change to an OAuth exception
                 if (isset($this->oauth_response['oauth_problem_advice'])) {
@@ -118,7 +116,7 @@ class Response
      */
     private function parseBadRequest()
     {
-        if (isset($this->elements)) {
+        if (!empty($this->elements)) {
             $field_errors = [];
             foreach ($this->elements as $n => $element) {
                 if (isset($element['ValidationErrors'])) {
@@ -127,6 +125,11 @@ class Response
             }
             return "\nValidation errors:\n".implode("\n", $field_errors);
         }
+
+        if (isset($this->oauth_response['oauth_problem_advice'])) {
+            throw new UnauthorizedException($this->oauth_response['oauth_problem_advice']);
+        }
+
         return '';
     }
 

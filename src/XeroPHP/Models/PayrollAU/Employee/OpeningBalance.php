@@ -6,7 +6,7 @@ use XeroPHP\Models\PayrollAU\Payslip\EarningsLine;
 use XeroPHP\Models\PayrollAU\Payslip\DeductionLine;
 use XeroPHP\Models\PayrollAU\Payslip\ReimbursementLine;
 
-class OpeningBalance extends Remote\Object
+class OpeningBalance extends Remote\Model
 {
 
     /**

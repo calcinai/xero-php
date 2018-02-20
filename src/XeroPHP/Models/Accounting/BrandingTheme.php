@@ -3,7 +3,7 @@ namespace XeroPHP\Models\Accounting;
 
 use XeroPHP\Remote;
 
-class BrandingTheme extends Remote\Object
+class BrandingTheme extends Remote\Model
 {
 
     /**

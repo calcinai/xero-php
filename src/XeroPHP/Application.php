@@ -62,11 +62,7 @@ abstract class Application
     public function __construct(array $user_config)
     {
         //better here for overriding
-        $this->config = array_replace_recursive(
-            self::$_config_defaults,
-            static::$_type_config_defaults,
-            $user_config
-        );
+        $this->setConfig($user_config);
 
         $this->oauth_client = new Client($this->config['oauth']);
     }
@@ -85,14 +81,7 @@ abstract class Application
      */
     public function getAuthorizeURL($oauth_token = null)
     {
-        $authorize_url = $this->oauth_client->getAuthorizeURL();
-
-        if ($oauth_token !== null) {
-            $operator = parse_url($authorize_url, PHP_URL_QUERY) !== null ? '&' : '?';
-            $authorize_url .= sprintf('%soauth_token=%s', $operator, $oauth_token);
-        }
-
-        return $authorize_url;
+        return $this->oauth_client->getAuthorizeURL($oauth_token);
     }
 
     /**
@@ -108,6 +97,48 @@ abstract class Application
         return $this->config[$key];
     }
 
+    /**
+    * @param string $config
+    * @param mixed $option
+    * @param mixed $value
+    * @return mixed
+    * @throws Exception
+    */
+    public function getConfigOption($config, $option) {
+        if (!isset($this->getConfig($config)[$option])) {
+            throw new Exception("Invalid configuration option [$option]");
+        }
+        return $this->getConfig($config)[$option];
+    }
+
+    /**
+     * @param array $config
+     * @return array
+     */
+    public function setConfig($config) {
+        $this->config = array_replace_recursive(
+            self::$_config_defaults,
+            static::$_type_config_defaults,
+            $config
+        );
+
+        return $this->config;
+    }
+
+    /**
+     * @param string $config
+     * @param mixed $option
+     * @param mixed $value
+     * @return array
+     * @throws Exception
+     */
+    public function setConfigOption($config, $option, $value) {
+        if (!isset($this->config[$config])) {
+            throw new Exception("Invalid configuration key [$config]");
+        }
+        $this->config[$config][$option] = $value;
+        return $this->config;
+    }
 
     /**
      * Validates and expands the provided model class to a full PHP class
@@ -118,11 +149,12 @@ abstract class Application
      */
     public function validateModelClass($class)
     {
-        $config = $this->getConfig('xero');
-
-        if ($class[0] !== '\\') {
-            $class = sprintf('%s\\%s', $config['model_namespace'], $class);
+        if (class_exists($class)) {
+            return $class;
         }
+
+        $class = $this->prependConfigNamespace($class);
+
         if (!class_exists($class)) {
             throw new Exception("Class does not exist [$class]");
         }
@@ -132,18 +164,30 @@ abstract class Application
 
 
     /**
+     * Prepend the configuration namespace to the class.
+     *
+     * @param  string  $class
+     * @return string
+     */
+    protected function prependConfigNamespace($class)
+    {
+        return $this->getConfig('xero')['model_namespace'].'\\'.$class;
+    }
+
+
+    /**
      * As you should never have a GUID for a non-existent object, will throw a NotFoundExceptioon
      *
      * @param $model
      * @param $guid
-     * @return Remote\Object|null
+     * @return Remote\Model|null
      * @throws Exception
      * @throws Remote\Exception\NotFoundException
      */
     public function loadByGUID($model, $guid)
     {
         /**
-         * @var Remote\Object $class
+         * @var Remote\Model $class
          */
         $class = $this->validateModelClass($model);
 
@@ -157,13 +201,50 @@ abstract class Application
         //Return the first (if any) element from the response.
         foreach ($request->getResponse()->getElements() as $element) {
             /**
-             * @var Remote\Object $object
+             * @var Remote\Model $object
              */
             $object = new $class($this);
             $object->fromStringArray($element);
             return $object;
         }
         return null;
+    }
+
+    /**
+     * Filter by comma separated string of guid's
+     *
+     * @param $model
+     * @param string $guids
+     * @return Collection
+     * @throws Exception
+     * @throws Remote\Exception\NotFoundException
+     */
+    public function loadByGUIDs($model, $guids)
+    {
+        /**
+         * @var Remote\Model $class
+         */
+        $class = $this->validateModelClass($model);
+
+        $uri = sprintf('%s', $class::getResourceURI());
+        $api = $class::getAPIStem();
+
+        $url = new URL($this, $uri, $api);
+        $request = new Request($this, $url, Request::METHOD_GET);
+        $request->setParameter("IDs", $guids);
+        $request->send();
+
+        $elements = new Collection();
+        foreach ($request->getResponse()->getElements() as $element) {
+            /**
+             * @var Remote\Model $object
+             */
+            $object = new $class($this);
+            $object->fromStringArray($element);
+            $elements->append($object);
+        }
+
+        return $elements;
     }
 
     /**
@@ -178,12 +259,12 @@ abstract class Application
     }
 
     /**
-     * @param Remote\Object $object
+     * @param Remote\Model $object
      * @param bool $replace_data
      * @return Remote\Response|null
      * @throws Exception
      */
-    public function save(Remote\Object $object, $replace_data = false)
+    public function save(Remote\Model $object, $replace_data = false)
     {
         //Saves any properties that don't want to be included in the normal loop
         //(special saving endpoints)
@@ -194,11 +275,11 @@ abstract class Application
         }
         $object->validate();
 
-        //In this case it's new
         if ($object->hasGUID()) {
             $method = $object::supportsMethod(Request::METHOD_POST) ? Request::METHOD_POST : Request::METHOD_PUT;
             $uri = sprintf('%s/%s', $object::getResourceURI(), $object->getGUID());
         } else {
+            //In this case it's new
             $method = $object::supportsMethod(Request::METHOD_PUT) ? Request::METHOD_PUT : Request::METHOD_POST;
             $uri = $object::getResourceURI();
             //@todo, bump version so you must create objects with app context.
@@ -211,7 +292,7 @@ abstract class Application
 
         //Put in an array with the first level containing only the 'root node'.
         $data = [$object::getRootNodeName() => $object->toStringArray()];
-        $url = new URL($this, $uri);
+        $url = new URL($this, $uri, $object::getAPIStem());
         $request = new Request($this, $url, $method);
 
         $request->setBody(Helpers::arrayToXML($data))->send();
@@ -231,15 +312,17 @@ abstract class Application
      * @return Remote\Response
      * @throws Exception
      */
-    public function saveAll($objects)
+    public function saveAll($objects, $checkGuid = true)
     {
+        $objects = array_values($objects);
+
         //Just get one type to compare with, doesn't matter which.
-        $current_object = current($objects);
+        $current_object = $objects[0];
         /**
          * @var Object $type
          */
         $type = get_class($current_object);
-        $has_guid =  $current_object->hasGUID();
+        $has_guid = $checkGuid ? $current_object->hasGUID() : true;
         $object_arrays = [];
 
         foreach ($objects as $object) {
@@ -257,7 +340,7 @@ abstract class Application
 
         $request_method = $has_guid ? Request::METHOD_POST : Request::METHOD_PUT;
 
-        $url = new URL($this, $type::getResourceURI());
+        $url = new URL($this, $type::getResourceURI(), $type::getAPIStem());
         $request = new Request($this, $url, $request_method);
 
         //This might need to be parsed and stored some day.
@@ -286,13 +369,13 @@ abstract class Application
      * This is called automatically from the save method for things like
      * adding contacts to ContactGroups
      *
-     * @param Remote\Object $object
+     * @param Remote\Model $object
      * @throws Exception
      */
-    private function savePropertiesDirectly(Remote\Object $object)
+    private function savePropertiesDirectly(Remote\Model $object)
     {
         foreach ($object::getProperties() as $property_name => $meta) {
-            if ($meta[Remote\Object::KEY_SAVE_DIRECTLY] && $object->isDirty($property_name)) {
+            if ($meta[Remote\Model::KEY_SAVE_DIRECTLY] && $object->isDirty($property_name)) {
                 //Then actually save
                 $property_objects = $object->$property_name;
                 /** @var Object $property_type */
@@ -327,11 +410,11 @@ abstract class Application
     }
 
     /**
-     * @param Remote\Object $object
+     * @param Remote\Model $object
      * @return Remote\Response
      * @throws Exception
      */
-    public function delete(Remote\Object $object)
+    public function delete(Remote\Model $object)
     {
         if (!$object::supportsMethod(Request::METHOD_DELETE)) {
             throw new Exception(

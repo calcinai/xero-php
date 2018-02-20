@@ -17,10 +17,7 @@ class PartnerApplicationTest extends \PHPUnit_Framework_TestCase
                 //'signature_location'  => \XeroPHP\Remote\OAuth\Client::SIGN_LOCATION_QUERY
             ],
             'curl' => [
-                CURLOPT_CAINFO          => 'certs/ca-bundle.crt',
-                CURLOPT_SSLCERT         => 'certs/entrust-cert.pem',
-                CURLOPT_SSLKEYPASSWD    => '1234',
-                CURLOPT_SSLKEY          => 'certs/entrust-private.pem'
+                CURLOPT_CAINFO          => 'certs/ca-bundle.crt'
             ]
         ];
 

@@ -13,7 +13,7 @@ class Collection extends \ArrayObject
     protected $_associated_objects;
 
 
-    public function addAssociatedObject($parent_property, Object $object)
+    public function addAssociatedObject($parent_property, Model $object)
     {
         $this->_associated_objects[$parent_property] = $object;
     }
@@ -41,7 +41,7 @@ class Collection extends \ArrayObject
      *
      * @param Object $object
      */
-    public function remove(Object $object)
+    public function remove(Model $object)
     {
         foreach ($this as $index => $item) {
             if ($item === $object) {

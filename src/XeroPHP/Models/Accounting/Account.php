@@ -4,7 +4,7 @@ namespace XeroPHP\Models\Accounting;
 use XeroPHP\Remote;
 use XeroPHP\Traits\AttachmentTrait;
 
-class Account extends Remote\Object
+class Account extends Remote\Model
 {
 
     use AttachmentTrait;

@@ -38,7 +38,7 @@ Using composer:
 
 ```json
   "require": {
-    "calcinai/xero-php": "1.4.*"
+    "calcinai/xero-php": "^1.6"
   }
 ```
 
@@ -60,7 +60,7 @@ foreach ($contacts as $contact) {
 }
 ```
 
-Load collection of objects, for a single page, and loop through them [(Why?)](<http://developer.xero.com/documentation/getting-started/xero-api-limits/#title10>)
+Load collection of objects, for a single page, and loop through them [(Why?)](<https://developer.xero.com/documentation/auth-and-limits/xero-api-limits#Systemlimits>)
 ```php
 $contacts = $xero->load('Accounting\\Contact')->page(1)->execute();
 foreach ($contacts as $contact) {
@@ -85,7 +85,7 @@ $xero->load('Accounting\\Invoice')->where('
 
 Load something by its GUID
 ```php
-$contact = $xero->loadByGUID('Accounting\\Contact', [GUID]);
+$contact = $xero->loadByGUID('Accounting\\Contact', $guid);
 ```
 
 Or create & populate it

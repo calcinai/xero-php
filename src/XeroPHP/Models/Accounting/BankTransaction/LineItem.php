@@ -4,7 +4,7 @@ namespace XeroPHP\Models\Accounting\BankTransaction;
 use XeroPHP\Remote;
 use XeroPHP\Models\Accounting\TrackingCategory;
 
-class LineItem extends Remote\Object
+class LineItem extends Remote\Model
 {
 
     /**

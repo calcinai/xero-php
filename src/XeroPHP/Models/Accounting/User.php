@@ -3,7 +3,7 @@ namespace XeroPHP\Models\Accounting;
 
 use XeroPHP\Remote;
 
-class User extends Remote\Object
+class User extends Remote\Model
 {
 
     /**

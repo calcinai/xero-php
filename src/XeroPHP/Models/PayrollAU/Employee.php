@@ -9,7 +9,7 @@ use XeroPHP\Models\PayrollAU\Employee\OpeningBalance;
 use XeroPHP\Models\PayrollAU\Employee\LeaveBalance;
 use XeroPHP\Models\PayrollAU\Employee\SuperMembership;
 
-class Employee extends Remote\Object
+class Employee extends Remote\Model
 {
 
     /**

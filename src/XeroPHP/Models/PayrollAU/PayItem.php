@@ -7,7 +7,7 @@ use XeroPHP\Models\PayrollAU\PayItem\DeductionType;
 use XeroPHP\Models\PayrollAU\PayItem\LeaveType;
 use XeroPHP\Models\PayrollAU\PayItem\ReimbursementType;
 
-class PayItem extends Remote\Object
+class PayItem extends Remote\Model
 {
 
     /**
