@@ -105,7 +105,7 @@ class SuperFund extends Remote\Object
             'Type' => [false, self::PROPERTY_TYPE_ENUM, null, false, false],
             'ABN' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
             'USI' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
-			'Name' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'Name' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
             'BSB' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
             'AccountNumber' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
             'AccountName' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
@@ -313,8 +313,8 @@ class SuperFund extends Remote\Object
         return $this;
     }
 
-	
-	    /**
+    
+        /**
      * @return string
      */
     public function getName()
