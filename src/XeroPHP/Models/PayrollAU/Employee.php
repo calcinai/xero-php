@@ -279,7 +279,7 @@ class Employee extends Remote\Object
             'Email' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
             'Gender' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
             'Mobile' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
-			'Phone' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'Phone' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
             'TwitterUserName' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
             'IsAuthorisedToApproveLeave' => [false, self::PROPERTY_TYPE_BOOLEAN, null, false, false],
             'IsAuthorisedToApproveTimesheets' => [false, self::PROPERTY_TYPE_BOOLEAN, null, false, false],
@@ -298,7 +298,7 @@ class Employee extends Remote\Object
             'EmployeeID' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
             'Status' => [false, self::PROPERTY_TYPE_ENUM, null, false, false],
             'UpdatedDateUTC' => [false, self::PROPERTY_TYPE_TIMESTAMP, '\\DateTimeInterface', false, false],
-			'TaxDeclaration' => [false, self::PROPERTY_TYPE_OBJECT, 'PayrollAU\\Employee\\TaxDeclaration', false, false]
+            'TaxDeclaration' => [false, self::PROPERTY_TYPE_OBJECT, 'PayrollAU\\Employee\\TaxDeclaration', false, false]
         ];
     }
 
@@ -364,7 +364,7 @@ class Employee extends Remote\Object
         return $this;
     }
 
-	 /**
+     /**
      * @return TaxDeclaration
      */
     public function getTaxDeclaration()
@@ -382,8 +382,8 @@ class Employee extends Remote\Object
         $this->_data['TaxDeclaration'] = $value;
         return $this;
     }
-	
-	
+    
+    
     /**
      * @return HomeAddress
      */
@@ -517,7 +517,7 @@ class Employee extends Remote\Object
         return $this;
     }
 
-	
+    
     /**
      * @return string
      */
@@ -535,10 +535,10 @@ class Employee extends Remote\Object
         $this->propertyUpdated('Phone', $value);
         $this->_data['Phone'] = $value;
         return $this;
-    }	
-	
-	
-	
+    }    
+    
+    
+    
     /**
      * @return string
      */
