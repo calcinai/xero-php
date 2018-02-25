@@ -644,6 +644,16 @@ class Invoice extends Remote\Model
         return $this->_data['SubTotal'];
     }
 
+    /**
+     * @param float $value
+     * @return Invoice
+     */
+    public function setSubTotal($value)
+    {
+        $this->propertyUpdated('SubTotal', $value);
+        $this->_data['SubTotal'] = $value;
+        return $this;
+    }
 
     /**
      * @return float
@@ -653,6 +663,16 @@ class Invoice extends Remote\Model
         return $this->_data['TotalTax'];
     }
 
+    /**
+     * @param float $value
+     * @return Invoice
+     */
+    public function setTotalTax($value)
+    {
+        $this->propertyUpdated('TotalTax', $value);
+        $this->_data['TotalTax'] = $value;
+        return $this;
+    }
 
     /**
      * @return float
@@ -662,6 +682,16 @@ class Invoice extends Remote\Model
         return $this->_data['Total'];
     }
 
+    /**
+     * @param float $value
+     * @return Invoice
+     */
+    public function setTotal($value)
+    {
+        $this->propertyUpdated('Total', $value);
+        $this->_data['Total'] = $value;
+        return $this;
+    }
 
     /**
      * @return float
