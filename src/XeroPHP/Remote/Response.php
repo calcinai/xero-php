@@ -213,14 +213,14 @@ class Response
                 case 'ValidationErrors':
                     if (is_array($value)) {
                         foreach ($value as $error) {
-                            $this->element_errors[$element_index] = trim($error['Message'], '.');
+                            $this->element_errors[$element_index][] = trim($error['Message'], '.');
                         }
                     }
                     break;
                 case 'Warnings':
                     if (is_array($value)) {
                         foreach ($value as $warning) {
-                            $this->element_warnings[$element_index] = trim($warning['Message'], '.');
+                            $this->element_warnings[$element_index][] = trim($warning['Message'], '.');
                         }
                     }
                     break;
