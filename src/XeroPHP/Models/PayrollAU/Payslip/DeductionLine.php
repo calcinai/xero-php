@@ -30,8 +30,6 @@ class DeductionLine extends Remote\Model
      * @property float[] NumberOfUnits
      */
 
-
-
     /**
      * Get the resource uri of the class (Contacts) etc
      *
@@ -41,7 +39,6 @@ class DeductionLine extends Remote\Model
     {
         return 'DeductionLine';
     }
-
 
     /**
      * Get the root node name.  Just the unqualified classname
@@ -53,7 +50,6 @@ class DeductionLine extends Remote\Model
         return 'DeductionLine';
     }
 
-
     /**
      * Get the guid property
      *
@@ -64,7 +60,6 @@ class DeductionLine extends Remote\Model
         return '';
     }
 
-
     /**
      * Get the stem of the API (core.xro) etc
      *
@@ -74,7 +69,6 @@ class DeductionLine extends Remote\Model
     {
         return Remote\URL::API_PAYROLL;
     }
-
 
     /**
      * Get the supported methods
@@ -101,8 +95,9 @@ class DeductionLine extends Remote\Model
         return [
             'DeductionTypeID' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
             'CalculationType' => [false, self::PROPERTY_TYPE_FLOAT, null, false, false],
+            'Amount' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
             'Percentage' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
-            'NumberOfUnits' => [false, self::PROPERTY_TYPE_FLOAT, null, true, false]
+            'NumberOfUnits' => [false, self::PROPERTY_TYPE_FLOAT, null, true, false],
         ];
     }
 
@@ -152,6 +147,25 @@ class DeductionLine extends Remote\Model
     /**
      * @return string
      */
+    public function getAmount()
+    {
+        return $this->_data['Amount'];
+    }
+
+    /**
+     * @param string $value
+     * @return DeductionLine
+     */
+    public function setAmount($value)
+    {
+        $this->propertyUpdated('Amount', $value);
+        $this->_data['Amount'] = $value;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
     public function getPercentage()
     {
         return $this->_data['Percentage'];
@@ -190,6 +204,5 @@ class DeductionLine extends Remote\Model
         $this->_data['NumberOfUnits'][] = $value;
         return $this;
     }
-
 
 }
