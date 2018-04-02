@@ -1,15 +1,15 @@
 <?php
 namespace XeroPHP\Models\PayrollAU;
 
-use XeroPHP\Remote;
-use XeroPHP\Models\PayrollAU\Payslip\EarningsLine;
-use XeroPHP\Models\PayrollAU\Payslip\TimesheetEarningsLine;
 use XeroPHP\Models\PayrollAU\Payslip\DeductionLine;
+use XeroPHP\Models\PayrollAU\Payslip\EarningsLine;
 use XeroPHP\Models\PayrollAU\Payslip\LeaveAccrualLine;
+use XeroPHP\Models\PayrollAU\Payslip\LeaveEarningsLine;
 use XeroPHP\Models\PayrollAU\Payslip\ReimbursementLine;
 use XeroPHP\Models\PayrollAU\Payslip\SuperannuationLine;
 use XeroPHP\Models\PayrollAU\Payslip\TaxLine;
-use XeroPHP\Models\PayrollAU\Payslip\LeaveEarningsLine;
+use XeroPHP\Models\PayrollAU\Payslip\TimesheetEarningsLine;
+use XeroPHP\Remote;
 
 class Payslip extends Remote\Model
 {
@@ -18,6 +18,12 @@ class Payslip extends Remote\Model
      * Xero identifier for payroll employee
      *
      * @property string EmployeeID
+     */
+
+    /**
+     * Xero identifier for payroll payrun
+     *
+     * @property string PayRunID
      */
 
     /**
@@ -134,8 +140,6 @@ class Payslip extends Remote\Model
      * @property LeaveEarningsLine[] LeaveEarningsLines
      */
 
-
-
     /**
      * Get the resource uri of the class (Contacts) etc
      *
@@ -145,7 +149,6 @@ class Payslip extends Remote\Model
     {
         return 'Payslip';
     }
-
 
     /**
      * Get the root node name.  Just the unqualified classname
@@ -157,7 +160,6 @@ class Payslip extends Remote\Model
         return 'Payslip';
     }
 
-
     /**
      * Get the guid property
      *
@@ -167,7 +169,6 @@ class Payslip extends Remote\Model
     {
         return 'PayslipID';
     }
-
 
     /**
      * Get the stem of the API (core.xro) etc
@@ -179,7 +180,6 @@ class Payslip extends Remote\Model
         return Remote\URL::API_PAYROLL;
     }
 
-
     /**
      * Get the supported methods
      */
@@ -187,7 +187,7 @@ class Payslip extends Remote\Model
     {
         return [
             Remote\Request::METHOD_POST,
-            Remote\Request::METHOD_GET
+            Remote\Request::METHOD_GET,
         ];
     }
 
@@ -207,6 +207,7 @@ class Payslip extends Remote\Model
         return [
             'EmployeeID' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
             'PayslipID' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'PayRunID' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
             'EarningsLines' => [false, self::PROPERTY_TYPE_OBJECT, 'PayrollAU\\Payslip\\EarningsLine', true, false],
             'TimesheetEarningsLines' => [false, self::PROPERTY_TYPE_OBJECT, 'PayrollAU\\Payslip\\TimesheetEarningsLine', true, false],
             'DeductionLines' => [false, self::PROPERTY_TYPE_OBJECT, 'PayrollAU\\Payslip\\DeductionLine', true, false],
@@ -224,7 +225,7 @@ class Payslip extends Remote\Model
             'Tax' => [false, self::PROPERTY_TYPE_FLOAT, null, false, false],
             'Super' => [false, self::PROPERTY_TYPE_FLOAT, null, false, false],
             'Reimbursements' => [false, self::PROPERTY_TYPE_FLOAT, null, true, false],
-            'LeaveEarningsLines' => [false, self::PROPERTY_TYPE_OBJECT, 'PayrollAU\\Payslip\\LeaveEarningsLine', true, false]
+            'LeaveEarningsLines' => [false, self::PROPERTY_TYPE_OBJECT, 'PayrollAU\\Payslip\\LeaveEarningsLine', true, false],
         ];
     }
 
@@ -249,6 +250,25 @@ class Payslip extends Remote\Model
     {
         $this->propertyUpdated('EmployeeID', $value);
         $this->_data['EmployeeID'] = $value;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getPayRunID()
+    {
+        return $this->_data['PayRunID'];
+    }
+
+    /**
+     * @param string $value
+     * @return Payslip
+     */
+    public function setPayRunID($value)
+    {
+        $this->propertyUpdated('PayRunID', $value);
+        $this->_data['PayRunID'] = $value;
         return $this;
     }
 
@@ -440,7 +460,6 @@ class Payslip extends Remote\Model
         return $this->_data['FirstName'];
     }
 
-
     /**
      * @return string
      */
@@ -448,7 +467,6 @@ class Payslip extends Remote\Model
     {
         return $this->_data['LastName'];
     }
-
 
     /**
      * @return string
@@ -458,7 +476,6 @@ class Payslip extends Remote\Model
         return $this->_data['EmployeeGroup'];
     }
 
-
     /**
      * @return string
      */
@@ -466,7 +483,6 @@ class Payslip extends Remote\Model
     {
         return $this->_data['LastEdited'];
     }
-
 
     /**
      * @return float[]|Remote\Collection
@@ -477,7 +493,6 @@ class Payslip extends Remote\Model
         return $this->_data['Wages'];
     }
 
-
     /**
      * @return float[]|Remote\Collection
      * Always returns a collection, switch is for type hinting
@@ -487,7 +502,6 @@ class Payslip extends Remote\Model
         return $this->_data['Deductions'];
     }
 
-
     /**
      * @return float
      */
@@ -495,7 +509,6 @@ class Payslip extends Remote\Model
     {
         return $this->_data['NetPay'];
     }
-
 
     /**
      * @return float
@@ -505,7 +518,6 @@ class Payslip extends Remote\Model
         return $this->_data['Tax'];
     }
 
-
     /**
      * @return float
      */
@@ -513,7 +525,6 @@ class Payslip extends Remote\Model
     {
         return $this->_data['Super'];
     }
-
 
     /**
      * @return float[]|Remote\Collection
@@ -524,7 +535,6 @@ class Payslip extends Remote\Model
         return $this->_data['Reimbursements'];
     }
 
-
     /**
      * @return LeaveEarningsLine[]|Remote\Collection
      * Always returns a collection, switch is for type hinting
@@ -533,7 +543,5 @@ class Payslip extends Remote\Model
     {
         return $this->_data['LeaveEarningsLines'];
     }
-
-
 
 }
