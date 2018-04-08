@@ -77,7 +77,8 @@ class Currency extends Remote\Model
     public static function getSupportedMethods()
     {
         return [
-            Remote\Request::METHOD_GET
+            Remote\Request::METHOD_GET,
+            Remote\Request::METHOD_PUT
         ];
     }
 
