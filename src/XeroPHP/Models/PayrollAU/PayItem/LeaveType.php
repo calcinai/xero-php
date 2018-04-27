@@ -16,7 +16,7 @@ class LeaveType extends Remote\Model
      * The type of units by which leave entitlements are normally tracked. These are typically the same as
      * the type of units used for the employee’s ordinary earnings rate
      *
-     * @property float[] TypeOfUnits
+     * @property string TypeOfUnits
      */
 
     /**
@@ -120,7 +120,7 @@ class LeaveType extends Remote\Model
     {
         return [
             'Name' => [true, self::PROPERTY_TYPE_STRING, null, false, false],
-            'TypeOfUnits' => [true, self::PROPERTY_TYPE_FLOAT, null, true, false],
+            'TypeOfUnits' => [true, self::PROPERTY_TYPE_STRING, null, true, false],
             'IsPaidLeave' => [true, self::PROPERTY_TYPE_STRING, null, false, false],
             'ShowOnPayslip' => [true, self::PROPERTY_TYPE_STRING, null, false, false],
             'LeaveTypeID' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
@@ -154,7 +154,7 @@ class LeaveType extends Remote\Model
     }
 
     /**
-     * @return float[]|Remote\Collection
+     * @return string
      * Always returns a collection, switch is for type hinting
      */
     public function getTypeOfUnits()
@@ -162,17 +162,15 @@ class LeaveType extends Remote\Model
         return $this->_data['TypeOfUnits'];
     }
 
+
     /**
-     * @param float $value
+     * @param string $value
      * @return LeaveType
      */
-    public function addTypeOfUnit($value)
+    public function setTypeOfUnits($value)
     {
         $this->propertyUpdated('TypeOfUnits', $value);
-        if (!isset($this->_data['TypeOfUnits'])) {
-            $this->_data['TypeOfUnits'] = new Remote\Collection();
-        }
-        $this->_data['TypeOfUnits'][] = $value;
+        $this->_data['TypeOfUnits'] = $value;
         return $this;
     }
 
