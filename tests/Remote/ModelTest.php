@@ -2,13 +2,13 @@
 
 namespace XeroPHP\Tests\Remote;
 
-use XeroPHP\Remote\Object;
+use XeroPHP\Remote\Model;
 
-class ObjectTest extends \PHPUnit_Framework_TestCase
+class ModelTest extends \PHPUnit_Framework_TestCase
 {
     public function testAccessorMethods()
     {
-        $object = new SimpleObject(null);
+        $object = new SimpleModel(null);
         $this->assertFalse(isset($object->test));
         $this->assertNull($object->test);
         $this->assertFalse(isset($object->TeST));
@@ -33,7 +33,7 @@ class ObjectTest extends \PHPUnit_Framework_TestCase
 
     public function testGUIDMethods()
     {
-        $object = new SimpleObject();
+        $object = new SimpleModel();
         $this->assertNull($object->getGUID());
         $this->assertFalse($object->hasGUID());
 
@@ -44,7 +44,7 @@ class ObjectTest extends \PHPUnit_Framework_TestCase
     }
 }
 
-class SimpleObject extends Object
+class SimpleModel extends Model
 {
     public static function getGUIDProperty()
     {

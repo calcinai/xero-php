@@ -1,6 +1,6 @@
 <?php
 
-use XeroPHP\Remote\Object;
+use XeroPHP\Remote\Model;
 
 class Property
 {
@@ -133,9 +133,9 @@ class Property
     {
         switch (true) {
             case stripos($this->getName(), 'status') !== false:
-            case $this->getType() === Object::PROPERTY_TYPE_BOOLEAN:
-            case $this->getType() === Object::PROPERTY_TYPE_ENUM:
-            case $this->getType() === Object::PROPERTY_TYPE_STRING:
+            case $this->getType() === Model::PROPERTY_TYPE_BOOLEAN:
+            case $this->getType() === Model::PROPERTY_TYPE_ENUM:
+            case $this->getType() === Model::PROPERTY_TYPE_STRING:
                 return false;
             //This to to improve detection of names that are the same plural/sing
             case preg_match('/maximum of [2-9] <(?<model>[a-z]+)> elements/i', $this->getDescription()):
@@ -159,7 +159,7 @@ class Property
     public function getTypeConstant()
     {
         //Ew.
-        $rc = new ReflectionClass('\\XeroPHP\\Remote\\Object');
+        $rc = new ReflectionClass('\\XeroPHP\\Remote\\Model');
         foreach ($rc->getConstants() as $constant_name => $constant_value) {
             if ($constant_value === $this->getType()) {
                 return $constant_name;
@@ -175,25 +175,25 @@ class Property
     public function getPHPType($with_ns = false)
     {
         switch ($this->getType()) {
-            case Object::PROPERTY_TYPE_INT:
+            case Model::PROPERTY_TYPE_INT:
                 return 'int';
 
-            case Object::PROPERTY_TYPE_FLOAT:
+            case Model::PROPERTY_TYPE_FLOAT:
                 return 'float';
 
-            case Object::PROPERTY_TYPE_BOOLEAN:
+            case Model::PROPERTY_TYPE_BOOLEAN:
                 return 'bool';
 
-            case Object::PROPERTY_TYPE_STRING:
-            case Object::PROPERTY_TYPE_GUID:
-            case Object::PROPERTY_TYPE_ENUM:
+            case Model::PROPERTY_TYPE_STRING:
+            case Model::PROPERTY_TYPE_GUID:
+            case Model::PROPERTY_TYPE_ENUM:
                 return 'string';
 
-            case Object::PROPERTY_TYPE_DATE:
-            case Object::PROPERTY_TYPE_TIMESTAMP:
+            case Model::PROPERTY_TYPE_DATE:
+            case Model::PROPERTY_TYPE_TIMESTAMP:
                 return '\DateTimeInterface';
 
-            case Object::PROPERTY_TYPE_OBJECT:
+            case Model::PROPERTY_TYPE_OBJECT:
                 return $this->related_object->getClassName($with_ns);
         }
 
@@ -209,9 +209,9 @@ class Property
     public function isHintable()
     {
         switch ($this->getType()) {
-            case Object::PROPERTY_TYPE_DATE:
-            case Object::PROPERTY_TYPE_TIMESTAMP:
-            case Object::PROPERTY_TYPE_OBJECT:
+            case Model::PROPERTY_TYPE_DATE:
+            case Model::PROPERTY_TYPE_TIMESTAMP:
+            case Model::PROPERTY_TYPE_OBJECT:
                 return true;
             default:
                 return false;
@@ -228,10 +228,10 @@ class Property
     {
         //Spelling errors in the docs
         if (preg_match('/UTC$/', $this->getName())) {
-            $type = Object::PROPERTY_TYPE_TIMESTAMP;
+            $type = Model::PROPERTY_TYPE_TIMESTAMP;
         }
         if (preg_match('/^Has[A-Z]\w+/', $this->getName())) {
-            $type = Object::PROPERTY_TYPE_BOOLEAN;
+            $type = Model::PROPERTY_TYPE_BOOLEAN;
         }
 
         if (preg_match('/(^sum\b|decimal|the\stotal|total\s(of|tax)|rate\b|amount\b|timesheet\sline)/i', $this->description)) {
@@ -240,38 +240,38 @@ class Property
                 stripos($this->name, 'description') === false &&
                 stripos($this->description, 'amount type') === false
             ) {
-                $type = Object::PROPERTY_TYPE_FLOAT;
+                $type = Model::PROPERTY_TYPE_FLOAT;
             }
         }
 
         //Spelling errors in the docs
         if (preg_match('/^((a\s)?bool|true\b|booelan)/i', $this->description)) {
-            $type = Object::PROPERTY_TYPE_BOOLEAN;
+            $type = Model::PROPERTY_TYPE_BOOLEAN;
         }
 
         if (preg_match('/(alpha numeric)/i', $this->description)) {
-            $type = Object::PROPERTY_TYPE_STRING;
+            $type = Model::PROPERTY_TYPE_STRING;
         }
 
         if (preg_match('/(^int(eger)?\b)/i', $this->description)) {
-            $type = Object::PROPERTY_TYPE_INT;
+            $type = Model::PROPERTY_TYPE_INT;
         }
 
         if (!isset($type) && preg_match('/(\bdate\b)/i', $this->description)) {
-            $type = Object::PROPERTY_TYPE_DATE;
+            $type = Model::PROPERTY_TYPE_DATE;
         }
 
         if (preg_match('/Xero (generated )?(unique )?identifier/i', $this->description)) {
-            $type = Object::PROPERTY_TYPE_GUID;
+            $type = Model::PROPERTY_TYPE_GUID;
         }
 
         if ($this->getModel()->getClassName().'ID' == $this->getName()) {
-            $type = Object::PROPERTY_TYPE_GUID;
+            $type = Model::PROPERTY_TYPE_GUID;
             $this->getModel()->setGUIDProperty($this);
         }
 
         if (preg_match('/(Code|ID)$/', $this->getName())) {
-            $type = Object::PROPERTY_TYPE_STRING;
+            $type = Model::PROPERTY_TYPE_STRING;
         }
 
         $result = null;
@@ -341,9 +341,9 @@ class Property
         }
 
         if ($result instanceof Enum) {
-            $type = Object::PROPERTY_TYPE_ENUM;
+            $type = Model::PROPERTY_TYPE_ENUM;
         } elseif ($result instanceof Model) {
-            $type = Object::PROPERTY_TYPE_OBJECT;
+            $type = Model::PROPERTY_TYPE_OBJECT;
             $this->related_object = $result;
 
             //If docs have case-typos in them, take the class name as authoritative.
@@ -353,7 +353,7 @@ class Property
         }
 
         if (!isset($type)) {
-            $type = Object::PROPERTY_TYPE_STRING;
+            $type = Model::PROPERTY_TYPE_STRING;
         }
 
         return $type;

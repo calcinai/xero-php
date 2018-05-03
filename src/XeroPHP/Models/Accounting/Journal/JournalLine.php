@@ -5,7 +5,7 @@ use XeroPHP\Remote;
 use XeroPHP\Models\Accounting\TaxRate;
 use XeroPHP\Models\Accounting\TrackingCategory;
 
-class JournalLine extends Remote\Object
+class JournalLine extends Remote\Model
 {
 
     /**

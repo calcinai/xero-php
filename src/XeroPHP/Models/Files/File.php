@@ -3,7 +3,7 @@ namespace XeroPHP\Models\Files;
 
 use XeroPHP\Remote;
 
-class File extends Remote\Object
+class File extends Remote\Model
 {
 
     /**

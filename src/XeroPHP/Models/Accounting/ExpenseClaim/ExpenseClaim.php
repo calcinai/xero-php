@@ -4,7 +4,7 @@ namespace XeroPHP\Models\Accounting\ExpenseClaim;
 use XeroPHP\Remote;
 use XeroPHP\Models\Accounting\Payment;
 
-class ExpenseClaim extends Remote\Object
+class ExpenseClaim extends Remote\Model
 {
 
     /**
