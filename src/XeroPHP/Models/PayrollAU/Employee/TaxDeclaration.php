@@ -1,5 +1,5 @@
 <?php
-namespace XeroPHP\Models\PayrollAU\Employee;
+    namespace XeroPHP\Models\PayrollAU\Employee;
 
 use XeroPHP\Remote;
 
@@ -177,7 +177,7 @@ class TaxDeclaration extends Remote\Model
             'TFNExemptionType' => [false, self::PROPERTY_TYPE_ENUM, null, false, false],
             'TaxFileNumber' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
             'AustralianResidentForTaxPurposes' => [false, self::PROPERTY_TYPE_BOOLEAN, null, false, false],
-			'ResidencyStatus' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'ResidencyStatus' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
             'TaxFreeThresholdClaimed' => [false, self::PROPERTY_TYPE_BOOLEAN, null, false, false],
             'TaxOffsetEstimatedAmount' => [false, self::PROPERTY_TYPE_FLOAT, null, false, false],
             'HasHELPDebt' => [false, self::PROPERTY_TYPE_BOOLEAN, null, false, false],
@@ -289,26 +289,26 @@ class TaxDeclaration extends Remote\Model
         return $this;
     }
 
-	
-		/** @param string $value
-	 * @return $this
-	 */
-	public function setResidencyStatus($value)
-	{
-		$this->propertyUpdated('ResidencyStatus', $value);
+
+    /** @param string $value
+     * @return $this
+     */
+    public function setResidencyStatus($value)
+    {
+        $this->propertyUpdated('ResidencyStatus', $value);
         $this->_data['ResidencyStatus'] = $value;
         return $this;
-	}
-	
-	/**
-	 * @return string
-	 */
-	public function getResidencyStatus()
-	{
-		return $this->_data['ResidencyStatus'];
-	}
-	
-	
+    }
+
+    /**
+     * @return string
+     */
+    public function getResidencyStatus()
+    {
+        return $this->_data['ResidencyStatus'];
+    }
+
+
     /**
      * @return string
      */
