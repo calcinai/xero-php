@@ -1,5 +1,5 @@
 <?php
-namespace XeroPHP\Models\PayrollAU;
+    namespace XeroPHP\Models\PayrollAU;
 
 use XeroPHP\Remote;
 
@@ -105,7 +105,7 @@ class SuperFund extends Remote\Model
             'Type' => [false, self::PROPERTY_TYPE_ENUM, null, false, false],
             'ABN' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
             'USI' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
-			'Name' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'Name' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
             'BSB' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
             'AccountNumber' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
             'AccountName' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
@@ -196,7 +196,7 @@ class SuperFund extends Remote\Model
         return $this;
     }
 
-// PUTTING IN METHODS FROM SUPERFUND/SUPERFUND
+    // PUTTING IN METHODS FROM SUPERFUND/SUPERFUND
 
     /**
      * @return string
@@ -313,8 +313,8 @@ class SuperFund extends Remote\Model
         return $this;
     }
 
-	
-	    /**
+
+    /**
      * @return string
      */
     public function getName()
