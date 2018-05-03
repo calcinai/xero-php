@@ -176,12 +176,12 @@ class TaxDeclaration extends Remote\Model
             'EmploymentBasis' => [true, self::PROPERTY_TYPE_ENUM, null, false, false],
             'TFNExemptionType' => [false, self::PROPERTY_TYPE_ENUM, null, false, false],
             'TaxFileNumber' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
-            'AustralianResidentForTaxPurposes' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
-            'TaxFreeThresholdClaimed' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'AustralianResidentForTaxPurposes' => [false, self::PROPERTY_TYPE_BOOLEAN, null, false, false],
+			'ResidencyStatus' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'TaxFreeThresholdClaimed' => [false, self::PROPERTY_TYPE_BOOLEAN, null, false, false],
             'TaxOffsetEstimatedAmount' => [false, self::PROPERTY_TYPE_FLOAT, null, false, false],
             'HasHELPDebt' => [false, self::PROPERTY_TYPE_BOOLEAN, null, false, false],
             'HasSFSSDebt' => [false, self::PROPERTY_TYPE_BOOLEAN, null, false, false],
-            'HasTSLDebt' => [false, self::PROPERTY_TYPE_BOOLEAN, null, false, false],
             'HasTradeSupportLoanDebt' => [false, self::PROPERTY_TYPE_BOOLEAN, null, false, false],
             'UpwardVariationTaxWithholdingAmount' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
             'EligibleToReceiveLeaveLoading' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
@@ -289,6 +289,26 @@ class TaxDeclaration extends Remote\Model
         return $this;
     }
 
+	
+		/** @param string $value
+	 * @return $this
+	 */
+	public function setResidencyStatus($value)
+	{
+		$this->propertyUpdated('ResidencyStatus', $value);
+        $this->_data['ResidencyStatus'] = $value;
+        return $this;
+	}
+	
+	/**
+	 * @return string
+	 */
+	public function getResidencyStatus()
+	{
+		return $this->_data['ResidencyStatus'];
+	}
+	
+	
     /**
      * @return string
      */
@@ -362,27 +382,6 @@ class TaxDeclaration extends Remote\Model
     {
         $this->propertyUpdated('HasSFSSDebt', $value);
         $this->_data['HasSFSSDebt'] = $value;
-        return $this;
-    }
-
-    /**
-     * @return bool
-     * @deprecated
-     */
-    public function getHasTSLDebt()
-    {
-        return $this->_data['HasTSLDebt'];
-    }
-
-    /**
-     * @param bool $value
-     * @return TaxDeclaration
-     * @deprecated
-     */
-    public function setHasTSLDebt($value)
-    {
-        $this->propertyUpdated('HasTSLDebt', $value);
-        $this->_data['HasTSLDebt'] = $value;
         return $this;
     }
 
