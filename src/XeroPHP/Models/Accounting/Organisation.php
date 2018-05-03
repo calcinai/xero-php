@@ -5,7 +5,7 @@ use XeroPHP\Remote;
 use XeroPHP\Models\Accounting\Organisation\ExternalLink;
 use XeroPHP\Models\Accounting\Organisation\PaymentTerm;
 
-class Organisation extends Remote\Object
+class Organisation extends Remote\Model
 {
 
     /**
@@ -303,7 +303,8 @@ class Organisation extends Remote\Object
             'Addresses' => [false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Address', true, false],
             'Phones' => [false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Phone', true, false],
             'ExternalLinks' => [false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Organisation\\ExternalLink', true, false],
-            'PaymentTerms' => [false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Organisation\\PaymentTerm', true, false]
+            'PaymentTerms' => [false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Organisation\\PaymentTerm', true, false],
+            'OrganisationID' => [false, self::PROPERTY_TYPE_STRING, null, false, false]
         ];
     }
 
@@ -879,5 +880,11 @@ class Organisation extends Remote\Object
         return $this;
     }
 
-
+    /**
+     * @return string
+     */
+    public function getOrganisationID()
+    {
+        return $this->_data['OrganisationID'];
+    }
 }

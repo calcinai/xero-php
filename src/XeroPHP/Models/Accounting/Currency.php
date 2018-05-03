@@ -3,7 +3,7 @@ namespace XeroPHP\Models\Accounting;
 
 use XeroPHP\Remote;
 
-class Currency extends Remote\Object
+class Currency extends Remote\Model
 {
 
     /**
@@ -77,7 +77,8 @@ class Currency extends Remote\Object
     public static function getSupportedMethods()
     {
         return [
-            Remote\Request::METHOD_GET
+            Remote\Request::METHOD_GET,
+            Remote\Request::METHOD_PUT
         ];
     }
 

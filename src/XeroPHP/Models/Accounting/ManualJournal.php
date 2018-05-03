@@ -5,7 +5,7 @@ use XeroPHP\Remote;
 use XeroPHP\Traits\AttachmentTrait;
 use XeroPHP\Models\Accounting\ManualJournal\JournalLine;
 
-class ManualJournal extends Remote\Object
+class ManualJournal extends Remote\Model
 {
 
     use AttachmentTrait;

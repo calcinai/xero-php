@@ -4,7 +4,7 @@ namespace XeroPHP\Models\Accounting;
 use XeroPHP\Remote;
 use XeroPHP\Models\Accounting\Journal\JournalLine;
 
-class Journal extends Remote\Object
+class Journal extends Remote\Model
 {
 
     /**

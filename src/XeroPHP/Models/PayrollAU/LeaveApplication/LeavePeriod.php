@@ -3,7 +3,7 @@ namespace XeroPHP\Models\PayrollAU\LeaveApplication;
 
 use XeroPHP\Remote;
 
-class LeavePeriod extends Remote\Object
+class LeavePeriod extends Remote\Model
 {
 
     /**

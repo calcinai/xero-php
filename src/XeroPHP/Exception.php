@@ -4,4 +4,5 @@ namespace XeroPHP;
 
 class Exception extends \Exception
 {
+    //
 }
