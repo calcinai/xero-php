@@ -402,6 +402,12 @@ class Receipt extends Remote\Model
         return $this->_data['Status'];
     }
 
+     public function setStatus($value)
+    {
+        $this->propertyUpdated('Status', $value);
+        $this->_data['Status'] = $value;
+        return $this;
+    }
 
     /**
      * @return string
