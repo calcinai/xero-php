@@ -2,9 +2,11 @@
 namespace XeroPHP\Models\Accounting;
 
 use XeroPHP\Remote;
+use XeroPHP\Traits\AttachmentTrait;
 
 class ExpenseClaim extends Remote\Model
 {
+    use AttachmentTrait;
 
     /**
      * Xero identifier
