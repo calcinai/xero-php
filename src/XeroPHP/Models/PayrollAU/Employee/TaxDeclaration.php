@@ -182,6 +182,7 @@ class TaxDeclaration extends Remote\Model
             'TaxOffsetEstimatedAmount' => [false, self::PROPERTY_TYPE_FLOAT, null, false, false],
             'HasHELPDebt' => [false, self::PROPERTY_TYPE_BOOLEAN, null, false, false],
             'HasSFSSDebt' => [false, self::PROPERTY_TYPE_BOOLEAN, null, false, false],
+            'HasTSLDebt' => [false, self::PROPERTY_TYPE_BOOLEAN, null, false, false],
             'HasTradeSupportLoanDebt' => [false, self::PROPERTY_TYPE_BOOLEAN, null, false, false],
             'UpwardVariationTaxWithholdingAmount' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
             'EligibleToReceiveLeaveLoading' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
@@ -385,6 +386,27 @@ class TaxDeclaration extends Remote\Model
         return $this;
     }
 
+     /**
+     * @return bool
+     * @deprecated
+     */
+    public function getHasTSLDebt()
+    {
+        return $this->_data['HasTSLDebt'];
+    }
+
+    /**
+     * @param bool $value
+     * @return TaxDeclaration
+     * @deprecated
+     */
+    public function setHasTSLDebt($value)
+    {
+        $this->propertyUpdated('HasTSLDebt', $value);
+        $this->_data['HasTSLDebt'] = $value;
+        return $this;
+    }
+    
     /**
      * @return bool
      */
