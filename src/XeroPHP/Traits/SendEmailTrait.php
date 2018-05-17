@@ -11,6 +11,14 @@ trait SendEmailTrait
     public function sendEmail()
     {
         /**
+         * Allows the document to be sent by email to the customer
+         * currently only availbale for Invoices.
+         * Invoice status should be SUBMITTED, AUTHORISED or PAID.
+         * The email address for the Contact should also be set.
+         *
+         * Documentation here: 
+         * https://developer.xero.com/documentation/api/invoices#email
+         *
          * @var Object $this
          */
         $uri = sprintf('%s/%s/Email', $this::getResourceURI(), $this->getGUID());
