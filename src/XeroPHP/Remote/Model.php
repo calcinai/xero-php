@@ -78,10 +78,13 @@ abstract class Model implements ObjectInterface, \JsonSerializable, \ArrayAccess
      * but will have to be like this for BC until the next major version.
      *
      * @param Application $application
+     * @return $this
      */
     public function setApplication(Application $application)
     {
         $this->_application = $application;
+
+        return $this;
     }
 
     /**
