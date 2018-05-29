@@ -30,11 +30,6 @@ class Client
 
     private $config;
 
-    /**
-     * @var Request $request
-     */
-    private $request;
-
     /*
      * "Cached" parameters - will change between signings.
      */
@@ -62,10 +57,8 @@ class Client
      */
     public function sign(Request $request)
     {
-        $this->request = $request;
-
         $oauth_params = $this->getOAuthParams();
-        $oauth_params['oauth_signature'] = $this->getSignature();
+        $oauth_params['oauth_signature'] = $this->getSignature($request);
 
         //put it where it needs to go in the request
         switch ($this->config['signature_location']) {
@@ -137,29 +130,30 @@ class Client
      * Not all mechanisms use all of the parameters, but for
      * consistency, pass the same constructor to each one.
      *
+     * @param Request $request
      * @return string
      * @throws Exception
      */
-    private function getSignature()
+    private function getSignature(Request $request)
     {
         switch ($this->getSignatureMethod()) {
             case self::SIGNATURE_RSA_SHA1:
                 $signature = RSASHA1::generateSignature(
                     $this->config,
-                    $this->getSBS(),
+                    $this->getSBS($request),
                     $this->getSigningSecret()
                 );
                 break;
             case self::SIGNATURE_HMAC_SHA1:
                 $signature = HMACSHA1::generateSignature(
                     $this->config,
-                    $this->getSBS(),
+                    $this->getSBS($request),
                     $this->getSigningSecret()
                 );
                 break;
             case self::SIGNATURE_PLAINTEXT:
                 $signature = PLAINTEXT::generateSignature(
-                    $this->config, $this->getSBS(),
+                    $this->config, $this->getSBS($request),
                     $this->getSigningSecret()
                 );
                 break;
@@ -178,24 +172,24 @@ class Client
      * ordered by key, then concatenated with the method and URL
      * GET&https%3A%2F%2Fapi.xero.com%2Fapi.xro%2F2.0%2FContacts&oauth_consumer etc.
      *
+     * @param Request $request
      * @return string
      */
-    public function getSBS()
+    public function getSBS(Request $request)
     {
         $oauth_params = $this->getOAuthParams();
-        $request_params = $this->request->getParameters();
 
-        $sbs_params = array_merge($request_params, $oauth_params);
+        $sbs_params = array_merge($request->getParameters(), $oauth_params);
         //Params need sorting so signing order is the same
         ksort($sbs_params);
         $sbs_string = Helpers::flattenAssocArray($sbs_params, '%s=%s', '&', true);
 
-        $url = $this->request->getUrl()->getFullURL();
+        $url = $request->getUrl()->getFullURL();
 
         //Every second thing seems to need escaping!
         return sprintf(
             '%s&%s&%s',
-            $this->request->getMethod(),
+            $request->getMethod(),
             Helpers::escape($url),
             Helpers::escape($sbs_string)
         );
