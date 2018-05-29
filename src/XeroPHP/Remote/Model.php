@@ -224,11 +224,16 @@ abstract class Model implements ObjectInterface, \JsonSerializable, \ArrayAccess
      *
      * @return array
      */
-    public function toStringArray()
+    public function toStringArray($dirty_only = false)
     {
         $out = [];
         foreach (static::getProperties() as $property => $meta) {
             if (!isset($this->_data[$property])) {
+                continue;
+            }
+
+            //if we only want the dirty props, stop here
+            if($dirty_only && !isset($this->_dirty[$property])) {
                 continue;
             }
 

@@ -30,6 +30,8 @@ trait AttachmentTrait
 
         if (false !== $element = current($response->getElements())) {
             $attachment->fromStringArray($element);
+            //If this was successful, it obviously has them
+            $this->fromStringArray(['HasAttachments' => true]);
         }
 
         return $this;

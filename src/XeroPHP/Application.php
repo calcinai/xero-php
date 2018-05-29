@@ -233,7 +233,6 @@ abstract class Application
         $request = new Request($this, $url, Request::METHOD_GET);
         $request->setParameter("IDs", $guids);
         $request->send();
-
         $elements = new Collection();
         foreach ($request->getResponse()->getElements() as $element) {
             /**
@@ -291,7 +290,7 @@ abstract class Application
         }
 
         //Put in an array with the first level containing only the 'root node'.
-        $data = [$object::getRootNodeName() => $object->toStringArray()];
+        $data = [$object::getRootNodeName() => $object->toStringArray(true)];
         $url = new URL($this, $uri, $object::getAPIStem());
         $request = new Request($this, $url, $method);
 
@@ -335,7 +334,7 @@ abstract class Application
                 $has_guid = true;
             }
 
-            $object_arrays[] = $object->toStringArray();
+            $object_arrays[] = $object->toStringArray(true);
         }
 
         $request_method = $has_guid ? Request::METHOD_POST : Request::METHOD_PUT;
@@ -387,7 +386,7 @@ abstract class Application
                 $property_array = [];
                 /** @var Object[] $property_objects */
                 foreach ($property_objects as $property_object) {
-                    $property_array[] = $property_object->toStringArray();
+                    $property_array[] = $property_object->toStringArray(true);
                 }
 
                 $root_node_name = Helpers::pluralize($property_type::getRootNodeName());
@@ -428,8 +427,12 @@ abstract class Application
         $uri = sprintf('%s/%s', $object::getResourceURI(), $object->getGUID());
         $url = new URL($this, $uri);
         $request = new Request($this, $url, Request::METHOD_DELETE);
-        $request->send();
+        $response = $request->send();
 
-        return $request->getResponse();
+        if (false !== $element = current($response->getElements())) {
+            $object->fromStringArray($element, true);
+        }
+
+        return $object;
     }
 }
