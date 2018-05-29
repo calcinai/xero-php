@@ -63,4 +63,16 @@ class Collection extends \ArrayObject
         }
         $this->exchangeArray([]);
     }
+
+    public function first()
+    {
+        return $this->offsetExists(0) ? $this->offsetGet(0) : null;
+    }
+
+    public function last()
+    {
+        $last = $this->count() - 1;
+
+        return $this->offsetExists($last) ? $this->offsetGet($last) : null;
+    }
 }
