@@ -133,6 +133,11 @@ class Response
         return '';
     }
 
+    public function getStatus()
+    {
+        return $this->status;
+    }
+    
     public function getResponseBody()
     {
         return $this->response_body;
