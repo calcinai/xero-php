@@ -2,8 +2,8 @@
 
 namespace XeroPHP\Remote;
 
-use XeroPHP\Application;
 use DateTime;
+use XeroPHP\Application;
 
 class Query
 {
@@ -46,7 +46,7 @@ class Query
         $this->from_class = $this->app->validateModelClass($class);
         return $this;
     }
-    
+
     /**
      * Adds a WHERE statement to the query.
      * Can also be used to chain an AND WHERE statement to a query.
@@ -57,7 +57,7 @@ class Query
     {
         return $this->addWhere('AND', func_get_args());
     }
-    
+
     /**
      * Chains an OR WHERE statement on to the query
      *
@@ -67,7 +67,7 @@ class Query
     {
         return $this->addWhere('OR', func_get_args());
     }
-    
+
     /**
      * Chains an AND WHERE statement on to the query.
      * ( Note this method is effectively an alias for where() to help make fluent
@@ -211,15 +211,16 @@ class Query
         return $this;
     }
 
-    public function includeArchived($includeArchived = true) {
-        $this->includeArchived = (bool) $includeArchived;
+    public function includeArchived($includeArchived = true)
+    {
+        $this->includeArchived = (bool)$includeArchived;
         return $this;
     }
 
 
     public function setParameter($key, $value)
     {
-        $this->params[(string) $key] = (string) $value;
+        $this->params[(string)$key] = (string)$value;
         return $this;
     }
 
@@ -240,13 +241,13 @@ class Query
         $request = new Request($this->app, $url, Request::METHOD_GET);
 
         // Add params
-        foreach($this->params as $key => $value) {
+        foreach ($this->params as $key => $value) {
             $request->setParameter($key, $value);
         }
 
         // Concatenate where statements
         $where = $this->getWhere();
-        
+
         if (!empty($where)) {
             $request->setParameter('where', $where);
         }
@@ -298,9 +299,14 @@ class Query
         return $elements;
     }
 
-    public function first(){
-        //Paging is the best that can be done because you can't specifiy an explicit limit
-        return $this->page(1)->execute()->first();
+    public function first()
+    {
+        return $this->execute()->first();
+    }
+
+    public function last()
+    {
+        return $this->execute()->last();
     }
 
     /**
