@@ -298,6 +298,11 @@ class Query
         return $elements;
     }
 
+    public function first(){
+        //Paging is the best that can be done because you can't specifiy an explicit limit
+        return $this->page(1)->execute()->first();
+    }
+
     /**
      * @return mixed
      */
