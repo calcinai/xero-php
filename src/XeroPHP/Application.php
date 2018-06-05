@@ -386,7 +386,7 @@ abstract class Application
                 $property_array = [];
                 /** @var Object[] $property_objects */
                 foreach ($property_objects as $property_object) {
-                    $property_array[] = $property_object->toStringArray(true);
+                    $property_array[] = $property_object->toStringArray(false);
                 }
 
                 $root_node_name = Helpers::pluralize($property_type::getRootNodeName());
