@@ -36,10 +36,8 @@ Any files in the XeroPHP/Models directory are system generated.  Ideally, these 
 
 Using composer:
 
-```json
-  "require": {
-    "calcinai/xero-php": "^1.6"
-  }
+```bash
+composer require calcinai/xero-php
 ```
 
 Otherwise just download the package and add it to your autoloader.  Namespaces are PSR-4 compliant.
