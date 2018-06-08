@@ -373,6 +373,10 @@ class Invoice extends Remote\Model
      */
     public function getLineItems()
     {
+	    if (!isset($this->_data['LineItems'])) {
+            $this->_data['LineItems'] = new Remote\Collection();
+        }
+        
         return $this->_data['LineItems'];
     }
 
