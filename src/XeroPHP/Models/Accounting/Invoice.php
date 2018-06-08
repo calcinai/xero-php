@@ -2,6 +2,7 @@
 namespace XeroPHP\Models\Accounting;
 
 use XeroPHP\Remote;
+use XeroPHP\Exception;
 use XeroPHP\Traits\PDFTrait;
 use XeroPHP\Traits\AttachmentTrait;
 use XeroPHP\Models\Accounting\Invoice\LineItem;
