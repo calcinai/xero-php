@@ -358,20 +358,6 @@ class Item extends Remote\Model
      * @param Purchase $value
      * @return Item
      */
-    public function addPurchaseDetail(Purchase $value)
-    {
-        $this->propertyUpdated('PurchaseDetails', $value);
-        if (!isset($this->_data['PurchaseDetails'])) {
-            $this->_data['PurchaseDetails'] = new Remote\Collection();
-        }
-        $this->_data['PurchaseDetails'][] = $value;
-        return $this;
-    }
-
-    /**
-     * @param Purchase $value
-     * @return Item
-     */
     public function setPurchaseDetails(Purchase $value)
     {
         $this->propertyUpdated('PurchaseDetails', $value);
@@ -386,20 +372,6 @@ class Item extends Remote\Model
     public function getSalesDetails()
     {
         return $this->_data['SalesDetails'];
-    }
-
-    /**
-     * @param Sale $value
-     * @return Item
-     */
-    public function addSalesDetail(Sale $value)
-    {
-        $this->propertyUpdated('SalesDetails', $value);
-        if (!isset($this->_data['SalesDetails'])) {
-            $this->_data['SalesDetails'] = new Remote\Collection();
-        }
-        $this->_data['SalesDetails'][] = $value;
-        return $this;
     }
 
     /**
