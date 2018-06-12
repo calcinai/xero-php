@@ -1,38 +1,31 @@
 <?php
 namespace XeroPHP\Models\Accounting;
-
 use XeroPHP\Remote;
 use XeroPHP\Models\Accounting\Item\Purchase;
 use XeroPHP\Models\Accounting\Item\Sale;
-
 class Item extends Remote\Model
 {
-
     /**
      * Xero identifier
      *
      * @property string ItemID
      */
-
     /**
      * User defined item code (max length = 30)
      *
      * @property string Code
      */
-
     /**
      * The inventory asset account for the item. The account must be of type INVENTORY. The 
      * COGSAccountCode in PurchaseDetails is also required to create a tracked item
      *
      * @property string InventoryAssetAccountCode
      */
-
     /**
      * The name of the item (max length = 50)
      *
      * @property string Name
      */
-
     /**
      * Boolean value, defaults to true. When IsSold is true the item will be available on sales
      * transactions in the Xero UI. If IsSold is updated to false then Description and SalesDetails values
@@ -40,7 +33,6 @@ class Item extends Remote\Model
      *
      * @property bool IsSold
      */
-
     /**
      * Boolean value, defaults to true. When IsPurchased is true the item is available for purchase
      * transactions in the Xero UI. If IsPurchased is updated to false then PurchaseDescription and
@@ -48,58 +40,47 @@ class Item extends Remote\Model
      *
      * @property bool IsPurchased
      */
-
     /**
      * The sales description of the item (max length = 4000)
      *
      * @property string Description
      */
-
     /**
      * The purchase description of the item (max length = 4000)
      *
      * @property string PurchaseDescription
      */
-
     /**
      * See Purchases & Sales
      *
      * @property Purchase[] PurchaseDetails
      */
-
     /**
      * See Purchases & Sales
      *
      * @property Sale[] SalesDetails
      */
-
     /**
      * True for items that are tracked as inventory. An item will be tracked as inventory if the
      * InventoryAssetAccountCode and COGSAccountCode are set.
      *
      * @property bool IsTrackedAsInventory
      */
-
     /**
      * The value of the item on hand. Calculated using average cost accounting.
      *
      * @property string TotalCostPool
      */
-
     /**
      * The quantity of the item on hand
      *
      * @property string QuantityOnHand
      */
-
     /**
      * Last modified date in UTC format
      *
      * @property \DateTimeInterface UpdatedDateUTC
      */
-
-
-
     /**
      * Get the resource uri of the class (Contacts) etc
      *
@@ -109,8 +90,6 @@ class Item extends Remote\Model
     {
         return 'Items';
     }
-
-
     /**
      * Get the root node name.  Just the unqualified classname
      *
@@ -120,8 +99,6 @@ class Item extends Remote\Model
     {
         return 'Item';
     }
-
-
     /**
      * Get the guid property
      *
@@ -131,8 +108,6 @@ class Item extends Remote\Model
     {
         return 'ItemID';
     }
-
-
     /**
      * Get the stem of the API (core.xro) etc
      *
@@ -142,8 +117,6 @@ class Item extends Remote\Model
     {
         return Remote\URL::API_CORE;
     }
-
-
     /**
      * Get the supported methods
      */
@@ -156,7 +129,6 @@ class Item extends Remote\Model
             Remote\Request::METHOD_DELETE
         ];
     }
-
     /**
      *
      * Get the properties of the object.  Indexed by constants
@@ -187,12 +159,10 @@ class Item extends Remote\Model
             'UpdatedDateUTC' => [false, self::PROPERTY_TYPE_TIMESTAMP, '\\DateTimeInterface', false, false]
         ];
     }
-
     public static function isPageable()
     {
         return false;
     }
-
     /**
      * @return string
      */
@@ -200,7 +170,6 @@ class Item extends Remote\Model
     {
         return $this->_data['ItemID'];
     }
-
     /**
      * @param string $value
      * @return Item
@@ -211,7 +180,6 @@ class Item extends Remote\Model
         $this->_data['ItemID'] = $value;
         return $this;
     }
-
     /**
      * @return string
      */
@@ -219,7 +187,6 @@ class Item extends Remote\Model
     {
         return $this->_data['Code'];
     }
-
     /**
      * @param string $value
      * @return Item
@@ -230,7 +197,6 @@ class Item extends Remote\Model
         $this->_data['Code'] = $value;
         return $this;
     }
-
     /**
      * @return string
      */
@@ -238,7 +204,6 @@ class Item extends Remote\Model
     {
         return $this->_data['InventoryAssetAccountCode'];
     }
-
     /**
      * @param string $value
      * @return Item
@@ -249,7 +214,6 @@ class Item extends Remote\Model
         $this->_data['InventoryAssetAccountCode'] = $value;
         return $this;
     }
-
     /**
      * @return string
      */
@@ -257,7 +221,6 @@ class Item extends Remote\Model
     {
         return $this->_data['Name'];
     }
-
     /**
      * @param string $value
      * @return Item
@@ -268,7 +231,6 @@ class Item extends Remote\Model
         $this->_data['Name'] = $value;
         return $this;
     }
-
     /**
      * @return bool
      */
@@ -276,7 +238,6 @@ class Item extends Remote\Model
     {
         return $this->_data['IsSold'];
     }
-
     /**
      * @param bool $value
      * @return Item
@@ -287,7 +248,6 @@ class Item extends Remote\Model
         $this->_data['IsSold'] = $value;
         return $this;
     }
-
     /**
      * @return bool
      */
@@ -295,7 +255,6 @@ class Item extends Remote\Model
     {
         return $this->_data['IsPurchased'];
     }
-
     /**
      * @param bool $value
      * @return Item
@@ -306,7 +265,6 @@ class Item extends Remote\Model
         $this->_data['IsPurchased'] = $value;
         return $this;
     }
-
     /**
      * @return string
      */
@@ -314,7 +272,6 @@ class Item extends Remote\Model
     {
         return $this->_data['Description'];
     }
-
     /**
      * @param string $value
      * @return Item
@@ -325,7 +282,6 @@ class Item extends Remote\Model
         $this->_data['Description'] = $value;
         return $this;
     }
-
     /**
      * @return string
      */
@@ -333,7 +289,6 @@ class Item extends Remote\Model
     {
         return $this->_data['PurchaseDescription'];
     }
-
     /**
      * @param string $value
      * @return Item
@@ -344,7 +299,6 @@ class Item extends Remote\Model
         $this->_data['PurchaseDescription'] = $value;
         return $this;
     }
-
     /**
      * @return Purchase[]|Remote\Collection
      * Always returns a collection, switch is for type hinting
@@ -353,7 +307,14 @@ class Item extends Remote\Model
     {
         return $this->_data['PurchaseDetails'];
     }
-
+    /**
+     * @param Purchase $value
+     * @return Item
+     * @deprecated
+     */
+    public function addPurchaseDetail(Purchase $value)
+    {
+    }
     /**
      * @param Purchase $value
      * @return Item
@@ -364,7 +325,6 @@ class Item extends Remote\Model
         $this->_data['PurchaseDetails'] = $value;
         return $this;
     }
-
     /**
      * @return Sale[]|Remote\Collection
      * Always returns a collection, switch is for type hinting
@@ -373,7 +333,14 @@ class Item extends Remote\Model
     {
         return $this->_data['SalesDetails'];
     }
-
+    /**
+     * @param Sale $value
+     * @return Item
+     * @deprecated
+     */
+    public function addSalesDetail(Sale $value)
+    {
+    }
     /**
      * @param Sale $value
      * @return Item
@@ -384,7 +351,6 @@ class Item extends Remote\Model
         $this->_data['SalesDetails'] = $value;
         return $this;
     }
-
     /**
      * @return bool
      */
@@ -392,7 +358,6 @@ class Item extends Remote\Model
     {
         return $this->_data['IsTrackedAsInventory'];
     }
-
     /**
      * @param bool $value
      * @return Item
@@ -403,7 +368,6 @@ class Item extends Remote\Model
         $this->_data['IsTrackedAsInventory'] = $value;
         return $this;
     }
-
     /**
      * @return string
      */
@@ -411,7 +375,6 @@ class Item extends Remote\Model
     {
         return $this->_data['TotalCostPool'];
     }
-
     /**
      * @param string $value
      * @return Item
@@ -422,7 +385,6 @@ class Item extends Remote\Model
         $this->_data['TotalCostPool'] = $value;
         return $this;
     }
-
     /**
      * @return string
      */
@@ -430,7 +392,6 @@ class Item extends Remote\Model
     {
         return $this->_data['QuantityOnHand'];
     }
-
     /**
      * @param string $value
      * @return Item
@@ -441,7 +402,6 @@ class Item extends Remote\Model
         $this->_data['QuantityOnHand'] = $value;
         return $this;
     }
-
     /**
      * @return \DateTimeInterface
      */
@@ -449,7 +409,6 @@ class Item extends Remote\Model
     {
         return $this->_data['UpdatedDateUTC'];
     }
-
     /**
      * @param \DateTimeInterface $value
      * @return Item
@@ -460,6 +419,4 @@ class Item extends Remote\Model
         $this->_data['UpdatedDateUTC'] = $value;
         return $this;
     }
-
-
 }
