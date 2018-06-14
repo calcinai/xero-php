@@ -28,12 +28,6 @@ trait SendEmailTrait
         
         $request->send();
         
-        $response = $request->getResponse();
-        
-        if (false !== $element = current($response->getElements())) {
-            $attachment->fromStringArray($element);
-        }
-        
         return $this;
     }
 }
