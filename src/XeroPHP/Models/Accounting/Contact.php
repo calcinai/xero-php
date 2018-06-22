@@ -3,13 +3,13 @@ namespace XeroPHP\Models\Accounting;
 
 use XeroPHP\Remote;
 use XeroPHP\Traits\AttachmentTrait;
+use XeroPHP\Traits\HistoryTrait;
 use XeroPHP\Models\Accounting\Contact\ContactPerson;
 use XeroPHP\Models\Accounting\Organisation\PaymentTerm;
 
 class Contact extends Remote\Model
 {
-
-    use AttachmentTrait;
+    use AttachmentTrait, HistoryTrait;
 
     /**
      * Xero identifier
