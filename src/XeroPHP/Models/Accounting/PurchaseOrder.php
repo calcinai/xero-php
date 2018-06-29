@@ -26,7 +26,8 @@ class PurchaseOrder extends Remote\Model
      */
 
     /**
-     * Date purchase order was issued – YYYY-MM-DD. Learn more
+     * Date purchase order was issued – YYYY-MM-DD. If the Date element is not specified then it will
+     * default to the current date based on the timezone setting of the organisation
      *
      * @property \DateTimeInterface Date
      */

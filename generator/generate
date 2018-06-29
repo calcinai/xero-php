@@ -416,6 +416,9 @@ foreach ($scrape_apis as $scrape_api) {
                             if (preg_match('/(PUT|POST)/i', $children->eq(0)->text())) {
                                 $read_only = false;
                             }
+                            if (preg_match('/on a tracked inventory item/i', $children->eq(0)->text())) {
+                                $mandatory = false;
+                            }
                         } else {
                             if (!isset($mandatory)) {
                                 $mandatory = false;
