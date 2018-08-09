@@ -82,8 +82,8 @@ class Helpers
             if ($child_name === $singular_node_name ||
                 //Handle strange XML
                 ($singular_node_name === 'Tracking' && $child_name === TrackingCategory::getRootNodeName()) ||
-								//Handles EarningsLine when expecting TimesheetEarningsLine
-								($singular_node_name === 'TimesheetEarningsLine' && $child_name === 'EarningsLine')) {
+                //Handles EarningsLine when expecting TimesheetEarningsLine
+                ($singular_node_name === 'TimesheetEarningsLine' && $child_name === 'EarningsLine')) {
                 $output[] = $node;
             } else {
                 $output[$child_name] = $node;
