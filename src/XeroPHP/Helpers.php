@@ -35,6 +35,9 @@ class Helpers
                     //This is the only instance in the whole app of 'Tracking' so should be ok for BC.
                     if ($key === 'Tracking') {
                         $element = self::arrayToXML($element, 'TrackingCategory');
+                    //Handles unusual naming of element
+                    } elseif ($key === 'TimesheetEarningsLines') {
+                        $element = self::arrayToXML($element, 'EarningsLine');
                     } else {
                         $element = self::arrayToXML($element, self::singularize($key));
                     }
