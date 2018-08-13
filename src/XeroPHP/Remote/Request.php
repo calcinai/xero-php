@@ -123,7 +123,7 @@ class Request
             throw new Exception('Curl error: ' . curl_error($ch));
         }
 
-        $this->response = new Response($this, $response, $info);
+        $this->response = new Response($this, $response, $info, $headers);
         $this->response->parse();
 
         return $this->response;
