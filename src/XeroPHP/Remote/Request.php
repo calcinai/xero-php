@@ -98,6 +98,24 @@ class Request
             curl_setopt($ch, CURLOPT_POST, true);
         }
 
+        $headers = [];
+        curl_setopt($ch, CURLOPT_HEADERFUNCTION, function ($curl, $header) use (&$headers) {
+            $len = strlen($header);
+            if (strpos($header, ':') === false) {
+                return $len;
+            }
+
+            list($name, $value) = explode(':', $header, 2);
+            $name = strtolower(trim($name));
+            $value = trim($value);
+            if (!array_key_exists($name, $headers)) {
+                $headers[$name] = [];
+            }
+            $headers[$name][] = $value;
+
+            return $len;
+        });
+
         $response = curl_exec($ch);
         $info = curl_getinfo($ch);
 
