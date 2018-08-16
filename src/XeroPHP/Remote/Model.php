@@ -172,11 +172,13 @@ abstract class Model implements ObjectInterface, \JsonSerializable, \ArrayAccess
     /**
      * Load an assoc array into the instance of the object $property => $value
      * $replace_data - replace existing data
+     * $is_dirty - Mark all parameters as dirty so object can be saved
      *
      * @param $input_array
      * @param $replace_data
+     * @param $is_dirty
      */
-    public function fromStringArray($input_array, $replace_data = false)
+    public function fromStringArray($input_array, $replace_data = false, $is_dirty = false)
     {
 
         foreach (static::getProperties() as $property => $meta) {
@@ -200,7 +202,7 @@ abstract class Model implements ObjectInterface, \JsonSerializable, \ArrayAccess
                 $collection = new Collection();
                 $collection->addAssociatedObject($property, $this);
                 foreach ($input_array[$property] as $assoc_element) {
-                    $cast = self::castFromString($type, $assoc_element, $php_type);
+                    $cast = self::castFromString($type, $assoc_element, $php_type, $is_dirty, $replace_data);
                     //Do this here so that you know it's not a static method call to ::castFromString
                     if ($cast instanceof Model) {
                         $cast->addAssociatedObject($property, $this);
@@ -209,12 +211,16 @@ abstract class Model implements ObjectInterface, \JsonSerializable, \ArrayAccess
                 }
                 $this->_data[$property] = $collection;
             } else {
-                $cast = self::castFromString($type, $input_array[$property], $php_type);
+                $cast = self::castFromString($type, $input_array[$property], $php_type, $is_dirty, $replace_data);
                 //Do this here so that you know it's not a static method call to ::castFromString
                 if ($cast instanceof Model) {
                     $cast->addAssociatedObject($property, $this);
                 }
                 $this->_data[$property] = $cast;
+            }
+
+            if ($is_dirty) {
+                $this->setDirty($property);
             }
         }
     }
@@ -296,13 +302,17 @@ abstract class Model implements ObjectInterface, \JsonSerializable, \ArrayAccess
 
     /**
      * Cast the values to PHP types.
+     * $is_dirty - Mark all parameters as dirty so object can be saved passed through to fromStringArray() function
+     * $replace_data - Pass through for recursive calling of fromStringArray()
      *
      * @param $type
      * @param $value
      * @param $php_type
+     * @param $is_dirty
+     * @param $replace_data
      * @return bool|\DateTimeInterface|float|int|string
      */
-    public static function castFromString($type, $value, $php_type)
+    public static function castFromString($type, $value, $php_type, $is_dirty = false, $replace_data = false)
     {
         //Here should maybe handle locale specific tz overrides in the future.
         $timezone = null;
@@ -332,7 +342,7 @@ abstract class Model implements ObjectInterface, \JsonSerializable, \ArrayAccess
                 $php_type = sprintf('\\XeroPHP\\Models\\%s', $php_type);
                 /** @var self $instance */
                 $instance = new $php_type();
-                $instance->fromStringArray($value);
+                $instance->fromStringArray($value, $replace_data, $is_dirty);
                 return $instance;
 
             default:
