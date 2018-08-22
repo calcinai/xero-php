@@ -105,7 +105,7 @@ class Response
                 if (false !== stripos($response, 'Organisation is offline')) {
                     throw new OrganisationOfflineException();
                 } elseif (false !== stripos($response, 'Rate limit exceeded')) {
-                    $problem = isset($this->headers['x-rate-limit-problem']) ? array_pop($this->headers['x-rate-limit-problem']) : null;
+                    $problem = isset($this->headers['x-rate-limit-problem']) ? current($this->headers['x-rate-limit-problem']) : null;
                     $exception = new RateLimitExceededException();
                     $exception->setRateLimitProblem($problem);
                     throw $exception;
