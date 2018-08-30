@@ -607,7 +607,10 @@ class CreditNote extends Remote\Model
      */
     public function getAllocations()
     {
-        return $this->_data['Allocations'];
+        return array_merge(
+            isset($this->_data['Allocations']) ? $this->_data['Allocations']->getArrayCopy(): [],
+            isset($this->_data['New_Allocations']) ? $this->_data['New_Allocations']->getArrayCopy(): []
+        );
     }
 
     /**
@@ -617,10 +620,10 @@ class CreditNote extends Remote\Model
     public function addAllocation(Allocation $value)
     {
         $this->propertyUpdated('Allocations', $value);
-        if (!isset($this->_data['Allocations'])) {
-            $this->_data['Allocations'] = new Remote\Collection();
+        if (!isset($this->_data['New_Allocations'])) {
+            $this->_data['New_Allocations'] = new Remote\Collection();
         }
-        $this->_data['Allocations'][] = $value;
+        $this->_data['New_Allocations'][] = $value;
         return $this;
     }
 
@@ -657,4 +660,20 @@ class CreditNote extends Remote\Model
      */
     public function setHasAttachment($value){}
 
+    public function save() {
+        if (isset($this->_data['New_Allocations'])) {
+            $this->_data['Old_Allocations'] = $this->_data['Allocations'];
+            $this->_data['Allocations'] = $this->_data['New_Allocations'];
+            $return_value = parent::save();
+            $this->_data['Allocations'] = new Remote\Collection(
+                array_merge(
+                    $this->_data['Allocations']->getArrayCopy(),
+                    isset($this->_data['Old_Allocations']) ? $this->_data['Old_Allocations']->getArrayCopy(): []
+                )
+            );
+            unset($this->_data['New_Allocations']);
+            return $return_value;
+        }
+        return parent::save();
+    }
 }
