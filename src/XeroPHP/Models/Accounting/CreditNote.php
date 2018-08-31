@@ -664,6 +664,7 @@ class CreditNote extends Remote\Model
         if (isset($this->_data['New_Allocations'])) {
             $this->_data['Old_Allocations'] = $this->_data['Allocations'];
             $this->_data['Allocations'] = $this->_data['New_Allocations'];
+            unset($this->_data['New_Allocations']);
             $return_value = parent::save();
             $this->_data['Allocations'] = new Remote\Collection(
                 array_merge(
@@ -671,7 +672,6 @@ class CreditNote extends Remote\Model
                     isset($this->_data['Old_Allocations']) ? $this->_data['Old_Allocations']->getArrayCopy(): []
                 )
             );
-            unset($this->_data['New_Allocations']);
             return $return_value;
         }
         return parent::save();
