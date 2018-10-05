@@ -57,12 +57,12 @@ abstract class Application
     protected static $_type_config_defaults = [];
 
     /**
-     * @param array $user_config
+     * @param array $config
      */
-    public function __construct(array $user_config)
+    public function __construct(array $config)
     {
         //better here for overriding
-        $this->setConfig($user_config);
+        $this->setConfig($config);
 
         $this->oauth_client = new Client($this->config['oauth']);
     }
