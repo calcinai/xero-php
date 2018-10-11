@@ -2,6 +2,7 @@
 
 namespace XeroPHP\tests\Application;
 
+use XeroPHP\Application\PartnerApplication;
 use XeroPHP\Application\PrivateApplication;
 
 class ApplicationTest extends \PHPUnit_Framework_TestCase
@@ -11,7 +12,7 @@ class ApplicationTest extends \PHPUnit_Framework_TestCase
         $app = $this->instance();
         $class = 'Accounting\\Invoice';
 
-        $this->assertEquals(
+        $this->assertSame(
             $app->validateModelClass($class),
             $app->getConfig('xero')['model_namespace'].'\\'.$class
         );
@@ -21,7 +22,7 @@ class ApplicationTest extends \PHPUnit_Framework_TestCase
     {
         $class = \XeroPHP\Models\Accounting\Invoice::class;
 
-        $this->assertEquals(
+        $this->assertSame(
             $this->instance()->validateModelClass($class),
             $class
         );
@@ -31,7 +32,7 @@ class ApplicationTest extends \PHPUnit_Framework_TestCase
     {
         $class = '\XeroPHP\Models\Accounting\Invoice';
 
-        $this->assertEquals(
+        $this->assertSame(
             $this->instance()->validateModelClass($class),
             $class
         );
@@ -66,7 +67,7 @@ class ApplicationTest extends \PHPUnit_Framework_TestCase
         $app = $this->instance();
         $app->setConfigOption($key, $subkey, $expected);
 
-        $this->assertEquals(
+        $this->assertSame(
             $expected,
             $app->getConfigOption($key, $subkey, $expected)
         );
@@ -77,7 +78,7 @@ class ApplicationTest extends \PHPUnit_Framework_TestCase
         $key = 'test_key';
         $expected = ['sub_test_key' => 'test_value'];
 
-        $this->assertEquals(
+        $this->assertSame(
             $expected,
             $this->instance([$key => $expected])->getConfig($key)
         );
@@ -89,7 +90,7 @@ class ApplicationTest extends \PHPUnit_Framework_TestCase
         $subKey = 'sub_test_key';
         $expected = 'test_value';
 
-        $this->assertEquals(
+        $this->assertSame(
             $expected,
             $this->instance([$key => [$subKey => $expected]])->getConfigOption($key, $subKey)
         );
