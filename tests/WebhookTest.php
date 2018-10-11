@@ -70,8 +70,8 @@ class WebhookTest extends \PHPUnit_Framework_TestCase
         $payload = '{"events":[],"firstEventSequence": 0,"lastEventSequence": 2, "entropy": "ZGJDWFZBUNMATYWGAROW"}';
         $webhook = new Webhook($this->application, $payload);
 
-        $this->assertEquals(0, $webhook->getFirstEventSequence());
-        $this->assertEquals(2, $webhook->getLastEventSequence());
+        $this->assertSame(0, $webhook->getFirstEventSequence());
+        $this->assertSame(2, $webhook->getLastEventSequence());
     }
 
     public function testGetApplication()
@@ -79,7 +79,7 @@ class WebhookTest extends \PHPUnit_Framework_TestCase
         $payload = '{"events":[],"firstEventSequence": 0,"lastEventSequence": 2, "entropy": "ZGJDWFZBUNMATYWGAROW"}';
         $webhook = new Webhook($this->application, $payload);
 
-        $this->assertEquals($this->application, $webhook->getApplication());
+        $this->assertSame($this->application, $webhook->getApplication());
     }
 
     public function testGetEvents()
