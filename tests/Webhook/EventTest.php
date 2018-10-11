@@ -49,7 +49,7 @@ class EventTest extends \PHPUnit_Framework_TestCase
 
         $this->assertNotEmpty($webhook->getEvents());
         foreach ($webhook->getEvents() as $evt) {
-            $this->assertEquals($webhook, $evt->getWebhook());
+            $this->assertSame($webhook, $evt->getWebhook());
         }
     }
 
@@ -60,7 +60,7 @@ class EventTest extends \PHPUnit_Framework_TestCase
 
         $this->assertNotEmpty($webhook->getEvents());
         foreach ($webhook->getEvents() as $evt) {
-            $this->assertEquals('https://api.xero.com/api.xro/2.0/Invoices/44aa0707-f718-4f1c-8d53-f2da9ca59533', $evt->getResourceUrl());
+            $this->assertSame('https://api.xero.com/api.xro/2.0/Invoices/44aa0707-f718-4f1c-8d53-f2da9ca59533', $evt->getResourceUrl());
         }
     }
 
@@ -71,7 +71,7 @@ class EventTest extends \PHPUnit_Framework_TestCase
 
         $this->assertNotEmpty($webhook->getEvents());
         foreach ($webhook->getEvents() as $evt) {
-            $this->assertEquals('44aa0707-f718-4f1c-8d53-f2da9ca59533', $evt->getResourceId());
+            $this->assertSame('44aa0707-f718-4f1c-8d53-f2da9ca59533', $evt->getResourceId());
         }
     }
 
@@ -83,10 +83,10 @@ class EventTest extends \PHPUnit_Framework_TestCase
         $this->assertNotEmpty($webhook->getEvents());
         foreach ($webhook->getEvents() as $evt) {
             $string = $evt->getEventDateUtc();
-            $this->assertEquals('2018-02-09T09:18:28.917Z', $string);
+            $this->assertSame('2018-02-09T09:18:28.917Z', $string);
 
             $obj = $evt->getEventDate();
-            $this->assertEquals(strtotime($string), $obj->getTimestamp());
+            $this->assertSame(strtotime($string), $obj->getTimestamp());
         }
     }
 
@@ -97,7 +97,7 @@ class EventTest extends \PHPUnit_Framework_TestCase
 
         $this->assertNotEmpty($webhook->getEvents());
         foreach ($webhook->getEvents() as $evt) {
-            $this->assertEquals('UPDATE', $evt->getEventType());
+            $this->assertSame('UPDATE', $evt->getEventType());
         }
     }
 
@@ -108,7 +108,7 @@ class EventTest extends \PHPUnit_Framework_TestCase
 
         $this->assertNotEmpty($webhook->getEvents());
         foreach ($webhook->getEvents() as $evt) {
-            $this->assertEquals('INVOICE', $evt->getEventCategory());
+            $this->assertSame('INVOICE', $evt->getEventCategory());
         }
     }
 
@@ -123,10 +123,10 @@ class EventTest extends \PHPUnit_Framework_TestCase
         $this->assertNull($evt->getEventClass());
 
         $evt = array_pop($events);
-        $this->assertEquals(\XeroPHP\Models\Accounting\Contact::class, $evt->getEventClass());
+        $this->assertSame(\XeroPHP\Models\Accounting\Contact::class, $evt->getEventClass());
 
         $evt = array_pop($events);
-        $this->assertEquals(\XeroPHP\Models\Accounting\Invoice::class, $evt->getEventClass());
+        $this->assertSame(\XeroPHP\Models\Accounting\Invoice::class, $evt->getEventClass());
     }
 
     public function testGetTenantId()
@@ -136,7 +136,7 @@ class EventTest extends \PHPUnit_Framework_TestCase
 
         $this->assertNotEmpty($webhook->getEvents());
         foreach ($webhook->getEvents() as $evt) {
-            $this->assertEquals('e629a03c-7ffe-4913-bd94-ff2fdb36a702', $evt->getTenantId());
+            $this->assertSame('e629a03c-7ffe-4913-bd94-ff2fdb36a702', $evt->getTenantId());
         }
     }
 
@@ -147,7 +147,7 @@ class EventTest extends \PHPUnit_Framework_TestCase
 
         $this->assertNotEmpty($webhook->getEvents());
         foreach ($webhook->getEvents() as $evt) {
-            $this->assertEquals('ORGANISATION', $evt->getTenantType());
+            $this->assertSame('ORGANISATION', $evt->getTenantType());
         }
     }
 }
