@@ -21,11 +21,11 @@ class ModelTest extends \PHPUnit_Framework_TestCase
         $object->test = 'something';
 
         $this->assertTrue(isset($object->test));
-        $this->assertEquals('something', $object->test);
+        $this->assertSame('something', $object->test);
         $this->assertTrue(isset($object['test']));
-        $this->assertEquals('something', $object['TeST']);
-        $this->assertEquals('something', $object->TeST);
-        $this->assertEquals('something', $object['TeST']);
+        $this->assertSame('something', $object['TeST']);
+        $this->assertSame('something', $object->TeST);
+        $this->assertSame('something', $object['TeST']);
 
         $this->assertFalse(isset($object->TeST), '__isset is case sensitive');
         $this->assertFalse(isset($object['TeST']), 'offsetExists is case sensitive');
@@ -39,7 +39,7 @@ class ModelTest extends \PHPUnit_Framework_TestCase
 
         $object->setGUID('5b96e86b-418e-48e8-8949-308c14aec278');
 
-        $this->assertEquals('5b96e86b-418e-48e8-8949-308c14aec278', $object->getGUID());
+        $this->assertSame('5b96e86b-418e-48e8-8949-308c14aec278', $object->getGUID());
         $this->assertTrue($object->hasGUID());
     }
 }

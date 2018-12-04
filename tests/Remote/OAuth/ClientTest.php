@@ -8,7 +8,7 @@ class ClientTest extends \PHPUnit_Framework_TestCase
 {
     public function test_authorize_url_without_oauth_token()
     {
-        $this->assertEquals(
+        $this->assertSame(
             $this->app()->getConfigOption('oauth', 'authorize_url'),
             $this->client()->getAuthorizeURL()
         );
@@ -16,7 +16,7 @@ class ClientTest extends \PHPUnit_Framework_TestCase
 
     public function test_authorize_url_appends_oauth_token_query_string()
     {
-        $this->assertEquals(
+        $this->assertSame(
             $this->app()->getConfigOption('oauth', 'authorize_url').'?oauth_token=query_test',
             $this->client()->getAuthorizeURL('query_test')
         );
@@ -26,7 +26,7 @@ class ClientTest extends \PHPUnit_Framework_TestCase
     {
         $url = 'https://test.url/?example=query';
 
-        $this->assertEquals(
+        $this->assertSame(
             $url.'&oauth_token=query_test',
             $this->client(['oauth' => ['authorize_url' => $url]])->getAuthorizeURL('query_test')
         );
