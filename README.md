@@ -6,7 +6,7 @@ XeroPHP
 [![Total Downloads](https://poser.pugx.org/calcinai/xero-php/downloads)](https://packagist.org/packages/calcinai/xero-php)
 
 A client library for the [Xero API](<http://developer.xero.com>), including an OAuth interface and ORM-like abstraction.
- 
+
 This is loosely based on the functional flow of XeroAPI/XeroOAuth-PHP, but is split logically into more of an OO design.
 
 This library has been tested with Private, Public and Partner applications.
@@ -89,6 +89,14 @@ $contact->save();
 If you have created a number of objects of the same type, you can save them all in a batch by passing an array to ```$xero->saveAll()```.
 
 From v1.2.0+, Xero context can be injected directly when creating the objects themselves, which then exposes the ```->save()``` method.  This is necessary for the objects to maintain state with their relations.
+
+Saving related models
+
+If you are saving several models at once, by default additional model attributes are not updated. This means if you are saving an invoice with a new contact, the contacts `ContactID` is not updated. If you want the related models attributes to be updated you can pass a boolean flag with `true` to the save method.
+
+```php
+$xero->save($invoice, true);
+```
 
 Nested objects
 ```php
