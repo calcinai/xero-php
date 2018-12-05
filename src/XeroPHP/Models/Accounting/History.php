@@ -1,5 +1,4 @@
 <?php
-//This class is a pseudo-model to represent an attachment.  Can't be directly put ot fetched.
 
 
 namespace XeroPHP\Models\Accounting;
