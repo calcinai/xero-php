@@ -9,7 +9,8 @@ use XeroPHP\Models\Accounting\Organisation\PaymentTerm;
 
 class Contact extends Remote\Model
 {
-    use AttachmentTrait, HistoryTrait;
+    use AttachmentTrait;
+    use HistoryTrait;
 
     /**
      * Xero identifier
