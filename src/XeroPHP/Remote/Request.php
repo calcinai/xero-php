@@ -141,7 +141,7 @@ class Request
     }
 
     /**
-     * @param $key string Name of the header
+     * @param string $key Name of the header
      * @return null|string Header or null if not defined
      */
     public function getHeader($key)
@@ -169,8 +169,8 @@ class Request
     }
 
     /**
-     * @param $key string Name of the header
-     * @param $val string Value of the header
+     * @param string $key Name of the header
+     * @param string $val Value of the header
      *
      * @return $this
      */

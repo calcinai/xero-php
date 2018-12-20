@@ -96,7 +96,7 @@ class Helpers
      * It only contains a fraction of the rules from its predecessor,
      * so only good for a quick basic singularisation.
      *
-     * @param $string
+     * @param string $string
      * @return mixed
      */
     public static function singularize($string)
@@ -201,7 +201,7 @@ class Helpers
      * There were a lot more seemingly redundant transformations in
      * the SimpleOAuth class.
      *
-     * @param $string
+     * @param string $string
      * @return string
      */
     public static function escape($string)

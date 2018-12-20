@@ -100,7 +100,6 @@ abstract class Application
     /**
     * @param string $config
     * @param mixed $option
-    * @param mixed $value
     * @return mixed
     * @throws Exception
     */
@@ -178,8 +177,8 @@ abstract class Application
     /**
      * As you should never have a GUID for a non-existent object, will throw a NotFoundExceptioon
      *
-     * @param $model
-     * @param $guid
+     * @param string $model
+     * @param string $guid
      * @return Remote\Model|null
      * @throws Exception
      * @throws Remote\Exception\NotFoundException
@@ -213,7 +212,7 @@ abstract class Application
     /**
      * Filter by comma separated string of guid's
      *
-     * @param $model
+     * @param string $model
      * @param string $guids
      * @return Collection
      * @throws Exception

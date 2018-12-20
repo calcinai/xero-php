@@ -115,7 +115,7 @@ abstract class Model implements ObjectInterface, \JsonSerializable, \ArrayAccess
     /**
      * Manually set a property as dirty
      *
-     * @param $property
+     * @param string $property
      * @return self
      */
     public function setDirty($property)
@@ -173,8 +173,8 @@ abstract class Model implements ObjectInterface, \JsonSerializable, \ArrayAccess
      * Load an assoc array into the instance of the object $property => $value
      * $replace_data - replace existing data
      *
-     * @param $input_array
-     * @param $replace_data
+     * @param array $input_array
+     * @param bool $replace_data
      */
     public function fromStringArray($input_array, $replace_data = false)
     {
@@ -255,8 +255,8 @@ abstract class Model implements ObjectInterface, \JsonSerializable, \ArrayAccess
     /**
      * Convert properties to strings, based on the types parsed.
      *
-     * @param $type
-     * @param $value
+     * @param string $type
+     * @param mixed $value
      * @return string
      */
     public static function castToString($type, $value)
@@ -297,9 +297,9 @@ abstract class Model implements ObjectInterface, \JsonSerializable, \ArrayAccess
     /**
      * Cast the values to PHP types.
      *
-     * @param $type
-     * @param $value
-     * @param $php_type
+     * @param string $type
+     * @param mixed $value
+     * @param string $php_type
      * @return bool|\DateTimeInterface|float|int|string
      */
     public static function castFromString($type, $value, $php_type)
@@ -435,7 +435,7 @@ abstract class Model implements ObjectInterface, \JsonSerializable, \ArrayAccess
     /**
      * Magic method for testing if properties exist
      *
-     * @param $property
+     * @param string $property
      * @return bool
      */
     public function __isset($property)
@@ -446,7 +446,7 @@ abstract class Model implements ObjectInterface, \JsonSerializable, \ArrayAccess
     /**
      * Magic getter for accessing properties directly
      *
-     * @param $property
+     * @param string $property
      * @return mixed
      */
     public function __get($property)
@@ -464,8 +464,8 @@ abstract class Model implements ObjectInterface, \JsonSerializable, \ArrayAccess
     /**
      * Magic setter for setting properties directly
      *
-     * @param $property
-     * @param $value
+     * @param string $property
+     * @param mixed $value
      * @return mixed
      */
     public function __set($property, $value)
@@ -499,7 +499,7 @@ abstract class Model implements ObjectInterface, \JsonSerializable, \ArrayAccess
     /**
      * If the object supports a specific HTTP method
      *
-     * @param $method
+     * @param string $method
      * @return bool
      */
     public static function supportsMethod($method)

@@ -21,7 +21,7 @@ class Collection extends \ArrayObject
     /**
      * Remove an item at a specific index
      *
-     * @param $index
+     * @param mixed $index
      */
     public function removeAt($index)
     {

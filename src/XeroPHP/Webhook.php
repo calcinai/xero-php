@@ -81,8 +81,8 @@ class Webhook
     /**
      * Validates the calculated signature against the given x-xero-signature header
      *
-     * @param  string $signature value from
-     * @return [type]            [description]
+     * @param  string $signature
+     * @return boolean
      */
     public function validate($signature)
     {

@@ -37,7 +37,7 @@ class URL
 
     /**
      * @param Application $app
-     * @param $endpoint
+     * @param string $endpoint
      * @param null $api
      * @throws Exception
      */
