@@ -410,7 +410,7 @@ abstract class Application
 
     /**
      * @param Remote\Model $object
-     * @return Remote\Response
+     * @return Remote\Model
      * @throws Exception
      */
     public function delete(Remote\Model $object)

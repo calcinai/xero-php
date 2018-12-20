@@ -158,7 +158,7 @@ class Request
     }
 
     /**
-     * @return \XeroPHP\Remote\Response
+     * @return \XeroPHP\Remote\Response|null
      */
     public function getResponse()
     {

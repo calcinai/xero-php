@@ -257,7 +257,7 @@ abstract class Model implements ObjectInterface, \JsonSerializable, \ArrayAccess
      *
      * @param $type
      * @param $value
-     * @return string
+     * @return string|array
      */
     public static function castToString($type, $value)
     {
@@ -409,7 +409,7 @@ abstract class Model implements ObjectInterface, \JsonSerializable, \ArrayAccess
     /**
      * Shorthand delete an object if it is instantiated with app context.
      *
-     * @return Response|null
+     * @return Model
      * @throws Exception
      */
     public function delete()
@@ -510,7 +510,7 @@ abstract class Model implements ObjectInterface, \JsonSerializable, \ArrayAccess
     /**
      * JSON Encode overload to pull out hidden properties
      *
-     * @return string
+     * @return array
      */
     public function jsonSerialize()
     {

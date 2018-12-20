@@ -131,7 +131,7 @@ class Event
     }
 
     /**
-     * @return string the library class to use when fetching the referenced resource
+     * @return string|null the library class to use when fetching the referenced resource
      */
     public function getEventClass()
     {
