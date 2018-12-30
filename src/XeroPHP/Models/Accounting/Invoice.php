@@ -6,6 +6,7 @@ use XeroPHP\Exception;
 use XeroPHP\Traits\PDFTrait;
 use XeroPHP\Traits\AttachmentTrait;
 use XeroPHP\Traits\SendEmailTrait;
+use XeroPHP\Traits\HistoryTrait;
 use XeroPHP\Models\Accounting\Invoice\LineItem;
 
 class Invoice extends Remote\Model
@@ -14,6 +15,7 @@ class Invoice extends Remote\Model
     use PDFTrait;
     use AttachmentTrait;
     use SendEmailTrait;
+    use HistoryTrait;
 
     /**
      * See Invoice Types
@@ -378,7 +380,7 @@ class Invoice extends Remote\Model
 	    if (!isset($this->_data['LineItems'])) {
             $this->_data['LineItems'] = new Remote\Collection();
         }
-        
+
         return $this->_data['LineItems'];
     }
 
