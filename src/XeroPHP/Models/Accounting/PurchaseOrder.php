@@ -4,6 +4,7 @@ namespace XeroPHP\Models\Accounting;
 use XeroPHP\Remote;
 use XeroPHP\Traits\PDFTrait;
 use XeroPHP\Traits\AttachmentTrait;
+use XeroPHP\Traits\HistoryTrait;
 use XeroPHP\Models\Accounting\PurchaseOrder\LineItem;
 
 class PurchaseOrder extends Remote\Model
@@ -11,6 +12,7 @@ class PurchaseOrder extends Remote\Model
 
     use PDFTrait;
     use AttachmentTrait;
+    use HistoryTrait;
 
     /**
      * The PurchaseOrders endpoint does not create new contacts. You need to provide the ContactID or

@@ -2,36 +2,39 @@
 namespace XeroPHP\Models\Accounting;
 
 use XeroPHP\Remote;
+use XeroPHP\Traits\HistoryTrait;
 
 class Payment extends Remote\Model
 {
 
+    use HistoryTrait;
+
     /**
-     * 
+     *
      *
      * @property Invoice Invoice
      */
 
     /**
-     * 
+     *
      *
      * @property CreditNote CreditNote
      */
 
     /**
-     * 
+     *
      *
      * @property Prepayment Prepayment
      */
 
     /**
-     * 
+     *
      *
      * @property Overpayment Overpayment
      */
 
     /**
-     * 
+     *
      *
      * @property Account Account
      */
