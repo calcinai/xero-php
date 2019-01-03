@@ -29,7 +29,7 @@ class Response
     const STATUS_ORGANISATION_OFFLINE = 503;
 
     private $request;
-
+    private $headers;
     private $status;
     private $content_type;
     private $response_body;
