@@ -2,9 +2,6 @@
 
 namespace XeroPHP;
 
-/**
- * Represents a webhook and it's associated event list
- */
 class Webhook
 {
     /**
@@ -29,11 +26,10 @@ class Webhook
     private $webhookEvent;
 
     /**
-     * Parse a webhook payload from Xero
-     *
-     * @param \XeroPHP\Application $application the application the webhook was delivered to
-     * @param string $payload raw json payload
-     * @param mixed $event class name used for dependency injection
+     * @param \XeroPHP\Application $application
+     * @param string $payload
+     * @param string|null $event
+     * @return void
      * @throws \XeroPHP\Application\Exception
      */
     public function __construct($application, $payload, $event = null)
@@ -69,9 +65,7 @@ class Webhook
     }
 
     /**
-     * Returns the calculated signature of the payload and your signing key
-     *
-     * @return string hashed payload
+     * @return string
      */
     public function getSignature()
     {
@@ -79,10 +73,8 @@ class Webhook
     }
 
     /**
-     * Validates the calculated signature against the given x-xero-signature header
-     *
-     * @param  string $signature value from
-     * @return [type]            [description]
+     * @param string $signature
+     * @return bool
      */
     public function validate($signature)
     {
@@ -90,7 +82,7 @@ class Webhook
     }
 
     /**
-     * @return int first event sequence ID
+     * @return int
      */
     public function getFirstEventSequence()
     {
@@ -98,7 +90,7 @@ class Webhook
     }
 
     /**
-     * @return int last event sequence ID
+     * @return int
      */
     public function getLastEventSequence()
     {
@@ -106,9 +98,7 @@ class Webhook
     }
 
     /**
-     * Parses and returns a list of events for this webhook
-     *
-     * @return \XeroPHP\Webhook\Event[] list of events
+     * @return \XeroPHP\Webhook\Event[]
      */
     public function getEvents()
     {

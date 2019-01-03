@@ -122,3 +122,40 @@ To set the `IncludeOnline` flag on the attachment, pass `true` as the second par
 PDF - Models that support PDF export will inherit a ```->getPDF()``` method, which returns the raw content of the PDF.  Currently this is limited to Invoices and CreditNotes.
 
 Refer to the [examples](examples) for more complex usage and nested/related objects.  There's also [a sample PHP app](https://github.com/XeroAPI/xero-php-sample-app) using this library.
+
+## Webhooks
+
+If you are receiving webhooks from Xero there is `Webhook` class that can help with handling the request and parsing the associated event list.
+
+```php
+$webhook = new Webhook($application, $request->getContent());
+
+/**
+ * @return int
+ */
+$webhook->getFirstEventSequence();
+
+/**
+ * @return int
+ */
+$webhook->getLastEventSequence();
+
+/**
+ * @return \XeroPHP\Webhook\Event[]
+ */
+$webhook->getEvents();
+```
+
+See: [Webhooks documentation](https://developer.xero.com/documentation/webhooks/overview)
+
+### Validating Webhooks
+
+To ensure the webhooks are coming from Xero you should validate the incoming request header that Xero provides.
+
+```php
+if (! $webhook->validate($request->headers->get('x-xero-signature'))) {
+    throw new Exception('This request did not come from Xero');
+}
+```
+
+See: [Signature documentation](https://developer.xero.com/documentation/webhooks/configuring-your-server#intent)
