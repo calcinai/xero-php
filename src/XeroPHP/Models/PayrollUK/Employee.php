@@ -1,10 +1,14 @@
 <?php
 namespace XeroPHP\Models\PayrollUK;
 
+use XeroPHP\Models\PayrollUK\Employee\Address;
 use XeroPHP\Remote;
+use XeroPHP\Traits\TitleCaseKeysBeforeSave;
 
 class Employee extends Remote\Model
 {
+    use TitleCaseKeysBeforeSave;
+
     /**
      * Get the GUID Property if it exists
      *
@@ -30,6 +34,16 @@ class Employee extends Remote\Model
     }
 
     /**
+     * Check for create method override
+     *
+     * @return null|string
+     */
+    public static function getCreateMethod()
+    {
+        return Remote\Request::METHOD_POST;
+    }
+
+    /**
      * return the URI of the resource (if any)
      *
      * @return string
@@ -44,7 +58,7 @@ class Employee extends Remote\Model
      */
     public static function getRootNodeName()
     {
-        return 'Employee';
+        return '';
     }
 
     /**
@@ -71,14 +85,37 @@ class Employee extends Remote\Model
     public static function getProperties()
     {
         return [
-            'FirstName'      => [ true, self::PROPERTY_TYPE_STRING, null, false, false ],
-            'LastName'       => [ true, self::PROPERTY_TYPE_STRING, null, false, false ],
-            'DateOfBirth'    => [ true, self::PROPERTY_TYPE_DATE, '\\DateTimeInterface', false, false ],
-            'Email'          => [ true, self::PROPERTY_TYPE_STRING, null, false, false ],
-            'PhoneNumber'    => [ true, self::PROPERTY_TYPE_STRING, null, false, false ],
-            'UpdatedDateUTC' => [ true, self::PROPERTY_TYPE_TIMESTAMP, '\\DateTimeInterface', false, false ],
-            'CreatedDateUTC' => [ true, self::PROPERTY_TYPE_TIMESTAMP, '\\DateTimeInterface', false, false ],
+            'title'          => [true, self::PROPERTY_TYPE_STRING, null, false, false],
+            'firstName'      => [true, self::PROPERTY_TYPE_STRING, null, false, false],
+            'lastName'       => [true, self::PROPERTY_TYPE_STRING, null, false, false],
+            'dateOfBirth'    => [true, self::PROPERTY_TYPE_DATE, '\\DateTimeInterface', false, false],
+            'gender'         => [true, self::PROPERTY_TYPE_STRING, null, false, false],
+            'address'        => [true, self::PROPERTY_TYPE_OBJECT, 'PayrollUK\\Employee\\Address', false, false],
+            'email'          => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'phoneNumber'    => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'updatedDateUTC' => [false, self::PROPERTY_TYPE_TIMESTAMP, '\\DateTimeInterface', false, false],
+            'createdDateUTC' => [false, self::PROPERTY_TYPE_TIMESTAMP, '\\DateTimeInterface', false, false],
         ];
+    }
+
+    /**
+     * @return string
+     */
+    public function getTitle()
+    {
+        return $this->_data[ 'title' ];
+    }
+
+    /**
+     * @param string $value
+     * @return $this
+     */
+    public function setTitle(string $value)
+    {
+        $this->propertyUpdated('title', $value);
+        $this->_data[ 'title' ] = $value;
+
+        return $this;
     }
 
     /**
@@ -86,7 +123,7 @@ class Employee extends Remote\Model
      */
     public function getFirstName()
     {
-        return $this->_data[ 'FirstName' ];
+        return $this->_data[ 'firstName' ];
     }
 
     /**
@@ -95,8 +132,8 @@ class Employee extends Remote\Model
      */
     public function setFirstName(string $value)
     {
-        $this->propertyUpdated('FirstName', $value);
-        $this->_data[ 'FirstName' ] = $value;
+        $this->propertyUpdated('firstName', $value);
+        $this->_data[ 'firstName' ] = $value;
 
         return $this;
     }
@@ -106,7 +143,7 @@ class Employee extends Remote\Model
      */
     public function getLastName()
     {
-        return $this->_data[ 'LastName' ];
+        return $this->_data[ 'lastName' ];
     }
 
     /**
@@ -115,8 +152,8 @@ class Employee extends Remote\Model
      */
     public function setLastName(string $value)
     {
-        $this->propertyUpdated('LastName', $value);
-        $this->_data[ 'LastName' ] = $value;
+        $this->propertyUpdated('lastName', $value);
+        $this->_data[ 'lastName' ] = $value;
 
         return $this;
     }
@@ -126,7 +163,7 @@ class Employee extends Remote\Model
      */
     public function getDateOfBirth()
     {
-        return $this->_data[ 'DateOfBirth' ];
+        return $this->_data[ 'dateOfBirth' ];
     }
 
     /**
@@ -135,8 +172,48 @@ class Employee extends Remote\Model
      */
     public function setDateOfBirth(\DateTimeInterface $value)
     {
-        $this->propertyUpdated('DateOfBirth', $value);
-        $this->_data[ 'DateOfBirth' ] = $value;
+        $this->propertyUpdated('dateOfBirth', $value);
+        $this->_data[ 'dateOfBirth' ] = $value;
+
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getGender()
+    {
+        return $this->_data[ 'gender' ];
+    }
+
+    /**
+     * @param string $value
+     * @return $this
+     */
+    public function setGender(string $value)
+    {
+        $this->propertyUpdated('gender', $value);
+        $this->_data[ 'gender' ] = $value;
+
+        return $this;
+    }
+
+    /**
+     * @return Address
+     */
+    public function getAddress()
+    {
+        return $this->_data[ 'address' ];
+    }
+
+    /**
+     * @param Address $value
+     * @return $this
+     */
+    public function setAddress(Address $value)
+    {
+        $this->propertyUpdated('address', $value);
+        $this->_data[ 'address' ] = $value;
 
         return $this;
     }
@@ -146,7 +223,7 @@ class Employee extends Remote\Model
      */
     public function getEmail()
     {
-        return $this->_data[ 'Email' ];
+        return $this->_data[ 'email' ];
     }
 
     /**
@@ -155,8 +232,8 @@ class Employee extends Remote\Model
      */
     public function setEmail(string $value)
     {
-        $this->propertyUpdated('Email', $value);
-        $this->_data[ 'Email' ] = $value;
+        $this->propertyUpdated('email', $value);
+        $this->_data[ 'email' ] = $value;
 
         return $this;
     }
@@ -175,8 +252,8 @@ class Employee extends Remote\Model
      */
     public function setPhoneNumber(string $value)
     {
-        $this->propertyUpdated('PhoneNumber', $value);
-        $this->_data[ 'PhoneNumber' ] = $value;
+        $this->propertyUpdated('phoneNumber', $value);
+        $this->_data[ 'phoneNumber' ] = $value;
 
         return $this;
     }
@@ -186,7 +263,7 @@ class Employee extends Remote\Model
      */
     public function getUpdatedDateUTC()
     {
-        return $this->_data[ 'UpdatedDateUTC' ];
+        return $this->_data[ 'updatedDateUTC' ];
     }
 
     /**
@@ -194,6 +271,6 @@ class Employee extends Remote\Model
      */
     public function getCreatedDateUTC()
     {
-        return $this->_data[ 'CreatedDateUTC' ];
+        return $this->_data[ 'createdDateUTC' ];
     }
 }

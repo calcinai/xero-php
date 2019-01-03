@@ -278,9 +278,19 @@ abstract class Application
             $method = $object::supportsMethod(Request::METHOD_POST) ? Request::METHOD_POST : Request::METHOD_PUT;
             $uri = sprintf('%s/%s', $object::getResourceURI(), $object->getGUID());
         } else {
+
             //In this case it's new
-            $method = $object::supportsMethod(Request::METHOD_PUT) ? Request::METHOD_PUT : Request::METHOD_POST;
+            $method = $object::getCreateMethod();
+
+            if (is_null($method)) {
+                $method =
+                    $object::supportsMethod(Request::METHOD_PUT)
+                        ? Request::METHOD_PUT
+                        : Request::METHOD_POST;
+            }
+
             $uri = $object::getResourceURI();
+
             //@todo, bump version so you must create objects with app context.
             $object->setApplication($this);
         }
@@ -289,12 +299,21 @@ abstract class Application
             throw new Exception(sprintf('%s doesn\'t support [%s] via the API', get_class($object), $method));
         }
 
-        //Put in an array with the first level containing only the 'root node'.
-        $data = [$object::getRootNodeName() => $object->toStringArray(true)];
         $url = new URL($this, $uri, $object::getAPIStem());
         $request = new Request($this, $url, $method);
 
-        $request->setBody(Helpers::arrayToXML($data))->send();
+        if(!empty($object::getRootNodeName())) {
+
+            //Put in an array with the first level containing only the 'root node'.
+            $data = [$object::getRootNodeName() => $object->toStringArray(true)];
+
+            $request->setBody(Helpers::arrayToXML($data))->send();
+        } else {
+            $data = $object->toStringArray(true);
+
+            $request->setBody(json_encode($data), Request::CONTENT_TYPE_JSON)->send();
+        }
+
         $response = $request->getResponse();
 
         if (false !== $element = current($response->getElements())) {

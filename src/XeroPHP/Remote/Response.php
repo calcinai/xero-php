@@ -36,7 +36,7 @@ class Response
 
     private $oauth_response;
 
-    private $elements;
+    private $elements = [];
 
     private $element_errors;
     private $element_warnings;
@@ -296,6 +296,24 @@ class Response
                 case 'Message':
                     $this->root_error[ 'message' ] = $root_child;
                     break;
+                case 'problem':
+                    if (!is_null($root_child)) {
+                        $this->root_error[ 'code' ] = $root_child[ 'status' ];
+                        $this->root_error[ 'type' ] = $root_child[ 'title' ];
+                        $this->root_error[ 'message' ] = $root_child[ 'detail' ];
+
+                        $this->element_errors = array_merge(
+                            $this->element_errors,
+                            array_map(
+                                function ($element) {
+                                    return $element[ 'name' ];
+                                },
+                                $root_child[ 'invalidFields' ]
+                            )
+                        );
+                    }
+
+                    break;
                 case 'Payslip':
                 case 'PayItems':
                     // some xero endpoints are 1D so we can parse them straight away
@@ -308,9 +326,10 @@ class Response
                     //Happy to make the assumption that there will only be one
                     //root node with > than 2D children.
                     if (is_array($root_child)) {
-                        foreach ($root_child as $element) {
-                            $this->elements[] = $element;
-                        }
+                        $this->elements = array_merge(
+                            $this->elements,
+                            $root_child
+                        );
                     }
             }
         }

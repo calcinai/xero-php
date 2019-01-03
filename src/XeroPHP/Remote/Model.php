@@ -17,24 +17,24 @@ abstract class Model implements ObjectInterface, \JsonSerializable, \ArrayAccess
     /**
      * Keys for the meta properties array
      */
-    const KEY_MANDATORY      = 0;
-    const KEY_TYPE           = 1;
-    const KEY_PHP_TYPE       = 2;
-    const KEY_IS_ARRAY       = 3;
-    const KEY_SAVE_DIRECTLY  = 4;
+    const KEY_MANDATORY = 0;
+    const KEY_TYPE = 1;
+    const KEY_PHP_TYPE = 2;
+    const KEY_IS_ARRAY = 3;
+    const KEY_SAVE_DIRECTLY = 4;
 
     /**
      *
      */
-    const PROPERTY_TYPE_STRING    = 'string';
-    const PROPERTY_TYPE_INT       = 'int';
-    const PROPERTY_TYPE_FLOAT     = 'float';
-    const PROPERTY_TYPE_BOOLEAN   = 'bool';
-    const PROPERTY_TYPE_ENUM      = 'enum';
-    const PROPERTY_TYPE_GUID      = 'guid';
-    const PROPERTY_TYPE_DATE      = 'date';
+    const PROPERTY_TYPE_STRING = 'string';
+    const PROPERTY_TYPE_INT = 'int';
+    const PROPERTY_TYPE_FLOAT = 'float';
+    const PROPERTY_TYPE_BOOLEAN = 'bool';
+    const PROPERTY_TYPE_ENUM = 'enum';
+    const PROPERTY_TYPE_GUID = 'guid';
+    const PROPERTY_TYPE_DATE = 'date';
     const PROPERTY_TYPE_TIMESTAMP = 'timestamp';
-    const PROPERTY_TYPE_OBJECT    = 'object';
+    const PROPERTY_TYPE_OBJECT = 'object';
 
     /**
      * Container to the actual properties of the object
@@ -108,7 +108,7 @@ abstract class Model implements ObjectInterface, \JsonSerializable, \ArrayAccess
         if ($property === null) {
             return count($this->_dirty) > 0;
         } else {
-            return isset($this->_dirty[$property]);
+            return isset($this->_dirty[ $property ]);
         }
     }
 
@@ -120,7 +120,7 @@ abstract class Model implements ObjectInterface, \JsonSerializable, \ArrayAccess
      */
     public function setDirty($property)
     {
-        $this->_dirty[$property] = true;
+        $this->_dirty[ $property ] = true;
         return $this;
     }
 
@@ -135,7 +135,7 @@ abstract class Model implements ObjectInterface, \JsonSerializable, \ArrayAccess
         if ($property === null) {
             $this->_dirty = [];
         } else {
-            unset($this->_dirty[$property]);
+            unset($this->_dirty[ $property ]);
         }
         return $this;
     }
@@ -147,7 +147,7 @@ abstract class Model implements ObjectInterface, \JsonSerializable, \ArrayAccess
      */
     public function hasGUID()
     {
-        return isset($this->_data[static::getGUIDProperty()]);
+        return isset($this->_data[ static::getGUIDProperty() ]);
     }
 
     /**
@@ -180,26 +180,26 @@ abstract class Model implements ObjectInterface, \JsonSerializable, \ArrayAccess
     {
 
         foreach (static::getProperties() as $property => $meta) {
-            $type = $meta[self::KEY_TYPE];
-            $php_type = $meta[self::KEY_PHP_TYPE];
+            $type = $meta[ self::KEY_TYPE ];
+            $php_type = $meta[ self::KEY_PHP_TYPE ];
 
             //If set and NOT replace data, continue
-            if (!$replace_data && isset($this->_data[$property])) {
+            if (!$replace_data && isset($this->_data[ $property ])) {
                 continue;
             }
 
-            if (!isset($input_array[$property])) {
-                $this->_data[$property] = null;
+            if (!isset($input_array[ $property ])) {
+                $this->_data[ $property ] = null;
                 continue;
             }
 
             //Fix for an earlier assumption that the API didn't return more than
             //two levels of nested objects.
             //Handles Invoice > Contact > Address etc. in one build.
-            if (is_array($input_array[$property]) && Helpers::isAssoc($input_array[$property]) === false) {
+            if (is_array($input_array[ $property ]) && Helpers::isAssoc($input_array[ $property ]) === false) {
                 $collection = new Collection();
                 $collection->addAssociatedObject($property, $this);
-                foreach ($input_array[$property] as $assoc_element) {
+                foreach ($input_array[ $property ] as $assoc_element) {
                     $cast = self::castFromString($type, $assoc_element, $php_type);
                     //Do this here so that you know it's not a static method call to ::castFromString
                     if ($cast instanceof Model) {
@@ -207,14 +207,14 @@ abstract class Model implements ObjectInterface, \JsonSerializable, \ArrayAccess
                     }
                     $collection->append($cast);
                 }
-                $this->_data[$property] = $collection;
+                $this->_data[ $property ] = $collection;
             } else {
-                $cast = self::castFromString($type, $input_array[$property], $php_type);
+                $cast = self::castFromString($type, $input_array[ $property ], $php_type);
                 //Do this here so that you know it's not a static method call to ::castFromString
                 if ($cast instanceof Model) {
                     $cast->addAssociatedObject($property, $this);
                 }
-                $this->_data[$property] = $cast;
+                $this->_data[ $property ] = $cast;
             }
         }
     }
@@ -227,27 +227,40 @@ abstract class Model implements ObjectInterface, \JsonSerializable, \ArrayAccess
     public function toStringArray($dirty_only = false)
     {
         $out = [];
-        foreach (static::getProperties() as $property => $meta) {
-            if (!isset($this->_data[$property])) {
+
+        $properties = static::getProperties();
+        $transformers = static::transformKeysBeforeSave();
+
+        foreach ($properties as $property => $meta) {
+            if (!isset($this->_data[ $property ])) {
                 continue;
             }
 
             //if we only want the dirty props, stop here
-            if($dirty_only && !isset($this->_dirty[$property])) {
+            if ($dirty_only && !isset($this->_dirty[ $property ])) {
                 continue;
             }
 
-            $type = $meta[self::KEY_TYPE];
+            $type = $meta[ self::KEY_TYPE ];
 
-            if ($this->_data[$property] instanceof Collection) {
-                $out[$property] = [];
-                foreach ($this->_data[$property] as $assoc_property) {
-                    $out[$property][] = self::castToString($type, $assoc_property);
+            if ($this->_data[ $property ] instanceof Collection) {
+                $out[ $property ] = [];
+                foreach ($this->_data[ $property ] as $assoc_property) {
+                    $out[ $property ][] = self::castToString($type, $assoc_property);
                 }
             } else {
-                $out[$property] = self::castToString($type, $this->_data[$property]);
+                $out[ $property ] = self::castToString($type, $this->_data[ $property ]);
             }
         }
+
+        foreach ($out as $key => $value) {
+            if (isset($transformers[ $key ])) {
+                $out[ $transformers[ $key ] ] = $value;
+
+                unset($out[ $key ]);
+            }
+        }
+
         return $out;
     }
 
@@ -324,7 +337,7 @@ abstract class Model implements ObjectInterface, \JsonSerializable, \ArrayAccess
 
             case self::PROPERTY_TYPE_DATE:
                 if (preg_match('/Date\((?<timestamp>[0-9\+\.]+)\)/', $value, $matches)) { //to catch stupid .net date serialisation
-                    $value = $matches['timestamp'];
+                    $value = $matches[ 'timestamp' ];
                 }
                 return new \DateTime($value, $timezone);
 
@@ -337,9 +350,9 @@ abstract class Model implements ObjectInterface, \JsonSerializable, \ArrayAccess
 
             default:
                 if (is_scalar($value)) {
-                    return (string) $value;
+                    return (string)$value;
                 }
-                return (object) $value;
+                return (object)$value;
         }
     }
 
@@ -354,11 +367,11 @@ abstract class Model implements ObjectInterface, \JsonSerializable, \ArrayAccess
     {
         //validate
         foreach (static::getProperties() as $property => $meta) {
-            $mandatory = $meta[self::KEY_MANDATORY];
+            $mandatory = $meta[ self::KEY_MANDATORY ];
 
             //If it's got a GUID, it's already going to be valid almost all cases
             if (!$this->hasGUID() && $mandatory) {
-                if (!isset($this->_data[$property]) || empty($this->_data[$property])) {
+                if (!isset($this->_data[ $property ]) || empty($this->_data[ $property ])) {
                     throw new Exception(
                         sprintf(
                             '%s::$%s is mandatory and is either missing or empty.',
@@ -369,13 +382,13 @@ abstract class Model implements ObjectInterface, \JsonSerializable, \ArrayAccess
                 }
 
                 if ($check_children) {
-                    if ($this->_data[$property] instanceof Model) {
+                    if ($this->_data[ $property ] instanceof Model) {
                         //Keep IDEs happy
                         /** @var self $obj */
-                        $obj = $this->_data[$property];
+                        $obj = $this->_data[ $property ];
                         $obj->validate();
-                    } elseif ($this->_data[$property] instanceof Collection) {
-                        foreach ($this->_data[$property] as $element) {
+                    } elseif ($this->_data[ $property ] instanceof Collection) {
+                        foreach ($this->_data[ $property ] as $element) {
                             if ($element instanceof Model) {
                                 $element->validate();
                             }
@@ -388,6 +401,45 @@ abstract class Model implements ObjectInterface, \JsonSerializable, \ArrayAccess
         return true;
     }
 
+    /**
+     * Transform keys before being sent up to the server
+     *
+     * @return array
+     */
+    public function transformKeysBeforeSave()
+    {
+        return [];
+    }
+
+    /**
+     * Transform keys after being sent up to the server
+     *
+     * @return array
+     */
+    public function transformKeysAfterSave()
+    {
+        return [];
+    }
+
+    /**
+     * Transform values before being sent up to the server
+     *
+     * @return array
+     */
+    public function transformValuesBeforeSave()
+    {
+        return [];
+    }
+
+    /**
+     * Transform values after being sent up to the server
+     *
+     * @return array
+     */
+    public function transformValuesAfterSave()
+    {
+        return [];
+    }
 
     /**
      * Shorthand save an object if it is instantiated with app context.
@@ -429,7 +481,7 @@ abstract class Model implements ObjectInterface, \JsonSerializable, \ArrayAccess
      */
     public function addAssociatedObject($property, Model $object)
     {
-        $this->_associated_objects[$property] = $object;
+        $this->_associated_objects[ $property ] = $object;
     }
 
     /**
@@ -440,7 +492,7 @@ abstract class Model implements ObjectInterface, \JsonSerializable, \ArrayAccess
      */
     public function __isset($property)
     {
-        return isset($this->_data[$property]);
+        return isset($this->_data[ $property ]);
     }
 
     /**
@@ -482,7 +534,7 @@ abstract class Model implements ObjectInterface, \JsonSerializable, \ArrayAccess
 
     protected function propertyUpdated($property, $value)
     {
-        if (!isset($this->_data[$property]) || $this->_data[$property] !== $value) {
+        if (!isset($this->_data[ $property ]) || $this->_data[ $property ] !== $value) {
             //If this object can update itself, set its own dirty flag, otherwise, set its parent's.
             if (count(array_intersect($this::getSupportedMethods(), [Request::METHOD_PUT, Request::METHOD_POST])) > 0) {
                 //Object can update itself
@@ -505,6 +557,16 @@ abstract class Model implements ObjectInterface, \JsonSerializable, \ArrayAccess
     public static function supportsMethod($method)
     {
         return in_array($method, static::getSupportedMethods());
+    }
+
+    /**
+     * Check for create method override
+     *
+     * @return null|string
+     */
+    public static function getCreateMethod()
+    {
+        return null;
     }
 
     /**
@@ -550,6 +612,6 @@ abstract class Model implements ObjectInterface, \JsonSerializable, \ArrayAccess
      */
     public function offsetUnset($offset)
     {
-        unset($this->_data[$offset]);
+        unset($this->_data[ $offset ]);
     }
 }
