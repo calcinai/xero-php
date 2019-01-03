@@ -3,12 +3,14 @@ namespace XeroPHP\Models\Accounting;
 
 use XeroPHP\Remote;
 use XeroPHP\Traits\AttachmentTrait;
+use XeroPHP\Traits\HistoryTrait;
 use XeroPHP\Models\Accounting\Receipt\LineItem;
 
 class Receipt extends Remote\Model
 {
 
     use AttachmentTrait;
+    use HistoryTrait;
 
     /**
      * Date of receipt – YYYY-MM-DD
