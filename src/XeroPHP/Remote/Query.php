@@ -289,7 +289,7 @@ class Query
         $elements = new Collection();
         foreach ($request->getResponse()->getElements() as $element) {
             /**
-             * @var Object $built_element
+             * @var Model $built_element
              */
             $built_element = new $from_class($this->app);
             $built_element->fromStringArray($element);

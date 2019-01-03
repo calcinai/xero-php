@@ -19,7 +19,7 @@ trait SendEmailTrait
          * Documentation here: 
          * https://developer.xero.com/documentation/api/invoices#email
          *
-         * @var Object $this
+         * @var \XeroPHP\Remote\Model $this
          */
         $uri = sprintf('%s/%s/Email', $this::getResourceURI(), $this->getGUID());
         

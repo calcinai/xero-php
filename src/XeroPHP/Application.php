@@ -318,7 +318,7 @@ abstract class Application
         //Just get one type to compare with, doesn't matter which.
         $current_object = $objects[0];
         /**
-         * @var Object $type
+         * @var Remote\Model $type
          */
         $type = get_class($current_object);
         $has_guid = $checkGuid ? $current_object->hasGUID() : true;
@@ -377,14 +377,14 @@ abstract class Application
             if ($meta[Remote\Model::KEY_SAVE_DIRECTLY] && $object->isDirty($property_name)) {
                 //Then actually save
                 $property_objects = $object->$property_name;
-                /** @var Object $property_type */
+                /** @var Remote\Model $property_type */
                 $property_type = get_class(current($property_objects));
 
                 $url = new URL($this, sprintf('%s/%s/%s', $object::getResourceURI(), $object->getGUID(), $property_type::getResourceURI()));
                 $request = new Request($this, $url, Request::METHOD_PUT);
 
                 $property_array = [];
-                /** @var Object[] $property_objects */
+                /** @var Remote\Model[] $property_objects */
                 foreach ($property_objects as $property_object) {
                     $property_array[] = $property_object->toStringArray(false);
                 }

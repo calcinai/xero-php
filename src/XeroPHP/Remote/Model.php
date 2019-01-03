@@ -6,7 +6,7 @@ use XeroPHP\Application;
 use XeroPHP\Helpers;
 
 /**
- * Class Object
+ * Class Model
  * @package XeroPHP\Remote
  *
  * todo - at 2.x, move this into the root of the project and refer to it as a model.
@@ -425,7 +425,7 @@ abstract class Model implements ObjectInterface, \JsonSerializable, \ArrayAccess
 
     /**
      * @param string $property
-     * @param Object $object
+     * @param Model $object
      */
     public function addAssociatedObject($property, Model $object)
     {
