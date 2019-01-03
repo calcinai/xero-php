@@ -10,3 +10,4 @@ Thumbs.db
 composer.lock
 composer.phar
 build
+.php_cs.cache
