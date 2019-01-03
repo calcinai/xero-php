@@ -3,10 +3,12 @@ namespace XeroPHP\Models\Accounting;
 
 use XeroPHP\Remote;
 use XeroPHP\Traits\AttachmentTrait;
+use XeroPHP\Traits\HistoryTrait;
 
 class ExpenseClaim extends Remote\Model
 {
     use AttachmentTrait;
+    use HistoryTrait;
 
     /**
      * Xero identifier

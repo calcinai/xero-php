@@ -4,6 +4,7 @@ namespace XeroPHP\Models\Accounting;
 use XeroPHP\Remote;
 use XeroPHP\Traits\PDFTrait;
 use XeroPHP\Traits\AttachmentTrait;
+use XeroPHP\Traits\HistoryTrait;
 use XeroPHP\Models\Accounting\Invoice\LineItem;
 use XeroPHP\Models\Accounting\CreditNote\Allocation;
 
@@ -12,6 +13,7 @@ class CreditNote extends Remote\Model
 
     use PDFTrait;
     use AttachmentTrait;
+    use HistoryTrait;
 
     /**
      * See Credit Note Types
@@ -363,7 +365,7 @@ class CreditNote extends Remote\Model
         $this->_data['LineItems'][] = $value;
         return $this;
     }
-    
+
     /**
      * @return LineItem[]|Remote\Collection
      * Always returns a collection, switch is for type hinting
