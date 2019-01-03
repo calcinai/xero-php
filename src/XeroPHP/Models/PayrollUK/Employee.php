@@ -80,4 +80,120 @@ class Employee extends Remote\Model
             'CreatedDateUTC' => [ true, self::PROPERTY_TYPE_TIMESTAMP, '\\DateTimeInterface', false, false ],
         ];
     }
+
+    /**
+     * @return string
+     */
+    public function getFirstName()
+    {
+        return $this->_data[ 'FirstName' ];
+    }
+
+    /**
+     * @param string $value
+     * @return $this
+     */
+    public function setFirstName(string $value)
+    {
+        $this->propertyUpdated('FirstName', $value);
+        $this->_data[ 'FirstName' ] = $value;
+
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getLastName()
+    {
+        return $this->_data[ 'LastName' ];
+    }
+
+    /**
+     * @param string $value
+     * @return $this
+     */
+    public function setLastName(string $value)
+    {
+        $this->propertyUpdated('LastName', $value);
+        $this->_data[ 'LastName' ] = $value;
+
+        return $this;
+    }
+
+    /**
+     * @return \DateTimeInterface
+     */
+    public function getDateOfBirth()
+    {
+        return $this->_data[ 'DateOfBirth' ];
+    }
+
+    /**
+     * @param \DateTimeInterface $value
+     * @return $this
+     */
+    public function setDateOfBirth(\DateTimeInterface $value)
+    {
+        $this->propertyUpdated('DateOfBirth', $value);
+        $this->_data[ 'DateOfBirth' ] = $value;
+
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getEmail()
+    {
+        return $this->_data[ 'Email' ];
+    }
+
+    /**
+     * @param string $value
+     * @return $this
+     */
+    public function setEmail(string $value)
+    {
+        $this->propertyUpdated('Email', $value);
+        $this->_data[ 'Email' ] = $value;
+
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getPhoneNumber()
+    {
+        return $this->_data[ 'PhoneNumber' ];
+    }
+
+    /**
+     * @param string $value
+     * @return $this
+     */
+    public function setPhoneNumber(string $value)
+    {
+        $this->propertyUpdated('PhoneNumber', $value);
+        $this->_data[ 'PhoneNumber' ] = $value;
+
+        return $this;
+    }
+
+    /**
+     * @return \DateTimeInterface
+     */
+    public function getUpdatedDateUTC()
+    {
+        return $this->_data[ 'UpdatedDateUTC' ];
+    }
+
+    /**
+     * @return \DateTimeInterface
+     */
+    public function getCreatedDateUTC()
+    {
+        return $this->_data[ 'CreatedDateUTC' ];
+    }
 }
