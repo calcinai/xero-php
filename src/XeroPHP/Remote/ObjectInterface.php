@@ -4,20 +4,12 @@ namespace XeroPHP\Remote;
 
 interface ObjectInterface
 {
-
     /**
      * Get the GUID Property if it exists
      *
      * @return string|null
      */
     public static function getGUIDProperty();
-
-    /**
-     * Get a list of properties
-     *
-     * @return array
-     */
-    public static function getProperties();
 
     /**
      * Get a list of the supported HTTP Methods
@@ -53,4 +45,11 @@ interface ObjectInterface
      * @return boolean
      */
     public static function isPageable();
+
+    /**
+     * Get a list of properties
+     *
+     * @return array
+     */
+    public static function getProperties();
 }
