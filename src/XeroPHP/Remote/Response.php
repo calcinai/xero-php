@@ -222,6 +222,10 @@ class Response
 
     public function findElementErrors($element, $element_index)
     {
+        if (!is_array($element)) {
+            return;
+        }
+
         foreach ($element as $property => $value) {
             switch ((string)$property) {
                 case 'ValidationErrors':
@@ -302,15 +306,17 @@ class Response
                         $this->root_error[ 'type' ] = $root_child[ 'title' ];
                         $this->root_error[ 'message' ] = $root_child[ 'detail' ];
 
-                        $this->element_errors = array_merge(
-                            $this->element_errors,
-                            array_map(
-                                function ($element) {
-                                    return $element[ 'name' ];
-                                },
-                                $root_child[ 'invalidFields' ]
-                            )
-                        );
+                        if (is_array($root_child[ 'invalidFields' ])) {
+                            $this->element_errors = array_merge(
+                                $this->element_errors,
+                                array_map(
+                                    function ($element) {
+                                        return $element[ 'name' ];
+                                    },
+                                    $root_child[ 'invalidFields' ]
+                                )
+                            );
+                        }
                     }
 
                     break;
