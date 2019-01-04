@@ -208,4 +208,47 @@ class Helpers
     {
         return rawurlencode($string);
     }
+
+    /**
+     * @param $knownString string
+     * @param $userInput string
+     * @return bool
+     * @see https://github.com/symfony/polyfill-php56
+     */
+    public static function hashEquals($knownString, $userInput)
+    {
+        if (PHP_VERSION_ID >= 50600) {
+            return hash_equals($knownString, $userInput);
+        }
+
+        if (! is_string($knownString)) {
+            trigger_error('Expected known_string to be a string, '.gettype($knownString).' given', E_USER_WARNING);
+            return false;
+        }
+
+        if (! is_string($userInput)) {
+            trigger_error('Expected user_input to be a string, '.gettype($userInput).' given', E_USER_WARNING);
+            return false;
+        }
+
+        if (extension_loaded('mbstring')) {
+            $knownLen = mb_strlen($knownString, '8bit');
+            $userLen = mb_strlen($userInput, '8bit');
+        } else {
+            $knownLen = strlen($knownString);
+            $userLen = strlen($userInput);
+        }
+
+        if ($knownLen !== $userLen) {
+            return false;
+        }
+
+        $result = 0;
+
+        for ($i = 0; $i < $knownLen; ++$i) {
+            $result |= ord($knownString[$i]) ^ ord($userInput[$i]);
+        }
+
+        return $result === 0;
+    }
 }
