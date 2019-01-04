@@ -325,7 +325,7 @@ abstract class Application
             if (!is_array($current)) {
                 $object->fromStringArray($response->getElements(), $replace_data);
             } else {
-                $object->fromStringArray($element, $replace_data);
+                $object->fromStringArray($current, $replace_data);
             }
         }
 
