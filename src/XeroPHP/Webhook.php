@@ -2,6 +2,8 @@
 
 namespace XeroPHP;
 
+use XeroPHP\Helpers;
+
 class Webhook
 {
     /**
@@ -78,7 +80,7 @@ class Webhook
      */
     public function validate($signature)
     {
-        return $this->getSignature() === $signature;
+        return Helpers::hashEquals($this->getSignature(), $signature);
     }
 
     /**
