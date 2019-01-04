@@ -4,7 +4,7 @@ namespace XeroPHP\Models\PayrollUK;
 use XeroPHP\Remote;
 use XeroPHP\Traits\TitleCaseKeysBeforeSave;
 
-class PayrunCalendar extends Remote\Model
+class PayRollCalendar extends Remote\Model
 {
     use TitleCaseKeysBeforeSave;
 
@@ -22,7 +22,7 @@ class PayrunCalendar extends Remote\Model
      */
     public static function getGUIDProperty()
     {
-        return 'PayRunCalendarID';
+        return 'PayrollCalendarID';
     }
 
     /**
@@ -92,24 +92,54 @@ class PayrunCalendar extends Remote\Model
     public static function getProperties()
     {
         return [
-            'calendarType'    => [ true, self::PROPERTY_TYPE_STRING, null, false, false ],
-            'periodStartDate' => [ true, self::PROPERTY_TYPE_DATE, '\\DateTimeInterface', false, false ],
-            'paymentDate'     => [ true, self::PROPERTY_TYPE_DATE, '\\DateTimeInterface', false, false ],
-            'periodEndDate'   => [ false, self::PROPERTY_TYPE_DATE, '\\DateTimeInterface', false, false ],
-            'updatedDateUTC'  => [ false, self::PROPERTY_TYPE_TIMESTAMP, '\\DateTimeInterface', false, false ],
+            'payrollCalendarID' => [false, self::PROPERTY_TYPE_GUID, null, false, false],
+            'name'              => [true, self::PROPERTY_TYPE_STRING, null, false, false],
+            'calendarType'      => [true, self::PROPERTY_TYPE_STRING, null, false, false],
+            'periodStartDate'   => [true, self::PROPERTY_TYPE_DATE, '\\DateTimeInterface', false, false],
+            'paymentDate'       => [true, self::PROPERTY_TYPE_DATE, '\\DateTimeInterface', false, false],
+            'periodEndDate'     => [false, self::PROPERTY_TYPE_DATE, '\\DateTimeInterface', false, false],
+            'updatedDateUTC'    => [false, self::PROPERTY_TYPE_TIMESTAMP, '\\DateTimeInterface', false, false],
         ];
     }
 
     /**
-     * @return \DateTimeInterface
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->_data[ 'name' ];
+    }
+
+    /**
+     * @param string $value
+     * @return $this
+     */
+    public function setName(string $value)
+    {
+        $this->propertyUpdated('name', $value);
+        $this->_data[ 'name' ] = $value;
+
+        return $this;
+    }
+
+    /**
+     * @return string
      */
     public function getCalendarType()
     {
         return $this->_data[ 'calendarType' ];
     }
 
+    /**
+     * @param string $value
+     * @return $this
+     */
     public function setCalendarType(string $value)
     {
+        $this->propertyUpdated('calendarType', $value);
+        $this->_data[ 'calendarType' ] = $value;
+
+        return $this;
     }
 
     /**
@@ -120,8 +150,16 @@ class PayrunCalendar extends Remote\Model
         return $this->_data[ 'periodStartDate' ];
     }
 
+    /**
+     * @param \DateTimeInterface $value
+     * @return $this
+     */
     public function setPeriodStartDate(\DateTimeInterface $value)
     {
+        $this->propertyUpdated('periodStartDate', $value);
+        $this->_data[ 'periodStartDate' ] = $value;
+
+        return $this;
     }
 
     /**
@@ -132,8 +170,32 @@ class PayrunCalendar extends Remote\Model
         return $this->_data[ 'paymentDate' ];
     }
 
+    /**
+     * @param \DateTimeInterface $value
+     * @return $this
+     */
     public function setPaymentDate(\DateTimeInterface $value)
     {
+        $this->propertyUpdated('paymentDate', $value);
+        $this->_data[ 'paymentDate' ] = $value;
+
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getID()
+    {
+        return $this->getPayrollCalendarID();
+    }
+
+    /**
+     * @return string
+     */
+    public function getPayrollCalendarID()
+    {
+        return $this->_data[ 'payrollCalendarID' ];
     }
 
     /**

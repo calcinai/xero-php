@@ -459,6 +459,21 @@ abstract class Model implements ObjectInterface, \JsonSerializable, \ArrayAccess
     }
 
     /**
+     * @throws Exception
+     * @throws \XeroPHP\Exception
+     */
+    public function saveRelationships()
+    {
+        if ($this->_application === null) {
+            throw new Exception(
+                '->saveRelationships() is only available on objects that have an injected application context.'
+            );
+        }
+
+        return $this->_application->saveRelationships($this);
+    }
+
+    /**
      * Shorthand delete an object if it is instantiated with app context.
      *
      * @return Response|null

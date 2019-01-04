@@ -64,7 +64,7 @@ abstract class Application
         //better here for overriding
         $this->setConfig($user_config);
 
-        $this->oauth_client = new Client($this->config['oauth']);
+        $this->oauth_client = new Client($this->config[ 'oauth' ]);
     }
 
     /**
@@ -91,31 +91,33 @@ abstract class Application
      */
     public function getConfig($key)
     {
-        if (!isset($this->config[$key])) {
+        if (!isset($this->config[ $key ])) {
             throw new Exception("Invalid configuration key [$key]");
         }
-        return $this->config[$key];
+        return $this->config[ $key ];
     }
 
     /**
-    * @param string $config
-    * @param mixed $option
-    * @param mixed $value
-    * @return mixed
-    * @throws Exception
-    */
-    public function getConfigOption($config, $option) {
-        if (!isset($this->getConfig($config)[$option])) {
+     * @param string $config
+     * @param mixed $option
+     * @param mixed $value
+     * @return mixed
+     * @throws Exception
+     */
+    public function getConfigOption($config, $option)
+    {
+        if (!isset($this->getConfig($config)[ $option ])) {
             throw new Exception("Invalid configuration option [$option]");
         }
-        return $this->getConfig($config)[$option];
+        return $this->getConfig($config)[ $option ];
     }
 
     /**
      * @param array $config
      * @return array
      */
-    public function setConfig($config) {
+    public function setConfig($config)
+    {
         $this->config = array_replace_recursive(
             self::$_config_defaults,
             static::$_type_config_defaults,
@@ -132,11 +134,12 @@ abstract class Application
      * @return array
      * @throws Exception
      */
-    public function setConfigOption($config, $option, $value) {
-        if (!isset($this->config[$config])) {
+    public function setConfigOption($config, $option, $value)
+    {
+        if (!isset($this->config[ $config ])) {
             throw new Exception("Invalid configuration key [$config]");
         }
-        $this->config[$config][$option] = $value;
+        $this->config[ $config ][ $option ] = $value;
         return $this->config;
     }
 
@@ -166,12 +169,12 @@ abstract class Application
     /**
      * Prepend the configuration namespace to the class.
      *
-     * @param  string  $class
+     * @param  string $class
      * @return string
      */
     protected function prependConfigNamespace($class)
     {
-        return $this->getConfig('xero')['model_namespace'].'\\'.$class;
+        return $this->getConfig('xero')[ 'model_namespace' ] . '\\' . $class;
     }
 
 
@@ -300,9 +303,10 @@ abstract class Application
         }
 
         $url = new URL($this, $uri, $object::getAPIStem());
+
         $request = new Request($this, $url, $method);
 
-        if(!empty($object::getRootNodeName())) {
+        if (!empty($object::getRootNodeName())) {
 
             //Put in an array with the first level containing only the 'root node'.
             $data = [$object::getRootNodeName() => $object->toStringArray(true)];
@@ -315,14 +319,29 @@ abstract class Application
         }
 
         $response = $request->getResponse();
+        $current = current($response->getElements());
 
-        if (false !== $element = current($response->getElements())) {
-            $object->fromStringArray($element, $replace_data);
+        if ($current !== false) {
+            if (!is_array($current)) {
+                $object->fromStringArray($response->getElements(), $replace_data);
+            } else {
+                $object->fromStringArray($element, $replace_data);
+            }
         }
+
         //Mark the object as clean since no exception was thrown
         $object->setClean();
 
         return $response;
+    }
+
+    /**
+     * @param Remote\Model $object
+     * @throws Exception
+     */
+    public function saveRelationships(Remote\Model $object)
+    {
+        return $this->savePropertiesDirectly($object);
     }
 
     /**
@@ -335,7 +354,7 @@ abstract class Application
         $objects = array_values($objects);
 
         //Just get one type to compare with, doesn't matter which.
-        $current_object = $objects[0];
+        $current_object = $objects[ 0 ];
         /**
          * @var Object $type
          */
@@ -373,8 +392,8 @@ abstract class Application
 
         foreach ($response->getElements() as $element_index => $element) {
             if ($response->getErrorsForElement($element_index) === null) {
-                $objects[$element_index]->fromStringArray($element);
-                $objects[$element_index]->setClean();
+                $objects[ $element_index ]->fromStringArray($element);
+                $objects[ $element_index ]->setClean();
             }
         }
 
@@ -393,31 +412,82 @@ abstract class Application
     private function savePropertiesDirectly(Remote\Model $object)
     {
         foreach ($object::getProperties() as $property_name => $meta) {
-            if ($meta[Remote\Model::KEY_SAVE_DIRECTLY] && $object->isDirty($property_name)) {
-                //Then actually save
+            if ($meta[ Remote\Model::KEY_SAVE_DIRECTLY ] && $object->isDirty($property_name)) {
                 $property_objects = $object->$property_name;
-                /** @var Object $property_type */
+
+                if (is_object($property_objects)) {
+
+                    /** @var Remote\Model $model */
+                    $model = $property_objects;
+
+                    $url = new URL(
+                        $this,
+                        sprintf(
+                            '%s/%s/%s',
+                            $object::getResourceURI(),
+                            $object->getGUID(),
+                            $model::getResourceURI()
+                        ),
+                        $model::getAPIStem()
+                    );
+
+                    $method = $model::getCreateMethod() ?? Request::METHOD_PUT;
+                    $data = $model->toStringArray(true);
+
+                    $request = new Request($this, $url, $method);
+                    $request->setBody(json_encode($data), Request::CONTENT_TYPE_JSON);
+                    $request->send();
+
+                    $response = $request->getResponse();
+
+                    foreach ($response->getElements() as $key => $element) {
+                        if ($response->getErrorsForElement($key) === null) {
+                            $method = 'set' . ucfirst($key);
+
+                            if (method_exists($model, $method)) {
+                                $model->{$method}($element);
+                                $model->setClean($key);
+                            }
+                        }
+                    }
+
+                    continue;
+                }
+
+                /** @var Remote\Model[] $property_type */
                 $property_type = get_class(current($property_objects));
 
-                $url = new URL($this, sprintf('%s/%s/%s', $object::getResourceURI(), $object->getGUID(), $property_type::getResourceURI()));
-                $request = new Request($this, $url, Request::METHOD_PUT);
+                $url = new URL(
+                    $this,
+                    sprintf(
+                        '%s/%s/%s',
+                        $object::getResourceURI(),
+                        $object->getGUID(),
+                        $property_type::getResourceURI()
+                    )
+                );
+
+                $method = Request::METHOD_PUT;
+                $request = new Request($this, $url, $method);
 
                 $property_array = [];
+
                 /** @var Object[] $property_objects */
                 foreach ($property_objects as $property_object) {
                     $property_array[] = $property_object->toStringArray(false);
                 }
 
                 $root_node_name = Helpers::pluralize($property_type::getRootNodeName());
-                $request->setBody(Helpers::arrayToXML([$root_node_name => $property_array]));
 
+                $request->setBody(Helpers::arrayToXML([$root_node_name => $property_array]));
                 $request->send();
 
                 $response = $request->getResponse();
+
                 foreach ($response->getElements() as $element_index => $element) {
                     if ($response->getErrorsForElement($element_index) === null) {
-                        $property_objects[$element_index]->fromStringArray($element);
-                        $property_objects[$element_index]->setClean();
+                        $property_objects[ $element_index ]->fromStringArray($element);
+                        $property_objects[ $element_index ]->setClean();
                     }
                 }
 
