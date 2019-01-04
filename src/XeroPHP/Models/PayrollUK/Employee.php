@@ -50,7 +50,7 @@ class Employee extends Remote\Model
      */
     public static function getResourceURI()
     {
-        return 'Employees';
+        return 'employees';
     }
 
     /**
@@ -85,6 +85,7 @@ class Employee extends Remote\Model
     public static function getProperties()
     {
         return [
+            'employeeID'     => [true, self::PROPERTY_TYPE_GUID, null, false, false],
             'title'          => [true, self::PROPERTY_TYPE_STRING, null, false, false],
             'firstName'      => [true, self::PROPERTY_TYPE_STRING, null, false, false],
             'lastName'       => [true, self::PROPERTY_TYPE_STRING, null, false, false],
@@ -256,6 +257,22 @@ class Employee extends Remote\Model
         $this->_data[ 'phoneNumber' ] = $value;
 
         return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getID()
+    {
+        return $this->getEmployeeID();
+    }
+
+    /**
+     * @return string
+     */
+    public function getEmployeeID()
+    {
+        return $this->_data[ 'employeeID' ];
     }
 
     /**
