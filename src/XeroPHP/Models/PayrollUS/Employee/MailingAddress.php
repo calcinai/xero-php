@@ -264,6 +264,4 @@ class MailingAddress extends Remote\Model
         $this->_data['Longitude'] = $value;
         return $this;
     }
-
-
 }

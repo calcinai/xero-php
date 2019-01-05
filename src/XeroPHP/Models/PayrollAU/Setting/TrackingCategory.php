@@ -134,6 +134,4 @@ class TrackingCategory extends Remote\Model
         $this->_data['TrackingCategoryName'] = $value;
         return $this;
     }
-
-
 }

@@ -9,7 +9,6 @@ use XeroPHP\Models\Accounting\BankTransaction\BankAccount;
 
 class BankTransaction extends Remote\Model
 {
-
     use AttachmentTrait;
     use HistoryTrait;
 
@@ -594,7 +593,4 @@ class BankTransaction extends Remote\Model
     {
         return $this->_data['HasAttachments'];
     }
-
-
-
 }

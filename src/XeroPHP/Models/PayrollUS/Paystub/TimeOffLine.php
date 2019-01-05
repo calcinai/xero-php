@@ -160,6 +160,4 @@ class TimeOffLine extends Remote\Model
         $this->_data['Balance'] = $value;
         return $this;
     }
-
-
 }

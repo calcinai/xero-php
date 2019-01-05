@@ -160,6 +160,4 @@ class LeaveAccrualLine extends Remote\Model
         $this->_data['AutoCalculate'] = $value;
         return $this;
     }
-
-
 }

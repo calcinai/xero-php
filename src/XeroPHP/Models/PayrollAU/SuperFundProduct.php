@@ -191,6 +191,4 @@ class SuperFundProduct extends Remote\Model
         $this->_data['ProductName'] = $value;
         return $this;
     }
-
-
 }

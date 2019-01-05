@@ -12,5 +12,4 @@ class BudgetSummary extends Report
     {
         return 'Reports/BudgetSummary';
     }
-
 }

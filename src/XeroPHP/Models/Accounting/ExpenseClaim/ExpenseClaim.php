@@ -264,6 +264,4 @@ class ExpenseClaim extends Remote\Model
         $this->_data['ReceiptID'] = $value;
         return $this;
     }
-
-
 }

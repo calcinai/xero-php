@@ -9,7 +9,8 @@ use XeroPHP\Remote\Model;
 use XeroPHP\Remote\Request;
 use XeroPHP\Remote\URL;
 
-class Attachment extends Model {
+class Attachment extends Model
+{
 
     /**
      * Xero Unique Identifier
@@ -47,7 +48,8 @@ class Attachment extends Model {
      *
      * @return string
      */
-    static function getGUIDProperty() {
+    public static function getGUIDProperty()
+    {
         return 'AttachmentID';
     }
 
@@ -56,7 +58,8 @@ class Attachment extends Model {
      *
      * @return array
      */
-    static function getProperties() {
+    public static function getProperties()
+    {
         return array(
             'AttachmentID' => array(false, self::PROPERTY_TYPE_STRING, null, false, false),
             'FileName' => array(true, self::PROPERTY_TYPE_STRING, null, false, false),
@@ -71,7 +74,8 @@ class Attachment extends Model {
      *
      * @return array
      */
-    static function getSupportedMethods() {
+    public static function getSupportedMethods()
+    {
         return array(
             Request::METHOD_GET,
             Request::METHOD_PUT,
@@ -84,20 +88,22 @@ class Attachment extends Model {
      *
      * @return string
      */
-    static function getResourceURI() {
+    public static function getResourceURI()
+    {
         return '';
     }
 
 
     //Do this with a file handle please
-    public static function createFromLocalFile($file_name, $mime_type = null){
+    public static function createFromLocalFile($file_name, $mime_type = null)
+    {
 
         //Try to guess.  Might be questionable on non-*nix machines
-        if($mime_type === null){
+        if ($mime_type === null) {
             $finfo = new \finfo(FILEINFO_MIME_TYPE);
             $info = $finfo->file($file_name);
 
-            if($info !== false){
+            if ($info !== false) {
                 $mime_type = $info;
             }
         }
@@ -117,8 +123,8 @@ class Attachment extends Model {
     }
 
 
-    public static function createFromBinary($data, $file_name, $mime_type){
-
+    public static function createFromBinary($data, $file_name, $mime_type)
+    {
         $content_length = strlen($data);
 
         $instance = new self();
@@ -136,28 +142,27 @@ class Attachment extends Model {
     /**
      * @return string
      */
-    public function getContent() {
-
-        if(!isset($this->content)){
+    public function getContent()
+    {
+        if (!isset($this->content)) {
             //If it's been created locally, you can just read it back.
-            if(isset($this->local_handle)){
+            if (isset($this->local_handle)) {
                 rewind($this->local_handle);
-                while(!feof($this->local_handle)){
+                while (!feof($this->local_handle)) {
                     $this->content .= fread($this->local_handle, 8192);
                 }
-            //Otherwise, if it can be fetched
-            } elseif(isset($this->_data['Url'])){
+                //Otherwise, if it can be fetched
+            } elseif (isset($this->_data['Url'])) {
                 $this->content = self::downloadContent($this->_application, $this->_data['Url']);
             }
         }
 
         return $this->content;
-
     }
 
 
-    private static function downloadContent(Application $app, $url){
-
+    private static function downloadContent(Application $app, $url)
+    {
         $url = new URL($app, $url);
         $request = new Request($app, $url, Request::METHOD_GET);
         $request->setHeader(Request::HEADER_ACCEPT, '*/*');
@@ -171,65 +176,74 @@ class Attachment extends Model {
     /**
      * @return string
      */
-    public function getAttachmentID() {
+    public function getAttachmentID()
+    {
         return $this->_data['AttachmentID'];
-
     }
 
     /**
      * @return int
      */
-    public function getContentLength() {
+    public function getContentLength()
+    {
         return $this->_data['ContentLength'];
     }
 
     /**
      * @return string
      */
-    public function getFileName() {
+    public function getFileName()
+    {
         return $this->_data['FileName'];
     }
 
     /**
      * @return string
      */
-    public function getMimeType() {
+    public function getMimeType()
+    {
         return $this->_data['MimeType'];
     }
 
     /**
      * @return string
      */
-    public function getUrl() {
+    public function getUrl()
+    {
         return $this->_data['Url'];
     }
 
     /**
      * @return mixed
      */
-    public function getLocalHandle() {
+    public function getLocalHandle()
+    {
         return $this->local_handle;
     }
 
     /**
      * @param mixed $local_handle
      */
-    public function setLocalHandle($local_handle) {
+    public function setLocalHandle($local_handle)
+    {
         $this->local_handle = $local_handle;
     }
 
     /**
      * @return mixed
      */
-    public static function isPageable() {
+    public static function isPageable()
+    {
         return false;
     }
 
-    static function getAPIStem() {
+    public static function getAPIStem()
+    {
         return '';
     }
 
-    static function getRootNodeName() {
+    public static function getRootNodeName()
+    {
         // TODO: Implement getRootNodeName() method.
     }
 }

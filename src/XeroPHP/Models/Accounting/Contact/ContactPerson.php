@@ -186,6 +186,4 @@ class ContactPerson extends Remote\Model
         $this->_data['IncludeInEmails'] = $value;
         return $this;
     }
-
-
 }

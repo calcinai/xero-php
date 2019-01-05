@@ -198,6 +198,4 @@ e.g.
         $this->_data['Contacts'][] = $value;
         return $this;
     }
-
-
 }

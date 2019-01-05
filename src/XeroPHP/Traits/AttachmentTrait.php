@@ -19,7 +19,7 @@ trait AttachmentTrait
         $url = new URL($this->_application, $uri);
         $request = new Request($this->_application, $url, Request::METHOD_POST);
 
-        if($include_online){
+        if ($include_online) {
             $request->setParameter('IncludeOnline', 'true');
         }
 

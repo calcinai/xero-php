@@ -80,11 +80,13 @@ class Response
                 }
 
             /** @noinspection PhpMissingBreakStatementInspection */
+            // no break
             case Response::STATUS_UNAUTHORISED:
                 //This is where OAuth errors end up, this could maybe change to an OAuth exception
                 if (isset($this->oauth_response['oauth_problem_advice'])) {
                     throw new UnauthorizedException($this->oauth_response['oauth_problem_advice']);
                 }
+                // no break
             case Response::STATUS_FORBIDDEN:
                 throw new UnauthorizedException();
 

@@ -332,5 +332,4 @@ class SuperFund extends Remote\Model
         $this->_data['Name'] = $value;
         return $this;
     }
-
 }

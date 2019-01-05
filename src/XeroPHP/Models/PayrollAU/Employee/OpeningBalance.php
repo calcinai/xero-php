@@ -487,6 +487,4 @@ class OpeningBalance extends Remote\Model
         $this->_data['NumberOfUnits'] = $value;
         return $this;
     }
-
-
 }

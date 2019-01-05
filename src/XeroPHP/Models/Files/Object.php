@@ -2,8 +2,8 @@
 
 namespace XeroPHP\Models\Files;
 
-class Object {
-
+class Object
+{
     const OBJECT_GROUP_ACCOUNT         = 'Account';
     const OBJECT_GROUP_BANKTRANSACTION = 'BankTransaction';
     const OBJECT_GROUP_CONTACT         = 'Contact';
@@ -53,6 +53,4 @@ class Object {
     const OBJECT_TYPE_PURCHASEORDER              = 'PURCHASEORDER';
     const OBJECT_TYPE_RECEIPT                    = 'RECEIPT';
     const OBJECT_TYPE_TRANSFER                   = 'TRANSFER';
-
-
 }

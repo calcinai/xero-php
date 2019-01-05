@@ -153,7 +153,8 @@ class Client
                 break;
             case self::SIGNATURE_PLAINTEXT:
                 $signature = PLAINTEXT::generateSignature(
-                    $this->config, $this->getSBS($request),
+                    $this->config,
+                    $this->getSBS($request),
                     $this->getSigningSecret()
                 );
                 break;
@@ -299,7 +300,8 @@ class Client
         }
 
         return $this->appendUrlQuery(
-            $this->config['authorize_url'], compact('oauth_token')
+            $this->config['authorize_url'],
+            compact('oauth_token')
         );
     }
 

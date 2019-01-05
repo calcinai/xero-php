@@ -7,7 +7,6 @@ use XeroPHP\Models\Accounting\ManualJournal\JournalLine;
 
 class ManualJournal extends Remote\Model
 {
-
     use AttachmentTrait;
 
     /**
@@ -337,7 +336,4 @@ class ManualJournal extends Remote\Model
     {
         return $this->_data['UpdatedDateUTC'];
     }
-
-
-
 }

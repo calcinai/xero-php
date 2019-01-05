@@ -140,6 +140,4 @@ class ExternalLink extends Remote\Model
         $this->_data['Url'] = $value;
         return $this;
     }
-
-
 }

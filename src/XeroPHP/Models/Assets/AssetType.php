@@ -268,6 +268,4 @@ class AssetType extends Remote\Model
         $this->_data['Locks'] = $value;
         return $this;
     }
-
-
 }
