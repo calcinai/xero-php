@@ -679,7 +679,9 @@ class Contact extends Remote\Model
      * @deprecated - this is a read only property and this method will be removed in future versions
      * @param $value
      */
-    public function setIsSupplier($value){}
+    public function setIsSupplier($value)
+    {
+    }
 
     /**
      * @return bool
@@ -693,7 +695,9 @@ class Contact extends Remote\Model
      * @deprecated - this is a read only property and this method will be removed in future versions
      * @param $value
      */
-    public function setIsCustomer($value){}
+    public function setIsCustomer($value)
+    {
+    }
 
     /**
      * @return string
@@ -1027,7 +1031,7 @@ class Contact extends Remote\Model
      * @deprecated - this is a read only property and this method will be removed in future versions
      * @param $value
      */
-    public function setHasAttachment($value){}
-
-
+    public function setHasAttachment($value)
+    {
+    }
 }

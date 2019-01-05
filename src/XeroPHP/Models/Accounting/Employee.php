@@ -219,6 +219,4 @@ The description of the link is auto-generated in the form “Go to <App name>”
         $this->_data['ExternalLink'] = $value;
         return $this;
     }
-
-
 }

@@ -328,6 +328,4 @@ class LineItem extends Remote\Model
         $this->_data['Tracking'][] = $value;
         return $this;
     }
-
-
 }

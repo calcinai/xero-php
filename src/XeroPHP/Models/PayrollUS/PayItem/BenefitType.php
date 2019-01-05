@@ -335,6 +335,4 @@ class BenefitType extends Remote\Model
         $this->_data['ShowBalanceOnPaystub'] = $value;
         return $this;
     }
-
-
 }

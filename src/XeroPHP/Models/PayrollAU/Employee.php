@@ -894,7 +894,5 @@ class Employee extends Remote\Model
         $this->propertyUpdated('Phone', $value);
         $this->_data['Phone'] = $value;
         return $this;
-    }    
-
-
+    }
 }

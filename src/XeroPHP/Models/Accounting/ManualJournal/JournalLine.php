@@ -234,7 +234,4 @@ class JournalLine extends Remote\Model
     {
         return $this->_data['TaxAmount'];
     }
-
-
-
 }

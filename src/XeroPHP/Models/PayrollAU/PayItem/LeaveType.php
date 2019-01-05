@@ -268,6 +268,4 @@ class LeaveType extends Remote\Model
         $this->_data['LeaveLoadingRate'] = $value;
         return $this;
     }
-
-
 }

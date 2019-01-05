@@ -265,6 +265,4 @@ class User extends Remote\Model
         $this->_data['OrganisationRole'] = $value;
         return $this;
     }
-
-
 }

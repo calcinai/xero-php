@@ -2,8 +2,8 @@
 
 namespace XeroPHP\Models\Assets;
 
-class Overview {
-
+class Overview
+{
     const BELOW_IS_A_DETAILED_LIST_OF_ALL_THE_TYPES_AND_FOR_THE_ASSETS_API__DRAFT               = 'Draft';
     const BELOW_IS_A_DETAILED_LIST_OF_ALL_THE_TYPES_AND_FOR_THE_ASSETS_API__REGISTERED          = 'Registered';
     const BELOW_IS_A_DETAILED_LIST_OF_ALL_THE_TYPES_AND_FOR_THE_ASSETS_API__DISPOSED            = 'Disposed';
@@ -18,6 +18,4 @@ class Overview {
     const BELOW_IS_A_DETAILED_LIST_OF_ALL_THE_TYPES_AND_FOR_THE_ASSETS_API__NONE                = 'None';
     const BELOW_IS_A_DETAILED_LIST_OF_ALL_THE_TYPES_AND_FOR_THE_ASSETS_API__ACTUALDAYS          = 'ActualDays';
     const BELOW_IS_A_DETAILED_LIST_OF_ALL_THE_TYPES_AND_FOR_THE_ASSETS_API__FULLMONTH           = 'FullMonth';
-
-
 }

@@ -238,6 +238,4 @@ class HomeAddress extends Remote\Model
         $this->_data['Country'] = $value;
         return $this;
     }
-
-
 }

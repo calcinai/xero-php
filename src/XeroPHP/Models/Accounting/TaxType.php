@@ -2,8 +2,8 @@
 
 namespace XeroPHP\Models\Accounting;
 
-class TaxType {
-
+class TaxType
+{
     const AUSTRALIAN_TAX_TYPE        = 'TAX TYPE';
     const AUSTRALIAN_OUTPUT          = 'OUTPUT';
     const AUSTRALIAN_INPUT           = 'INPUT';
@@ -118,6 +118,4 @@ class TaxType {
     const AUSTRALIUM_BASEXCLUDED     = self::AUSTRALIAN_BASEXCLUDED;
     const AUSTRALIUM_GSTONCAPIMPORTS = self::AUSTRALIAN_GSTONCAPIMPORTS;
     const AUSTRALIUM_GSTONIMPORTS    = self::AUSTRALIAN_GSTONIMPORTS;
-
-
 }

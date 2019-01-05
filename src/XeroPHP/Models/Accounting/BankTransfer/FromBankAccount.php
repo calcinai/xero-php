@@ -149,7 +149,4 @@ class FromBankAccount extends Remote\Model
     {
         return $this->_data['Name'];
     }
-
-
-
 }

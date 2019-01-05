@@ -9,7 +9,6 @@ use XeroPHP\Models\Accounting\BankTransfer\ToBankAccount;
 
 class BankTransfer extends Remote\Model
 {
-
     use AttachmentTrait;
     use HistoryTrait;
 
@@ -300,7 +299,4 @@ class BankTransfer extends Remote\Model
     {
         return $this->_data['CreatedDateUTC'];
     }
-
-
-
 }

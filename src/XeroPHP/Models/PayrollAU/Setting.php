@@ -172,6 +172,4 @@ class Setting extends Remote\Model
         $this->_data['DaysInPayrollYear'] = $value;
         return $this;
     }
-
-
 }

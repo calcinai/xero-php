@@ -322,6 +322,4 @@ class Journal extends Remote\Model
         $this->_data['JournalLines'][] = $value;
         return $this;
     }
-
-
 }

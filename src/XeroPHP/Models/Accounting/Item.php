@@ -8,7 +8,6 @@ use XeroPHP\Traits\HistoryTrait;
 
 class Item extends Remote\Model
 {
-
     use HistoryTrait;
 
     /**
@@ -481,6 +480,4 @@ class Item extends Remote\Model
         $this->_data['UpdatedDateUTC'] = $value;
         return $this;
     }
-
-
 }

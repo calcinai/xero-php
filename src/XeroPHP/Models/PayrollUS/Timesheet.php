@@ -264,7 +264,4 @@ class Timesheet extends Remote\Model
     {
         return $this->_data['Hours'];
     }
-
-
-
 }

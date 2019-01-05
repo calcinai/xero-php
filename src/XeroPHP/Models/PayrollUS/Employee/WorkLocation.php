@@ -134,6 +134,4 @@ class WorkLocation extends Remote\Model
         $this->_data['IsPrimary'] = $value;
         return $this;
     }
-
-
 }

@@ -293,6 +293,4 @@ class SalaryAndWage extends Remote\Model
         $this->_data['EffectiveDate'] = $value;
         return $this;
     }
-
-
 }

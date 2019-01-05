@@ -165,6 +165,4 @@ class Association extends Remote\Model
         $this->_data['ObjectType'] = $value;
         return $this;
     }
-
-
 }

@@ -275,6 +275,4 @@ class Timesheet extends Remote\Model
         $this->_data['TimesheetID'] = $value;
         return $this;
     }
-
-
 }

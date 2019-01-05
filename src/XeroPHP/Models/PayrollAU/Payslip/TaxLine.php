@@ -187,6 +187,4 @@ class TaxLine extends Remote\Model
         $this->_data['LiabilityAccount'] = $value;
         return $this;
     }
-
-
 }

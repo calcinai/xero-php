@@ -160,6 +160,4 @@ class TrackingOption extends Remote\Model
         $this->_data['Status'] = $value;
         return $this;
     }
-
-
 }

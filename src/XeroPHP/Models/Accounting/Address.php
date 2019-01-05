@@ -7,7 +7,7 @@ class Address extends Remote\Model
 {
 
     /**
-     * 
+     *
      *
      * @property string AddressType
      */
@@ -346,6 +346,4 @@ class Address extends Remote\Model
         $this->_data['AttentionTo'] = $value;
         return $this;
     }
-
-
 }

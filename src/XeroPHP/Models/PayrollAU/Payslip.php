@@ -543,5 +543,4 @@ class Payslip extends Remote\Model
     {
         return $this->_data['LeaveEarningsLines'];
     }
-
 }

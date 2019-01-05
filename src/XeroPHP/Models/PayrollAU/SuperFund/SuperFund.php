@@ -351,6 +351,4 @@ class SuperFund extends Remote\Model
         $this->_data['SPIN'] = $value;
         return $this;
     }
-
-
 }

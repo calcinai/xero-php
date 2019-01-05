@@ -265,6 +265,4 @@ class BankAccount extends Remote\Model
         $this->_data['Remainder'] = $value;
         return $this;
     }
-
-
 }

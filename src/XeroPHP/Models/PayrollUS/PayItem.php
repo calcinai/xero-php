@@ -239,6 +239,4 @@ class PayItem extends Remote\Model
         $this->_data['TimeOffTypes'][] = $value;
         return $this;
     }
-
-
 }

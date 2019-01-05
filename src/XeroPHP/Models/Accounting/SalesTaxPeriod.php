@@ -2,8 +2,8 @@
 
 namespace XeroPHP\Models\Accounting;
 
-class SalesTaxPeriod {
-
+class SalesTaxPeriod
+{
     const AUSTRALIAN_MONTHLY    = 'MONTHLY';
     const AUSTRALIAN_QUARTERLY1 = 'QUARTERLY1';
     const AUSTRALIAN_QUARTERLY2 = 'QUARTERLY2';
@@ -36,6 +36,4 @@ class SalesTaxPeriod {
     const AUSTRALIUM_QUARTERLY2 = self::AUSTRALIAN_QUARTERLY2;
     const AUSTRALIUM_QUARTERLY3 = self::AUSTRALIAN_QUARTERLY3;
     const AUSTRALIUM_ANNUALLY   = self::AUSTRALIAN_ANNUALLY;
-
-
 }
