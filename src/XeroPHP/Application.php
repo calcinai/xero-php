@@ -98,12 +98,12 @@ abstract class Application
     }
 
     /**
-    * @param string $config
-    * @param mixed $option
-    * @param mixed $value
-    * @return mixed
-    * @throws Exception
-    */
+     * @param string $config
+     * @param mixed $option
+     * @param mixed $value
+     * @return mixed
+     * @throws Exception
+     */
     public function getConfigOption($config, $option)
     {
         if (!isset($this->getConfig($config)[$option])) {
