@@ -15,7 +15,7 @@ class TimeOffType extends Remote\Model
     /**
      * Select Unpaid Time Off to indicate that an employee will not get paid when taking this time off
      * type.
-If Paid Time Off is selected the employee will get paid when taking this time off type and you
+     * If Paid Time Off is selected the employee will get paid when taking this time off type and you
      * can accrue the liability on the Balance Sheet
      *
      * @property string TimeOffCategory
