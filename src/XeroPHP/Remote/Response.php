@@ -289,8 +289,6 @@ class Response
     {
         $json = json_decode($this->response_body, true);
 
-        dump($json);
-
         foreach ($json as $child_index => $root_child) {
             switch ($child_index) {
                 case 'ErrorNumber':
