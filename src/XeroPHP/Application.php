@@ -189,9 +189,7 @@ abstract class Application
      */
     public function loadByGUID($model, $guid)
     {
-        /**
-         * @var Remote\Model $class
-         */
+        /** @var Remote\Model $class */
         $class = $this->validateModelClass($model);
 
         $uri = sprintf('%s/%s', $class::getResourceURI(), $guid);
@@ -201,15 +199,26 @@ abstract class Application
         $request = new Request($this, $url, Request::METHOD_GET);
         $request->send();
 
-        //Return the first (if any) element from the response.
-        foreach ($request->getResponse()->getElements() as $element) {
-            /**
-             * @var Remote\Model $object
-             */
+        $elements = $request->getResponse()->getElements();
+
+        if (empty($class::getRootNodeName())) {
+
+            /** @var Remote\Model $object */
             $object = new $class($this);
-            $object->fromStringArray($element);
+            $object->fromStringArray($elements);
+
             return $object;
         }
+
+        foreach ($elements as $element) {
+
+            /** @var Remote\Model $object */
+            $object = new $class($this);
+            $object->fromStringArray($element);
+
+            return $object;
+        }
+
         return null;
     }
 
@@ -415,7 +424,7 @@ abstract class Application
             if ($meta[ Remote\Model::KEY_SAVE_DIRECTLY ] && $object->isDirty($property_name)) {
                 $property_objects = $object->$property_name;
 
-                if (is_object($property_objects)) {
+                if ($property_objects instanceof Remote\Model) {
 
                     /** @var Remote\Model $model */
                     $model = $property_objects;
@@ -431,7 +440,7 @@ abstract class Application
                         $model::getAPIStem()
                     );
 
-                    $method = $model::getCreateMethod() ?? Request::METHOD_PUT;
+                    $method = $model::getCreateMethod();
                     $data = $model->toStringArray(true);
 
                     $request = new Request($this, $url, $method);
@@ -464,10 +473,11 @@ abstract class Application
                         $object::getResourceURI(),
                         $object->getGUID(),
                         $property_type::getResourceURI()
-                    )
+                    ),
+                    $object::getAPIStem()
                 );
 
-                $method = Request::METHOD_PUT;
+                $method = $property_type::getCreateMethod();
                 $request = new Request($this, $url, $method);
 
                 $property_array = [];
@@ -477,15 +487,25 @@ abstract class Application
                     $property_array[] = $property_object->toStringArray(false);
                 }
 
-                $root_node_name = Helpers::pluralize($property_type::getRootNodeName());
 
-                $request->setBody(Helpers::arrayToXML([$root_node_name => $property_array]));
+                if (!empty($property_type::getRootNodeName())) {
+                    $root_node_name = Helpers::pluralize($property_type::getRootNodeName());
+
+                    $request->setBody(Helpers::arrayToXML([$root_node_name => $property_array]));
+                } else {
+                    if (count($property_array) > 1) {
+                        throw new \Exception('Unsupported mutliple JSON direct saves');
+                    }
+
+                    $request->setBody(json_encode($property_array[ 0 ]), Request::CONTENT_TYPE_JSON);
+                }
+
                 $request->send();
 
                 $response = $request->getResponse();
 
                 foreach ($response->getElements() as $element_index => $element) {
-                    if ($response->getErrorsForElement($element_index) === null) {
+                    if ($response->getErrorsForElement($element_index) === null && isset($property_objects[ $element_index ])) {
                         $property_objects[ $element_index ]->fromStringArray($element);
                         $property_objects[ $element_index ]->setClean();
                     }

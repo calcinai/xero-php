@@ -2,6 +2,7 @@
 namespace XeroPHP\Models\PayrollUK;
 
 use XeroPHP\Remote;
+use XeroPHP\Models\PayrollUK\Timesheet\Line;
 use XeroPHP\Traits\TitleCaseKeysBeforeSave;
 
 class Timesheet extends Remote\Model
@@ -19,7 +20,7 @@ class Timesheet extends Remote\Model
      */
     public static function getGUIDProperty()
     {
-        return 'TimesheetID';
+        return 'timesheetID';
     }
 
     /**
@@ -97,7 +98,8 @@ class Timesheet extends Remote\Model
             'endDate'           => [true, self::PROPERTY_TYPE_DATE, '\\DateTimeInterface', false, false],
             'status'            => [false, self::PROPERTY_TYPE_STRING, null, false, false],
             'totalHours'        => [false, self::PROPERTY_TYPE_FLOAT, null, false, false],
-            'updatedDateUTC'    => [false, self::PROPERTY_TYPE_DATE, '\\DateTimeInterface', false, false]
+            'updatedDateUTC'    => [false, self::PROPERTY_TYPE_DATE, '\\DateTimeInterface', false, false],
+            'lines'             => [false, self::PROPERTY_TYPE_OBJECT, Line::class, true, true]
         ];
     }
 
@@ -150,10 +152,10 @@ class Timesheet extends Remote\Model
     }
 
     /**
-     * @param \DateTimeInterface $value
+     * @param $value
      * @return $this
      */
-    public function setStartDate(\DateTimeInterface $value)
+    public function setStartDate($value)
     {
         $this->propertyUpdated('startDate', $value);
         $this->_data[ 'startDate' ] = $value;
@@ -170,13 +172,50 @@ class Timesheet extends Remote\Model
     }
 
     /**
-     * @param \DateTimeInterface $value
+     * @param $value
      * @return $this
      */
-    public function setEndDate(\DateTimeInterface $value)
+    public function setEndDate($value)
     {
         $this->propertyUpdated('endDate', $value);
         $this->_data[ 'endDate' ] = $value;
+
+        return $this;
+    }
+
+    /**
+     * @return Remote\Collection
+     */
+    public function getLines()
+    {
+        return $this->_data[ 'lines' ];
+    }
+
+    /**
+     * @param Line $value
+     * @return $this
+     */
+    public function addLine(Line $value)
+    {
+        $this->propertyUpdated('lines', $value);
+
+        if (!isset($this->_data[ 'lines' ])) {
+            $this->_data[ 'lines' ] = new Remote\Collection;
+        }
+
+        $this->_data[ 'lines' ][] = $value;
+
+        return $this;
+    }
+
+    /**
+     * @param Remote\Collection $value
+     * @return $this
+     */
+    public function setLines(Remote\Collection $value)
+    {
+        $this->propertyUpdated('lines', $value);
+        $this->_data[ 'lines' ] = $collectionOfLines;
 
         return $this;
     }

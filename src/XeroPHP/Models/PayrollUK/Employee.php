@@ -17,7 +17,7 @@ class Employee extends Remote\Model
      */
     public static function getGUIDProperty()
     {
-        return 'EmployeeID';
+        return 'employeeID';
     }
 
     /**

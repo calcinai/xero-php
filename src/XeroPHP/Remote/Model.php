@@ -581,7 +581,7 @@ abstract class Model implements ObjectInterface, \JsonSerializable, \ArrayAccess
      */
     public static function getCreateMethod()
     {
-        return null;
+        return Request::METHOD_PUT;
     }
 
     /**
