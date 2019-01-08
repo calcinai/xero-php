@@ -203,13 +203,13 @@ class EarningsRate extends Remote\Model
      */
     public function getID()
     {
-        return $this->getEarningsRateIDD();
+        return $this->getEarningsRateID();
     }
 
     /**
      * @return string
      */
-    public function getEarningsRateIDD()
+    public function getEarningsRateID()
     {
         return $this->_data[ 'earningsRateID' ];
     }
