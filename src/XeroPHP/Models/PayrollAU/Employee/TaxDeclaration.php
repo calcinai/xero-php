@@ -386,7 +386,7 @@ class TaxDeclaration extends Remote\Model
         return $this;
     }
 
-     /**
+    /**
      * @return bool
      * @deprecated
      */
@@ -406,7 +406,7 @@ class TaxDeclaration extends Remote\Model
         $this->_data['HasTSLDebt'] = $value;
         return $this;
     }
-    
+
     /**
      * @return bool
      */
@@ -482,6 +482,4 @@ class TaxDeclaration extends Remote\Model
         $this->_data['ApprovedWithholdingVariationPercentage'] = $value;
         return $this;
     }
-
-
 }

@@ -266,6 +266,4 @@ class Schedule extends Remote\Model
         $this->_data['EndDate'] = $value;
         return $this;
     }
-
-
 }

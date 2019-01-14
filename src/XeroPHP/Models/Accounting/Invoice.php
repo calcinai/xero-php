@@ -11,7 +11,6 @@ use XeroPHP\Models\Accounting\Invoice\LineItem;
 
 class Invoice extends Remote\Model
 {
-
     use PDFTrait;
     use AttachmentTrait;
     use SendEmailTrait;
@@ -377,7 +376,7 @@ class Invoice extends Remote\Model
      */
     public function getLineItems()
     {
-	    if (!isset($this->_data['LineItems'])) {
+        if (!isset($this->_data['LineItems'])) {
             $this->_data['LineItems'] = new Remote\Collection();
         }
 
@@ -819,7 +818,8 @@ class Invoice extends Remote\Model
     protected function onlineInvoiceRequest()
     {
         return new Remote\Request(
-            $this->_application, $this->onlineInvoiceRemoteUrl()
+            $this->_application,
+            $this->onlineInvoiceRemoteUrl()
         );
     }
 
@@ -831,9 +831,8 @@ class Invoice extends Remote\Model
     protected function onlineInvoiceRemoteUrl()
     {
         return new Remote\URL(
-            $this->_application, 'Invoices/'.$this->getGUID().'/OnlineInvoice'
+            $this->_application,
+            'Invoices/'.$this->getGUID().'/OnlineInvoice'
         );
     }
-
-
 }

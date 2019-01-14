@@ -181,5 +181,4 @@ class EarningsLine extends Remote\Model
         $this->_data['FixedAmount'] = $value;
         return $this;
     }
-
 }

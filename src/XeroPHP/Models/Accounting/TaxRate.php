@@ -335,7 +335,4 @@ class TaxRate extends Remote\Model
     {
         return $this->_data['EffectiveRate'];
     }
-
-
-
 }

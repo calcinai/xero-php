@@ -863,6 +863,4 @@ class Employee extends Remote\Model
         $this->_data['UpdatedDateUTC'] = $value;
         return $this;
     }
-
-
 }

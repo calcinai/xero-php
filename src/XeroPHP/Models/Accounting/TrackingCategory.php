@@ -262,6 +262,4 @@ class TrackingCategory extends Remote\Model
         $this->_data['Option'] = $value;
         return $this;
     }
-
-
 }

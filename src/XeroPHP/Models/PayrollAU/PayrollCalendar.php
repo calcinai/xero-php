@@ -222,6 +222,4 @@ class PayrollCalendar extends Remote\Model
         $this->_data['PaymentDate'] = $value;
         return $this;
     }
-
-
 }

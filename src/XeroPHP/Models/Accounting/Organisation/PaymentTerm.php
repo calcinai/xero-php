@@ -142,6 +142,4 @@ class PaymentTerm extends Remote\Model
         $this->_data['Sales'][] = $value;
         return $this;
     }
-
-
 }

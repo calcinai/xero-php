@@ -356,6 +356,4 @@ class LineItem extends Remote\Model
         $this->_data['DiscountRate'] = $value;
         return $this;
     }
-
-
 }

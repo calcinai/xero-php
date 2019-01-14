@@ -243,6 +243,4 @@ If Paid Time Off is selected the employee will get paid when taking this time of
         $this->_data['ShowBalanceToEmployee'] = $value;
         return $this;
     }
-
-
 }

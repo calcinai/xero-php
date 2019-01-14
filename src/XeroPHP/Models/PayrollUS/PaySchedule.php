@@ -214,6 +214,4 @@ class PaySchedule extends Remote\Model
         $this->_data['PayScheduleId'] = $value;
         return $this;
     }
-
-
 }

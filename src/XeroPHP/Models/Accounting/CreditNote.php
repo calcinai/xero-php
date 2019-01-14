@@ -10,7 +10,6 @@ use XeroPHP\Models\Accounting\CreditNote\Allocation;
 
 class CreditNote extends Remote\Model
 {
-
     use PDFTrait;
     use AttachmentTrait;
     use HistoryTrait;
@@ -657,6 +656,7 @@ class CreditNote extends Remote\Model
      * @deprecated - this is a read only property and this method will be removed in future versions
      * @param $value
      */
-    public function setHasAttachment($value){}
-
+    public function setHasAttachment($value)
+    {
+    }
 }

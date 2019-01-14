@@ -6,7 +6,6 @@ use XeroPHP\Traits\AttachmentTrait;
 
 class Account extends Remote\Model
 {
-
     use AttachmentTrait;
 
     /**
@@ -549,7 +548,4 @@ e.g.
     {
         return $this->_data['UpdatedDateUTC'];
     }
-
-
-
 }

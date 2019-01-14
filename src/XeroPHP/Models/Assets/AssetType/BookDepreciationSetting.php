@@ -216,6 +216,4 @@ class BookDepreciationSetting extends Remote\Model
         $this->_data['depreciationCalculationMethod'] = $value;
         return $this;
     }
-
-
 }

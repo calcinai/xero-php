@@ -178,7 +178,6 @@ abstract class Model implements ObjectInterface, \JsonSerializable, \ArrayAccess
      */
     public function fromStringArray($input_array, $replace_data = false)
     {
-
         foreach (static::getProperties() as $property => $meta) {
             $type = $meta[self::KEY_TYPE];
             $php_type = $meta[self::KEY_PHP_TYPE];
@@ -233,7 +232,7 @@ abstract class Model implements ObjectInterface, \JsonSerializable, \ArrayAccess
             }
 
             //if we only want the dirty props, stop here
-            if($dirty_only && !isset($this->_dirty[$property])) {
+            if ($dirty_only && !isset($this->_dirty[$property])) {
                 continue;
             }
 
@@ -322,6 +321,7 @@ abstract class Model implements ObjectInterface, \JsonSerializable, \ArrayAccess
             case self::PROPERTY_TYPE_TIMESTAMP:
                 $timezone = new \DateTimeZone('UTC');
 
+                // no break
             case self::PROPERTY_TYPE_DATE:
                 if (preg_match('/Date\((?<timestamp>[0-9\+\.]+)\)/', $value, $matches)) { //to catch stupid .net date serialisation
                     $value = $matches['timestamp'];

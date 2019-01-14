@@ -300,6 +300,4 @@ class LeaveApplication extends Remote\Model
         $this->_data['LeavePeriods'][] = $value;
         return $this;
     }
-
-
 }

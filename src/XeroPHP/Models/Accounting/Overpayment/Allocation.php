@@ -162,6 +162,4 @@ class Allocation extends Remote\Model
         $this->_data['Date'] = $value;
         return $this;
     }
-
-
 }

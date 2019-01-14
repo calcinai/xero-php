@@ -208,6 +208,4 @@ class PayItem extends Remote\Model
         $this->_data['ReimbursementTypes'][] = $value;
         return $this;
     }
-
-
 }

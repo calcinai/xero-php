@@ -12,6 +12,4 @@ class BankStatement extends Report
     {
         return 'Reports/BankStatement';
     }
-
-
 }

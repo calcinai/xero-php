@@ -274,6 +274,4 @@ class Folder extends Remote\Model
         $this->_data['FolderId'] = $value;
         return $this;
     }
-
-
 }

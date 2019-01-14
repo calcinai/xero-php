@@ -142,6 +142,4 @@ class PaymentMethod extends Remote\Model
         $this->_data['BankAccounts'][] = $value;
         return $this;
     }
-
-
 }

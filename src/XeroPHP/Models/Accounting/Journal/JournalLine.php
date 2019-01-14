@@ -400,6 +400,4 @@ class JournalLine extends Remote\Model
         $this->_data['TrackingCategories'][] = $value;
         return $this;
     }
-
-
 }

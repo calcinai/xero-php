@@ -100,13 +100,13 @@ abstract class Report extends Remote\Model
     public static function getProperties()
     {
         return array(
-            'ReportID' => array (true, self::PROPERTY_TYPE_STRING, null, false, false),
-            'ReportName' => array (true, self::PROPERTY_TYPE_STRING, null, false, false),
-            'ReportType' => array (true, self::PROPERTY_TYPE_STRING, null, false, false),
-            'ReportTitles' => array (true, self::PROPERTY_TYPE_STRING, null, true, false),
-            'ReportDate' => array (true, self::PROPERTY_TYPE_DATE, null, false, false),
-            'UpdatedDateUTC' => array (true, self::PROPERTY_TYPE_TIMESTAMP, '\\DateTimeInterface', false, false),
-            'Rows' => array (true, self::PROPERTY_TYPE_STRING, null, true, false),
+            'ReportID' => array(true, self::PROPERTY_TYPE_STRING, null, false, false),
+            'ReportName' => array(true, self::PROPERTY_TYPE_STRING, null, false, false),
+            'ReportType' => array(true, self::PROPERTY_TYPE_STRING, null, false, false),
+            'ReportTitles' => array(true, self::PROPERTY_TYPE_STRING, null, true, false),
+            'ReportDate' => array(true, self::PROPERTY_TYPE_DATE, null, false, false),
+            'UpdatedDateUTC' => array(true, self::PROPERTY_TYPE_TIMESTAMP, '\\DateTimeInterface', false, false),
+            'Rows' => array(true, self::PROPERTY_TYPE_STRING, null, true, false),
         );
     }
 
