@@ -214,6 +214,4 @@ class DeductionType extends Remote\Model
         $this->_data['DeductionTypeID'] = $value;
         return $this;
     }
-
-
 }

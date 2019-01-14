@@ -39,7 +39,7 @@ class History extends Model
      *
      * @return string
      */
-    static function getGUIDProperty()
+    public static function getGUIDProperty()
     {
         return '';
     }
@@ -49,7 +49,7 @@ class History extends Model
      *
      * @return array
      */
-    static function getProperties()
+    public static function getProperties()
     {
         return array(
             'Changes' => array(false, self::PROPERTY_TYPE_STRING, null, false, false),
@@ -64,7 +64,7 @@ class History extends Model
      *
      * @return array
      */
-    static function getSupportedMethods()
+    public static function getSupportedMethods()
     {
         return array(
             Request::METHOD_GET,
@@ -77,7 +77,7 @@ class History extends Model
      *
      * @return string
      */
-    static function getResourceURI()
+    public static function getResourceURI()
     {
         return '';
     }
@@ -125,12 +125,12 @@ class History extends Model
         return false;
     }
 
-    static function getAPIStem()
+    public static function getAPIStem()
     {
         return '';
     }
 
-    static function getRootNodeName()
+    public static function getRootNodeName()
     {
         // TODO: Implement getRootNodeName() method.
     }

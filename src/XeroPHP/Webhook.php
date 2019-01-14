@@ -54,7 +54,7 @@ class Webhook
         if (!isset($this->payload['events']) or
             !isset($this->payload['firstEventSequence']) or
             !isset($this->payload['lastEventSequence'])) {
-                throw new Application\Exception("The webhook payload was malformed");
+            throw new Application\Exception("The webhook payload was malformed");
         }
     }
 

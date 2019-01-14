@@ -145,6 +145,4 @@ class Setting extends Remote\Model
         $this->_data['TrackingCategories'][] = $value;
         return $this;
     }
-
-
 }

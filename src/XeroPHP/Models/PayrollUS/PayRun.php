@@ -315,7 +315,4 @@ class PayRun extends Remote\Model
     {
         return $this->_data['PayStubs'];
     }
-
-
-
 }

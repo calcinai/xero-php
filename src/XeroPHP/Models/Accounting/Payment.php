@@ -6,7 +6,6 @@ use XeroPHP\Traits\HistoryTrait;
 
 class Payment extends Remote\Model
 {
-
     use HistoryTrait;
 
     /**
@@ -452,6 +451,4 @@ class Payment extends Remote\Model
         $this->_data['PaymentID'] = $value;
         return $this;
     }
-
-
 }

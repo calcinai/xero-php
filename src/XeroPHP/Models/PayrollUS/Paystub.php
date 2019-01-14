@@ -26,7 +26,7 @@ class Paystub extends Remote\Model
      */
 
     /**
-     * 
+     *
      *
      * @property string PayRunID
      */
@@ -80,7 +80,7 @@ class Paystub extends Remote\Model
      */
 
     /**
-     * 
+     *
      *
      * @property \DateTimeInterface UpdatedDateUTC
      */
@@ -625,6 +625,4 @@ class Paystub extends Remote\Model
         $this->_data['TimeOffLines'][] = $value;
         return $this;
     }
-
-
 }

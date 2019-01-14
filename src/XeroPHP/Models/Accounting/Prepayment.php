@@ -9,7 +9,6 @@ use XeroPHP\Models\Accounting\Prepayment\Allocation;
 
 class Prepayment extends Remote\Model
 {
-
     use AttachmentTrait;
     use HistoryTrait;
 
@@ -575,6 +574,7 @@ class Prepayment extends Remote\Model
      * @deprecated - this is a read only property and this method will be removed in future versions
      * @param $value
      */
-    public function setHasAttachment($value){}
-
+    public function setHasAttachment($value)
+    {
+    }
 }

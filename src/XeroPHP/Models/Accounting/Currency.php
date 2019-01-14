@@ -165,6 +165,4 @@ class Currency extends Remote\Model
         $this->_data['Description'] = $value;
         return $this;
     }
-
-
 }

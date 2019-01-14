@@ -218,6 +218,4 @@ class Purchase extends Remote\Model
         $this->_data['TaxType'] = $value;
         return $this;
     }
-
-
 }

@@ -295,6 +295,4 @@ class File extends Remote\Model
         $this->_data['Id'] = $value;
         return $this;
     }
-
-
 }

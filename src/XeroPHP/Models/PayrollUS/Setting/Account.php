@@ -186,6 +186,4 @@ class Account extends Remote\Model
         $this->_data['Name'] = $value;
         return $this;
     }
-
-
 }

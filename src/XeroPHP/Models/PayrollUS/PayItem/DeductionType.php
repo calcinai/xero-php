@@ -295,6 +295,4 @@ SECTION125PLAN
         $this->_data['CompanyMax'] = $value;
         return $this;
     }
-
-
 }

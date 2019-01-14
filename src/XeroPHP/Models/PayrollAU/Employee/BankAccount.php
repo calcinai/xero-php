@@ -240,6 +240,4 @@ class BankAccount extends Remote\Model
         $this->_data['Amount'] = $value;
         return $this;
     }
-
-
 }

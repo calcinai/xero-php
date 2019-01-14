@@ -186,6 +186,4 @@ class LeavePeriod extends Remote\Model
         $this->_data['LeavePeriodStatus'] = $value;
         return $this;
     }
-
-
 }

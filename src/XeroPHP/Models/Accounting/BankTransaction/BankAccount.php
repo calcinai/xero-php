@@ -134,6 +134,4 @@ class BankAccount extends Remote\Model
         $this->_data['AccountID'] = $value;
         return $this;
     }
-
-
 }

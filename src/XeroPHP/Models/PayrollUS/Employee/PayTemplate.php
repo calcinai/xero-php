@@ -498,6 +498,4 @@ class PayTemplate extends Remote\Model
         $this->_data['BenefitTypeID'] = $value;
         return $this;
     }
-
-
 }

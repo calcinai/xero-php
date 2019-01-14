@@ -361,6 +361,4 @@ class LinkedTransaction extends Remote\Model
         $this->_data['SourceTransactionTypeCode'] = $value;
         return $this;
     }
-
-
 }

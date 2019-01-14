@@ -192,6 +192,4 @@ class TimesheetLine extends Remote\Model
         $this->_data['WorkLocationID'] = $value;
         return $this;
     }
-
-
 }

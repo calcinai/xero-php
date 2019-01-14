@@ -160,6 +160,4 @@ class ReimbursementType extends Remote\Model
         $this->_data['ReimbursementTypeID'] = $value;
         return $this;
     }
-
-
 }

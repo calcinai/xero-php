@@ -9,7 +9,6 @@ use XeroPHP\Models\Accounting\PurchaseOrder\LineItem;
 
 class PurchaseOrder extends Remote\Model
 {
-
     use PDFTrait;
     use AttachmentTrait;
     use HistoryTrait;
@@ -661,7 +660,4 @@ class PurchaseOrder extends Remote\Model
     {
         return $this->_data['UpdatedDateUTC'];
     }
-
-
-
 }

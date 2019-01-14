@@ -186,6 +186,4 @@ class SuperMembership extends Remote\Model
         $this->_data['EmployeeID'] = $value;
         return $this;
     }
-
-
 }

@@ -7,7 +7,7 @@ class Phone extends Remote\Model
 {
 
     /**
-     * 
+     *
      *
      * @property string PhoneType
      */
@@ -191,6 +191,4 @@ class Phone extends Remote\Model
         $this->_data['PhoneCountryCode'] = $value;
         return $this;
     }
-
-
 }

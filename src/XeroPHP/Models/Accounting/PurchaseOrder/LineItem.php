@@ -378,6 +378,4 @@ class LineItem extends Remote\Model
         $this->_data['LineAmount'] = $value;
         return $this;
     }
-
-
 }

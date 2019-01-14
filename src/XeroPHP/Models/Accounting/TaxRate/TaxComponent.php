@@ -160,6 +160,4 @@ class TaxComponent extends Remote\Model
         $this->_data['IsCompound'] = $value;
         return $this;
     }
-
-
 }

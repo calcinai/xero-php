@@ -8,7 +8,6 @@ use XeroPHP\Models\Accounting\Receipt\LineItem;
 
 class Receipt extends Remote\Model
 {
-
     use AttachmentTrait;
     use HistoryTrait;
 
@@ -404,7 +403,7 @@ class Receipt extends Remote\Model
         return $this->_data['Status'];
     }
 
-     public function setStatus($value)
+    public function setStatus($value)
     {
         $this->propertyUpdated('Status', $value);
         $this->_data['Status'] = $value;
@@ -445,7 +444,4 @@ class Receipt extends Remote\Model
     {
         return $this->_data['Url'];
     }
-
-
-
 }

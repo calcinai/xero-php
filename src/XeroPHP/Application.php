@@ -104,7 +104,8 @@ abstract class Application
     * @return mixed
     * @throws Exception
     */
-    public function getConfigOption($config, $option) {
+    public function getConfigOption($config, $option)
+    {
         if (!isset($this->getConfig($config)[$option])) {
             throw new Exception("Invalid configuration option [$option]");
         }
@@ -115,7 +116,8 @@ abstract class Application
      * @param array $config
      * @return array
      */
-    public function setConfig($config) {
+    public function setConfig($config)
+    {
         $this->config = array_replace_recursive(
             self::$_config_defaults,
             static::$_type_config_defaults,
@@ -132,7 +134,8 @@ abstract class Application
      * @return array
      * @throws Exception
      */
-    public function setConfigOption($config, $option, $value) {
+    public function setConfigOption($config, $option, $value)
+    {
         if (!isset($this->config[$config])) {
             throw new Exception("Invalid configuration key [$config]");
         }

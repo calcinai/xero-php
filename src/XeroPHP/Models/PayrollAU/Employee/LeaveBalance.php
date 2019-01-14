@@ -191,6 +191,4 @@ class LeaveBalance extends Remote\Model
         $this->_data['TypeOfUnits'][] = $value;
         return $this;
     }
-
-
 }

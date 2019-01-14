@@ -134,6 +134,4 @@ class Bill extends Remote\Model
         $this->_data['Type'] = $value;
         return $this;
     }
-
-
 }

@@ -314,7 +314,4 @@ class LineItem extends Remote\Model
     {
         return $this->_data['DiscountRate'];
     }
-
-
-
 }

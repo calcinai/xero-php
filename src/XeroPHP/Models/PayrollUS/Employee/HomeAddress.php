@@ -264,6 +264,4 @@ class HomeAddress extends Remote\Model
         $this->_data['Longitude'] = $value;
         return $this;
     }
-
-
 }
