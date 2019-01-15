@@ -92,10 +92,10 @@ class Timesheet extends Remote\Model
     {
         return [
             'timesheetID'       => [false, self::PROPERTY_TYPE_GUID, null, false, false],
-            'payrollCalendarID' => [true, self::PROPERTY_TYPE_GUID, null, false, false],
-            'employeeID'        => [true, self::PROPERTY_TYPE_GUID, null, false, false],
-            'startDate'         => [true, self::PROPERTY_TYPE_DATE, '\\DateTimeInterface', false, false],
-            'endDate'           => [true, self::PROPERTY_TYPE_DATE, '\\DateTimeInterface', false, false],
+            'payrollCalendarID' => [false, self::PROPERTY_TYPE_GUID, null, false, false],
+            'employeeID'        => [false, self::PROPERTY_TYPE_GUID, null, false, false],
+            'startDate'         => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'endDate'           => [false, self::PROPERTY_TYPE_STRING, null, false, false],
             'status'            => [false, self::PROPERTY_TYPE_STRING, null, false, false],
             'totalHours'        => [false, self::PROPERTY_TYPE_FLOAT, null, false, false],
             'updatedDateUTC'    => [false, self::PROPERTY_TYPE_DATE, '\\DateTimeInterface', false, false],

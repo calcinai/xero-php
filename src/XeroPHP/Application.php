@@ -494,7 +494,24 @@ abstract class Application
                     $request->setBody(Helpers::arrayToXML([$root_node_name => $property_array]));
                 } else {
                     if (count($property_array) > 1) {
-                        throw new \Exception('Unsupported mutliple JSON direct saves');
+                        foreach ($property_array as $relation) {
+                            $request = new Request($this, $url, $method);
+                            $request->setBody(json_encode($relation), Request::CONTENT_TYPE_JSON);
+                            $request->send();
+
+                            $response = $request->getResponse();
+
+                            foreach ($response->getElements() as $element_index => $element) {
+                                if ($response->getErrorsForElement($element_index) === null && isset($property_objects[ $element_index ])) {
+                                    $property_objects[ $element_index ]->fromStringArray($element);
+                                    $property_objects[ $element_index ]->setClean();
+                                }
+                            }
+                        }
+
+                        $object->setClean($property_name);
+
+                        return;
                     }
 
                     $request->setBody(json_encode($property_array[ 0 ]), Request::CONTENT_TYPE_JSON);
