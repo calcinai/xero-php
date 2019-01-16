@@ -1,4 +1,5 @@
 <?php
+
 namespace XeroPHP\Models\Accounting\Journal;
 
 use XeroPHP\Remote;

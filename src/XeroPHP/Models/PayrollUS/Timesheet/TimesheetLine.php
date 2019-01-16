@@ -1,4 +1,5 @@
 <?php
+
 namespace XeroPHP\Models\PayrollUS\Timesheet;
 
 use XeroPHP\Remote;

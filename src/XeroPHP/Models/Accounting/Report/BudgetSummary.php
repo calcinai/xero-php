@@ -1,4 +1,5 @@
 <?php
+
 namespace XeroPHP\Models\Accounting\Report;
 
 class BudgetSummary extends Report

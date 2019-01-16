@@ -1,4 +1,5 @@
 <?php
+
 namespace XeroPHP\Models\Accounting\BankTransfer;
 
 use XeroPHP\Remote;

@@ -1,4 +1,5 @@
 <?php
+
 namespace XeroPHP\Models\Assets;
 
 use XeroPHP\Remote;
