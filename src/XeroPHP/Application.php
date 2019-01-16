@@ -12,32 +12,32 @@ use XeroPHP\Remote\URL;
 abstract class Application
 {
     protected static $_config_defaults = [
-        'xero'  => [
-            'site'            => 'https://api.xero.com',
-            'base_url'        => 'https://api.xero.com',
-            'core_version'    => '2.0',
+        'xero' => [
+            'site' => 'https://api.xero.com',
+            'base_url' => 'https://api.xero.com',
+            'core_version' => '2.0',
             'payroll_version' => '1.0',
-            'file_version'    => '1.0',
+            'file_version' => '1.0',
             'model_namespace' => '\\XeroPHP\\Models'
         ],
         //OAuth config
         'oauth' => [
-            'signature_method'   => Client::SIGNATURE_RSA_SHA1,
+            'signature_method' => Client::SIGNATURE_RSA_SHA1,
             'signature_location' => Client::SIGN_LOCATION_HEADER,
-            'authorize_url'      => 'https://api.xero.com/oauth/Authorize',
+            'authorize_url' => 'https://api.xero.com/oauth/Authorize',
             'request_token_path' => 'oauth/RequestToken',
-            'access_token_path'  => 'oauth/AccessToken'
+            'access_token_path' => 'oauth/AccessToken'
         ],
-        'curl'  => [
-            CURLOPT_USERAGENT      => 'XeroPHP',
+        'curl' => [
+            CURLOPT_USERAGENT => 'XeroPHP',
             CURLOPT_CONNECTTIMEOUT => 30,
-            CURLOPT_TIMEOUT        => 20,
+            CURLOPT_TIMEOUT => 20,
             CURLOPT_SSL_VERIFYPEER => 2,
             CURLOPT_SSL_VERIFYHOST => 2,
             CURLOPT_FOLLOWLOCATION => false,
-            CURLOPT_PROXY          => false,
-            CURLOPT_PROXYUSERPWD   => false,
-            CURLOPT_ENCODING       => '',
+            CURLOPT_PROXY => false,
+            CURLOPT_PROXYUSERPWD => false,
+            CURLOPT_ENCODING => '',
         ]
     ];
 

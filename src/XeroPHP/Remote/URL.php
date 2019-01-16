@@ -14,13 +14,13 @@ use XeroPHP\Application;
  */
 class URL
 {
-    const API_CORE    = 'api.xro';
+    const API_CORE = 'api.xro';
     const API_PAYROLL = 'payroll.xro';
-    const API_FILE    = 'files.xro';
-    const API_ASSET   = 'assets.xro';
+    const API_FILE = 'files.xro';
+    const API_ASSET = 'assets.xro';
 
     const OAUTH_REQUEST_TOKEN = 'RequestToken';
-    const OAUTH_ACCESS_TOKEN  = 'AccessToken';
+    const OAUTH_ACCESS_TOKEN = 'AccessToken';
 
     /**
      * @var string The base API URL for the ap type

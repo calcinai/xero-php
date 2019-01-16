@@ -67,8 +67,8 @@ class Address extends Remote\Model
      */
 
 
-    const ADDRESS_TYPE_POBOX    = 'POBOX';
-    const ADDRESS_TYPE_STREET   = 'STREET';
+    const ADDRESS_TYPE_POBOX = 'POBOX';
+    const ADDRESS_TYPE_STREET = 'STREET';
     const ADDRESS_TYPE_DELIVERY = 'DELIVERY';
 
 

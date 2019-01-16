@@ -50,9 +50,9 @@ class Timesheet extends Remote\Model
      */
 
 
-    const STATUS_DRAFT     = 'DRAFT';
+    const STATUS_DRAFT = 'DRAFT';
     const STATUS_PROCESSED = 'PROCESSED';
-    const STATUS_APPROVED  = 'APPROVED';
+    const STATUS_APPROVED = 'APPROVED';
 
 
     /**

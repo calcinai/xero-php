@@ -10,14 +10,14 @@ session_start();
 //These are the minimum settings - for more options, refer to examples/config.php
 $config = [
     'oauth' => [
-        'callback'              => 'http://localhost/',
-        'consumer_key'          => 'k',
-        'consumer_secret'       => 's',
-        'rsa_private_key'       => 'file://certs/privatekey.pem',
-        'signature_location'  => \XeroPHP\Remote\OAuth\Client::SIGN_LOCATION_QUERY
+        'callback' => 'http://localhost/',
+        'consumer_key' => 'k',
+        'consumer_secret' => 's',
+        'rsa_private_key' => 'file://certs/privatekey.pem',
+        'signature_location' => \XeroPHP\Remote\OAuth\Client::SIGN_LOCATION_QUERY
     ],
     'curl' => [
-        CURLOPT_CAINFO          => 'certs/ca-bundle.crt'
+        CURLOPT_CAINFO => 'certs/ca-bundle.crt'
     ]
 ];
 
