@@ -32,8 +32,8 @@ class EventTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-    * @expectedException \XeroPHP\Application\Exception
-    */
+     * @expectedException \XeroPHP\Application\Exception
+     */
     public function testMalformedPayload()
     {
         $payload = '{"events":[{"resourceId":"44aa0707-f718-4f1c-8d53-f2da9ca59533","eventDateUtc":"2018-02-09T09:18:28.917Z","eventType":"UPDATE","eventCategory":"INVOICE","tenantId":"e629a03c-7ffe-4913-bd94-ff2fdb36a702","tenantType":"ORGANISATION"}],"firstEventSequence": 2,"lastEventSequence": 3, "entropy": "GATSEZXWIBPBRNQOTMOH"}';

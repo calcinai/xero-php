@@ -76,7 +76,7 @@ class Account extends Remote\Model
 
     /**
      * The Xero identifier for an account – specified as a string following the endpoint name
-e.g.
+     * e.g.
      * /297c2dc5-cc47-4afd-8ec8-74990b8761e9
      *
      * @property string AccountID

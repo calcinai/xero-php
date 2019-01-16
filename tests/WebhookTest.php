@@ -33,8 +33,8 @@ class WebhookTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-    * @expectedException \XeroPHP\Application\Exception
-    */
+     * @expectedException \XeroPHP\Application\Exception
+     */
     public function testMalformedPayload()
     {
         $payload = 'not valid json';
