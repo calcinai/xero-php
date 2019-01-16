@@ -45,7 +45,7 @@ class DeductionType extends Remote\Model
      * you time when setting up the employee deductions. If you choose not to set an amount here, you can
      * enter the amounts to be deducted on a per employee basis. Only applicable when DeductionCategory is
      * AFTERTAXDEDUCTION, DEPENDENTCARE, FLEXIBLESPENDINGACCOUNT,
-SECTION125PLAN
+     * SECTION125PLAN
      *
      * @property float StandardAmount
      */
@@ -56,9 +56,9 @@ SECTION125PLAN
      * publishes limits for certain deduction types each year. You can set a company maximum that is lower
      * than the IRS limit, depending on your plan requirements. If you don’t set a maximum, the deduction
      * will stop automatically when the IRS limit is reached.
-Only applicable when DeductionCategory is
+     * Only applicable when DeductionCategory is
      * AFTERTAXDEDUCTION, DEPENDENTCARE, FLEXIBLESPENDINGACCOUNT,
-SECTION125PLAN
+     * SECTION125PLAN
      *
      * @property float CompanyMax
      */
