@@ -81,9 +81,9 @@ abstract class Report extends Remote\Model
      */
     public static function getSupportedMethods()
     {
-        return array(
+        return [
             Remote\Request::METHOD_GET,
-        );
+        ];
     }
 
     /**
@@ -99,15 +99,15 @@ abstract class Report extends Remote\Model
      */
     public static function getProperties()
     {
-        return array(
-            'ReportID' => array(true, self::PROPERTY_TYPE_STRING, null, false, false),
-            'ReportName' => array(true, self::PROPERTY_TYPE_STRING, null, false, false),
-            'ReportType' => array(true, self::PROPERTY_TYPE_STRING, null, false, false),
-            'ReportTitles' => array(true, self::PROPERTY_TYPE_STRING, null, true, false),
-            'ReportDate' => array(true, self::PROPERTY_TYPE_DATE, null, false, false),
-            'UpdatedDateUTC' => array(true, self::PROPERTY_TYPE_TIMESTAMP, '\\DateTimeInterface', false, false),
-            'Rows' => array(true, self::PROPERTY_TYPE_STRING, null, true, false),
-        );
+        return [
+            'ReportID' => [true, self::PROPERTY_TYPE_STRING, null, false, false],
+            'ReportName' => [true, self::PROPERTY_TYPE_STRING, null, false, false],
+            'ReportType' => [true, self::PROPERTY_TYPE_STRING, null, false, false],
+            'ReportTitles' => [true, self::PROPERTY_TYPE_STRING, null, true, false],
+            'ReportDate' => [true, self::PROPERTY_TYPE_DATE, null, false, false],
+            'UpdatedDateUTC' => [true, self::PROPERTY_TYPE_TIMESTAMP, '\\DateTimeInterface', false, false],
+            'Rows' => [true, self::PROPERTY_TYPE_STRING, null, true, false],
+        ];
     }
 
     public static function isPageable()

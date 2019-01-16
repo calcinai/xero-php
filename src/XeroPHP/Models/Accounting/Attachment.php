@@ -60,13 +60,13 @@ class Attachment extends Model
      */
     public static function getProperties()
     {
-        return array(
-            'AttachmentID' => array(false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'FileName' => array(true, self::PROPERTY_TYPE_STRING, null, false, false),
-            'Url' => array(false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'MimeType' => array(false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'ContentLength' => array(false, self::PROPERTY_TYPE_INT, null, false, false)
-        );
+        return [
+            'AttachmentID' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'FileName' => [true, self::PROPERTY_TYPE_STRING, null, false, false],
+            'Url' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'MimeType' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'ContentLength' => [false, self::PROPERTY_TYPE_INT, null, false, false]
+        ];
     }
 
     /**
@@ -76,11 +76,11 @@ class Attachment extends Model
      */
     public static function getSupportedMethods()
     {
-        return array(
+        return [
             Request::METHOD_GET,
             Request::METHOD_PUT,
             Request::METHOD_POST
-        );
+        ];
     }
 
     /**
@@ -112,11 +112,11 @@ class Attachment extends Model
         $path_info = pathinfo($file_name);
 
         $instance = new self();
-        $instance->fromStringArray(array(
+        $instance->fromStringArray([
             'MimeType' => $mime_type,
             'ContentLength' => $content_length,
             'FileName' => $path_info['basename']
-        ));
+        ]);
         $instance->setLocalHandle(fopen($file_name, 'r'));
 
         return $instance;
@@ -128,11 +128,11 @@ class Attachment extends Model
         $content_length = strlen($data);
 
         $instance = new self();
-        $instance->fromStringArray(array(
+        $instance->fromStringArray([
             'MimeType' => $mime_type,
             'ContentLength' => $content_length,
             'FileName' => $file_name
-        ));
+        ]);
 
         $instance->content = $data;
 
