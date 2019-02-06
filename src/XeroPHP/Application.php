@@ -314,7 +314,7 @@ abstract class Application
      * @return Remote\Response
      * @throws Exception
      */
-    public function saveAll($objects, $checkGuid = true)
+    public function saveAll($objects, $checkGuid = true, $replace_data = false)
     {
         $objects = array_values($objects);
 
@@ -357,7 +357,7 @@ abstract class Application
 
         foreach ($response->getElements() as $element_index => $element) {
             if ($response->getErrorsForElement($element_index) === null) {
-                $objects[$element_index]->fromStringArray($element);
+                $objects[$element_index]->fromStringArray($element, $replace_data);
                 $objects[$element_index]->setClean();
             }
         }
