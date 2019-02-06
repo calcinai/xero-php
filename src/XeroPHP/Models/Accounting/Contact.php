@@ -235,7 +235,7 @@ class Contact extends Remote\Model
      */
 
 
-    const CONTACT_STATUS_ACTIVE   = 'ACTIVE';
+    const CONTACT_STATUS_ACTIVE = 'ACTIVE';
     const CONTACT_STATUS_ARCHIVED = 'ARCHIVED';
 
 

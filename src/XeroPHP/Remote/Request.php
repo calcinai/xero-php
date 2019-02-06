@@ -7,20 +7,20 @@ use XeroPHP\Helpers;
 
 class Request
 {
-    const METHOD_GET    = 'GET';
-    const METHOD_PUT    = 'PUT';
-    const METHOD_POST   = 'POST';
+    const METHOD_GET = 'GET';
+    const METHOD_PUT = 'PUT';
+    const METHOD_POST = 'POST';
     const METHOD_DELETE = 'DELETE';
 
     const CONTENT_TYPE_HTML = 'text/html';
-    const CONTENT_TYPE_XML  = 'text/xml';
+    const CONTENT_TYPE_XML = 'text/xml';
     const CONTENT_TYPE_JSON = 'application/json';
-    const CONTENT_TYPE_PDF  = 'application/pdf';
+    const CONTENT_TYPE_PDF = 'application/pdf';
 
-    const HEADER_ACCEPT            = 'Accept';
-    const HEADER_CONTENT_TYPE      = 'Content-Type';
-    const HEADER_CONTENT_LENGTH    = 'Content-Length';
-    const HEADER_AUTHORIZATION     = 'Authorization';
+    const HEADER_ACCEPT = 'Accept';
+    const HEADER_CONTENT_TYPE = 'Content-Type';
+    const HEADER_CONTENT_LENGTH = 'Content-Length';
+    const HEADER_AUTHORIZATION = 'Authorization';
     const HEADER_IF_MODIFIED_SINCE = 'If-Modified-Since';
 
     private $app;

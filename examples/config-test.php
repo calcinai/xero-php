@@ -11,17 +11,17 @@ require '../vendor/autoload.php';
 
 $config = [
     'oauth' => [
-        'callback'    => 'http://localhost/',
+        'callback' => 'http://localhost/',
 
-        'consumer_key'      => 'k',
-        'consumer_secret'   => 's',
+        'consumer_key' => 'k',
+        'consumer_secret' => 's',
 
     ],
     'curl' => [
-        CURLOPT_CAINFO          => 'certs/ca-bundle.crt',
-        CURLOPT_SSLCERT         => 'certs/entrust-cert-RQ3.pem',
-        CURLOPT_SSLKEYPASSWD    => '1234',
-        CURLOPT_SSLKEY          => 'certs/entrust-private-RQ3.pem'
+        CURLOPT_CAINFO => 'certs/ca-bundle.crt',
+        CURLOPT_SSLCERT => 'certs/entrust-cert-RQ3.pem',
+        CURLOPT_SSLKEYPASSWD => '1234',
+        CURLOPT_SSLKEY => 'certs/entrust-private-RQ3.pem'
     ]
 ];
 

@@ -10,8 +10,8 @@ session_start();
 //These are the minimum settings - for more options, refer to examples/config.php
 $config = [
     'oauth' => [
-        'callback'        => 'http://localhost/',
-        'consumer_key'    => 'k',
+        'callback' => 'http://localhost/',
+        'consumer_key' => 'k',
         'consumer_secret' => 's',
     ],
     'curl' => [

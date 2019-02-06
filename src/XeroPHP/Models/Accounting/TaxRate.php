@@ -81,8 +81,8 @@ class TaxRate extends Remote\Model
      */
 
 
-    const TAX_STATUS_ACTIVE   = 'ACTIVE';
-    const TAX_STATUS_DELETED  = 'DELETED';
+    const TAX_STATUS_ACTIVE = 'ACTIVE';
+    const TAX_STATUS_DELETED = 'DELETED';
     const TAX_STATUS_ARCHIVED = 'ARCHIVED';
 
 

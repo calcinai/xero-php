@@ -7,7 +7,7 @@ use XeroPHP\Application;
 
 class Query
 {
-    const ORDER_ASC  = 'ASC';
+    const ORDER_ASC = 'ASC';
     const ORDER_DESC = 'DESC';
 
     /** @var  \XeroPHP\Application */

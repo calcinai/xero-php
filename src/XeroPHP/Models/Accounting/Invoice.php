@@ -212,16 +212,16 @@ class Invoice extends Remote\Model
     const INVOICE_TYPE_ACCPAY = 'ACCPAY';
     const INVOICE_TYPE_ACCREC = 'ACCREC';
 
-    const INVOICE_STATUS_DRAFT      = 'DRAFT';
-    const INVOICE_STATUS_SUBMITTED  = 'SUBMITTED';
-    const INVOICE_STATUS_DELETED    = 'DELETED';
+    const INVOICE_STATUS_DRAFT = 'DRAFT';
+    const INVOICE_STATUS_SUBMITTED = 'SUBMITTED';
+    const INVOICE_STATUS_DELETED = 'DELETED';
     const INVOICE_STATUS_AUTHORISED = 'AUTHORISED';
-    const INVOICE_STATUS_PAID       = 'PAID';
-    const INVOICE_STATUS_VOIDED     = 'VOIDED';
+    const INVOICE_STATUS_PAID = 'PAID';
+    const INVOICE_STATUS_VOIDED = 'VOIDED';
 
     const LINEAMOUNT_TYPE_EXCLUSIVE = 'Exclusive';
     const LINEAMOUNT_TYPE_INCLUSIVE = 'Inclusive';
-    const LINEAMOUNT_TYPE_NOTAX     = 'NoTax';
+    const LINEAMOUNT_TYPE_NOTAX = 'NoTax';
 
 
     /**
