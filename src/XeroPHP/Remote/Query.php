@@ -213,14 +213,14 @@ class Query
 
     public function includeArchived($includeArchived = true)
     {
-        $this->includeArchived = (bool)$includeArchived;
+        $this->includeArchived = (bool) $includeArchived;
         return $this;
     }
 
 
     public function setParameter($key, $value)
     {
-        $this->params[(string)$key] = (string)$value;
+        $this->params[(string) $key] = (string) $value;
         return $this;
     }
 

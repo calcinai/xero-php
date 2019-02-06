@@ -287,7 +287,7 @@ abstract class Model implements ObjectInterface, \JsonSerializable, \ArrayAccess
                 return '';
             default:
                 if (is_scalar($value)) {
-                    return (string)$value;
+                    return (string) $value;
                 }
                 return '';
         }
