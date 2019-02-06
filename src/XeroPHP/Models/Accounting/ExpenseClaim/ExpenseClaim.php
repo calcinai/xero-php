@@ -1,4 +1,5 @@
 <?php
+
 namespace XeroPHP\Models\Accounting\ExpenseClaim;
 
 use XeroPHP\Remote;

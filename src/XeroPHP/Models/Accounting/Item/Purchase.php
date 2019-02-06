@@ -1,4 +1,5 @@
 <?php
+
 namespace XeroPHP\Models\Accounting\Item;
 
 use XeroPHP\Remote;
