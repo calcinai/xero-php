@@ -30,7 +30,7 @@ class ApplicationTest extends \PHPUnit_Framework_TestCase
 
     public function test_allows_FQN_beginning_with_backslash_when_validating_model_class()
     {
-        $class = '\XeroPHP\Models\Accounting\Invoice';
+        $class = '\\XeroPHP\\Models\\Accounting\\Invoice';
 
         $this->assertSame(
             $this->instance()->validateModelClass($class),

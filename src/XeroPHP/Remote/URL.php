@@ -92,7 +92,7 @@ class URL
                     $version = $xero_config['file_version'];
                     break;
                 default:
-                    throw new Exception('Invalid API passed to XeroPHP\URL::__construct(). Must be XeroPHP\URL::API_*');
+                    throw new Exception('Invalid API passed to XeroPHP\\URL::__construct(). Must be XeroPHP\\URL::API_*');
             }
 
             $this->path = sprintf('%s/%s/%s', $api, $version, $this->endpoint);
