@@ -807,8 +807,8 @@ class Invoice extends Remote\Model
         }
 
         return $this->onlineInvoiceRequest()
-                    ->send()
-                    ->getElements()[0]['OnlineInvoiceUrl'];
+            ->send()
+            ->getElements()[0]['OnlineInvoiceUrl'];
     }
 
     /**
