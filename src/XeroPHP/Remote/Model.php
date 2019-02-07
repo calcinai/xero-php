@@ -323,7 +323,7 @@ abstract class Model implements ObjectInterface, \JsonSerializable, \ArrayAccess
 
                 // no break
             case self::PROPERTY_TYPE_DATE:
-                if (preg_match('/Date\((?<timestamp>[0-9\+\.]+)\)/', $value, $matches)) { //to catch stupid .net date serialisation
+                if (preg_match('/Date\\((?<timestamp>[0-9\\+\\.]+)\\)/', $value, $matches)) { //to catch stupid .net date serialisation
                     $value = $matches['timestamp'];
                 }
                 return new \DateTime($value, $timezone);
