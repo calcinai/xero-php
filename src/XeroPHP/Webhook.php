@@ -51,8 +51,8 @@ class Webhook
         }
 
         // bail if we don't have all the fields we are expecting
-        if (!isset($this->payload['events']) or
-            !isset($this->payload['firstEventSequence']) or
+        if (!isset($this->payload['events']) ||
+            !isset($this->payload['firstEventSequence']) ||
             !isset($this->payload['lastEventSequence'])) {
             throw new Application\Exception("The webhook payload was malformed");
         }
