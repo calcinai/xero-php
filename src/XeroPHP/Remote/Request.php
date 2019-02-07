@@ -50,7 +50,7 @@ class Request
                 $this->method = $method;
                 break;
             default:
-                throw new Exception("Invalid request method [$method]");
+                throw new Exception("Invalid request method [{$method}]");
         }
 
         //Default to XML so you get the  xsi:type attribute in the root node.
@@ -90,7 +90,7 @@ class Request
         $query_string = Helpers::flattenAssocArray($this->getParameters(), '%s=%s', '&', true);
 
         if (strlen($query_string) > 0) {
-            $full_uri .= "?$query_string";
+            $full_uri .= "?{$query_string}";
         }
         curl_setopt($ch, CURLOPT_URL, $full_uri);
 
