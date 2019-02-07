@@ -92,7 +92,7 @@ abstract class Application
     public function getConfig($key)
     {
         if (!isset($this->config[$key])) {
-            throw new Exception("Invalid configuration key [$key]");
+            throw new Exception("Invalid configuration key [{$key}]");
         }
         return $this->config[$key];
     }
@@ -107,7 +107,7 @@ abstract class Application
     public function getConfigOption($config, $option)
     {
         if (!isset($this->getConfig($config)[$option])) {
-            throw new Exception("Invalid configuration option [$option]");
+            throw new Exception("Invalid configuration option [{$option}]");
         }
         return $this->getConfig($config)[$option];
     }
@@ -137,7 +137,7 @@ abstract class Application
     public function setConfigOption($config, $option, $value)
     {
         if (!isset($this->config[$config])) {
-            throw new Exception("Invalid configuration key [$config]");
+            throw new Exception("Invalid configuration key [{$config}]");
         }
         $this->config[$config][$option] = $value;
         return $this->config;
@@ -159,7 +159,7 @@ abstract class Application
         $class = $this->prependConfigNamespace($class);
 
         if (!class_exists($class)) {
-            throw new Exception("Class does not exist [$class]");
+            throw new Exception("Class does not exist [{$class}]");
         }
 
         return $class;
