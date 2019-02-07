@@ -66,7 +66,7 @@ class Client
                 //Needs escaping in the header, not in the QS
                 $oauth_params['oauth_signature'] = Helpers::escape($oauth_params['oauth_signature']);
 
-                $header = 'OAuth ' . Helpers::flattenAssocArray($oauth_params, '%s="%s"', ', ');
+                $header = 'OAuth '.Helpers::flattenAssocArray($oauth_params, '%s="%s"', ', ');
                 $request->setHeader(Request::HEADER_AUTHORIZATION, $header);
                 break;
 
@@ -203,7 +203,7 @@ class Client
      */
     private function getSigningSecret()
     {
-        $secret = $this->getConsumerSecret() . '&';
+        $secret = $this->getConsumerSecret().'&';
 
         if (null !== $token_secret = $this->getTokenSecret()) {
             $secret .= $token_secret;

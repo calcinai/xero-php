@@ -32,7 +32,7 @@ class ApplicationTest extends \PHPUnit_Framework_TestCase
         $expectedUrl = $this->application->getOAuthClient()->getAuthorizeURL();
         $this->assertSame($expectedUrl, $this->application->getAuthorizeURL());
         $this->assertSame(
-            $expectedUrl . '?oauth_token=test',
+            $expectedUrl.'?oauth_token=test',
             $this->application->getAuthorizeURL('test')
         );
     }

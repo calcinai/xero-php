@@ -120,7 +120,7 @@ class Request
         $info = curl_getinfo($ch);
 
         if ($response === false) {
-            throw new Exception('Curl error: ' . curl_error($ch));
+            throw new Exception('Curl error: '.curl_error($ch));
         }
 
         $this->response = new Response($this, $response, $info, $headers);
