@@ -95,7 +95,7 @@ class Query
         if (count($args) === 2) {
             if (is_bool($args[1])) {
                 $this->where[] = sprintf('%s=%s', $args[0], $args[1] ? 'true' : 'false');
-            } elseif (is_int($args[1])) {
+            } elseif (is_int($args[1]) || is_float($args[1])) {
                 $this->where[] = sprintf('%s==%s', $args[0], $args[1]);
             } elseif (preg_match('/^(\'|")?(true|false)("|\')?$/i', $args[1])) {
                 $this->where[] = sprintf('%s=%s', $args[0], $args[1]);
