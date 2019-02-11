@@ -20,6 +20,11 @@ class PaymentTerm extends Remote\Model
      */
 
 
+     const DAYSAFTERBILLDATE = 'DAYSAFTERBILLDATE';
+     const DAYSAFTERBILLMONTH = 'DAYSAFTERBILLMONTH';
+     const OFCURRENTMONTH = 'OFCURRENTMONTH';
+     const OFFOLLOWINGMONTH = 'OFFOLLOWINGMONTH';
+
 
     /**
      * Get the resource uri of the class (Contacts) etc
