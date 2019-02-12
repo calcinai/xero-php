@@ -6,7 +6,6 @@ use XeroPHP\Remote;
 
 class Bill extends Remote\Model
 {
-
     /**
      * Day of Month (0-31)
      *

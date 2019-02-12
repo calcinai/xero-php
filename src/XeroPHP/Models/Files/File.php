@@ -6,7 +6,6 @@ use XeroPHP\Remote;
 
 class File extends Remote\Model
 {
-
     /**
      * The name of the file
      *

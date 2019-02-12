@@ -6,7 +6,6 @@ use XeroPHP\Remote;
 
 class User extends Remote\Model
 {
-
     /**
      * Xero identifier
      *

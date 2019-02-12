@@ -7,7 +7,6 @@ use XeroPHP\Models\PayrollAU\PayItem;
 
 class LeaveBalance extends Remote\Model
 {
-
     /**
      * The name of the leave type
      *

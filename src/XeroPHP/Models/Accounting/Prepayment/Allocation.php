@@ -7,7 +7,6 @@ use XeroPHP\Models\Accounting\Invoice;
 
 class Allocation extends Remote\Model
 {
-
     /**
      * the invoice the prepayment is being allocated against
      *

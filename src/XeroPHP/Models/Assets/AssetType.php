@@ -7,7 +7,6 @@ use XeroPHP\Models\Assets\AssetType\BookDepreciationSetting;
 
 class AssetType extends Remote\Model
 {
-
     /**
      * The name of the asset type
      *

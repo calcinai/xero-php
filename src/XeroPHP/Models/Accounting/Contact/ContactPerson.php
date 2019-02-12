@@ -6,7 +6,6 @@ use XeroPHP\Remote;
 
 class ContactPerson extends Remote\Model
 {
-
     /**
      * First name of person
      *

@@ -6,7 +6,6 @@ use XeroPHP\Remote;
 
 class PayrollCalendar extends Remote\Model
 {
-
     /**
      * Xero identifier
      *

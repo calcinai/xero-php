@@ -7,7 +7,6 @@ use XeroPHP\Models\Accounting\TrackingCategory;
 
 class JournalLine extends Remote\Model
 {
-
     /**
      * total for line. Debits are positive, credits are negative value
      *

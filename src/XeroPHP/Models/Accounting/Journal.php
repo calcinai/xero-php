@@ -7,7 +7,6 @@ use XeroPHP\Models\Accounting\Journal\JournalLine;
 
 class Journal extends Remote\Model
 {
-
     /**
      * Xero identifier
      *

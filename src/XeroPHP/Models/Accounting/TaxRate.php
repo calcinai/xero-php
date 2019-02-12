@@ -7,7 +7,6 @@ use XeroPHP\Models\Accounting\TaxRate\TaxComponent;
 
 class TaxRate extends Remote\Model
 {
-
     /**
      * Name of tax rate
      *

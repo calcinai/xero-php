@@ -6,7 +6,6 @@ use XeroPHP\Remote;
 
 class SuperannuationLine extends Remote\Model
 {
-
     /**
      * Xero identifier for payroll super fund membership ID
      *

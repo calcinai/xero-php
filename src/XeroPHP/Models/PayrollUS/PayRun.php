@@ -6,7 +6,6 @@ use XeroPHP\Remote;
 
 class PayRun extends Remote\Model
 {
-
     /**
      * Xero Identifier for the Pay Schedule
      *

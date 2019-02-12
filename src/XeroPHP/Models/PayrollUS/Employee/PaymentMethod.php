@@ -6,7 +6,6 @@ use XeroPHP\Remote;
 
 class PaymentMethod extends Remote\Model
 {
-
     /**
      * See PaymentMethodTypes
      *

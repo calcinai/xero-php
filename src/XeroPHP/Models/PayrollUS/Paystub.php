@@ -13,7 +13,6 @@ use XeroPHP\Models\PayrollUS\Paystub\TimeOffLine;
 
 class Paystub extends Remote\Model
 {
-
     /**
      * Xero identifier for payroll employee
      *

@@ -6,7 +6,6 @@ use XeroPHP\Remote;
 
 class BookDepreciationSetting extends Remote\Model
 {
-
     /**
      * The method of depreciation applied to this asset. See Depreciation Methods
      *

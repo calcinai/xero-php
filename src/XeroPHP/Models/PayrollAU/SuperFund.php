@@ -5,7 +5,6 @@ use XeroPHP\Remote;
 
 class SuperFund extends Remote\Model
 {
-
     /**
      * Xero identifier
      *

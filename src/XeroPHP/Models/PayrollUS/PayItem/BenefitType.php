@@ -6,7 +6,6 @@ use XeroPHP\Remote;
 
 class BenefitType extends Remote\Model
 {
-
     /**
      * Name of the benefit type (max length = 100)
      *

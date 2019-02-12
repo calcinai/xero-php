@@ -6,7 +6,6 @@ use XeroPHP\Remote;
 
 class ToBankAccount extends Remote\Model
 {
-
     /**
      * The Account Code of the Bank Account
      *

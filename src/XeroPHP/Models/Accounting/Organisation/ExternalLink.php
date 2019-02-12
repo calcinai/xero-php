@@ -6,7 +6,6 @@ use XeroPHP\Remote;
 
 class ExternalLink extends Remote\Model
 {
-
     /**
      * See External link types
      *

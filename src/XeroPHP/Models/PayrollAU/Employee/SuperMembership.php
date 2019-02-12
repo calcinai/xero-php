@@ -6,7 +6,6 @@ use XeroPHP\Remote;
 
 class SuperMembership extends Remote\Model
 {
-
     /**
      * Xero identifier for super fund
      *

@@ -10,7 +10,6 @@ use XeroPHP\Models\PayrollAU\PayItem\ReimbursementType;
 
 class PayItem extends Remote\Model
 {
-
     /**
      * See EarningsRates
      *

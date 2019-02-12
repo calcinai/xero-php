@@ -6,7 +6,6 @@ use XeroPHP\Remote;
 
 class SuperFund extends Remote\Model
 {
-
     /**
      * SMSF see Super Fund Types
      *

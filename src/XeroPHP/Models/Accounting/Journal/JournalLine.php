@@ -8,7 +8,6 @@ use XeroPHP\Models\Accounting\TrackingCategory;
 
 class JournalLine extends Remote\Model
 {
-
     /**
      * Xero identifier
      *

@@ -11,7 +11,6 @@ use XeroPHP\Models\PayrollAU\Employee\PayTemplate\LeaveLine;
 
 class PayTemplate extends Remote\Model
 {
-
     /**
      * The earnings rate lines
      *

@@ -6,7 +6,6 @@ use XeroPHP\Remote;
 
 class WorkLocation extends Remote\Model
 {
-
     /**
      * Street address of the work location (max length = 400)
      *

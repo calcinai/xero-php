@@ -6,7 +6,6 @@ use XeroPHP\Remote;
 
 class HomeAddress extends Remote\Model
 {
-
     /**
      * Address line 1 for employee home address (max length = 50)
      *

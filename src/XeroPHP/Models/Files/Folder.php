@@ -6,7 +6,6 @@ use XeroPHP\Remote;
 
 class Folder extends Remote\Model
 {
-
     /**
      * The name of the folder
      *

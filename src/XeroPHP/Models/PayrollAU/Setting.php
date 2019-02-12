@@ -8,7 +8,6 @@ use XeroPHP\Models\PayrollAU\Setting\TrackingCategory;
 
 class Setting extends Remote\Model
 {
-
     /**
      * Payroll Account details for SuperExpense, SuperLiabilty, WagesExpense, PAYGLiability & WagesPayable.
      *  See Accounts

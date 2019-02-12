@@ -14,7 +14,6 @@ use XeroPHP\Remote;
 
 class Payslip extends Remote\Model
 {
-
     /**
      * Xero identifier for payroll employee
      *

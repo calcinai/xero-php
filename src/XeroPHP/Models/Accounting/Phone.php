@@ -6,7 +6,6 @@ use XeroPHP\Remote;
 
 class Phone extends Remote\Model
 {
-
     /**
      *
      *

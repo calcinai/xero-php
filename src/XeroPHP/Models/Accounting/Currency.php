@@ -6,7 +6,6 @@ use XeroPHP\Remote;
 
 class Currency extends Remote\Model
 {
-
     /**
      * This property has been removed from the Xero API
      *

@@ -6,8 +6,6 @@ use XeroPHP\Remote;
 
 class InvoiceReminder extends Remote\Model
 {
-
-
     /**
      * Boolean to set when InvocieReminders are turned on in Xero
      *

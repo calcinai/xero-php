@@ -7,7 +7,6 @@ use XeroPHP\Models\Accounting\Payment;
 
 class ExpenseClaim extends Remote\Model
 {
-
     /**
      * Xero generated unique identifier for an expense claim
      *

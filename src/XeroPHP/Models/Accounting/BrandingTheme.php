@@ -6,7 +6,6 @@ use XeroPHP\Remote;
 
 class BrandingTheme extends Remote\Model
 {
-
     /**
      * Xero identifier
      *

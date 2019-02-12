@@ -6,7 +6,6 @@ use XeroPHP\Remote;
 
 class BenefitLine extends Remote\Model
 {
-
     /**
      * Xero identifier for payroll benefit type
      *

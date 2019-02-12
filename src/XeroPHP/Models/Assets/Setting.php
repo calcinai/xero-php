@@ -6,7 +6,6 @@ use XeroPHP\Remote;
 
 class Setting extends Remote\Model
 {
-
     /**
      * The prefix used for fixed asset numbers (“FA-” by default)
      *

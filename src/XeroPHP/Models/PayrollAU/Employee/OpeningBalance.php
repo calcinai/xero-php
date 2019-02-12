@@ -9,7 +9,6 @@ use XeroPHP\Models\PayrollAU\Payslip\ReimbursementLine;
 
 class OpeningBalance extends Remote\Model
 {
-
     /**
      * Opening Balance Date. (YYYY-MM-DD)
      *

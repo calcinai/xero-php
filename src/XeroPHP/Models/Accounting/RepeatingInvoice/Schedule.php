@@ -7,7 +7,6 @@ use XeroPHP\Models\Accounting\Organisation\PaymentTerm;
 
 class Schedule extends Remote\Model
 {
-
     /**
      * Integer used with the unit e.g. 1 (every 1 week), 2 (every 2 months)
      *
