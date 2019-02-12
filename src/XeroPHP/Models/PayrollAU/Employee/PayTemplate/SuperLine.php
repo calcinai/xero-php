@@ -6,8 +6,6 @@ use XeroPHP\Remote;
 
 class SuperLine extends Remote\Model
 {
-
-
     /**
      * Xero superannuation fund membership identifier
      *

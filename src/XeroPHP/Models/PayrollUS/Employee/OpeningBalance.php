@@ -10,7 +10,6 @@ use XeroPHP\Models\PayrollUS\Paystub\ReimbursementLine;
 
 class OpeningBalance extends Remote\Model
 {
-
     /**
      * The EarningsLines of the OpeningBalance.
      *

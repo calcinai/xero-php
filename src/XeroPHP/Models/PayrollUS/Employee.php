@@ -14,7 +14,6 @@ use XeroPHP\Models\PayrollUS\Employee\TimeOffBalance;
 
 class Employee extends Remote\Model
 {
-
     /**
      * First name of employee (max length = 35)
      *

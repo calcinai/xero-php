@@ -6,7 +6,6 @@ use XeroPHP\Remote;
 
 class EarningsRate extends Remote\Model
 {
-
     /**
      * Name of the earnings rate (max length = 100)
      *

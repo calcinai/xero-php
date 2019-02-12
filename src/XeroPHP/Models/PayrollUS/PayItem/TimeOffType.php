@@ -6,7 +6,6 @@ use XeroPHP\Remote;
 
 class TimeOffType extends Remote\Model
 {
-
     /**
      * Name of the time off type (max length = 50)
      *

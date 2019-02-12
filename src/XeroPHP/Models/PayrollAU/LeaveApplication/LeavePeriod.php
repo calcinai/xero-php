@@ -6,7 +6,6 @@ use XeroPHP\Remote;
 
 class LeavePeriod extends Remote\Model
 {
-
     /**
      * The Number of Units for the leave
      *

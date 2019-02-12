@@ -8,7 +8,6 @@ use XeroPHP\Models\Accounting\Organisation\PaymentTerm;
 
 class Organisation extends Remote\Model
 {
-
     /**
      * Display a unique key used for Xero-to-Xero transactions
      *

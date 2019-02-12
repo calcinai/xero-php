@@ -7,7 +7,6 @@ use XeroPHP\Models\Accounting\Organisation\ExternalLink;
 
 class Employee extends Remote\Model
 {
-
     /**
      * Xero identifier
      *

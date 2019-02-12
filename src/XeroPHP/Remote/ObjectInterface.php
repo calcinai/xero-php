@@ -4,7 +4,6 @@ namespace XeroPHP\Remote;
 
 interface ObjectInterface
 {
-
     /**
      * Get the GUID Property if it exists
      *

@@ -7,7 +7,6 @@ use XeroPHP\Models\PayrollAU\Timesheet\TimesheetLine;
 
 class Timesheet extends Remote\Model
 {
-
     /**
      * The Xero identifier for an employee
      *

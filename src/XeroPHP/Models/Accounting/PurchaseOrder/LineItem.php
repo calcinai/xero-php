@@ -7,7 +7,6 @@ use XeroPHP\Models\Accounting\TrackingCategory;
 
 class LineItem extends Remote\Model
 {
-
     /**
      * The description of the line item. A line item can be created with only a description (i.e no unit
      * amount or quantity)

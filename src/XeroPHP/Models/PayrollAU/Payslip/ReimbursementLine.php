@@ -6,7 +6,6 @@ use XeroPHP\Remote;
 
 class ReimbursementLine extends Remote\Model
 {
-
     /**
      * Xero identifier for payroll reimbursement type
      *

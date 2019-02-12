@@ -7,7 +7,6 @@ use XeroPHP\Models\Accounting\TrackingCategory\TrackingOption;
 
 class TrackingCategory extends Remote\Model
 {
-
     /**
      * The Xero identifier for a tracking categorye.g. 297c2dc5-cc47-4afd-8ec8-74990b8761e9
      *

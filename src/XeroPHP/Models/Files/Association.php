@@ -6,7 +6,6 @@ use XeroPHP\Remote;
 
 class Association extends Remote\Model
 {
-
     /**
      * The identifier of the object that the file is being associated with (e.g. InvoiceID,
      * BankTransactionID, ContactID)

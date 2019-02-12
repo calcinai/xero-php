@@ -6,7 +6,6 @@ use XeroPHP\Remote;
 
 class LeaveType extends Remote\Model
 {
-
     /**
      * Name of the leave type (max length = 50)
      *

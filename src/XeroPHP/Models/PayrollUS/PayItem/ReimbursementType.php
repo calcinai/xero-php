@@ -6,7 +6,6 @@ use XeroPHP\Remote;
 
 class ReimbursementType extends Remote\Model
 {
-
     /**
      * Name of the reimbursement type (max length = 50)
      *

@@ -6,7 +6,6 @@ use XeroPHP\Remote;
 
 class BankAccount extends Remote\Model
 {
-
     /**
      * The text that will appear on your employee’s bank statement when they receive payment (max length
      * = 18)

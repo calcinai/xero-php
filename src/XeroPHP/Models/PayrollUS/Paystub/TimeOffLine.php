@@ -6,7 +6,6 @@ use XeroPHP\Remote;
 
 class TimeOffLine extends Remote\Model
 {
-
     /**
      * Xero identifier for payroll time off type
      *

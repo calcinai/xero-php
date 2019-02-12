@@ -6,7 +6,6 @@ use XeroPHP\Remote;
 
 class TaxLine extends Remote\Model
 {
-
     /**
      * Name of the tax type
      *

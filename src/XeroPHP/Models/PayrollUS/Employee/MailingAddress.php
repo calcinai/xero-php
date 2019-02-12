@@ -6,7 +6,6 @@ use XeroPHP\Remote;
 
 class MailingAddress extends Remote\Model
 {
-
     /**
      * Street Address for employee home address
      *

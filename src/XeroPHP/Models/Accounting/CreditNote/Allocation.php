@@ -7,7 +7,6 @@ use XeroPHP\Models\Accounting\Invoice;
 
 class Allocation extends Remote\Model
 {
-
     /**
      * the invoice the credit note is being allocated against
      *

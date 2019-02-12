@@ -6,7 +6,6 @@ use XeroPHP\Remote;
 
 abstract class Report extends Remote\Model
 {
-
     /**
      * Xero identifier
      *

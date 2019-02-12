@@ -6,7 +6,6 @@ use XeroPHP\Remote;
 
 class PaymentTerm extends Remote\Model
 {
-
     /**
      * Default payment terms for bills (accounts payable) – see Payment Terms
      *

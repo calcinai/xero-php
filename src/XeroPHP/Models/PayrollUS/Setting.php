@@ -8,7 +8,6 @@ use XeroPHP\Models\PayrollUS\Setting\TrackingCategory;
 
 class Setting extends Remote\Model
 {
-
     /**
      * Payroll Account details for Bank, WagesPayable and WagesExpense. See Accounts
      *

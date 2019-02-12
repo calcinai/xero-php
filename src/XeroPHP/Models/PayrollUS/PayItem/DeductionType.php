@@ -6,7 +6,6 @@ use XeroPHP\Remote;
 
 class DeductionType extends Remote\Model
 {
-
     /**
      * Name of the deduction type (max length = 50)
      *

@@ -6,7 +6,6 @@ use XeroPHP\Remote;
 
 class EarningsLine extends Remote\Model
 {
-
     /**
      * Xero earnings rate identifier
      *

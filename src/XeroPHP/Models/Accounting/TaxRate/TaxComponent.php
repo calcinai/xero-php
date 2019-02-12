@@ -6,7 +6,6 @@ use XeroPHP\Remote;
 
 class TaxComponent extends Remote\Model
 {
-
     /**
      * Name of Tax Component
      *

@@ -6,7 +6,6 @@ use XeroPHP\Remote;
 
 class EarningsType extends Remote\Model
 {
-
     /**
      * Name of the earnings type (max length = 100)
      *

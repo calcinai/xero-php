@@ -6,7 +6,6 @@ use XeroPHP\Remote;
 
 class LeaveEarningsLine extends Remote\Model
 {
-
     /**
      * Xero identifier for payroll earnings type.
      *

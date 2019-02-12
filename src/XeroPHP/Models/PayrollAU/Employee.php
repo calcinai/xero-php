@@ -13,7 +13,6 @@ use XeroPHP\Models\PayrollAU\Employee\SuperMembership;
 
 class Employee extends Remote\Model
 {
-
     /**
      * First name of employee (max length = 35)
      *

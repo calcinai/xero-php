@@ -6,7 +6,6 @@ use XeroPHP\Remote;
 
 class WorkLocation extends Remote\Model
 {
-
     /**
      * Xero unique identifier for WorkLocation. e.g c56b19ef-75bf-45e8-98a4-e699a96609f7
      *

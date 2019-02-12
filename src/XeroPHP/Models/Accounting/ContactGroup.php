@@ -6,7 +6,6 @@ use XeroPHP\Remote;
 
 class ContactGroup extends Remote\Model
 {
-
     /**
      * The Name of the contact group. Required when creating a new contact group
      *

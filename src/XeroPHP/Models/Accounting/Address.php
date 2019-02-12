@@ -6,7 +6,6 @@ use XeroPHP\Remote;
 
 class Address extends Remote\Model
 {
-
     /**
      *
      *

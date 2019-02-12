@@ -7,7 +7,6 @@ use XeroPHP\Models\PayrollAU\LeaveApplication\LeavePeriod;
 
 class LeaveApplication extends Remote\Model
 {
-
     /**
      * Xero identifier
      *

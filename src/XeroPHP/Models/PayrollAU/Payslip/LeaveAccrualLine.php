@@ -6,7 +6,6 @@ use XeroPHP\Remote;
 
 class LeaveAccrualLine extends Remote\Model
 {
-
     /**
      * Xero identifier for the Leave type.
      *

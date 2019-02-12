@@ -6,7 +6,6 @@ use XeroPHP\Remote;
 
 class LinkedTransaction extends Remote\Model
 {
-
     /**
      * Filter by the SourceTransactionID. Get all the linked transactions created from a particular ACCPAY
      * invoice

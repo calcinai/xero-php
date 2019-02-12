@@ -12,7 +12,6 @@ use XeroPHP\Remote\URL;
 
 class Attachment extends Model
 {
-
     /**
      * Xero Unique Identifier
      *

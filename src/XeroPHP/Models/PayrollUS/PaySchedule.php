@@ -6,7 +6,6 @@ use XeroPHP\Remote;
 
 class PaySchedule extends Remote\Model
 {
-
     /**
      * Name of the Pay Schedule
      *

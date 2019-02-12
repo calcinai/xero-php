@@ -11,7 +11,6 @@ use XeroPHP\Models\PayrollUS\PayItem\TimeOffType;
 
 class PayItem extends Remote\Model
 {
-
     /**
      * See EarningsTypes
      *

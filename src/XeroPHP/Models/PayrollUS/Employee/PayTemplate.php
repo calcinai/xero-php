@@ -9,7 +9,6 @@ use XeroPHP\Models\PayrollUS\Paystub\BenefitLine;
 
 class PayTemplate extends Remote\Model
 {
-
     /**
      * The earnings rate lines
      *
