@@ -91,7 +91,7 @@ class Client
      */
     private function resetOAuthParams()
     {
-        unset($this->oauth_params);
+        $this->oauth_params = null;
     }
 
     /**
