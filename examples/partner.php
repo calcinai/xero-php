@@ -60,7 +60,7 @@ if ($oauth_session === null) {
     $request->send();
     $oauth_response = $request->getResponse()->getOAuthResponse();
 
-    $expires = time() + intval($oauth_response['oauth_expires_in']);
+    $expires = time() + (int) $oauth_response['oauth_expires_in'];
 
     setOAuthSession(
         $oauth_response['oauth_token'],
@@ -86,7 +86,7 @@ if ($oauth_session === null) {
         $request->send();
         $oauth_response = $request->getResponse()->getOAuthResponse();
 
-        $expires = time() + intval($oauth_response['oauth_expires_in']);
+        $expires = time() + (int) $oauth_response['oauth_expires_in'];
 
         setOAuthSession(
             $oauth_response['oauth_token'],

@@ -94,7 +94,7 @@ function setOAuthSession($token, $secret, $expires = null)
 {
     // expires sends back an int
     if ($expires !== null) {
-        $expires = time() + intval($expires);
+        $expires = time() + (int) $expires;
     }
 
     $_SESSION['oauth'] = [

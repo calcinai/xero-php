@@ -196,7 +196,7 @@ class Query
         if (!$from_class::isPageable()) {
             throw new Exception(sprintf('%s does not support paging.', $from_class));
         }
-        $this->page = intval($page);
+        $this->page = (int) $page;
 
         return $this;
     }
@@ -207,7 +207,7 @@ class Query
      */
     public function offset($offset = 0)
     {
-        $this->offset = intval($offset);
+        $this->offset = (int) $offset;
         return $this;
     }
 

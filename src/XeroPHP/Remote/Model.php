@@ -307,10 +307,10 @@ abstract class Model implements ObjectInterface, \JsonSerializable, \ArrayAccess
         switch ($type) {
 
             case self::PROPERTY_TYPE_INT:
-                return intval($value);
+                return (int) $value;
 
             case self::PROPERTY_TYPE_FLOAT:
-                return floatval($value);
+                return (float) $value;
 
             case self::PROPERTY_TYPE_BOOLEAN:
                 return in_array(strtolower($value), ['true', '1', 'yes']);
