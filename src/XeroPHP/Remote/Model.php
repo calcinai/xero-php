@@ -23,9 +23,7 @@ abstract class Model implements ObjectInterface, \JsonSerializable, \ArrayAccess
     const KEY_IS_ARRAY = 3;
     const KEY_SAVE_DIRECTLY = 4;
 
-    /**
-     *
-     */
+    
     const PROPERTY_TYPE_STRING = 'string';
     const PROPERTY_TYPE_INT = 'int';
     const PROPERTY_TYPE_FLOAT = 'float';
