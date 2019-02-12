@@ -11,7 +11,7 @@ class RateLimitExceededException extends Exception
 
     protected $code = Response::STATUS_RATE_LIMIT_EXCEEDED;
 
-    protected $rateLimitProblem = null;
+    protected $rateLimitProblem;
 
     public function setRateLimitProblem($rateLimitProblem)
     {
