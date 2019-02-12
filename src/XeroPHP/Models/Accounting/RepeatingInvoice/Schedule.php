@@ -203,7 +203,7 @@ class Schedule extends Remote\Model
      * @param string $value
      * @return Schedule
      */
-    public function setDueDateType(string $value)
+    public function setDueDateType($value)
     {
         $this->propertyUpdated('DueDateType', $value);
         $this->_data['DueDateType'] = $value;
