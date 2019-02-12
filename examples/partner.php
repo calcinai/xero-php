@@ -36,7 +36,7 @@ if ($oauth_session === null) {
     try {
         $request->send();
     } catch (Exception $e) {
-        echo($e->getCode());
+        echo $e->getCode();
         print_r($request->getResponse()->getOAuthResponse());
     }
 
