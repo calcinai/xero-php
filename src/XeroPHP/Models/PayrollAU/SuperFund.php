@@ -1,5 +1,5 @@
 <?php
-    namespace XeroPHP\Models\PayrollAU;
+namespace XeroPHP\Models\PayrollAU;
 
 use XeroPHP\Remote;
 
