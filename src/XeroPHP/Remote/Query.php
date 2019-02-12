@@ -62,7 +62,7 @@ class Query
      * Chains an OR WHERE statement on to the query
      *
      * @return $this
-     **/
+     */
     public function orWhere()
     {
         return $this->addWhere('OR', func_get_args());
@@ -74,7 +74,7 @@ class Query
      * queries more readable and less ambiguous )
      *
      * @return $this
-     **/
+     */
     public function andWhere()
     {
         return $this->addWhere('AND', func_get_args());
@@ -121,7 +121,7 @@ class Query
      * them as a string
      *
      * @return string
-     **/
+     */
     public function getWhere()
     {
         return implode(' ', $this->where);
