@@ -2,10 +2,10 @@
 
 namespace XeroPHP\Traits;
 
-use XeroPHP\Models\Accounting\Attachment;
-use XeroPHP\Remote\Request;
-use XeroPHP\Remote\URL;
 use XeroPHP\Exception;
+use XeroPHP\Remote\URL;
+use XeroPHP\Remote\Request;
+use XeroPHP\Models\Accounting\Attachment;
 
 trait AttachmentTrait
 {

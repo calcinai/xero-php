@@ -3,8 +3,8 @@
 namespace XeroPHP\Models\PayrollUS\Employee;
 
 use XeroPHP\Remote;
-use XeroPHP\Models\PayrollUS\Paystub\EarningsLine;
 use XeroPHP\Models\PayrollUS\Paystub\BenefitLine;
+use XeroPHP\Models\PayrollUS\Paystub\EarningsLine;
 use XeroPHP\Models\PayrollUS\Paystub\DeductionLine;
 use XeroPHP\Models\PayrollUS\Paystub\ReimbursementLine;
 

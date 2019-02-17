@@ -2,9 +2,9 @@
 
 namespace XeroPHP\tests;
 
+use XeroPHP\Webhook;
 use XeroPHP\Application;
 use XeroPHP\Application\PrivateApplication;
-use XeroPHP\Webhook;
 
 class EventTest extends \PHPUnit_Framework_TestCase
 {

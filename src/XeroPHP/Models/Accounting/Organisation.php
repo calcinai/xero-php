@@ -3,8 +3,8 @@
 namespace XeroPHP\Models\Accounting;
 
 use XeroPHP\Remote;
-use XeroPHP\Models\Accounting\Organisation\ExternalLink;
 use XeroPHP\Models\Accounting\Organisation\PaymentTerm;
+use XeroPHP\Models\Accounting\Organisation\ExternalLink;
 
 class Organisation extends Remote\Model
 {

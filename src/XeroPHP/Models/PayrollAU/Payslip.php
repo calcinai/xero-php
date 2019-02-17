@@ -2,15 +2,15 @@
 
 namespace XeroPHP\Models\PayrollAU;
 
-use XeroPHP\Models\PayrollAU\Payslip\DeductionLine;
+use XeroPHP\Remote;
+use XeroPHP\Models\PayrollAU\Payslip\TaxLine;
 use XeroPHP\Models\PayrollAU\Payslip\EarningsLine;
+use XeroPHP\Models\PayrollAU\Payslip\DeductionLine;
 use XeroPHP\Models\PayrollAU\Payslip\LeaveAccrualLine;
 use XeroPHP\Models\PayrollAU\Payslip\LeaveEarningsLine;
 use XeroPHP\Models\PayrollAU\Payslip\ReimbursementLine;
 use XeroPHP\Models\PayrollAU\Payslip\SuperannuationLine;
-use XeroPHP\Models\PayrollAU\Payslip\TaxLine;
 use XeroPHP\Models\PayrollAU\Payslip\TimesheetEarningsLine;
-use XeroPHP\Remote;
 
 class Payslip extends Remote\Model
 {

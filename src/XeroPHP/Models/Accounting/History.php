@@ -3,10 +3,10 @@
 
 namespace XeroPHP\Models\Accounting;
 
+use XeroPHP\Remote\URL;
 use XeroPHP\Application;
 use XeroPHP\Remote\Model;
 use XeroPHP\Remote\Request;
-use XeroPHP\Remote\URL;
 
 class History extends Model
 {

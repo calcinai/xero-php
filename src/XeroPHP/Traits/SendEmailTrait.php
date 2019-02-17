@@ -2,9 +2,9 @@
 
 namespace XeroPHP\Traits;
 
-use XeroPHP\Remote\Request;
-use XeroPHP\Remote\URL;
 use XeroPHP\Exception;
+use XeroPHP\Remote\URL;
+use XeroPHP\Remote\Request;
 
 trait SendEmailTrait
 {

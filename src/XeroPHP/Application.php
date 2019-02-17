@@ -3,11 +3,11 @@
 namespace XeroPHP;
 
 use XeroPHP\Remote;
-use XeroPHP\Remote\Collection;
-use XeroPHP\Remote\OAuth\Client;
+use XeroPHP\Remote\URL;
 use XeroPHP\Remote\Query;
 use XeroPHP\Remote\Request;
-use XeroPHP\Remote\URL;
+use XeroPHP\Remote\Collection;
+use XeroPHP\Remote\OAuth\Client;
 
 abstract class Application
 {

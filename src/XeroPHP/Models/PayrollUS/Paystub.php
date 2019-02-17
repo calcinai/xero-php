@@ -3,13 +3,13 @@
 namespace XeroPHP\Models\PayrollUS;
 
 use XeroPHP\Remote;
-use XeroPHP\Models\PayrollUS\Paystub\EarningsLine;
-use XeroPHP\Models\PayrollUS\Paystub\LeaveEarningsLine;
-use XeroPHP\Models\PayrollUS\Paystub\TimesheetEarningsLine;
-use XeroPHP\Models\PayrollUS\Paystub\DeductionLine;
-use XeroPHP\Models\PayrollUS\Paystub\ReimbursementLine;
 use XeroPHP\Models\PayrollUS\Paystub\BenefitLine;
 use XeroPHP\Models\PayrollUS\Paystub\TimeOffLine;
+use XeroPHP\Models\PayrollUS\Paystub\EarningsLine;
+use XeroPHP\Models\PayrollUS\Paystub\DeductionLine;
+use XeroPHP\Models\PayrollUS\Paystub\LeaveEarningsLine;
+use XeroPHP\Models\PayrollUS\Paystub\ReimbursementLine;
+use XeroPHP\Models\PayrollUS\Paystub\TimesheetEarningsLine;
 
 class Paystub extends Remote\Model
 {

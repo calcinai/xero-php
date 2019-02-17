@@ -3,9 +3,9 @@
 namespace XeroPHP\Models\Accounting;
 
 use XeroPHP\Remote;
-use XeroPHP\Models\Accounting\Item\Purchase;
-use XeroPHP\Models\Accounting\Item\Sale;
 use XeroPHP\Traits\HistoryTrait;
+use XeroPHP\Models\Accounting\Item\Sale;
+use XeroPHP\Models\Accounting\Item\Purchase;
 
 class Item extends Remote\Model
 {
