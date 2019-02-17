@@ -107,7 +107,7 @@ function setOAuthSession($token, $secret, $expires = null)
 function getOAuthSession()
 {
     //If it doesn't exist or is expired, return null
-    if (!isset($_SESSION['oauth'])
+    if (! isset($_SESSION['oauth'])
         || ($_SESSION['oauth']['expires'] !== null
         && $_SESSION['oauth']['expires'] <= time())
     ) {

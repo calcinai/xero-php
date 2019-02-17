@@ -229,7 +229,7 @@ class TaxRate extends Remote\Model
     public function addTaxComponent(TaxComponent $value)
     {
         $this->propertyUpdated('TaxComponents', $value);
-        if (!isset($this->_data['TaxComponents'])) {
+        if (! isset($this->_data['TaxComponents'])) {
             $this->_data['TaxComponents'] = new Remote\Collection();
         }
         $this->_data['TaxComponents'][] = $value;

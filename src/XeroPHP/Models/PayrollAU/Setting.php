@@ -124,7 +124,7 @@ class Setting extends Remote\Model
     public function addAccount(Account $value)
     {
         $this->propertyUpdated('Accounts', $value);
-        if (!isset($this->_data['Accounts'])) {
+        if (! isset($this->_data['Accounts'])) {
             $this->_data['Accounts'] = new Remote\Collection();
         }
         $this->_data['Accounts'][] = $value;
@@ -147,7 +147,7 @@ class Setting extends Remote\Model
     public function addTrackingCategory(TrackingCategory $value)
     {
         $this->propertyUpdated('TrackingCategories', $value);
-        if (!isset($this->_data['TrackingCategories'])) {
+        if (! isset($this->_data['TrackingCategories'])) {
             $this->_data['TrackingCategories'] = new Remote\Collection();
         }
         $this->_data['TrackingCategories'][] = $value;

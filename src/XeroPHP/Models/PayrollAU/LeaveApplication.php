@@ -294,7 +294,7 @@ class LeaveApplication extends Remote\Model
     public function addLeavePeriod(LeavePeriod $value)
     {
         $this->propertyUpdated('LeavePeriods', $value);
-        if (!isset($this->_data['LeavePeriods'])) {
+        if (! isset($this->_data['LeavePeriods'])) {
             $this->_data['LeavePeriods'] = new Remote\Collection();
         }
         $this->_data['LeavePeriods'][] = $value;

@@ -192,7 +192,7 @@ class ContactGroup extends Remote\Model
     public function addContact(Contact $value)
     {
         $this->propertyUpdated('Contacts', $value);
-        if (!isset($this->_data['Contacts'])) {
+        if (! isset($this->_data['Contacts'])) {
             $this->_data['Contacts'] = new Remote\Collection();
         }
         $this->_data['Contacts'][] = $value;

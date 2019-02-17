@@ -693,7 +693,7 @@ class Employee extends Remote\Model
     public function addSalaryAndWage(SalaryAndWage $value)
     {
         $this->propertyUpdated('SalaryAndWages', $value);
-        if (!isset($this->_data['SalaryAndWages'])) {
+        if (! isset($this->_data['SalaryAndWages'])) {
             $this->_data['SalaryAndWages'] = new Remote\Collection();
         }
         $this->_data['SalaryAndWages'][] = $value;
@@ -716,7 +716,7 @@ class Employee extends Remote\Model
     public function addWorkLocation(WorkLocation $value)
     {
         $this->propertyUpdated('WorkLocations', $value);
-        if (!isset($this->_data['WorkLocations'])) {
+        if (! isset($this->_data['WorkLocations'])) {
             $this->_data['WorkLocations'] = new Remote\Collection();
         }
         $this->_data['WorkLocations'][] = $value;
@@ -777,7 +777,7 @@ class Employee extends Remote\Model
     public function addOpeningBalance(OpeningBalance $value)
     {
         $this->propertyUpdated('OpeningBalances', $value);
-        if (!isset($this->_data['OpeningBalances'])) {
+        if (! isset($this->_data['OpeningBalances'])) {
             $this->_data['OpeningBalances'] = new Remote\Collection();
         }
         $this->_data['OpeningBalances'][] = $value;
@@ -800,7 +800,7 @@ class Employee extends Remote\Model
     public function addTimeOffBalance(TimeOffBalance $value)
     {
         $this->propertyUpdated('TimeOffBalances', $value);
-        if (!isset($this->_data['TimeOffBalances'])) {
+        if (! isset($this->_data['TimeOffBalances'])) {
             $this->_data['TimeOffBalances'] = new Remote\Collection();
         }
         $this->_data['TimeOffBalances'][] = $value;

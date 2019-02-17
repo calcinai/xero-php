@@ -307,7 +307,7 @@ class Payslip extends Remote\Model
     public function addEarningsLine(EarningsLine $value)
     {
         $this->propertyUpdated('EarningsLines', $value);
-        if (!isset($this->_data['EarningsLines'])) {
+        if (! isset($this->_data['EarningsLines'])) {
             $this->_data['EarningsLines'] = new Remote\Collection();
         }
         $this->_data['EarningsLines'][] = $value;
@@ -330,7 +330,7 @@ class Payslip extends Remote\Model
     public function addTimesheetEarningsLine(TimesheetEarningsLine $value)
     {
         $this->propertyUpdated('TimesheetEarningsLines', $value);
-        if (!isset($this->_data['TimesheetEarningsLines'])) {
+        if (! isset($this->_data['TimesheetEarningsLines'])) {
             $this->_data['TimesheetEarningsLines'] = new Remote\Collection();
         }
         $this->_data['TimesheetEarningsLines'][] = $value;
@@ -353,7 +353,7 @@ class Payslip extends Remote\Model
     public function addDeductionLine(DeductionLine $value)
     {
         $this->propertyUpdated('DeductionLines', $value);
-        if (!isset($this->_data['DeductionLines'])) {
+        if (! isset($this->_data['DeductionLines'])) {
             $this->_data['DeductionLines'] = new Remote\Collection();
         }
         $this->_data['DeductionLines'][] = $value;
@@ -376,7 +376,7 @@ class Payslip extends Remote\Model
     public function addLeaveAccrualLine(LeaveAccrualLine $value)
     {
         $this->propertyUpdated('LeaveAccrualLines', $value);
-        if (!isset($this->_data['LeaveAccrualLines'])) {
+        if (! isset($this->_data['LeaveAccrualLines'])) {
             $this->_data['LeaveAccrualLines'] = new Remote\Collection();
         }
         $this->_data['LeaveAccrualLines'][] = $value;
@@ -399,7 +399,7 @@ class Payslip extends Remote\Model
     public function addReimbursementLine(ReimbursementLine $value)
     {
         $this->propertyUpdated('ReimbursementLines', $value);
-        if (!isset($this->_data['ReimbursementLines'])) {
+        if (! isset($this->_data['ReimbursementLines'])) {
             $this->_data['ReimbursementLines'] = new Remote\Collection();
         }
         $this->_data['ReimbursementLines'][] = $value;
@@ -422,7 +422,7 @@ class Payslip extends Remote\Model
     public function addSuperannuationLine(SuperannuationLine $value)
     {
         $this->propertyUpdated('SuperannuationLines', $value);
-        if (!isset($this->_data['SuperannuationLines'])) {
+        if (! isset($this->_data['SuperannuationLines'])) {
             $this->_data['SuperannuationLines'] = new Remote\Collection();
         }
         $this->_data['SuperannuationLines'][] = $value;
@@ -445,7 +445,7 @@ class Payslip extends Remote\Model
     public function addTaxLine(TaxLine $value)
     {
         $this->propertyUpdated('TaxLines', $value);
-        if (!isset($this->_data['TaxLines'])) {
+        if (! isset($this->_data['TaxLines'])) {
             $this->_data['TaxLines'] = new Remote\Collection();
         }
         $this->_data['TaxLines'][] = $value;

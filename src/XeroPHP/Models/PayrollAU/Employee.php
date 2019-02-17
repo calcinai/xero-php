@@ -686,7 +686,7 @@ class Employee extends Remote\Model
     public function addBankAccount(BankAccount $value)
     {
         $this->propertyUpdated('BankAccounts', $value);
-        if (!isset($this->_data['BankAccounts'])) {
+        if (! isset($this->_data['BankAccounts'])) {
             $this->_data['BankAccounts'] = new Remote\Collection();
         }
         $this->_data['BankAccounts'][] = $value;
@@ -728,7 +728,7 @@ class Employee extends Remote\Model
     public function addOpeningBalance(OpeningBalance $value)
     {
         $this->propertyUpdated('OpeningBalances', $value);
-        if (!isset($this->_data['OpeningBalances'])) {
+        if (! isset($this->_data['OpeningBalances'])) {
             $this->_data['OpeningBalances'] = new Remote\Collection();
         }
         $this->_data['OpeningBalances'][] = $value;
@@ -751,7 +751,7 @@ class Employee extends Remote\Model
     public function addLeaveBalance(LeaveBalance $value)
     {
         $this->propertyUpdated('LeaveBalances', $value);
-        if (!isset($this->_data['LeaveBalances'])) {
+        if (! isset($this->_data['LeaveBalances'])) {
             $this->_data['LeaveBalances'] = new Remote\Collection();
         }
         $this->_data['LeaveBalances'][] = $value;
@@ -774,7 +774,7 @@ class Employee extends Remote\Model
     public function addSuperMembership(SuperMembership $value)
     {
         $this->propertyUpdated('SuperMemberships', $value);
-        if (!isset($this->_data['SuperMemberships'])) {
+        if (! isset($this->_data['SuperMemberships'])) {
             $this->_data['SuperMemberships'] = new Remote\Collection();
         }
         $this->_data['SuperMemberships'][] = $value;

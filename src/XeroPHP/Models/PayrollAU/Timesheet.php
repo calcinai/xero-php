@@ -212,7 +212,7 @@ class Timesheet extends Remote\Model
     public function addTimesheetLine(TimesheetLine $value)
     {
         $this->propertyUpdated('TimesheetLines', $value);
-        if (!isset($this->_data['TimesheetLines'])) {
+        if (! isset($this->_data['TimesheetLines'])) {
             $this->_data['TimesheetLines'] = new Remote\Collection();
         }
         $this->_data['TimesheetLines'][] = $value;

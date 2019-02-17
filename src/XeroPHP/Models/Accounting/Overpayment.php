@@ -367,7 +367,7 @@ class Overpayment extends Remote\Model
     public function addLineItem(LineItem $value)
     {
         $this->propertyUpdated('LineItems', $value);
-        if (!isset($this->_data['LineItems'])) {
+        if (! isset($this->_data['LineItems'])) {
             $this->_data['LineItems'] = new Remote\Collection();
         }
         $this->_data['LineItems'][] = $value;
@@ -563,7 +563,7 @@ class Overpayment extends Remote\Model
     public function addAllocation(Allocation $value)
     {
         $this->propertyUpdated('Allocations', $value);
-        if (!isset($this->_data['Allocations'])) {
+        if (! isset($this->_data['Allocations'])) {
             $this->_data['Allocations'] = new Remote\Collection();
         }
         $this->_data['Allocations'][] = $value;
@@ -586,7 +586,7 @@ class Overpayment extends Remote\Model
     public function addPayment(Payment $value)
     {
         $this->propertyUpdated('Payments', $value);
-        if (!isset($this->_data['Payments'])) {
+        if (! isset($this->_data['Payments'])) {
             $this->_data['Payments'] = new Remote\Collection();
         }
         $this->_data['Payments'][] = $value;

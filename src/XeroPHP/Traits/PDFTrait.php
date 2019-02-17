@@ -16,7 +16,7 @@ trait PDFTrait
      */
     public function getPDF()
     {
-        if (!$this->hasGUID()) {
+        if (! $this->hasGUID()) {
             throw new Exception('PDF files are only available to objects that exist remotely.');
         }
 

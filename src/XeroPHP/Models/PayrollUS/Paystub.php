@@ -355,7 +355,7 @@ class Paystub extends Remote\Model
     public function addEarning($value)
     {
         $this->propertyUpdated('Earnings', $value);
-        if (!isset($this->_data['Earnings'])) {
+        if (! isset($this->_data['Earnings'])) {
             $this->_data['Earnings'] = new Remote\Collection();
         }
         $this->_data['Earnings'][] = $value;
@@ -378,7 +378,7 @@ class Paystub extends Remote\Model
     public function addDeduction($value)
     {
         $this->propertyUpdated('Deductions', $value);
-        if (!isset($this->_data['Deductions'])) {
+        if (! isset($this->_data['Deductions'])) {
             $this->_data['Deductions'] = new Remote\Collection();
         }
         $this->_data['Deductions'][] = $value;
@@ -420,7 +420,7 @@ class Paystub extends Remote\Model
     public function addReimbursement($value)
     {
         $this->propertyUpdated('Reimbursements', $value);
-        if (!isset($this->_data['Reimbursements'])) {
+        if (! isset($this->_data['Reimbursements'])) {
             $this->_data['Reimbursements'] = new Remote\Collection();
         }
         $this->_data['Reimbursements'][] = $value;
@@ -481,7 +481,7 @@ class Paystub extends Remote\Model
     public function addEarningsLine(EarningsLine $value)
     {
         $this->propertyUpdated('EarningsLines', $value);
-        if (!isset($this->_data['EarningsLines'])) {
+        if (! isset($this->_data['EarningsLines'])) {
             $this->_data['EarningsLines'] = new Remote\Collection();
         }
         $this->_data['EarningsLines'][] = $value;
@@ -504,7 +504,7 @@ class Paystub extends Remote\Model
     public function addLeaveEarningsLine(LeaveEarningsLine $value)
     {
         $this->propertyUpdated('LeaveEarningsLines', $value);
-        if (!isset($this->_data['LeaveEarningsLines'])) {
+        if (! isset($this->_data['LeaveEarningsLines'])) {
             $this->_data['LeaveEarningsLines'] = new Remote\Collection();
         }
         $this->_data['LeaveEarningsLines'][] = $value;
@@ -527,7 +527,7 @@ class Paystub extends Remote\Model
     public function addTimesheetEarningsLine(TimesheetEarningsLine $value)
     {
         $this->propertyUpdated('TimesheetEarningsLines', $value);
-        if (!isset($this->_data['TimesheetEarningsLines'])) {
+        if (! isset($this->_data['TimesheetEarningsLines'])) {
             $this->_data['TimesheetEarningsLines'] = new Remote\Collection();
         }
         $this->_data['TimesheetEarningsLines'][] = $value;
@@ -550,7 +550,7 @@ class Paystub extends Remote\Model
     public function addDeductionLine(DeductionLine $value)
     {
         $this->propertyUpdated('DeductionLines', $value);
-        if (!isset($this->_data['DeductionLines'])) {
+        if (! isset($this->_data['DeductionLines'])) {
             $this->_data['DeductionLines'] = new Remote\Collection();
         }
         $this->_data['DeductionLines'][] = $value;
@@ -573,7 +573,7 @@ class Paystub extends Remote\Model
     public function addReimbursementLine(ReimbursementLine $value)
     {
         $this->propertyUpdated('ReimbursementLines', $value);
-        if (!isset($this->_data['ReimbursementLines'])) {
+        if (! isset($this->_data['ReimbursementLines'])) {
             $this->_data['ReimbursementLines'] = new Remote\Collection();
         }
         $this->_data['ReimbursementLines'][] = $value;
@@ -596,7 +596,7 @@ class Paystub extends Remote\Model
     public function addBenefitLine(BenefitLine $value)
     {
         $this->propertyUpdated('BenefitLines', $value);
-        if (!isset($this->_data['BenefitLines'])) {
+        if (! isset($this->_data['BenefitLines'])) {
             $this->_data['BenefitLines'] = new Remote\Collection();
         }
         $this->_data['BenefitLines'][] = $value;
@@ -619,7 +619,7 @@ class Paystub extends Remote\Model
     public function addTimeOffLine(TimeOffLine $value)
     {
         $this->propertyUpdated('TimeOffLines', $value);
-        if (!isset($this->_data['TimeOffLines'])) {
+        if (! isset($this->_data['TimeOffLines'])) {
             $this->_data['TimeOffLines'] = new Remote\Collection();
         }
         $this->_data['TimeOffLines'][] = $value;

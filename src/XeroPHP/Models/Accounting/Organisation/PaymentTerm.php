@@ -113,7 +113,7 @@ class PaymentTerm extends Remote\Model
     public function addBill(Bill $value)
     {
         $this->propertyUpdated('Bills', $value);
-        if (!isset($this->_data['Bills'])) {
+        if (! isset($this->_data['Bills'])) {
             $this->_data['Bills'] = new Remote\Collection();
         }
         $this->_data['Bills'][] = $value;
@@ -136,7 +136,7 @@ class PaymentTerm extends Remote\Model
     public function addSale(Sale $value)
     {
         $this->propertyUpdated('Sales', $value);
-        if (!isset($this->_data['Sales'])) {
+        if (! isset($this->_data['Sales'])) {
             $this->_data['Sales'] = new Remote\Collection();
         }
         $this->_data['Sales'][] = $value;

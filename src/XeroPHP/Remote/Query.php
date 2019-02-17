@@ -193,7 +193,7 @@ class Query
          * @var ObjectInterface $from_class
          */
         $from_class = $this->from_class;
-        if (!$from_class::isPageable()) {
+        if (! $from_class::isPageable()) {
             throw new Exception(sprintf('%s does not support paging.', $from_class));
         }
         $this->page = (int) $page;
@@ -248,7 +248,7 @@ class Query
         // Concatenate where statements
         $where = $this->getWhere();
 
-        if (!empty($where)) {
+        if (! empty($where)) {
             $request->setParameter('where', $where);
         }
 

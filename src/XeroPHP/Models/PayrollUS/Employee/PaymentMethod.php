@@ -136,7 +136,7 @@ class PaymentMethod extends Remote\Model
     public function addBankAccount(BankAccount $value)
     {
         $this->propertyUpdated('BankAccounts', $value);
-        if (!isset($this->_data['BankAccounts'])) {
+        if (! isset($this->_data['BankAccounts'])) {
             $this->_data['BankAccounts'] = new Remote\Collection();
         }
         $this->_data['BankAccounts'][] = $value;

@@ -191,7 +191,7 @@ class BookDepreciationSetting extends Remote\Model
     public function addeffectiveLifeYear($value)
     {
         $this->propertyUpdated('effectiveLifeYears', $value);
-        if (!isset($this->_data['effectiveLifeYears'])) {
+        if (! isset($this->_data['effectiveLifeYears'])) {
             $this->_data['effectiveLifeYears'] = new Remote\Collection();
         }
         $this->_data['effectiveLifeYears'][] = $value;

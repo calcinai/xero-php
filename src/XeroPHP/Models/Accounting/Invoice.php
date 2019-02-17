@@ -377,7 +377,7 @@ class Invoice extends Remote\Model
      */
     public function getLineItems()
     {
-        if (!isset($this->_data['LineItems'])) {
+        if (! isset($this->_data['LineItems'])) {
             $this->_data['LineItems'] = new Remote\Collection();
         }
 
@@ -391,7 +391,7 @@ class Invoice extends Remote\Model
     public function addLineItem(LineItem $value)
     {
         $this->propertyUpdated('LineItems', $value);
-        if (!isset($this->_data['LineItems'])) {
+        if (! isset($this->_data['LineItems'])) {
             $this->_data['LineItems'] = new Remote\Collection();
         }
         $this->_data['LineItems'][] = $value;
@@ -802,7 +802,7 @@ class Invoice extends Remote\Model
      */
     public function getOnlineInvoiceUrl()
     {
-        if (!$this->hasGUID()) {
+        if (! $this->hasGUID()) {
             throw new Exception('Unable to retrieve the online invoice URL as the invoice has no GUID');
         }
 

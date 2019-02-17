@@ -64,7 +64,7 @@ class Event
         ];
 
         foreach ($fields as $required) {
-            if (!isset($event[$required])) {
+            if (! isset($event[$required])) {
                 throw new \XeroPHP\Application\Exception("The event payload was malformed; missing required field {$required}");
             }
 

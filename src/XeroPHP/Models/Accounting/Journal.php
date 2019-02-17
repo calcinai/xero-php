@@ -316,7 +316,7 @@ class Journal extends Remote\Model
     public function addJournalLine(JournalLine $value)
     {
         $this->propertyUpdated('JournalLines', $value);
-        if (!isset($this->_data['JournalLines'])) {
+        if (! isset($this->_data['JournalLines'])) {
             $this->_data['JournalLines'] = new Remote\Collection();
         }
         $this->_data['JournalLines'][] = $value;

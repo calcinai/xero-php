@@ -133,7 +133,7 @@ class PayItem extends Remote\Model
     public function addEarningsRate(EarningsRate $value)
     {
         $this->propertyUpdated('EarningsRates', $value);
-        if (!isset($this->_data['EarningsRates'])) {
+        if (! isset($this->_data['EarningsRates'])) {
             $this->_data['EarningsRates'] = new Remote\Collection();
         }
         $this->_data['EarningsRates'][] = $value;
@@ -156,7 +156,7 @@ class PayItem extends Remote\Model
     public function addDeductionType(DeductionType $value)
     {
         $this->propertyUpdated('DeductionTypes', $value);
-        if (!isset($this->_data['DeductionTypes'])) {
+        if (! isset($this->_data['DeductionTypes'])) {
             $this->_data['DeductionTypes'] = new Remote\Collection();
         }
         $this->_data['DeductionTypes'][] = $value;
@@ -179,7 +179,7 @@ class PayItem extends Remote\Model
     public function addLeaveType(LeaveType $value)
     {
         $this->propertyUpdated('LeaveTypes', $value);
-        if (!isset($this->_data['LeaveTypes'])) {
+        if (! isset($this->_data['LeaveTypes'])) {
             $this->_data['LeaveTypes'] = new Remote\Collection();
         }
         $this->_data['LeaveTypes'][] = $value;
@@ -202,7 +202,7 @@ class PayItem extends Remote\Model
     public function addReimbursementType(ReimbursementType $value)
     {
         $this->propertyUpdated('ReimbursementTypes', $value);
-        if (!isset($this->_data['ReimbursementTypes'])) {
+        if (! isset($this->_data['ReimbursementTypes'])) {
             $this->_data['ReimbursementTypes'] = new Remote\Collection();
         }
         $this->_data['ReimbursementTypes'][] = $value;
