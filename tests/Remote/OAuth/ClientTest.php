@@ -6,7 +6,7 @@ use XeroPHP\Application\PrivateApplication;
 
 class ClientTest extends \PHPUnit_Framework_TestCase
 {
-    public function test_authorize_url_without_oauth_token()
+    public function testAuthorizeUrlWithoutOauthToken()
     {
         $this->assertSame(
             $this->app()->getConfigOption('oauth', 'authorize_url'),
@@ -14,7 +14,7 @@ class ClientTest extends \PHPUnit_Framework_TestCase
         );
     }
 
-    public function test_authorize_url_appends_oauth_token_query_string()
+    public function testAuthorizeUrlAppendsOauthTokenQueryString()
     {
         $this->assertSame(
             $this->app()->getConfigOption('oauth', 'authorize_url').'?oauth_token=query_test',
@@ -22,7 +22,7 @@ class ClientTest extends \PHPUnit_Framework_TestCase
         );
     }
 
-    public function test_authorize_url_appends_oauth_token_query_string_to_existing_query_string()
+    public function testAuthorizeUrlAppendsOauthTokenQueryStringToExistingQueryString()
     {
         $url = 'https://test.url/?example=query';
 
