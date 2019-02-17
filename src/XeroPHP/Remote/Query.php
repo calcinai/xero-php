@@ -10,7 +10,7 @@ class Query
     const ORDER_ASC = 'ASC';
     const ORDER_DESC = 'DESC';
 
-    /** @var  \XeroPHP\Application */
+    /** @var \XeroPHP\Application */
     private $app;
 
     private $from_class;
