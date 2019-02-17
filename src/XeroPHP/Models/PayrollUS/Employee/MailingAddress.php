@@ -37,13 +37,13 @@ class MailingAddress extends Remote\Model
      */
 
     /**
-     * The Latitude of employee home address
+     * The Latitude of employee home address
      *
      * @property string Lattitude
      */
 
     /**
-     * The Longitude of employee home address
+     * The Longitude of employee home address
      *
      * @property string Longitude
      */

@@ -7,19 +7,19 @@ use XeroPHP\Remote;
 class HomeAddress extends Remote\Model
 {
     /**
-     * Address line 1 for employee home address (max length = 50)
+     * Address line 1 for employee home address (max length = 50)
      *
      * @property string AddressLine1
      */
 
     /**
-     * Address line 2 for employee home address (max length = 50)
+     * Address line 2 for employee home address (max length = 50)
      *
      * @property string AddressLine2
      */
 
     /**
-     * Suburb for employee home address (max length = 50)
+     * Suburb for employee home address (max length = 50)
      *
      * @property string City
      */
@@ -31,7 +31,7 @@ class HomeAddress extends Remote\Model
      */
 
     /**
-     * PostCode for employee home address (max length = 4)
+     * PostCode for employee home address (max length = 4)
      *
      * @property string PostalCode
      */

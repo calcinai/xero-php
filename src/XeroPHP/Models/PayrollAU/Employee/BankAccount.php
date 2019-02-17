@@ -7,26 +7,26 @@ use XeroPHP\Remote;
 class BankAccount extends Remote\Model
 {
     /**
-     * The text that will appear on your employee’s bank statement when they receive payment (max length
+     * The text that will appear on your employee’s bank statement when they receive payment (max length
      * = 18)
      *
      * @property string StatementText
      */
 
     /**
-     * The name of the account (max length = 32)
+     * The name of the account (max length = 32)
      *
      * @property string AccountName
      */
 
     /**
-     * The BSB number of the account (length = 6)
+     * The BSB number of the account (length = 6)
      *
      * @property string BSB
      */
 
     /**
-     * The account number (max length = 9)
+     * The account number (max length = 9)
      *
      * @property string AccountNumber
      */

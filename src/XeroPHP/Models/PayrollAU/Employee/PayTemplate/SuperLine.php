@@ -25,13 +25,13 @@ class SuperLine extends Remote\Model
      */
 
     /**
-     *  Account code for the Expense Account. i.e 478
+     *  Account code for the Expense Account. i.e 478
      *
      * @property string ExpenseAccountCode
      */
 
     /**
-     *  Account code for the Liability Account. i.e 826
+     *  Account code for the Liability Account. i.e 826
      *
      * @property string LiabilityAccountCode
      */

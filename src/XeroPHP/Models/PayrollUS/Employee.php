@@ -15,13 +15,13 @@ use XeroPHP\Models\PayrollUS\Employee\TimeOffBalance;
 class Employee extends Remote\Model
 {
     /**
-     * First name of employee (max length = 35)
+     * First name of employee (max length = 35)
      *
      * @property string FirstName
      */
 
     /**
-     * Last name of employee (max length = 35)
+     * Last name of employee (max length = 35)
      *
      * @property string LastName
      */
@@ -39,7 +39,7 @@ class Employee extends Remote\Model
      */
 
     /**
-     * Middle name(s) of the employee (max length = 35)
+     * Middle name(s) of the employee (max length = 35)
      *
      * @property string MiddleNames
      */

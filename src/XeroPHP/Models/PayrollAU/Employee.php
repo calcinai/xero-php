@@ -14,13 +14,13 @@ use XeroPHP\Models\PayrollAU\Employee\SuperMembership;
 class Employee extends Remote\Model
 {
     /**
-     * First name of employee (max length = 35)
+     * First name of employee (max length = 35)
      *
      * @property string FirstName
      */
 
     /**
-     * Last name of employee (max length = 35)
+     * Last name of employee (max length = 35)
      *
      * @property string LastName
      */
@@ -45,19 +45,19 @@ class Employee extends Remote\Model
      */
 
     /**
-     * Title of the employee (max length = 10)
+     * Title of the employee (max length = 10)
      *
      * @property string Title
      */
 
     /**
-     * Middle name(s) of the employee (max length = 35)
+     * Middle name(s) of the employee (max length = 35)
      *
      * @property string MiddleNames
      */
 
     /**
-     * The email address for the employee (max length = 100)
+     * The email address for the employee (max length = 100)
      *
      * @property string Email
      */
@@ -69,13 +69,13 @@ class Employee extends Remote\Model
      */
 
     /**
-     * Employee mobile number (max length = 50)
+     * Employee mobile number (max length = 50)
      *
      * @property string Mobile
      */
 
     /**
-     * Employee’s twitter name, entered as @twittername (max length = 50)
+     * Employee’s twitter name, entered as @twittername (max length = 50)
      *
      * @property string TwitterUserName
      */
@@ -101,14 +101,14 @@ class Employee extends Remote\Model
      */
 
     /**
-     * JobTitle of the employee (max length = 50)
+     * JobTitle of the employee (max length = 50)
      *
      * @property string JobTitle
      */
 
     /**
      * Employees under an award scheme will be covered by a modern award classification. If you record a
-     * classification, it will be included on your payslips (max length = 100)
+     * classification, it will be included on your payslips (max length = 100)
      *
      * @property string Classification
      */

@@ -26,7 +26,7 @@ class LeaveApplication extends Remote\Model
      */
 
     /**
-     * The title of the leave (max length = 50)
+     * The title of the leave (max length = 50)
      *
      * @property string Title
      */
@@ -44,7 +44,7 @@ class LeaveApplication extends Remote\Model
      */
 
     /**
-     * The Description of the Leave (max length = 200)
+     * The Description of the Leave (max length = 200)
      *
      * @property string Description
      */
