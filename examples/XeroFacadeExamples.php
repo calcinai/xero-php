@@ -1,7 +1,7 @@
 <?php
 
 /**
-  Get config data to instance Xero.
+  * Get config data to instance Xero.
 **/
 $config = config('services.xero'); // ??
 
@@ -11,7 +11,7 @@ $config = config('services.xero'); // ??
 $xero_instance = new XeroFacade($config);
 
 /**
-  Get all Contacts
+  * Get all Contacts
 **/
 $page = 1; // 
 $contacts_page = $xero_instance->getAllContacts($page); // 100 rows per page
@@ -68,10 +68,10 @@ $xero_instance->updateContact($user_data);
 
 
 /**
-  Create a new invoice for xero.
-  
-  the facade will check if user exist in xero. 
-  If not will create it for you. Check the method.
+  * Create a new invoice for xero.
+  *
+  * the facade will check if user exist in xero. 
+  * If not will create it for you. Check the method.
 **/
 #Generate invoice rows
 $LineItems[] = [
@@ -96,4 +96,12 @@ $invoice = $xero_instance->createInvoice($data);
 echo $invoice['InvoiceID'] // got the invoice id to track it later. 
 
 
-
+  
+  
+/**
+  * Get Payments.
+  *
+  * Will return all the payments on your account. 
+  * Usefull to update status in your system by looping it and checking the status on invoice ID fo Eg..
+**/
+$xero_instance->getPayments()
