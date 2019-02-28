@@ -2,8 +2,33 @@
 
 /**
   * Get config data to instance Xero.
+  *
+  * Example of Configuration
+  *
+  * 'xero_sz' => [
+  *      'xero' => [
+  *          // API versions can be overridden if necessary for some reason.
+  *          //'core_version'     => '2.0',
+  *          //'payroll_version'  => '1.0',
+  *          //'file_version'     => '1.0'
+  *      ],
+  *      'oauth' => [
+  *          'callback'          => env('XERO_CALLBACK', 'http://yourdomain.com'),
+  *          'consumer_key'      => env('XERO_CONSUMER_KEY', 'GGYDC41N2KMQ9FKKYIQWRIYREJV6YP'),
+  *          'consumer_secret'   => env('XERO_CONSUMER_SECRET', '06XS2D4PBZU5A1ASCWP8WV72ILU7GD'),
+  *          //If you have issues passing the Authorization header, you can set it to append to the query string
+  *          //'signature_location'    => \XeroPHP\Remote\OAuth\Client::SIGN_LOCATION_QUERY
+  *          //For certs on disk or a string - allows anything that is valid with openssl_pkey_get_(private|public)
+  *          'rsa_private_key'  => env('XERO_CERT_PATH', 'file:///var/www/some_path/cert/privatekey.pem')
+  *      ],
+  *      //These are raw curl options.  I didn't see the need to obfuscate these through methods
+  *      'curl' => [
+  *          CURLOPT_USERAGENT   => 'Xero Sync System',
+  *      ]
+  *  ],
+  * 
 **/
-$config = config('services.xero'); // ??
+$config = config('services.xero'); // will be an array with the config file
 
 /**
   * Instance Xero
