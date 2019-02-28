@@ -6,7 +6,7 @@
 $config = config('services.xero'); // ??
 
 /**
-  Instance Xero
+  * Instance Xero
 **/
 $xero_instance = new XeroFacade($config);
 
@@ -19,7 +19,8 @@ $contacts_page = $xero_instance->getAllContacts($page); // 100 rows per page
 $contacts_page = $xero_instance->getAllContacts(); // max 100 latest contacts 
 
 /**
-  Create User
+  * Create User
+  *
   * Data format
      *
      *   $data = [
@@ -44,7 +45,8 @@ $xero_instance->createContact($user_data);
 
 
 /**
-  Update User
+  * Update User
+  *
   * Data format
      *
      *   $data = [
