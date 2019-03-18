@@ -249,7 +249,7 @@ class Employee extends Remote\Model
      */
     public function getPhoneNumber()
     {
-        return $this->_data[ 'PhoneNumber' ];
+        return $this->_data[ 'phoneNumber' ];
     }
 
     /**
