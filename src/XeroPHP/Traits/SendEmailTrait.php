@@ -22,12 +22,12 @@ trait SendEmailTrait
          * @var \XeroPHP\Remote\Model $this
          */
         $uri = sprintf('%s/%s/Email', $this::getResourceURI(), $this->getGUID());
-        
+
         $url = new URL($this->_application, $uri);
         $request = new Request($this->_application, $url, Request::METHOD_POST);
-        
+
         $request->send();
-        
+
         return $this;
     }
 }

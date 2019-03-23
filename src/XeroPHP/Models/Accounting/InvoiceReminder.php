@@ -89,7 +89,7 @@ class InvoiceReminder extends Remote\Model
         return false;
     }
 
- 
+
     /**
      * @return bool
      */
