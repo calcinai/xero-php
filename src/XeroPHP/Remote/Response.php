@@ -2,16 +2,16 @@
 
 namespace XeroPHP\Remote;
 
-use SimpleXMLElement;
 use XeroPHP\Helpers;
-use XeroPHP\Remote\Exception\BadRequestException;
-use XeroPHP\Remote\Exception\InternalErrorException;
-use XeroPHP\Remote\Exception\NotAvailableException;
+use SimpleXMLElement;
 use XeroPHP\Remote\Exception\NotFoundException;
-use XeroPHP\Remote\Exception\NotImplementedException;
-use XeroPHP\Remote\Exception\OrganisationOfflineException;
-use XeroPHP\Remote\Exception\RateLimitExceededException;
+use XeroPHP\Remote\Exception\BadRequestException;
+use XeroPHP\Remote\Exception\NotAvailableException;
 use XeroPHP\Remote\Exception\UnauthorizedException;
+use XeroPHP\Remote\Exception\InternalErrorException;
+use XeroPHP\Remote\Exception\NotImplementedException;
+use XeroPHP\Remote\Exception\RateLimitExceededException;
+use XeroPHP\Remote\Exception\OrganisationOfflineException;
 
 class Response
 {

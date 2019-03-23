@@ -3,9 +3,9 @@
 namespace XeroPHP\Models\PayrollAU;
 
 use XeroPHP\Remote;
+use XeroPHP\Models\PayrollAU\PayItem\LeaveType;
 use XeroPHP\Models\PayrollAU\PayItem\EarningsRate;
 use XeroPHP\Models\PayrollAU\PayItem\DeductionType;
-use XeroPHP\Models\PayrollAU\PayItem\LeaveType;
 use XeroPHP\Models\PayrollAU\PayItem\ReimbursementType;
 
 class PayItem extends Remote\Model

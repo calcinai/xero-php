@@ -2,8 +2,8 @@
 
 namespace XeroPHP\Webhook;
 
-use XeroPHP\Remote\Request;
 use XeroPHP\Remote\URL;
+use XeroPHP\Remote\Request;
 
 /**
  * Represents a single event within a webhook

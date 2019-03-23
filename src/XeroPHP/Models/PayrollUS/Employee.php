@@ -4,11 +4,11 @@ namespace XeroPHP\Models\PayrollUS;
 
 use XeroPHP\Remote;
 use XeroPHP\Models\PayrollUS\Employee\HomeAddress;
-use XeroPHP\Models\PayrollUS\Employee\MailingAddress;
-use XeroPHP\Models\PayrollUS\Employee\SalaryAndWage;
+use XeroPHP\Models\PayrollUS\Employee\PayTemplate;
 use XeroPHP\Models\PayrollUS\Employee\WorkLocation;
 use XeroPHP\Models\PayrollUS\Employee\PaymentMethod;
-use XeroPHP\Models\PayrollUS\Employee\PayTemplate;
+use XeroPHP\Models\PayrollUS\Employee\SalaryAndWage;
+use XeroPHP\Models\PayrollUS\Employee\MailingAddress;
 use XeroPHP\Models\PayrollUS\Employee\OpeningBalance;
 use XeroPHP\Models\PayrollUS\Employee\TimeOffBalance;
 

@@ -3,8 +3,8 @@
 namespace XeroPHP\Models\Accounting;
 
 use XeroPHP\Remote;
-use XeroPHP\Traits\AttachmentTrait;
 use XeroPHP\Traits\HistoryTrait;
+use XeroPHP\Traits\AttachmentTrait;
 use XeroPHP\Models\Accounting\Contact\ContactPerson;
 use XeroPHP\Models\Accounting\Organisation\PaymentTerm;
 

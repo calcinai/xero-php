@@ -2,11 +2,11 @@
 
 namespace XeroPHP\Traits;
 
-use XeroPHP\Models\Accounting\History;
-use XeroPHP\Remote\Request;
-use XeroPHP\Remote\URL;
-use XeroPHP\Exception;
 use XeroPHP\Helpers;
+use XeroPHP\Exception;
+use XeroPHP\Remote\URL;
+use XeroPHP\Remote\Request;
+use XeroPHP\Models\Accounting\History;
 
 trait HistoryTrait
 {

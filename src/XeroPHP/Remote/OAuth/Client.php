@@ -3,10 +3,10 @@
 namespace XeroPHP\Remote\OAuth;
 
 use XeroPHP\Helpers;
+use XeroPHP\Remote\Request;
+use XeroPHP\Remote\OAuth\SignatureMethod\RSASHA1;
 use XeroPHP\Remote\OAuth\SignatureMethod\HMACSHA1;
 use XeroPHP\Remote\OAuth\SignatureMethod\PLAINTEXT;
-use XeroPHP\Remote\OAuth\SignatureMethod\RSASHA1;
-use XeroPHP\Remote\Request;
 
 /**
  * This is a class to manage a client OAuth session with the Xero APIs.

@@ -3,10 +3,10 @@
 namespace XeroPHP\Models\Accounting;
 
 use XeroPHP\Remote;
-use XeroPHP\Traits\AttachmentTrait;
 use XeroPHP\Traits\HistoryTrait;
-use XeroPHP\Models\Accounting\BankTransfer\FromBankAccount;
+use XeroPHP\Traits\AttachmentTrait;
 use XeroPHP\Models\Accounting\BankTransfer\ToBankAccount;
+use XeroPHP\Models\Accounting\BankTransfer\FromBankAccount;
 
 class BankTransfer extends Remote\Model
 {

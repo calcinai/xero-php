@@ -3,12 +3,12 @@
 namespace XeroPHP\Models\PayrollAU;
 
 use XeroPHP\Remote;
-use XeroPHP\Models\PayrollAU\Employee\HomeAddress;
-use XeroPHP\Models\PayrollAU\Employee\TaxDeclaration;
 use XeroPHP\Models\PayrollAU\Employee\BankAccount;
+use XeroPHP\Models\PayrollAU\Employee\HomeAddress;
 use XeroPHP\Models\PayrollAU\Employee\PayTemplate;
-use XeroPHP\Models\PayrollAU\Employee\OpeningBalance;
 use XeroPHP\Models\PayrollAU\Employee\LeaveBalance;
+use XeroPHP\Models\PayrollAU\Employee\OpeningBalance;
+use XeroPHP\Models\PayrollAU\Employee\TaxDeclaration;
 use XeroPHP\Models\PayrollAU\Employee\SuperMembership;
 
 class Employee extends Remote\Model

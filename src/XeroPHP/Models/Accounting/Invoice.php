@@ -5,9 +5,9 @@ namespace XeroPHP\Models\Accounting;
 use XeroPHP\Remote;
 use XeroPHP\Exception;
 use XeroPHP\Traits\PDFTrait;
-use XeroPHP\Traits\AttachmentTrait;
-use XeroPHP\Traits\SendEmailTrait;
 use XeroPHP\Traits\HistoryTrait;
+use XeroPHP\Traits\SendEmailTrait;
+use XeroPHP\Traits\AttachmentTrait;
 use XeroPHP\Models\Accounting\Invoice\LineItem;
 
 class Invoice extends Remote\Model

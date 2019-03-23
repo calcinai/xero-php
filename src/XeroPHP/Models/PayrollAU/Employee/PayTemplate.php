@@ -3,11 +3,11 @@
 namespace XeroPHP\Models\PayrollAU\Employee;
 
 use XeroPHP\Remote;
-use XeroPHP\Models\PayrollAU\Employee\PayTemplate\EarningsLine;
+use XeroPHP\Models\PayrollAU\Employee\PayTemplate\LeaveLine;
 use XeroPHP\Models\PayrollAU\Employee\PayTemplate\SuperLine;
+use XeroPHP\Models\PayrollAU\Employee\PayTemplate\EarningsLine;
 use XeroPHP\Models\PayrollAU\Employee\PayTemplate\DeductionLine;
 use XeroPHP\Models\PayrollAU\Employee\PayTemplate\ReimbursementLine;
-use XeroPHP\Models\PayrollAU\Employee\PayTemplate\LeaveLine;
 
 class PayTemplate extends Remote\Model
 {
