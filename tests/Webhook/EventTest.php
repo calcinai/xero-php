@@ -13,7 +13,7 @@ class EventTest extends \PHPUnit_Framework_TestCase
      */
     private $application;
 
-    public function setUp()
+    protected function setUp()
     {
         $config = [
             'oauth' => [
