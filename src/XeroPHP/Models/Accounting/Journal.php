@@ -32,7 +32,7 @@ class Journal extends Remote\Model
      */
 
     /**
-     *  
+     *  
      *
      * @property string Reference
      */

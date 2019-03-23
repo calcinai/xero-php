@@ -26,7 +26,7 @@ class TimeOffBalance extends Remote\Model
      */
 
     /**
-     * The type of units as specified by the LeaveType (see PayItems)
+     * The type of units as specified by the LeaveType (see PayItems)
      *
      * @property PayItem[] TypeOfUnits
      */
