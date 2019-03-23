@@ -7,7 +7,7 @@ use XeroPHP\Application\PrivateApplication;
 
 class ApplicationTest extends \PHPUnit_Framework_TestCase
 {
-    public function test_prepends_config_namespace_when_validating_model_class()
+    public function testPrependsConfigNamespaceWhenValidatingModelClass()
     {
         $app = $this->instance();
         $class = 'Accounting\\Invoice';
@@ -18,7 +18,7 @@ class ApplicationTest extends \PHPUnit_Framework_TestCase
         );
     }
 
-    public function test_allows_FQN_when_validating_model_class()
+    public function testAllowsFQNWhenValidatingModelClass()
     {
         $class = \XeroPHP\Models\Accounting\Invoice::class;
 
@@ -28,7 +28,7 @@ class ApplicationTest extends \PHPUnit_Framework_TestCase
         );
     }
 
-    public function test_allows_FQN_beginning_with_backslash_when_validating_model_class()
+    public function testAllowsFQNBeginningWithBackslashWhenValidatingModelClass()
     {
         $class = '\\XeroPHP\\Models\\Accounting\\Invoice';
 
@@ -38,28 +38,28 @@ class ApplicationTest extends \PHPUnit_Framework_TestCase
         );
     }
 
-    public function test_throws_exception_when_unable_to_validate_class()
+    public function testThrowsExceptionWhenUnableToValidateClass()
     {
         $this->setExpectedException(\Exception::class);
 
         $this->instance()->validateModelClass('Unknown\\Namespaced\\Class');
     }
 
-    public function test_oauth_client_instantiated_with_app_instantiation()
+    public function testOauthClientInstantiatedWithAppInstantiation()
     {
         $app = $this->instance();
 
         $this->assertNotNull($app->getOAuthClient());
     }
 
-    public function test_setting_missing_config_option_throws_exception()
+    public function testSettingMissingConfigOptionThrowsException()
     {
         $this->setExpectedException(\Exception::class);
 
         $this->instance()->setConfigOption('non_exitant_key', 'sub_key', 'value');
     }
 
-    public function test_set_config_option_updates_configuration()
+    public function testSetConfigOptionUpdatesConfiguration()
     {
         $key = 'oauth';
         $subkey = 'test_sub_key';
@@ -73,7 +73,7 @@ class ApplicationTest extends \PHPUnit_Framework_TestCase
         );
     }
 
-    public function test_can_retrieve_config()
+    public function testCanRetrieveConfig()
     {
         $key = 'test_key';
         $expected = ['sub_test_key' => 'test_value'];
@@ -84,7 +84,7 @@ class ApplicationTest extends \PHPUnit_Framework_TestCase
         );
     }
 
-    public function test_can_retrieve_config_option()
+    public function testCanRetrieveConfigOption()
     {
         $key = 'test_key';
         $subKey = 'sub_test_key';
@@ -96,14 +96,14 @@ class ApplicationTest extends \PHPUnit_Framework_TestCase
         );
     }
 
-    public function test_accessing_missing_config_option_throws_exception()
+    public function testAccessingMissingConfigOptionThrowsException()
     {
         $this->setExpectedException(\Exception::class);
 
         $this->instance()->getConfigOption('oauth', 'non_existent_key');
     }
 
-    public function test_accessing_missing_config_throws_exception()
+    public function testAccessingMissingConfigThrowsException()
     {
         $this->setExpectedException(\Exception::class);
 
