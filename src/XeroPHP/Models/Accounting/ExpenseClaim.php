@@ -180,7 +180,7 @@ class ExpenseClaim extends Remote\Model
     public function addReceipt(Receipt $value)
     {
         $this->propertyUpdated('Receipts', $value);
-        if (!isset($this->_data['Receipts'])) {
+        if (! isset($this->_data['Receipts'])) {
             $this->_data['Receipts'] = new Remote\Collection();
         }
         $this->_data['Receipts'][] = $value;

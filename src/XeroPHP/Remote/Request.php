@@ -108,7 +108,7 @@ class Request
             list($name, $value) = explode(':', $header, 2);
             $name = strtolower(trim($name));
             $value = trim($value);
-            if (!array_key_exists($name, $headers)) {
+            if (! array_key_exists($name, $headers)) {
                 $headers[$name] = [];
             }
             $headers[$name][] = $value;
@@ -146,7 +146,7 @@ class Request
      */
     public function getHeader($key)
     {
-        if (!isset($this->headers[$key])) {
+        if (! isset($this->headers[$key])) {
             return null;
         }
         return $this->headers[$key];

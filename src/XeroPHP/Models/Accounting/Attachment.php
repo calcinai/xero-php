@@ -144,11 +144,11 @@ class Attachment extends Model
      */
     public function getContent()
     {
-        if (!isset($this->content)) {
+        if (! isset($this->content)) {
             //If it's been created locally, you can just read it back.
             if (isset($this->local_handle)) {
                 rewind($this->local_handle);
-                while (!feof($this->local_handle)) {
+                while (! feof($this->local_handle)) {
                     $this->content .= fread($this->local_handle, 8192);
                 }
                 //Otherwise, if it can be fetched

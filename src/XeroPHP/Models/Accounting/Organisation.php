@@ -804,7 +804,7 @@ class Organisation extends Remote\Model
     public function addAddress(Address $value)
     {
         $this->propertyUpdated('Addresses', $value);
-        if (!isset($this->_data['Addresses'])) {
+        if (! isset($this->_data['Addresses'])) {
             $this->_data['Addresses'] = new Remote\Collection();
         }
         $this->_data['Addresses'][] = $value;
@@ -827,7 +827,7 @@ class Organisation extends Remote\Model
     public function addPhone(Phone $value)
     {
         $this->propertyUpdated('Phones', $value);
-        if (!isset($this->_data['Phones'])) {
+        if (! isset($this->_data['Phones'])) {
             $this->_data['Phones'] = new Remote\Collection();
         }
         $this->_data['Phones'][] = $value;
@@ -850,7 +850,7 @@ class Organisation extends Remote\Model
     public function addExternalLink(ExternalLink $value)
     {
         $this->propertyUpdated('ExternalLinks', $value);
-        if (!isset($this->_data['ExternalLinks'])) {
+        if (! isset($this->_data['ExternalLinks'])) {
             $this->_data['ExternalLinks'] = new Remote\Collection();
         }
         $this->_data['ExternalLinks'][] = $value;
@@ -873,7 +873,7 @@ class Organisation extends Remote\Model
     public function addPaymentTerm(PaymentTerm $value)
     {
         $this->propertyUpdated('PaymentTerms', $value);
-        if (!isset($this->_data['PaymentTerms'])) {
+        if (! isset($this->_data['PaymentTerms'])) {
             $this->_data['PaymentTerms'] = new Remote\Collection();
         }
         $this->_data['PaymentTerms'][] = $value;

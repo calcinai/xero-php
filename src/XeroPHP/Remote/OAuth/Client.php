@@ -104,7 +104,7 @@ class Client
     private function getOAuthParams()
     {
         //this needs to be stateful until the request is signed, then it gets unset
-        if (!isset($this->oauth_params)) {
+        if (! isset($this->oauth_params)) {
             $this->oauth_params = [
                 'oauth_consumer_key' => $this->getConsumerKey(),
                 'oauth_signature_method' => $this->getSignatureMethod(),
@@ -223,7 +223,7 @@ class Client
     private function getNonce($length = 20)
     {
         $parts = explode('.', number_format(microtime(true), 22, '.', ''));
-        if (!isset($parts[1])) {
+        if (! isset($parts[1])) {
             $parts[1] = 0;
         }
         $nonce = base_convert($parts[1], 10, 36);

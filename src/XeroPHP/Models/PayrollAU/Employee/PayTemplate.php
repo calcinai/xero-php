@@ -137,7 +137,7 @@ class PayTemplate extends Remote\Model
     public function addEarningsLine(EarningsLine $value)
     {
         $this->propertyUpdated('EarningsLines', $value);
-        if (!isset($this->_data['EarningsLines'])) {
+        if (! isset($this->_data['EarningsLines'])) {
             $this->_data['EarningsLines'] = new Remote\Collection();
         }
         $this->_data['EarningsLines'][] = $value;
@@ -160,7 +160,7 @@ class PayTemplate extends Remote\Model
     public function addDeductionLine(DeductionLine $value)
     {
         $this->propertyUpdated('DeductionLines', $value);
-        if (!isset($this->_data['DeductionLines'])) {
+        if (! isset($this->_data['DeductionLines'])) {
             $this->_data['DeductionLines'] = new Remote\Collection();
         }
         $this->_data['DeductionLines'][] = $value;
@@ -183,7 +183,7 @@ class PayTemplate extends Remote\Model
     public function addSuperLine(SuperLine $value)
     {
         $this->propertyUpdated('SuperLines', $value);
-        if (!isset($this->_data['SuperLines'])) {
+        if (! isset($this->_data['SuperLines'])) {
             $this->_data['SuperLines'] = new Remote\Collection();
         }
         $this->_data['SuperLines'][] = $value;
@@ -206,7 +206,7 @@ class PayTemplate extends Remote\Model
     public function addReimbursementLine(ReimbursementLine $value)
     {
         $this->propertyUpdated('ReimbursementLines', $value);
-        if (!isset($this->_data['ReimbursementLines'])) {
+        if (! isset($this->_data['ReimbursementLines'])) {
             $this->_data['ReimbursementLines'] = new Remote\Collection();
         }
         $this->_data['ReimbursementLines'][] = $value;
@@ -229,7 +229,7 @@ class PayTemplate extends Remote\Model
     public function addLeaveLine(LeaveLine $value)
     {
         $this->propertyUpdated('LeaveLines', $value);
-        if (!isset($this->_data['LeaveLines'])) {
+        if (! isset($this->_data['LeaveLines'])) {
             $this->_data['LeaveLines'] = new Remote\Collection();
         }
         $this->_data['LeaveLines'][] = $value;

@@ -236,7 +236,7 @@ class TrackingCategory extends Remote\Model
     public function addOption(TrackingOption $value)
     {
         $this->propertyUpdated('Options', $value);
-        if (!isset($this->_data['Options'])) {
+        if (! isset($this->_data['Options'])) {
             $this->_data['Options'] = new Remote\Collection();
         }
         $this->_data['Options'][] = $value;

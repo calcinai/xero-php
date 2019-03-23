@@ -249,7 +249,7 @@ class Folder extends Remote\Model
     public function addFile(File $value)
     {
         $this->propertyUpdated('Files', $value);
-        if (!isset($this->_data['Files'])) {
+        if (! isset($this->_data['Files'])) {
             $this->_data['Files'] = new Remote\Collection();
         }
         $this->_data['Files'][] = $value;

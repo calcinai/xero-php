@@ -141,7 +141,7 @@ class PayItem extends Remote\Model
     public function addEarningsType(EarningsType $value)
     {
         $this->propertyUpdated('EarningsTypes', $value);
-        if (!isset($this->_data['EarningsTypes'])) {
+        if (! isset($this->_data['EarningsTypes'])) {
             $this->_data['EarningsTypes'] = new Remote\Collection();
         }
         $this->_data['EarningsTypes'][] = $value;
@@ -164,7 +164,7 @@ class PayItem extends Remote\Model
     public function addBenefitType(BenefitType $value)
     {
         $this->propertyUpdated('BenefitTypes', $value);
-        if (!isset($this->_data['BenefitTypes'])) {
+        if (! isset($this->_data['BenefitTypes'])) {
             $this->_data['BenefitTypes'] = new Remote\Collection();
         }
         $this->_data['BenefitTypes'][] = $value;
@@ -187,7 +187,7 @@ class PayItem extends Remote\Model
     public function addDeductionType(DeductionType $value)
     {
         $this->propertyUpdated('DeductionTypes', $value);
-        if (!isset($this->_data['DeductionTypes'])) {
+        if (! isset($this->_data['DeductionTypes'])) {
             $this->_data['DeductionTypes'] = new Remote\Collection();
         }
         $this->_data['DeductionTypes'][] = $value;
@@ -210,7 +210,7 @@ class PayItem extends Remote\Model
     public function addReimbursementType(ReimbursementType $value)
     {
         $this->propertyUpdated('ReimbursementTypes', $value);
-        if (!isset($this->_data['ReimbursementTypes'])) {
+        if (! isset($this->_data['ReimbursementTypes'])) {
             $this->_data['ReimbursementTypes'] = new Remote\Collection();
         }
         $this->_data['ReimbursementTypes'][] = $value;
@@ -233,7 +233,7 @@ class PayItem extends Remote\Model
     public function addTimeOffType(TimeOffType $value)
     {
         $this->propertyUpdated('TimeOffTypes', $value);
-        if (!isset($this->_data['TimeOffTypes'])) {
+        if (! isset($this->_data['TimeOffTypes'])) {
             $this->_data['TimeOffTypes'] = new Remote\Collection();
         }
         $this->_data['TimeOffTypes'][] = $value;

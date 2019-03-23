@@ -539,7 +539,7 @@ class Contact extends Remote\Model
     public function addContactPerson(ContactPerson $value)
     {
         $this->propertyUpdated('ContactPersons', $value);
-        if (!isset($this->_data['ContactPersons'])) {
+        if (! isset($this->_data['ContactPersons'])) {
             $this->_data['ContactPersons'] = new Remote\Collection();
         }
         $this->_data['ContactPersons'][] = $value;
@@ -638,7 +638,7 @@ class Contact extends Remote\Model
     public function addAddress(Address $value)
     {
         $this->propertyUpdated('Addresses', $value);
-        if (!isset($this->_data['Addresses'])) {
+        if (! isset($this->_data['Addresses'])) {
             $this->_data['Addresses'] = new Remote\Collection();
         }
         $this->_data['Addresses'][] = $value;
@@ -661,7 +661,7 @@ class Contact extends Remote\Model
     public function addPhone(Phone $value)
     {
         $this->propertyUpdated('Phones', $value);
-        if (!isset($this->_data['Phones'])) {
+        if (! isset($this->_data['Phones'])) {
             $this->_data['Phones'] = new Remote\Collection();
         }
         $this->_data['Phones'][] = $value;
@@ -792,7 +792,7 @@ class Contact extends Remote\Model
     public function addSalesTrackingCategory(TrackingCategory $value)
     {
         $this->propertyUpdated('SalesTrackingCategories', $value);
-        if (!isset($this->_data['SalesTrackingCategories'])) {
+        if (! isset($this->_data['SalesTrackingCategories'])) {
             $this->_data['SalesTrackingCategories'] = new Remote\Collection();
         }
         $this->_data['SalesTrackingCategories'][] = $value;
@@ -815,7 +815,7 @@ class Contact extends Remote\Model
     public function addPurchasesTrackingCategory(TrackingCategory $value)
     {
         $this->propertyUpdated('PurchasesTrackingCategories', $value);
-        if (!isset($this->_data['PurchasesTrackingCategories'])) {
+        if (! isset($this->_data['PurchasesTrackingCategories'])) {
             $this->_data['PurchasesTrackingCategories'] = new Remote\Collection();
         }
         $this->_data['PurchasesTrackingCategories'][] = $value;
@@ -876,7 +876,7 @@ class Contact extends Remote\Model
     public function addPaymentTerm(PaymentTerm $value)
     {
         $this->propertyUpdated('PaymentTerms', $value);
-        if (!isset($this->_data['PaymentTerms'])) {
+        if (! isset($this->_data['PaymentTerms'])) {
             $this->_data['PaymentTerms'] = new Remote\Collection();
         }
         $this->_data['PaymentTerms'][] = $value;
@@ -918,7 +918,7 @@ class Contact extends Remote\Model
     public function addContactGroup(ContactGroup $value)
     {
         $this->propertyUpdated('ContactGroups', $value);
-        if (!isset($this->_data['ContactGroups'])) {
+        if (! isset($this->_data['ContactGroups'])) {
             $this->_data['ContactGroups'] = new Remote\Collection();
         }
         $this->_data['ContactGroups'][] = $value;

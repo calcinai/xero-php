@@ -80,7 +80,7 @@ class URL
         $this->endpoint = $endpoint;
 
         //Check here that the URI hasn't been set by one of the OAuth methods and handle as normal
-        if (!isset($this->path)) {
+        if (! isset($this->path)) {
             switch ($api) {
                 case self::API_CORE:
                     $version = $xero_config['core_version'];

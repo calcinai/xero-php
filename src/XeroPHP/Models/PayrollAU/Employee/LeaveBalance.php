@@ -185,7 +185,7 @@ class LeaveBalance extends Remote\Model
     public function addTypeOfUnit(PayItem $value)
     {
         $this->propertyUpdated('TypeOfUnits', $value);
-        if (!isset($this->_data['TypeOfUnits'])) {
+        if (! isset($this->_data['TypeOfUnits'])) {
             $this->_data['TypeOfUnits'] = new Remote\Collection();
         }
         $this->_data['TypeOfUnits'][] = $value;
