@@ -220,6 +220,7 @@ abstract class Model implements ObjectInterface, \JsonSerializable, \ArrayAccess
      * Convert the object into an array, and any non-primitives to string.
      *
      * @return array
+     * @param mixed $dirty_only
      */
     public function toStringArray($dirty_only = false)
     {

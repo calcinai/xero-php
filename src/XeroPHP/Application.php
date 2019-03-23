@@ -311,6 +311,8 @@ abstract class Application
 
     /**
      * @param Collection|array $objects
+     * @param mixed $checkGuid
+     * @param mixed $replace_data
      * @return Remote\Response
      * @throws Exception
      */
