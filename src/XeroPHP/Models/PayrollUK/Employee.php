@@ -309,6 +309,17 @@ class Employee extends Remote\Model
     }
 
     /**
+     * @return string
+     */
+    public function setEmployeeID()
+    {
+        $this->propertyUpdated('employeeID', $value);
+        $this->_data[ 'employeeID' ] = $value;
+        
+        return $this;
+    }
+
+    /**
      * @return \DateTimeInterface
      */
     public function getUpdatedDateUTC()
