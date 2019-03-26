@@ -2,8 +2,6 @@
 
 namespace XeroPHP;
 
-use XeroPHP\Helpers;
-
 class Webhook
 {
     /**

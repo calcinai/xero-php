@@ -2,7 +2,6 @@
 
 namespace XeroPHP;
 
-use XeroPHP\Remote;
 use XeroPHP\Remote\URL;
 use XeroPHP\Remote\Query;
 use XeroPHP\Remote\Request;
