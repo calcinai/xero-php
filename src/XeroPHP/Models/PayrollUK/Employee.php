@@ -311,7 +311,7 @@ class Employee extends Remote\Model
     /**
      * @return string
      */
-    public function setEmployeeID()
+    public function setEmployeeID($value)
     {
         $this->propertyUpdated('employeeID', $value);
         $this->_data[ 'employeeID' ] = $value;
