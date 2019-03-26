@@ -70,7 +70,7 @@ class Helpers
 
         foreach ($sxml->children() as $child_name => $child) {
             /**
-             * @var \SimpleXMLElement $child
+             * @var \SimpleXMLElement
              */
             if ($child->count() > 0) {
                 $node = self::XMLToArray($child);
