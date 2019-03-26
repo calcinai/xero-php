@@ -9,7 +9,6 @@ use XeroPHP\Models\Accounting\TrackingCategory;
  * This is to avoid external dependencies.
  *
  * Class Helpers
- * @package XeroPHP
  */
 class Helpers
 {

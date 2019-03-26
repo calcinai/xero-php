@@ -14,7 +14,6 @@ use XeroPHP\Remote\OAuth\SignatureMethod\PLAINTEXT;
  * which comes in the recommended php developer kit.
  *
  * @author Michael Calcinai
- * @package XeroPHP\Remote\OAuth
  */
 class Client
 {

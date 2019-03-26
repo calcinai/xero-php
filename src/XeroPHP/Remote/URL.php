@@ -10,7 +10,6 @@ use XeroPHP\Application;
  *
  * Class URL
  * @author Michael Calcinai
- * @package XeroPHP\Remote
  */
 class URL
 {
