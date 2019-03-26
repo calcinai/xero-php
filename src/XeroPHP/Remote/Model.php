@@ -199,7 +199,7 @@ abstract class Model implements ObjectInterface, \JsonSerializable, \ArrayAccess
                 foreach ($input_array[$property] as $assoc_element) {
                     $cast = self::castFromString($type, $assoc_element, $php_type);
                     //Do this here so that you know it's not a static method call to ::castFromString
-                    if ($cast instanceof Model) {
+                    if ($cast instanceof self) {
                         $cast->addAssociatedObject($property, $this);
                     }
                     $collection->append($cast);
@@ -208,7 +208,7 @@ abstract class Model implements ObjectInterface, \JsonSerializable, \ArrayAccess
             } else {
                 $cast = self::castFromString($type, $input_array[$property], $php_type);
                 //Do this here so that you know it's not a static method call to ::castFromString
-                if ($cast instanceof Model) {
+                if ($cast instanceof self) {
                     $cast->addAssociatedObject($property, $this);
                 }
                 $this->_data[$property] = $cast;
@@ -280,7 +280,7 @@ abstract class Model implements ObjectInterface, \JsonSerializable, \ArrayAccess
                 return $value->format('c');
 
             case self::PROPERTY_TYPE_OBJECT:
-                if ($value instanceof Model) {
+                if ($value instanceof self) {
                     return $value->toStringArray();
                 }
                 return '';
@@ -368,14 +368,14 @@ abstract class Model implements ObjectInterface, \JsonSerializable, \ArrayAccess
                 }
 
                 if ($check_children) {
-                    if ($this->_data[$property] instanceof Model) {
+                    if ($this->_data[$property] instanceof self) {
                         //Keep IDEs happy
                         /** @var self $obj */
                         $obj = $this->_data[$property];
                         $obj->validate();
                     } elseif ($this->_data[$property] instanceof Collection) {
                         foreach ($this->_data[$property] as $element) {
-                            if ($element instanceof Model) {
+                            if ($element instanceof self) {
                                 $element->validate();
                             }
                         }
@@ -426,7 +426,7 @@ abstract class Model implements ObjectInterface, \JsonSerializable, \ArrayAccess
      * @param string $property
      * @param Model $object
      */
-    public function addAssociatedObject($property, Model $object)
+    public function addAssociatedObject($property, self $object)
     {
         $this->_associated_objects[$property] = $object;
     }

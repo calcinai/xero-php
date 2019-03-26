@@ -142,7 +142,7 @@ class TimeOffType extends Remote\Model
      * @param TimeOffType $value
      * @return TimeOffType
      */
-    public function setTimeOffType(TimeOffType $value)
+    public function setTimeOffType(self $value)
     {
         $this->propertyUpdated('TimeOffType', $value);
         $this->_data['TimeOffType'] = $value;
