@@ -422,7 +422,7 @@ abstract class Application
     {
         foreach ($object::getProperties() as $property_name => $meta) {
             if ($meta[ Remote\Model::KEY_SAVE_DIRECTLY ] && $object->isDirty($property_name)) {
-                $property_objects = $object->$property_name;
+                $property_objects = $object->{$property_name};
 
                 if ($property_objects instanceof Remote\Model) {
 
@@ -460,6 +460,10 @@ abstract class Application
                         }
                     }
 
+                    continue;
+                }
+
+                if (!is_array($property_objects)) {
                     continue;
                 }
 
