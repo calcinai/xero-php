@@ -295,6 +295,14 @@ class Employee extends Remote\Model
     /**
      * @return string
      */
+    public function getGUID()
+    {
+        return $this->getEmployeeID();
+    }
+
+    /**
+     * @return string
+     */
     public function getEmployeeID()
     {
         return $this->_data[ 'employeeID' ];
