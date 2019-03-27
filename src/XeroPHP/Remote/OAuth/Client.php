@@ -295,7 +295,7 @@ class Client
      */
     public function getAuthorizeURL($oauth_token = null)
     {
-        if ($oauth_token == null) {
+        if ($oauth_token === null) {
             return $this->config['authorize_url'];
         }
 
