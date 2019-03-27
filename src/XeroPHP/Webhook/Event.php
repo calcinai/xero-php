@@ -142,7 +142,7 @@ class Event
             return \XeroPHP\Models\Accounting\Contact::class;
         }
 
-        return null;
+        return;
     }
 
     /**

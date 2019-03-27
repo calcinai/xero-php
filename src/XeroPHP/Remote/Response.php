@@ -159,7 +159,7 @@ class Response
         if (isset($this->element_errors[$element_id])) {
             return $this->element_errors[$element_id];
         }
-        return null;
+        return;
     }
 
     public function getElementErrors()

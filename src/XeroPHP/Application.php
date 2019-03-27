@@ -210,7 +210,7 @@ abstract class Application
             $object->fromStringArray($element);
             return $object;
         }
-        return null;
+        return;
     }
 
     /**
@@ -273,7 +273,7 @@ abstract class Application
         $this->savePropertiesDirectly($object);
 
         if (! $object->isDirty()) {
-            return null;
+            return;
         }
         $object->validate();
 

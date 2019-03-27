@@ -457,7 +457,7 @@ abstract class Model implements ObjectInterface, \JsonSerializable, \ArrayAccess
         }
 
         trigger_error(sprintf("Undefined property %s::$%s.\n", __CLASS__, $property));
-        return null;
+        return;
     }
 
     /**
@@ -476,7 +476,7 @@ abstract class Model implements ObjectInterface, \JsonSerializable, \ArrayAccess
         }
 
         trigger_error(sprintf("Undefined property %s::$%s.\n", __CLASS__, $property));
-        return null;
+        return;
     }
 
     protected function propertyUpdated($property, $value)
