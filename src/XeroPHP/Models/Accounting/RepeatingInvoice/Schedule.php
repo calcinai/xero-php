@@ -149,6 +149,7 @@ class Schedule extends Remote\Model
     {
         $this->propertyUpdated('Period', $value);
         $this->_data['Period'] = $value;
+
         return $this;
     }
 
@@ -168,6 +169,7 @@ class Schedule extends Remote\Model
     {
         $this->propertyUpdated('Unit', $value);
         $this->_data['Unit'] = $value;
+
         return $this;
     }
 
@@ -187,6 +189,7 @@ class Schedule extends Remote\Model
     {
         $this->propertyUpdated('DueDate', $value);
         $this->_data['DueDate'] = $value;
+
         return $this;
     }
 
@@ -206,6 +209,7 @@ class Schedule extends Remote\Model
     {
         $this->propertyUpdated('DueDateType', $value);
         $this->_data['DueDateType'] = $value;
+
         return $this;
     }
 
@@ -225,6 +229,7 @@ class Schedule extends Remote\Model
     {
         $this->propertyUpdated('StartDate', $value);
         $this->_data['StartDate'] = $value;
+
         return $this;
     }
 
@@ -244,6 +249,7 @@ class Schedule extends Remote\Model
     {
         $this->propertyUpdated('NextScheduledDate', $value);
         $this->_data['NextScheduledDate'] = $value;
+
         return $this;
     }
 
@@ -263,6 +269,7 @@ class Schedule extends Remote\Model
     {
         $this->propertyUpdated('EndDate', $value);
         $this->_data['EndDate'] = $value;
+
         return $this;
     }
 }

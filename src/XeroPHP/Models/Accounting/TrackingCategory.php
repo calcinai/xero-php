@@ -141,6 +141,7 @@ class TrackingCategory extends Remote\Model
     {
         $this->propertyUpdated('TrackingCategoryID', $value);
         $this->_data['TrackingCategoryID'] = $value;
+
         return $this;
     }
 
@@ -160,6 +161,7 @@ class TrackingCategory extends Remote\Model
     {
         $this->propertyUpdated('Name', $value);
         $this->_data['Name'] = $value;
+
         return $this;
     }
 
@@ -179,6 +181,7 @@ class TrackingCategory extends Remote\Model
     {
         $this->propertyUpdated('TrackingCategoryName', $value);
         $this->_data['TrackingCategoryName'] = $value;
+
         return $this;
     }
 
@@ -198,6 +201,7 @@ class TrackingCategory extends Remote\Model
     {
         $this->propertyUpdated('TrackingOptionName', $value);
         $this->_data['TrackingOptionName'] = $value;
+
         return $this;
     }
 
@@ -217,6 +221,7 @@ class TrackingCategory extends Remote\Model
     {
         $this->propertyUpdated('Status', $value);
         $this->_data['Status'] = $value;
+
         return $this;
     }
 
@@ -240,6 +245,7 @@ class TrackingCategory extends Remote\Model
             $this->_data['Options'] = new Remote\Collection();
         }
         $this->_data['Options'][] = $value;
+
         return $this;
     }
 
@@ -260,6 +266,7 @@ class TrackingCategory extends Remote\Model
     {
         $this->propertyUpdated('Option', $value);
         $this->_data['Option'] = $value;
+
         return $this;
     }
 }

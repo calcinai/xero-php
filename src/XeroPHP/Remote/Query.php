@@ -44,6 +44,7 @@ class Query
     public function from($class)
     {
         $this->from_class = $this->app->validateModelClass($class);
+
         return $this;
     }
 
@@ -135,6 +136,7 @@ class Query
     public function orderBy($order, $direction = self::ORDER_ASC)
     {
         $this->order = sprintf('%s %s', $order, $direction);
+
         return $this;
     }
 
@@ -149,6 +151,7 @@ class Query
         }
 
         $this->modifiedAfter = $modifiedAfter->format('c');
+
         return $this;
     }
 
@@ -159,6 +162,7 @@ class Query
     public function fromDate(DateTime $fromDate)
     {
         $this->fromDate = $fromDate->format('Y-m-d');
+
         return $this;
     }
 
@@ -169,6 +173,7 @@ class Query
     public function toDate(DateTime $toDate)
     {
         $this->toDate = $toDate->format('Y-m-d');
+
         return $this;
     }
 
@@ -179,6 +184,7 @@ class Query
     public function date(DateTime $date)
     {
         $this->date = $date->format('Y-m-d');
+
         return $this;
     }
 
@@ -208,12 +214,14 @@ class Query
     public function offset($offset = 0)
     {
         $this->offset = (int) $offset;
+
         return $this;
     }
 
     public function includeArchived($includeArchived = true)
     {
         $this->includeArchived = (bool) $includeArchived;
+
         return $this;
     }
 
@@ -221,6 +229,7 @@ class Query
     public function setParameter($key, $value)
     {
         $this->params[(string) $key] = (string) $value;
+
         return $this;
     }
 

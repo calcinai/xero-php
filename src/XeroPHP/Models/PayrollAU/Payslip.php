@@ -250,6 +250,7 @@ class Payslip extends Remote\Model
     {
         $this->propertyUpdated('EmployeeID', $value);
         $this->_data['EmployeeID'] = $value;
+
         return $this;
     }
 
@@ -269,6 +270,7 @@ class Payslip extends Remote\Model
     {
         $this->propertyUpdated('PayRunID', $value);
         $this->_data['PayRunID'] = $value;
+
         return $this;
     }
 
@@ -288,6 +290,7 @@ class Payslip extends Remote\Model
     {
         $this->propertyUpdated('PayslipID', $value);
         $this->_data['PayslipID'] = $value;
+
         return $this;
     }
 
@@ -311,6 +314,7 @@ class Payslip extends Remote\Model
             $this->_data['EarningsLines'] = new Remote\Collection();
         }
         $this->_data['EarningsLines'][] = $value;
+
         return $this;
     }
 
@@ -334,6 +338,7 @@ class Payslip extends Remote\Model
             $this->_data['TimesheetEarningsLines'] = new Remote\Collection();
         }
         $this->_data['TimesheetEarningsLines'][] = $value;
+
         return $this;
     }
 
@@ -357,6 +362,7 @@ class Payslip extends Remote\Model
             $this->_data['DeductionLines'] = new Remote\Collection();
         }
         $this->_data['DeductionLines'][] = $value;
+
         return $this;
     }
 
@@ -380,6 +386,7 @@ class Payslip extends Remote\Model
             $this->_data['LeaveAccrualLines'] = new Remote\Collection();
         }
         $this->_data['LeaveAccrualLines'][] = $value;
+
         return $this;
     }
 
@@ -403,6 +410,7 @@ class Payslip extends Remote\Model
             $this->_data['ReimbursementLines'] = new Remote\Collection();
         }
         $this->_data['ReimbursementLines'][] = $value;
+
         return $this;
     }
 
@@ -426,6 +434,7 @@ class Payslip extends Remote\Model
             $this->_data['SuperannuationLines'] = new Remote\Collection();
         }
         $this->_data['SuperannuationLines'][] = $value;
+
         return $this;
     }
 
@@ -449,6 +458,7 @@ class Payslip extends Remote\Model
             $this->_data['TaxLines'] = new Remote\Collection();
         }
         $this->_data['TaxLines'][] = $value;
+
         return $this;
     }
 

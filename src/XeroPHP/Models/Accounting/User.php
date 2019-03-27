@@ -149,6 +149,7 @@ class User extends Remote\Model
     {
         $this->propertyUpdated('UserID', $value);
         $this->_data['UserID'] = $value;
+
         return $this;
     }
 
@@ -168,6 +169,7 @@ class User extends Remote\Model
     {
         $this->propertyUpdated('EmailAddress', $value);
         $this->_data['EmailAddress'] = $value;
+
         return $this;
     }
 
@@ -187,6 +189,7 @@ class User extends Remote\Model
     {
         $this->propertyUpdated('FirstName', $value);
         $this->_data['FirstName'] = $value;
+
         return $this;
     }
 
@@ -206,6 +209,7 @@ class User extends Remote\Model
     {
         $this->propertyUpdated('LastName', $value);
         $this->_data['LastName'] = $value;
+
         return $this;
     }
 
@@ -225,6 +229,7 @@ class User extends Remote\Model
     {
         $this->propertyUpdated('UpdatedDateUTC', $value);
         $this->_data['UpdatedDateUTC'] = $value;
+
         return $this;
     }
 
@@ -244,6 +249,7 @@ class User extends Remote\Model
     {
         $this->propertyUpdated('IsSubscriber', $value);
         $this->_data['IsSubscriber'] = $value;
+
         return $this;
     }
 
@@ -263,6 +269,7 @@ class User extends Remote\Model
     {
         $this->propertyUpdated('OrganisationRole', $value);
         $this->_data['OrganisationRole'] = $value;
+
         return $this;
     }
 }

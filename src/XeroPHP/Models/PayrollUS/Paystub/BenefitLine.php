@@ -113,6 +113,7 @@ class BenefitLine extends Remote\Model
     {
         $this->propertyUpdated('BenefitTypeID', $value);
         $this->_data['BenefitTypeID'] = $value;
+
         return $this;
     }
 
@@ -132,6 +133,7 @@ class BenefitLine extends Remote\Model
     {
         $this->propertyUpdated('Amount', $value);
         $this->_data['Amount'] = $value;
+
         return $this;
     }
 }

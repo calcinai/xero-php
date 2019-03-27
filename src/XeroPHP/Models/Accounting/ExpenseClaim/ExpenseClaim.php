@@ -170,6 +170,7 @@ class ExpenseClaim extends Remote\Model
     {
         $this->propertyUpdated('ExpenseClaimID', $value);
         $this->_data['ExpenseClaimID'] = $value;
+
         return $this;
     }
 
@@ -262,6 +263,7 @@ class ExpenseClaim extends Remote\Model
     {
         $this->propertyUpdated('ReceiptID', $value);
         $this->_data['ReceiptID'] = $value;
+
         return $this;
     }
 }

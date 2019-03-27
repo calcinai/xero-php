@@ -183,6 +183,7 @@ class Journal extends Remote\Model
     {
         $this->propertyUpdated('JournalID', $value);
         $this->_data['JournalID'] = $value;
+
         return $this;
     }
 
@@ -202,6 +203,7 @@ class Journal extends Remote\Model
     {
         $this->propertyUpdated('JournalDate', $value);
         $this->_data['JournalDate'] = $value;
+
         return $this;
     }
 
@@ -221,6 +223,7 @@ class Journal extends Remote\Model
     {
         $this->propertyUpdated('JournalNumber', $value);
         $this->_data['JournalNumber'] = $value;
+
         return $this;
     }
 
@@ -240,6 +243,7 @@ class Journal extends Remote\Model
     {
         $this->propertyUpdated('CreatedDateUTC', $value);
         $this->_data['CreatedDateUTC'] = $value;
+
         return $this;
     }
 
@@ -259,6 +263,7 @@ class Journal extends Remote\Model
     {
         $this->propertyUpdated('Reference', $value);
         $this->_data['Reference'] = $value;
+
         return $this;
     }
 
@@ -278,6 +283,7 @@ class Journal extends Remote\Model
     {
         $this->propertyUpdated('SourceID', $value);
         $this->_data['SourceID'] = $value;
+
         return $this;
     }
 
@@ -297,6 +303,7 @@ class Journal extends Remote\Model
     {
         $this->propertyUpdated('SourceType', $value);
         $this->_data['SourceType'] = $value;
+
         return $this;
     }
 
@@ -320,6 +327,7 @@ class Journal extends Remote\Model
             $this->_data['JournalLines'] = new Remote\Collection();
         }
         $this->_data['JournalLines'][] = $value;
+
         return $this;
     }
 }

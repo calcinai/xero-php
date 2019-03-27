@@ -120,6 +120,7 @@ class TimeOffLine extends Remote\Model
     {
         $this->propertyUpdated('TimeOffTypeID', $value);
         $this->_data['TimeOffTypeID'] = $value;
+
         return $this;
     }
 
@@ -139,6 +140,7 @@ class TimeOffLine extends Remote\Model
     {
         $this->propertyUpdated('Hours', $value);
         $this->_data['Hours'] = $value;
+
         return $this;
     }
 
@@ -158,6 +160,7 @@ class TimeOffLine extends Remote\Model
     {
         $this->propertyUpdated('Balance', $value);
         $this->_data['Balance'] = $value;
+
         return $this;
     }
 }

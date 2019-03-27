@@ -120,6 +120,7 @@ class TaxComponent extends Remote\Model
     {
         $this->propertyUpdated('Name', $value);
         $this->_data['Name'] = $value;
+
         return $this;
     }
 
@@ -139,6 +140,7 @@ class TaxComponent extends Remote\Model
     {
         $this->propertyUpdated('Rate', $value);
         $this->_data['Rate'] = $value;
+
         return $this;
     }
 
@@ -158,6 +160,7 @@ class TaxComponent extends Remote\Model
     {
         $this->propertyUpdated('IsCompound', $value);
         $this->_data['IsCompound'] = $value;
+
         return $this;
     }
 }

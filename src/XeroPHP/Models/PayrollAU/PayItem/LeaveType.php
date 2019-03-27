@@ -150,6 +150,7 @@ class LeaveType extends Remote\Model
     {
         $this->propertyUpdated('Name', $value);
         $this->_data['Name'] = $value;
+
         return $this;
     }
 
@@ -171,6 +172,7 @@ class LeaveType extends Remote\Model
     {
         $this->propertyUpdated('TypeOfUnits', $value);
         $this->_data['TypeOfUnits'] = $value;
+
         return $this;
     }
 
@@ -190,6 +192,7 @@ class LeaveType extends Remote\Model
     {
         $this->propertyUpdated('IsPaidLeave', $value);
         $this->_data['IsPaidLeave'] = $value;
+
         return $this;
     }
 
@@ -209,6 +212,7 @@ class LeaveType extends Remote\Model
     {
         $this->propertyUpdated('ShowOnPayslip', $value);
         $this->_data['ShowOnPayslip'] = $value;
+
         return $this;
     }
 
@@ -228,6 +232,7 @@ class LeaveType extends Remote\Model
     {
         $this->propertyUpdated('LeaveTypeID', $value);
         $this->_data['LeaveTypeID'] = $value;
+
         return $this;
     }
 
@@ -247,6 +252,7 @@ class LeaveType extends Remote\Model
     {
         $this->propertyUpdated('NormalEntitlement', $value);
         $this->_data['NormalEntitlement'] = $value;
+
         return $this;
     }
 
@@ -266,6 +272,7 @@ class LeaveType extends Remote\Model
     {
         $this->propertyUpdated('LeaveLoadingRate', $value);
         $this->_data['LeaveLoadingRate'] = $value;
+
         return $this;
     }
 }

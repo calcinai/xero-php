@@ -117,6 +117,7 @@ class PaymentMethod extends Remote\Model
     {
         $this->propertyUpdated('PaymentMethodType', $value);
         $this->_data['PaymentMethodType'] = $value;
+
         return $this;
     }
 
@@ -140,6 +141,7 @@ class PaymentMethod extends Remote\Model
             $this->_data['BankAccounts'] = new Remote\Collection();
         }
         $this->_data['BankAccounts'][] = $value;
+
         return $this;
     }
 }

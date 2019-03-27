@@ -185,6 +185,7 @@ class JournalLine extends Remote\Model
     {
         $this->propertyUpdated('JournalLineID', $value);
         $this->_data['JournalLineID'] = $value;
+
         return $this;
     }
 
@@ -204,6 +205,7 @@ class JournalLine extends Remote\Model
     {
         $this->propertyUpdated('AccountID', $value);
         $this->_data['AccountID'] = $value;
+
         return $this;
     }
 
@@ -223,6 +225,7 @@ class JournalLine extends Remote\Model
     {
         $this->propertyUpdated('AccountCode', $value);
         $this->_data['AccountCode'] = $value;
+
         return $this;
     }
 
@@ -242,6 +245,7 @@ class JournalLine extends Remote\Model
     {
         $this->propertyUpdated('AccountType', $value);
         $this->_data['AccountType'] = $value;
+
         return $this;
     }
 
@@ -261,6 +265,7 @@ class JournalLine extends Remote\Model
     {
         $this->propertyUpdated('AccountName', $value);
         $this->_data['AccountName'] = $value;
+
         return $this;
     }
 
@@ -280,6 +285,7 @@ class JournalLine extends Remote\Model
     {
         $this->propertyUpdated('Description', $value);
         $this->_data['Description'] = $value;
+
         return $this;
     }
 
@@ -299,6 +305,7 @@ class JournalLine extends Remote\Model
     {
         $this->propertyUpdated('NetAmount', $value);
         $this->_data['NetAmount'] = $value;
+
         return $this;
     }
 
@@ -318,6 +325,7 @@ class JournalLine extends Remote\Model
     {
         $this->propertyUpdated('GrossAmount', $value);
         $this->_data['GrossAmount'] = $value;
+
         return $this;
     }
 
@@ -337,6 +345,7 @@ class JournalLine extends Remote\Model
     {
         $this->propertyUpdated('TaxAmount', $value);
         $this->_data['TaxAmount'] = $value;
+
         return $this;
     }
 
@@ -356,6 +365,7 @@ class JournalLine extends Remote\Model
     {
         $this->propertyUpdated('TaxType', $value);
         $this->_data['TaxType'] = $value;
+
         return $this;
     }
 
@@ -375,6 +385,7 @@ class JournalLine extends Remote\Model
     {
         $this->propertyUpdated('TaxName', $value);
         $this->_data['TaxName'] = $value;
+
         return $this;
     }
 
@@ -398,6 +409,7 @@ class JournalLine extends Remote\Model
             $this->_data['TrackingCategories'] = new Remote\Collection();
         }
         $this->_data['TrackingCategories'][] = $value;
+
         return $this;
     }
 }

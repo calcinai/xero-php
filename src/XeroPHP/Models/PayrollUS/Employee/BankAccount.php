@@ -149,6 +149,7 @@ class BankAccount extends Remote\Model
     {
         $this->propertyUpdated('AccountHolderName', $value);
         $this->_data['AccountHolderName'] = $value;
+
         return $this;
     }
 
@@ -168,6 +169,7 @@ class BankAccount extends Remote\Model
     {
         $this->propertyUpdated('StatementText', $value);
         $this->_data['StatementText'] = $value;
+
         return $this;
     }
 
@@ -187,6 +189,7 @@ class BankAccount extends Remote\Model
     {
         $this->propertyUpdated('AccountType', $value);
         $this->_data['AccountType'] = $value;
+
         return $this;
     }
 
@@ -206,6 +209,7 @@ class BankAccount extends Remote\Model
     {
         $this->propertyUpdated('RoutingNumber', $value);
         $this->_data['RoutingNumber'] = $value;
+
         return $this;
     }
 
@@ -225,6 +229,7 @@ class BankAccount extends Remote\Model
     {
         $this->propertyUpdated('AccountNumber', $value);
         $this->_data['AccountNumber'] = $value;
+
         return $this;
     }
 
@@ -244,6 +249,7 @@ class BankAccount extends Remote\Model
     {
         $this->propertyUpdated('Amount', $value);
         $this->_data['Amount'] = $value;
+
         return $this;
     }
 
@@ -263,6 +269,7 @@ class BankAccount extends Remote\Model
     {
         $this->propertyUpdated('Remainder', $value);
         $this->_data['Remainder'] = $value;
+
         return $this;
     }
 }

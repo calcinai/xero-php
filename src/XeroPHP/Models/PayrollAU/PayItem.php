@@ -137,6 +137,7 @@ class PayItem extends Remote\Model
             $this->_data['EarningsRates'] = new Remote\Collection();
         }
         $this->_data['EarningsRates'][] = $value;
+
         return $this;
     }
 
@@ -160,6 +161,7 @@ class PayItem extends Remote\Model
             $this->_data['DeductionTypes'] = new Remote\Collection();
         }
         $this->_data['DeductionTypes'][] = $value;
+
         return $this;
     }
 
@@ -183,6 +185,7 @@ class PayItem extends Remote\Model
             $this->_data['LeaveTypes'] = new Remote\Collection();
         }
         $this->_data['LeaveTypes'][] = $value;
+
         return $this;
     }
 
@@ -206,6 +209,7 @@ class PayItem extends Remote\Model
             $this->_data['ReimbursementTypes'] = new Remote\Collection();
         }
         $this->_data['ReimbursementTypes'][] = $value;
+
         return $this;
     }
 }

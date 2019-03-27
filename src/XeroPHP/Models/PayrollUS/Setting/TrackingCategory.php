@@ -113,6 +113,7 @@ class TrackingCategory extends Remote\Model
     {
         $this->propertyUpdated('TrackingCategoryID', $value);
         $this->_data['TrackingCategoryID'] = $value;
+
         return $this;
     }
 
@@ -132,6 +133,7 @@ class TrackingCategory extends Remote\Model
     {
         $this->propertyUpdated('TrackingCategoryName', $value);
         $this->_data['TrackingCategoryName'] = $value;
+
         return $this;
     }
 }

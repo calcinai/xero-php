@@ -148,6 +148,7 @@ class MailingAddress extends Remote\Model
     {
         $this->propertyUpdated('StreetAddress', $value);
         $this->_data['StreetAddress'] = $value;
+
         return $this;
     }
 
@@ -167,6 +168,7 @@ class MailingAddress extends Remote\Model
     {
         $this->propertyUpdated('SuiteOrAptOrUnit', $value);
         $this->_data['SuiteOrAptOrUnit'] = $value;
+
         return $this;
     }
 
@@ -186,6 +188,7 @@ class MailingAddress extends Remote\Model
     {
         $this->propertyUpdated('City', $value);
         $this->_data['City'] = $value;
+
         return $this;
     }
 
@@ -205,6 +208,7 @@ class MailingAddress extends Remote\Model
     {
         $this->propertyUpdated('State', $value);
         $this->_data['State'] = $value;
+
         return $this;
     }
 
@@ -224,6 +228,7 @@ class MailingAddress extends Remote\Model
     {
         $this->propertyUpdated('Zip', $value);
         $this->_data['Zip'] = $value;
+
         return $this;
     }
 
@@ -243,6 +248,7 @@ class MailingAddress extends Remote\Model
     {
         $this->propertyUpdated('Lattitude', $value);
         $this->_data['Lattitude'] = $value;
+
         return $this;
     }
 
@@ -262,6 +268,7 @@ class MailingAddress extends Remote\Model
     {
         $this->propertyUpdated('Longitude', $value);
         $this->_data['Longitude'] = $value;
+
         return $this;
     }
 }

@@ -128,6 +128,7 @@ class BrandingTheme extends Remote\Model
     {
         $this->propertyUpdated('BrandingThemeID', $value);
         $this->_data['BrandingThemeID'] = $value;
+
         return $this;
     }
 
@@ -147,6 +148,7 @@ class BrandingTheme extends Remote\Model
     {
         $this->propertyUpdated('Name', $value);
         $this->_data['Name'] = $value;
+
         return $this;
     }
 
@@ -166,6 +168,7 @@ class BrandingTheme extends Remote\Model
     {
         $this->propertyUpdated('SortOrder', $value);
         $this->_data['SortOrder'] = $value;
+
         return $this;
     }
 
@@ -185,6 +188,7 @@ class BrandingTheme extends Remote\Model
     {
         $this->propertyUpdated('CreatedDateUTC', $value);
         $this->_data['CreatedDateUTC'] = $value;
+
         return $this;
     }
 }

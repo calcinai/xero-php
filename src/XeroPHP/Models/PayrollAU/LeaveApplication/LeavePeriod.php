@@ -127,6 +127,7 @@ class LeavePeriod extends Remote\Model
     {
         $this->propertyUpdated('NumberOfUnits', $value);
         $this->_data['NumberOfUnits'] = $value;
+
         return $this;
     }
 
@@ -146,6 +147,7 @@ class LeavePeriod extends Remote\Model
     {
         $this->propertyUpdated('PayPeriodEndDate', $value);
         $this->_data['PayPeriodEndDate'] = $value;
+
         return $this;
     }
 
@@ -165,6 +167,7 @@ class LeavePeriod extends Remote\Model
     {
         $this->propertyUpdated('PayPeriodStartDate', $value);
         $this->_data['PayPeriodStartDate'] = $value;
+
         return $this;
     }
 
@@ -184,6 +187,7 @@ class LeavePeriod extends Remote\Model
     {
         $this->propertyUpdated('LeavePeriodStatus', $value);
         $this->_data['LeavePeriodStatus'] = $value;
+
         return $this;
     }
 }

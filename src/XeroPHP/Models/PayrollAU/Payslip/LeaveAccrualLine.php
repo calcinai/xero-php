@@ -120,6 +120,7 @@ class LeaveAccrualLine extends Remote\Model
     {
         $this->propertyUpdated('LeaveTypeID', $value);
         $this->_data['LeaveTypeID'] = $value;
+
         return $this;
     }
 
@@ -139,6 +140,7 @@ class LeaveAccrualLine extends Remote\Model
     {
         $this->propertyUpdated('NumberOfUnits', $value);
         $this->_data['NumberOfUnits'] = $value;
+
         return $this;
     }
 
@@ -158,6 +160,7 @@ class LeaveAccrualLine extends Remote\Model
     {
         $this->propertyUpdated('AutoCalculate', $value);
         $this->_data['AutoCalculate'] = $value;
+
         return $this;
     }
 }

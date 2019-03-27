@@ -128,6 +128,7 @@ class TaxLine extends Remote\Model
     {
         $this->propertyUpdated('TaxTypeName', $value);
         $this->_data['TaxTypeName'] = $value;
+
         return $this;
     }
 
@@ -147,6 +148,7 @@ class TaxLine extends Remote\Model
     {
         $this->propertyUpdated('Description', $value);
         $this->_data['Description'] = $value;
+
         return $this;
     }
 
@@ -166,6 +168,7 @@ class TaxLine extends Remote\Model
     {
         $this->propertyUpdated('Amount', $value);
         $this->_data['Amount'] = $value;
+
         return $this;
     }
 
@@ -185,6 +188,7 @@ class TaxLine extends Remote\Model
     {
         $this->propertyUpdated('LiabilityAccount', $value);
         $this->_data['LiabilityAccount'] = $value;
+
         return $this;
     }
 }

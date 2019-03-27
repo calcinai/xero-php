@@ -167,6 +167,7 @@ class LineItem extends Remote\Model
     {
         $this->propertyUpdated('LineItemID', $value);
         $this->_data['LineItemID'] = $value;
+
         return $this;
     }
 
@@ -186,6 +187,7 @@ class LineItem extends Remote\Model
     {
         $this->propertyUpdated('Description', $value);
         $this->_data['Description'] = $value;
+
         return $this;
     }
 
@@ -205,6 +207,7 @@ class LineItem extends Remote\Model
     {
         $this->propertyUpdated('UnitAmount', $value);
         $this->_data['UnitAmount'] = $value;
+
         return $this;
     }
 
@@ -224,6 +227,7 @@ class LineItem extends Remote\Model
     {
         $this->propertyUpdated('AccountCode', $value);
         $this->_data['AccountCode'] = $value;
+
         return $this;
     }
 
@@ -243,6 +247,7 @@ class LineItem extends Remote\Model
     {
         $this->propertyUpdated('Quantity', $value);
         $this->_data['Quantity'] = $value;
+
         return $this;
     }
 
@@ -262,6 +267,7 @@ class LineItem extends Remote\Model
     {
         $this->propertyUpdated('TaxType', $value);
         $this->_data['TaxType'] = $value;
+
         return $this;
     }
 
@@ -281,6 +287,7 @@ class LineItem extends Remote\Model
     {
         $this->propertyUpdated('LineAmount', $value);
         $this->_data['LineAmount'] = $value;
+
         return $this;
     }
 
@@ -304,6 +311,7 @@ class LineItem extends Remote\Model
             $this->_data['Tracking'] = new Remote\Collection();
         }
         $this->_data['Tracking'][] = $value;
+
         return $this;
     }
 

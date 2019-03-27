@@ -160,6 +160,7 @@ class File extends Remote\Model
     {
         $this->propertyUpdated('Name', $value);
         $this->_data['Name'] = $value;
+
         return $this;
     }
 
@@ -179,6 +180,7 @@ class File extends Remote\Model
     {
         $this->propertyUpdated('FolderId', $value);
         $this->_data['FolderId'] = $value;
+
         return $this;
     }
 
@@ -198,6 +200,7 @@ class File extends Remote\Model
     {
         $this->propertyUpdated('MimeType', $value);
         $this->_data['MimeType'] = $value;
+
         return $this;
     }
 
@@ -217,6 +220,7 @@ class File extends Remote\Model
     {
         $this->propertyUpdated('Size', $value);
         $this->_data['Size'] = $value;
+
         return $this;
     }
 
@@ -236,6 +240,7 @@ class File extends Remote\Model
     {
         $this->propertyUpdated('CreatedDateUTC', $value);
         $this->_data['CreatedDateUTC'] = $value;
+
         return $this;
     }
 
@@ -255,6 +260,7 @@ class File extends Remote\Model
     {
         $this->propertyUpdated('UpdatedDateUTC', $value);
         $this->_data['UpdatedDateUTC'] = $value;
+
         return $this;
     }
 
@@ -274,6 +280,7 @@ class File extends Remote\Model
     {
         $this->propertyUpdated('User', $value);
         $this->_data['User'] = $value;
+
         return $this;
     }
 
@@ -293,6 +300,7 @@ class File extends Remote\Model
     {
         $this->propertyUpdated('Id', $value);
         $this->_data['Id'] = $value;
+
         return $this;
     }
 }

@@ -142,6 +142,7 @@ class ExpenseClaim extends Remote\Model
     {
         $this->propertyUpdated('ExpenseClaimID', $value);
         $this->_data['ExpenseClaimID'] = $value;
+
         return $this;
     }
 
@@ -161,6 +162,7 @@ class ExpenseClaim extends Remote\Model
     {
         $this->propertyUpdated('User', $value);
         $this->_data['User'] = $value;
+
         return $this;
     }
 
@@ -184,6 +186,7 @@ class ExpenseClaim extends Remote\Model
             $this->_data['Receipts'] = new Remote\Collection();
         }
         $this->_data['Receipts'][] = $value;
+
         return $this;
     }
 
@@ -211,6 +214,7 @@ class ExpenseClaim extends Remote\Model
     {
         $this->propertyUpdated('Status', $value);
         $this->_data['Status'] = $value;
+
         return $this;
     }
 

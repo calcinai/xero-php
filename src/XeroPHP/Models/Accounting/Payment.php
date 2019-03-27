@@ -223,6 +223,7 @@ class Payment extends Remote\Model
     {
         $this->propertyUpdated('Invoice', $value);
         $this->_data['Invoice'] = $value;
+
         return $this;
     }
 
@@ -242,6 +243,7 @@ class Payment extends Remote\Model
     {
         $this->propertyUpdated('CreditNote', $value);
         $this->_data['CreditNote'] = $value;
+
         return $this;
     }
 
@@ -261,6 +263,7 @@ class Payment extends Remote\Model
     {
         $this->propertyUpdated('Prepayment', $value);
         $this->_data['Prepayment'] = $value;
+
         return $this;
     }
 
@@ -280,6 +283,7 @@ class Payment extends Remote\Model
     {
         $this->propertyUpdated('Overpayment', $value);
         $this->_data['Overpayment'] = $value;
+
         return $this;
     }
 
@@ -299,6 +303,7 @@ class Payment extends Remote\Model
     {
         $this->propertyUpdated('Account', $value);
         $this->_data['Account'] = $value;
+
         return $this;
     }
 
@@ -318,6 +323,7 @@ class Payment extends Remote\Model
     {
         $this->propertyUpdated('Date', $value);
         $this->_data['Date'] = $value;
+
         return $this;
     }
 
@@ -337,6 +343,7 @@ class Payment extends Remote\Model
     {
         $this->propertyUpdated('CurrencyRate', $value);
         $this->_data['CurrencyRate'] = $value;
+
         return $this;
     }
 
@@ -356,6 +363,7 @@ class Payment extends Remote\Model
     {
         $this->propertyUpdated('Amount', $value);
         $this->_data['Amount'] = $value;
+
         return $this;
     }
 
@@ -375,6 +383,7 @@ class Payment extends Remote\Model
     {
         $this->propertyUpdated('Reference', $value);
         $this->_data['Reference'] = $value;
+
         return $this;
     }
 
@@ -394,6 +403,7 @@ class Payment extends Remote\Model
     {
         $this->propertyUpdated('IsReconciled', $value);
         $this->_data['IsReconciled'] = $value;
+
         return $this;
     }
 
@@ -413,6 +423,7 @@ class Payment extends Remote\Model
     {
         $this->propertyUpdated('Status', $value);
         $this->_data['Status'] = $value;
+
         return $this;
     }
 
@@ -450,6 +461,7 @@ class Payment extends Remote\Model
     {
         $this->propertyUpdated('PaymentID', $value);
         $this->_data['PaymentID'] = $value;
+
         return $this;
     }
 }

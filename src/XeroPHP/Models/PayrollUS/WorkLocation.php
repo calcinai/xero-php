@@ -157,6 +157,7 @@ class WorkLocation extends Remote\Model
     {
         $this->propertyUpdated('StreetAddress', $value);
         $this->_data['StreetAddress'] = $value;
+
         return $this;
     }
 
@@ -176,6 +177,7 @@ class WorkLocation extends Remote\Model
     {
         $this->propertyUpdated('City', $value);
         $this->_data['City'] = $value;
+
         return $this;
     }
 
@@ -195,6 +197,7 @@ class WorkLocation extends Remote\Model
     {
         $this->propertyUpdated('State', $value);
         $this->_data['State'] = $value;
+
         return $this;
     }
 
@@ -214,6 +217,7 @@ class WorkLocation extends Remote\Model
     {
         $this->propertyUpdated('Latitude', $value);
         $this->_data['Latitude'] = $value;
+
         return $this;
     }
 
@@ -233,6 +237,7 @@ class WorkLocation extends Remote\Model
     {
         $this->propertyUpdated('Longitude', $value);
         $this->_data['Longitude'] = $value;
+
         return $this;
     }
 
@@ -252,6 +257,7 @@ class WorkLocation extends Remote\Model
     {
         $this->propertyUpdated('WorkLocationID', $value);
         $this->_data['WorkLocationID'] = $value;
+
         return $this;
     }
 
@@ -271,6 +277,7 @@ class WorkLocation extends Remote\Model
     {
         $this->propertyUpdated('SuitOrAptOrUnit', $value);
         $this->_data['SuitOrAptOrUnit'] = $value;
+
         return $this;
     }
 
@@ -290,6 +297,7 @@ class WorkLocation extends Remote\Model
     {
         $this->propertyUpdated('IsPrimary', $value);
         $this->_data['IsPrimary'] = $value;
+
         return $this;
     }
 }

@@ -141,6 +141,7 @@ class HomeAddress extends Remote\Model
     {
         $this->propertyUpdated('AddressLine1', $value);
         $this->_data['AddressLine1'] = $value;
+
         return $this;
     }
 
@@ -160,6 +161,7 @@ class HomeAddress extends Remote\Model
     {
         $this->propertyUpdated('AddressLine2', $value);
         $this->_data['AddressLine2'] = $value;
+
         return $this;
     }
 
@@ -179,6 +181,7 @@ class HomeAddress extends Remote\Model
     {
         $this->propertyUpdated('City', $value);
         $this->_data['City'] = $value;
+
         return $this;
     }
 
@@ -198,6 +201,7 @@ class HomeAddress extends Remote\Model
     {
         $this->propertyUpdated('Region', $value);
         $this->_data['Region'] = $value;
+
         return $this;
     }
 
@@ -217,6 +221,7 @@ class HomeAddress extends Remote\Model
     {
         $this->propertyUpdated('PostalCode', $value);
         $this->_data['PostalCode'] = $value;
+
         return $this;
     }
 
@@ -236,6 +241,7 @@ class HomeAddress extends Remote\Model
     {
         $this->propertyUpdated('Country', $value);
         $this->_data['Country'] = $value;
+
         return $this;
     }
 }

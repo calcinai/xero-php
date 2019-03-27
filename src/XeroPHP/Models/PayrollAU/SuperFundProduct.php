@@ -130,6 +130,7 @@ class SuperFundProduct extends Remote\Model
     {
         $this->propertyUpdated('ABN', $value);
         $this->_data['ABN'] = $value;
+
         return $this;
     }
 
@@ -149,6 +150,7 @@ class SuperFundProduct extends Remote\Model
     {
         $this->propertyUpdated('USI', $value);
         $this->_data['USI'] = $value;
+
         return $this;
     }
 
@@ -170,6 +172,7 @@ class SuperFundProduct extends Remote\Model
     {
         $this->propertyUpdated('SPIN', $value);
         $this->_data['SPIN'] = $value;
+
         return $this;
     }
 
@@ -189,6 +192,7 @@ class SuperFundProduct extends Remote\Model
     {
         $this->propertyUpdated('ProductName', $value);
         $this->_data['ProductName'] = $value;
+
         return $this;
     }
 }

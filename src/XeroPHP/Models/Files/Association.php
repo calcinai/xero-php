@@ -125,6 +125,7 @@ class Association extends Remote\Model
     {
         $this->propertyUpdated('ObjectId', $value);
         $this->_data['ObjectId'] = $value;
+
         return $this;
     }
 
@@ -144,6 +145,7 @@ class Association extends Remote\Model
     {
         $this->propertyUpdated('ObjectGroup', $value);
         $this->_data['ObjectGroup'] = $value;
+
         return $this;
     }
 
@@ -163,6 +165,7 @@ class Association extends Remote\Model
     {
         $this->propertyUpdated('ObjectType', $value);
         $this->_data['ObjectType'] = $value;
+
         return $this;
     }
 }

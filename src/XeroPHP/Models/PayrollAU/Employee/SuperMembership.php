@@ -127,6 +127,7 @@ class SuperMembership extends Remote\Model
     {
         $this->propertyUpdated('SuperFundID', $value);
         $this->_data['SuperFundID'] = $value;
+
         return $this;
     }
 
@@ -146,6 +147,7 @@ class SuperMembership extends Remote\Model
     {
         $this->propertyUpdated('EmployeeNumber', $value);
         $this->_data['EmployeeNumber'] = $value;
+
         return $this;
     }
 
@@ -165,6 +167,7 @@ class SuperMembership extends Remote\Model
     {
         $this->propertyUpdated('SuperMembershipID', $value);
         $this->_data['SuperMembershipID'] = $value;
+
         return $this;
     }
 
@@ -184,6 +187,7 @@ class SuperMembership extends Remote\Model
     {
         $this->propertyUpdated('EmployeeID', $value);
         $this->_data['EmployeeID'] = $value;
+
         return $this;
     }
 }

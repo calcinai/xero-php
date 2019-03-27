@@ -144,6 +144,7 @@ class PayrollCalendar extends Remote\Model
     {
         $this->propertyUpdated('PayrollCalendarID', $value);
         $this->_data['PayrollCalendarID'] = $value;
+
         return $this;
     }
 
@@ -163,6 +164,7 @@ class PayrollCalendar extends Remote\Model
     {
         $this->propertyUpdated('Name', $value);
         $this->_data['Name'] = $value;
+
         return $this;
     }
 
@@ -182,6 +184,7 @@ class PayrollCalendar extends Remote\Model
     {
         $this->propertyUpdated('CalendarType', $value);
         $this->_data['CalendarType'] = $value;
+
         return $this;
     }
 
@@ -201,6 +204,7 @@ class PayrollCalendar extends Remote\Model
     {
         $this->propertyUpdated('StartDate', $value);
         $this->_data['StartDate'] = $value;
+
         return $this;
     }
 
@@ -220,6 +224,7 @@ class PayrollCalendar extends Remote\Model
     {
         $this->propertyUpdated('PaymentDate', $value);
         $this->_data['PaymentDate'] = $value;
+
         return $this;
     }
 }

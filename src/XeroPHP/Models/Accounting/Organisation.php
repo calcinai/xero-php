@@ -329,6 +329,7 @@ class Organisation extends Remote\Model
     {
         $this->propertyUpdated('APIKey', $value);
         $this->_data['APIKey'] = $value;
+
         return $this;
     }
 
@@ -348,6 +349,7 @@ class Organisation extends Remote\Model
     {
         $this->propertyUpdated('Name', $value);
         $this->_data['Name'] = $value;
+
         return $this;
     }
 
@@ -367,6 +369,7 @@ class Organisation extends Remote\Model
     {
         $this->propertyUpdated('LegalName', $value);
         $this->_data['LegalName'] = $value;
+
         return $this;
     }
 
@@ -386,6 +389,7 @@ class Organisation extends Remote\Model
     {
         $this->propertyUpdated('PaysTax', $value);
         $this->_data['PaysTax'] = $value;
+
         return $this;
     }
 
@@ -405,6 +409,7 @@ class Organisation extends Remote\Model
     {
         $this->propertyUpdated('Version', $value);
         $this->_data['Version'] = $value;
+
         return $this;
     }
 
@@ -424,6 +429,7 @@ class Organisation extends Remote\Model
     {
         $this->propertyUpdated('OrganisationType', $value);
         $this->_data['OrganisationType'] = $value;
+
         return $this;
     }
 
@@ -443,6 +449,7 @@ class Organisation extends Remote\Model
     {
         $this->propertyUpdated('BaseCurrency', $value);
         $this->_data['BaseCurrency'] = $value;
+
         return $this;
     }
 
@@ -462,6 +469,7 @@ class Organisation extends Remote\Model
     {
         $this->propertyUpdated('CountryCode', $value);
         $this->_data['CountryCode'] = $value;
+
         return $this;
     }
 
@@ -481,6 +489,7 @@ class Organisation extends Remote\Model
     {
         $this->propertyUpdated('IsDemoCompany', $value);
         $this->_data['IsDemoCompany'] = $value;
+
         return $this;
     }
 
@@ -500,6 +509,7 @@ class Organisation extends Remote\Model
     {
         $this->propertyUpdated('OrganisationStatus', $value);
         $this->_data['OrganisationStatus'] = $value;
+
         return $this;
     }
 
@@ -519,6 +529,7 @@ class Organisation extends Remote\Model
     {
         $this->propertyUpdated('RegistrationNumber', $value);
         $this->_data['RegistrationNumber'] = $value;
+
         return $this;
     }
 
@@ -538,6 +549,7 @@ class Organisation extends Remote\Model
     {
         $this->propertyUpdated('TaxNumber', $value);
         $this->_data['TaxNumber'] = $value;
+
         return $this;
     }
 
@@ -557,6 +569,7 @@ class Organisation extends Remote\Model
     {
         $this->propertyUpdated('FinancialYearEndDay', $value);
         $this->_data['FinancialYearEndDay'] = $value;
+
         return $this;
     }
 
@@ -576,6 +589,7 @@ class Organisation extends Remote\Model
     {
         $this->propertyUpdated('FinancialYearEndMonth', $value);
         $this->_data['FinancialYearEndMonth'] = $value;
+
         return $this;
     }
 
@@ -595,6 +609,7 @@ class Organisation extends Remote\Model
     {
         $this->propertyUpdated('SalesTaxBasis', $value);
         $this->_data['SalesTaxBasis'] = $value;
+
         return $this;
     }
 
@@ -614,6 +629,7 @@ class Organisation extends Remote\Model
     {
         $this->propertyUpdated('SalesTaxPeriod', $value);
         $this->_data['SalesTaxPeriod'] = $value;
+
         return $this;
     }
 
@@ -633,6 +649,7 @@ class Organisation extends Remote\Model
     {
         $this->propertyUpdated('DefaultSalesTax', $value);
         $this->_data['DefaultSalesTax'] = $value;
+
         return $this;
     }
 
@@ -652,6 +669,7 @@ class Organisation extends Remote\Model
     {
         $this->propertyUpdated('DefaultPurchasesTax', $value);
         $this->_data['DefaultPurchasesTax'] = $value;
+
         return $this;
     }
 
@@ -671,6 +689,7 @@ class Organisation extends Remote\Model
     {
         $this->propertyUpdated('PeriodLockDate', $value);
         $this->_data['PeriodLockDate'] = $value;
+
         return $this;
     }
 
@@ -690,6 +709,7 @@ class Organisation extends Remote\Model
     {
         $this->propertyUpdated('EndOfYearLockDate', $value);
         $this->_data['EndOfYearLockDate'] = $value;
+
         return $this;
     }
 
@@ -709,6 +729,7 @@ class Organisation extends Remote\Model
     {
         $this->propertyUpdated('CreatedDateUTC', $value);
         $this->_data['CreatedDateUTC'] = $value;
+
         return $this;
     }
 
@@ -728,6 +749,7 @@ class Organisation extends Remote\Model
     {
         $this->propertyUpdated('Timezone', $value);
         $this->_data['Timezone'] = $value;
+
         return $this;
     }
 
@@ -747,6 +769,7 @@ class Organisation extends Remote\Model
     {
         $this->propertyUpdated('OrganisationEntityType', $value);
         $this->_data['OrganisationEntityType'] = $value;
+
         return $this;
     }
 
@@ -766,6 +789,7 @@ class Organisation extends Remote\Model
     {
         $this->propertyUpdated('ShortCode', $value);
         $this->_data['ShortCode'] = $value;
+
         return $this;
     }
 
@@ -785,6 +809,7 @@ class Organisation extends Remote\Model
     {
         $this->propertyUpdated('LineOfBusiness', $value);
         $this->_data['LineOfBusiness'] = $value;
+
         return $this;
     }
 
@@ -808,6 +833,7 @@ class Organisation extends Remote\Model
             $this->_data['Addresses'] = new Remote\Collection();
         }
         $this->_data['Addresses'][] = $value;
+
         return $this;
     }
 
@@ -831,6 +857,7 @@ class Organisation extends Remote\Model
             $this->_data['Phones'] = new Remote\Collection();
         }
         $this->_data['Phones'][] = $value;
+
         return $this;
     }
 
@@ -854,6 +881,7 @@ class Organisation extends Remote\Model
             $this->_data['ExternalLinks'] = new Remote\Collection();
         }
         $this->_data['ExternalLinks'][] = $value;
+
         return $this;
     }
 
@@ -877,6 +905,7 @@ class Organisation extends Remote\Model
             $this->_data['PaymentTerms'] = new Remote\Collection();
         }
         $this->_data['PaymentTerms'][] = $value;
+
         return $this;
     }
 

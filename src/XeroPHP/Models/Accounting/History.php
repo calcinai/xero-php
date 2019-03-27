@@ -114,6 +114,7 @@ class History extends Model
     {
         $this->propertyUpdated('Details', $value);
         $this->_data['Details'] = $value;
+
         return $this;
     }
 

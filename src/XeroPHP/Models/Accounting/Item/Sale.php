@@ -138,6 +138,7 @@ class Sale extends Remote\Model
     {
         $this->propertyUpdated('UnitPrice', $value);
         $this->_data['UnitPrice'] = $value;
+
         return $this;
     }
 
@@ -157,6 +158,7 @@ class Sale extends Remote\Model
     {
         $this->propertyUpdated('AccountCode', $value);
         $this->_data['AccountCode'] = $value;
+
         return $this;
     }
 
@@ -176,6 +178,7 @@ class Sale extends Remote\Model
     {
         $this->propertyUpdated('COGSAccountCode', $value);
         $this->_data['COGSAccountCode'] = $value;
+
         return $this;
     }
 
@@ -197,6 +200,7 @@ class Sale extends Remote\Model
     {
         $this->propertyUpdated('UpdatedDateUTC', $value);
         $this->_data['UpdatedDateUTC'] = $value;
+
         return $this;
     }
 
@@ -216,6 +220,7 @@ class Sale extends Remote\Model
     {
         $this->propertyUpdated('TaxType', $value);
         $this->_data['TaxType'] = $value;
+
         return $this;
     }
 }

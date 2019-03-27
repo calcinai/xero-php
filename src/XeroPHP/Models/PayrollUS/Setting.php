@@ -120,6 +120,7 @@ class Setting extends Remote\Model
             $this->_data['Accounts'] = new Remote\Collection();
         }
         $this->_data['Accounts'][] = $value;
+
         return $this;
     }
 
@@ -143,6 +144,7 @@ class Setting extends Remote\Model
             $this->_data['TrackingCategories'] = new Remote\Collection();
         }
         $this->_data['TrackingCategories'][] = $value;
+
         return $this;
     }
 }

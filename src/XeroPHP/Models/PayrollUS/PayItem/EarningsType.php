@@ -207,6 +207,7 @@ class EarningsType extends Remote\Model
     {
         $this->propertyUpdated('EarningsType', $value);
         $this->_data['EarningsType'] = $value;
+
         return $this;
     }
 
@@ -228,6 +229,7 @@ class EarningsType extends Remote\Model
     {
         $this->propertyUpdated('DisplayName', $value);
         $this->_data['DisplayName'] = $value;
+
         return $this;
     }
 
@@ -247,6 +249,7 @@ class EarningsType extends Remote\Model
     {
         $this->propertyUpdated('ExpenseAccountCode', $value);
         $this->_data['ExpenseAccountCode'] = $value;
+
         return $this;
     }
 
@@ -266,6 +269,7 @@ class EarningsType extends Remote\Model
     {
         $this->propertyUpdated('EarningsCategory', $value);
         $this->_data['EarningsCategory'] = $value;
+
         return $this;
     }
 
@@ -285,6 +289,7 @@ class EarningsType extends Remote\Model
     {
         $this->propertyUpdated('RateType', $value);
         $this->_data['RateType'] = $value;
+
         return $this;
     }
 
@@ -304,6 +309,7 @@ class EarningsType extends Remote\Model
     {
         $this->propertyUpdated('TypeOfUnits', $value);
         $this->_data['TypeOfUnits'] = $value;
+
         return $this;
     }
 
@@ -325,6 +331,7 @@ class EarningsType extends Remote\Model
     {
         $this->propertyUpdated('EarningsRateID', $value);
         $this->_data['EarningsRateID'] = $value;
+
         return $this;
     }
 
@@ -344,6 +351,7 @@ class EarningsType extends Remote\Model
     {
         $this->propertyUpdated('EarningsTypeID', $value);
         $this->_data['EarningsTypeID'] = $value;
+
         return $this;
     }
 
@@ -363,6 +371,7 @@ class EarningsType extends Remote\Model
     {
         $this->propertyUpdated('Multiple', $value);
         $this->_data['Multiple'] = $value;
+
         return $this;
     }
 
@@ -382,6 +391,7 @@ class EarningsType extends Remote\Model
     {
         $this->propertyUpdated('DoNotAccrueTimeOff', $value);
         $this->_data['DoNotAccrueTimeOff'] = $value;
+
         return $this;
     }
 
@@ -401,6 +411,7 @@ class EarningsType extends Remote\Model
     {
         $this->propertyUpdated('IsSupplemental', $value);
         $this->_data['IsSupplemental'] = $value;
+
         return $this;
     }
 
@@ -420,6 +431,7 @@ class EarningsType extends Remote\Model
     {
         $this->propertyUpdated('Amount', $value);
         $this->_data['Amount'] = $value;
+
         return $this;
     }
 }

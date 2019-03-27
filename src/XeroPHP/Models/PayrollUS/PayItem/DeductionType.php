@@ -179,6 +179,7 @@ class DeductionType extends Remote\Model
     {
         $this->propertyUpdated('DeductionType', $value);
         $this->_data['DeductionType'] = $value;
+
         return $this;
     }
 
@@ -198,6 +199,7 @@ class DeductionType extends Remote\Model
     {
         $this->propertyUpdated('DeductionCategory', $value);
         $this->_data['DeductionCategory'] = $value;
+
         return $this;
     }
 
@@ -217,6 +219,7 @@ class DeductionType extends Remote\Model
     {
         $this->propertyUpdated('CalculationType', $value);
         $this->_data['CalculationType'] = $value;
+
         return $this;
     }
 
@@ -236,6 +239,7 @@ class DeductionType extends Remote\Model
     {
         $this->propertyUpdated('LiabilityAccountCode', $value);
         $this->_data['LiabilityAccountCode'] = $value;
+
         return $this;
     }
 
@@ -255,6 +259,7 @@ class DeductionType extends Remote\Model
     {
         $this->propertyUpdated('DeductionTypeID', $value);
         $this->_data['DeductionTypeID'] = $value;
+
         return $this;
     }
 
@@ -274,6 +279,7 @@ class DeductionType extends Remote\Model
     {
         $this->propertyUpdated('StandardAmount', $value);
         $this->_data['StandardAmount'] = $value;
+
         return $this;
     }
 
@@ -293,6 +299,7 @@ class DeductionType extends Remote\Model
     {
         $this->propertyUpdated('CompanyMax', $value);
         $this->_data['CompanyMax'] = $value;
+
         return $this;
     }
 }

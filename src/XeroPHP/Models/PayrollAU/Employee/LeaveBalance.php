@@ -128,6 +128,7 @@ class LeaveBalance extends Remote\Model
     {
         $this->propertyUpdated('LeaveName', $value);
         $this->_data['LeaveName'] = $value;
+
         return $this;
     }
 
@@ -147,6 +148,7 @@ class LeaveBalance extends Remote\Model
     {
         $this->propertyUpdated('LeaveTypeID', $value);
         $this->_data['LeaveTypeID'] = $value;
+
         return $this;
     }
 
@@ -166,6 +168,7 @@ class LeaveBalance extends Remote\Model
     {
         $this->propertyUpdated('NumberOfUnits', $value);
         $this->_data['NumberOfUnits'] = $value;
+
         return $this;
     }
 
@@ -189,6 +192,7 @@ class LeaveBalance extends Remote\Model
             $this->_data['TypeOfUnits'] = new Remote\Collection();
         }
         $this->_data['TypeOfUnits'][] = $value;
+
         return $this;
     }
 }

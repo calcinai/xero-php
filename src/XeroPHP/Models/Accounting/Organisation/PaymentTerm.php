@@ -122,6 +122,7 @@ class PaymentTerm extends Remote\Model
             $this->_data['Bills'] = new Remote\Collection();
         }
         $this->_data['Bills'][] = $value;
+
         return $this;
     }
 
@@ -145,6 +146,7 @@ class PaymentTerm extends Remote\Model
             $this->_data['Sales'] = new Remote\Collection();
         }
         $this->_data['Sales'][] = $value;
+
         return $this;
     }
 }

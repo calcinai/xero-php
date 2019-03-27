@@ -127,6 +127,7 @@ class DeductionLine extends Remote\Model
     {
         $this->propertyUpdated('DeductionTypeID', $value);
         $this->_data['DeductionTypeID'] = $value;
+
         return $this;
     }
 
@@ -146,6 +147,7 @@ class DeductionLine extends Remote\Model
     {
         $this->propertyUpdated('CalculationType', $value);
         $this->_data['CalculationType'] = $value;
+
         return $this;
     }
 
@@ -165,6 +167,7 @@ class DeductionLine extends Remote\Model
     {
         $this->propertyUpdated('Percentage', $value);
         $this->_data['Percentage'] = $value;
+
         return $this;
     }
 
@@ -184,6 +187,7 @@ class DeductionLine extends Remote\Model
     {
         $this->propertyUpdated('Amount', $value);
         $this->_data['Amount'] = $value;
+
         return $this;
     }
 }

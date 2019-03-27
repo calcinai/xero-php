@@ -139,6 +139,7 @@ class LeaveLine extends Remote\Model
     {
         $this->propertyUpdated('LeaveTypeID', $value);
         $this->_data['LeaveTypeID'] = $value;
+
         return $this;
     }
 
@@ -158,6 +159,7 @@ class LeaveLine extends Remote\Model
     {
         $this->propertyUpdated('CalculationType', $value);
         $this->_data['CalculationType'] = $value;
+
         return $this;
     }
 
@@ -177,6 +179,7 @@ class LeaveLine extends Remote\Model
     {
         $this->propertyUpdated('AnnualNumberOfUnits', $value);
         $this->_data['AnnualNumberOfUnits'] = $value;
+
         return $this;
     }
 
@@ -196,6 +199,7 @@ class LeaveLine extends Remote\Model
     {
         $this->propertyUpdated('FullTimeNumberOfUnitsPerPeriod', $value);
         $this->_data['FullTimeNumberOfUnitsPerPeriod'] = $value;
+
         return $this;
     }
 
@@ -215,6 +219,7 @@ class LeaveLine extends Remote\Model
     {
         $this->propertyUpdated('NumberOfUnits', $value);
         $this->_data['NumberOfUnits'] = $value;
+
         return $this;
     }
 
@@ -234,6 +239,7 @@ class LeaveLine extends Remote\Model
     {
         $this->propertyUpdated('EntitlementFinalPayPayoutType', $value);
         $this->_data['EntitlementFinalPayPayoutType'] = $value;
+
         return $this;
     }
 }

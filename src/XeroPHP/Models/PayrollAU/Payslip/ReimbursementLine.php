@@ -127,6 +127,7 @@ class ReimbursementLine extends Remote\Model
     {
         $this->propertyUpdated('ReimbursementTypeID', $value);
         $this->_data['ReimbursementTypeID'] = $value;
+
         return $this;
     }
 
@@ -146,6 +147,7 @@ class ReimbursementLine extends Remote\Model
     {
         $this->propertyUpdated('Description', $value);
         $this->_data['Description'] = $value;
+
         return $this;
     }
 
@@ -165,6 +167,7 @@ class ReimbursementLine extends Remote\Model
     {
         $this->propertyUpdated('ExpenseAccount', $value);
         $this->_data['ExpenseAccount'] = $value;
+
         return $this;
     }
 
@@ -184,6 +187,7 @@ class ReimbursementLine extends Remote\Model
     {
         $this->propertyUpdated('Amount', $value);
         $this->_data['Amount'] = $value;
+
         return $this;
     }
 }

@@ -158,6 +158,7 @@ class SalaryAndWage extends Remote\Model
     {
         $this->propertyUpdated('SalaryAndWageID', $value);
         $this->_data['SalaryAndWageID'] = $value;
+
         return $this;
     }
 
@@ -177,6 +178,7 @@ class SalaryAndWage extends Remote\Model
     {
         $this->propertyUpdated('SalaryAndWagesID', $value);
         $this->_data['SalaryAndWagesID'] = $value;
+
         return $this;
     }
 
@@ -196,6 +198,7 @@ class SalaryAndWage extends Remote\Model
     {
         $this->propertyUpdated('EarningsTypeID', $value);
         $this->_data['EarningsTypeID'] = $value;
+
         return $this;
     }
 
@@ -215,6 +218,7 @@ class SalaryAndWage extends Remote\Model
     {
         $this->propertyUpdated('SalaryWagesType', $value);
         $this->_data['SalaryWagesType'] = $value;
+
         return $this;
     }
 
@@ -234,6 +238,7 @@ class SalaryAndWage extends Remote\Model
     {
         $this->propertyUpdated('HourlyRate', $value);
         $this->_data['HourlyRate'] = $value;
+
         return $this;
     }
 
@@ -253,6 +258,7 @@ class SalaryAndWage extends Remote\Model
     {
         $this->propertyUpdated('AnnualSalary', $value);
         $this->_data['AnnualSalary'] = $value;
+
         return $this;
     }
 
@@ -272,6 +278,7 @@ class SalaryAndWage extends Remote\Model
     {
         $this->propertyUpdated('StandardHoursPerWeek', $value);
         $this->_data['StandardHoursPerWeek'] = $value;
+
         return $this;
     }
 
@@ -291,6 +298,7 @@ class SalaryAndWage extends Remote\Model
     {
         $this->propertyUpdated('EffectiveDate', $value);
         $this->_data['EffectiveDate'] = $value;
+
         return $this;
     }
 }

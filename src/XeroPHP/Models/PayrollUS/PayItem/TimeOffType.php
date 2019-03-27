@@ -146,6 +146,7 @@ class TimeOffType extends Remote\Model
     {
         $this->propertyUpdated('TimeOffType', $value);
         $this->_data['TimeOffType'] = $value;
+
         return $this;
     }
 
@@ -165,6 +166,7 @@ class TimeOffType extends Remote\Model
     {
         $this->propertyUpdated('TimeOffCategory', $value);
         $this->_data['TimeOffCategory'] = $value;
+
         return $this;
     }
 
@@ -184,6 +186,7 @@ class TimeOffType extends Remote\Model
     {
         $this->propertyUpdated('ExpenseAccountCode', $value);
         $this->_data['ExpenseAccountCode'] = $value;
+
         return $this;
     }
 
@@ -203,6 +206,7 @@ class TimeOffType extends Remote\Model
     {
         $this->propertyUpdated('LiabilityAccountCode', $value);
         $this->_data['LiabilityAccountCode'] = $value;
+
         return $this;
     }
 
@@ -222,6 +226,7 @@ class TimeOffType extends Remote\Model
     {
         $this->propertyUpdated('TimeOffTypeID', $value);
         $this->_data['TimeOffTypeID'] = $value;
+
         return $this;
     }
 
@@ -241,6 +246,7 @@ class TimeOffType extends Remote\Model
     {
         $this->propertyUpdated('ShowBalanceToEmployee', $value);
         $this->_data['ShowBalanceToEmployee'] = $value;
+
         return $this;
     }
 }

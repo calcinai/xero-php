@@ -113,6 +113,7 @@ class WorkLocation extends Remote\Model
     {
         $this->propertyUpdated('WorkLocationID', $value);
         $this->_data['WorkLocationID'] = $value;
+
         return $this;
     }
 
@@ -132,6 +133,7 @@ class WorkLocation extends Remote\Model
     {
         $this->propertyUpdated('IsPrimary', $value);
         $this->_data['IsPrimary'] = $value;
+
         return $this;
     }
 }

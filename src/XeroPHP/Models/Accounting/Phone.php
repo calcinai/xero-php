@@ -132,6 +132,7 @@ class Phone extends Remote\Model
     {
         $this->propertyUpdated('PhoneType', $value);
         $this->_data['PhoneType'] = $value;
+
         return $this;
     }
 
@@ -151,6 +152,7 @@ class Phone extends Remote\Model
     {
         $this->propertyUpdated('PhoneNumber', $value);
         $this->_data['PhoneNumber'] = $value;
+
         return $this;
     }
 
@@ -170,6 +172,7 @@ class Phone extends Remote\Model
     {
         $this->propertyUpdated('PhoneAreaCode', $value);
         $this->_data['PhoneAreaCode'] = $value;
+
         return $this;
     }
 
@@ -189,6 +192,7 @@ class Phone extends Remote\Model
     {
         $this->propertyUpdated('PhoneCountryCode', $value);
         $this->_data['PhoneCountryCode'] = $value;
+
         return $this;
     }
 }

@@ -136,6 +136,7 @@ class PaySchedule extends Remote\Model
     {
         $this->propertyUpdated('PayScheduleName', $value);
         $this->_data['PayScheduleName'] = $value;
+
         return $this;
     }
 
@@ -155,6 +156,7 @@ class PaySchedule extends Remote\Model
     {
         $this->propertyUpdated('PaymentDate', $value);
         $this->_data['PaymentDate'] = $value;
+
         return $this;
     }
 
@@ -174,6 +176,7 @@ class PaySchedule extends Remote\Model
     {
         $this->propertyUpdated('StartDate', $value);
         $this->_data['StartDate'] = $value;
+
         return $this;
     }
 
@@ -193,6 +196,7 @@ class PaySchedule extends Remote\Model
     {
         $this->propertyUpdated('ScheduleType', $value);
         $this->_data['ScheduleType'] = $value;
+
         return $this;
     }
 
@@ -212,6 +216,7 @@ class PaySchedule extends Remote\Model
     {
         $this->propertyUpdated('PayScheduleId', $value);
         $this->_data['PayScheduleId'] = $value;
+
         return $this;
     }
 }

@@ -141,6 +141,7 @@ class Employee extends Remote\Model
     {
         $this->propertyUpdated('EmployeeID', $value);
         $this->_data['EmployeeID'] = $value;
+
         return $this;
     }
 
@@ -160,6 +161,7 @@ class Employee extends Remote\Model
     {
         $this->propertyUpdated('Status', $value);
         $this->_data['Status'] = $value;
+
         return $this;
     }
 
@@ -179,6 +181,7 @@ class Employee extends Remote\Model
     {
         $this->propertyUpdated('FirstName', $value);
         $this->_data['FirstName'] = $value;
+
         return $this;
     }
 
@@ -198,6 +201,7 @@ class Employee extends Remote\Model
     {
         $this->propertyUpdated('LastName', $value);
         $this->_data['LastName'] = $value;
+
         return $this;
     }
 
@@ -217,6 +221,7 @@ class Employee extends Remote\Model
     {
         $this->propertyUpdated('ExternalLink', $value);
         $this->_data['ExternalLink'] = $value;
+
         return $this;
     }
 }

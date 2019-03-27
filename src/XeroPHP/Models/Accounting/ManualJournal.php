@@ -181,6 +181,7 @@ class ManualJournal extends Remote\Model
     {
         $this->propertyUpdated('ManualJournalID', $value);
         $this->_data['ManualJournalID'] = $value;
+
         return $this;
     }
 
@@ -200,6 +201,7 @@ class ManualJournal extends Remote\Model
     {
         $this->propertyUpdated('Narration', $value);
         $this->_data['Narration'] = $value;
+
         return $this;
     }
 
@@ -223,6 +225,7 @@ class ManualJournal extends Remote\Model
             $this->_data['JournalLines'] = new Remote\Collection();
         }
         $this->_data['JournalLines'][] = $value;
+
         return $this;
     }
 
@@ -242,6 +245,7 @@ class ManualJournal extends Remote\Model
     {
         $this->propertyUpdated('Date', $value);
         $this->_data['Date'] = $value;
+
         return $this;
     }
 
@@ -261,6 +265,7 @@ class ManualJournal extends Remote\Model
     {
         $this->propertyUpdated('LineAmountTypes', $value);
         $this->_data['LineAmountTypes'] = $value;
+
         return $this;
     }
 
@@ -280,6 +285,7 @@ class ManualJournal extends Remote\Model
     {
         $this->propertyUpdated('Status', $value);
         $this->_data['Status'] = $value;
+
         return $this;
     }
 
@@ -299,6 +305,7 @@ class ManualJournal extends Remote\Model
     {
         $this->propertyUpdated('Url', $value);
         $this->_data['Url'] = $value;
+
         return $this;
     }
 
@@ -318,6 +325,7 @@ class ManualJournal extends Remote\Model
     {
         $this->propertyUpdated('ShowOnCashBasisReports', $value);
         $this->_data['ShowOnCashBasisReports'] = $value;
+
         return $this;
     }
 

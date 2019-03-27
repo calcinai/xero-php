@@ -188,6 +188,7 @@ class LinkedTransaction extends Remote\Model
     {
         $this->propertyUpdated('SourceTransactionID', $value);
         $this->_data['SourceTransactionID'] = $value;
+
         return $this;
     }
 
@@ -207,6 +208,7 @@ class LinkedTransaction extends Remote\Model
     {
         $this->propertyUpdated('SourceLineItemID', $value);
         $this->_data['SourceLineItemID'] = $value;
+
         return $this;
     }
 
@@ -226,6 +228,7 @@ class LinkedTransaction extends Remote\Model
     {
         $this->propertyUpdated('ContactID', $value);
         $this->_data['ContactID'] = $value;
+
         return $this;
     }
 
@@ -245,6 +248,7 @@ class LinkedTransaction extends Remote\Model
     {
         $this->propertyUpdated('TargetTransactionID', $value);
         $this->_data['TargetTransactionID'] = $value;
+
         return $this;
     }
 
@@ -264,6 +268,7 @@ class LinkedTransaction extends Remote\Model
     {
         $this->propertyUpdated('TargetLineItemID', $value);
         $this->_data['TargetLineItemID'] = $value;
+
         return $this;
     }
 
@@ -283,6 +288,7 @@ class LinkedTransaction extends Remote\Model
     {
         $this->propertyUpdated('LinkedTransactionID', $value);
         $this->_data['LinkedTransactionID'] = $value;
+
         return $this;
     }
 
@@ -302,6 +308,7 @@ class LinkedTransaction extends Remote\Model
     {
         $this->propertyUpdated('Status', $value);
         $this->_data['Status'] = $value;
+
         return $this;
     }
 
@@ -321,6 +328,7 @@ class LinkedTransaction extends Remote\Model
     {
         $this->propertyUpdated('Type', $value);
         $this->_data['Type'] = $value;
+
         return $this;
     }
 
@@ -340,6 +348,7 @@ class LinkedTransaction extends Remote\Model
     {
         $this->propertyUpdated('UpdatedDateUTC', $value);
         $this->_data['UpdatedDateUTC'] = $value;
+
         return $this;
     }
 
@@ -359,6 +368,7 @@ class LinkedTransaction extends Remote\Model
     {
         $this->propertyUpdated('SourceTransactionTypeCode', $value);
         $this->_data['SourceTransactionTypeCode'] = $value;
+
         return $this;
     }
 }
