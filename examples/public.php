@@ -100,7 +100,7 @@ function setOAuthSession($token, $secret, $expires = null)
     $_SESSION['oauth'] = [
         'token' => $token,
         'token_secret' => $secret,
-        'expires' => $expires
+        'expires' => $expires,
     ];
 }
 

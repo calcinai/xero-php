@@ -92,7 +92,7 @@ class PaymentMethod extends Remote\Model
     {
         return [
             'PaymentMethodType' => [false, self::PROPERTY_TYPE_ENUM, null, false, false],
-            'BankAccounts' => [false, self::PROPERTY_TYPE_OBJECT, 'PayrollUS\\Employee\\BankAccount', true, false]
+            'BankAccounts' => [false, self::PROPERTY_TYPE_OBJECT, 'PayrollUS\\Employee\\BankAccount', true, false],
         ];
     }
 

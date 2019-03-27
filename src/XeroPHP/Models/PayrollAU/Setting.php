@@ -79,7 +79,7 @@ class Setting extends Remote\Model
     public static function getSupportedMethods()
     {
         return [
-            Remote\Request::METHOD_GET
+            Remote\Request::METHOD_GET,
         ];
     }
 
@@ -99,7 +99,7 @@ class Setting extends Remote\Model
         return [
             'Accounts' => [false, self::PROPERTY_TYPE_OBJECT, 'PayrollAU\\Setting\\Account', true, false],
             'TrackingCategories' => [false, self::PROPERTY_TYPE_OBJECT, 'PayrollAU\\Setting\\TrackingCategory', true, false],
-            'DaysInPayrollYear' => [false, self::PROPERTY_TYPE_STRING, null, false, false]
+            'DaysInPayrollYear' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
         ];
     }
 

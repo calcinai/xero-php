@@ -206,7 +206,7 @@ class BankTransaction extends Remote\Model
         return [
             Remote\Request::METHOD_GET,
             Remote\Request::METHOD_PUT,
-            Remote\Request::METHOD_POST
+            Remote\Request::METHOD_POST,
         ];
     }
 
@@ -243,7 +243,7 @@ class BankTransaction extends Remote\Model
             'PrepaymentID' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
             'OverpaymentID' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
             'UpdatedDateUTC' => [false, self::PROPERTY_TYPE_TIMESTAMP, '\\DateTimeInterface', false, false],
-            'HasAttachments' => [false, self::PROPERTY_TYPE_BOOLEAN, null, false, false]
+            'HasAttachments' => [false, self::PROPERTY_TYPE_BOOLEAN, null, false, false],
         ];
     }
 

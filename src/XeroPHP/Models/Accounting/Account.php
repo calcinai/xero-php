@@ -225,7 +225,7 @@ class Account extends Remote\Model
             Remote\Request::METHOD_GET,
             Remote\Request::METHOD_PUT,
             Remote\Request::METHOD_POST,
-            Remote\Request::METHOD_DELETE
+            Remote\Request::METHOD_DELETE,
         ];
     }
 
@@ -260,7 +260,7 @@ class Account extends Remote\Model
             'ReportingCode' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
             'ReportingCodeName' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
             'HasAttachments' => [false, self::PROPERTY_TYPE_BOOLEAN, null, false, false],
-            'UpdatedDateUTC' => [false, self::PROPERTY_TYPE_TIMESTAMP, '\\DateTimeInterface', false, false]
+            'UpdatedDateUTC' => [false, self::PROPERTY_TYPE_TIMESTAMP, '\\DateTimeInterface', false, false],
         ];
     }
 

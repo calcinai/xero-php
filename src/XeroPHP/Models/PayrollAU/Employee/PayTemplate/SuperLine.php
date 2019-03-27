@@ -121,7 +121,7 @@ class SuperLine extends Remote\Model
             'ExpenseAccountCode' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
             'LiabilityAccountCode' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
             'MinimumMonthlyEarnings' => [false, self::PROPERTY_TYPE_FLOAT, null, false, false],
-            'Percentage' => [false, self::PROPERTY_TYPE_FLOAT, null, false, false]
+            'Percentage' => [false, self::PROPERTY_TYPE_FLOAT, null, false, false],
         ];
     }
 

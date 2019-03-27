@@ -107,7 +107,7 @@ class Phone extends Remote\Model
             'PhoneType' => [false, self::PROPERTY_TYPE_ENUM, null, false, false],
             'PhoneNumber' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
             'PhoneAreaCode' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
-            'PhoneCountryCode' => [false, self::PROPERTY_TYPE_STRING, null, false, false]
+            'PhoneCountryCode' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
         ];
     }
 

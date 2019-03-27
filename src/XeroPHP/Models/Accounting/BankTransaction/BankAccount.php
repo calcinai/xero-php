@@ -88,7 +88,7 @@ class BankAccount extends Remote\Model
     {
         return [
             'Code' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
-            'AccountID' => [false, self::PROPERTY_TYPE_STRING, null, false, false]
+            'AccountID' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
         ];
     }
 

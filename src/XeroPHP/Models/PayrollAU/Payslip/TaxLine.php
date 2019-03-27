@@ -103,7 +103,7 @@ class TaxLine extends Remote\Model
             'TaxTypeName' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
             'Description' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
             'Amount' => [false, self::PROPERTY_TYPE_FLOAT, null, false, false],
-            'LiabilityAccount' => [false, self::PROPERTY_TYPE_STRING, null, false, false]
+            'LiabilityAccount' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
         ];
     }
 

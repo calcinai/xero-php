@@ -136,7 +136,7 @@ class LinkedTransaction extends Remote\Model
             Remote\Request::METHOD_GET,
             Remote\Request::METHOD_PUT,
             Remote\Request::METHOD_POST,
-            Remote\Request::METHOD_DELETE
+            Remote\Request::METHOD_DELETE,
         ];
     }
 
@@ -163,7 +163,7 @@ class LinkedTransaction extends Remote\Model
             'Status' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
             'Type' => [false, self::PROPERTY_TYPE_ENUM, null, false, false],
             'UpdatedDateUTC' => [false, self::PROPERTY_TYPE_TIMESTAMP, '\\DateTimeInterface', false, false],
-            'SourceTransactionTypeCode' => [false, self::PROPERTY_TYPE_STRING, null, false, false]
+            'SourceTransactionTypeCode' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
         ];
     }
 

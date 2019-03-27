@@ -102,7 +102,7 @@ class SuperMembership extends Remote\Model
             'SuperFundID' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
             'EmployeeNumber' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
             'SuperMembershipID' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
-            'EmployeeID' => [false, self::PROPERTY_TYPE_STRING, null, false, false]
+            'EmployeeID' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
         ];
     }
 

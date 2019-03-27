@@ -97,7 +97,7 @@ class Allocation extends Remote\Model
         return [
             'Invoice' => [false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Invoice', false, false],
             'AppliedAmount' => [false, self::PROPERTY_TYPE_FLOAT, null, false, false],
-            'Date' => [false, self::PROPERTY_TYPE_DATE, '\\DateTimeInterface', false, false]
+            'Date' => [false, self::PROPERTY_TYPE_DATE, '\\DateTimeInterface', false, false],
         ];
     }
 

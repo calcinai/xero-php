@@ -182,7 +182,7 @@ class OpeningBalance extends Remote\Model
             'CalculationType' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
             'ReimbursementTypeID' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
             'LeaveTypeID' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
-            'NumberOfUnits' => [false, self::PROPERTY_TYPE_STRING, null, false, false]
+            'NumberOfUnits' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
         ];
     }
 

@@ -102,7 +102,7 @@ class ReimbursementLine extends Remote\Model
             'ReimbursementTypeID' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
             'Description' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
             'ExpenseAccount' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
-            'Amount' => [false, self::PROPERTY_TYPE_FLOAT, null, false, false]
+            'Amount' => [false, self::PROPERTY_TYPE_FLOAT, null, false, false],
         ];
     }
 

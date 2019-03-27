@@ -60,7 +60,7 @@ class Event
             'eventType',
             'eventCategory',
             'tenantId',
-            'tenantType'
+            'tenantType',
         ];
 
         foreach ($fields as $required) {

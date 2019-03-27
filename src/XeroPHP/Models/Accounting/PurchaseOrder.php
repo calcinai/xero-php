@@ -223,7 +223,7 @@ class PurchaseOrder extends Remote\Model
         return [
             Remote\Request::METHOD_GET,
             Remote\Request::METHOD_PUT,
-            Remote\Request::METHOD_POST
+            Remote\Request::METHOD_POST,
         ];
     }
 
@@ -264,7 +264,7 @@ class PurchaseOrder extends Remote\Model
             'Total' => [false, self::PROPERTY_TYPE_FLOAT, null, false, false],
             'TotalDiscount' => [false, self::PROPERTY_TYPE_FLOAT, null, false, false],
             'HasAttachments' => [false, self::PROPERTY_TYPE_BOOLEAN, null, false, false],
-            'UpdatedDateUTC' => [false, self::PROPERTY_TYPE_TIMESTAMP, '\\DateTimeInterface', false, false]
+            'UpdatedDateUTC' => [false, self::PROPERTY_TYPE_TIMESTAMP, '\\DateTimeInterface', false, false],
         ];
     }
 

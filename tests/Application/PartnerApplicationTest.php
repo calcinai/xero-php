@@ -17,8 +17,8 @@ class PartnerApplicationTest extends \PHPUnit_Framework_TestCase
                 //'signature_location'  => \XeroPHP\Remote\OAuth\Client::SIGN_LOCATION_QUERY
             ],
             'curl' => [
-                CURLOPT_CAINFO => 'certs/ca-bundle.crt'
-            ]
+                CURLOPT_CAINFO => 'certs/ca-bundle.crt',
+            ],
         ];
 
         new PartnerApplication($config);

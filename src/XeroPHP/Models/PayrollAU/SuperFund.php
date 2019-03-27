@@ -82,7 +82,7 @@ class SuperFund extends Remote\Model
     {
         return [
             Remote\Request::METHOD_POST,
-            Remote\Request::METHOD_GET
+            Remote\Request::METHOD_GET,
         ];
     }
 
@@ -110,7 +110,7 @@ class SuperFund extends Remote\Model
             'AccountName' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
             'ElectronicServiceAddress' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
             'EmployerNumber' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
-            'SPIN' => [false, self::PROPERTY_TYPE_STRING, null, false, false]
+            'SPIN' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
         ];
     }
 

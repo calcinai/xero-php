@@ -119,7 +119,7 @@ class JournalLine extends Remote\Model
             'Description' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
             'TaxType' => [false, self::PROPERTY_TYPE_ENUM, null, false, false],
             'Tracking' => [false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\TrackingCategory', true, false],
-            'TaxAmount' => [false, self::PROPERTY_TYPE_FLOAT, null, false, false]
+            'TaxAmount' => [false, self::PROPERTY_TYPE_FLOAT, null, false, false],
         ];
     }
 

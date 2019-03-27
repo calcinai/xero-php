@@ -88,7 +88,7 @@ class TrackingCategory extends Remote\Model
     {
         return [
             'TrackingCategoryID' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
-            'TrackingCategoryName' => [false, self::PROPERTY_TYPE_STRING, null, false, false]
+            'TrackingCategoryName' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
         ];
     }
 

@@ -62,7 +62,7 @@ class InvoiceReminder extends Remote\Model
     public static function getSupportedMethods()
     {
         return [
-            Remote\Request::METHOD_GET
+            Remote\Request::METHOD_GET,
         ];
     }
 
@@ -80,7 +80,7 @@ class InvoiceReminder extends Remote\Model
     public static function getProperties()
     {
         return [
-            'Enabled' => [false, self::PROPERTY_TYPE_BOOLEAN, null, false, false]
+            'Enabled' => [false, self::PROPERTY_TYPE_BOOLEAN, null, false, false],
         ];
     }
 

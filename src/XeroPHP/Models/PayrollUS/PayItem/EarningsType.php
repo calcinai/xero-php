@@ -182,7 +182,7 @@ class EarningsType extends Remote\Model
             'Multiple' => [false, self::PROPERTY_TYPE_FLOAT, null, false, false],
             'DoNotAccrueTimeOff' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
             'IsSupplemental' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
-            'Amount' => [false, self::PROPERTY_TYPE_FLOAT, null, false, false]
+            'Amount' => [false, self::PROPERTY_TYPE_FLOAT, null, false, false],
         ];
     }
 

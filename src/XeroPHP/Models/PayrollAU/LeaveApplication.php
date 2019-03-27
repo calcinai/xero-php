@@ -111,7 +111,7 @@ class LeaveApplication extends Remote\Model
     {
         return [
             Remote\Request::METHOD_POST,
-            Remote\Request::METHOD_GET
+            Remote\Request::METHOD_GET,
         ];
     }
 
@@ -136,7 +136,7 @@ class LeaveApplication extends Remote\Model
             'StartDate' => [true, self::PROPERTY_TYPE_DATE, '\\DateTimeInterface', false, false],
             'EndDate' => [true, self::PROPERTY_TYPE_DATE, '\\DateTimeInterface', false, false],
             'Description' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
-            'LeavePeriods' => [false, self::PROPERTY_TYPE_OBJECT, 'PayrollAU\\LeaveApplication\\LeavePeriod', true, false]
+            'LeavePeriods' => [false, self::PROPERTY_TYPE_OBJECT, 'PayrollAU\\LeaveApplication\\LeavePeriod', true, false],
         ];
     }
 

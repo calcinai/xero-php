@@ -102,7 +102,7 @@ class DeductionLine extends Remote\Model
             'DeductionTypeID' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
             'CalculationType' => [false, self::PROPERTY_TYPE_ENUM, null, false, false],
             'Percentage' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
-            'Amount' => [false, self::PROPERTY_TYPE_FLOAT, null, false, false]
+            'Amount' => [false, self::PROPERTY_TYPE_FLOAT, null, false, false],
         ];
     }
 

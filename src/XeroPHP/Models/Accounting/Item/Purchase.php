@@ -113,7 +113,7 @@ class Purchase extends Remote\Model
             'AccountCode' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
             'COGSAccountCode' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
             'UpdatedDateUTC' => [false, self::PROPERTY_TYPE_TIMESTAMP, '\\DateTimeInterface', false, false],
-            'TaxType' => [false, self::PROPERTY_TYPE_ENUM, null, false, false]
+            'TaxType' => [false, self::PROPERTY_TYPE_ENUM, null, false, false],
         ];
     }
 

@@ -121,7 +121,7 @@ class TimeOffType extends Remote\Model
             'ExpenseAccountCode' => [true, self::PROPERTY_TYPE_STRING, null, false, false],
             'LiabilityAccountCode' => [true, self::PROPERTY_TYPE_STRING, null, false, false],
             'TimeOffTypeID' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
-            'ShowBalanceToEmployee' => [false, self::PROPERTY_TYPE_STRING, null, false, false]
+            'ShowBalanceToEmployee' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
         ];
     }
 

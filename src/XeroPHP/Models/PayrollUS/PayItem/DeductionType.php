@@ -154,7 +154,7 @@ class DeductionType extends Remote\Model
             'LiabilityAccountCode' => [true, self::PROPERTY_TYPE_STRING, null, false, false],
             'DeductionTypeID' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
             'StandardAmount' => [false, self::PROPERTY_TYPE_FLOAT, null, false, false],
-            'CompanyMax' => [false, self::PROPERTY_TYPE_FLOAT, null, false, false]
+            'CompanyMax' => [false, self::PROPERTY_TYPE_FLOAT, null, false, false],
         ];
     }
 
