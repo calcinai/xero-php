@@ -30,9 +30,7 @@ class Client
 
     private $config;
 
-    /*
-     * "Cached" parameters - will change between signings.
-     */
+    // "Cached" parameters - will change between signings.
     private $oauth_params;
 
     private $token_secret;
