@@ -1,5 +1,4 @@
 <?php
-
 namespace XeroPHP\Models\Accounting;
 
 use XeroPHP\Remote;
@@ -7,6 +6,7 @@ use XeroPHP\Models\Accounting\TrackingCategory\TrackingOption;
 
 class TrackingCategory extends Remote\Model
 {
+
     /**
      * The Xero identifier for a tracking categorye.g. 297c2dc5-cc47-4afd-8ec8-74990b8761e9
      *
@@ -237,7 +237,7 @@ class TrackingCategory extends Remote\Model
     public function addOption(TrackingOption $value)
     {
         $this->propertyUpdated('Options', $value);
-        if (! isset($this->_data['Options'])) {
+        if (!isset($this->_data['Options'])) {
             $this->_data['Options'] = new Remote\Collection();
         }
         $this->_data['Options'][] = $value;
@@ -262,5 +262,25 @@ class TrackingCategory extends Remote\Model
         $this->propertyUpdated('Option', $value);
         $this->_data['Option'] = $value;
         return $this;
+    }
+
+    /**
+     * @return string $value
+     * Return tracking option id
+     */
+    public function getTrackingOptionID()
+    {
+        return $this->_data['TrackingOptionID'];
+    }
+
+    /**
+     * @param string $value
+     * @return TrackingCategory
+     */
+    public function setTrackingOptionID($value)
+    {
+      $this->propertyUpdated('TrackingOptionID', $value);
+      $this->_data['TrackingOptionID'] = $value;
+      return $this;
     }
 }
