@@ -133,7 +133,7 @@ class Journal extends Remote\Model
     public static function getSupportedMethods()
     {
         return [
-            Remote\Request::METHOD_GET
+            Remote\Request::METHOD_GET,
         ];
     }
 
@@ -158,7 +158,7 @@ class Journal extends Remote\Model
             'Reference' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
             'SourceID' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
             'SourceType' => [false, self::PROPERTY_TYPE_ENUM, null, false, false],
-            'JournalLines' => [false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Journal\\JournalLine', true, false]
+            'JournalLines' => [false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Journal\\JournalLine', true, false],
         ];
     }
 

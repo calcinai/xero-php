@@ -69,7 +69,7 @@ class Response
         $this->parseBody();
 
         switch ($this->status) {
-            case Response::STATUS_BAD_REQUEST:
+            case self::STATUS_BAD_REQUEST:
                 //This catches actual app errors
                 if (isset($this->root_error) && ! empty($this->root_error)) {
                     $message = sprintf('%s (%s)', $this->root_error['message'], implode(', ', $this->element_errors));
@@ -82,27 +82,27 @@ class Response
 
             /** @noinspection PhpMissingBreakStatementInspection */
             // no break
-            case Response::STATUS_UNAUTHORISED:
+            case self::STATUS_UNAUTHORISED:
                 //This is where OAuth errors end up, this could maybe change to an OAuth exception
                 if (isset($this->oauth_response['oauth_problem_advice'])) {
                     throw new UnauthorizedException($this->oauth_response['oauth_problem_advice']);
                 }
                 // no break
-            case Response::STATUS_FORBIDDEN:
+            case self::STATUS_FORBIDDEN:
                 throw new UnauthorizedException();
 
-            case Response::STATUS_NOT_FOUND:
+            case self::STATUS_NOT_FOUND:
                 throw new NotFoundException();
 
-            case Response::STATUS_INTERNAL_ERROR:
+            case self::STATUS_INTERNAL_ERROR:
                 throw new InternalErrorException();
 
-            case Response::STATUS_NOT_IMPLEMENTED:
+            case self::STATUS_NOT_IMPLEMENTED:
                 throw new NotImplementedException();
 
-            case Response::STATUS_NOT_AVAILABLE:
-            case Response::STATUS_RATE_LIMIT_EXCEEDED:
-            case Response::STATUS_ORGANISATION_OFFLINE:
+            case self::STATUS_NOT_AVAILABLE:
+            case self::STATUS_RATE_LIMIT_EXCEEDED:
+            case self::STATUS_ORGANISATION_OFFLINE:
                 //There must be a better way than this?
                 $response = urldecode($this->response_body);
                 if (false !== stripos($response, 'Organisation is offline')) {
@@ -163,7 +163,7 @@ class Response
             return $this->element_errors[$element_id];
         }
 
-        return null;
+        return;
     }
 
     public function getElementErrors()

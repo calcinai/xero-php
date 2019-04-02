@@ -125,7 +125,7 @@ class LeaveType extends Remote\Model
             'ShowOnPayslip' => [true, self::PROPERTY_TYPE_STRING, null, false, false],
             'LeaveTypeID' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
             'NormalEntitlement' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
-            'LeaveLoadingRate' => [false, self::PROPERTY_TYPE_FLOAT, null, false, false]
+            'LeaveLoadingRate' => [false, self::PROPERTY_TYPE_FLOAT, null, false, false],
         ];
     }
 

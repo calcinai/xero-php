@@ -95,7 +95,7 @@ class ReimbursementType extends Remote\Model
         return [
             'Name' => [true, self::PROPERTY_TYPE_STRING, null, false, false],
             'AccountCode' => [true, self::PROPERTY_TYPE_STRING, null, false, false],
-            'ReimbursementTypeID' => [false, self::PROPERTY_TYPE_STRING, null, false, false]
+            'ReimbursementTypeID' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
         ];
     }
 

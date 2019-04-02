@@ -178,7 +178,7 @@ class EarningsRate extends Remote\Model
             'RatePerUnit' => [false, self::PROPERTY_TYPE_FLOAT, null, false, false],
             'Multiplier' => [false, self::PROPERTY_TYPE_FLOAT, null, false, false],
             'AccrueLeave' => [false, self::PROPERTY_TYPE_FLOAT, null, false, false],
-            'Amount' => [false, self::PROPERTY_TYPE_FLOAT, null, false, false]
+            'Amount' => [false, self::PROPERTY_TYPE_FLOAT, null, false, false],
         ];
     }
 

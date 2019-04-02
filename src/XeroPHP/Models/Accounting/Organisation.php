@@ -257,7 +257,7 @@ class Organisation extends Remote\Model
     public static function getSupportedMethods()
     {
         return [
-            Remote\Request::METHOD_GET
+            Remote\Request::METHOD_GET,
         ];
     }
 
@@ -304,7 +304,7 @@ class Organisation extends Remote\Model
             'Phones' => [false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Phone', true, false],
             'ExternalLinks' => [false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Organisation\\ExternalLink', true, false],
             'PaymentTerms' => [false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Organisation\\PaymentTerm', true, false],
-            'OrganisationID' => [false, self::PROPERTY_TYPE_STRING, null, false, false]
+            'OrganisationID' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
         ];
     }
 

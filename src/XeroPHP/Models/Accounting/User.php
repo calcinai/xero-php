@@ -100,7 +100,7 @@ class User extends Remote\Model
     public static function getSupportedMethods()
     {
         return [
-            Remote\Request::METHOD_GET
+            Remote\Request::METHOD_GET,
         ];
     }
 
@@ -124,7 +124,7 @@ class User extends Remote\Model
             'LastName' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
             'UpdatedDateUTC' => [false, self::PROPERTY_TYPE_TIMESTAMP, '\\DateTimeInterface', false, false],
             'IsSubscriber' => [false, self::PROPERTY_TYPE_BOOLEAN, null, false, false],
-            'OrganisationRole' => [false, self::PROPERTY_TYPE_ENUM, null, false, false]
+            'OrganisationRole' => [false, self::PROPERTY_TYPE_ENUM, null, false, false],
         ];
     }
 

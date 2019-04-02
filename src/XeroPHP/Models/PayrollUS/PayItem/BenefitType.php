@@ -156,7 +156,7 @@ class BenefitType extends Remote\Model
             'StandardAmount' => [false, self::PROPERTY_TYPE_FLOAT, null, false, false],
             'CompanyMax' => [false, self::PROPERTY_TYPE_FLOAT, null, false, false],
             'Percentage' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
-            'ShowBalanceOnPaystub' => [false, self::PROPERTY_TYPE_FLOAT, null, false, false]
+            'ShowBalanceOnPaystub' => [false, self::PROPERTY_TYPE_FLOAT, null, false, false],
         ];
     }
 
@@ -177,7 +177,7 @@ class BenefitType extends Remote\Model
      * @param BenefitType $value
      * @return BenefitType
      */
-    public function setBenefitType(BenefitType $value)
+    public function setBenefitType(self $value)
     {
         $this->propertyUpdated('BenefitType', $value);
         $this->_data['BenefitType'] = $value;

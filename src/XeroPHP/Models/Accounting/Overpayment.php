@@ -190,7 +190,7 @@ class Overpayment extends Remote\Model
     {
         return [
             Remote\Request::METHOD_GET,
-            Remote\Request::METHOD_PUT
+            Remote\Request::METHOD_PUT,
         ];
     }
 
@@ -226,7 +226,7 @@ class Overpayment extends Remote\Model
             'RemainingCredit' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
             'Allocations' => [false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Overpayment\\Allocation', true, true],
             'Payments' => [false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Payment', true, false],
-            'HasAttachments' => [false, self::PROPERTY_TYPE_BOOLEAN, null, false, false]
+            'HasAttachments' => [false, self::PROPERTY_TYPE_BOOLEAN, null, false, false],
         ];
     }
 

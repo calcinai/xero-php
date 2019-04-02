@@ -88,7 +88,7 @@ class WorkLocation extends Remote\Model
     {
         return [
             'WorkLocationID' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
-            'IsPrimary' => [false, self::PROPERTY_TYPE_BOOLEAN, null, false, false]
+            'IsPrimary' => [false, self::PROPERTY_TYPE_BOOLEAN, null, false, false],
         ];
     }
 

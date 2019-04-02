@@ -145,7 +145,7 @@ class ExpenseClaim extends Remote\Model
             'AmountPaid' => [false, self::PROPERTY_TYPE_FLOAT, null, false, false],
             'PaymentDueDate' => [false, self::PROPERTY_TYPE_DATE, '\\DateTimeInterface', false, false],
             'ReportingDate' => [false, self::PROPERTY_TYPE_DATE, '\\DateTimeInterface', false, false],
-            'ReceiptID' => [true, self::PROPERTY_TYPE_STRING, null, false, false]
+            'ReceiptID' => [true, self::PROPERTY_TYPE_STRING, null, false, false],
         ];
     }
 

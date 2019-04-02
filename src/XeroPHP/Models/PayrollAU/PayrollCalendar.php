@@ -97,7 +97,7 @@ class PayrollCalendar extends Remote\Model
     {
         return [
             Remote\Request::METHOD_POST,
-            Remote\Request::METHOD_GET
+            Remote\Request::METHOD_GET,
         ];
     }
 
@@ -119,7 +119,7 @@ class PayrollCalendar extends Remote\Model
             'Name' => [true, self::PROPERTY_TYPE_STRING, null, false, false],
             'CalendarType' => [true, self::PROPERTY_TYPE_ENUM, null, false, false],
             'StartDate' => [true, self::PROPERTY_TYPE_DATE, '\\DateTimeInterface', false, false],
-            'PaymentDate' => [true, self::PROPERTY_TYPE_DATE, '\\DateTimeInterface', false, false]
+            'PaymentDate' => [true, self::PROPERTY_TYPE_DATE, '\\DateTimeInterface', false, false],
         ];
     }
 

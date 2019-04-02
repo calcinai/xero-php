@@ -111,7 +111,7 @@ class DeductionType extends Remote\Model
             'AccountCode' => [true, self::PROPERTY_TYPE_STRING, null, false, false],
             'ReducesTax' => [true, self::PROPERTY_TYPE_FLOAT, null, false, false],
             'ReducesSuper' => [true, self::PROPERTY_TYPE_STRING, null, false, false],
-            'DeductionTypeID' => [false, self::PROPERTY_TYPE_STRING, null, false, false]
+            'DeductionTypeID' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
         ];
     }
 

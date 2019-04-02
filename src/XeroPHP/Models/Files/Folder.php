@@ -105,7 +105,7 @@ class Folder extends Remote\Model
             Remote\Request::METHOD_GET,
             Remote\Request::METHOD_PUT,
             Remote\Request::METHOD_POST,
-            Remote\Request::METHOD_DELETE
+            Remote\Request::METHOD_DELETE,
         ];
     }
 
@@ -129,7 +129,7 @@ class Folder extends Remote\Model
             'IsInbox' => [true, self::PROPERTY_TYPE_BOOLEAN, null, false, false],
             'Id' => [true, self::PROPERTY_TYPE_GUID, null, false, false],
             'Files' => [true, self::PROPERTY_TYPE_OBJECT, 'Files\\File', true, false],
-            'FolderId' => [false, self::PROPERTY_TYPE_STRING, null, false, false]
+            'FolderId' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
         ];
     }
 

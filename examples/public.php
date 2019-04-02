@@ -100,7 +100,7 @@ function setOAuthSession($token, $secret, $expires = null)
     $_SESSION['oauth'] = [
         'token' => $token,
         'token_secret' => $secret,
-        'expires' => $expires
+        'expires' => $expires,
     ];
 }
 
@@ -111,7 +111,7 @@ function getOAuthSession()
         || ($_SESSION['oauth']['expires'] !== null
         && $_SESSION['oauth']['expires'] <= time())
     ) {
-        return null;
+        return;
     }
 
     return $_SESSION['oauth'];

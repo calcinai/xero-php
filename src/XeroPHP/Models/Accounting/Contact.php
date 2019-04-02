@@ -291,7 +291,7 @@ class Contact extends Remote\Model
         return [
             Remote\Request::METHOD_POST,
             Remote\Request::METHOD_PUT,
-            Remote\Request::METHOD_GET
+            Remote\Request::METHOD_GET,
         ];
     }
 
@@ -343,7 +343,7 @@ class Contact extends Remote\Model
             'BatchPayments' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
             'Discount' => [false, self::PROPERTY_TYPE_FLOAT, null, false, false],
             'Balances' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
-            'HasAttachments' => [false, self::PROPERTY_TYPE_BOOLEAN, null, false, false]
+            'HasAttachments' => [false, self::PROPERTY_TYPE_BOOLEAN, null, false, false],
         ];
     }
 

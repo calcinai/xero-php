@@ -95,7 +95,7 @@ class TrackingOption extends Remote\Model
         return [
             'TrackingOptionID' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
             'Name' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
-            'Status' => [false, self::PROPERTY_TYPE_STRING, null, false, false]
+            'Status' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
         ];
     }
 

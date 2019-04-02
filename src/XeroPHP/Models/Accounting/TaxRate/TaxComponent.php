@@ -95,7 +95,7 @@ class TaxComponent extends Remote\Model
         return [
             'Name' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
             'Rate' => [false, self::PROPERTY_TYPE_FLOAT, null, false, false],
-            'IsCompound' => [false, self::PROPERTY_TYPE_BOOLEAN, null, false, false]
+            'IsCompound' => [false, self::PROPERTY_TYPE_BOOLEAN, null, false, false],
         ];
     }
 

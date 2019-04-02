@@ -95,7 +95,7 @@ class ReimbursementType extends Remote\Model
         return [
             'ReimbursementType' => [true, self::PROPERTY_TYPE_OBJECT, 'PayrollUS\\PayItem\\ReimbursementType', false, false],
             'ExpenseOrLiabilityAccountCode' => [true, self::PROPERTY_TYPE_STRING, null, false, false],
-            'ReimbursementTypeID' => [false, self::PROPERTY_TYPE_STRING, null, false, false]
+            'ReimbursementTypeID' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
         ];
     }
 
@@ -116,7 +116,7 @@ class ReimbursementType extends Remote\Model
      * @param ReimbursementType $value
      * @return ReimbursementType
      */
-    public function setReimbursementType(ReimbursementType $value)
+    public function setReimbursementType(self $value)
     {
         $this->propertyUpdated('ReimbursementType', $value);
         $this->_data['ReimbursementType'] = $value;

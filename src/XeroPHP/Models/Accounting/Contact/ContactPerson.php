@@ -102,7 +102,7 @@ class ContactPerson extends Remote\Model
             'FirstName' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
             'LastName' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
             'EmailAddress' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
-            'IncludeInEmails' => [false, self::PROPERTY_TYPE_BOOLEAN, null, false, false]
+            'IncludeInEmails' => [false, self::PROPERTY_TYPE_BOOLEAN, null, false, false],
         ];
     }
 

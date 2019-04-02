@@ -84,7 +84,7 @@ class SuperFundProduct extends Remote\Model
     public static function getSupportedMethods()
     {
         return [
-            Remote\Request::METHOD_GET
+            Remote\Request::METHOD_GET,
         ];
     }
 
@@ -105,7 +105,7 @@ class SuperFundProduct extends Remote\Model
             'ABN' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
             'USI' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
             'SPIN' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
-            'ProductName' => [false, self::PROPERTY_TYPE_STRING, null, false, false]
+            'ProductName' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
         ];
     }
 

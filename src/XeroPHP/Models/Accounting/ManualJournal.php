@@ -129,7 +129,7 @@ class ManualJournal extends Remote\Model
         return [
             Remote\Request::METHOD_GET,
             Remote\Request::METHOD_PUT,
-            Remote\Request::METHOD_POST
+            Remote\Request::METHOD_POST,
         ];
     }
 
@@ -156,7 +156,7 @@ class ManualJournal extends Remote\Model
             'Url' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
             'ShowOnCashBasisReports' => [false, self::PROPERTY_TYPE_BOOLEAN, null, false, false],
             'HasAttachments' => [false, self::PROPERTY_TYPE_BOOLEAN, null, false, false],
-            'UpdatedDateUTC' => [false, self::PROPERTY_TYPE_TIMESTAMP, '\\DateTimeInterface', false, false]
+            'UpdatedDateUTC' => [false, self::PROPERTY_TYPE_TIMESTAMP, '\\DateTimeInterface', false, false],
         ];
     }
 

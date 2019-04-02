@@ -196,7 +196,7 @@ class Query
     public function page($page = 1)
     {
         /**
-         * @var ObjectInterface $from_class
+         * @var ObjectInterface
          */
         $from_class = $this->from_class;
         if (! $from_class::isPageable()) {
@@ -239,7 +239,7 @@ class Query
     public function execute()
     {
         /**
-         * @var ObjectInterface $from_class
+         * @var ObjectInterface
          */
         $from_class = $this->from_class;
         $url = new URL(
@@ -298,7 +298,7 @@ class Query
         $elements = new Collection();
         foreach ($request->getResponse()->getElements() as $element) {
             /**
-             * @var Model $built_element
+             * @var Model
              */
             $built_element = new $from_class($this->app);
             $built_element->fromStringArray($element);

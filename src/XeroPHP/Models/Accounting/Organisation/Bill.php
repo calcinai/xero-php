@@ -88,7 +88,7 @@ class Bill extends Remote\Model
     {
         return [
             'Day' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
-            'Type' => [false, self::PROPERTY_TYPE_ENUM, null, false, false]
+            'Type' => [false, self::PROPERTY_TYPE_ENUM, null, false, false],
         ];
     }
 

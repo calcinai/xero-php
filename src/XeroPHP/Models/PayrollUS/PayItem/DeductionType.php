@@ -154,7 +154,7 @@ class DeductionType extends Remote\Model
             'LiabilityAccountCode' => [true, self::PROPERTY_TYPE_STRING, null, false, false],
             'DeductionTypeID' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
             'StandardAmount' => [false, self::PROPERTY_TYPE_FLOAT, null, false, false],
-            'CompanyMax' => [false, self::PROPERTY_TYPE_FLOAT, null, false, false]
+            'CompanyMax' => [false, self::PROPERTY_TYPE_FLOAT, null, false, false],
         ];
     }
 
@@ -175,7 +175,7 @@ class DeductionType extends Remote\Model
      * @param DeductionType $value
      * @return DeductionType
      */
-    public function setDeductionType(DeductionType $value)
+    public function setDeductionType(self $value)
     {
         $this->propertyUpdated('DeductionType', $value);
         $this->_data['DeductionType'] = $value;

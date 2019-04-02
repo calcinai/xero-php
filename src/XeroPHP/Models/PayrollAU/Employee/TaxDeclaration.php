@@ -186,7 +186,7 @@ class TaxDeclaration extends Remote\Model
             'HasTradeSupportLoanDebt' => [false, self::PROPERTY_TYPE_BOOLEAN, null, false, false],
             'UpwardVariationTaxWithholdingAmount' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
             'EligibleToReceiveLeaveLoading' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
-            'ApprovedWithholdingVariationPercentage' => [false, self::PROPERTY_TYPE_STRING, null, false, false]
+            'ApprovedWithholdingVariationPercentage' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
         ];
     }
 

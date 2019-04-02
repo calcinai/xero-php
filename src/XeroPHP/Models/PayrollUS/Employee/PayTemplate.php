@@ -189,7 +189,7 @@ class PayTemplate extends Remote\Model
             'Percentage' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
             'ReimbursementTypeID' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
             'Description' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
-            'BenefitTypeID' => [false, self::PROPERTY_TYPE_STRING, null, false, false]
+            'BenefitTypeID' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
         ];
     }
 

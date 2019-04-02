@@ -184,7 +184,7 @@ class Prepayment extends Remote\Model
     {
         return [
             Remote\Request::METHOD_GET,
-            Remote\Request::METHOD_PUT
+            Remote\Request::METHOD_PUT,
         ];
     }
 
@@ -219,7 +219,7 @@ class Prepayment extends Remote\Model
             'CurrencyRate' => [false, self::PROPERTY_TYPE_FLOAT, null, false, false],
             'RemainingCredit' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
             'Allocations' => [false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Prepayment\\Allocation', true, true],
-            'HasAttachments' => [false, self::PROPERTY_TYPE_BOOLEAN, null, false, false]
+            'HasAttachments' => [false, self::PROPERTY_TYPE_BOOLEAN, null, false, false],
         ];
     }
 

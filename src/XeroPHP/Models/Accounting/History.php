@@ -1,10 +1,7 @@
 <?php
 
-
 namespace XeroPHP\Models\Accounting;
 
-use XeroPHP\Remote\URL;
-use XeroPHP\Application;
 use XeroPHP\Remote\Model;
 use XeroPHP\Remote\Request;
 
@@ -55,7 +52,7 @@ class History extends Model
             'Changes' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
             'DateUTC' => [false, self::PROPERTY_TYPE_TIMESTAMP, '\\DateTimeInterface', false, false],
             'User' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
-            'Details' => [true, self::PROPERTY_TYPE_STRING, null, false, false]
+            'Details' => [true, self::PROPERTY_TYPE_STRING, null, false, false],
         ];
     }
 
@@ -68,7 +65,7 @@ class History extends Model
     {
         return [
             Request::METHOD_GET,
-            Request::METHOD_PUT
+            Request::METHOD_PUT,
         ];
     }
 

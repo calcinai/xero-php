@@ -94,7 +94,7 @@ class Employee extends Remote\Model
         return [
             Remote\Request::METHOD_POST,
             Remote\Request::METHOD_PUT,
-            Remote\Request::METHOD_GET
+            Remote\Request::METHOD_GET,
         ];
     }
 
@@ -116,7 +116,7 @@ class Employee extends Remote\Model
             'Status' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
             'FirstName' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
             'LastName' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
-            'ExternalLink' => [false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Organisation\\ExternalLink', false, false]
+            'ExternalLink' => [false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Organisation\\ExternalLink', false, false],
         ];
     }
 

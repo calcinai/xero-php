@@ -78,7 +78,7 @@ class Currency extends Remote\Model
     {
         return [
             Remote\Request::METHOD_GET,
-            Remote\Request::METHOD_PUT
+            Remote\Request::METHOD_PUT,
         ];
     }
 
@@ -98,7 +98,7 @@ class Currency extends Remote\Model
         return [
             'ModifiedAfter' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
             'Code' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
-            'Description' => [false, self::PROPERTY_TYPE_STRING, null, false, false]
+            'Description' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
         ];
     }
 

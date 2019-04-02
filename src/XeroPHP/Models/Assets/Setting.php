@@ -106,7 +106,7 @@ class Setting extends Remote\Model
     public static function getSupportedMethods()
     {
         return [
-            Remote\Request::METHOD_GET
+            Remote\Request::METHOD_GET,
         ];
     }
 
@@ -131,7 +131,7 @@ class Setting extends Remote\Model
             'defaultGainOnDisposalAccountId' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
             'defaultLossOnDisposalAccountId' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
             'defaultCapitalGainOnDisposalAccount' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
-            'optInForTax' => [false, self::PROPERTY_TYPE_STRING, null, false, false]
+            'optInForTax' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
         ];
     }
 

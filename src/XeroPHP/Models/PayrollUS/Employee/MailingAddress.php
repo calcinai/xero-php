@@ -123,7 +123,7 @@ class MailingAddress extends Remote\Model
             'State' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
             'Zip' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
             'Lattitude' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
-            'Longitude' => [false, self::PROPERTY_TYPE_STRING, null, false, false]
+            'Longitude' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
         ];
     }
 

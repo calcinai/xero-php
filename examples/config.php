@@ -21,7 +21,7 @@ $xero_base_config = [
 
         //For certs on disk or a string - allows anything that is valid with openssl_pkey_get_(private|public)
         'rsa_private_key' => 'file://certs/private.pem',
-        'rsa_public_key' => 'file://certs/public.pem'
+        'rsa_public_key' => 'file://certs/public.pem',
     ],
 
     //These are raw curl options.  I didn't see the need to obfuscate these through methods
@@ -35,5 +35,5 @@ $xero_base_config = [
         //CURLOPT_SSLKEYPASSWD    => '1234',
         //CURLOPT_SSLKEY          => 'certs/entrust-private-RQ3.pem'
 
-    ]
+    ],
 ];

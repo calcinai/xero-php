@@ -109,7 +109,7 @@ class BookDepreciationSetting extends Remote\Model
             'averagingMethod' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
             'depreciationRate' => [false, self::PROPERTY_TYPE_FLOAT, null, false, false],
             'effectiveLifeYears' => [false, self::PROPERTY_TYPE_FLOAT, null, true, false],
-            'depreciationCalculationMethod' => [false, self::PROPERTY_TYPE_STRING, null, false, false]
+            'depreciationCalculationMethod' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
         ];
     }
 

@@ -95,7 +95,7 @@ class LeaveAccrualLine extends Remote\Model
         return [
             'LeaveTypeID' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
             'NumberOfUnits' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
-            'AutoCalculate' => [false, self::PROPERTY_TYPE_STRING, null, false, false]
+            'AutoCalculate' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
         ];
     }
 

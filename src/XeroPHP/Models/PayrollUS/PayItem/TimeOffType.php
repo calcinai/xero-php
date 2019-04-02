@@ -121,7 +121,7 @@ class TimeOffType extends Remote\Model
             'ExpenseAccountCode' => [true, self::PROPERTY_TYPE_STRING, null, false, false],
             'LiabilityAccountCode' => [true, self::PROPERTY_TYPE_STRING, null, false, false],
             'TimeOffTypeID' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
-            'ShowBalanceToEmployee' => [false, self::PROPERTY_TYPE_STRING, null, false, false]
+            'ShowBalanceToEmployee' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
         ];
     }
 
@@ -142,7 +142,7 @@ class TimeOffType extends Remote\Model
      * @param TimeOffType $value
      * @return TimeOffType
      */
-    public function setTimeOffType(TimeOffType $value)
+    public function setTimeOffType(self $value)
     {
         $this->propertyUpdated('TimeOffType', $value);
         $this->_data['TimeOffType'] = $value;

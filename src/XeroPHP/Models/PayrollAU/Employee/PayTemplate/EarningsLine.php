@@ -118,7 +118,7 @@ class EarningsLine extends Remote\Model
             'NumberOfUnitsPerWeek' => [false, self::PROPERTY_TYPE_FLOAT, null, false, false],
             'AnnualSalary' => [false, self::PROPERTY_TYPE_FLOAT, null, false, false],
             'RatePerUnit' => [false, self::PROPERTY_TYPE_FLOAT, null, false, false],
-            'NormalNumberOfUnits' => [false, self::PROPERTY_TYPE_FLOAT, null, false, false]
+            'NormalNumberOfUnits' => [false, self::PROPERTY_TYPE_FLOAT, null, false, false],
         ];
     }
 

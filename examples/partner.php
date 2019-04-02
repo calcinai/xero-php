@@ -14,11 +14,11 @@ $config = [
         'consumer_key' => 'k',
         'consumer_secret' => 's',
         'rsa_private_key' => 'file://certs/privatekey.pem',
-        'signature_location' => \XeroPHP\Remote\OAuth\Client::SIGN_LOCATION_QUERY
+        'signature_location' => \XeroPHP\Remote\OAuth\Client::SIGN_LOCATION_QUERY,
     ],
     'curl' => [
-        CURLOPT_CAINFO => 'certs/ca-bundle.crt'
-    ]
+        CURLOPT_CAINFO => 'certs/ca-bundle.crt',
+    ],
 ];
 
 $xero = new PartnerApplication($config);
@@ -115,7 +115,7 @@ function setOAuthSession($token, $secret, $expires = null, $session_handle = nul
         'token' => $token,
         'token_secret' => $secret,
         'expires' => $expires,
-        'session_handle' => $session_handle
+        'session_handle' => $session_handle,
     ];
 }
 
@@ -123,7 +123,7 @@ function getOAuthSession()
 {
     //If it doesn't exist, return null
     if (! isset($_SESSION['oauth'])) {
-        return null;
+        return;
     }
 
     // If the session is expired or expiring, unset the expires key

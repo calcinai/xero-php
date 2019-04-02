@@ -148,7 +148,7 @@ class Address extends Remote\Model
             'Region' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
             'PostalCode' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
             'Country' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
-            'AttentionTo' => [false, self::PROPERTY_TYPE_STRING, null, false, false]
+            'AttentionTo' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
         ];
     }
 

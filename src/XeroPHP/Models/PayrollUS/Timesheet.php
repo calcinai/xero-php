@@ -106,7 +106,7 @@ class Timesheet extends Remote\Model
     {
         return [
             Remote\Request::METHOD_POST,
-            Remote\Request::METHOD_GET
+            Remote\Request::METHOD_GET,
         ];
     }
 
@@ -130,7 +130,7 @@ class Timesheet extends Remote\Model
             'TimesheetLines' => [false, self::PROPERTY_TYPE_OBJECT, 'PayrollUS\\Timesheet\\TimesheetLine', true, false],
             'Status' => [false, self::PROPERTY_TYPE_ENUM, null, false, false],
             'TimesheetID' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
-            'Hours' => [false, self::PROPERTY_TYPE_STRING, null, false, false]
+            'Hours' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
         ];
     }
 

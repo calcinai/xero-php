@@ -2,7 +2,6 @@
 
 //This class is a pseudo-model to represent an attachment.  Can't be directly put ot fetched.
 
-
 namespace XeroPHP\Models\Accounting;
 
 use XeroPHP\Remote\URL;
@@ -37,7 +36,7 @@ class Attachment extends Model
     /**
      * Actual file content (binary)
      *
-     * @var string $content
+     * @var string
      */
     private $content;
 
@@ -65,7 +64,7 @@ class Attachment extends Model
             'FileName' => [true, self::PROPERTY_TYPE_STRING, null, false, false],
             'Url' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
             'MimeType' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
-            'ContentLength' => [false, self::PROPERTY_TYPE_INT, null, false, false]
+            'ContentLength' => [false, self::PROPERTY_TYPE_INT, null, false, false],
         ];
     }
 
@@ -79,7 +78,7 @@ class Attachment extends Model
         return [
             Request::METHOD_GET,
             Request::METHOD_PUT,
-            Request::METHOD_POST
+            Request::METHOD_POST,
         ];
     }
 
@@ -115,7 +114,7 @@ class Attachment extends Model
         $instance->fromStringArray([
             'MimeType' => $mime_type,
             'ContentLength' => $content_length,
-            'FileName' => $path_info['basename']
+            'FileName' => $path_info['basename'],
         ]);
         $instance->setLocalHandle(fopen($file_name, 'r'));
 
@@ -131,7 +130,7 @@ class Attachment extends Model
         $instance->fromStringArray([
             'MimeType' => $mime_type,
             'ContentLength' => $content_length,
-            'FileName' => $file_name
+            'FileName' => $file_name,
         ]);
 
         $instance->content = $data;

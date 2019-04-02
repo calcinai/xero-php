@@ -102,7 +102,7 @@ class Account extends Remote\Model
             'AccountID' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
             'Type' => [false, self::PROPERTY_TYPE_ENUM, null, false, false],
             'Code' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
-            'Name' => [false, self::PROPERTY_TYPE_STRING, null, false, false]
+            'Name' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
         ];
     }
 

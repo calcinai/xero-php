@@ -103,7 +103,7 @@ class AssetType extends Remote\Model
     {
         return [
             Remote\Request::METHOD_GET,
-            Remote\Request::METHOD_POST
+            Remote\Request::METHOD_POST,
         ];
     }
 
@@ -127,7 +127,7 @@ class AssetType extends Remote\Model
             'accumulatedDepreciationAccountId' => [true, self::PROPERTY_TYPE_STRING, null, false, false],
             'BookDepreciationSetting' => [true, self::PROPERTY_TYPE_OBJECT, 'Assets\\AssetType\\BookDepreciationSetting', false, false],
             'assetTypeId' => [true, self::PROPERTY_TYPE_GUID, null, false, false],
-            'Locks' => [true, self::PROPERTY_TYPE_STRING, null, false, false]
+            'Locks' => [true, self::PROPERTY_TYPE_STRING, null, false, false],
         ];
     }
 

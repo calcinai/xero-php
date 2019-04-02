@@ -96,7 +96,7 @@ class TimesheetLine extends Remote\Model
         return [
             'EarningsRateID' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
             'TrackingItemID' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
-            'NumberOfUnits' => [false, self::PROPERTY_TYPE_FLOAT, null, true, false]
+            'NumberOfUnits' => [false, self::PROPERTY_TYPE_FLOAT, null, true, false],
         ];
     }
 

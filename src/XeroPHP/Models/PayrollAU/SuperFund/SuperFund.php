@@ -151,7 +151,7 @@ class SuperFund extends Remote\Model
             'ElectronicServiceAddress' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
             'SuperFundID' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
             'EmployerNumber' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
-            'SPIN' => [false, self::PROPERTY_TYPE_STRING, null, false, false]
+            'SPIN' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
         ];
     }
 
