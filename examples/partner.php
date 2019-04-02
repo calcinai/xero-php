@@ -123,7 +123,7 @@ function getOAuthSession()
 {
     //If it doesn't exist, return null
     if (! isset($_SESSION['oauth'])) {
-        return null;
+        return;
     }
 
     // If the session is expired or expiring, unset the expires key

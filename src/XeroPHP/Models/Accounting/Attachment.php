@@ -2,7 +2,6 @@
 
 //This class is a pseudo-model to represent an attachment.  Can't be directly put ot fetched.
 
-
 namespace XeroPHP\Models\Accounting;
 
 use XeroPHP\Remote\URL;
@@ -37,7 +36,7 @@ class Attachment extends Model
     /**
      * Actual file content (binary)
      *
-     * @var string $content
+     * @var string
      */
     private $content;
 

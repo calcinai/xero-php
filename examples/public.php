@@ -111,7 +111,7 @@ function getOAuthSession()
         || ($_SESSION['oauth']['expires'] !== null
         && $_SESSION['oauth']['expires'] <= time())
     ) {
-        return null;
+        return;
     }
     return $_SESSION['oauth'];
 }

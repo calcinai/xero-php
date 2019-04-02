@@ -116,7 +116,7 @@ class ReimbursementType extends Remote\Model
      * @param ReimbursementType $value
      * @return ReimbursementType
      */
-    public function setReimbursementType(ReimbursementType $value)
+    public function setReimbursementType(self $value)
     {
         $this->propertyUpdated('ReimbursementType', $value);
         $this->_data['ReimbursementType'] = $value;

@@ -203,7 +203,7 @@ class EarningsType extends Remote\Model
      * @param EarningsType $value
      * @return EarningsType
      */
-    public function setEarningsType(EarningsType $value)
+    public function setEarningsType(self $value)
     {
         $this->propertyUpdated('EarningsType', $value);
         $this->_data['EarningsType'] = $value;

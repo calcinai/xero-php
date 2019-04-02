@@ -13,7 +13,7 @@ trait HistoryTrait
     public function addHistory(History $history)
     {
         /**
-         * @var \XeroPHP\Remote\Model $this
+         * @var \XeroPHP\Remote\Model
          */
         $uri = sprintf('%s/%s/History', $this::getResourceURI(), $this->getGUID());
 
@@ -31,7 +31,7 @@ trait HistoryTrait
     public function getHistory()
     {
         /**
-         * @var \XeroPHP\Remote\Model $this
+         * @var \XeroPHP\Remote\Model
          */
         if ($this->hasGUID() === false) {
             throw new Exception(

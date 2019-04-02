@@ -28,7 +28,7 @@ class Collection extends \ArrayObject
         if (isset($this[$index])) {
             foreach ($this->_associated_objects as $parent_property => $object) {
                 /**
-                 * @var Model $object
+                 * @var Model
                  */
                 $object->setDirty($parent_property);
             }
@@ -57,7 +57,7 @@ class Collection extends \ArrayObject
     {
         foreach ($this->_associated_objects as $parent_property => $object) {
             /**
-             * @var Model $object
+             * @var Model
              */
             $object->setDirty($parent_property);
         }

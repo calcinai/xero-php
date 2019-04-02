@@ -7,10 +7,6 @@ use XeroPHP\Application;
 
 /**
  * Class Model
- * @package XeroPHP\Remote
- *
- * todo - at 2.x, move this into the root of the project and refer to it as a model.
- * Also make this an ArrayObject to simplify storage
  */
 abstract class Model implements ObjectInterface, \JsonSerializable, \ArrayAccess
 {
@@ -59,7 +55,7 @@ abstract class Model implements ObjectInterface, \JsonSerializable, \ArrayAccess
      * Holds a ref to the application that was used to load the object,
      * enables shorthand $object->save();
      *
-     * @var Application $_application
+     * @var Application
      */
     protected $_application;
 
@@ -199,7 +195,7 @@ abstract class Model implements ObjectInterface, \JsonSerializable, \ArrayAccess
                 foreach ($input_array[$property] as $assoc_element) {
                     $cast = self::castFromString($type, $assoc_element, $php_type);
                     //Do this here so that you know it's not a static method call to ::castFromString
-                    if ($cast instanceof Model) {
+                    if ($cast instanceof self) {
                         $cast->addAssociatedObject($property, $this);
                     }
                     $collection->append($cast);
@@ -208,7 +204,7 @@ abstract class Model implements ObjectInterface, \JsonSerializable, \ArrayAccess
             } else {
                 $cast = self::castFromString($type, $input_array[$property], $php_type);
                 //Do this here so that you know it's not a static method call to ::castFromString
-                if ($cast instanceof Model) {
+                if ($cast instanceof self) {
                     $cast->addAssociatedObject($property, $this);
                 }
                 $this->_data[$property] = $cast;
@@ -269,18 +265,18 @@ abstract class Model implements ObjectInterface, \JsonSerializable, \ArrayAccess
 
             case self::PROPERTY_TYPE_DATE:
                 /**
-                 * @var \DateTimeInterface $value
+                 * @var \DateTimeInterface
                  */
                 return $value->format('Y-m-d');
 
             case self::PROPERTY_TYPE_TIMESTAMP:
                 /**
-                 * @var \DateTimeInterface $value
+                 * @var \DateTimeInterface
                  */
                 return $value->format('c');
 
             case self::PROPERTY_TYPE_OBJECT:
-                if ($value instanceof Model) {
+                if ($value instanceof self) {
                     return $value->toStringArray();
                 }
                 return '';
@@ -314,7 +310,7 @@ abstract class Model implements ObjectInterface, \JsonSerializable, \ArrayAccess
                 return (float) $value;
 
             case self::PROPERTY_TYPE_BOOLEAN:
-                return in_array(strtolower($value), ['true', '1', 'yes']);
+                return in_array(strtolower($value), ['true', '1', 'yes'], true);
 
             /** @noinspection PhpMissingBreakStatementInspection */
             case self::PROPERTY_TYPE_TIMESTAMP:
@@ -368,14 +364,14 @@ abstract class Model implements ObjectInterface, \JsonSerializable, \ArrayAccess
                 }
 
                 if ($check_children) {
-                    if ($this->_data[$property] instanceof Model) {
+                    if ($this->_data[$property] instanceof self) {
                         //Keep IDEs happy
                         /** @var self $obj */
                         $obj = $this->_data[$property];
                         $obj->validate();
                     } elseif ($this->_data[$property] instanceof Collection) {
                         foreach ($this->_data[$property] as $element) {
-                            if ($element instanceof Model) {
+                            if ($element instanceof self) {
                                 $element->validate();
                             }
                         }
@@ -426,7 +422,7 @@ abstract class Model implements ObjectInterface, \JsonSerializable, \ArrayAccess
      * @param string $property
      * @param Model $object
      */
-    public function addAssociatedObject($property, Model $object)
+    public function addAssociatedObject($property, self $object)
     {
         $this->_associated_objects[$property] = $object;
     }
@@ -457,7 +453,7 @@ abstract class Model implements ObjectInterface, \JsonSerializable, \ArrayAccess
         }
 
         trigger_error(sprintf("Undefined property %s::$%s.\n", __CLASS__, $property));
-        return null;
+        return;
     }
 
     /**
@@ -476,7 +472,7 @@ abstract class Model implements ObjectInterface, \JsonSerializable, \ArrayAccess
         }
 
         trigger_error(sprintf("Undefined property %s::$%s.\n", __CLASS__, $property));
-        return null;
+        return;
     }
 
     protected function propertyUpdated($property, $value)
@@ -503,7 +499,7 @@ abstract class Model implements ObjectInterface, \JsonSerializable, \ArrayAccess
      */
     public static function supportsMethod($method)
     {
-        return in_array($method, static::getSupportedMethods());
+        return in_array($method, static::getSupportedMethods(), true);
     }
 
     /**

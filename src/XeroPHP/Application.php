@@ -2,7 +2,6 @@
 
 namespace XeroPHP;
 
-use XeroPHP\Remote;
 use XeroPHP\Remote\URL;
 use XeroPHP\Remote\Query;
 use XeroPHP\Remote\Request;
@@ -190,7 +189,7 @@ abstract class Application
     public function loadByGUID($model, $guid)
     {
         /**
-         * @var Remote\Model $class
+         * @var Remote\Model
          */
         $class = $this->validateModelClass($model);
 
@@ -204,13 +203,13 @@ abstract class Application
         //Return the first (if any) element from the response.
         foreach ($request->getResponse()->getElements() as $element) {
             /**
-             * @var Remote\Model $object
+             * @var Remote\Model
              */
             $object = new $class($this);
             $object->fromStringArray($element);
             return $object;
         }
-        return null;
+        return;
     }
 
     /**
@@ -225,7 +224,7 @@ abstract class Application
     public function loadByGUIDs($model, $guids)
     {
         /**
-         * @var Remote\Model $class
+         * @var Remote\Model
          */
         $class = $this->validateModelClass($model);
 
@@ -234,12 +233,12 @@ abstract class Application
 
         $url = new URL($this, $uri, $api);
         $request = new Request($this, $url, Request::METHOD_GET);
-        $request->setParameter("IDs", $guids);
+        $request->setParameter('IDs', $guids);
         $request->send();
         $elements = new Collection();
         foreach ($request->getResponse()->getElements() as $element) {
             /**
-             * @var Remote\Model $object
+             * @var Remote\Model
              */
             $object = new $class($this);
             $object->fromStringArray($element);
@@ -273,7 +272,7 @@ abstract class Application
         $this->savePropertiesDirectly($object);
 
         if (! $object->isDirty()) {
-            return null;
+            return;
         }
         $object->validate();
 
@@ -323,7 +322,7 @@ abstract class Application
         //Just get one type to compare with, doesn't matter which.
         $current_object = $objects[0];
         /**
-         * @var Remote\Model $type
+         * @var Remote\Model
          */
         $type = get_class($current_object);
         $has_guid = $checkGuid ? $current_object->hasGUID() : true;

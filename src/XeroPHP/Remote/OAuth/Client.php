@@ -14,7 +14,6 @@ use XeroPHP\Remote\OAuth\SignatureMethod\PLAINTEXT;
  * which comes in the recommended php developer kit.
  *
  * @author Michael Calcinai
- * @package XeroPHP\Remote\OAuth
  */
 class Client
 {
@@ -30,9 +29,7 @@ class Client
 
     private $config;
 
-    /*
-     * "Cached" parameters - will change between signings.
-     */
+    // "Cached" parameters - will change between signings.
     private $oauth_params;
 
     private $token_secret;
@@ -254,7 +251,7 @@ class Client
         if (isset($this->config['token'])) {
             return $this->config['token'];
         }
-        return null;
+        return;
     }
 
     /**
@@ -295,7 +292,7 @@ class Client
      */
     public function getAuthorizeURL($oauth_token = null)
     {
-        if ($oauth_token == null) {
+        if ($oauth_token === null) {
             return $this->config['authorize_url'];
         }
 
@@ -342,7 +339,7 @@ class Client
         if (isset($this->token_secret)) {
             return $this->token_secret;
         }
-        return null;
+        return;
     }
 
     public function setVerifier($verifier)
@@ -357,6 +354,6 @@ class Client
         if (isset($this->verifier)) {
             return $this->verifier;
         }
-        return null;
+        return;
     }
 }

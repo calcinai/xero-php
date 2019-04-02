@@ -175,7 +175,7 @@ class DeductionType extends Remote\Model
      * @param DeductionType $value
      * @return DeductionType
      */
-    public function setDeductionType(DeductionType $value)
+    public function setDeductionType(self $value)
     {
         $this->propertyUpdated('DeductionType', $value);
         $this->_data['DeductionType'] = $value;
