@@ -135,10 +135,10 @@ class Event
      */
     public function getEventClass()
     {
-        if ($this->getEventCategory() == 'INVOICE') {
+        if ($this->getEventCategory() === 'INVOICE') {
             return \XeroPHP\Models\Accounting\Invoice::class;
         }
-        if ($this->getEventCategory() == 'CONTACT') {
+        if ($this->getEventCategory() === 'CONTACT') {
             return \XeroPHP\Models\Accounting\Contact::class;
         }
 
@@ -170,7 +170,7 @@ class Event
      */
     public function getResource($application = null)
     {
-        if ($application == null) {
+        if ($application === null) {
             $application = $this->getWebhook()->getApplication();
         }
 
@@ -180,7 +180,7 @@ class Event
 
         foreach ($request->getResponse()->getElements() as $element) {
             $class = $this->getEventClass();
-            if ($class == null) {
+            if ($class === null) {
                 return $element;
             } else {
                 $model = new $class($application);
