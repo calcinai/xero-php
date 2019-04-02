@@ -118,7 +118,7 @@ class BankAccount extends Remote\Model
             'BSB' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
             'AccountNumber' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
             'Remainder' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
-            'Amount' => [false, self::PROPERTY_TYPE_FLOAT, null, false, false]
+            'Amount' => [false, self::PROPERTY_TYPE_FLOAT, null, false, false],
         ];
     }
 

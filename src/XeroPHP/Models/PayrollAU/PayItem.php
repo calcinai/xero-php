@@ -87,7 +87,7 @@ class PayItem extends Remote\Model
     {
         return [
             Remote\Request::METHOD_POST,
-            Remote\Request::METHOD_GET
+            Remote\Request::METHOD_GET,
         ];
     }
 
@@ -108,7 +108,7 @@ class PayItem extends Remote\Model
             'EarningsRates' => [false, self::PROPERTY_TYPE_OBJECT, 'PayrollAU\\PayItem\\EarningsRate', true, false],
             'DeductionTypes' => [false, self::PROPERTY_TYPE_OBJECT, 'PayrollAU\\PayItem\\DeductionType', true, false],
             'LeaveTypes' => [false, self::PROPERTY_TYPE_OBJECT, 'PayrollAU\\PayItem\\LeaveType', true, false],
-            'ReimbursementTypes' => [false, self::PROPERTY_TYPE_OBJECT, 'PayrollAU\\PayItem\\ReimbursementType', true, false]
+            'ReimbursementTypes' => [false, self::PROPERTY_TYPE_OBJECT, 'PayrollAU\\PayItem\\ReimbursementType', true, false],
         ];
     }
 

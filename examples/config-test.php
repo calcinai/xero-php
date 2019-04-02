@@ -21,8 +21,8 @@ $config = [
         CURLOPT_CAINFO => 'certs/ca-bundle.crt',
         CURLOPT_SSLCERT => 'certs/entrust-cert-RQ3.pem',
         CURLOPT_SSLKEYPASSWD => '1234',
-        CURLOPT_SSLKEY => 'certs/entrust-private-RQ3.pem'
-    ]
+        CURLOPT_SSLKEY => 'certs/entrust-private-RQ3.pem',
+    ],
 ];
 
 $xero = new PartnerApplication($config);

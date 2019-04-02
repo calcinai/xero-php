@@ -89,7 +89,7 @@ class ContactGroup extends Remote\Model
             Remote\Request::METHOD_GET,
             Remote\Request::METHOD_PUT,
             Remote\Request::METHOD_POST,
-            Remote\Request::METHOD_DELETE
+            Remote\Request::METHOD_DELETE,
         ];
     }
 
@@ -110,7 +110,7 @@ class ContactGroup extends Remote\Model
             'Name' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
             'Status' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
             'ContactGroupID' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
-            'Contacts' => [false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Contact', true, true]
+            'Contacts' => [false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Contact', true, true],
         ];
     }
 

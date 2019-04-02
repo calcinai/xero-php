@@ -95,7 +95,7 @@ class TimeOffLine extends Remote\Model
         return [
             'TimeOffTypeID' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
             'Hours' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
-            'Balance' => [false, self::PROPERTY_TYPE_STRING, null, false, false]
+            'Balance' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
         ];
     }
 

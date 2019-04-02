@@ -22,11 +22,11 @@ class WebhookTest extends \PHPUnit_Framework_TestCase
                 'consumer_key' => 'k',
                 'consumer_secret' => 's',
                 'rsa_private_key' => 'file://certs/private.pem',
-                'rsa_public_key' => 'file://certs/public.pem'
+                'rsa_public_key' => 'file://certs/public.pem',
             ],
             'webhook' => [
                 'signing_key' => 'test_key',
-            ]
+            ],
         ];
 
         $this->application = new PrivateApplication($config);

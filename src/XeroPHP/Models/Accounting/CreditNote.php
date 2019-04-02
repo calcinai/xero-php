@@ -200,7 +200,7 @@ class CreditNote extends Remote\Model
         return [
             Remote\Request::METHOD_POST,
             Remote\Request::METHOD_PUT,
-            Remote\Request::METHOD_GET
+            Remote\Request::METHOD_GET,
         ];
     }
 
@@ -239,7 +239,7 @@ class CreditNote extends Remote\Model
             'RemainingCredit' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
             'Allocations' => [false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\CreditNote\\Allocation', true, true],
             'BrandingThemeID' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
-            'HasAttachments' => [false, self::PROPERTY_TYPE_BOOLEAN, null, false, false]
+            'HasAttachments' => [false, self::PROPERTY_TYPE_BOOLEAN, null, false, false],
         ];
     }
 

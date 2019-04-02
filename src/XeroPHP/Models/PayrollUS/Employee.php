@@ -242,7 +242,7 @@ class Employee extends Remote\Model
     {
         return [
             Remote\Request::METHOD_POST,
-            Remote\Request::METHOD_GET
+            Remote\Request::METHOD_GET,
         ];
     }
 
@@ -288,7 +288,7 @@ class Employee extends Remote\Model
             'TimeOffBalances' => [false, self::PROPERTY_TYPE_OBJECT, 'PayrollUS\\Employee\\TimeOffBalance', true, false],
             'EmployeeID' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
             'Status' => [false, self::PROPERTY_TYPE_ENUM, null, false, false],
-            'UpdatedDateUTC' => [false, self::PROPERTY_TYPE_TIMESTAMP, '\\DateTimeInterface', false, false]
+            'UpdatedDateUTC' => [false, self::PROPERTY_TYPE_TIMESTAMP, '\\DateTimeInterface', false, false],
         ];
     }
 

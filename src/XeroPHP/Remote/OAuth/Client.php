@@ -108,7 +108,7 @@ class Client
                 'oauth_timestamp' => $this->getTimestamp(),
                 'oauth_nonce' => $this->getNonce(),
                 'oauth_callback' => $this->getCallback(),
-                'oauth_version' => self::OAUTH_VERSION
+                'oauth_version' => self::OAUTH_VERSION,
             ];
 
             if (null !== $token = $this->getToken()) {

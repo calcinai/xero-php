@@ -94,7 +94,7 @@ class ExternalLink extends Remote\Model
     {
         return [
             'LinkType' => [false, self::PROPERTY_TYPE_ENUM, null, false, false],
-            'Url' => [false, self::PROPERTY_TYPE_STRING, null, false, false]
+            'Url' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
         ];
     }
 

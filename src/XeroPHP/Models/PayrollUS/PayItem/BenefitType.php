@@ -156,7 +156,7 @@ class BenefitType extends Remote\Model
             'StandardAmount' => [false, self::PROPERTY_TYPE_FLOAT, null, false, false],
             'CompanyMax' => [false, self::PROPERTY_TYPE_FLOAT, null, false, false],
             'Percentage' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
-            'ShowBalanceOnPaystub' => [false, self::PROPERTY_TYPE_FLOAT, null, false, false]
+            'ShowBalanceOnPaystub' => [false, self::PROPERTY_TYPE_FLOAT, null, false, false],
         ];
     }
 

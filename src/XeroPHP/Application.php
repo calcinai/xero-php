@@ -17,7 +17,7 @@ abstract class Application
             'core_version' => '2.0',
             'payroll_version' => '1.0',
             'file_version' => '1.0',
-            'model_namespace' => '\\XeroPHP\\Models'
+            'model_namespace' => '\\XeroPHP\\Models',
         ],
         //OAuth config
         'oauth' => [
@@ -25,7 +25,7 @@ abstract class Application
             'signature_location' => Client::SIGN_LOCATION_HEADER,
             'authorize_url' => 'https://api.xero.com/oauth/Authorize',
             'request_token_path' => 'oauth/RequestToken',
-            'access_token_path' => 'oauth/AccessToken'
+            'access_token_path' => 'oauth/AccessToken',
         ],
         'curl' => [
             CURLOPT_USERAGENT => 'XeroPHP',
@@ -37,7 +37,7 @@ abstract class Application
             CURLOPT_PROXY => false,
             CURLOPT_PROXYUSERPWD => false,
             CURLOPT_ENCODING => '',
-        ]
+        ],
     ];
 
     /**

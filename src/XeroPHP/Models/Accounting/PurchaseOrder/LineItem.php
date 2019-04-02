@@ -157,7 +157,7 @@ class LineItem extends Remote\Model
             'Tracking' => [false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\TrackingCategory', true, false],
             'LineItemID' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
             'TaxAmount' => [false, self::PROPERTY_TYPE_FLOAT, null, false, false],
-            'LineAmount' => [false, self::PROPERTY_TYPE_FLOAT, null, false, false]
+            'LineAmount' => [false, self::PROPERTY_TYPE_FLOAT, null, false, false],
         ];
     }
 

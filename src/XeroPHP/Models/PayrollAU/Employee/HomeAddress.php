@@ -116,7 +116,7 @@ class HomeAddress extends Remote\Model
             'City' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
             'Region' => [false, self::PROPERTY_TYPE_ENUM, null, false, false],
             'PostalCode' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
-            'Country' => [false, self::PROPERTY_TYPE_STRING, null, false, false]
+            'Country' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
         ];
     }
 

@@ -103,7 +103,7 @@ class LeaveBalance extends Remote\Model
             'LeaveName' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
             'LeaveTypeID' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
             'NumberOfUnits' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
-            'TypeOfUnits' => [false, self::PROPERTY_TYPE_OBJECT, 'PayrollAU\\PayItem', true, false]
+            'TypeOfUnits' => [false, self::PROPERTY_TYPE_OBJECT, 'PayrollAU\\PayItem', true, false],
         ];
     }
 

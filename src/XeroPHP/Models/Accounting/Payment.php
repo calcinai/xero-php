@@ -167,7 +167,7 @@ class Payment extends Remote\Model
         return [
             Remote\Request::METHOD_GET,
             Remote\Request::METHOD_PUT,
-            Remote\Request::METHOD_POST
+            Remote\Request::METHOD_POST,
         ];
     }
 
@@ -198,7 +198,7 @@ class Payment extends Remote\Model
             'Status' => [false, self::PROPERTY_TYPE_ENUM, null, false, false],
             'PaymentType' => [false, self::PROPERTY_TYPE_ENUM, null, false, false],
             'UpdatedDateUTC' => [false, self::PROPERTY_TYPE_TIMESTAMP, '\\DateTimeInterface', false, false],
-            'PaymentID' => [false, self::PROPERTY_TYPE_STRING, null, false, false]
+            'PaymentID' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
         ];
     }
 

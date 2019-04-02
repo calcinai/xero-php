@@ -110,7 +110,7 @@ class TimeOffBalance extends Remote\Model
             'TimeOffTypeId' => [false, self::PROPERTY_TYPE_OBJECT, 'PayrollUS\\PayItem', false, false],
             'NumberOfUnits' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
             'TypeOfUnits' => [false, self::PROPERTY_TYPE_OBJECT, 'PayrollUS\\PayItem', true, false],
-            'EmployeeID' => [false, self::PROPERTY_TYPE_STRING, null, false, false]
+            'EmployeeID' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
         ];
     }
 

@@ -82,7 +82,7 @@ class BrandingTheme extends Remote\Model
     public static function getSupportedMethods()
     {
         return [
-            Remote\Request::METHOD_GET
+            Remote\Request::METHOD_GET,
         ];
     }
 
@@ -103,7 +103,7 @@ class BrandingTheme extends Remote\Model
             'BrandingThemeID' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
             'Name' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
             'SortOrder' => [false, self::PROPERTY_TYPE_INT, null, false, false],
-            'CreatedDateUTC' => [false, self::PROPERTY_TYPE_TIMESTAMP, '\\DateTimeInterface', false, false]
+            'CreatedDateUTC' => [false, self::PROPERTY_TYPE_TIMESTAMP, '\\DateTimeInterface', false, false],
         ];
     }
 

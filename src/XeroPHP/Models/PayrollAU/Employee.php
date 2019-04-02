@@ -251,7 +251,7 @@ class Employee extends Remote\Model
     {
         return [
             Remote\Request::METHOD_POST,
-            Remote\Request::METHOD_GET
+            Remote\Request::METHOD_GET,
         ];
     }
 
@@ -298,7 +298,7 @@ class Employee extends Remote\Model
             'EmployeeID' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
             'Status' => [false, self::PROPERTY_TYPE_ENUM, null, false, false],
             'UpdatedDateUTC' => [false, self::PROPERTY_TYPE_TIMESTAMP, '\\DateTimeInterface', false, false],
-            'TaxDeclaration' => [false, self::PROPERTY_TYPE_OBJECT, 'PayrollAU\\Employee\\TaxDeclaration', false, false]
+            'TaxDeclaration' => [false, self::PROPERTY_TYPE_OBJECT, 'PayrollAU\\Employee\\TaxDeclaration', false, false],
         ];
     }
 

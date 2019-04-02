@@ -111,7 +111,7 @@ class Helpers
             '/([ti])a$/i' => '$1um',
             '/(us)es$/i' => '$1',
             '/(basis)$/i' => '$1',
-            '/([^s])s$/i' => '$1'
+            '/([^s])s$/i' => '$1',
         ];
 
         // check for matches using regular expressions
@@ -143,7 +143,7 @@ class Helpers
             '/(ax|test)is$/i' => '$1es',
             '/(us)$/i' => '$1es',
             '/s$/i' => 's',
-            '/$/' => 's'
+            '/$/' => 's',
         ];
 
         // check for matches using regular expressions

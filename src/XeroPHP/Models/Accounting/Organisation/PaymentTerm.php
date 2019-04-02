@@ -93,7 +93,7 @@ class PaymentTerm extends Remote\Model
     {
         return [
             'Bills' => [false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Organisation\\Bill', true, false],
-            'Sales' => [false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Organisation\\Sale', true, false]
+            'Sales' => [false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Organisation\\Sale', true, false],
         ];
     }
 

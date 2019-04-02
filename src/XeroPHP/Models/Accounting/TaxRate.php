@@ -137,7 +137,7 @@ class TaxRate extends Remote\Model
         return [
             Remote\Request::METHOD_GET,
             Remote\Request::METHOD_PUT,
-            Remote\Request::METHOD_POST
+            Remote\Request::METHOD_POST,
         ];
     }
 
@@ -166,7 +166,7 @@ class TaxRate extends Remote\Model
             'CanApplyToLiabilities' => [false, self::PROPERTY_TYPE_BOOLEAN, null, false, false],
             'CanApplyToRevenue' => [false, self::PROPERTY_TYPE_BOOLEAN, null, false, false],
             'DisplayTaxRate' => [false, self::PROPERTY_TYPE_FLOAT, null, false, false],
-            'EffectiveRate' => [false, self::PROPERTY_TYPE_FLOAT, null, false, false]
+            'EffectiveRate' => [false, self::PROPERTY_TYPE_FLOAT, null, false, false],
         ];
     }
 

@@ -124,7 +124,7 @@ class Schedule extends Remote\Model
             'DueDateType' => [false, self::PROPERTY_TYPE_ENUM, null, false, false],
             'StartDate' => [false, self::PROPERTY_TYPE_DATE, '\\DateTimeInterface', false, false],
             'NextScheduledDate' => [false, self::PROPERTY_TYPE_DATE, '\\DateTimeInterface', false, false],
-            'EndDate' => [false, self::PROPERTY_TYPE_DATE, '\\DateTimeInterface', false, false]
+            'EndDate' => [false, self::PROPERTY_TYPE_DATE, '\\DateTimeInterface', false, false],
         ];
     }
 
