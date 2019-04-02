@@ -147,7 +147,7 @@ class Request
     public function getHeader($key)
     {
         if (! isset($this->headers[$key])) {
-            return null;
+            return;
         }
         return $this->headers[$key];
     }
@@ -165,7 +165,7 @@ class Request
         if (isset($this->response)) {
             return $this->response;
         }
-        return null;
+        return;
     }
 
     /**

@@ -253,7 +253,7 @@ class Client
         if (isset($this->config['token'])) {
             return $this->config['token'];
         }
-        return null;
+        return;
     }
 
     /**
@@ -341,7 +341,7 @@ class Client
         if (isset($this->token_secret)) {
             return $this->token_secret;
         }
-        return null;
+        return;
     }
 
     public function setVerifier($verifier)
@@ -356,6 +356,6 @@ class Client
         if (isset($this->verifier)) {
             return $this->verifier;
         }
-        return null;
+        return;
     }
 }
