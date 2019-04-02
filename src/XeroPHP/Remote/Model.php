@@ -310,7 +310,7 @@ abstract class Model implements ObjectInterface, \JsonSerializable, \ArrayAccess
                 return (float) $value;
 
             case self::PROPERTY_TYPE_BOOLEAN:
-                return in_array(strtolower($value), ['true', '1', 'yes']);
+                return in_array(strtolower($value), ['true', '1', 'yes'], true);
 
             /** @noinspection PhpMissingBreakStatementInspection */
             case self::PROPERTY_TYPE_TIMESTAMP:
@@ -499,7 +499,7 @@ abstract class Model implements ObjectInterface, \JsonSerializable, \ArrayAccess
      */
     public static function supportsMethod($method)
     {
-        return in_array($method, static::getSupportedMethods());
+        return in_array($method, static::getSupportedMethods(), true);
     }
 
     /**
