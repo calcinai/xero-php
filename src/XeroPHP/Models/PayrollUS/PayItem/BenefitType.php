@@ -177,7 +177,7 @@ class BenefitType extends Remote\Model
      * @param BenefitType $value
      * @return BenefitType
      */
-    public function setBenefitType(BenefitType $value)
+    public function setBenefitType(self $value)
     {
         $this->propertyUpdated('BenefitType', $value);
         $this->_data['BenefitType'] = $value;
