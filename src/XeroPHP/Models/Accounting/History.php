@@ -1,6 +1,5 @@
 <?php
 
-
 namespace XeroPHP\Models\Accounting;
 
 use XeroPHP\Remote\Model;
