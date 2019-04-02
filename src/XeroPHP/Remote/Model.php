@@ -7,10 +7,6 @@ use XeroPHP\Application;
 
 /**
  * Class Model
- * @package XeroPHP\Remote
- *
- * todo - at 2.x, move this into the root of the project and refer to it as a model.
- * Also make this an ArrayObject to simplify storage
  */
 abstract class Model implements ObjectInterface, \JsonSerializable, \ArrayAccess
 {
