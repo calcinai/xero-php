@@ -37,7 +37,7 @@ class Attachment extends Model
     /**
      * Actual file content (binary)
      *
-     * @var string $content
+     * @var string
      */
     private $content;
 

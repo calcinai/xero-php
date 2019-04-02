@@ -189,7 +189,7 @@ abstract class Application
     public function loadByGUID($model, $guid)
     {
         /**
-         * @var Remote\Model $class
+         * @var Remote\Model
          */
         $class = $this->validateModelClass($model);
 
@@ -203,7 +203,7 @@ abstract class Application
         //Return the first (if any) element from the response.
         foreach ($request->getResponse()->getElements() as $element) {
             /**
-             * @var Remote\Model $object
+             * @var Remote\Model
              */
             $object = new $class($this);
             $object->fromStringArray($element);
@@ -224,7 +224,7 @@ abstract class Application
     public function loadByGUIDs($model, $guids)
     {
         /**
-         * @var Remote\Model $class
+         * @var Remote\Model
          */
         $class = $this->validateModelClass($model);
 
@@ -238,7 +238,7 @@ abstract class Application
         $elements = new Collection();
         foreach ($request->getResponse()->getElements() as $element) {
             /**
-             * @var Remote\Model $object
+             * @var Remote\Model
              */
             $object = new $class($this);
             $object->fromStringArray($element);
@@ -322,7 +322,7 @@ abstract class Application
         //Just get one type to compare with, doesn't matter which.
         $current_object = $objects[0];
         /**
-         * @var Remote\Model $type
+         * @var Remote\Model
          */
         $type = get_class($current_object);
         $has_guid = $checkGuid ? $current_object->hasGUID() : true;

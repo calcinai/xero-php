@@ -55,7 +55,7 @@ abstract class Model implements ObjectInterface, \JsonSerializable, \ArrayAccess
      * Holds a ref to the application that was used to load the object,
      * enables shorthand $object->save();
      *
-     * @var Application $_application
+     * @var Application
      */
     protected $_application;
 
@@ -265,13 +265,13 @@ abstract class Model implements ObjectInterface, \JsonSerializable, \ArrayAccess
 
             case self::PROPERTY_TYPE_DATE:
                 /**
-                 * @var \DateTimeInterface $value
+                 * @var \DateTimeInterface
                  */
                 return $value->format('Y-m-d');
 
             case self::PROPERTY_TYPE_TIMESTAMP:
                 /**
-                 * @var \DateTimeInterface $value
+                 * @var \DateTimeInterface
                  */
                 return $value->format('c');
 
