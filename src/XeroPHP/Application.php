@@ -233,7 +233,7 @@ abstract class Application
 
         $url = new URL($this, $uri, $api);
         $request = new Request($this, $url, Request::METHOD_GET);
-        $request->setParameter("IDs", $guids);
+        $request->setParameter('IDs', $guids);
         $request->send();
         $elements = new Collection();
         foreach ($request->getResponse()->getElements() as $element) {
