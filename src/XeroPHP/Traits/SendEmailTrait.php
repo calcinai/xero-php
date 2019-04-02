@@ -2,7 +2,6 @@
 
 namespace XeroPHP\Traits;
 
-use XeroPHP\Exception;
 use XeroPHP\Remote\URL;
 use XeroPHP\Remote\Request;
 

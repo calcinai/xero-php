@@ -2,7 +2,6 @@
 
 namespace XeroPHP\tests\Application;
 
-use XeroPHP\Application\PartnerApplication;
 use XeroPHP\Application\PrivateApplication;
 
 class ApplicationTest extends \PHPUnit_Framework_TestCase
