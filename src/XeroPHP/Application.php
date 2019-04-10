@@ -463,6 +463,10 @@ abstract class Application
                     continue;
                 }
 
+                if ($property_objects instanceof Remote\Collection) {
+                    $property_objects = (array)$property_objects;
+                }
+
                 if (!is_array($property_objects)) {
                     continue;
                 }
