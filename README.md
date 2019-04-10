@@ -11,10 +11,6 @@ This is loosely based on the functional flow of XeroAPI/XeroOAuth-PHP, but is sp
 
 This library has been tested with Private, Public and Partner applications.
 
-### Model Generation
-
-All the models were historically generated from the Xero developer docs. This has become too hard to maintain, as there is some key data missing in some cases. If you spot something wrong, feel free to make a PR.
-
 ## Requirements
 * PHP 5.5+
 * php\_curl extension - ensure a recent version (7.30+)
