@@ -275,7 +275,7 @@ abstract class Application
      * @return Remote\Response|null
      * @throws Exception
      */
-    public function save(Remote\Model $object, $replace_data = false)
+    public function save(Remote\Model $object, $replace_data = false, $base_uri = null)
     {
         //Saves any properties that don't want to be included in the normal loop
         //(special saving endpoints)
@@ -284,11 +284,21 @@ abstract class Application
         if (!$object->isDirty()) {
             return null;
         }
+
         $object->validate();
+
+        if (!empty($base_uri) && $base_uri instanceof URL) {
+            $base_uri = $base_uri->getFullURL();
+        }
 
         if ($object->hasGUID()) {
             $method = $object::supportsMethod(Request::METHOD_POST) ? Request::METHOD_POST : Request::METHOD_PUT;
-            $uri = sprintf('%s/%s', $object::getResourceURI(), $object->getGUID());
+            $uri = sprintf(
+                '%s/%s',
+                (!empty($base_uri) ? $base_uri.'/' : '')
+                .$object::getResourceURI(),
+                $object->getGUID()
+            );
         } else {
 
             //In this case it's new
@@ -301,7 +311,9 @@ abstract class Application
                         : Request::METHOD_POST;
             }
 
-            $uri = $object::getResourceURI();
+            $uri =
+                (!empty($base_uri) ? $base_uri.'/' : '')
+                .$object::getResourceURI();
 
             //@todo, bump version so you must create objects with app context.
             $object->setApplication($this);
@@ -318,11 +330,11 @@ abstract class Application
         if (!empty($object::getRootNodeName())) {
 
             //Put in an array with the first level containing only the 'root node'.
-            $data = [$object::getRootNodeName() => $object->toStringArray(true)];
+            $data = [$object::getRootNodeName() => $object->toStringArray(false)];
 
             $request->setBody(Helpers::arrayToXML($data))->send();
         } else {
-            $data = $object->toStringArray(true);
+            $data = $object->toStringArray(false);
 
             $request->setBody(json_encode($data), Request::CONTENT_TYPE_JSON)->send();
         }
@@ -492,9 +504,24 @@ abstract class Application
 
                 /** @var Object[] $property_objects */
                 foreach ($property_objects as $property_object) {
+                    if ($property_object->hasGUID()) {
+                        $property_object->setApplication($this);
+
+                        $this->save(
+                            $property_object,
+                            false,
+                            sprintf(
+                                '%s/%s',
+                                $object::getResourceURI(),
+                                $object->getGUID()
+                            )
+                        );
+
+                        return;
+                    }
+
                     $property_array[] = $property_object->toStringArray(false);
                 }
-
 
                 if (!empty($property_type::getRootNodeName())) {
                     $root_node_name = Helpers::pluralize($property_type::getRootNodeName());
