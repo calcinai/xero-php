@@ -162,7 +162,7 @@ class TrackingCategory extends Remote\Model
         $this->_data['Name'] = $value;
         return $this;
     }
-    
+
     /**
      * @return string
      */
@@ -244,6 +244,39 @@ class TrackingCategory extends Remote\Model
     }
 
     /**
+     * @param array|TrackingOption $value
+     *
+     * @return $this
+     */
+    public function setOptions($value)
+    {
+        if (!($value instanceof Remote\Collection)) {
+            if (is_array($value)) {
+                $value = new Remote\Collection($value);
+            } elseif ($value instanceof TrackingOption) {
+                $value = new Remote\Collection([$value]);
+            } else {
+                return $this;
+            }
+        }
+
+        $this->propertyUpdated('Options', $value);
+        $this->_data['Options'] = $value;
+
+        return $this;
+    }
+
+    /**
+     * @return TrackingCategory
+     */
+    public function clearOptions()
+    {
+        $this->_data['Options'] = new Remote\Collection;
+
+        return $this;
+    }
+
+    /**
      * @return string $value
      * Returns selected option name
      */
@@ -263,5 +296,13 @@ class TrackingCategory extends Remote\Model
         return $this;
     }
 
+    /**
+     * @return TrackingCategory
+     */
+    public function clearOption()
+    {
+        unset($this->_data['Option']);
 
+        return $this;
+    }
 }
