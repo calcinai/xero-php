@@ -169,7 +169,7 @@ class LinkedTransaction extends Remote\Model
 
     public static function isPageable()
     {
-        return false;
+        return true;
     }
 
     /**
