@@ -129,6 +129,7 @@ class TimesheetLine extends Remote\Model
     {
         $this->propertyUpdated('EarningsTypeID', $value);
         $this->_data['EarningsTypeID'] = $value;
+
         return $this;
     }
 
@@ -148,6 +149,7 @@ class TimesheetLine extends Remote\Model
     {
         $this->propertyUpdated('TrackingItemID', $value);
         $this->_data['TrackingItemID'] = $value;
+
         return $this;
     }
 
@@ -171,6 +173,7 @@ class TimesheetLine extends Remote\Model
             $this->_data['NumberOfUnits'] = new Remote\Collection();
         }
         $this->_data['NumberOfUnits'][] = $value;
+
         return $this;
     }
 
@@ -190,6 +193,7 @@ class TimesheetLine extends Remote\Model
     {
         $this->propertyUpdated('WorkLocationID', $value);
         $this->_data['WorkLocationID'] = $value;
+
         return $this;
     }
 }

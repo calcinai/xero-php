@@ -125,6 +125,7 @@ class Currency extends Remote\Model
     {
         $this->propertyUpdated('ModifiedAfter', $value);
         $this->_data['ModifiedAfter'] = $value;
+
         return $this;
     }
 
@@ -144,6 +145,7 @@ class Currency extends Remote\Model
     {
         $this->propertyUpdated('Code', $value);
         $this->_data['Code'] = $value;
+
         return $this;
     }
 
@@ -163,6 +165,7 @@ class Currency extends Remote\Model
     {
         $this->propertyUpdated('Description', $value);
         $this->_data['Description'] = $value;
+
         return $this;
     }
 }

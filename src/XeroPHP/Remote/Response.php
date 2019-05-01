@@ -74,6 +74,7 @@ class Response
                 if (isset($this->root_error) && ! empty($this->root_error)) {
                     $message = sprintf('%s (%s)', $this->root_error['message'], implode(', ', $this->element_errors));
                     $message .= $this->parseBadRequest();
+
                     throw new BadRequestException($message, $this->root_error['code']);
                 } else {
                     throw new BadRequestException();
@@ -110,6 +111,7 @@ class Response
                     $problem = isset($this->headers['x-rate-limit-problem']) ? current($this->headers['x-rate-limit-problem']) : null;
                     $exception = new RateLimitExceededException();
                     $exception->setRateLimitProblem($problem);
+
                     throw $exception;
                 } else {
                     throw new NotAvailableException();
@@ -129,6 +131,7 @@ class Response
                     $field_errors[] = $element['ValidationErrors'][0]['Message'];
                 }
             }
+
             return "\nValidation errors:\n".implode("\n", $field_errors);
         }
 
@@ -159,6 +162,7 @@ class Response
         if (isset($this->element_errors[$element_id])) {
             return $this->element_errors[$element_id];
         }
+
         return;
     }
 
@@ -186,6 +190,7 @@ class Response
     {
         if ($this->request->getUrl()->isOAuth()) {
             $this->parseHTML();
+
             return;
         }
 
@@ -197,14 +202,17 @@ class Response
         switch ($this->content_type) {
             case Request::CONTENT_TYPE_XML:
                 $this->parseXML();
+
                 break;
 
             case Request::CONTENT_TYPE_JSON:
                 $this->parseJSON();
+
                 break;
 
             case Request::CONTENT_TYPE_HTML:
                 $this->parseHTML();
+
                 break;
 
             default:
@@ -227,6 +235,7 @@ class Response
                             $this->element_errors[$element_index] = trim($error['Message'], '.');
                         }
                     }
+
                     break;
                 case 'Warnings':
                     if (is_array($value)) {
@@ -234,6 +243,7 @@ class Response
                             $this->element_warnings[$element_index] = trim($warning['Message'], '.');
                         }
                     }
+
                     break;
 
                 default:
@@ -255,17 +265,21 @@ class Response
             switch ($child_index) {
                 case 'ErrorNumber':
                     $this->root_error['code'] = (string) $root_child;
+
                     break;
                 case 'Type':
                     $this->root_error['type'] = (string) $root_child;
+
                     break;
                 case 'Message':
                     $this->root_error['message'] = (string) $root_child;
+
                     break;
                 case 'Payslip':
                 case 'PayItems':
                     // some xero endpoints are 1D so we can parse them straight away
                     $this->elements[] = Helpers::XMLToArray($root_child);
+
                     break;
 
                 default:
@@ -286,17 +300,21 @@ class Response
             switch ($child_index) {
                 case 'ErrorNumber':
                     $this->root_error['code'] = $root_child;
+
                     break;
                 case 'Type':
                     $this->root_error['type'] = $root_child;
+
                     break;
                 case 'Message':
                     $this->root_error['message'] = $root_child;
+
                     break;
                 case 'Payslip':
                 case 'PayItems':
                     // some xero endpoints are 1D so we can parse them straight away
                     $this->elements[] = $root_child;
+
                     break;
 
                 default:

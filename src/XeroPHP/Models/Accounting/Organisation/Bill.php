@@ -113,6 +113,7 @@ class Bill extends Remote\Model
     {
         $this->propertyUpdated('Day', $value);
         $this->_data['Day'] = $value;
+
         return $this;
     }
 
@@ -132,6 +133,7 @@ class Bill extends Remote\Model
     {
         $this->propertyUpdated('Type', $value);
         $this->_data['Type'] = $value;
+
         return $this;
     }
 }

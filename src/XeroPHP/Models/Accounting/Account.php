@@ -285,6 +285,7 @@ class Account extends Remote\Model
     {
         $this->propertyUpdated('Code', $value);
         $this->_data['Code'] = $value;
+
         return $this;
     }
 
@@ -304,6 +305,7 @@ class Account extends Remote\Model
     {
         $this->propertyUpdated('Name', $value);
         $this->_data['Name'] = $value;
+
         return $this;
     }
 
@@ -323,6 +325,7 @@ class Account extends Remote\Model
     {
         $this->propertyUpdated('Type', $value);
         $this->_data['Type'] = $value;
+
         return $this;
     }
 
@@ -342,6 +345,7 @@ class Account extends Remote\Model
     {
         $this->propertyUpdated('BankAccountNumber', $value);
         $this->_data['BankAccountNumber'] = $value;
+
         return $this;
     }
 
@@ -361,6 +365,7 @@ class Account extends Remote\Model
     {
         $this->propertyUpdated('Status', $value);
         $this->_data['Status'] = $value;
+
         return $this;
     }
 
@@ -380,6 +385,7 @@ class Account extends Remote\Model
     {
         $this->propertyUpdated('Description', $value);
         $this->_data['Description'] = $value;
+
         return $this;
     }
 
@@ -399,6 +405,7 @@ class Account extends Remote\Model
     {
         $this->propertyUpdated('BankAccountType', $value);
         $this->_data['BankAccountType'] = $value;
+
         return $this;
     }
 
@@ -418,6 +425,7 @@ class Account extends Remote\Model
     {
         $this->propertyUpdated('CurrencyCode', $value);
         $this->_data['CurrencyCode'] = $value;
+
         return $this;
     }
 
@@ -437,6 +445,7 @@ class Account extends Remote\Model
     {
         $this->propertyUpdated('TaxType', $value);
         $this->_data['TaxType'] = $value;
+
         return $this;
     }
 
@@ -456,6 +465,7 @@ class Account extends Remote\Model
     {
         $this->propertyUpdated('EnablePaymentsToAccount', $value);
         $this->_data['EnablePaymentsToAccount'] = $value;
+
         return $this;
     }
 
@@ -475,6 +485,7 @@ class Account extends Remote\Model
     {
         $this->propertyUpdated('ShowInExpenseClaims', $value);
         $this->_data['ShowInExpenseClaims'] = $value;
+
         return $this;
     }
 
@@ -494,6 +505,7 @@ class Account extends Remote\Model
     {
         $this->propertyUpdated('AccountID', $value);
         $this->_data['AccountID'] = $value;
+
         return $this;
     }
 

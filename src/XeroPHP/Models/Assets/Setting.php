@@ -156,6 +156,7 @@ class Setting extends Remote\Model
     {
         $this->propertyUpdated('assetNumberPrefix', $value);
         $this->_data['assetNumberPrefix'] = $value;
+
         return $this;
     }
 
@@ -175,6 +176,7 @@ class Setting extends Remote\Model
     {
         $this->propertyUpdated('assetNumberSequence', $value);
         $this->_data['assetNumberSequence'] = $value;
+
         return $this;
     }
 
@@ -194,6 +196,7 @@ class Setting extends Remote\Model
     {
         $this->propertyUpdated('assetStartDate', $value);
         $this->_data['assetStartDate'] = $value;
+
         return $this;
     }
 
@@ -213,6 +216,7 @@ class Setting extends Remote\Model
     {
         $this->propertyUpdated('lastDepreciationDate', $value);
         $this->_data['lastDepreciationDate'] = $value;
+
         return $this;
     }
 
@@ -232,6 +236,7 @@ class Setting extends Remote\Model
     {
         $this->propertyUpdated('defaultGainOnDisposalAccountId', $value);
         $this->_data['defaultGainOnDisposalAccountId'] = $value;
+
         return $this;
     }
 
@@ -251,6 +256,7 @@ class Setting extends Remote\Model
     {
         $this->propertyUpdated('defaultLossOnDisposalAccountId', $value);
         $this->_data['defaultLossOnDisposalAccountId'] = $value;
+
         return $this;
     }
 
@@ -270,6 +276,7 @@ class Setting extends Remote\Model
     {
         $this->propertyUpdated('defaultCapitalGainOnDisposalAccount', $value);
         $this->_data['defaultCapitalGainOnDisposalAccount'] = $value;
+
         return $this;
     }
 
@@ -289,6 +296,7 @@ class Setting extends Remote\Model
     {
         $this->propertyUpdated('optInForTax', $value);
         $this->_data['optInForTax'] = $value;
+
         return $this;
     }
 }

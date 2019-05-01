@@ -268,6 +268,7 @@ class BankTransaction extends Remote\Model
     {
         $this->propertyUpdated('Type', $value);
         $this->_data['Type'] = $value;
+
         return $this;
     }
 
@@ -287,6 +288,7 @@ class BankTransaction extends Remote\Model
     {
         $this->propertyUpdated('Contact', $value);
         $this->_data['Contact'] = $value;
+
         return $this;
     }
 
@@ -310,6 +312,7 @@ class BankTransaction extends Remote\Model
             $this->_data['LineItems'] = new Remote\Collection();
         }
         $this->_data['LineItems'][] = $value;
+
         return $this;
     }
 
@@ -329,6 +332,7 @@ class BankTransaction extends Remote\Model
     {
         $this->propertyUpdated('BankAccount', $value);
         $this->_data['BankAccount'] = $value;
+
         return $this;
     }
 
@@ -348,6 +352,7 @@ class BankTransaction extends Remote\Model
     {
         $this->propertyUpdated('IsReconciled', $value);
         $this->_data['IsReconciled'] = $value;
+
         return $this;
     }
 
@@ -367,6 +372,7 @@ class BankTransaction extends Remote\Model
     {
         $this->propertyUpdated('Date', $value);
         $this->_data['Date'] = $value;
+
         return $this;
     }
 
@@ -386,6 +392,7 @@ class BankTransaction extends Remote\Model
     {
         $this->propertyUpdated('Reference', $value);
         $this->_data['Reference'] = $value;
+
         return $this;
     }
 
@@ -405,6 +412,7 @@ class BankTransaction extends Remote\Model
     {
         $this->propertyUpdated('CurrencyCode', $value);
         $this->_data['CurrencyCode'] = $value;
+
         return $this;
     }
 
@@ -424,6 +432,7 @@ class BankTransaction extends Remote\Model
     {
         $this->propertyUpdated('CurrencyRate', $value);
         $this->_data['CurrencyRate'] = $value;
+
         return $this;
     }
 
@@ -443,6 +452,7 @@ class BankTransaction extends Remote\Model
     {
         $this->propertyUpdated('Url', $value);
         $this->_data['Url'] = $value;
+
         return $this;
     }
 
@@ -462,6 +472,7 @@ class BankTransaction extends Remote\Model
     {
         $this->propertyUpdated('Status', $value);
         $this->_data['Status'] = $value;
+
         return $this;
     }
 
@@ -481,6 +492,7 @@ class BankTransaction extends Remote\Model
     {
         $this->propertyUpdated('LineAmountTypes', $value);
         $this->_data['LineAmountTypes'] = $value;
+
         return $this;
     }
 
@@ -500,6 +512,7 @@ class BankTransaction extends Remote\Model
     {
         $this->propertyUpdated('SubTotal', $value);
         $this->_data['SubTotal'] = $value;
+
         return $this;
     }
 
@@ -519,6 +532,7 @@ class BankTransaction extends Remote\Model
     {
         $this->propertyUpdated('TotalTax', $value);
         $this->_data['TotalTax'] = $value;
+
         return $this;
     }
 
@@ -538,6 +552,7 @@ class BankTransaction extends Remote\Model
     {
         $this->propertyUpdated('Total', $value);
         $this->_data['Total'] = $value;
+
         return $this;
     }
 
@@ -557,6 +572,7 @@ class BankTransaction extends Remote\Model
     {
         $this->propertyUpdated('BankTransactionID', $value);
         $this->_data['BankTransactionID'] = $value;
+
         return $this;
     }
 

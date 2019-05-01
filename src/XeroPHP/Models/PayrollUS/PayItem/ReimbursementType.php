@@ -120,6 +120,7 @@ class ReimbursementType extends Remote\Model
     {
         $this->propertyUpdated('ReimbursementType', $value);
         $this->_data['ReimbursementType'] = $value;
+
         return $this;
     }
 
@@ -139,6 +140,7 @@ class ReimbursementType extends Remote\Model
     {
         $this->propertyUpdated('ExpenseOrLiabilityAccountCode', $value);
         $this->_data['ExpenseOrLiabilityAccountCode'] = $value;
+
         return $this;
     }
 
@@ -158,6 +160,7 @@ class ReimbursementType extends Remote\Model
     {
         $this->propertyUpdated('ReimbursementTypeID', $value);
         $this->_data['ReimbursementTypeID'] = $value;
+
         return $this;
     }
 }

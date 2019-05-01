@@ -185,6 +185,7 @@ class PayRun extends Remote\Model
     {
         $this->propertyUpdated('PayScheduleID', $value);
         $this->_data['PayScheduleID'] = $value;
+
         return $this;
     }
 
@@ -204,6 +205,7 @@ class PayRun extends Remote\Model
     {
         $this->propertyUpdated('PayRunPeriodEndDate', $value);
         $this->_data['PayRunPeriodEndDate'] = $value;
+
         return $this;
     }
 
@@ -223,6 +225,7 @@ class PayRun extends Remote\Model
     {
         $this->propertyUpdated('PayRunStatus', $value);
         $this->_data['PayRunStatus'] = $value;
+
         return $this;
     }
 
@@ -242,6 +245,7 @@ class PayRun extends Remote\Model
     {
         $this->propertyUpdated('PayRunID', $value);
         $this->_data['PayRunID'] = $value;
+
         return $this;
     }
 

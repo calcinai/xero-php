@@ -185,6 +185,7 @@ class Event
             } else {
                 $model = new $class($application);
                 $model->fromStringArray($element);
+
                 return $model;
             }
         }

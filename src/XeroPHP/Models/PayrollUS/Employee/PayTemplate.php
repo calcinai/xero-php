@@ -218,6 +218,7 @@ class PayTemplate extends Remote\Model
             $this->_data['EarningsLines'] = new Remote\Collection();
         }
         $this->_data['EarningsLines'][] = $value;
+
         return $this;
     }
 
@@ -241,6 +242,7 @@ class PayTemplate extends Remote\Model
             $this->_data['DeductionLines'] = new Remote\Collection();
         }
         $this->_data['DeductionLines'][] = $value;
+
         return $this;
     }
 
@@ -264,6 +266,7 @@ class PayTemplate extends Remote\Model
             $this->_data['ReimbursementLines'] = new Remote\Collection();
         }
         $this->_data['ReimbursementLines'][] = $value;
+
         return $this;
     }
 
@@ -287,6 +290,7 @@ class PayTemplate extends Remote\Model
             $this->_data['BenefitLines'] = new Remote\Collection();
         }
         $this->_data['BenefitLines'][] = $value;
+
         return $this;
     }
 
@@ -306,6 +310,7 @@ class PayTemplate extends Remote\Model
     {
         $this->propertyUpdated('EarningsTypeID', $value);
         $this->_data['EarningsTypeID'] = $value;
+
         return $this;
     }
 
@@ -325,6 +330,7 @@ class PayTemplate extends Remote\Model
     {
         $this->propertyUpdated('UnitsOrHours', $value);
         $this->_data['UnitsOrHours'] = $value;
+
         return $this;
     }
 
@@ -344,6 +350,7 @@ class PayTemplate extends Remote\Model
     {
         $this->propertyUpdated('RatePerUnit', $value);
         $this->_data['RatePerUnit'] = $value;
+
         return $this;
     }
 
@@ -363,6 +370,7 @@ class PayTemplate extends Remote\Model
     {
         $this->propertyUpdated('Amount', $value);
         $this->_data['Amount'] = $value;
+
         return $this;
     }
 
@@ -382,6 +390,7 @@ class PayTemplate extends Remote\Model
     {
         $this->propertyUpdated('DeductionTypeID', $value);
         $this->_data['DeductionTypeID'] = $value;
+
         return $this;
     }
 
@@ -401,6 +410,7 @@ class PayTemplate extends Remote\Model
     {
         $this->propertyUpdated('CalculationType', $value);
         $this->_data['CalculationType'] = $value;
+
         return $this;
     }
 
@@ -420,6 +430,7 @@ class PayTemplate extends Remote\Model
     {
         $this->propertyUpdated('EmployeeMax', $value);
         $this->_data['EmployeeMax'] = $value;
+
         return $this;
     }
 
@@ -439,6 +450,7 @@ class PayTemplate extends Remote\Model
     {
         $this->propertyUpdated('Percentage', $value);
         $this->_data['Percentage'] = $value;
+
         return $this;
     }
 
@@ -458,6 +470,7 @@ class PayTemplate extends Remote\Model
     {
         $this->propertyUpdated('ReimbursementTypeID', $value);
         $this->_data['ReimbursementTypeID'] = $value;
+
         return $this;
     }
 
@@ -477,6 +490,7 @@ class PayTemplate extends Remote\Model
     {
         $this->propertyUpdated('Description', $value);
         $this->_data['Description'] = $value;
+
         return $this;
     }
 
@@ -496,6 +510,7 @@ class PayTemplate extends Remote\Model
     {
         $this->propertyUpdated('BenefitTypeID', $value);
         $this->_data['BenefitTypeID'] = $value;
+
         return $this;
     }
 }

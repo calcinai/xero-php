@@ -241,6 +241,7 @@ class Paystub extends Remote\Model
     {
         $this->propertyUpdated('EmployeeID', $value);
         $this->_data['EmployeeID'] = $value;
+
         return $this;
     }
 
@@ -260,6 +261,7 @@ class Paystub extends Remote\Model
     {
         $this->propertyUpdated('PaystubID', $value);
         $this->_data['PaystubID'] = $value;
+
         return $this;
     }
 
@@ -279,6 +281,7 @@ class Paystub extends Remote\Model
     {
         $this->propertyUpdated('PayRunID', $value);
         $this->_data['PayRunID'] = $value;
+
         return $this;
     }
 
@@ -298,6 +301,7 @@ class Paystub extends Remote\Model
     {
         $this->propertyUpdated('FirstName', $value);
         $this->_data['FirstName'] = $value;
+
         return $this;
     }
 
@@ -317,6 +321,7 @@ class Paystub extends Remote\Model
     {
         $this->propertyUpdated('LastName', $value);
         $this->_data['LastName'] = $value;
+
         return $this;
     }
 
@@ -336,6 +341,7 @@ class Paystub extends Remote\Model
     {
         $this->propertyUpdated('LastEdited', $value);
         $this->_data['LastEdited'] = $value;
+
         return $this;
     }
 
@@ -359,6 +365,7 @@ class Paystub extends Remote\Model
             $this->_data['Earnings'] = new Remote\Collection();
         }
         $this->_data['Earnings'][] = $value;
+
         return $this;
     }
 
@@ -382,6 +389,7 @@ class Paystub extends Remote\Model
             $this->_data['Deductions'] = new Remote\Collection();
         }
         $this->_data['Deductions'][] = $value;
+
         return $this;
     }
 
@@ -401,6 +409,7 @@ class Paystub extends Remote\Model
     {
         $this->propertyUpdated('Tax', $value);
         $this->_data['Tax'] = $value;
+
         return $this;
     }
 
@@ -424,6 +433,7 @@ class Paystub extends Remote\Model
             $this->_data['Reimbursements'] = new Remote\Collection();
         }
         $this->_data['Reimbursements'][] = $value;
+
         return $this;
     }
 
@@ -443,6 +453,7 @@ class Paystub extends Remote\Model
     {
         $this->propertyUpdated('NetPay', $value);
         $this->_data['NetPay'] = $value;
+
         return $this;
     }
 
@@ -462,6 +473,7 @@ class Paystub extends Remote\Model
     {
         $this->propertyUpdated('UpdatedDateUTC', $value);
         $this->_data['UpdatedDateUTC'] = $value;
+
         return $this;
     }
 
@@ -485,6 +497,7 @@ class Paystub extends Remote\Model
             $this->_data['EarningsLines'] = new Remote\Collection();
         }
         $this->_data['EarningsLines'][] = $value;
+
         return $this;
     }
 
@@ -508,6 +521,7 @@ class Paystub extends Remote\Model
             $this->_data['LeaveEarningsLines'] = new Remote\Collection();
         }
         $this->_data['LeaveEarningsLines'][] = $value;
+
         return $this;
     }
 
@@ -531,6 +545,7 @@ class Paystub extends Remote\Model
             $this->_data['TimesheetEarningsLines'] = new Remote\Collection();
         }
         $this->_data['TimesheetEarningsLines'][] = $value;
+
         return $this;
     }
 
@@ -554,6 +569,7 @@ class Paystub extends Remote\Model
             $this->_data['DeductionLines'] = new Remote\Collection();
         }
         $this->_data['DeductionLines'][] = $value;
+
         return $this;
     }
 
@@ -577,6 +593,7 @@ class Paystub extends Remote\Model
             $this->_data['ReimbursementLines'] = new Remote\Collection();
         }
         $this->_data['ReimbursementLines'][] = $value;
+
         return $this;
     }
 
@@ -600,6 +617,7 @@ class Paystub extends Remote\Model
             $this->_data['BenefitLines'] = new Remote\Collection();
         }
         $this->_data['BenefitLines'][] = $value;
+
         return $this;
     }
 
@@ -623,6 +641,7 @@ class Paystub extends Remote\Model
             $this->_data['TimeOffLines'] = new Remote\Collection();
         }
         $this->_data['TimeOffLines'][] = $value;
+
         return $this;
     }
 }

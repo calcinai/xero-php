@@ -154,6 +154,7 @@ class Folder extends Remote\Model
     {
         $this->propertyUpdated('Name', $value);
         $this->_data['Name'] = $value;
+
         return $this;
     }
 
@@ -173,6 +174,7 @@ class Folder extends Remote\Model
     {
         $this->propertyUpdated('FileCount', $value);
         $this->_data['FileCount'] = $value;
+
         return $this;
     }
 
@@ -192,6 +194,7 @@ class Folder extends Remote\Model
     {
         $this->propertyUpdated('Email', $value);
         $this->_data['Email'] = $value;
+
         return $this;
     }
 
@@ -211,6 +214,7 @@ class Folder extends Remote\Model
     {
         $this->propertyUpdated('IsInbox', $value);
         $this->_data['IsInbox'] = $value;
+
         return $this;
     }
 
@@ -230,6 +234,7 @@ class Folder extends Remote\Model
     {
         $this->propertyUpdated('Id', $value);
         $this->_data['Id'] = $value;
+
         return $this;
     }
 
@@ -253,6 +258,7 @@ class Folder extends Remote\Model
             $this->_data['Files'] = new Remote\Collection();
         }
         $this->_data['Files'][] = $value;
+
         return $this;
     }
 
@@ -272,6 +278,7 @@ class Folder extends Remote\Model
     {
         $this->propertyUpdated('FolderId', $value);
         $this->_data['FolderId'] = $value;
+
         return $this;
     }
 }

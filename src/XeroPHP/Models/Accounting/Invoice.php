@@ -349,6 +349,7 @@ class Invoice extends Remote\Model
     {
         $this->propertyUpdated('Type', $value);
         $this->_data['Type'] = $value;
+
         return $this;
     }
 
@@ -368,6 +369,7 @@ class Invoice extends Remote\Model
     {
         $this->propertyUpdated('Contact', $value);
         $this->_data['Contact'] = $value;
+
         return $this;
     }
 
@@ -395,6 +397,7 @@ class Invoice extends Remote\Model
             $this->_data['LineItems'] = new Remote\Collection();
         }
         $this->_data['LineItems'][] = $value;
+
         return $this;
     }
 
@@ -414,6 +417,7 @@ class Invoice extends Remote\Model
     {
         $this->propertyUpdated('Date', $value);
         $this->_data['Date'] = $value;
+
         return $this;
     }
 
@@ -433,6 +437,7 @@ class Invoice extends Remote\Model
     {
         $this->propertyUpdated('DueDate', $value);
         $this->_data['DueDate'] = $value;
+
         return $this;
     }
 
@@ -452,6 +457,7 @@ class Invoice extends Remote\Model
     {
         $this->propertyUpdated('LineAmountTypes', $value);
         $this->_data['LineAmountTypes'] = $value;
+
         return $this;
     }
 
@@ -471,6 +477,7 @@ class Invoice extends Remote\Model
     {
         $this->propertyUpdated('InvoiceNumber', $value);
         $this->_data['InvoiceNumber'] = $value;
+
         return $this;
     }
 
@@ -490,6 +497,7 @@ class Invoice extends Remote\Model
     {
         $this->propertyUpdated('Reference', $value);
         $this->_data['Reference'] = $value;
+
         return $this;
     }
 
@@ -509,6 +517,7 @@ class Invoice extends Remote\Model
     {
         $this->propertyUpdated('BrandingThemeID', $value);
         $this->_data['BrandingThemeID'] = $value;
+
         return $this;
     }
 
@@ -528,6 +537,7 @@ class Invoice extends Remote\Model
     {
         $this->propertyUpdated('Url', $value);
         $this->_data['Url'] = $value;
+
         return $this;
     }
 
@@ -547,6 +557,7 @@ class Invoice extends Remote\Model
     {
         $this->propertyUpdated('CurrencyCode', $value);
         $this->_data['CurrencyCode'] = $value;
+
         return $this;
     }
 
@@ -566,6 +577,7 @@ class Invoice extends Remote\Model
     {
         $this->propertyUpdated('CurrencyRate', $value);
         $this->_data['CurrencyRate'] = $value;
+
         return $this;
     }
 
@@ -585,6 +597,7 @@ class Invoice extends Remote\Model
     {
         $this->propertyUpdated('Status', $value);
         $this->_data['Status'] = $value;
+
         return $this;
     }
 
@@ -604,6 +617,7 @@ class Invoice extends Remote\Model
     {
         $this->propertyUpdated('SentToContact', $value);
         $this->_data['SentToContact'] = $value;
+
         return $this;
     }
 
@@ -623,6 +637,7 @@ class Invoice extends Remote\Model
     {
         $this->propertyUpdated('ExpectedPaymentDate', $value);
         $this->_data['ExpectedPaymentDate'] = $value;
+
         return $this;
     }
 
@@ -642,6 +657,7 @@ class Invoice extends Remote\Model
     {
         $this->propertyUpdated('PlannedPaymentDate', $value);
         $this->_data['PlannedPaymentDate'] = $value;
+
         return $this;
     }
 
@@ -697,6 +713,7 @@ class Invoice extends Remote\Model
     {
         $this->propertyUpdated('InvoiceID', $value);
         $this->_data['InvoiceID'] = $value;
+
         return $this;
     }
 

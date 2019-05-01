@@ -176,6 +176,7 @@ class SuperFund extends Remote\Model
     {
         $this->propertyUpdated('Type', $value);
         $this->_data['Type'] = $value;
+
         return $this;
     }
 
@@ -195,6 +196,7 @@ class SuperFund extends Remote\Model
     {
         $this->propertyUpdated('Name', $value);
         $this->_data['Name'] = $value;
+
         return $this;
     }
 
@@ -214,6 +216,7 @@ class SuperFund extends Remote\Model
     {
         $this->propertyUpdated('ABN', $value);
         $this->_data['ABN'] = $value;
+
         return $this;
     }
 
@@ -233,6 +236,7 @@ class SuperFund extends Remote\Model
     {
         $this->propertyUpdated('BSB', $value);
         $this->_data['BSB'] = $value;
+
         return $this;
     }
 
@@ -252,6 +256,7 @@ class SuperFund extends Remote\Model
     {
         $this->propertyUpdated('AccountNumber', $value);
         $this->_data['AccountNumber'] = $value;
+
         return $this;
     }
 
@@ -271,6 +276,7 @@ class SuperFund extends Remote\Model
     {
         $this->propertyUpdated('AccountName', $value);
         $this->_data['AccountName'] = $value;
+
         return $this;
     }
 
@@ -290,6 +296,7 @@ class SuperFund extends Remote\Model
     {
         $this->propertyUpdated('ElectronicServiceAddress', $value);
         $this->_data['ElectronicServiceAddress'] = $value;
+
         return $this;
     }
 
@@ -309,6 +316,7 @@ class SuperFund extends Remote\Model
     {
         $this->propertyUpdated('SuperFundID', $value);
         $this->_data['SuperFundID'] = $value;
+
         return $this;
     }
 
@@ -328,6 +336,7 @@ class SuperFund extends Remote\Model
     {
         $this->propertyUpdated('EmployerNumber', $value);
         $this->_data['EmployerNumber'] = $value;
+
         return $this;
     }
 
@@ -349,6 +358,7 @@ class SuperFund extends Remote\Model
     {
         $this->propertyUpdated('SPIN', $value);
         $this->_data['SPIN'] = $value;
+
         return $this;
     }
 }

@@ -127,6 +127,7 @@ class ContactPerson extends Remote\Model
     {
         $this->propertyUpdated('FirstName', $value);
         $this->_data['FirstName'] = $value;
+
         return $this;
     }
 
@@ -146,6 +147,7 @@ class ContactPerson extends Remote\Model
     {
         $this->propertyUpdated('LastName', $value);
         $this->_data['LastName'] = $value;
+
         return $this;
     }
 
@@ -165,6 +167,7 @@ class ContactPerson extends Remote\Model
     {
         $this->propertyUpdated('EmailAddress', $value);
         $this->_data['EmailAddress'] = $value;
+
         return $this;
     }
 
@@ -184,6 +187,7 @@ class ContactPerson extends Remote\Model
     {
         $this->propertyUpdated('IncludeInEmails', $value);
         $this->_data['IncludeInEmails'] = $value;
+
         return $this;
     }
 }

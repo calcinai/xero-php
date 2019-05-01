@@ -211,6 +211,7 @@ class TaxDeclaration extends Remote\Model
     {
         $this->propertyUpdated('EmployeeID', $value);
         $this->_data['EmployeeID'] = $value;
+
         return $this;
     }
 
@@ -230,6 +231,7 @@ class TaxDeclaration extends Remote\Model
     {
         $this->propertyUpdated('EmploymentBasis', $value);
         $this->_data['EmploymentBasis'] = $value;
+
         return $this;
     }
 
@@ -249,6 +251,7 @@ class TaxDeclaration extends Remote\Model
     {
         $this->propertyUpdated('TFNExemptionType', $value);
         $this->_data['TFNExemptionType'] = $value;
+
         return $this;
     }
 
@@ -268,6 +271,7 @@ class TaxDeclaration extends Remote\Model
     {
         $this->propertyUpdated('TaxFileNumber', $value);
         $this->_data['TaxFileNumber'] = $value;
+
         return $this;
     }
 
@@ -287,6 +291,7 @@ class TaxDeclaration extends Remote\Model
     {
         $this->propertyUpdated('AustralianResidentForTaxPurposes', $value);
         $this->_data['AustralianResidentForTaxPurposes'] = $value;
+
         return $this;
     }
 
@@ -298,6 +303,7 @@ class TaxDeclaration extends Remote\Model
     {
         $this->propertyUpdated('ResidencyStatus', $value);
         $this->_data['ResidencyStatus'] = $value;
+
         return $this;
     }
 
@@ -326,6 +332,7 @@ class TaxDeclaration extends Remote\Model
     {
         $this->propertyUpdated('TaxFreeThresholdClaimed', $value);
         $this->_data['TaxFreeThresholdClaimed'] = $value;
+
         return $this;
     }
 
@@ -345,6 +352,7 @@ class TaxDeclaration extends Remote\Model
     {
         $this->propertyUpdated('TaxOffsetEstimatedAmount', $value);
         $this->_data['TaxOffsetEstimatedAmount'] = $value;
+
         return $this;
     }
 
@@ -364,6 +372,7 @@ class TaxDeclaration extends Remote\Model
     {
         $this->propertyUpdated('HasHELPDebt', $value);
         $this->_data['HasHELPDebt'] = $value;
+
         return $this;
     }
 
@@ -383,6 +392,7 @@ class TaxDeclaration extends Remote\Model
     {
         $this->propertyUpdated('HasSFSSDebt', $value);
         $this->_data['HasSFSSDebt'] = $value;
+
         return $this;
     }
 
@@ -404,6 +414,7 @@ class TaxDeclaration extends Remote\Model
     {
         $this->propertyUpdated('HasTSLDebt', $value);
         $this->_data['HasTSLDebt'] = $value;
+
         return $this;
     }
 
@@ -423,6 +434,7 @@ class TaxDeclaration extends Remote\Model
     {
         $this->propertyUpdated('HasTradeSupportLoanDebt', $value);
         $this->_data['HasTradeSupportLoanDebt'] = $value;
+
         return $this;
     }
 
@@ -442,6 +454,7 @@ class TaxDeclaration extends Remote\Model
     {
         $this->propertyUpdated('UpwardVariationTaxWithholdingAmount', $value);
         $this->_data['UpwardVariationTaxWithholdingAmount'] = $value;
+
         return $this;
     }
 
@@ -461,6 +474,7 @@ class TaxDeclaration extends Remote\Model
     {
         $this->propertyUpdated('EligibleToReceiveLeaveLoading', $value);
         $this->_data['EligibleToReceiveLeaveLoading'] = $value;
+
         return $this;
     }
 
@@ -480,6 +494,7 @@ class TaxDeclaration extends Remote\Model
     {
         $this->propertyUpdated('ApprovedWithholdingVariationPercentage', $value);
         $this->_data['ApprovedWithholdingVariationPercentage'] = $value;
+
         return $this;
     }
 }

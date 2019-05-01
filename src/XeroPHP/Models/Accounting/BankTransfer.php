@@ -178,6 +178,7 @@ class BankTransfer extends Remote\Model
     {
         $this->propertyUpdated('FromBankAccount', $value);
         $this->_data['FromBankAccount'] = $value;
+
         return $this;
     }
 
@@ -197,6 +198,7 @@ class BankTransfer extends Remote\Model
     {
         $this->propertyUpdated('ToBankAccount', $value);
         $this->_data['ToBankAccount'] = $value;
+
         return $this;
     }
 
@@ -216,6 +218,7 @@ class BankTransfer extends Remote\Model
     {
         $this->propertyUpdated('Amount', $value);
         $this->_data['Amount'] = $value;
+
         return $this;
     }
 
@@ -235,6 +238,7 @@ class BankTransfer extends Remote\Model
     {
         $this->propertyUpdated('Date', $value);
         $this->_data['Date'] = $value;
+
         return $this;
     }
 
@@ -254,6 +258,7 @@ class BankTransfer extends Remote\Model
     {
         $this->propertyUpdated('BankTransferID', $value);
         $this->_data['BankTransferID'] = $value;
+
         return $this;
     }
 

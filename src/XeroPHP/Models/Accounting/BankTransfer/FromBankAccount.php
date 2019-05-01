@@ -120,6 +120,7 @@ class FromBankAccount extends Remote\Model
     {
         $this->propertyUpdated('Code', $value);
         $this->_data['Code'] = $value;
+
         return $this;
     }
 
@@ -139,6 +140,7 @@ class FromBankAccount extends Remote\Model
     {
         $this->propertyUpdated('AccountID', $value);
         $this->_data['AccountID'] = $value;
+
         return $this;
     }
 

@@ -119,6 +119,7 @@ class ExternalLink extends Remote\Model
     {
         $this->propertyUpdated('LinkType', $value);
         $this->_data['LinkType'] = $value;
+
         return $this;
     }
 
@@ -138,6 +139,7 @@ class ExternalLink extends Remote\Model
     {
         $this->propertyUpdated('Url', $value);
         $this->_data['Url'] = $value;
+
         return $this;
     }
 }

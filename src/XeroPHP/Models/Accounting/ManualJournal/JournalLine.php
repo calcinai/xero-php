@@ -144,6 +144,7 @@ class JournalLine extends Remote\Model
     {
         $this->propertyUpdated('LineAmount', $value);
         $this->_data['LineAmount'] = $value;
+
         return $this;
     }
 
@@ -163,6 +164,7 @@ class JournalLine extends Remote\Model
     {
         $this->propertyUpdated('AccountCode', $value);
         $this->_data['AccountCode'] = $value;
+
         return $this;
     }
 
@@ -182,6 +184,7 @@ class JournalLine extends Remote\Model
     {
         $this->propertyUpdated('Description', $value);
         $this->_data['Description'] = $value;
+
         return $this;
     }
 
@@ -201,6 +204,7 @@ class JournalLine extends Remote\Model
     {
         $this->propertyUpdated('TaxType', $value);
         $this->_data['TaxType'] = $value;
+
         return $this;
     }
 
@@ -224,6 +228,7 @@ class JournalLine extends Remote\Model
             $this->_data['Tracking'] = new Remote\Collection();
         }
         $this->_data['Tracking'][] = $value;
+
         return $this;
     }
 

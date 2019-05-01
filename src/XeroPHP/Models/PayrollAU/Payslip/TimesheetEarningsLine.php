@@ -120,6 +120,7 @@ class TimesheetEarningsLine extends Remote\Model
     {
         $this->propertyUpdated('EarningsRateID', $value);
         $this->_data['EarningsRateID'] = $value;
+
         return $this;
     }
 
@@ -139,6 +140,7 @@ class TimesheetEarningsLine extends Remote\Model
     {
         $this->propertyUpdated('RatePerUnit', $value);
         $this->_data['RatePerUnit'] = $value;
+
         return $this;
     }
 
@@ -158,6 +160,7 @@ class TimesheetEarningsLine extends Remote\Model
     {
         $this->propertyUpdated('Amount', $value);
         $this->_data['Amount'] = $value;
+
         return $this;
     }
 }

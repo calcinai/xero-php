@@ -203,6 +203,7 @@ class EarningsRate extends Remote\Model
     {
         $this->propertyUpdated('Name', $value);
         $this->_data['Name'] = $value;
+
         return $this;
     }
 
@@ -224,6 +225,7 @@ class EarningsRate extends Remote\Model
     {
         $this->propertyUpdated('DisplayName', $value);
         $this->_data['DisplayName'] = $value;
+
         return $this;
     }
 
@@ -243,6 +245,7 @@ class EarningsRate extends Remote\Model
     {
         $this->propertyUpdated('AccountCode', $value);
         $this->_data['AccountCode'] = $value;
+
         return $this;
     }
 
@@ -262,6 +265,7 @@ class EarningsRate extends Remote\Model
     {
         $this->propertyUpdated('TypeOfUnits', $value);
         $this->_data['TypeOfUnits'] = $value;
+
         return $this;
     }
 
@@ -281,6 +285,7 @@ class EarningsRate extends Remote\Model
     {
         $this->propertyUpdated('IsExemptFromTax', $value);
         $this->_data['IsExemptFromTax'] = $value;
+
         return $this;
     }
 
@@ -300,6 +305,7 @@ class EarningsRate extends Remote\Model
     {
         $this->propertyUpdated('IsExemptFromSuper', $value);
         $this->_data['IsExemptFromSuper'] = $value;
+
         return $this;
     }
 
@@ -319,6 +325,7 @@ class EarningsRate extends Remote\Model
     {
         $this->propertyUpdated('EarningsType', $value);
         $this->_data['EarningsType'] = $value;
+
         return $this;
     }
 
@@ -338,6 +345,7 @@ class EarningsRate extends Remote\Model
     {
         $this->propertyUpdated('EarningsRateID', $value);
         $this->_data['EarningsRateID'] = $value;
+
         return $this;
     }
 
@@ -357,6 +365,7 @@ class EarningsRate extends Remote\Model
     {
         $this->propertyUpdated('RateType', $value);
         $this->_data['RateType'] = $value;
+
         return $this;
     }
 
@@ -376,6 +385,7 @@ class EarningsRate extends Remote\Model
     {
         $this->propertyUpdated('RatePerUnit', $value);
         $this->_data['RatePerUnit'] = $value;
+
         return $this;
     }
 
@@ -395,6 +405,7 @@ class EarningsRate extends Remote\Model
     {
         $this->propertyUpdated('Multiplier', $value);
         $this->_data['Multiplier'] = $value;
+
         return $this;
     }
 
@@ -414,6 +425,7 @@ class EarningsRate extends Remote\Model
     {
         $this->propertyUpdated('AccrueLeave', $value);
         $this->_data['AccrueLeave'] = $value;
+
         return $this;
     }
 
@@ -433,6 +445,7 @@ class EarningsRate extends Remote\Model
     {
         $this->propertyUpdated('Amount', $value);
         $this->_data['Amount'] = $value;
+
         return $this;
     }
 }

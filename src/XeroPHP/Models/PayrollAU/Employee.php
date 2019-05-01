@@ -323,6 +323,7 @@ class Employee extends Remote\Model
     {
         $this->propertyUpdated('FirstName', $value);
         $this->_data['FirstName'] = $value;
+
         return $this;
     }
 
@@ -342,6 +343,7 @@ class Employee extends Remote\Model
     {
         $this->propertyUpdated('LastName', $value);
         $this->_data['LastName'] = $value;
+
         return $this;
     }
 
@@ -361,6 +363,7 @@ class Employee extends Remote\Model
     {
         $this->propertyUpdated('DateOfBirth', $value);
         $this->_data['DateOfBirth'] = $value;
+
         return $this;
     }
 
@@ -380,6 +383,7 @@ class Employee extends Remote\Model
     {
         $this->propertyUpdated('HomeAddress', $value);
         $this->_data['HomeAddress'] = $value;
+
         return $this;
     }
 
@@ -399,6 +403,7 @@ class Employee extends Remote\Model
     {
         $this->propertyUpdated('StartDate', $value);
         $this->_data['StartDate'] = $value;
+
         return $this;
     }
 
@@ -418,6 +423,7 @@ class Employee extends Remote\Model
     {
         $this->propertyUpdated('Title', $value);
         $this->_data['Title'] = $value;
+
         return $this;
     }
 
@@ -437,6 +443,7 @@ class Employee extends Remote\Model
     {
         $this->propertyUpdated('MiddleNames', $value);
         $this->_data['MiddleNames'] = $value;
+
         return $this;
     }
 
@@ -456,6 +463,7 @@ class Employee extends Remote\Model
     {
         $this->propertyUpdated('Email', $value);
         $this->_data['Email'] = $value;
+
         return $this;
     }
 
@@ -475,6 +483,7 @@ class Employee extends Remote\Model
     {
         $this->propertyUpdated('Gender', $value);
         $this->_data['Gender'] = $value;
+
         return $this;
     }
 
@@ -494,6 +503,7 @@ class Employee extends Remote\Model
     {
         $this->propertyUpdated('Mobile', $value);
         $this->_data['Mobile'] = $value;
+
         return $this;
     }
 
@@ -513,6 +523,7 @@ class Employee extends Remote\Model
     {
         $this->propertyUpdated('TwitterUserName', $value);
         $this->_data['TwitterUserName'] = $value;
+
         return $this;
     }
 
@@ -532,6 +543,7 @@ class Employee extends Remote\Model
     {
         $this->propertyUpdated('IsAuthorisedToApproveLeave', $value);
         $this->_data['IsAuthorisedToApproveLeave'] = $value;
+
         return $this;
     }
 
@@ -551,6 +563,7 @@ class Employee extends Remote\Model
     {
         $this->propertyUpdated('IsAuthorisedToApproveTimesheets', $value);
         $this->_data['IsAuthorisedToApproveTimesheets'] = $value;
+
         return $this;
     }
 
@@ -572,6 +585,7 @@ class Employee extends Remote\Model
     {
         $this->propertyUpdated('Occupation', $value);
         $this->_data['Occupation'] = $value;
+
         return $this;
     }
 
@@ -591,6 +605,7 @@ class Employee extends Remote\Model
     {
         $this->propertyUpdated('JobTitle', $value);
         $this->_data['JobTitle'] = $value;
+
         return $this;
     }
 
@@ -610,6 +625,7 @@ class Employee extends Remote\Model
     {
         $this->propertyUpdated('Classification', $value);
         $this->_data['Classification'] = $value;
+
         return $this;
     }
 
@@ -629,6 +645,7 @@ class Employee extends Remote\Model
     {
         $this->propertyUpdated('OrdinaryEarningsRateID', $value);
         $this->_data['OrdinaryEarningsRateID'] = $value;
+
         return $this;
     }
 
@@ -648,6 +665,7 @@ class Employee extends Remote\Model
     {
         $this->propertyUpdated('PayrollCalendarID', $value);
         $this->_data['PayrollCalendarID'] = $value;
+
         return $this;
     }
 
@@ -667,6 +685,7 @@ class Employee extends Remote\Model
     {
         $this->propertyUpdated('EmployeeGroupName', $value);
         $this->_data['EmployeeGroupName'] = $value;
+
         return $this;
     }
 
@@ -690,6 +709,7 @@ class Employee extends Remote\Model
             $this->_data['BankAccounts'] = new Remote\Collection();
         }
         $this->_data['BankAccounts'][] = $value;
+
         return $this;
     }
 
@@ -709,6 +729,7 @@ class Employee extends Remote\Model
     {
         $this->propertyUpdated('PayTemplate', $value);
         $this->_data['PayTemplate'] = $value;
+
         return $this;
     }
 
@@ -732,6 +753,7 @@ class Employee extends Remote\Model
             $this->_data['OpeningBalances'] = new Remote\Collection();
         }
         $this->_data['OpeningBalances'][] = $value;
+
         return $this;
     }
 
@@ -755,6 +777,7 @@ class Employee extends Remote\Model
             $this->_data['LeaveBalances'] = new Remote\Collection();
         }
         $this->_data['LeaveBalances'][] = $value;
+
         return $this;
     }
 
@@ -778,6 +801,7 @@ class Employee extends Remote\Model
             $this->_data['SuperMemberships'] = new Remote\Collection();
         }
         $this->_data['SuperMemberships'][] = $value;
+
         return $this;
     }
 
@@ -797,6 +821,7 @@ class Employee extends Remote\Model
     {
         $this->propertyUpdated('TerminationDate', $value);
         $this->_data['TerminationDate'] = $value;
+
         return $this;
     }
 
@@ -816,6 +841,7 @@ class Employee extends Remote\Model
     {
         $this->propertyUpdated('EmployeeID', $value);
         $this->_data['EmployeeID'] = $value;
+
         return $this;
     }
 
@@ -835,6 +861,7 @@ class Employee extends Remote\Model
     {
         $this->propertyUpdated('Status', $value);
         $this->_data['Status'] = $value;
+
         return $this;
     }
 
@@ -854,6 +881,7 @@ class Employee extends Remote\Model
     {
         $this->propertyUpdated('UpdatedDateUTC', $value);
         $this->_data['UpdatedDateUTC'] = $value;
+
         return $this;
     }
 
@@ -873,6 +901,7 @@ class Employee extends Remote\Model
     {
         $this->propertyUpdated('TaxDeclaration', $value);
         $this->_data['TaxDeclaration'] = $value;
+
         return $this;
     }
 
@@ -893,6 +922,7 @@ class Employee extends Remote\Model
     {
         $this->propertyUpdated('Phone', $value);
         $this->_data['Phone'] = $value;
+
         return $this;
     }
 }

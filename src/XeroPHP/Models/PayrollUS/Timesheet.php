@@ -155,6 +155,7 @@ class Timesheet extends Remote\Model
     {
         $this->propertyUpdated('EmployeeID', $value);
         $this->_data['EmployeeID'] = $value;
+
         return $this;
     }
 
@@ -174,6 +175,7 @@ class Timesheet extends Remote\Model
     {
         $this->propertyUpdated('StartDate', $value);
         $this->_data['StartDate'] = $value;
+
         return $this;
     }
 
@@ -193,6 +195,7 @@ class Timesheet extends Remote\Model
     {
         $this->propertyUpdated('EndDate', $value);
         $this->_data['EndDate'] = $value;
+
         return $this;
     }
 
@@ -216,6 +219,7 @@ class Timesheet extends Remote\Model
             $this->_data['TimesheetLines'] = new Remote\Collection();
         }
         $this->_data['TimesheetLines'][] = $value;
+
         return $this;
     }
 
@@ -235,6 +239,7 @@ class Timesheet extends Remote\Model
     {
         $this->propertyUpdated('Status', $value);
         $this->_data['Status'] = $value;
+
         return $this;
     }
 
@@ -254,6 +259,7 @@ class Timesheet extends Remote\Model
     {
         $this->propertyUpdated('TimesheetID', $value);
         $this->_data['TimesheetID'] = $value;
+
         return $this;
     }
 

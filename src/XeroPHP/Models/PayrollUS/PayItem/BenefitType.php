@@ -181,6 +181,7 @@ class BenefitType extends Remote\Model
     {
         $this->propertyUpdated('BenefitType', $value);
         $this->_data['BenefitType'] = $value;
+
         return $this;
     }
 
@@ -200,6 +201,7 @@ class BenefitType extends Remote\Model
     {
         $this->propertyUpdated('BenefitCategory', $value);
         $this->_data['BenefitCategory'] = $value;
+
         return $this;
     }
 
@@ -219,6 +221,7 @@ class BenefitType extends Remote\Model
     {
         $this->propertyUpdated('LiabilityAccountCode', $value);
         $this->_data['LiabilityAccountCode'] = $value;
+
         return $this;
     }
 
@@ -238,6 +241,7 @@ class BenefitType extends Remote\Model
     {
         $this->propertyUpdated('ExpenseAccountCode', $value);
         $this->_data['ExpenseAccountCode'] = $value;
+
         return $this;
     }
 
@@ -257,6 +261,7 @@ class BenefitType extends Remote\Model
     {
         $this->propertyUpdated('BenefitTypeID', $value);
         $this->_data['BenefitTypeID'] = $value;
+
         return $this;
     }
 
@@ -276,6 +281,7 @@ class BenefitType extends Remote\Model
     {
         $this->propertyUpdated('StandardAmount', $value);
         $this->_data['StandardAmount'] = $value;
+
         return $this;
     }
 
@@ -295,6 +301,7 @@ class BenefitType extends Remote\Model
     {
         $this->propertyUpdated('CompanyMax', $value);
         $this->_data['CompanyMax'] = $value;
+
         return $this;
     }
 
@@ -314,6 +321,7 @@ class BenefitType extends Remote\Model
     {
         $this->propertyUpdated('Percentage', $value);
         $this->_data['Percentage'] = $value;
+
         return $this;
     }
 
@@ -333,6 +341,7 @@ class BenefitType extends Remote\Model
     {
         $this->propertyUpdated('ShowBalanceOnPaystub', $value);
         $this->_data['ShowBalanceOnPaystub'] = $value;
+
         return $this;
     }
 }

@@ -113,5 +113,6 @@ function getOAuthSession()
     ) {
         return;
     }
+
     return $_SESSION['oauth'];
 }

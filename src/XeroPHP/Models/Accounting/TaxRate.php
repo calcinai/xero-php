@@ -191,6 +191,7 @@ class TaxRate extends Remote\Model
     {
         $this->propertyUpdated('Name', $value);
         $this->_data['Name'] = $value;
+
         return $this;
     }
 
@@ -210,6 +211,7 @@ class TaxRate extends Remote\Model
     {
         $this->propertyUpdated('TaxType', $value);
         $this->_data['TaxType'] = $value;
+
         return $this;
     }
 
@@ -233,6 +235,7 @@ class TaxRate extends Remote\Model
             $this->_data['TaxComponents'] = new Remote\Collection();
         }
         $this->_data['TaxComponents'][] = $value;
+
         return $this;
     }
 
@@ -252,6 +255,7 @@ class TaxRate extends Remote\Model
     {
         $this->propertyUpdated('Status', $value);
         $this->_data['Status'] = $value;
+
         return $this;
     }
 
@@ -271,6 +275,7 @@ class TaxRate extends Remote\Model
     {
         $this->propertyUpdated('ReportTaxType', $value);
         $this->_data['ReportTaxType'] = $value;
+
         return $this;
     }
 

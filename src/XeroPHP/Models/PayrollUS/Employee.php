@@ -313,6 +313,7 @@ class Employee extends Remote\Model
     {
         $this->propertyUpdated('FirstName', $value);
         $this->_data['FirstName'] = $value;
+
         return $this;
     }
 
@@ -332,6 +333,7 @@ class Employee extends Remote\Model
     {
         $this->propertyUpdated('LastName', $value);
         $this->_data['LastName'] = $value;
+
         return $this;
     }
 
@@ -351,6 +353,7 @@ class Employee extends Remote\Model
     {
         $this->propertyUpdated('DateOfBirth', $value);
         $this->_data['DateOfBirth'] = $value;
+
         return $this;
     }
 
@@ -370,6 +373,7 @@ class Employee extends Remote\Model
     {
         $this->propertyUpdated('HomeAddress', $value);
         $this->_data['HomeAddress'] = $value;
+
         return $this;
     }
 
@@ -389,6 +393,7 @@ class Employee extends Remote\Model
     {
         $this->propertyUpdated('MiddleNames', $value);
         $this->_data['MiddleNames'] = $value;
+
         return $this;
     }
 
@@ -408,6 +413,7 @@ class Employee extends Remote\Model
     {
         $this->propertyUpdated('JobTitle', $value);
         $this->_data['JobTitle'] = $value;
+
         return $this;
     }
 
@@ -427,6 +433,7 @@ class Employee extends Remote\Model
     {
         $this->propertyUpdated('Email', $value);
         $this->_data['Email'] = $value;
+
         return $this;
     }
 
@@ -446,6 +453,7 @@ class Employee extends Remote\Model
     {
         $this->propertyUpdated('Gender', $value);
         $this->_data['Gender'] = $value;
+
         return $this;
     }
 
@@ -465,6 +473,7 @@ class Employee extends Remote\Model
     {
         $this->propertyUpdated('MailingAddress', $value);
         $this->_data['MailingAddress'] = $value;
+
         return $this;
     }
 
@@ -484,6 +493,7 @@ class Employee extends Remote\Model
     {
         $this->propertyUpdated('Phone', $value);
         $this->_data['Phone'] = $value;
+
         return $this;
     }
 
@@ -503,6 +513,7 @@ class Employee extends Remote\Model
     {
         $this->propertyUpdated('EmployeeNumber', $value);
         $this->_data['EmployeeNumber'] = $value;
+
         return $this;
     }
 
@@ -522,6 +533,7 @@ class Employee extends Remote\Model
     {
         $this->propertyUpdated('SocialSecurityNumber', $value);
         $this->_data['SocialSecurityNumber'] = $value;
+
         return $this;
     }
 
@@ -541,6 +553,7 @@ class Employee extends Remote\Model
     {
         $this->propertyUpdated('StartDate', $value);
         $this->_data['StartDate'] = $value;
+
         return $this;
     }
 
@@ -560,6 +573,7 @@ class Employee extends Remote\Model
     {
         $this->propertyUpdated('TerminationDate', $value);
         $this->_data['TerminationDate'] = $value;
+
         return $this;
     }
 
@@ -579,6 +593,7 @@ class Employee extends Remote\Model
     {
         $this->propertyUpdated('PayScheduleID', $value);
         $this->_data['PayScheduleID'] = $value;
+
         return $this;
     }
 
@@ -598,6 +613,7 @@ class Employee extends Remote\Model
     {
         $this->propertyUpdated('EmployeeGroupName', $value);
         $this->_data['EmployeeGroupName'] = $value;
+
         return $this;
     }
 
@@ -617,6 +633,7 @@ class Employee extends Remote\Model
     {
         $this->propertyUpdated('EmploymentBasis', $value);
         $this->_data['EmploymentBasis'] = $value;
+
         return $this;
     }
 
@@ -636,6 +653,7 @@ class Employee extends Remote\Model
     {
         $this->propertyUpdated('HolidayGroupID', $value);
         $this->_data['HolidayGroupID'] = $value;
+
         return $this;
     }
 
@@ -655,6 +673,7 @@ class Employee extends Remote\Model
     {
         $this->propertyUpdated('IsAuthorisedToApproveTimeOff', $value);
         $this->_data['IsAuthorisedToApproveTimeOff'] = $value;
+
         return $this;
     }
 
@@ -674,6 +693,7 @@ class Employee extends Remote\Model
     {
         $this->propertyUpdated('IsAuthorisedToApproveTimesheets', $value);
         $this->_data['IsAuthorisedToApproveTimesheets'] = $value;
+
         return $this;
     }
 
@@ -697,6 +717,7 @@ class Employee extends Remote\Model
             $this->_data['SalaryAndWages'] = new Remote\Collection();
         }
         $this->_data['SalaryAndWages'][] = $value;
+
         return $this;
     }
 
@@ -720,6 +741,7 @@ class Employee extends Remote\Model
             $this->_data['WorkLocations'] = new Remote\Collection();
         }
         $this->_data['WorkLocations'][] = $value;
+
         return $this;
     }
 
@@ -739,6 +761,7 @@ class Employee extends Remote\Model
     {
         $this->propertyUpdated('PaymentMethod', $value);
         $this->_data['PaymentMethod'] = $value;
+
         return $this;
     }
 
@@ -758,6 +781,7 @@ class Employee extends Remote\Model
     {
         $this->propertyUpdated('PayTemplate', $value);
         $this->_data['PayTemplate'] = $value;
+
         return $this;
     }
 
@@ -781,6 +805,7 @@ class Employee extends Remote\Model
             $this->_data['OpeningBalances'] = new Remote\Collection();
         }
         $this->_data['OpeningBalances'][] = $value;
+
         return $this;
     }
 
@@ -804,6 +829,7 @@ class Employee extends Remote\Model
             $this->_data['TimeOffBalances'] = new Remote\Collection();
         }
         $this->_data['TimeOffBalances'][] = $value;
+
         return $this;
     }
 
@@ -823,6 +849,7 @@ class Employee extends Remote\Model
     {
         $this->propertyUpdated('EmployeeID', $value);
         $this->_data['EmployeeID'] = $value;
+
         return $this;
     }
 
@@ -842,6 +869,7 @@ class Employee extends Remote\Model
     {
         $this->propertyUpdated('Status', $value);
         $this->_data['Status'] = $value;
+
         return $this;
     }
 
@@ -861,6 +889,7 @@ class Employee extends Remote\Model
     {
         $this->propertyUpdated('UpdatedDateUTC', $value);
         $this->_data['UpdatedDateUTC'] = $value;
+
         return $this;
     }
 }

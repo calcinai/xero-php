@@ -152,6 +152,7 @@ class AssetType extends Remote\Model
     {
         $this->propertyUpdated('assetTypeName', $value);
         $this->_data['assetTypeName'] = $value;
+
         return $this;
     }
 
@@ -171,6 +172,7 @@ class AssetType extends Remote\Model
     {
         $this->propertyUpdated('fixedAssetAccountId', $value);
         $this->_data['fixedAssetAccountId'] = $value;
+
         return $this;
     }
 
@@ -190,6 +192,7 @@ class AssetType extends Remote\Model
     {
         $this->propertyUpdated('depreciationExpenseAccountId', $value);
         $this->_data['depreciationExpenseAccountId'] = $value;
+
         return $this;
     }
 
@@ -209,6 +212,7 @@ class AssetType extends Remote\Model
     {
         $this->propertyUpdated('accumulatedDepreciationAccountId', $value);
         $this->_data['accumulatedDepreciationAccountId'] = $value;
+
         return $this;
     }
 
@@ -228,6 +232,7 @@ class AssetType extends Remote\Model
     {
         $this->propertyUpdated('BookDepreciationSetting', $value);
         $this->_data['BookDepreciationSetting'] = $value;
+
         return $this;
     }
 
@@ -247,6 +252,7 @@ class AssetType extends Remote\Model
     {
         $this->propertyUpdated('assetTypeId', $value);
         $this->_data['assetTypeId'] = $value;
+
         return $this;
     }
 
@@ -266,6 +272,7 @@ class AssetType extends Remote\Model
     {
         $this->propertyUpdated('Locks', $value);
         $this->_data['Locks'] = $value;
+
         return $this;
     }
 }

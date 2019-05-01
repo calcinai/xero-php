@@ -161,6 +161,7 @@ class LeaveApplication extends Remote\Model
     {
         $this->propertyUpdated('LeaveApplicationID', $value);
         $this->_data['LeaveApplicationID'] = $value;
+
         return $this;
     }
 
@@ -180,6 +181,7 @@ class LeaveApplication extends Remote\Model
     {
         $this->propertyUpdated('EmployeeID', $value);
         $this->_data['EmployeeID'] = $value;
+
         return $this;
     }
 
@@ -199,6 +201,7 @@ class LeaveApplication extends Remote\Model
     {
         $this->propertyUpdated('LeaveTypeID', $value);
         $this->_data['LeaveTypeID'] = $value;
+
         return $this;
     }
 
@@ -218,6 +221,7 @@ class LeaveApplication extends Remote\Model
     {
         $this->propertyUpdated('Title', $value);
         $this->_data['Title'] = $value;
+
         return $this;
     }
 
@@ -237,6 +241,7 @@ class LeaveApplication extends Remote\Model
     {
         $this->propertyUpdated('StartDate', $value);
         $this->_data['StartDate'] = $value;
+
         return $this;
     }
 
@@ -256,6 +261,7 @@ class LeaveApplication extends Remote\Model
     {
         $this->propertyUpdated('EndDate', $value);
         $this->_data['EndDate'] = $value;
+
         return $this;
     }
 
@@ -275,6 +281,7 @@ class LeaveApplication extends Remote\Model
     {
         $this->propertyUpdated('Description', $value);
         $this->_data['Description'] = $value;
+
         return $this;
     }
 
@@ -298,6 +305,7 @@ class LeaveApplication extends Remote\Model
             $this->_data['LeavePeriods'] = new Remote\Collection();
         }
         $this->_data['LeavePeriods'][] = $value;
+
         return $this;
     }
 }

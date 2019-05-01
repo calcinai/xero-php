@@ -207,6 +207,7 @@ class OpeningBalance extends Remote\Model
     {
         $this->propertyUpdated('OpeningBalanceDate', $value);
         $this->_data['OpeningBalanceDate'] = $value;
+
         return $this;
     }
 
@@ -226,6 +227,7 @@ class OpeningBalance extends Remote\Model
     {
         $this->propertyUpdated('Tax', $value);
         $this->_data['Tax'] = $value;
+
         return $this;
     }
 
@@ -249,6 +251,7 @@ class OpeningBalance extends Remote\Model
             $this->_data['EarningsLines'] = new Remote\Collection();
         }
         $this->_data['EarningsLines'][] = $value;
+
         return $this;
     }
 
@@ -272,6 +275,7 @@ class OpeningBalance extends Remote\Model
             $this->_data['DeductionLines'] = new Remote\Collection();
         }
         $this->_data['DeductionLines'][] = $value;
+
         return $this;
     }
 
@@ -291,6 +295,7 @@ class OpeningBalance extends Remote\Model
     {
         $this->propertyUpdated('SuperLines', $value);
         $this->_data['SuperLines'] = $value;
+
         return $this;
     }
 
@@ -314,6 +319,7 @@ class OpeningBalance extends Remote\Model
             $this->_data['ReimbursementLines'] = new Remote\Collection();
         }
         $this->_data['ReimbursementLines'][] = $value;
+
         return $this;
     }
 
@@ -333,6 +339,7 @@ class OpeningBalance extends Remote\Model
     {
         $this->propertyUpdated('LeaveLines', $value);
         $this->_data['LeaveLines'] = $value;
+
         return $this;
     }
 
@@ -352,6 +359,7 @@ class OpeningBalance extends Remote\Model
     {
         $this->propertyUpdated('EarningsRateID', $value);
         $this->_data['EarningsRateID'] = $value;
+
         return $this;
     }
 
@@ -371,6 +379,7 @@ class OpeningBalance extends Remote\Model
     {
         $this->propertyUpdated('Amount', $value);
         $this->_data['Amount'] = $value;
+
         return $this;
     }
 
@@ -390,6 +399,7 @@ class OpeningBalance extends Remote\Model
     {
         $this->propertyUpdated('DeductionTypeID', $value);
         $this->_data['DeductionTypeID'] = $value;
+
         return $this;
     }
 
@@ -409,6 +419,7 @@ class OpeningBalance extends Remote\Model
     {
         $this->propertyUpdated('SuperMembershipID', $value);
         $this->_data['SuperMembershipID'] = $value;
+
         return $this;
     }
 
@@ -428,6 +439,7 @@ class OpeningBalance extends Remote\Model
     {
         $this->propertyUpdated('CalculationType', $value);
         $this->_data['CalculationType'] = $value;
+
         return $this;
     }
 
@@ -447,6 +459,7 @@ class OpeningBalance extends Remote\Model
     {
         $this->propertyUpdated('ReimbursementTypeID', $value);
         $this->_data['ReimbursementTypeID'] = $value;
+
         return $this;
     }
 
@@ -466,6 +479,7 @@ class OpeningBalance extends Remote\Model
     {
         $this->propertyUpdated('LeaveTypeID', $value);
         $this->_data['LeaveTypeID'] = $value;
+
         return $this;
     }
 
@@ -485,6 +499,7 @@ class OpeningBalance extends Remote\Model
     {
         $this->propertyUpdated('NumberOfUnits', $value);
         $this->_data['NumberOfUnits'] = $value;
+
         return $this;
     }
 }

@@ -48,6 +48,7 @@ class Request
             case self::METHOD_POST:
             case self::METHOD_DELETE:
                 $this->method = $method;
+
                 break;
             default:
                 throw new Exception("Invalid request method [{$method}]");
@@ -132,6 +133,7 @@ class Request
     public function setParameter($key, $value)
     {
         $this->parameters[$key] = $value;
+
         return $this;
     }
 
@@ -149,6 +151,7 @@ class Request
         if (! isset($this->headers[$key])) {
             return;
         }
+
         return $this->headers[$key];
     }
 
@@ -165,6 +168,7 @@ class Request
         if (isset($this->response)) {
             return $this->response;
         }
+
         return;
     }
 
@@ -177,6 +181,7 @@ class Request
     public function setHeader($key, $val)
     {
         $this->headers[$key] = $val;
+
         return $this;
     }
 

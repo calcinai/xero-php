@@ -93,6 +93,7 @@ abstract class Application
         if (! isset($this->config[$key])) {
             throw new Exception("Invalid configuration key [{$key}]");
         }
+
         return $this->config[$key];
     }
 
@@ -108,6 +109,7 @@ abstract class Application
         if (! isset($this->getConfig($config)[$option])) {
             throw new Exception("Invalid configuration option [{$option}]");
         }
+
         return $this->getConfig($config)[$option];
     }
 
@@ -139,6 +141,7 @@ abstract class Application
             throw new Exception("Invalid configuration key [{$config}]");
         }
         $this->config[$config][$option] = $value;
+
         return $this->config;
     }
 
@@ -207,8 +210,10 @@ abstract class Application
              */
             $object = new $class($this);
             $object->fromStringArray($element);
+
             return $object;
         }
+
         return;
     }
 
@@ -256,6 +261,7 @@ abstract class Application
     public function load($model)
     {
         $query = new Query($this);
+
         return $query->from($model);
     }
 

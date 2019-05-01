@@ -141,6 +141,7 @@ class PayTemplate extends Remote\Model
             $this->_data['EarningsLines'] = new Remote\Collection();
         }
         $this->_data['EarningsLines'][] = $value;
+
         return $this;
     }
 
@@ -164,6 +165,7 @@ class PayTemplate extends Remote\Model
             $this->_data['DeductionLines'] = new Remote\Collection();
         }
         $this->_data['DeductionLines'][] = $value;
+
         return $this;
     }
 
@@ -187,6 +189,7 @@ class PayTemplate extends Remote\Model
             $this->_data['SuperLines'] = new Remote\Collection();
         }
         $this->_data['SuperLines'][] = $value;
+
         return $this;
     }
 
@@ -210,6 +213,7 @@ class PayTemplate extends Remote\Model
             $this->_data['ReimbursementLines'] = new Remote\Collection();
         }
         $this->_data['ReimbursementLines'][] = $value;
+
         return $this;
     }
 
@@ -233,6 +237,7 @@ class PayTemplate extends Remote\Model
             $this->_data['LeaveLines'] = new Remote\Collection();
         }
         $this->_data['LeaveLines'][] = $value;
+
         return $this;
     }
 }

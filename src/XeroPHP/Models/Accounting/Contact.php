@@ -368,6 +368,7 @@ class Contact extends Remote\Model
     {
         $this->propertyUpdated('ContactID', $value);
         $this->_data['ContactID'] = $value;
+
         return $this;
     }
 
@@ -387,6 +388,7 @@ class Contact extends Remote\Model
     {
         $this->propertyUpdated('ContactNumber', $value);
         $this->_data['ContactNumber'] = $value;
+
         return $this;
     }
 
@@ -406,6 +408,7 @@ class Contact extends Remote\Model
     {
         $this->propertyUpdated('AccountNumber', $value);
         $this->_data['AccountNumber'] = $value;
+
         return $this;
     }
 
@@ -425,6 +428,7 @@ class Contact extends Remote\Model
     {
         $this->propertyUpdated('ContactStatus', $value);
         $this->_data['ContactStatus'] = $value;
+
         return $this;
     }
 
@@ -444,6 +448,7 @@ class Contact extends Remote\Model
     {
         $this->propertyUpdated('Name', $value);
         $this->_data['Name'] = $value;
+
         return $this;
     }
 
@@ -463,6 +468,7 @@ class Contact extends Remote\Model
     {
         $this->propertyUpdated('FirstName', $value);
         $this->_data['FirstName'] = $value;
+
         return $this;
     }
 
@@ -482,6 +488,7 @@ class Contact extends Remote\Model
     {
         $this->propertyUpdated('LastName', $value);
         $this->_data['LastName'] = $value;
+
         return $this;
     }
 
@@ -501,6 +508,7 @@ class Contact extends Remote\Model
     {
         $this->propertyUpdated('EmailAddress', $value);
         $this->_data['EmailAddress'] = $value;
+
         return $this;
     }
 
@@ -520,6 +528,7 @@ class Contact extends Remote\Model
     {
         $this->propertyUpdated('SkypeUserName', $value);
         $this->_data['SkypeUserName'] = $value;
+
         return $this;
     }
 
@@ -543,6 +552,7 @@ class Contact extends Remote\Model
             $this->_data['ContactPersons'] = new Remote\Collection();
         }
         $this->_data['ContactPersons'][] = $value;
+
         return $this;
     }
 
@@ -562,6 +572,7 @@ class Contact extends Remote\Model
     {
         $this->propertyUpdated('BankAccountDetails', $value);
         $this->_data['BankAccountDetails'] = $value;
+
         return $this;
     }
 
@@ -581,6 +592,7 @@ class Contact extends Remote\Model
     {
         $this->propertyUpdated('TaxNumber', $value);
         $this->_data['TaxNumber'] = $value;
+
         return $this;
     }
 
@@ -600,6 +612,7 @@ class Contact extends Remote\Model
     {
         $this->propertyUpdated('AccountsReceivableTaxType', $value);
         $this->_data['AccountsReceivableTaxType'] = $value;
+
         return $this;
     }
 
@@ -619,6 +632,7 @@ class Contact extends Remote\Model
     {
         $this->propertyUpdated('AccountsPayableTaxType', $value);
         $this->_data['AccountsPayableTaxType'] = $value;
+
         return $this;
     }
 
@@ -642,6 +656,7 @@ class Contact extends Remote\Model
             $this->_data['Addresses'] = new Remote\Collection();
         }
         $this->_data['Addresses'][] = $value;
+
         return $this;
     }
 
@@ -665,6 +680,7 @@ class Contact extends Remote\Model
             $this->_data['Phones'] = new Remote\Collection();
         }
         $this->_data['Phones'][] = $value;
+
         return $this;
     }
 
@@ -716,6 +732,7 @@ class Contact extends Remote\Model
     {
         $this->propertyUpdated('DefaultCurrency', $value);
         $this->_data['DefaultCurrency'] = $value;
+
         return $this;
     }
 
@@ -735,6 +752,7 @@ class Contact extends Remote\Model
     {
         $this->propertyUpdated('XeroNetworkKey', $value);
         $this->_data['XeroNetworkKey'] = $value;
+
         return $this;
     }
 
@@ -754,6 +772,7 @@ class Contact extends Remote\Model
     {
         $this->propertyUpdated('SalesDefaultAccountCode', $value);
         $this->_data['SalesDefaultAccountCode'] = $value;
+
         return $this;
     }
 
@@ -773,6 +792,7 @@ class Contact extends Remote\Model
     {
         $this->propertyUpdated('PurchasesDefaultAccountCode', $value);
         $this->_data['PurchasesDefaultAccountCode'] = $value;
+
         return $this;
     }
 
@@ -796,6 +816,7 @@ class Contact extends Remote\Model
             $this->_data['SalesTrackingCategories'] = new Remote\Collection();
         }
         $this->_data['SalesTrackingCategories'][] = $value;
+
         return $this;
     }
 
@@ -819,6 +840,7 @@ class Contact extends Remote\Model
             $this->_data['PurchasesTrackingCategories'] = new Remote\Collection();
         }
         $this->_data['PurchasesTrackingCategories'][] = $value;
+
         return $this;
     }
 
@@ -838,6 +860,7 @@ class Contact extends Remote\Model
     {
         $this->propertyUpdated('TrackingCategoryName', $value);
         $this->_data['TrackingCategoryName'] = $value;
+
         return $this;
     }
 
@@ -857,6 +880,7 @@ class Contact extends Remote\Model
     {
         $this->propertyUpdated('TrackingCategoryOption', $value);
         $this->_data['TrackingCategoryOption'] = $value;
+
         return $this;
     }
 
@@ -880,6 +904,7 @@ class Contact extends Remote\Model
             $this->_data['PaymentTerms'] = new Remote\Collection();
         }
         $this->_data['PaymentTerms'][] = $value;
+
         return $this;
     }
 
@@ -899,6 +924,7 @@ class Contact extends Remote\Model
     {
         $this->propertyUpdated('UpdatedDateUTC', $value);
         $this->_data['UpdatedDateUTC'] = $value;
+
         return $this;
     }
 
@@ -922,6 +948,7 @@ class Contact extends Remote\Model
             $this->_data['ContactGroups'] = new Remote\Collection();
         }
         $this->_data['ContactGroups'][] = $value;
+
         return $this;
     }
 
@@ -941,6 +968,7 @@ class Contact extends Remote\Model
     {
         $this->propertyUpdated('Website', $value);
         $this->_data['Website'] = $value;
+
         return $this;
     }
 
@@ -960,6 +988,7 @@ class Contact extends Remote\Model
     {
         $this->propertyUpdated('BrandingTheme', $value);
         $this->_data['BrandingTheme'] = $value;
+
         return $this;
     }
 
@@ -979,6 +1008,7 @@ class Contact extends Remote\Model
     {
         $this->propertyUpdated('BatchPayments', $value);
         $this->_data['BatchPayments'] = $value;
+
         return $this;
     }
 
@@ -998,6 +1028,7 @@ class Contact extends Remote\Model
     {
         $this->propertyUpdated('Discount', $value);
         $this->_data['Discount'] = $value;
+
         return $this;
     }
 
@@ -1017,6 +1048,7 @@ class Contact extends Remote\Model
     {
         $this->propertyUpdated('Balances', $value);
         $this->_data['Balances'] = $value;
+
         return $this;
     }
 

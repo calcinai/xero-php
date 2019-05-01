@@ -115,6 +115,7 @@ abstract class Model implements ObjectInterface, \JsonSerializable, \ArrayAccess
     public function setDirty($property)
     {
         $this->_dirty[$property] = true;
+
         return $this;
     }
 
@@ -131,6 +132,7 @@ abstract class Model implements ObjectInterface, \JsonSerializable, \ArrayAccess
         } else {
             unset($this->_dirty[$property]);
         }
+
         return $this;
     }
 
@@ -183,6 +185,7 @@ abstract class Model implements ObjectInterface, \JsonSerializable, \ArrayAccess
 
             if (! isset($input_array[$property])) {
                 $this->_data[$property] = null;
+
                 continue;
             }
 
@@ -242,6 +245,7 @@ abstract class Model implements ObjectInterface, \JsonSerializable, \ArrayAccess
                 $out[$property] = self::castToString($type, $this->_data[$property]);
             }
         }
+
         return $out;
     }
 
@@ -279,11 +283,13 @@ abstract class Model implements ObjectInterface, \JsonSerializable, \ArrayAccess
                 if ($value instanceof self) {
                     return $value->toStringArray();
                 }
+
                 return '';
             default:
                 if (is_scalar($value)) {
                     return (string) $value;
                 }
+
                 return '';
         }
     }
@@ -321,6 +327,7 @@ abstract class Model implements ObjectInterface, \JsonSerializable, \ArrayAccess
                 if (preg_match('/Date\\((?<timestamp>[0-9\\+\\.]+)\\)/', $value, $matches)) { //to catch stupid .net date serialisation
                     $value = $matches['timestamp'];
                 }
+
                 return new \DateTime($value, $timezone);
 
             case self::PROPERTY_TYPE_OBJECT:
@@ -328,12 +335,14 @@ abstract class Model implements ObjectInterface, \JsonSerializable, \ArrayAccess
                 /** @var self $instance */
                 $instance = new $php_type();
                 $instance->fromStringArray($value);
+
                 return $instance;
 
             default:
                 if (is_scalar($value)) {
                     return (string) $value;
                 }
+
                 return (object) $value;
         }
     }
@@ -453,6 +462,7 @@ abstract class Model implements ObjectInterface, \JsonSerializable, \ArrayAccess
         }
 
         trigger_error(sprintf("Undefined property %s::$%s.\n", __CLASS__, $property));
+
         return;
     }
 
@@ -472,6 +482,7 @@ abstract class Model implements ObjectInterface, \JsonSerializable, \ArrayAccess
         }
 
         trigger_error(sprintf("Undefined property %s::$%s.\n", __CLASS__, $property));
+
         return;
     }
 

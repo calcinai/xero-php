@@ -146,6 +146,7 @@ class SuperLine extends Remote\Model
     {
         $this->propertyUpdated('SuperMembershipID', $value);
         $this->_data['SuperMembershipID'] = $value;
+
         return $this;
     }
 
@@ -165,6 +166,7 @@ class SuperLine extends Remote\Model
     {
         $this->propertyUpdated('ContributionType', $value);
         $this->_data['ContributionType'] = $value;
+
         return $this;
     }
 
@@ -184,6 +186,7 @@ class SuperLine extends Remote\Model
     {
         $this->propertyUpdated('CalculationType', $value);
         $this->_data['CalculationType'] = $value;
+
         return $this;
     }
 
@@ -203,6 +206,7 @@ class SuperLine extends Remote\Model
     {
         $this->propertyUpdated('ExpenseAccountCode', $value);
         $this->_data['ExpenseAccountCode'] = $value;
+
         return $this;
     }
 
@@ -222,6 +226,7 @@ class SuperLine extends Remote\Model
     {
         $this->propertyUpdated('LiabilityAccountCode', $value);
         $this->_data['LiabilityAccountCode'] = $value;
+
         return $this;
     }
 
@@ -241,6 +246,7 @@ class SuperLine extends Remote\Model
     {
         $this->propertyUpdated('MinimumMonthlyEarnings', $value);
         $this->_data['MinimumMonthlyEarnings'] = $value;
+
         return $this;
     }
 
@@ -260,6 +266,7 @@ class SuperLine extends Remote\Model
     {
         $this->propertyUpdated('Percentage', $value);
         $this->_data['Percentage'] = $value;
+
         return $this;
     }
 }

@@ -222,11 +222,13 @@ class Helpers
 
         if (! is_string($knownString)) {
             trigger_error('Expected known_string to be a string, '.gettype($knownString).' given', E_USER_WARNING);
+
             return false;
         }
 
         if (! is_string($userInput)) {
             trigger_error('Expected user_input to be a string, '.gettype($userInput).' given', E_USER_WARNING);
+
             return false;
         }
 

@@ -289,6 +289,7 @@ class PurchaseOrder extends Remote\Model
     {
         $this->propertyUpdated('Contact', $value);
         $this->_data['Contact'] = $value;
+
         return $this;
     }
 
@@ -312,6 +313,7 @@ class PurchaseOrder extends Remote\Model
             $this->_data['LineItems'] = new Remote\Collection();
         }
         $this->_data['LineItems'][] = $value;
+
         return $this;
     }
 
@@ -331,6 +333,7 @@ class PurchaseOrder extends Remote\Model
     {
         $this->propertyUpdated('Date', $value);
         $this->_data['Date'] = $value;
+
         return $this;
     }
 
@@ -350,6 +353,7 @@ class PurchaseOrder extends Remote\Model
     {
         $this->propertyUpdated('DeliveryDate', $value);
         $this->_data['DeliveryDate'] = $value;
+
         return $this;
     }
 
@@ -369,6 +373,7 @@ class PurchaseOrder extends Remote\Model
     {
         $this->propertyUpdated('LineAmountTypes', $value);
         $this->_data['LineAmountTypes'] = $value;
+
         return $this;
     }
 
@@ -388,6 +393,7 @@ class PurchaseOrder extends Remote\Model
     {
         $this->propertyUpdated('PurchaseOrderNumber', $value);
         $this->_data['PurchaseOrderNumber'] = $value;
+
         return $this;
     }
 
@@ -407,6 +413,7 @@ class PurchaseOrder extends Remote\Model
     {
         $this->propertyUpdated('Reference', $value);
         $this->_data['Reference'] = $value;
+
         return $this;
     }
 
@@ -426,6 +433,7 @@ class PurchaseOrder extends Remote\Model
     {
         $this->propertyUpdated('BrandingThemeID', $value);
         $this->_data['BrandingThemeID'] = $value;
+
         return $this;
     }
 
@@ -445,6 +453,7 @@ class PurchaseOrder extends Remote\Model
     {
         $this->propertyUpdated('CurrencyCode', $value);
         $this->_data['CurrencyCode'] = $value;
+
         return $this;
     }
 
@@ -464,6 +473,7 @@ class PurchaseOrder extends Remote\Model
     {
         $this->propertyUpdated('Status', $value);
         $this->_data['Status'] = $value;
+
         return $this;
     }
 
@@ -483,6 +493,7 @@ class PurchaseOrder extends Remote\Model
     {
         $this->propertyUpdated('SentToContact', $value);
         $this->_data['SentToContact'] = $value;
+
         return $this;
     }
 
@@ -502,6 +513,7 @@ class PurchaseOrder extends Remote\Model
     {
         $this->propertyUpdated('DeliveryAddress', $value);
         $this->_data['DeliveryAddress'] = $value;
+
         return $this;
     }
 
@@ -521,6 +533,7 @@ class PurchaseOrder extends Remote\Model
     {
         $this->propertyUpdated('AttentionTo', $value);
         $this->_data['AttentionTo'] = $value;
+
         return $this;
     }
 
@@ -540,6 +553,7 @@ class PurchaseOrder extends Remote\Model
     {
         $this->propertyUpdated('Telephone', $value);
         $this->_data['Telephone'] = $value;
+
         return $this;
     }
 
@@ -559,6 +573,7 @@ class PurchaseOrder extends Remote\Model
     {
         $this->propertyUpdated('DeliveryInstructions', $value);
         $this->_data['DeliveryInstructions'] = $value;
+
         return $this;
     }
 
@@ -578,6 +593,7 @@ class PurchaseOrder extends Remote\Model
     {
         $this->propertyUpdated('ExpectedArrivalDate', $value);
         $this->_data['ExpectedArrivalDate'] = $value;
+
         return $this;
     }
 
@@ -597,6 +613,7 @@ class PurchaseOrder extends Remote\Model
     {
         $this->propertyUpdated('PurchaseOrderID', $value);
         $this->_data['PurchaseOrderID'] = $value;
+
         return $this;
     }
 

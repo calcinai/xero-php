@@ -134,6 +134,7 @@ class BookDepreciationSetting extends Remote\Model
     {
         $this->propertyUpdated('depreciationMethod', $value);
         $this->_data['depreciationMethod'] = $value;
+
         return $this;
     }
 
@@ -153,6 +154,7 @@ class BookDepreciationSetting extends Remote\Model
     {
         $this->propertyUpdated('averagingMethod', $value);
         $this->_data['averagingMethod'] = $value;
+
         return $this;
     }
 
@@ -172,6 +174,7 @@ class BookDepreciationSetting extends Remote\Model
     {
         $this->propertyUpdated('depreciationRate', $value);
         $this->_data['depreciationRate'] = $value;
+
         return $this;
     }
 
@@ -195,6 +198,7 @@ class BookDepreciationSetting extends Remote\Model
             $this->_data['effectiveLifeYears'] = new Remote\Collection();
         }
         $this->_data['effectiveLifeYears'][] = $value;
+
         return $this;
     }
 
@@ -214,6 +218,7 @@ class BookDepreciationSetting extends Remote\Model
     {
         $this->propertyUpdated('depreciationCalculationMethod', $value);
         $this->_data['depreciationCalculationMethod'] = $value;
+
         return $this;
     }
 }

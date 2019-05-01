@@ -120,6 +120,7 @@ class TrackingOption extends Remote\Model
     {
         $this->propertyUpdated('TrackingOptionID', $value);
         $this->_data['TrackingOptionID'] = $value;
+
         return $this;
     }
 
@@ -139,6 +140,7 @@ class TrackingOption extends Remote\Model
     {
         $this->propertyUpdated('Name', $value);
         $this->_data['Name'] = $value;
+
         return $this;
     }
 
@@ -158,6 +160,7 @@ class TrackingOption extends Remote\Model
     {
         $this->propertyUpdated('Status', $value);
         $this->_data['Status'] = $value;
+
         return $this;
     }
 }

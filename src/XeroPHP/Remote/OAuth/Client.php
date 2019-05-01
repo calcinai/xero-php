@@ -65,12 +65,14 @@ class Client
 
                 $header = 'OAuth '.Helpers::flattenAssocArray($oauth_params, '%s="%s"', ', ');
                 $request->setHeader(Request::HEADER_AUTHORIZATION, $header);
+
                 break;
 
             case self::SIGN_LOCATION_QUERY:
                 foreach ($oauth_params as $param_name => $param_value) {
                     $request->setParameter($param_name, $param_value);
                 }
+
                 break;
 
             default:
@@ -140,6 +142,7 @@ class Client
                     $this->getSBS($request),
                     $this->getSigningSecret()
                 );
+
                 break;
             case self::SIGNATURE_HMAC_SHA1:
                 $signature = HMACSHA1::generateSignature(
@@ -147,6 +150,7 @@ class Client
                     $this->getSBS($request),
                     $this->getSigningSecret()
                 );
+
                 break;
             case self::SIGNATURE_PLAINTEXT:
                 $signature = PLAINTEXT::generateSignature(
@@ -154,6 +158,7 @@ class Client
                     $this->getSBS($request),
                     $this->getSigningSecret()
                 );
+
                 break;
             default:
                 throw new Exception(
@@ -205,6 +210,7 @@ class Client
         if (null !== $token_secret = $this->getTokenSecret()) {
             $secret .= $token_secret;
         }
+
         return $secret;
     }
 
@@ -243,6 +249,7 @@ class Client
     public function setToken($token)
     {
         $this->config['token'] = $token;
+
         return $this;
     }
 
@@ -251,6 +258,7 @@ class Client
         if (isset($this->config['token'])) {
             return $this->config['token'];
         }
+
         return;
     }
 
@@ -331,6 +339,7 @@ class Client
     public function setTokenSecret($secret)
     {
         $this->token_secret = $secret;
+
         return $this;
     }
 
@@ -339,6 +348,7 @@ class Client
         if (isset($this->token_secret)) {
             return $this->token_secret;
         }
+
         return;
     }
 
@@ -354,6 +364,7 @@ class Client
         if (isset($this->verifier)) {
             return $this->verifier;
         }
+
         return;
     }
 }

@@ -62,10 +62,12 @@ class URL
                 case self::OAUTH_REQUEST_TOKEN:
                     $this->path = $oauth_endpoints['request_token_path'];
                     $this->is_oauth = true;
+
                     break;
                 case self::OAUTH_ACCESS_TOKEN:
                     $this->path = $oauth_endpoints['access_token_path'];
                     $this->is_oauth = true;
+
                     break;
                 default:
                     //default to core API for backward compatibility
@@ -83,12 +85,15 @@ class URL
             switch ($api) {
                 case self::API_CORE:
                     $version = $xero_config['core_version'];
+
                     break;
                 case self::API_PAYROLL:
                     $version = $xero_config['payroll_version'];
+
                     break;
                 case self::API_FILE:
                     $version = $xero_config['file_version'];
+
                     break;
                 default:
                     throw new Exception('Invalid API passed to XeroPHP\\URL::__construct(). Must be XeroPHP\\URL::API_*');

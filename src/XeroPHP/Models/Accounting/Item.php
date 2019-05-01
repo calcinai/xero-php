@@ -212,6 +212,7 @@ class Item extends Remote\Model
     {
         $this->propertyUpdated('ItemID', $value);
         $this->_data['ItemID'] = $value;
+
         return $this;
     }
 
@@ -231,6 +232,7 @@ class Item extends Remote\Model
     {
         $this->propertyUpdated('Code', $value);
         $this->_data['Code'] = $value;
+
         return $this;
     }
 
@@ -250,6 +252,7 @@ class Item extends Remote\Model
     {
         $this->propertyUpdated('InventoryAssetAccountCode', $value);
         $this->_data['InventoryAssetAccountCode'] = $value;
+
         return $this;
     }
 
@@ -269,6 +272,7 @@ class Item extends Remote\Model
     {
         $this->propertyUpdated('Name', $value);
         $this->_data['Name'] = $value;
+
         return $this;
     }
 
@@ -288,6 +292,7 @@ class Item extends Remote\Model
     {
         $this->propertyUpdated('IsSold', $value);
         $this->_data['IsSold'] = $value;
+
         return $this;
     }
 
@@ -307,6 +312,7 @@ class Item extends Remote\Model
     {
         $this->propertyUpdated('IsPurchased', $value);
         $this->_data['IsPurchased'] = $value;
+
         return $this;
     }
 
@@ -326,6 +332,7 @@ class Item extends Remote\Model
     {
         $this->propertyUpdated('Description', $value);
         $this->_data['Description'] = $value;
+
         return $this;
     }
 
@@ -345,6 +352,7 @@ class Item extends Remote\Model
     {
         $this->propertyUpdated('PurchaseDescription', $value);
         $this->_data['PurchaseDescription'] = $value;
+
         return $this;
     }
 
@@ -374,6 +382,7 @@ class Item extends Remote\Model
     {
         $this->propertyUpdated('PurchaseDetails', $value);
         $this->_data['PurchaseDetails'] = $value;
+
         return $this;
     }
 
@@ -403,6 +412,7 @@ class Item extends Remote\Model
     {
         $this->propertyUpdated('SalesDetails', $value);
         $this->_data['SalesDetails'] = $value;
+
         return $this;
     }
 
@@ -422,6 +432,7 @@ class Item extends Remote\Model
     {
         $this->propertyUpdated('IsTrackedAsInventory', $value);
         $this->_data['IsTrackedAsInventory'] = $value;
+
         return $this;
     }
 
@@ -441,6 +452,7 @@ class Item extends Remote\Model
     {
         $this->propertyUpdated('TotalCostPool', $value);
         $this->_data['TotalCostPool'] = $value;
+
         return $this;
     }
 
@@ -460,6 +472,7 @@ class Item extends Remote\Model
     {
         $this->propertyUpdated('QuantityOnHand', $value);
         $this->_data['QuantityOnHand'] = $value;
+
         return $this;
     }
 
@@ -479,6 +492,7 @@ class Item extends Remote\Model
     {
         $this->propertyUpdated('UpdatedDateUTC', $value);
         $this->_data['UpdatedDateUTC'] = $value;
+
         return $this;
     }
 }

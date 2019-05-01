@@ -122,6 +122,7 @@ class Allocation extends Remote\Model
     {
         $this->propertyUpdated('Invoice', $value);
         $this->_data['Invoice'] = $value;
+
         return $this;
     }
 
@@ -141,6 +142,7 @@ class Allocation extends Remote\Model
     {
         $this->propertyUpdated('AppliedAmount', $value);
         $this->_data['AppliedAmount'] = $value;
+
         return $this;
     }
 
@@ -160,6 +162,7 @@ class Allocation extends Remote\Model
     {
         $this->propertyUpdated('Date', $value);
         $this->_data['Date'] = $value;
+
         return $this;
     }
 }

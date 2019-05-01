@@ -135,6 +135,7 @@ class ContactGroup extends Remote\Model
     {
         $this->propertyUpdated('Name', $value);
         $this->_data['Name'] = $value;
+
         return $this;
     }
 
@@ -154,6 +155,7 @@ class ContactGroup extends Remote\Model
     {
         $this->propertyUpdated('Status', $value);
         $this->_data['Status'] = $value;
+
         return $this;
     }
 
@@ -173,6 +175,7 @@ class ContactGroup extends Remote\Model
     {
         $this->propertyUpdated('ContactGroupID', $value);
         $this->_data['ContactGroupID'] = $value;
+
         return $this;
     }
 
@@ -196,6 +199,7 @@ class ContactGroup extends Remote\Model
             $this->_data['Contacts'] = new Remote\Collection();
         }
         $this->_data['Contacts'][] = $value;
+
         return $this;
     }
 }

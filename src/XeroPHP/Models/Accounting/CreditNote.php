@@ -264,6 +264,7 @@ class CreditNote extends Remote\Model
     {
         $this->propertyUpdated('Type', $value);
         $this->_data['Type'] = $value;
+
         return $this;
     }
 
@@ -283,6 +284,7 @@ class CreditNote extends Remote\Model
     {
         $this->propertyUpdated('Contact', $value);
         $this->_data['Contact'] = $value;
+
         return $this;
     }
 
@@ -302,6 +304,7 @@ class CreditNote extends Remote\Model
     {
         $this->propertyUpdated('Date', $value);
         $this->_data['Date'] = $value;
+
         return $this;
     }
 
@@ -321,6 +324,7 @@ class CreditNote extends Remote\Model
     {
         $this->propertyUpdated('Status', $value);
         $this->_data['Status'] = $value;
+
         return $this;
     }
 
@@ -340,6 +344,7 @@ class CreditNote extends Remote\Model
     {
         $this->propertyUpdated('LineAmountTypes', $value);
         $this->_data['LineAmountTypes'] = $value;
+
         return $this;
     }
 
@@ -363,6 +368,7 @@ class CreditNote extends Remote\Model
             $this->_data['LineItems'] = new Remote\Collection();
         }
         $this->_data['LineItems'][] = $value;
+
         return $this;
     }
 
@@ -391,6 +397,7 @@ class CreditNote extends Remote\Model
     {
         $this->propertyUpdated('SubTotal', $value);
         $this->_data['SubTotal'] = $value;
+
         return $this;
     }
 
@@ -410,6 +417,7 @@ class CreditNote extends Remote\Model
     {
         $this->propertyUpdated('TotalTax', $value);
         $this->_data['TotalTax'] = $value;
+
         return $this;
     }
 
@@ -429,6 +437,7 @@ class CreditNote extends Remote\Model
     {
         $this->propertyUpdated('Total', $value);
         $this->_data['Total'] = $value;
+
         return $this;
     }
 
@@ -448,6 +457,7 @@ class CreditNote extends Remote\Model
     {
         $this->propertyUpdated('UpdatedDateUTC', $value);
         $this->_data['UpdatedDateUTC'] = $value;
+
         return $this;
     }
 
@@ -467,6 +477,7 @@ class CreditNote extends Remote\Model
     {
         $this->propertyUpdated('CurrencyCode', $value);
         $this->_data['CurrencyCode'] = $value;
+
         return $this;
     }
 
@@ -486,6 +497,7 @@ class CreditNote extends Remote\Model
     {
         $this->propertyUpdated('FullyPaidOnDate', $value);
         $this->_data['FullyPaidOnDate'] = $value;
+
         return $this;
     }
 
@@ -505,6 +517,7 @@ class CreditNote extends Remote\Model
     {
         $this->propertyUpdated('CreditNoteID', $value);
         $this->_data['CreditNoteID'] = $value;
+
         return $this;
     }
 
@@ -524,6 +537,7 @@ class CreditNote extends Remote\Model
     {
         $this->propertyUpdated('CreditNoteNumber', $value);
         $this->_data['CreditNoteNumber'] = $value;
+
         return $this;
     }
 
@@ -543,6 +557,7 @@ class CreditNote extends Remote\Model
     {
         $this->propertyUpdated('Reference', $value);
         $this->_data['Reference'] = $value;
+
         return $this;
     }
 
@@ -562,6 +577,7 @@ class CreditNote extends Remote\Model
     {
         $this->propertyUpdated('SentToContact', $value);
         $this->_data['SentToContact'] = $value;
+
         return $this;
     }
 
@@ -581,6 +597,7 @@ class CreditNote extends Remote\Model
     {
         $this->propertyUpdated('CurrencyRate', $value);
         $this->_data['CurrencyRate'] = $value;
+
         return $this;
     }
 
@@ -600,6 +617,7 @@ class CreditNote extends Remote\Model
     {
         $this->propertyUpdated('RemainingCredit', $value);
         $this->_data['RemainingCredit'] = $value;
+
         return $this;
     }
 
@@ -623,6 +641,7 @@ class CreditNote extends Remote\Model
             $this->_data['Allocations'] = new Remote\Collection();
         }
         $this->_data['Allocations'][] = $value;
+
         return $this;
     }
 
@@ -642,6 +661,7 @@ class CreditNote extends Remote\Model
     {
         $this->propertyUpdated('BrandingThemeID', $value);
         $this->_data['BrandingThemeID'] = $value;
+
         return $this;
     }
 

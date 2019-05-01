@@ -131,6 +131,7 @@ abstract class Report extends Remote\Model
     {
         $this->propertyUpdated('ReportID', $value);
         $this->_data['ReportID'] = $value;
+
         return $this;
     }
 
@@ -150,6 +151,7 @@ abstract class Report extends Remote\Model
     {
         $this->propertyUpdated('ReportName', $value);
         $this->_data['ReportName'] = $value;
+
         return $this;
     }
 
@@ -169,6 +171,7 @@ abstract class Report extends Remote\Model
     {
         $this->propertyUpdated('ReportType', $value);
         $this->_data['ReportType'] = $value;
+
         return $this;
     }
 
@@ -188,6 +191,7 @@ abstract class Report extends Remote\Model
     {
         $this->propertyUpdated('ReportTitles', $value);
         $this->_data['ReportTitles'] = $value;
+
         return $this;
     }
 
@@ -207,6 +211,7 @@ abstract class Report extends Remote\Model
     {
         $this->propertyUpdated('ReportDate', $value);
         $this->_data['ReportDate'] = $value;
+
         return $this;
     }
 
@@ -226,6 +231,7 @@ abstract class Report extends Remote\Model
     {
         $this->propertyUpdated('UpdatedDateUTC', $value);
         $this->_data['UpdatedDateUTC'] = $value;
+
         return $this;
     }
 
@@ -245,6 +251,7 @@ abstract class Report extends Remote\Model
     {
         $this->propertyUpdated('Rows', $value);
         $this->_data['Rows'] = $value;
+
         return $this;
     }
 }
