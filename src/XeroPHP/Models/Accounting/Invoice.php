@@ -814,8 +814,8 @@ class Invoice extends Remote\Model
     /**
      * Retrieve the online invoice URL.
      *
-     * @return string
      * @throws \XeroPHP\Exception
+     * @return string
      */
     public function getOnlineInvoiceUrl()
     {

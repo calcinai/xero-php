@@ -218,8 +218,8 @@ abstract class Model implements ObjectInterface, \JsonSerializable, \ArrayAccess
     /**
      * Convert the object into an array, and any non-primitives to string.
      *
-     * @return array
      * @param mixed $dirty_only
+     * @return array
      */
     public function toStringArray($dirty_only = false)
     {
@@ -351,8 +351,8 @@ abstract class Model implements ObjectInterface, \JsonSerializable, \ArrayAccess
      * Validate the object and (optionally) the child objects recursively.
      *
      * @param bool $check_children
-     * @return bool
      * @throws Exception
+     * @return bool
      */
     public function validate($check_children = true)
     {
@@ -396,8 +396,8 @@ abstract class Model implements ObjectInterface, \JsonSerializable, \ArrayAccess
     /**
      * Shorthand save an object if it is instantiated with app context.
      *
-     * @return Response|null
      * @throws Exception
+     * @return Response|null
      */
     public function save()
     {
@@ -413,8 +413,8 @@ abstract class Model implements ObjectInterface, \JsonSerializable, \ArrayAccess
     /**
      * Shorthand delete an object if it is instantiated with app context.
      *
-     * @return Response|null
      * @throws Exception
+     * @return Response|null
      */
     public function delete()
     {

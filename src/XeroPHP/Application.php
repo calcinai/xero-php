@@ -85,8 +85,8 @@ abstract class Application
 
     /**
      * @param mixed $key
-     * @return mixed
      * @throws Exception
+     * @return mixed
      */
     public function getConfig($key)
     {
@@ -101,8 +101,8 @@ abstract class Application
      * @param string $config
      * @param mixed $option
      * @param mixed $value
-     * @return mixed
      * @throws Exception
+     * @return mixed
      */
     public function getConfigOption($config, $option)
     {
@@ -132,8 +132,8 @@ abstract class Application
      * @param string $config
      * @param mixed $option
      * @param mixed $value
-     * @return array
      * @throws Exception
+     * @return array
      */
     public function setConfigOption($config, $option, $value)
     {
@@ -149,8 +149,8 @@ abstract class Application
      * Validates and expands the provided model class to a full PHP class
      *
      * @param string $class
-     * @return string
      * @throws Exception
+     * @return string
      */
     public function validateModelClass($class)
     {
@@ -185,9 +185,9 @@ abstract class Application
      *
      * @param $model
      * @param $guid
-     * @return Remote\Model|null
      * @throws Exception
      * @throws Remote\Exception\NotFoundException
+     * @return Remote\Model|null
      */
     public function loadByGUID($model, $guid)
     {
@@ -222,9 +222,9 @@ abstract class Application
      *
      * @param $model
      * @param string $guids
-     * @return Collection
      * @throws Exception
      * @throws Remote\Exception\NotFoundException
+     * @return Collection
      */
     public function loadByGUIDs($model, $guids)
     {
@@ -255,8 +255,8 @@ abstract class Application
 
     /**
      * @param string $model
-     * @return Query
      * @throws Remote\Exception
+     * @return Query
      */
     public function load($model)
     {
@@ -268,8 +268,8 @@ abstract class Application
     /**
      * @param Remote\Model $object
      * @param bool $replace_data
-     * @return Remote\Response|null
      * @throws Exception
+     * @return Remote\Response|null
      */
     public function save(Remote\Model $object, $replace_data = false)
     {
@@ -318,8 +318,8 @@ abstract class Application
      * @param Collection|array $objects
      * @param mixed $checkGuid
      * @param mixed $replace_data
-     * @return Remote\Response
      * @throws Exception
+     * @return Remote\Response
      */
     public function saveAll($objects, $checkGuid = true, $replace_data = false)
     {
@@ -420,8 +420,8 @@ abstract class Application
 
     /**
      * @param Remote\Model $object
-     * @return Remote\Response
      * @throws Exception
+     * @return Remote\Response
      */
     public function delete(Remote\Model $object)
     {

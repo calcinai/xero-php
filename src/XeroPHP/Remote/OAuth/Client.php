@@ -130,8 +130,8 @@ class Client
      * consistency, pass the same constructor to each one.
      *
      * @param Request $request
-     * @return string
      * @throws Exception
+     * @return string
      */
     private function getSignature(Request $request)
     {

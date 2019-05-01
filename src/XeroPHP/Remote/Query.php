@@ -190,8 +190,8 @@ class Query
 
     /**
      * @param int $page
-     * @return $this
      * @throws Exception
+     * @return $this
      */
     public function page($page = 1)
     {

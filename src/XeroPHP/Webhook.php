@@ -29,8 +29,8 @@ class Webhook
      * @param \XeroPHP\Application $application
      * @param string $payload
      * @param string|null $event
-     * @return void
      * @throws \XeroPHP\Application\Exception
+     * @return void
      */
     public function __construct($application, $payload, $event = null)
     {
