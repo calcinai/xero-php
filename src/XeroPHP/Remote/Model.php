@@ -558,4 +558,10 @@ abstract class Model implements ObjectInterface, \JsonSerializable, \ArrayAccess
     {
         unset($this->_data[$offset]);
     }
+
+    public static function getBodyFormat()
+    {
+        return 'xml';
+    }
+
 }
