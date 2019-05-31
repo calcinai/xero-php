@@ -2,8 +2,8 @@
 
 namespace XeroPHP\Remote;
 
-use XeroPHP\Helpers;
 use XeroPHP\Application;
+use XeroPHP\Helpers;
 
 class Request
 {
@@ -48,10 +48,9 @@ class Request
             case self::METHOD_POST:
             case self::METHOD_DELETE:
                 $this->method = $method;
-
                 break;
             default:
-                throw new Exception("Invalid request method [{$method}]");
+                throw new Exception("Invalid request method [$method]");
         }
 
         //Default to XML so you get the  xsi:type attribute in the root node.
@@ -91,7 +90,7 @@ class Request
         $query_string = Helpers::flattenAssocArray($this->getParameters(), '%s=%s', '&', true);
 
         if (strlen($query_string) > 0) {
-            $full_uri .= "?{$query_string}";
+            $full_uri .= "?$query_string";
         }
         curl_setopt($ch, CURLOPT_URL, $full_uri);
 
@@ -109,7 +108,7 @@ class Request
             list($name, $value) = explode(':', $header, 2);
             $name = strtolower(trim($name));
             $value = trim($value);
-            if (! array_key_exists($name, $headers)) {
+            if (!array_key_exists($name, $headers)) {
                 $headers[$name] = [];
             }
             $headers[$name][] = $value;
@@ -121,11 +120,15 @@ class Request
         $info = curl_getinfo($ch);
 
         if ($response === false) {
-            throw new Exception('Curl error: '.curl_error($ch));
+            throw new Exception('Curl error: ' . curl_error($ch));
         }
 
-        $this->response = new Response($this, $response, $info, $headers);
-        $this->response->parse();
+        if ($response !== 'The resource you\'re looking for cannot be found') {
+            $this->response = new Response($this, $response, $info, $headers);
+            $this->response->parse();
+        } else {
+            $this->response = null;
+        }
 
         return $this->response;
     }
@@ -133,7 +136,6 @@ class Request
     public function setParameter($key, $value)
     {
         $this->parameters[$key] = $value;
-
         return $this;
     }
 
@@ -148,10 +150,9 @@ class Request
      */
     public function getHeader($key)
     {
-        if (! isset($this->headers[$key])) {
-            return;
+        if (!isset($this->headers[$key])) {
+            return null;
         }
-
         return $this->headers[$key];
     }
 
@@ -168,8 +169,7 @@ class Request
         if (isset($this->response)) {
             return $this->response;
         }
-
-        return;
+        return null;
     }
 
     /**
@@ -181,7 +181,6 @@ class Request
     public function setHeader($key, $val)
     {
         $this->headers[$key] = $val;
-
         return $this;
     }
 
