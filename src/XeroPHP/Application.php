@@ -56,6 +56,11 @@ abstract class Application
     protected static $_type_config_defaults = [];
 
     /**
+     * @var Closure
+     */
+    protected $requestCompletedCallback;
+
+    /**
      * @param array $config
      */
     public function __construct(array $config)
@@ -446,16 +451,14 @@ abstract class Application
         return $object;
     }
 
-	protected $requestCompletedCallback;
+    public function requestCompleted($response, $info, $headers) {
+        if($this->requestCompletedCallback instanceof \Closure) {
+            call_user_func($this->requestCompletedCallback, $response, $info, $headers);
+        }
+    }
 
-	public function requestCompleted($response, $info, $headers) {
-		if($this->requestCompletedCallback instanceof \Closure) {
-			call_user_func($this->requestCompletedCallback, $response, $info, $headers);
-		}
-	}
-
-	public function onRequestCompleted($callback) {
-		$this->requestCompletedCallback = $callback;
-	}
+    public function onRequestCompleted($callback) {
+        $this->requestCompletedCallback = $callback;
+    }
 
 }
