@@ -445,4 +445,17 @@ abstract class Application
 
         return $object;
     }
+
+	protected $requestCompletedCallback;
+
+	public function requestCompleted($response, $info, $headers) {
+		if($this->requestCompletedCallback instanceof \Closure) {
+			call_user_func($this->requestCompletedCallback, $response, $info, $headers);
+		}
+	}
+
+	public function onRequestCompleted($callback) {
+		$this->requestCompletedCallback = $callback;
+	}
+
 }

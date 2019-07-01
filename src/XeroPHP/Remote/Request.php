@@ -124,6 +124,8 @@ class Request
             throw new Exception('Curl error: '.curl_error($ch));
         }
 
+		$this->app->requestCompleted($response, $info, $headers);
+
         $this->response = new Response($this, $response, $info, $headers);
         $this->response->parse();
 
