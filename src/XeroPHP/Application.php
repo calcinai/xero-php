@@ -56,9 +56,9 @@ abstract class Application
     protected static $_type_config_defaults = [];
 
     /**
-     * @var Closure
+     * @var array
      */
-    protected $requestCompletedCallback;
+    protected $requestCompletedCallbacks = [];
 
     /**
      * @param array $config
@@ -452,13 +452,15 @@ abstract class Application
     }
 
     public function requestCompleted($response, $info, $headers) {
-        if($this->requestCompletedCallback instanceof \Closure) {
-            call_user_func($this->requestCompletedCallback, $response, $info, $headers);
+        foreach($this->requestCompletedCallbacks as $callback) {
+            if($callback instanceof \Closure) {
+                call_user_func($callback, $response, $info, $headers);
+            }
         }
     }
 
     public function onRequestCompleted($callback) {
-        $this->requestCompletedCallback = $callback;
+        $this->requestCompletedCallbacks[] = $callback;
     }
 
 }
