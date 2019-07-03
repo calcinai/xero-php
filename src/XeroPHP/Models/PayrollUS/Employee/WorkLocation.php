@@ -18,8 +18,6 @@ class WorkLocation extends Remote\Model
      * @property bool IsPrimary
      */
 
-
-
     /**
      * Get the resource uri of the class (Contacts) etc
      *
@@ -29,7 +27,6 @@ class WorkLocation extends Remote\Model
     {
         return 'WorkLocations';
     }
-
 
     /**
      * Get the root node name.  Just the unqualified classname
@@ -41,7 +38,6 @@ class WorkLocation extends Remote\Model
         return 'WorkLocation';
     }
 
-
     /**
      * Get the guid property
      *
@@ -52,7 +48,6 @@ class WorkLocation extends Remote\Model
         return 'WorkLocationID';
     }
 
-
     /**
      * Get the stem of the API (core.xro) etc
      *
@@ -62,7 +57,6 @@ class WorkLocation extends Remote\Model
     {
         return Remote\URL::API_PAYROLL;
     }
-
 
     /**
      * Get the supported methods

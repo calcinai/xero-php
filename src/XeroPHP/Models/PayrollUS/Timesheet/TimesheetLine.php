@@ -32,8 +32,6 @@ class TimesheetLine extends Remote\Model
      * @property string WorkLocationID
      */
 
-
-
     /**
      * Get the resource uri of the class (Contacts) etc
      *
@@ -43,7 +41,6 @@ class TimesheetLine extends Remote\Model
     {
         return 'TimesheetLines';
     }
-
 
     /**
      * Get the root node name.  Just the unqualified classname
@@ -55,7 +52,6 @@ class TimesheetLine extends Remote\Model
         return 'TimesheetLine';
     }
 
-
     /**
      * Get the guid property
      *
@@ -66,7 +62,6 @@ class TimesheetLine extends Remote\Model
         return '';
     }
 
-
     /**
      * Get the stem of the API (core.xro) etc
      *
@@ -76,7 +71,6 @@ class TimesheetLine extends Remote\Model
     {
         return Remote\URL::API_PAYROLL;
     }
-
 
     /**
      * Get the supported methods

@@ -19,12 +19,15 @@ class Client
 {
     //Supported hashing mechanisms
     const SIGNATURE_RSA_SHA1 = 'RSA-SHA1';
+
     const SIGNATURE_HMAC_SHA1 = 'HMAC-SHA1';
+
     const SIGNATURE_PLAINTEXT = 'PLAINTEXT';
 
     const OAUTH_VERSION = '1.0';
 
     const SIGN_LOCATION_HEADER = 'header';
+
     const SIGN_LOCATION_QUERY = 'query_string';
 
     private $config;
@@ -33,6 +36,7 @@ class Client
     private $oauth_params;
 
     private $token_secret;
+
     private $verifier;
 
     /**
@@ -83,7 +87,6 @@ class Client
         //Mainly for the nonce.
         $this->resetOAuthParams();
     }
-
 
     /**
      * Resets the instance for subsequent signing requests.
@@ -213,7 +216,6 @@ class Client
 
         return $secret;
     }
-
 
     /**
      * Generic nonce generating function for the request.

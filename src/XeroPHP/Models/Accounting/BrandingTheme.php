@@ -30,8 +30,6 @@ class BrandingTheme extends Remote\Model
      * @property \DateTimeInterface CreatedDateUTC
      */
 
-
-
     /**
      * Get the resource uri of the class (Contacts) etc
      *
@@ -41,7 +39,6 @@ class BrandingTheme extends Remote\Model
     {
         return 'BrandingThemes';
     }
-
 
     /**
      * Get the root node name.  Just the unqualified classname
@@ -53,7 +50,6 @@ class BrandingTheme extends Remote\Model
         return 'BrandingTheme';
     }
 
-
     /**
      * Get the guid property
      *
@@ -64,7 +60,6 @@ class BrandingTheme extends Remote\Model
         return 'BrandingThemeID';
     }
 
-
     /**
      * Get the stem of the API (core.xro) etc
      *
@@ -74,7 +69,6 @@ class BrandingTheme extends Remote\Model
     {
         return Remote\URL::API_CORE;
     }
-
 
     /**
      * Get the supported methods

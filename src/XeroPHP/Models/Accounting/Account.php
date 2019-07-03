@@ -119,58 +119,95 @@ class Account extends Remote\Model
      *
      * @property \DateTimeInterface UpdatedDateUTC
      */
-
-
     const ACCOUNT_CLASS_TYPE_ASSET = 'ASSET';
+
     const ACCOUNT_CLASS_TYPE_EQUITY = 'EQUITY';
+
     const ACCOUNT_CLASS_TYPE_EXPENSE = 'EXPENSE';
+
     const ACCOUNT_CLASS_TYPE_LIABILITY = 'LIABILITY';
+
     const ACCOUNT_CLASS_TYPE_REVENUE = 'REVENUE';
 
     const ACCOUNT_TYPE_BANK = 'BANK';
+
     const ACCOUNT_TYPE_CURRENT = 'CURRENT';
+
     const ACCOUNT_TYPE_CURRLIAB = 'CURRLIAB';
+
     const ACCOUNT_TYPE_DEPRECIATN = 'DEPRECIATN';
+
     const ACCOUNT_TYPE_DIRECTCOSTS = 'DIRECTCOSTS';
+
     const ACCOUNT_TYPE_EQUITY = 'EQUITY';
+
     const ACCOUNT_TYPE_EXPENSE = 'EXPENSE';
+
     const ACCOUNT_TYPE_FIXED = 'FIXED';
+
     const ACCOUNT_TYPE_INVENTORY = 'INVENTORY';
+
     const ACCOUNT_TYPE_LIABILITY = 'LIABILITY';
+
     const ACCOUNT_TYPE_NONCURRENT = 'NONCURRENT';
+
     const ACCOUNT_TYPE_OTHERINCOME = 'OTHERINCOME';
+
     const ACCOUNT_TYPE_OVERHEADS = 'OVERHEADS';
+
     const ACCOUNT_TYPE_PREPAYMENT = 'PREPAYMENT';
+
     const ACCOUNT_TYPE_REVENUE = 'REVENUE';
+
     const ACCOUNT_TYPE_SALES = 'SALES';
+
     const ACCOUNT_TYPE_TERMLIAB = 'TERMLIAB';
+
     const ACCOUNT_TYPE_PAYGLIABILITY = 'PAYGLIABILITY';
+
     const ACCOUNT_TYPE_SUPERANNUATIONEXPENSE = 'SUPERANNUATIONEXPENSE';
+
     const ACCOUNT_TYPE_SUPERANNUATIONLIABILITY = 'SUPERANNUATIONLIABILITY';
+
     const ACCOUNT_TYPE_WAGESEXPENSE = 'WAGESEXPENSE';
+
     const ACCOUNT_TYPE_WAGESPAYABLELIABILITY = 'WAGESPAYABLELIABILITY';
 
     const ACCOUNT_STATUS_ACTIVE = 'ACTIVE';
+
     const ACCOUNT_STATUS_ARCHIVED = 'ARCHIVED';
 
     const BANK_ACCOUNT_TYPE_BANK = 'BANK';
+
     const BANK_ACCOUNT_TYPE_CREDITCARD = 'CREDITCARD';
+
     const BANK_ACCOUNT_TYPE_PAYPAL = 'PAYPAL';
 
     const SYSTEM_ACCOUNT_DEBTORS = 'DEBTORS';
-    const SYSTEM_ACCOUNT_CREDITORS = 'CREDITORS';
-    const SYSTEM_ACCOUNT_BANKCURRENCYGAIN = 'BANKCURRENCYGAIN';
-    const SYSTEM_ACCOUNT_GST = 'GST';
-    const SYSTEM_ACCOUNT_GSTONIMPORTS = 'GSTONIMPORTS';
-    const SYSTEM_ACCOUNT_HISTORICAL = 'HISTORICAL';
-    const SYSTEM_ACCOUNT_REALISEDCURRENCYGAIN = 'REALISEDCURRENCYGAIN';
-    const SYSTEM_ACCOUNT_RETAINEDEARNINGS = 'RETAINEDEARNINGS';
-    const SYSTEM_ACCOUNT_ROUNDING = 'ROUNDING';
-    const SYSTEM_ACCOUNT_TRACKINGTRANSFERS = 'TRACKINGTRANSFERS';
-    const SYSTEM_ACCOUNT_UNPAIDEXPCLM = 'UNPAIDEXPCLM';
-    const SYSTEM_ACCOUNT_UNREALISEDCURRENCYGAIN = 'UNREALISEDCURRENCYGAIN';
-    const SYSTEM_ACCOUNT_WAGEPAYABLES = 'WAGEPAYABLES';
 
+    const SYSTEM_ACCOUNT_CREDITORS = 'CREDITORS';
+
+    const SYSTEM_ACCOUNT_BANKCURRENCYGAIN = 'BANKCURRENCYGAIN';
+
+    const SYSTEM_ACCOUNT_GST = 'GST';
+
+    const SYSTEM_ACCOUNT_GSTONIMPORTS = 'GSTONIMPORTS';
+
+    const SYSTEM_ACCOUNT_HISTORICAL = 'HISTORICAL';
+
+    const SYSTEM_ACCOUNT_REALISEDCURRENCYGAIN = 'REALISEDCURRENCYGAIN';
+
+    const SYSTEM_ACCOUNT_RETAINEDEARNINGS = 'RETAINEDEARNINGS';
+
+    const SYSTEM_ACCOUNT_ROUNDING = 'ROUNDING';
+
+    const SYSTEM_ACCOUNT_TRACKINGTRANSFERS = 'TRACKINGTRANSFERS';
+
+    const SYSTEM_ACCOUNT_UNPAIDEXPCLM = 'UNPAIDEXPCLM';
+
+    const SYSTEM_ACCOUNT_UNREALISEDCURRENCYGAIN = 'UNREALISEDCURRENCYGAIN';
+
+    const SYSTEM_ACCOUNT_WAGEPAYABLES = 'WAGEPAYABLES';
 
     /**
      * Get the resource uri of the class (Contacts) etc
@@ -182,7 +219,6 @@ class Account extends Remote\Model
         return 'Accounts';
     }
 
-
     /**
      * Get the root node name.  Just the unqualified classname
      *
@@ -192,7 +228,6 @@ class Account extends Remote\Model
     {
         return 'Account';
     }
-
 
     /**
      * Get the guid property
@@ -204,7 +239,6 @@ class Account extends Remote\Model
         return 'AccountID';
     }
 
-
     /**
      * Get the stem of the API (core.xro) etc
      *
@@ -214,7 +248,6 @@ class Account extends Remote\Model
     {
         return Remote\URL::API_CORE;
     }
-
 
     /**
      * Get the supported methods
@@ -517,7 +550,6 @@ class Account extends Remote\Model
         return $this->_data['Class'];
     }
 
-
     /**
      * @return string
      */
@@ -525,7 +557,6 @@ class Account extends Remote\Model
     {
         return $this->_data['SystemAccount'];
     }
-
 
     /**
      * @return string
@@ -535,7 +566,6 @@ class Account extends Remote\Model
         return $this->_data['ReportingCode'];
     }
 
-
     /**
      * @return string
      */
@@ -544,7 +574,6 @@ class Account extends Remote\Model
         return $this->_data['ReportingCodeName'];
     }
 
-
     /**
      * @return bool
      */
@@ -552,7 +581,6 @@ class Account extends Remote\Model
     {
         return $this->_data['HasAttachments'];
     }
-
 
     /**
      * @return \DateTimeInterface

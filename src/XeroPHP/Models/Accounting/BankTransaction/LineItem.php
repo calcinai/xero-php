@@ -68,8 +68,6 @@ class LineItem extends Remote\Model
      * @property TrackingCategory[] Tracking
      */
 
-
-
     /**
      * Get the resource uri of the class (Contacts) etc
      *
@@ -79,7 +77,6 @@ class LineItem extends Remote\Model
     {
         return 'LineItems';
     }
-
 
     /**
      * Get the root node name.  Just the unqualified classname
@@ -91,7 +88,6 @@ class LineItem extends Remote\Model
         return 'LineItem';
     }
 
-
     /**
      * Get the guid property
      *
@@ -102,7 +98,6 @@ class LineItem extends Remote\Model
         return 'LineItemID';
     }
 
-
     /**
      * Get the stem of the API (core.xro) etc
      *
@@ -112,7 +107,6 @@ class LineItem extends Remote\Model
     {
         return Remote\URL::API_CORE;
     }
-
 
     /**
      * Get the supported methods

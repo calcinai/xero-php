@@ -86,18 +86,21 @@ class EarningsRate extends Remote\Model
      *
      * @property float Amount
      */
-
-
     const EARNINGSTYPE_FIXED = 'FIXED';
+
     const EARNINGSTYPE_ORDINARYTIMEEARNINGS = 'ORDINARYTIMEEARNINGS';
+
     const EARNINGSTYPE_OVERTIMEEARNINGS = 'OVERTIMEEARNINGS';
+
     const EARNINGSTYPE_ALLOWANCE = 'ALLOWANCE';
+
     const EARNINGSTYPE_LUMPSUMD = 'LUMPSUMD';
 
     const RATETYPE_FIXEDAMOUNT = 'FIXEDAMOUNT';
-    const RATETYPE_MULTIPLE = 'MULTIPLE';
-    const RATETYPE_RATEPERUNIT = 'RATEPERUNIT';
 
+    const RATETYPE_MULTIPLE = 'MULTIPLE';
+
+    const RATETYPE_RATEPERUNIT = 'RATEPERUNIT';
 
     /**
      * Get the resource uri of the class (Contacts) etc
@@ -109,7 +112,6 @@ class EarningsRate extends Remote\Model
         return 'EarningsRates';
     }
 
-
     /**
      * Get the root node name.  Just the unqualified classname
      *
@@ -119,7 +121,6 @@ class EarningsRate extends Remote\Model
     {
         return 'EarningsRate';
     }
-
 
     /**
      * Get the guid property
@@ -131,7 +132,6 @@ class EarningsRate extends Remote\Model
         return 'EarningsRateID';
     }
 
-
     /**
      * Get the stem of the API (core.xro) etc
      *
@@ -141,7 +141,6 @@ class EarningsRate extends Remote\Model
     {
         return Remote\URL::API_PAYROLL;
     }
-
 
     /**
      * Get the supported methods

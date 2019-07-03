@@ -42,7 +42,6 @@ abstract class Report extends Remote\Model
      * @property string Rows
      */
 
-
     /**
      * Get the root node name.  Just the unqualified classname
      *
@@ -52,7 +51,6 @@ abstract class Report extends Remote\Model
     {
         return 'Report';
     }
-
 
     /**
      * Get the guid property
@@ -64,7 +62,6 @@ abstract class Report extends Remote\Model
         return '';
     }
 
-
     /**
      * Get the stem of the API (core.xro) etc
      *
@@ -74,7 +71,6 @@ abstract class Report extends Remote\Model
     {
         return Remote\URL::API_CORE;
     }
-
 
     /**
      * Get the supported methods

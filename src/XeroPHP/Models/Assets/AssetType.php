@@ -50,8 +50,6 @@ class AssetType extends Remote\Model
      * @property string Locks
      */
 
-
-
     /**
      * Get the resource uri of the class (Contacts) etc
      *
@@ -61,7 +59,6 @@ class AssetType extends Remote\Model
     {
         return 'AssetTypes';
     }
-
 
     /**
      * Get the root node name.  Just the unqualified classname
@@ -73,7 +70,6 @@ class AssetType extends Remote\Model
         return 'AssetType';
     }
 
-
     /**
      * Get the guid property
      *
@@ -84,7 +80,6 @@ class AssetType extends Remote\Model
         return 'assetTypeId';
     }
 
-
     /**
      * Get the stem of the API (core.xro) etc
      *
@@ -94,7 +89,6 @@ class AssetType extends Remote\Model
     {
         return Remote\URL::API_ASSET;
     }
-
 
     /**
      * Get the supported methods

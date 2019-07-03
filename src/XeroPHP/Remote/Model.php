@@ -14,20 +14,31 @@ abstract class Model implements ObjectInterface, \JsonSerializable, \ArrayAccess
      * Keys for the meta properties array
      */
     const KEY_MANDATORY = 0;
+
     const KEY_TYPE = 1;
+
     const KEY_PHP_TYPE = 2;
+
     const KEY_IS_ARRAY = 3;
+
     const KEY_SAVE_DIRECTLY = 4;
 
-
     const PROPERTY_TYPE_STRING = 'string';
+
     const PROPERTY_TYPE_INT = 'int';
+
     const PROPERTY_TYPE_FLOAT = 'float';
+
     const PROPERTY_TYPE_BOOLEAN = 'bool';
+
     const PROPERTY_TYPE_ENUM = 'enum';
+
     const PROPERTY_TYPE_GUID = 'guid';
+
     const PROPERTY_TYPE_DATE = 'date';
+
     const PROPERTY_TYPE_TIMESTAMP = 'timestamp';
+
     const PROPERTY_TYPE_OBJECT = 'object';
 
     /**
@@ -249,7 +260,6 @@ abstract class Model implements ObjectInterface, \JsonSerializable, \ArrayAccess
         return $out;
     }
 
-
     /**
      * Convert properties to strings, based on the types parsed.
      *
@@ -391,7 +401,6 @@ abstract class Model implements ObjectInterface, \JsonSerializable, \ArrayAccess
 
         return true;
     }
-
 
     /**
      * Shorthand save an object if it is instantiated with app context.

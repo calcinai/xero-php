@@ -101,13 +101,13 @@ class Receipt extends Remote\Model
      *
      * @property string Url
      */
-
-
     const RECEIPT_STATUS_DRAFT = 'DRAFT';
-    const RECEIPT_STATUS_SUBMITTED = 'SUBMITTED';
-    const RECEIPT_STATUS_AUTHORISED = 'AUTHORISED';
-    const RECEIPT_STATUS_DECLINED = 'DECLINED';
 
+    const RECEIPT_STATUS_SUBMITTED = 'SUBMITTED';
+
+    const RECEIPT_STATUS_AUTHORISED = 'AUTHORISED';
+
+    const RECEIPT_STATUS_DECLINED = 'DECLINED';
 
     /**
      * Get the resource uri of the class (Contacts) etc
@@ -119,7 +119,6 @@ class Receipt extends Remote\Model
         return 'Receipts';
     }
 
-
     /**
      * Get the root node name.  Just the unqualified classname
      *
@@ -129,7 +128,6 @@ class Receipt extends Remote\Model
     {
         return 'Receipt';
     }
-
 
     /**
      * Get the guid property
@@ -141,7 +139,6 @@ class Receipt extends Remote\Model
         return 'ReceiptID';
     }
 
-
     /**
      * Get the stem of the API (core.xro) etc
      *
@@ -151,7 +148,6 @@ class Receipt extends Remote\Model
     {
         return Remote\URL::API_CORE;
     }
-
 
     /**
      * Get the supported methods
@@ -430,7 +426,6 @@ class Receipt extends Remote\Model
         return $this->_data['ReceiptNumber'];
     }
 
-
     /**
      * @return \DateTimeInterface
      */
@@ -439,7 +434,6 @@ class Receipt extends Remote\Model
         return $this->_data['UpdatedDateUTC'];
     }
 
-
     /**
      * @return bool
      */
@@ -447,7 +441,6 @@ class Receipt extends Remote\Model
     {
         return $this->_data['HasAttachments'];
     }
-
 
     /**
      * @return string

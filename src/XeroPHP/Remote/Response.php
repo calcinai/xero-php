@@ -16,22 +16,34 @@ use XeroPHP\Remote\Exception\OrganisationOfflineException;
 class Response
 {
     const STATUS_OK = 200;
+
     const STATUS_BAD_REQUEST = 400;
+
     const STATUS_UNAUTHORISED = 401;
+
     const STATUS_FORBIDDEN = 403;
+
     const STATUS_NOT_FOUND = 404;
+
     const STATUS_INTERNAL_ERROR = 500;
+
     const STATUS_NOT_IMPLEMENTED = 501;
 
     //Seriously, 1 code for 3 different things!
     const STATUS_NOT_AVAILABLE = 503;
+
     const STATUS_RATE_LIMIT_EXCEEDED = 503;
+
     const STATUS_ORGANISATION_OFFLINE = 503;
 
     private $request;
+
     private $headers;
+
     private $status;
+
     private $content_type;
+
     private $response_body;
 
     private $oauth_response;
@@ -39,6 +51,7 @@ class Response
     private $elements;
 
     private $element_errors;
+
     private $element_warnings;
 
     private $root_error;

@@ -92,7 +92,6 @@ class Attachment extends Model
         return '';
     }
 
-
     //Do this with a file handle please
     public static function createFromLocalFile($file_name, $mime_type = null)
     {
@@ -120,7 +119,6 @@ class Attachment extends Model
 
         return $instance;
     }
-
 
     public static function createFromBinary($data, $file_name, $mime_type)
     {
@@ -159,7 +157,6 @@ class Attachment extends Model
         return $this->content;
     }
 
-
     private static function downloadContent(Application $app, $url)
     {
         $url = new URL($app, $url);
@@ -170,7 +167,6 @@ class Attachment extends Model
 
         return $request->getResponse()->getResponseBody();
     }
-
 
     /**
      * @return string

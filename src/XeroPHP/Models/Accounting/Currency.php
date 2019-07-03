@@ -25,8 +25,6 @@ class Currency extends Remote\Model
      * @property string Description
      */
 
-
-
     /**
      * Get the resource uri of the class (Contacts) etc
      *
@@ -36,7 +34,6 @@ class Currency extends Remote\Model
     {
         return 'Currencies';
     }
-
 
     /**
      * Get the root node name.  Just the unqualified classname
@@ -48,7 +45,6 @@ class Currency extends Remote\Model
         return 'Currency';
     }
 
-
     /**
      * Get the guid property
      *
@@ -59,7 +55,6 @@ class Currency extends Remote\Model
         return '';
     }
 
-
     /**
      * Get the stem of the API (core.xro) etc
      *
@@ -69,7 +64,6 @@ class Currency extends Remote\Model
     {
         return Remote\URL::API_CORE;
     }
-
 
     /**
      * Get the supported methods

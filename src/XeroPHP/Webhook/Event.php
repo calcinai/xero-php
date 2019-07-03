@@ -14,30 +14,37 @@ class Event
      * @var \XeroPHP\Webhook
      */
     private $webhook;
+
     /**
      * @var string
      */
     private $resourceUrl;
+
     /**
      * @var string
      */
     private $resourceId;
+
     /**
      * @var string
      */
     private $eventDateUtc;
+
     /**
      * @var string
      */
     private $eventType;
+
     /**
      * @var string
      */
     private $eventCategory;
+
     /**
      * @var string
      */
     private $tenantId;
+
     /**
      * @var string
      */

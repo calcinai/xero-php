@@ -50,8 +50,6 @@ class LeaveType extends Remote\Model
      * @property float LeaveLoadingRate
      */
 
-
-
     /**
      * Get the resource uri of the class (Contacts) etc
      *
@@ -61,7 +59,6 @@ class LeaveType extends Remote\Model
     {
         return 'LeaveTypes';
     }
-
 
     /**
      * Get the root node name.  Just the unqualified classname
@@ -73,7 +70,6 @@ class LeaveType extends Remote\Model
         return 'LeaveType';
     }
 
-
     /**
      * Get the guid property
      *
@@ -84,7 +80,6 @@ class LeaveType extends Remote\Model
         return 'LeaveTypeID';
     }
 
-
     /**
      * Get the stem of the API (core.xro) etc
      *
@@ -94,7 +89,6 @@ class LeaveType extends Remote\Model
     {
         return Remote\URL::API_PAYROLL;
     }
-
 
     /**
      * Get the supported methods
@@ -162,7 +156,6 @@ class LeaveType extends Remote\Model
     {
         return $this->_data['TypeOfUnits'];
     }
-
 
     /**
      * @param string $value

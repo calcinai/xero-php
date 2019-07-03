@@ -167,7 +167,6 @@ abstract class Application
         return $class;
     }
 
-
     /**
      * Prepend the configuration namespace to the class.
      *
@@ -178,7 +177,6 @@ abstract class Application
     {
         return $this->getConfig('xero')['model_namespace'].'\\'.$class;
     }
-
 
     /**
      * As you should never have a GUID for a non-existent object, will throw a NotFoundExceptioon

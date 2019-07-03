@@ -26,8 +26,6 @@ class Allocation extends Remote\Model
      * @property \DateTimeInterface Date
      */
 
-
-
     /**
      * Get the resource uri of the class (Contacts) etc
      *
@@ -37,7 +35,6 @@ class Allocation extends Remote\Model
     {
         return 'Allocations';
     }
-
 
     /**
      * Get the root node name.  Just the unqualified classname
@@ -49,7 +46,6 @@ class Allocation extends Remote\Model
         return 'Allocation';
     }
 
-
     /**
      * Get the guid property
      *
@@ -60,7 +56,6 @@ class Allocation extends Remote\Model
         return '';
     }
 
-
     /**
      * Get the stem of the API (core.xro) etc
      *
@@ -70,7 +65,6 @@ class Allocation extends Remote\Model
     {
         return Remote\URL::API_CORE;
     }
-
 
     /**
      * Get the supported methods

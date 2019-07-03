@@ -50,8 +50,6 @@ class Folder extends Remote\Model
      * @property string FolderId
      */
 
-
-
     /**
      * Get the resource uri of the class (Contacts) etc
      *
@@ -61,7 +59,6 @@ class Folder extends Remote\Model
     {
         return 'Folders';
     }
-
 
     /**
      * Get the root node name.  Just the unqualified classname
@@ -73,7 +70,6 @@ class Folder extends Remote\Model
         return 'Folder';
     }
 
-
     /**
      * Get the guid property
      *
@@ -84,7 +80,6 @@ class Folder extends Remote\Model
         return 'Id';
     }
 
-
     /**
      * Get the stem of the API (core.xro) etc
      *
@@ -94,7 +89,6 @@ class Folder extends Remote\Model
     {
         return Remote\URL::API_FILE;
     }
-
 
     /**
      * Get the supported methods

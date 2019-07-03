@@ -8,21 +8,32 @@ use XeroPHP\Application;
 class Query
 {
     const ORDER_ASC = 'ASC';
+
     const ORDER_DESC = 'DESC';
 
     /** @var \XeroPHP\Application */
     private $app;
 
     private $from_class;
+
     private $where;
+
     private $order;
+
     private $modifiedAfter;
+
     private $page;
+
     private $fromDate;
+
     private $toDate;
+
     private $date;
+
     private $offset;
+
     private $includeArchived;
+
     private $params;
 
     public function __construct(Application $app)
@@ -224,7 +235,6 @@ class Query
 
         return $this;
     }
-
 
     public function setParameter($key, $value)
     {

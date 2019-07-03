@@ -98,15 +98,15 @@ class PayTemplate extends Remote\Model
      *
      * @property string BenefitTypeID
      */
-
-
     const DEDUCTION_LINE_CALCULATION_TYPE_FIXEDAMOUNT = 'FIXEDAMOUNT';
+
     const DEDUCTION_LINE_CALCULATION_TYPE_STANDARDAMOUNT = 'STANDARDAMOUNT';
+
     const DEDUCTION_LINE_CALCULATION_TYPE_PERCENTAGEOFGROSS = 'PERCENTAGEOFGROSS';
 
     const BENEFIT_LINE_CALCULATION_TYPE_FIXEDAMOUNT = 'FIXEDAMOUNT';
-    const BENEFIT_LINE_CALCULATION_TYPE_STANDARDAMOUNT = 'STANDARDAMOUNT';
 
+    const BENEFIT_LINE_CALCULATION_TYPE_STANDARDAMOUNT = 'STANDARDAMOUNT';
 
     /**
      * Get the resource uri of the class (Contacts) etc
@@ -118,7 +118,6 @@ class PayTemplate extends Remote\Model
         return 'PayTemplate';
     }
 
-
     /**
      * Get the root node name.  Just the unqualified classname
      *
@@ -128,7 +127,6 @@ class PayTemplate extends Remote\Model
     {
         return 'PayTemplate';
     }
-
 
     /**
      * Get the guid property
@@ -140,7 +138,6 @@ class PayTemplate extends Remote\Model
         return '';
     }
 
-
     /**
      * Get the stem of the API (core.xro) etc
      *
@@ -150,7 +147,6 @@ class PayTemplate extends Remote\Model
     {
         return Remote\URL::API_PAYROLL;
     }
-
 
     /**
      * Get the supported methods

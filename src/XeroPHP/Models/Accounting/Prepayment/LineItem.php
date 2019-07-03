@@ -63,8 +63,6 @@ class LineItem extends Remote\Model
      * @property TrackingCategory[] Tracking
      */
 
-
-
     /**
      * Get the resource uri of the class (Contacts) etc
      *
@@ -74,7 +72,6 @@ class LineItem extends Remote\Model
     {
         return 'LineItems';
     }
-
 
     /**
      * Get the root node name.  Just the unqualified classname
@@ -86,7 +83,6 @@ class LineItem extends Remote\Model
         return 'LineItem';
     }
 
-
     /**
      * Get the guid property
      *
@@ -97,7 +93,6 @@ class LineItem extends Remote\Model
         return '';
     }
 
-
     /**
      * Get the stem of the API (core.xro) etc
      *
@@ -107,7 +102,6 @@ class LineItem extends Remote\Model
     {
         return Remote\URL::API_CORE;
     }
-
 
     /**
      * Get the supported methods
@@ -156,7 +150,6 @@ class LineItem extends Remote\Model
         return $this->_data['Description'];
     }
 
-
     /**
      * @return string
      */
@@ -164,7 +157,6 @@ class LineItem extends Remote\Model
     {
         return $this->_data['Quantity'];
     }
-
 
     /**
      * @return float
@@ -174,7 +166,6 @@ class LineItem extends Remote\Model
         return $this->_data['UnitAmount'];
     }
 
-
     /**
      * @return string
      */
@@ -182,7 +173,6 @@ class LineItem extends Remote\Model
     {
         return $this->_data['AccountCode'];
     }
-
 
     /**
      * @return string
@@ -192,7 +182,6 @@ class LineItem extends Remote\Model
         return $this->_data['TaxType'];
     }
 
-
     /**
      * @return float
      */
@@ -201,7 +190,6 @@ class LineItem extends Remote\Model
         return $this->_data['TaxAmount'];
     }
 
-
     /**
      * @return float
      */
@@ -209,7 +197,6 @@ class LineItem extends Remote\Model
     {
         return $this->_data['LineAmount'];
     }
-
 
     /**
      * @return TrackingCategory[]|Remote\Collection

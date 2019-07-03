@@ -17,13 +17,13 @@ class PaymentTerm extends Remote\Model
      *
      * @property Sale[] Sales
      */
-
-
      const DAYSAFTERBILLDATE = 'DAYSAFTERBILLDATE';
-     const DAYSAFTERBILLMONTH = 'DAYSAFTERBILLMONTH';
-     const OFCURRENTMONTH = 'OFCURRENTMONTH';
-     const OFFOLLOWINGMONTH = 'OFFOLLOWINGMONTH';
 
+     const DAYSAFTERBILLMONTH = 'DAYSAFTERBILLMONTH';
+
+     const OFCURRENTMONTH = 'OFCURRENTMONTH';
+
+     const OFFOLLOWINGMONTH = 'OFFOLLOWINGMONTH';
 
     /**
      * Get the resource uri of the class (Contacts) etc
@@ -35,7 +35,6 @@ class PaymentTerm extends Remote\Model
         return 'PaymentTerms';
     }
 
-
     /**
      * Get the root node name.  Just the unqualified classname
      *
@@ -45,7 +44,6 @@ class PaymentTerm extends Remote\Model
     {
         return 'PaymentTerm';
     }
-
 
     /**
      * Get the guid property
@@ -57,7 +55,6 @@ class PaymentTerm extends Remote\Model
         return '';
     }
 
-
     /**
      * Get the stem of the API (core.xro) etc
      *
@@ -67,7 +64,6 @@ class PaymentTerm extends Remote\Model
     {
         return Remote\URL::API_CORE;
     }
-
 
     /**
      * Get the supported methods

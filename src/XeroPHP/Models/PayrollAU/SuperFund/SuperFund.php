@@ -69,11 +69,9 @@ class SuperFund extends Remote\Model
      * @property string SPIN
      * @deprecated
      */
-
-
     const TYPE_REGULATED = 'REGULATED';
-    const TYPE_SMSF = 'SMSF';
 
+    const TYPE_SMSF = 'SMSF';
 
     /**
      * Get the resource uri of the class (Contacts) etc
@@ -85,7 +83,6 @@ class SuperFund extends Remote\Model
         return 'SuperFund';
     }
 
-
     /**
      * Get the root node name.  Just the unqualified classname
      *
@@ -95,7 +92,6 @@ class SuperFund extends Remote\Model
     {
         return 'SuperFund';
     }
-
 
     /**
      * Get the guid property
@@ -107,7 +103,6 @@ class SuperFund extends Remote\Model
         return 'SuperFundID';
     }
 
-
     /**
      * Get the stem of the API (core.xro) etc
      *
@@ -117,7 +112,6 @@ class SuperFund extends Remote\Model
     {
         return Remote\URL::API_PAYROLL;
     }
-
 
     /**
      * Get the supported methods
