@@ -169,7 +169,7 @@ class Request
             return $this->response;
         }
 
-        return;
+        
     }
 
     /**

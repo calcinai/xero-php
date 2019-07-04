@@ -163,7 +163,7 @@ class Response
             return $this->element_errors[$element_id];
         }
 
-        return;
+        
     }
 
     public function getElementErrors()
