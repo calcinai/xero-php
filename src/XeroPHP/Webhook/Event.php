@@ -182,12 +182,11 @@ class Event
             $class = $this->getEventClass();
             if ($class === null) {
                 return $element;
-            } else {
-                $model = new $class($application);
-                $model->fromStringArray($element);
-
-                return $model;
             }
+            $model = new $class($application);
+            $model->fromStringArray($element);
+
+            return $model;
         }
     }
 }

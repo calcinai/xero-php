@@ -189,9 +189,9 @@ class Helpers
         //Return array if no glue provided
         if ($glue === null) {
             return $pairs;
-        } else {
-            return implode($glue, $pairs);
         }
+
+        return implode($glue, $pairs);
     }
 
     /**
