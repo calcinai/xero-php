@@ -164,8 +164,8 @@ class Event
     /**
      * Fetches the resource and, if possible, loads it into it's respective model class
      *
-     * @param  \XeroPHP\Application $application an optional application instance to use to retrieve the remote resource.
-     *                              Useful if you have separate instances with different oauth tokens based on the tenant
+     * @param \XeroPHP\Application $application an optional application instance to use to retrieve the remote resource.
+     *                                          Useful if you have separate instances with different oauth tokens based on the tenant
      * @return \XeroPHP\Remote\Model|array If the event category is known, returns the model, otherwise, returns the resource as an array
      */
     public function getResource($application = null)

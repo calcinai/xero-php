@@ -171,7 +171,7 @@ abstract class Application
     /**
      * Prepend the configuration namespace to the class.
      *
-     * @param  string  $class
+     * @param string $class
      * @return string
      */
     protected function prependConfigNamespace($class)

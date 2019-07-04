@@ -227,7 +227,6 @@ class TrackingCategory extends Remote\Model
 
     /**
      * @return TrackingOption[]|Remote\Collection
-     * Always returns a collection, switch is for type hinting
      */
     public function getOptions()
     {
@@ -250,8 +249,9 @@ class TrackingCategory extends Remote\Model
     }
 
     /**
-     * @return string $value
      * Returns selected option name
+     *
+     * @return string $value
      */
     public function getOption()
     {

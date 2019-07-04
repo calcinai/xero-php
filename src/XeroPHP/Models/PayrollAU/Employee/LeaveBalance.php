@@ -174,7 +174,6 @@ class LeaveBalance extends Remote\Model
 
     /**
      * @return PayItem[]|Remote\Collection
-     * Always returns a collection, switch is for type hinting
      */
     public function getTypeOfUnits()
     {

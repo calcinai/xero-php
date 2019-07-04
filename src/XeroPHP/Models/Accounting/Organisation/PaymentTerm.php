@@ -104,7 +104,6 @@ class PaymentTerm extends Remote\Model
 
     /**
      * @return Bill[]|Remote\Collection
-     * Always returns a collection, switch is for type hinting
      */
     public function getBills()
     {
@@ -128,7 +127,6 @@ class PaymentTerm extends Remote\Model
 
     /**
      * @return Sale[]|Remote\Collection
-     * Always returns a collection, switch is for type hinting
      */
     public function getSales()
     {

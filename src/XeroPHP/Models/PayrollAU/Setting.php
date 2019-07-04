@@ -110,7 +110,6 @@ class Setting extends Remote\Model
 
     /**
      * @return Account[]|Remote\Collection
-     * Always returns a collection, switch is for type hinting
      */
     public function getAccounts()
     {
@@ -134,7 +133,6 @@ class Setting extends Remote\Model
 
     /**
      * @return TrackingCategory[]|Remote\Collection
-     * Always returns a collection, switch is for type hinting
      */
     public function getTrackingCategories()
     {

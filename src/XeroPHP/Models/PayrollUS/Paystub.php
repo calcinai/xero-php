@@ -347,7 +347,6 @@ class Paystub extends Remote\Model
 
     /**
      * @return float[]|Remote\Collection
-     * Always returns a collection, switch is for type hinting
      */
     public function getEarnings()
     {
@@ -371,7 +370,6 @@ class Paystub extends Remote\Model
 
     /**
      * @return float[]|Remote\Collection
-     * Always returns a collection, switch is for type hinting
      */
     public function getDeductions()
     {
@@ -415,7 +413,6 @@ class Paystub extends Remote\Model
 
     /**
      * @return float[]|Remote\Collection
-     * Always returns a collection, switch is for type hinting
      */
     public function getReimbursements()
     {
@@ -479,7 +476,6 @@ class Paystub extends Remote\Model
 
     /**
      * @return EarningsLine[]|Remote\Collection
-     * Always returns a collection, switch is for type hinting
      */
     public function getEarningsLines()
     {
@@ -503,7 +499,6 @@ class Paystub extends Remote\Model
 
     /**
      * @return LeaveEarningsLine[]|Remote\Collection
-     * Always returns a collection, switch is for type hinting
      */
     public function getLeaveEarningsLines()
     {
@@ -527,7 +522,6 @@ class Paystub extends Remote\Model
 
     /**
      * @return TimesheetEarningsLine[]|Remote\Collection
-     * Always returns a collection, switch is for type hinting
      */
     public function getTimesheetEarningsLines()
     {
@@ -551,7 +545,6 @@ class Paystub extends Remote\Model
 
     /**
      * @return DeductionLine[]|Remote\Collection
-     * Always returns a collection, switch is for type hinting
      */
     public function getDeductionLines()
     {
@@ -575,7 +568,6 @@ class Paystub extends Remote\Model
 
     /**
      * @return ReimbursementLine[]|Remote\Collection
-     * Always returns a collection, switch is for type hinting
      */
     public function getReimbursementLines()
     {
@@ -599,7 +591,6 @@ class Paystub extends Remote\Model
 
     /**
      * @return BenefitLine[]|Remote\Collection
-     * Always returns a collection, switch is for type hinting
      */
     public function getBenefitLines()
     {
@@ -623,7 +614,6 @@ class Paystub extends Remote\Model
 
     /**
      * @return TimeOffLine[]|Remote\Collection
-     * Always returns a collection, switch is for type hinting
      */
     public function getTimeOffLines()
     {

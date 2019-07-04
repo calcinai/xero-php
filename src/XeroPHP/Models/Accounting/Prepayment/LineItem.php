@@ -213,7 +213,6 @@ class LineItem extends Remote\Model
 
     /**
      * @return TrackingCategory[]|Remote\Collection
-     * Always returns a collection, switch is for type hinting
      */
     public function getTracking()
     {

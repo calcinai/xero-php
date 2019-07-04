@@ -217,7 +217,6 @@ class TaxRate extends Remote\Model
 
     /**
      * @return TaxComponent[]|Remote\Collection
-     * Always returns a collection, switch is for type hinting
      */
     public function getTaxComponents()
     {

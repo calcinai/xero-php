@@ -358,7 +358,6 @@ class Item extends Remote\Model
 
     /**
      * @return Purchase[]|Remote\Collection
-     * Always returns a collection, switch is for type hinting
      */
     public function getPurchaseDetails()
     {
@@ -388,7 +387,6 @@ class Item extends Remote\Model
 
     /**
      * @return Sale[]|Remote\Collection
-     * Always returns a collection, switch is for type hinting
      */
     public function getSalesDetails()
     {

@@ -119,7 +119,6 @@ class PayItem extends Remote\Model
 
     /**
      * @return EarningsRate[]|Remote\Collection
-     * Always returns a collection, switch is for type hinting
      */
     public function getEarningsRates()
     {
@@ -143,7 +142,6 @@ class PayItem extends Remote\Model
 
     /**
      * @return DeductionType[]|Remote\Collection
-     * Always returns a collection, switch is for type hinting
      */
     public function getDeductionTypes()
     {
@@ -167,7 +165,6 @@ class PayItem extends Remote\Model
 
     /**
      * @return LeaveType[]|Remote\Collection
-     * Always returns a collection, switch is for type hinting
      */
     public function getLeaveTypes()
     {
@@ -191,7 +188,6 @@ class PayItem extends Remote\Model
 
     /**
      * @return ReimbursementType[]|Remote\Collection
-     * Always returns a collection, switch is for type hinting
      */
     public function getReimbursementTypes()
     {

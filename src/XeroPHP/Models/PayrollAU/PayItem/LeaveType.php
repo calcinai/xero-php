@@ -156,7 +156,6 @@ class LeaveType extends Remote\Model
 
     /**
      * @return string
-     * Always returns a collection, switch is for type hinting
      */
     public function getTypeOfUnits()
     {

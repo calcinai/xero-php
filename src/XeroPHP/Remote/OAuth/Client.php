@@ -313,8 +313,8 @@ class Client
     /**
      * Prepend URL with query string.
      *
-     * @param  string  $url
-     * @param  array  $query
+     * @param string $url
+     * @param array $query
      * @return string
      */
     protected function appendUrlQuery($url, $query)
@@ -327,7 +327,7 @@ class Client
     /**
      * Determine if the URL has a query string.
      *
-     * @param  string  $url
+     * @param string $url
      * @return bool
      */
     protected function urlHasQuery($url)

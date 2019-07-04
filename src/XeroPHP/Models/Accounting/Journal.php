@@ -32,7 +32,7 @@ class Journal extends Remote\Model
      */
 
     /**
-     *  
+     *
      *
      * @property string Reference
      */
@@ -309,7 +309,6 @@ class Journal extends Remote\Model
 
     /**
      * @return JournalLine[]|Remote\Collection
-     * Always returns a collection, switch is for type hinting
      */
     public function getJournalLines()
     {
