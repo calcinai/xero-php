@@ -15,133 +15,133 @@ use XeroPHP\Models\PayrollAU\Payslip\TimesheetEarningsLine;
 class Payslip extends Remote\Model
 {
     /**
-     * Xero identifier for payroll employee
+     * Xero identifier for payroll employee.
      *
      * @property string EmployeeID
      */
 
     /**
-     * Xero identifier for payroll payrun
+     * Xero identifier for payroll payrun.
      *
      * @property string PayRunID
      */
 
     /**
-     * Xero identifier for payroll payslip
+     * Xero identifier for payroll payslip.
      *
      * @property string PayslipID
      */
 
     /**
-     * See EarningsLine
+     * See EarningsLine.
      *
      * @property EarningsLine[] EarningsLines
      */
 
     /**
-     * See TimesheetEarningsLine
+     * See TimesheetEarningsLine.
      *
      * @property TimesheetEarningsLine[] TimesheetEarningsLines
      */
 
     /**
-     * See DeductionLine
+     * See DeductionLine.
      *
      * @property DeductionLine[] DeductionLines
      */
 
     /**
-     * See LeaveAccrualLine
+     * See LeaveAccrualLine.
      *
      * @property LeaveAccrualLine[] LeaveAccrualLines
      */
 
     /**
-     * See ReimbursementLine – see PayItems
+     * See ReimbursementLine – see PayItems.
      *
      * @property ReimbursementLine[] ReimbursementLines
      */
 
     /**
-     * See SuperannuationLine
+     * See SuperannuationLine.
      *
      * @property SuperannuationLine[] SuperannuationLines
      */
 
     /**
-     * See TaxLine
+     * See TaxLine.
      *
      * @property TaxLine[] TaxLines
      */
 
     /**
-     * Employee first name
+     * Employee first name.
      *
      * @property string FirstName
      */
 
     /**
-     * Employee last name
+     * Employee last name.
      *
      * @property string LastName
      */
 
     /**
-     * Employee Group name
+     * Employee Group name.
      *
      * @property string EmployeeGroup
      */
 
     /**
-     * Last edited
+     * Last edited.
      *
      * @property string LastEdited
      */
 
     /**
-     * The Total Wages for the PayRun
+     * The Total Wages for the PayRun.
      *
      * @property float[] Wages
      */
 
     /**
-     * The Total Deductions for the PayRun
+     * The Total Deductions for the PayRun.
      *
      * @property float[] Deductions
      */
 
     /**
-     * The Total NetPay for the PayRun
+     * The Total NetPay for the PayRun.
      *
      * @property float NetPay
      */
 
     /**
-     * The Total Tax for the PayRun
+     * The Total Tax for the PayRun.
      *
      * @property float Tax
      */
 
     /**
-     * The Total Super for the PayRun
+     * The Total Super for the PayRun.
      *
      * @property float Super
      */
 
     /**
-     * The Total Reimbursement for the PayRun
+     * The Total Reimbursement for the PayRun.
      *
      * @property float[] Reimbursements
      */
 
     /**
-     * See LeaveEarningsLine
+     * See LeaveEarningsLine.
      *
      * @property LeaveEarningsLine[] LeaveEarningsLines
      */
 
     /**
-     * Get the resource uri of the class (Contacts) etc
+     * Get the resource uri of the class (Contacts) etc.
      *
      * @return string
      */
@@ -151,7 +151,7 @@ class Payslip extends Remote\Model
     }
 
     /**
-     * Get the root node name.  Just the unqualified classname
+     * Get the root node name.  Just the unqualified classname.
      *
      * @return string
      */
@@ -161,7 +161,7 @@ class Payslip extends Remote\Model
     }
 
     /**
-     * Get the guid property
+     * Get the guid property.
      *
      * @return string
      */
@@ -171,7 +171,7 @@ class Payslip extends Remote\Model
     }
 
     /**
-     * Get the stem of the API (core.xro) etc
+     * Get the stem of the API (core.xro) etc.
      *
      * @return string|null
      */
@@ -181,7 +181,7 @@ class Payslip extends Remote\Model
     }
 
     /**
-     * Get the supported methods
+     * Get the supported methods.
      */
     public static function getSupportedMethods()
     {
@@ -198,7 +198,7 @@ class Payslip extends Remote\Model
      *  [1] - Type
      *  [2] - PHP type
      *  [3] - Is an Array
-     *  [4] - Saves directly
+     *  [4] - Saves directly.
      *
      * @return array
      */

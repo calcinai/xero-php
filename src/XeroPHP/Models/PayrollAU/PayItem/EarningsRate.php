@@ -7,57 +7,57 @@ use XeroPHP\Remote;
 class EarningsRate extends Remote\Model
 {
     /**
-     * Name of the earnings rate (max length = 100)
+     * Name of the earnings rate (max length = 100).
      *
      * @property string Name
      */
 
     /**
-     * This property has been removed from the Xero API
+     * This property has been removed from the Xero API.
      *
      * @property string DisplayName
      * @deprecated
      */
 
     /**
-     * See Accounts
+     * See Accounts.
      *
      * @property string AccountCode
      */
 
     /**
-     * Type of units used to record earnings (max length = 50). Only When RateType is RATEPERUNIT
+     * Type of units used to record earnings (max length = 50). Only When RateType is RATEPERUNIT.
      *
      * @property string TypeOfUnits
      */
 
     /**
      * Most payments are subject to tax, so you should only set this value if you are sure that a payment
-     * is exempt from PAYG withholding
+     * is exempt from PAYG withholding.
      *
      * @property string IsExemptFromTax
      */
 
     /**
-     * See the ATO website for details of which payments are exempt from SGC
+     * See the ATO website for details of which payments are exempt from SGC.
      *
      * @property string IsExemptFromSuper
      */
 
     /**
-     * See EarningsTypes
+     * See EarningsTypes.
      *
      * @property string EarningsType
      */
 
     /**
-     * Xero identifier
+     * Xero identifier.
      *
      * @property string EarningsRateID
      */
 
     /**
-     * See RateTypes
+     * See RateTypes.
      *
      * @property string RateType
      */
@@ -70,19 +70,19 @@ class EarningsRate extends Remote\Model
 
     /**
      * This is the multiplier used to calculate the rate per unit, based on the employee’s ordinary
-     * earnings rate. For example, for time and a half enter 1.5. Only applicable if RateType is MULTIPLE
+     * earnings rate. For example, for time and a half enter 1.5. Only applicable if RateType is MULTIPLE.
      *
      * @property float Multiplier
      */
 
     /**
-     * Indicates that this earnings rate should accrue leave. Only applicable if RateType is MULTIPLE
+     * Indicates that this earnings rate should accrue leave. Only applicable if RateType is MULTIPLE.
      *
      * @property float AccrueLeave
      */
 
     /**
-     * Option Amount for FIXEDAMOUNT RateType EarningsRate
+     * Option Amount for FIXEDAMOUNT RateType EarningsRate.
      *
      * @property float Amount
      */
@@ -100,7 +100,7 @@ class EarningsRate extends Remote\Model
 
 
     /**
-     * Get the resource uri of the class (Contacts) etc
+     * Get the resource uri of the class (Contacts) etc.
      *
      * @return string
      */
@@ -111,7 +111,7 @@ class EarningsRate extends Remote\Model
 
 
     /**
-     * Get the root node name.  Just the unqualified classname
+     * Get the root node name.  Just the unqualified classname.
      *
      * @return string
      */
@@ -122,7 +122,7 @@ class EarningsRate extends Remote\Model
 
 
     /**
-     * Get the guid property
+     * Get the guid property.
      *
      * @return string
      */
@@ -133,7 +133,7 @@ class EarningsRate extends Remote\Model
 
 
     /**
-     * Get the stem of the API (core.xro) etc
+     * Get the stem of the API (core.xro) etc.
      *
      * @return string|null
      */
@@ -144,7 +144,7 @@ class EarningsRate extends Remote\Model
 
 
     /**
-     * Get the supported methods
+     * Get the supported methods.
      */
     public static function getSupportedMethods()
     {
@@ -159,7 +159,7 @@ class EarningsRate extends Remote\Model
      *  [1] - Type
      *  [2] - PHP type
      *  [3] - Is an Array
-     *  [4] - Saves directly
+     *  [4] - Saves directly.
      *
      * @return array
      */

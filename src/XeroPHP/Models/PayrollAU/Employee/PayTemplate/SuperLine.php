@@ -7,37 +7,37 @@ use XeroPHP\Remote;
 class SuperLine extends Remote\Model
 {
     /**
-     * Xero superannuation fund membership identifier
+     * Xero superannuation fund membership identifier.
      *
      * @property string SuperMembershipID
      */
 
     /**
-     * See Superannuation Contribution Type
+     * See Superannuation Contribution Type.
      *
      * @property string ContributionType
      */
 
     /**
-     * See Superannuation Calculation Types
+     * See Superannuation Calculation Types.
      *
      * @property string CalculationType
      */
 
     /**
-     *  Account code for the Expense Account. i.e 478
+     *  Account code for the Expense Account. i.e 478.
      *
      * @property string ExpenseAccountCode
      */
 
     /**
-     *  Account code for the Liability Account. i.e 826
+     *  Account code for the Liability Account. i.e 826.
      *
      * @property string LiabilityAccountCode
      */
 
     /**
-     * Minimum monthly earnings. Applies for Percentage of Earnings calculation type only
+     * Minimum monthly earnings. Applies for Percentage of Earnings calculation type only.
      *
      * @property string MinimumMonthlyEarnings
      */
@@ -49,7 +49,7 @@ class SuperLine extends Remote\Model
      */
 
     /**
-     * Get the resource uri of the class (Contacts) etc
+     * Get the resource uri of the class (Contacts) etc.
      *
      * @return string
      */
@@ -60,7 +60,7 @@ class SuperLine extends Remote\Model
 
 
     /**
-     * Get the root node name.  Just the unqualified classname
+     * Get the root node name.  Just the unqualified classname.
      *
      * @return string
      */
@@ -71,7 +71,7 @@ class SuperLine extends Remote\Model
 
 
     /**
-     * Get the guid property
+     * Get the guid property.
      *
      * @return string
      */
@@ -82,7 +82,7 @@ class SuperLine extends Remote\Model
 
 
     /**
-     * Get the stem of the API (core.xro) etc
+     * Get the stem of the API (core.xro) etc.
      *
      * @return string|null
      */
@@ -93,7 +93,7 @@ class SuperLine extends Remote\Model
 
 
     /**
-     * Get the supported methods
+     * Get the supported methods.
      */
     public static function getSupportedMethods()
     {
@@ -108,7 +108,7 @@ class SuperLine extends Remote\Model
      *  [1] - Type
      *  [2] - PHP type
      *  [3] - Is an Array
-     *  [4] - Saves directly
+     *  [4] - Saves directly.
      *
      * @return array
      */

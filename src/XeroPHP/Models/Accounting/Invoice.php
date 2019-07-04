@@ -18,192 +18,192 @@ class Invoice extends Remote\Model
     use HistoryTrait;
 
     /**
-     * See Invoice Types
+     * See Invoice Types.
      *
      * @property string Type
      */
 
     /**
-     * See Contacts
+     * See Contacts.
      *
      * @property Contact Contact
      */
 
     /**
-     * See LineItems
+     * See LineItems.
      *
      * @property LineItem[] LineItems
      */
 
     /**
-     * Date invoice was issued – YYYY-MM-DD. Learn more
+     * Date invoice was issued – YYYY-MM-DD. Learn more.
      *
      * @property \DateTimeInterface Date
      */
 
     /**
-     * Date invoice is due – YYYY-MM-DD
+     * Date invoice is due – YYYY-MM-DD.
      *
      * @property \DateTimeInterface DueDate
      */
 
     /**
      * Line amounts are exclusive of tax by default if you don’t specify this element. See Line Amount
-     * Types
+     * Types.
      *
      * @property string LineAmountTypes
      */
 
     /**
      * ACCREC – Unique alpha numeric code identifying invoice (when missing will auto-generate from your
-     * Organisation Invoice Settings) (max length = 255)
+     * Organisation Invoice Settings) (max length = 255).
      *
      * @property string InvoiceNumber
      */
 
     /**
-     * ACCREC only – additional reference number (max length = 255)
+     * ACCREC only – additional reference number (max length = 255).
      *
      * @property string Reference
      */
 
     /**
-     * See BrandingThemes
+     * See BrandingThemes.
      *
      * @property string BrandingThemeID
      */
 
     /**
-     * URL link to a source document – shown as “Go to [appName]” in the Xero app
+     * URL link to a source document – shown as “Go to [appName]” in the Xero app.
      *
      * @property string Url
      */
 
     /**
-     * The currency that invoice has been raised in (see Currencies)
+     * The currency that invoice has been raised in (see Currencies).
      *
      * @property string CurrencyCode
      */
 
     /**
      * The currency rate for a multicurrency invoice. If no rate is specified, the XE.com day rate is used.
-     * (max length = [18].[6])
+     * (max length = [18].[6]).
      *
      * @property float CurrencyRate
      */
 
     /**
-     * See Invoice Status Codes
+     * See Invoice Status Codes.
      *
      * @property string Status
      */
 
     /**
      * Boolean to set whether the invoice in the Xero app should be marked as “sent”. This can be set
-     * only on invoices that have been approved
+     * only on invoices that have been approved.
      *
      * @property bool SentToContact
      */
 
     /**
-     * Shown on sales invoices (Accounts Receivable) when this has been set
+     * Shown on sales invoices (Accounts Receivable) when this has been set.
      *
      * @property string ExpectedPaymentDate
      */
 
     /**
-     * Shown on bills (Accounts Payable) when this has been set
+     * Shown on bills (Accounts Payable) when this has been set.
      *
      * @property string PlannedPaymentDate
      */
 
     /**
-     * Total of invoice excluding taxes
+     * Total of invoice excluding taxes.
      *
      * @property float SubTotal
      */
 
     /**
-     * Total tax on invoice
+     * Total tax on invoice.
      *
      * @property float TotalTax
      */
 
     /**
      * Total of Invoice tax inclusive (i.e. SubTotal + TotalTax). This will be ignored if it doesn’t
-     * equal the sum of the LineAmounts
+     * equal the sum of the LineAmounts.
      *
      * @property float Total
      */
 
     /**
-     * Total of discounts applied on the invoice line items
+     * Total of discounts applied on the invoice line items.
      *
      * @property float TotalDiscount
      */
 
     /**
-     * Xero generated unique identifier for invoice
+     * Xero generated unique identifier for invoice.
      *
      * @property string InvoiceID
      */
 
     /**
-     * boolean to indicate if an invoice has an attachment
+     * boolean to indicate if an invoice has an attachment.
      *
      * @property bool HasAttachments
      */
 
     /**
-     * See Payments
+     * See Payments.
      *
      * @property Payment[] Payments
      */
 
     /**
-     * See Prepayments
+     * See Prepayments.
      *
      * @property Prepayment[] Prepayments
      */
 
     /**
-     * See Overpayments
+     * See Overpayments.
      *
      * @property Overpayment[] Overpayments
      */
 
     /**
-     * Amount remaining to be paid on invoice
+     * Amount remaining to be paid on invoice.
      *
      * @property float AmountDue
      */
 
     /**
-     * Sum of payments received for invoice
+     * Sum of payments received for invoice.
      *
      * @property float AmountPaid
      */
 
     /**
-     * The date the invoice was fully paid. Only returned on fully paid invoices
+     * The date the invoice was fully paid. Only returned on fully paid invoices.
      *
      * @property \DateTimeInterface FullyPaidOnDate
      */
 
     /**
-     * Sum of all credit notes, over-payments and pre-payments applied to invoice
+     * Sum of all credit notes, over-payments and pre-payments applied to invoice.
      *
      * @property float AmountCredited
      */
 
     /**
-     * Last modified date UTC format
+     * Last modified date UTC format.
      *
      * @property \DateTimeInterface UpdatedDateUTC
      */
 
     /**
-     * Details of credit notes that have been applied to an invoice
+     * Details of credit notes that have been applied to an invoice.
      *
      * @property CreditNote[] CreditNotes
      */
@@ -225,7 +225,7 @@ class Invoice extends Remote\Model
 
 
     /**
-     * Get the resource uri of the class (Contacts) etc
+     * Get the resource uri of the class (Contacts) etc.
      *
      * @return string
      */
@@ -236,7 +236,7 @@ class Invoice extends Remote\Model
 
 
     /**
-     * Get the root node name.  Just the unqualified classname
+     * Get the root node name.  Just the unqualified classname.
      *
      * @return string
      */
@@ -247,7 +247,7 @@ class Invoice extends Remote\Model
 
 
     /**
-     * Get the guid property
+     * Get the guid property.
      *
      * @return string
      */
@@ -258,7 +258,7 @@ class Invoice extends Remote\Model
 
 
     /**
-     * Get the stem of the API (core.xro) etc
+     * Get the stem of the API (core.xro) etc.
      *
      * @return string|null
      */
@@ -269,7 +269,7 @@ class Invoice extends Remote\Model
 
 
     /**
-     * Get the supported methods
+     * Get the supported methods.
      */
     public static function getSupportedMethods()
     {
@@ -287,7 +287,7 @@ class Invoice extends Remote\Model
      *  [1] - Type
      *  [2] - PHP type
      *  [3] - Is an Array
-     *  [4] - Saves directly
+     *  [4] - Saves directly.
      *
      * @return array
      */

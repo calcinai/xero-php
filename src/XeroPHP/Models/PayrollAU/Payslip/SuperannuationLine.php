@@ -7,55 +7,55 @@ use XeroPHP\Remote;
 class SuperannuationLine extends Remote\Model
 {
     /**
-     * Xero identifier for payroll super fund membership ID
+     * Xero identifier for payroll super fund membership ID.
      *
      * @property string SuperMembershipID
      */
 
     /**
-     * Superannuation contribution type
+     * Superannuation contribution type.
      *
      * @property string ContributionType
      */
 
     /**
-     * Superannuation calculation type
+     * Superannuation calculation type.
      *
      * @property string CalculationType
      */
 
     /**
-     * Superannuation minimum monthly earnings
+     * Superannuation minimum monthly earnings.
      *
      * @property string MinimumMonthlyEarnings
      */
 
     /**
-     * Superannuation expense account code
+     * Superannuation expense account code.
      *
      * @property string ExpenseAccountCode
      */
 
     /**
-     * Superannuation liability account code
+     * Superannuation liability account code.
      *
      * @property string LiabilityAccountCode
      */
 
     /**
-     * Superannuation payment date for the current period (YYYY-MM-DD)
+     * Superannuation payment date for the current period (YYYY-MM-DD).
      *
      * @property \DateTimeInterface PaymentDateForThisPeriod
      */
 
     /**
-     * Superannuation percentage
+     * Superannuation percentage.
      *
      * @property string Percentage
      */
 
     /**
-     * Superannuation amount
+     * Superannuation amount.
      *
      * @property float Amount
      */
@@ -63,7 +63,7 @@ class SuperannuationLine extends Remote\Model
 
 
     /**
-     * Get the resource uri of the class (Contacts) etc
+     * Get the resource uri of the class (Contacts) etc.
      *
      * @return string
      */
@@ -74,7 +74,7 @@ class SuperannuationLine extends Remote\Model
 
 
     /**
-     * Get the root node name.  Just the unqualified classname
+     * Get the root node name.  Just the unqualified classname.
      *
      * @return string
      */
@@ -85,7 +85,7 @@ class SuperannuationLine extends Remote\Model
 
 
     /**
-     * Get the guid property
+     * Get the guid property.
      *
      * @return string
      */
@@ -96,7 +96,7 @@ class SuperannuationLine extends Remote\Model
 
 
     /**
-     * Get the stem of the API (core.xro) etc
+     * Get the stem of the API (core.xro) etc.
      *
      * @return string|null
      */
@@ -107,7 +107,7 @@ class SuperannuationLine extends Remote\Model
 
 
     /**
-     * Get the supported methods
+     * Get the supported methods.
      */
     public static function getSupportedMethods()
     {
@@ -122,7 +122,7 @@ class SuperannuationLine extends Remote\Model
      *  [1] - Type
      *  [2] - PHP type
      *  [3] - Is an Array
-     *  [4] - Saves directly
+     *  [4] - Saves directly.
      *
      * @return array
      */

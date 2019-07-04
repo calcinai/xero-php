@@ -13,38 +13,38 @@ class BankAccount extends Remote\Model
      */
 
     /**
-     * The text that will appear on your employee’s bank statement when they receive payment
+     * The text that will appear on your employee’s bank statement when they receive payment.
      *
      * @property string StatementText
      */
 
     /**
-     * See Account Types
+     * See Account Types.
      *
      * @property string AccountType
      */
 
     /**
-     * Bank routing number is the nine digit number used to identify a financial institution
+     * Bank routing number is the nine digit number used to identify a financial institution.
      *
      * @property string RoutingNumber
      */
 
     /**
-     * The account number for the bank account
+     * The account number for the bank account.
      *
      * @property string AccountNumber
      */
 
     /**
      * Fixed amounts (for example, if an employee wants to have $100 of their salary transferred to one
-     * account, and the remaining amount to another)
+     * account, and the remaining amount to another).
      *
      * @property float Amount
      */
 
     /**
-     * Set it to true if this bank account should be the Remainder bank account
+     * Set it to true if this bank account should be the Remainder bank account.
      *
      * @property string Remainder
      */
@@ -52,7 +52,7 @@ class BankAccount extends Remote\Model
 
 
     /**
-     * Get the resource uri of the class (Contacts) etc
+     * Get the resource uri of the class (Contacts) etc.
      *
      * @return string
      */
@@ -63,7 +63,7 @@ class BankAccount extends Remote\Model
 
 
     /**
-     * Get the root node name.  Just the unqualified classname
+     * Get the root node name.  Just the unqualified classname.
      *
      * @return string
      */
@@ -74,7 +74,7 @@ class BankAccount extends Remote\Model
 
 
     /**
-     * Get the guid property
+     * Get the guid property.
      *
      * @return string
      */
@@ -85,7 +85,7 @@ class BankAccount extends Remote\Model
 
 
     /**
-     * Get the stem of the API (core.xro) etc
+     * Get the stem of the API (core.xro) etc.
      *
      * @return string|null
      */
@@ -96,7 +96,7 @@ class BankAccount extends Remote\Model
 
 
     /**
-     * Get the supported methods
+     * Get the supported methods.
      */
     public static function getSupportedMethods()
     {
@@ -111,7 +111,7 @@ class BankAccount extends Remote\Model
      *  [1] - Type
      *  [2] - PHP type
      *  [3] - Is an Array
-     *  [4] - Saves directly
+     *  [4] - Saves directly.
      *
      * @return array
      */

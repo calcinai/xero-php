@@ -7,13 +7,13 @@ use XeroPHP\Remote;
 class DeductionType extends Remote\Model
 {
     /**
-     * Name of the deduction type (max length = 50)
+     * Name of the deduction type (max length = 50).
      *
      * @property DeductionType DeductionType
      */
 
     /**
-     * The category defines the tax implications of the deduction type so it is taxed properly
+     * The category defines the tax implications of the deduction type so it is taxed properly.
      *
      * @property string DeductionCategory
      */
@@ -22,19 +22,19 @@ class DeductionType extends Remote\Model
      * Deductions can be a fixed amount, or they can be calculated as a percentage of the employee’s
      * total earnings. Standard Plan, Catch-up Plan. Only needed DeductionCategory is not
      * AFTERTAXDEDUCTION, DEPENDEDNTCARE, FLEXIBLESPENDINGACCOUNT,HSASINGLEPLAN, HSAFAMILYPLAN,
-     * SECTION125PLAN
+     * SECTION125PLAN.
      *
      * @property float CalculationType
      */
 
     /**
-     * The computed amount of the deduction is credited to this account. See See Accounts
+     * The computed amount of the deduction is credited to this account. See See Accounts.
      *
      * @property string LiabilityAccountCode
      */
 
     /**
-     * Xero identifier
+     * Xero identifier.
      *
      * @property string DeductionTypeID
      */
@@ -45,7 +45,7 @@ class DeductionType extends Remote\Model
      * you time when setting up the employee deductions. If you choose not to set an amount here, you can
      * enter the amounts to be deducted on a per employee basis. Only applicable when DeductionCategory is
      * AFTERTAXDEDUCTION, DEPENDENTCARE, FLEXIBLESPENDINGACCOUNT,
-     * SECTION125PLAN
+     * SECTION125PLAN.
      *
      * @property float StandardAmount
      */
@@ -58,7 +58,7 @@ class DeductionType extends Remote\Model
      * will stop automatically when the IRS limit is reached.
      * Only applicable when DeductionCategory is
      * AFTERTAXDEDUCTION, DEPENDENTCARE, FLEXIBLESPENDINGACCOUNT,
-     * SECTION125PLAN
+     * SECTION125PLAN.
      *
      * @property float CompanyMax
      */
@@ -82,7 +82,7 @@ class DeductionType extends Remote\Model
 
 
     /**
-     * Get the resource uri of the class (Contacts) etc
+     * Get the resource uri of the class (Contacts) etc.
      *
      * @return string
      */
@@ -93,7 +93,7 @@ class DeductionType extends Remote\Model
 
 
     /**
-     * Get the root node name.  Just the unqualified classname
+     * Get the root node name.  Just the unqualified classname.
      *
      * @return string
      */
@@ -104,7 +104,7 @@ class DeductionType extends Remote\Model
 
 
     /**
-     * Get the guid property
+     * Get the guid property.
      *
      * @return string
      */
@@ -115,7 +115,7 @@ class DeductionType extends Remote\Model
 
 
     /**
-     * Get the stem of the API (core.xro) etc
+     * Get the stem of the API (core.xro) etc.
      *
      * @return string|null
      */
@@ -126,7 +126,7 @@ class DeductionType extends Remote\Model
 
 
     /**
-     * Get the supported methods
+     * Get the supported methods.
      */
     public static function getSupportedMethods()
     {
@@ -141,7 +141,7 @@ class DeductionType extends Remote\Model
      *  [1] - Type
      *  [2] - PHP type
      *  [3] - Is an Array
-     *  [4] - Saves directly
+     *  [4] - Saves directly.
      *
      * @return array
      */

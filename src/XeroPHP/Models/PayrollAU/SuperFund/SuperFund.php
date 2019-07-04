@@ -7,56 +7,56 @@ use XeroPHP\Remote;
 class SuperFund extends Remote\Model
 {
     /**
-     * SMSF see Super Fund Types
+     * SMSF see Super Fund Types.
      *
      * @property string Type
      */
 
     /**
-     * Name of the super fund (max length = 76) e.g Clive Monk Superannuation Fund
+     * Name of the super fund (max length = 76) e.g Clive Monk Superannuation Fund.
      *
      * @property string Name
      */
 
     /**
-     * ABN of the self managed super fund. (max length = 11) e.g 839182848805
+     * ABN of the self managed super fund. (max length = 11) e.g 839182848805.
      *
      * @property string ABN
      */
 
     /**
-     * BSB of the self managed super fund. (max length = 6) e.g 123123
+     * BSB of the self managed super fund. (max length = 6) e.g 123123.
      *
      * @property string BSB
      */
 
     /**
-     * The account number for the self managed super fund. (max length = 9) e.g 234324324
+     * The account number for the self managed super fund. (max length = 9) e.g 234324324.
      *
      * @property string AccountNumber
      */
 
     /**
      * The account name for the self managed super fund (max length = 32) e.g Clive Monk Superannuation
-     * Fund
+     * Fund.
      *
      * @property string AccountName
      */
 
     /**
-     * The electronic service address for the self managed super fund (max length = 16)
+     * The electronic service address for the self managed super fund (max length = 16).
      *
      * @property string ElectronicServiceAddress
      */
 
     /**
-     * Xero identifier e.g c56b19ef-75bf-45e8-98a4-e699a96609f7
+     * Xero identifier e.g c56b19ef-75bf-45e8-98a4-e699a96609f7.
      *
      * @property string SuperFundID
      */
 
     /**
-     * Some funds assign a unique number to each employer (max length = 20)
+     * Some funds assign a unique number to each employer (max length = 20).
      *
      * @property string EmployerNumber
      */
@@ -64,7 +64,7 @@ class SuperFund extends Remote\Model
     /**
      * The SPIN of the Regulated SuperFund. This field has been deprecated.  It will only be present for
      * legacy superfunds.  New superfunds will not have a SPIN value.  The USI field should be used instead
-     * of SPIN
+     * of SPIN.
      *
      * @property string SPIN
      * @deprecated
@@ -76,7 +76,7 @@ class SuperFund extends Remote\Model
 
 
     /**
-     * Get the resource uri of the class (Contacts) etc
+     * Get the resource uri of the class (Contacts) etc.
      *
      * @return string
      */
@@ -87,7 +87,7 @@ class SuperFund extends Remote\Model
 
 
     /**
-     * Get the root node name.  Just the unqualified classname
+     * Get the root node name.  Just the unqualified classname.
      *
      * @return string
      */
@@ -98,7 +98,7 @@ class SuperFund extends Remote\Model
 
 
     /**
-     * Get the guid property
+     * Get the guid property.
      *
      * @return string
      */
@@ -109,7 +109,7 @@ class SuperFund extends Remote\Model
 
 
     /**
-     * Get the stem of the API (core.xro) etc
+     * Get the stem of the API (core.xro) etc.
      *
      * @return string|null
      */
@@ -120,7 +120,7 @@ class SuperFund extends Remote\Model
 
 
     /**
-     * Get the supported methods
+     * Get the supported methods.
      */
     public static function getSupportedMethods()
     {
@@ -135,7 +135,7 @@ class SuperFund extends Remote\Model
      *  [1] - Type
      *  [2] - PHP type
      *  [3] - Is an Array
-     *  [4] - Saves directly
+     *  [4] - Saves directly.
      *
      * @return array
      */

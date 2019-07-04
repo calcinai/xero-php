@@ -8,7 +8,7 @@ class LinkedTransaction extends Remote\Model
 {
     /**
      * Filter by the SourceTransactionID. Get all the linked transactions created from a particular ACCPAY
-     * invoice
+     * invoice.
      *
      * @property string SourceTransactionID
      */
@@ -29,7 +29,7 @@ class LinkedTransaction extends Remote\Model
 
     /**
      * Filter by the TargetTransactionID. Get all the linked transactions allocated to a particular ACCREC
-     * invoice
+     * invoice.
      *
      * @property string TargetTransactionID
      */
@@ -43,7 +43,7 @@ class LinkedTransaction extends Remote\Model
 
     /**
      * The Xero identifier for an Linked Transaction e.g.
-     * /LinkedTransactions/297c2dc5-cc47-4afd-8ec8-74990b8761e9
+     * /LinkedTransactions/297c2dc5-cc47-4afd-8ec8-74990b8761e9.
      *
      * @property string LinkedTransactionID
      */
@@ -63,7 +63,7 @@ class LinkedTransaction extends Remote\Model
      */
 
     /**
-     * The last modified date in UTC format
+     * The last modified date in UTC format.
      *
      * @property \DateTimeInterface UpdatedDateUTC
      */
@@ -84,7 +84,7 @@ class LinkedTransaction extends Remote\Model
 
 
     /**
-     * Get the resource uri of the class (Contacts) etc
+     * Get the resource uri of the class (Contacts) etc.
      *
      * @return string
      */
@@ -95,7 +95,7 @@ class LinkedTransaction extends Remote\Model
 
 
     /**
-     * Get the root node name.  Just the unqualified classname
+     * Get the root node name.  Just the unqualified classname.
      *
      * @return string
      */
@@ -106,7 +106,7 @@ class LinkedTransaction extends Remote\Model
 
 
     /**
-     * Get the guid property
+     * Get the guid property.
      *
      * @return string
      */
@@ -117,7 +117,7 @@ class LinkedTransaction extends Remote\Model
 
 
     /**
-     * Get the stem of the API (core.xro) etc
+     * Get the stem of the API (core.xro) etc.
      *
      * @return string|null
      */
@@ -128,7 +128,7 @@ class LinkedTransaction extends Remote\Model
 
 
     /**
-     * Get the supported methods
+     * Get the supported methods.
      */
     public static function getSupportedMethods()
     {
@@ -147,7 +147,7 @@ class LinkedTransaction extends Remote\Model
      *  [1] - Type
      *  [2] - PHP type
      *  [3] - Is an Array
-     *  [4] - Saves directly
+     *  [4] - Saves directly.
      *
      * @return array
      */

@@ -7,20 +7,20 @@ use XeroPHP\Remote;
 class BenefitType extends Remote\Model
 {
     /**
-     * Name of the benefit type (max length = 100)
+     * Name of the benefit type (max length = 100).
      *
      * @property BenefitType BenefitType
      */
 
     /**
      * The category defines the tax implications of the benefit type so it is taxed properly. See
-     * BenefitCategory
+     * BenefitCategory.
      *
      * @property string BenefitCategory
      */
 
     /**
-     * The account to which the amount of the benefit is to be credited
+     * The account to which the amount of the benefit is to be credited.
      *
      * @property string LiabilityAccountCode
      */
@@ -32,33 +32,33 @@ class BenefitType extends Remote\Model
      */
 
     /**
-     * Xero identifier
+     * Xero identifier.
      *
      * @property string BenefitTypeID
      */
 
     /**
-     * This is a default amount you can set for all employees assigned to this benefit type
+     * This is a default amount you can set for all employees assigned to this benefit type.
      *
      * @property float StandardAmount
      */
 
     /**
      * The company max is the maximum amount set as a default amount for that particular benefit type for
-     * all employees assigned this benefit type in a single year
+     * all employees assigned this benefit type in a single year.
      *
      * @property float CompanyMax
      */
 
     /**
-     * This is a default percentage you can set for all employees assigned to this benefit type
+     * This is a default percentage you can set for all employees assigned to this benefit type.
      *
      * @property string Percentage
      */
 
     /**
      * Set this to true if you want this benefit item amount and YTD balance will show on the employee’s
-     * paystubs
+     * paystubs.
      *
      * @property float ShowBalanceOnPaystub
      */
@@ -82,7 +82,7 @@ class BenefitType extends Remote\Model
 
 
     /**
-     * Get the resource uri of the class (Contacts) etc
+     * Get the resource uri of the class (Contacts) etc.
      *
      * @return string
      */
@@ -93,7 +93,7 @@ class BenefitType extends Remote\Model
 
 
     /**
-     * Get the root node name.  Just the unqualified classname
+     * Get the root node name.  Just the unqualified classname.
      *
      * @return string
      */
@@ -104,7 +104,7 @@ class BenefitType extends Remote\Model
 
 
     /**
-     * Get the guid property
+     * Get the guid property.
      *
      * @return string
      */
@@ -115,7 +115,7 @@ class BenefitType extends Remote\Model
 
 
     /**
-     * Get the stem of the API (core.xro) etc
+     * Get the stem of the API (core.xro) etc.
      *
      * @return string|null
      */
@@ -126,7 +126,7 @@ class BenefitType extends Remote\Model
 
 
     /**
-     * Get the supported methods
+     * Get the supported methods.
      */
     public static function getSupportedMethods()
     {
@@ -141,7 +141,7 @@ class BenefitType extends Remote\Model
      *  [1] - Type
      *  [2] - PHP type
      *  [3] - Is an Array
-     *  [4] - Saves directly
+     *  [4] - Saves directly.
      *
      * @return array
      */

@@ -7,73 +7,73 @@ use XeroPHP\Remote;
 class PayRun extends Remote\Model
 {
     /**
-     * Xero Identifier for the Pay Schedule
+     * Xero Identifier for the Pay Schedule.
      *
      * @property string PayScheduleID
      */
 
     /**
-     * Pay run period end date. Needed if it is an unscheduled pay run
+     * Pay run period end date. Needed if it is an unscheduled pay run.
      *
      * @property \DateTimeInterface PayRunPeriodEndDate
      */
 
     /**
-     * See Pay run status types
+     * See Pay run status types.
      *
      * @property string PayRunStatus
      */
 
     /**
-     * Xero identifier for pay run
+     * Xero identifier for pay run.
      *
      * @property string PayRunID
      */
 
     /**
-     * Period Start Date for the PayRun
+     * Period Start Date for the PayRun.
      *
      * @property \DateTimeInterface PayRunPeriodStartDate
      */
 
     /**
-     * Payment Date for the PayRun
+     * Payment Date for the PayRun.
      *
      * @property \DateTimeInterface PaymentDate
      */
 
     /**
-     * Total Earnings for the PayRun
+     * Total Earnings for the PayRun.
      *
      * @property string Earnings
      */
 
     /**
-     * Total Deduction for the PayRun
+     * Total Deduction for the PayRun.
      *
      * @property string Deductions
      */
 
     /**
-     * Total Reimbursement for the PayRun
+     * Total Reimbursement for the PayRun.
      *
      * @property string Reimbursement
      */
 
     /**
-     * Total NetPay for the PayRun
+     * Total NetPay for the PayRun.
      *
      * @property string NetPay
      */
 
     /**
-     * The update date for the PayRun
+     * The update date for the PayRun.
      *
      * @property \DateTimeInterface UpdateDateUTC
      */
 
     /**
-     * See PayStubs
+     * See PayStubs.
      *
      * @property string PayStubs
      */
@@ -81,7 +81,7 @@ class PayRun extends Remote\Model
 
 
     /**
-     * Get the resource uri of the class (Contacts) etc
+     * Get the resource uri of the class (Contacts) etc.
      *
      * @return string
      */
@@ -92,7 +92,7 @@ class PayRun extends Remote\Model
 
 
     /**
-     * Get the root node name.  Just the unqualified classname
+     * Get the root node name.  Just the unqualified classname.
      *
      * @return string
      */
@@ -103,7 +103,7 @@ class PayRun extends Remote\Model
 
 
     /**
-     * Get the guid property
+     * Get the guid property.
      *
      * @return string
      */
@@ -114,7 +114,7 @@ class PayRun extends Remote\Model
 
 
     /**
-     * Get the stem of the API (core.xro) etc
+     * Get the stem of the API (core.xro) etc.
      *
      * @return string|null
      */
@@ -125,7 +125,7 @@ class PayRun extends Remote\Model
 
 
     /**
-     * Get the supported methods
+     * Get the supported methods.
      */
     public static function getSupportedMethods()
     {
@@ -142,7 +142,7 @@ class PayRun extends Remote\Model
      *  [1] - Type
      *  [2] - PHP type
      *  [3] - Is an Array
-     *  [4] - Saves directly
+     *  [4] - Saves directly.
      *
      * @return array
      */

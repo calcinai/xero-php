@@ -7,49 +7,49 @@ use XeroPHP\Remote;
 class WorkLocation extends Remote\Model
 {
     /**
-     * Street address of the work location (max length = 400)
+     * Street address of the work location (max length = 400).
      *
      * @property string StreetAddress
      */
 
     /**
-     * The city name of the address (max length = 50)
+     * The city name of the address (max length = 50).
      *
      * @property string City
      */
 
     /**
-     * The state name of the address
+     * The state name of the address.
      *
      * @property string State
      */
 
     /**
-     * The latitude of the address
+     * The latitude of the address.
      *
      * @property string Latitude
      */
 
     /**
-     * The longitude of the address
+     * The longitude of the address.
      *
      * @property string Longitude
      */
 
     /**
-     * Xero identifier for a work location
+     * Xero identifier for a work location.
      *
      * @property string WorkLocationID
      */
 
     /**
-     * Suite or apartment or unit information (max length = 50)
+     * Suite or apartment or unit information (max length = 50).
      *
      * @property string SuitOrAptOrUnit
      */
 
     /**
-     * Set to true to make this the primary work location
+     * Set to true to make this the primary work location.
      *
      * @property string IsPrimary
      */
@@ -57,7 +57,7 @@ class WorkLocation extends Remote\Model
 
 
     /**
-     * Get the resource uri of the class (Contacts) etc
+     * Get the resource uri of the class (Contacts) etc.
      *
      * @return string
      */
@@ -68,7 +68,7 @@ class WorkLocation extends Remote\Model
 
 
     /**
-     * Get the root node name.  Just the unqualified classname
+     * Get the root node name.  Just the unqualified classname.
      *
      * @return string
      */
@@ -79,7 +79,7 @@ class WorkLocation extends Remote\Model
 
 
     /**
-     * Get the guid property
+     * Get the guid property.
      *
      * @return string
      */
@@ -90,7 +90,7 @@ class WorkLocation extends Remote\Model
 
 
     /**
-     * Get the stem of the API (core.xro) etc
+     * Get the stem of the API (core.xro) etc.
      *
      * @return string|null
      */
@@ -101,7 +101,7 @@ class WorkLocation extends Remote\Model
 
 
     /**
-     * Get the supported methods
+     * Get the supported methods.
      */
     public static function getSupportedMethods()
     {
@@ -118,7 +118,7 @@ class WorkLocation extends Remote\Model
      *  [1] - Type
      *  [2] - PHP type
      *  [3] - Is an Array
-     *  [4] - Saves directly
+     *  [4] - Saves directly.
      *
      * @return array
      */

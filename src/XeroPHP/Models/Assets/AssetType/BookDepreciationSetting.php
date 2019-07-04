@@ -7,19 +7,19 @@ use XeroPHP\Remote;
 class BookDepreciationSetting extends Remote\Model
 {
     /**
-     * The method of depreciation applied to this asset. See Depreciation Methods
+     * The method of depreciation applied to this asset. See Depreciation Methods.
      *
      * @property string depreciationMethod
      */
 
     /**
-     * The method of averaging applied to this asset. See Averaging Methods
+     * The method of averaging applied to this asset. See Averaging Methods.
      *
      * @property string averagingMethod
      */
 
     /**
-     * The rate of depreciation (e.g. 0.05)
+     * The rate of depreciation (e.g. 0.05).
      *
      * @property float depreciationRate
      */
@@ -31,7 +31,7 @@ class BookDepreciationSetting extends Remote\Model
      */
 
     /**
-     * See Depreciation Calculation Methods
+     * See Depreciation Calculation Methods.
      *
      * @property string depreciationCalculationMethod
      */
@@ -39,7 +39,7 @@ class BookDepreciationSetting extends Remote\Model
 
 
     /**
-     * Get the resource uri of the class (Contacts) etc
+     * Get the resource uri of the class (Contacts) etc.
      *
      * @return string
      */
@@ -50,7 +50,7 @@ class BookDepreciationSetting extends Remote\Model
 
 
     /**
-     * Get the root node name.  Just the unqualified classname
+     * Get the root node name.  Just the unqualified classname.
      *
      * @return string
      */
@@ -61,7 +61,7 @@ class BookDepreciationSetting extends Remote\Model
 
 
     /**
-     * Get the guid property
+     * Get the guid property.
      *
      * @return string
      */
@@ -72,7 +72,7 @@ class BookDepreciationSetting extends Remote\Model
 
 
     /**
-     * Get the stem of the API (core.xro) etc
+     * Get the stem of the API (core.xro) etc.
      *
      * @return string|null
      */
@@ -83,7 +83,7 @@ class BookDepreciationSetting extends Remote\Model
 
 
     /**
-     * Get the supported methods
+     * Get the supported methods.
      */
     public static function getSupportedMethods()
     {
@@ -98,7 +98,7 @@ class BookDepreciationSetting extends Remote\Model
      *  [1] - Type
      *  [2] - PHP type
      *  [3] - Is an Array
-     *  [4] - Saves directly
+     *  [4] - Saves directly.
      *
      * @return array
      */

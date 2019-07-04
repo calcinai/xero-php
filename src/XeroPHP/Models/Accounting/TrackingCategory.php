@@ -8,31 +8,31 @@ use XeroPHP\Models\Accounting\TrackingCategory\TrackingOption;
 class TrackingCategory extends Remote\Model
 {
     /**
-     * The Xero identifier for a tracking categorye.g. 297c2dc5-cc47-4afd-8ec8-74990b8761e9
+     * The Xero identifier for a tracking categorye.g. 297c2dc5-cc47-4afd-8ec8-74990b8761e9.
      *
      * @property string TrackingCategoryID
      */
 
     /**
-     * The name of the tracking category e.g. Department, Region (max length = 100)
+     * The name of the tracking category e.g. Department, Region (max length = 100).
      *
      * @property string Name
      */
 
     /**
-     * The status of a tracking category
+     * The status of a tracking category.
      *
      * @property string Status
      */
 
     /**
-     * See Tracking Options
+     * See Tracking Options.
      *
      * @property TrackingOption[] Options
      */
 
     /**
-     * Selected Option name
+     * Selected Option name.
      *
      * @property string Option
      */
@@ -40,7 +40,7 @@ class TrackingCategory extends Remote\Model
 
 
     /**
-     * Get the resource uri of the class (Contacts) etc
+     * Get the resource uri of the class (Contacts) etc.
      *
      * @return string
      */
@@ -51,7 +51,7 @@ class TrackingCategory extends Remote\Model
 
 
     /**
-     * Get the root node name.  Just the unqualified classname
+     * Get the root node name.  Just the unqualified classname.
      *
      * @return string
      */
@@ -62,7 +62,7 @@ class TrackingCategory extends Remote\Model
 
 
     /**
-     * Get the guid property
+     * Get the guid property.
      *
      * @return string
      */
@@ -73,7 +73,7 @@ class TrackingCategory extends Remote\Model
 
 
     /**
-     * Get the stem of the API (core.xro) etc
+     * Get the stem of the API (core.xro) etc.
      *
      * @return string|null
      */
@@ -84,7 +84,7 @@ class TrackingCategory extends Remote\Model
 
 
     /**
-     * Get the supported methods
+     * Get the supported methods.
      */
     public static function getSupportedMethods()
     {
@@ -103,7 +103,7 @@ class TrackingCategory extends Remote\Model
      *  [1] - Type
      *  [2] - PHP type
      *  [3] - Is an Array
-     *  [4] - Saves directly
+     *  [4] - Saves directly.
      *
      * @return array
      */

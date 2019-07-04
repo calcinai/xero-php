@@ -7,43 +7,43 @@ use XeroPHP\Remote;
 class User extends Remote\Model
 {
     /**
-     * Xero identifier
+     * Xero identifier.
      *
      * @property string UserID
      */
 
     /**
-     * Email address of user
+     * Email address of user.
      *
      * @property string EmailAddress
      */
 
     /**
-     * First name of user
+     * First name of user.
      *
      * @property string FirstName
      */
 
     /**
-     * Last name of user
+     * Last name of user.
      *
      * @property string LastName
      */
 
     /**
-     * Timestamp of last change to user
+     * Timestamp of last change to user.
      *
      * @property \DateTimeInterface UpdatedDateUTC
      */
 
     /**
-     * Boolean to indicate if user is the subscriber
+     * Boolean to indicate if user is the subscriber.
      *
      * @property bool IsSubscriber
      */
 
     /**
-     * User role (see Types)
+     * User role (see Types).
      *
      * @property string OrganisationRole
      */
@@ -51,7 +51,7 @@ class User extends Remote\Model
 
 
     /**
-     * Get the resource uri of the class (Contacts) etc
+     * Get the resource uri of the class (Contacts) etc.
      *
      * @return string
      */
@@ -62,7 +62,7 @@ class User extends Remote\Model
 
 
     /**
-     * Get the root node name.  Just the unqualified classname
+     * Get the root node name.  Just the unqualified classname.
      *
      * @return string
      */
@@ -73,7 +73,7 @@ class User extends Remote\Model
 
 
     /**
-     * Get the guid property
+     * Get the guid property.
      *
      * @return string
      */
@@ -84,7 +84,7 @@ class User extends Remote\Model
 
 
     /**
-     * Get the stem of the API (core.xro) etc
+     * Get the stem of the API (core.xro) etc.
      *
      * @return string|null
      */
@@ -95,7 +95,7 @@ class User extends Remote\Model
 
 
     /**
-     * Get the supported methods
+     * Get the supported methods.
      */
     public static function getSupportedMethods()
     {
@@ -111,7 +111,7 @@ class User extends Remote\Model
      *  [1] - Type
      *  [2] - PHP type
      *  [3] - Is an Array
-     *  [4] - Saves directly
+     *  [4] - Saves directly.
      *
      * @return array
      */

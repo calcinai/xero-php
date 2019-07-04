@@ -7,13 +7,13 @@ use XeroPHP\Remote;
 class Folder extends Remote\Model
 {
     /**
-     * The name of the folder
+     * The name of the folder.
      *
      * @property string Name
      */
 
     /**
-     * The number of files in the folder
+     * The number of files in the folder.
      *
      * @property string FileCount
      */
@@ -31,7 +31,7 @@ class Folder extends Remote\Model
      */
 
     /**
-     * Xero unique identifier for a folder
+     * Xero unique identifier for a folder.
      *
      * @property string Id
      */
@@ -45,7 +45,7 @@ class Folder extends Remote\Model
 
     /**
      * You can specify an individual record by appending the FolderId to the endpoint, i.e. GET
-     * https://…/Folders/{FolderId}
+     * https://…/Folders/{FolderId}.
      *
      * @property string FolderId
      */
@@ -53,7 +53,7 @@ class Folder extends Remote\Model
 
 
     /**
-     * Get the resource uri of the class (Contacts) etc
+     * Get the resource uri of the class (Contacts) etc.
      *
      * @return string
      */
@@ -64,7 +64,7 @@ class Folder extends Remote\Model
 
 
     /**
-     * Get the root node name.  Just the unqualified classname
+     * Get the root node name.  Just the unqualified classname.
      *
      * @return string
      */
@@ -75,7 +75,7 @@ class Folder extends Remote\Model
 
 
     /**
-     * Get the guid property
+     * Get the guid property.
      *
      * @return string
      */
@@ -86,7 +86,7 @@ class Folder extends Remote\Model
 
 
     /**
-     * Get the stem of the API (core.xro) etc
+     * Get the stem of the API (core.xro) etc.
      *
      * @return string|null
      */
@@ -97,7 +97,7 @@ class Folder extends Remote\Model
 
 
     /**
-     * Get the supported methods
+     * Get the supported methods.
      */
     public static function getSupportedMethods()
     {
@@ -116,7 +116,7 @@ class Folder extends Remote\Model
      *  [1] - Type
      *  [2] - PHP type
      *  [3] - Is an Array
-     *  [4] - Saves directly
+     *  [4] - Saves directly.
      *
      * @return array
      */

@@ -15,176 +15,176 @@ use XeroPHP\Models\PayrollUS\Employee\TimeOffBalance;
 class Employee extends Remote\Model
 {
     /**
-     * First name of employee (max length = 35)
+     * First name of employee (max length = 35).
      *
      * @property string FirstName
      */
 
     /**
-     * Last name of employee (max length = 35)
+     * Last name of employee (max length = 35).
      *
      * @property string LastName
      */
 
     /**
-     * Date of birth of employee (YYYY-MM-DD)
+     * Date of birth of employee (YYYY-MM-DD).
      *
      * @property \DateTimeInterface DateOfBirth
      */
 
     /**
-     * Employee home address. See HomeAddress
+     * Employee home address. See HomeAddress.
      *
      * @property HomeAddress HomeAddress
      */
 
     /**
-     * Middle name(s) of the employee (max length = 35)
+     * Middle name(s) of the employee (max length = 35).
      *
      * @property string MiddleNames
      */
 
     /**
-     * Job Title of the employee
+     * Job Title of the employee.
      *
      * @property string JobTitle
      */
 
     /**
-     * Employee email address
+     * Employee email address.
      *
      * @property string Email
      */
 
     /**
-     * Gender of employee (M or F)
+     * Gender of employee (M or F).
      *
      * @property string Gender
      */
 
     /**
-     * See MailingAddress
+     * See MailingAddress.
      *
      * @property MailingAddress MailingAddress
      */
 
     /**
-     * Phone number of employee
+     * Phone number of employee.
      *
      * @property string Phone
      */
 
     /**
-     * Employee Number
+     * Employee Number.
      *
      * @property string EmployeeNumber
      */
 
     /**
-     * Social Security Number of the employee (xxx-xx-xxxx)
+     * Social Security Number of the employee (xxx-xx-xxxx).
      *
      * @property string SocialSecurityNumber
      */
 
     /**
-     * Start date of employee (YYYY-MM-DD)
+     * Start date of employee (YYYY-MM-DD).
      *
      * @property \DateTimeInterface StartDate
      */
 
     /**
      * Termination date of employee (YYYY-MM-DD). Note this is only returned when retrieving an individual
-     * Employee with a Status of TERMINATED
+     * Employee with a Status of TERMINATED.
      *
      * @property \DateTimeInterface TerminationDate
      */
 
     /**
-     * Xero unique identifier – PayScheduleID for the employee
+     * Xero unique identifier – PayScheduleID for the employee.
      *
      * @property string PayScheduleID
      */
 
     /**
-     * Employee group name
+     * Employee group name.
      *
      * @property string EmployeeGroupName
      */
 
     /**
-     * See Employment Basis Types
+     * See Employment Basis Types.
      *
      * @property string EmploymentBasis
      */
 
     /**
-     * HolidayGroupID of the employee
+     * HolidayGroupID of the employee.
      *
      * @property string HolidayGroupID
      */
 
     /**
-     * Boolean to specify if employee is authorised to approve time off
+     * Boolean to specify if employee is authorised to approve time off.
      *
      * @property bool IsAuthorisedToApproveTimeOff
      */
 
     /**
-     * Boolean to specify if employee is authorised to approve timesheets
+     * Boolean to specify if employee is authorised to approve timesheets.
      *
      * @property bool IsAuthorisedToApproveTimesheets
      */
 
     /**
-     * See SalaryAndWages
+     * See SalaryAndWages.
      *
      * @property SalaryAndWage[] SalaryAndWages
      */
 
     /**
-     * See WorkLocations
+     * See WorkLocations.
      *
      * @property WorkLocation[] WorkLocations
      */
 
     /**
-     * See PaymentMethods
+     * See PaymentMethods.
      *
      * @property PaymentMethod PaymentMethod
      */
 
     /**
-     * See PayTemplate
+     * See PayTemplate.
      *
      * @property PayTemplate PayTemplate
      */
 
     /**
-     * See OpeningBalances
+     * See OpeningBalances.
      *
      * @property OpeningBalance[] OpeningBalances
      */
 
     /**
-     * See TimeOffBalances
+     * See TimeOffBalances.
      *
      * @property TimeOffBalance[] TimeOffBalances
      */
 
     /**
-     * Xero unique identifier for an Employee
+     * Xero unique identifier for an Employee.
      *
      * @property string EmployeeID
      */
 
     /**
-     * See Employee Status Types
+     * See Employee Status Types.
      *
      * @property string Status
      */
 
     /**
-     * Last modified timestamp
+     * Last modified timestamp.
      *
      * @property \DateTimeInterface UpdatedDateUTC
      */
@@ -192,7 +192,7 @@ class Employee extends Remote\Model
 
 
     /**
-     * Get the resource uri of the class (Contacts) etc
+     * Get the resource uri of the class (Contacts) etc.
      *
      * @return string
      */
@@ -203,7 +203,7 @@ class Employee extends Remote\Model
 
 
     /**
-     * Get the root node name.  Just the unqualified classname
+     * Get the root node name.  Just the unqualified classname.
      *
      * @return string
      */
@@ -214,7 +214,7 @@ class Employee extends Remote\Model
 
 
     /**
-     * Get the guid property
+     * Get the guid property.
      *
      * @return string
      */
@@ -225,7 +225,7 @@ class Employee extends Remote\Model
 
 
     /**
-     * Get the stem of the API (core.xro) etc
+     * Get the stem of the API (core.xro) etc.
      *
      * @return string|null
      */
@@ -236,7 +236,7 @@ class Employee extends Remote\Model
 
 
     /**
-     * Get the supported methods
+     * Get the supported methods.
      */
     public static function getSupportedMethods()
     {
@@ -253,7 +253,7 @@ class Employee extends Remote\Model
      *  [1] - Type
      *  [2] - PHP type
      *  [3] - Is an Array
-     *  [4] - Saves directly
+     *  [4] - Saves directly.
      *
      * @return array
      */

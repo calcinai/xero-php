@@ -7,45 +7,45 @@ use XeroPHP\Remote;
 class LeaveType extends Remote\Model
 {
     /**
-     * Name of the leave type (max length = 50)
+     * Name of the leave type (max length = 50).
      *
      * @property string Name
      */
 
     /**
      * The type of units by which leave entitlements are normally tracked. These are typically the same as
-     * the type of units used for the employee’s ordinary earnings rate
+     * the type of units used for the employee’s ordinary earnings rate.
      *
      * @property string TypeOfUnits
      */
 
     /**
-     * Set this to indicate that an employee will be paid when taking this type of leave
+     * Set this to indicate that an employee will be paid when taking this type of leave.
      *
      * @property string IsPaidLeave
      */
 
     /**
-     * Set this if you want a balance for this leave type to be shown on your employee’s payslips
+     * Set this if you want a balance for this leave type to be shown on your employee’s payslips.
      *
      * @property string ShowOnPayslip
      */
 
     /**
-     * Xero identifier
+     * Xero identifier.
      *
      * @property string LeaveTypeID
      */
 
     /**
-     * The number of units the employee is entitled to each year
+     * The number of units the employee is entitled to each year.
      *
      * @property string NormalEntitlement
      */
 
     /**
      * Enter an amount here if your organisation pays an additional percentage on top of ordinary earnings
-     * when your employees take leave (typically 17.5%)
+     * when your employees take leave (typically 17.5%).
      *
      * @property float LeaveLoadingRate
      */
@@ -53,7 +53,7 @@ class LeaveType extends Remote\Model
 
 
     /**
-     * Get the resource uri of the class (Contacts) etc
+     * Get the resource uri of the class (Contacts) etc.
      *
      * @return string
      */
@@ -64,7 +64,7 @@ class LeaveType extends Remote\Model
 
 
     /**
-     * Get the root node name.  Just the unqualified classname
+     * Get the root node name.  Just the unqualified classname.
      *
      * @return string
      */
@@ -75,7 +75,7 @@ class LeaveType extends Remote\Model
 
 
     /**
-     * Get the guid property
+     * Get the guid property.
      *
      * @return string
      */
@@ -86,7 +86,7 @@ class LeaveType extends Remote\Model
 
 
     /**
-     * Get the stem of the API (core.xro) etc
+     * Get the stem of the API (core.xro) etc.
      *
      * @return string|null
      */
@@ -97,7 +97,7 @@ class LeaveType extends Remote\Model
 
 
     /**
-     * Get the supported methods
+     * Get the supported methods.
      */
     public static function getSupportedMethods()
     {
@@ -112,7 +112,7 @@ class LeaveType extends Remote\Model
      *  [1] - Type
      *  [2] - PHP type
      *  [3] - Is an Array
-     *  [4] - Saves directly
+     *  [4] - Saves directly.
      *
      * @return array
      */

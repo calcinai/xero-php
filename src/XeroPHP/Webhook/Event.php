@@ -6,7 +6,7 @@ use XeroPHP\Remote\URL;
 use XeroPHP\Remote\Request;
 
 /**
- * Represents a single event within a webhook
+ * Represents a single event within a webhook.
  */
 class Event
 {
@@ -44,7 +44,7 @@ class Event
     private $tenantType;
 
     /**
-     * Validates the event payload is correctly formatted
+     * Validates the event payload is correctly formatted.
      *
      * @param \XeroPHP\Webhook $webhook
      * @param array $event event details
@@ -105,7 +105,7 @@ class Event
     }
 
     /**
-     * Returns the event date
+     * Returns the event date.
      *
      * @return \DateTime
      */
@@ -162,7 +162,7 @@ class Event
     }
 
     /**
-     * Fetches the resource and, if possible, loads it into it's respective model class
+     * Fetches the resource and, if possible, loads it into it's respective model class.
      *
      * @param  \XeroPHP\Application $application an optional application instance to use to retrieve the remote resource.
      *                              Useful if you have separate instances with different oauth tokens based on the tenant

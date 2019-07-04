@@ -13,19 +13,19 @@ class Phone extends Remote\Model
      */
 
     /**
-     *  max length = 50
+     *  max length = 50.
      *
      * @property string PhoneNumber
      */
 
     /**
-     *  max length = 10
+     *  max length = 10.
      *
      * @property string PhoneAreaCode
      */
 
     /**
-     *  max length = 20
+     *  max length = 20.
      *
      * @property string PhoneCountryCode
      */
@@ -38,7 +38,7 @@ class Phone extends Remote\Model
 
 
     /**
-     * Get the resource uri of the class (Contacts) etc
+     * Get the resource uri of the class (Contacts) etc.
      *
      * @return string
      */
@@ -49,7 +49,7 @@ class Phone extends Remote\Model
 
 
     /**
-     * Get the root node name.  Just the unqualified classname
+     * Get the root node name.  Just the unqualified classname.
      *
      * @return string
      */
@@ -60,7 +60,7 @@ class Phone extends Remote\Model
 
 
     /**
-     * Get the guid property
+     * Get the guid property.
      *
      * @return string
      */
@@ -71,7 +71,7 @@ class Phone extends Remote\Model
 
 
     /**
-     * Get the stem of the API (core.xro) etc
+     * Get the stem of the API (core.xro) etc.
      *
      * @return string|null
      */
@@ -82,7 +82,7 @@ class Phone extends Remote\Model
 
 
     /**
-     * Get the supported methods
+     * Get the supported methods.
      */
     public static function getSupportedMethods()
     {
@@ -97,7 +97,7 @@ class Phone extends Remote\Model
      *  [1] - Type
      *  [2] - PHP type
      *  [3] - Is an Array
-     *  [4] - Saves directly
+     *  [4] - Saves directly.
      *
      * @return array
      */

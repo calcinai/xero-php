@@ -9,31 +9,31 @@ use XeroPHP\Models\Accounting\TrackingCategory;
 class JournalLine extends Remote\Model
 {
     /**
-     * Xero identifier
+     * Xero identifier.
      *
      * @property string JournalLineID
      */
 
     /**
-     * See Accounts
+     * See Accounts.
      *
      * @property string AccountID
      */
 
     /**
-     * See Accounts
+     * See Accounts.
      *
      * @property string AccountCode
      */
 
     /**
-     * See Account Types
+     * See Account Types.
      *
      * @property string AccountType
      */
 
     /**
-     * See AccountCodes
+     * See AccountCodes.
      *
      * @property string AccountName
      */
@@ -45,7 +45,7 @@ class JournalLine extends Remote\Model
      */
 
     /**
-     * Net amount of journal line. This will be a positive value for a debit and negative for a credit
+     * Net amount of journal line. This will be a positive value for a debit and negative for a credit.
      *
      * @property float NetAmount
      */
@@ -57,25 +57,25 @@ class JournalLine extends Remote\Model
      */
 
     /**
-     * Total tax on a journal line
+     * Total tax on a journal line.
      *
      * @property float TaxAmount
      */
 
     /**
-     * see TaxTypes
+     * see TaxTypes.
      *
      * @property string TaxType
      */
 
     /**
-     * see TaxRates
+     * see TaxRates.
      *
      * @property TaxRate TaxName
      */
 
     /**
-     * see Tracking
+     * see Tracking.
      *
      * @property TrackingCategory[] TrackingCategories
      */
@@ -83,7 +83,7 @@ class JournalLine extends Remote\Model
 
 
     /**
-     * Get the resource uri of the class (Contacts) etc
+     * Get the resource uri of the class (Contacts) etc.
      *
      * @return string
      */
@@ -94,7 +94,7 @@ class JournalLine extends Remote\Model
 
 
     /**
-     * Get the root node name.  Just the unqualified classname
+     * Get the root node name.  Just the unqualified classname.
      *
      * @return string
      */
@@ -105,7 +105,7 @@ class JournalLine extends Remote\Model
 
 
     /**
-     * Get the guid property
+     * Get the guid property.
      *
      * @return string
      */
@@ -116,7 +116,7 @@ class JournalLine extends Remote\Model
 
 
     /**
-     * Get the stem of the API (core.xro) etc
+     * Get the stem of the API (core.xro) etc.
      *
      * @return string|null
      */
@@ -127,7 +127,7 @@ class JournalLine extends Remote\Model
 
 
     /**
-     * Get the supported methods
+     * Get the supported methods.
      */
     public static function getSupportedMethods()
     {
@@ -142,7 +142,7 @@ class JournalLine extends Remote\Model
      *  [1] - Type
      *  [2] - PHP type
      *  [3] - Is an Array
-     *  [4] - Saves directly
+     *  [4] - Saves directly.
      *
      * @return array
      */

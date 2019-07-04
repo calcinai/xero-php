@@ -7,85 +7,85 @@ use XeroPHP\Remote;
 class PayRun extends Remote\Model
 {
     /**
-     * See PayrollCalendars
+     * See PayrollCalendars.
      *
      * @property string PayrollCalendarID
      */
 
     /**
-     * Xero identifier for pay run
+     * Xero identifier for pay run.
      *
      * @property string PayRunID
      */
 
     /**
-     * Period Start Date for the PayRun (YYYY-MM-DD)
+     * Period Start Date for the PayRun (YYYY-MM-DD).
      *
      * @property \DateTimeInterface PayRunPeriodStartDate
      */
 
     /**
-     * Period End Date for the PayRun (YYYY-MM-DD)
+     * Period End Date for the PayRun (YYYY-MM-DD).
      *
      * @property \DateTimeInterface PayRunPeriodEndDate
      */
 
     /**
-     * See PayRun Status types
+     * See PayRun Status types.
      *
      * @property string PayRunStatus
      */
 
     /**
-     * Payment Date for the PayRun (YYYY-MM-DD)
+     * Payment Date for the PayRun (YYYY-MM-DD).
      *
      * @property \DateTimeInterface PaymentDate
      */
 
     /**
-     * Payslip message for the PayRun
+     * Payslip message for the PayRun.
      *
      * @property string PayslipMessage
      */
 
     /**
-     * See Payslip
+     * See Payslip.
      *
      * @property Payslip[] Payslips
      */
 
     /**
-     * Total Wages for the PayRun
+     * Total Wages for the PayRun.
      *
      * @property string Wages
      */
 
     /**
-     * Total Deduction for the PayRun
+     * Total Deduction for the PayRun.
      *
      * @property string Deductions
      */
 
     /**
-     * Total Tax for the PayRun
+     * Total Tax for the PayRun.
      *
      * @property float Tax
      */
 
     /**
-     * Total Super for the PayRun
+     * Total Super for the PayRun.
      *
      * @property string Super
      */
 
     /**
-     * Total Reimbursement for the PayRun
+     * Total Reimbursement for the PayRun.
      *
      * @property string Reimbursement
      */
 
     /**
-     * Total NetPay for the PayRun
+     * Total NetPay for the PayRun.
      *
      * @property string NetPay
      */
@@ -93,7 +93,7 @@ class PayRun extends Remote\Model
 
 
     /**
-     * Get the resource uri of the class (Contacts) etc
+     * Get the resource uri of the class (Contacts) etc.
      *
      * @return string
      */
@@ -104,7 +104,7 @@ class PayRun extends Remote\Model
 
 
     /**
-     * Get the root node name.  Just the unqualified classname
+     * Get the root node name.  Just the unqualified classname.
      *
      * @return string
      */
@@ -115,7 +115,7 @@ class PayRun extends Remote\Model
 
 
     /**
-     * Get the guid property
+     * Get the guid property.
      *
      * @return string
      */
@@ -126,7 +126,7 @@ class PayRun extends Remote\Model
 
 
     /**
-     * Get the stem of the API (core.xro) etc
+     * Get the stem of the API (core.xro) etc.
      *
      * @return string|null
      */
@@ -137,7 +137,7 @@ class PayRun extends Remote\Model
 
 
     /**
-     * Get the supported methods
+     * Get the supported methods.
      */
     public static function getSupportedMethods()
     {
@@ -154,7 +154,7 @@ class PayRun extends Remote\Model
      *  [1] - Type
      *  [2] - PHP type
      *  [3] - Is an Array
-     *  [4] - Saves directly
+     *  [4] - Saves directly.
      *
      * @return array
      */

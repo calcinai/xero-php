@@ -14,174 +14,174 @@ use XeroPHP\Models\PayrollAU\Employee\SuperMembership;
 class Employee extends Remote\Model
 {
     /**
-     * First name of employee (max length = 35)
+     * First name of employee (max length = 35).
      *
      * @property string FirstName
      */
 
     /**
-     * Last name of employee (max length = 35)
+     * Last name of employee (max length = 35).
      *
      * @property string LastName
      */
 
     /**
-     * Date of birth of the employee (YYYY-MM-DD)
+     * Date of birth of the employee (YYYY-MM-DD).
      *
      * @property \DateTimeInterface DateOfBirth
      */
 
     /**
-     * Employee home address. See HomeAddress
+     * Employee home address. See HomeAddress.
      *
      * @property HomeAddress HomeAddress
      */
 
     /**
      * If you aren’t sure of the exact start date for an employee, you can just enter the start of the
-     * current financial year (YYYY-MM-DD)
+     * current financial year (YYYY-MM-DD).
      *
      * @property \DateTimeInterface StartDate
      */
 
     /**
-     * Title of the employee (max length = 10)
+     * Title of the employee (max length = 10).
      *
      * @property string Title
      */
 
     /**
-     * Middle name(s) of the employee (max length = 35)
+     * Middle name(s) of the employee (max length = 35).
      *
      * @property string MiddleNames
      */
 
     /**
-     * The email address for the employee (max length = 100)
+     * The email address for the employee (max length = 100).
      *
      * @property string Email
      */
 
     /**
-     * The employee’s gender (M or F)
+     * The employee’s gender (M or F).
      *
      * @property string Gender
      */
 
     /**
-     * Employee mobile number (max length = 50)
+     * Employee mobile number (max length = 50).
      *
      * @property string Mobile
      */
 
     /**
-     * Employee’s twitter name, entered as @twittername (max length = 50)
+     * Employee’s twitter name, entered as @twittername (max length = 50).
      *
      * @property string TwitterUserName
      */
 
     /**
      * Boolean (true / false) – set this to true if the employee is authorised to approve other
-     * employees’ leave requests
+     * employees’ leave requests.
      *
      * @property bool IsAuthorisedToApproveLeave
      */
 
     /**
-     * Booelan – set this to true if the employee is authorised to approve timesheets
+     * Booelan – set this to true if the employee is authorised to approve timesheets.
      *
      * @property bool IsAuthorisedToApproveTimesheets
      */
 
     /**
-     * This property has been removed from the Xero API
+     * This property has been removed from the Xero API.
      *
      * @property string Occupation
      * @deprecated
      */
 
     /**
-     * JobTitle of the employee (max length = 50)
+     * JobTitle of the employee (max length = 50).
      *
      * @property string JobTitle
      */
 
     /**
      * Employees under an award scheme will be covered by a modern award classification. If you record a
-     * classification, it will be included on your payslips (max length = 100)
+     * classification, it will be included on your payslips (max length = 100).
      *
      * @property string Classification
      */
 
     /**
-     * Xero unique identifier for earnings rate
+     * Xero unique identifier for earnings rate.
      *
      * @property string OrdinaryEarningsRateID
      */
 
     /**
-     * Xero unique identifier for payroll calendar for the employee
+     * Xero unique identifier for payroll calendar for the employee.
      *
      * @property string PayrollCalendarID
      */
 
     /**
      * The Employee Group allows you to report on payroll expenses and liabilities for each group of
-     * employees
+     * employees.
      *
      * @property string EmployeeGroupName
      */
 
     /**
-     * See BankAccount
+     * See BankAccount.
      *
      * @property BankAccount[] BankAccounts
      */
 
     /**
-     * See PayTemplate
+     * See PayTemplate.
      *
      * @property PayTemplate PayTemplate
      */
 
     /**
-     * See OpeningBalances
+     * See OpeningBalances.
      *
      * @property OpeningBalance[] OpeningBalances
      */
 
     /**
-     * See LeaveBalances
+     * See LeaveBalances.
      *
      * @property LeaveBalance[] LeaveBalances
      */
 
     /**
-     * See SuperMemberships
+     * See SuperMemberships.
      *
      * @property SuperMembership[] SuperMemberships
      */
 
     /**
-     * Employee Termination Date (YYYY-MM-DD)
+     * Employee Termination Date (YYYY-MM-DD).
      *
      * @property \DateTimeInterface TerminationDate
      */
 
     /**
-     * Xero unique identifier for an Employee
+     * Xero unique identifier for an Employee.
      *
      * @property string EmployeeID
      */
 
     /**
-     * See Employee Status Types
+     * See Employee Status Types.
      *
      * @property string Status
      */
 
     /**
-     * Last modified timestamp
+     * Last modified timestamp.
      *
      * @property \DateTimeInterface UpdatedDateUTC
      */
@@ -201,7 +201,7 @@ class Employee extends Remote\Model
 
 
     /**
-     * Get the resource uri of the class (Contacts) etc
+     * Get the resource uri of the class (Contacts) etc.
      *
      * @return string
      */
@@ -212,7 +212,7 @@ class Employee extends Remote\Model
 
 
     /**
-     * Get the root node name.  Just the unqualified classname
+     * Get the root node name.  Just the unqualified classname.
      *
      * @return string
      */
@@ -223,7 +223,7 @@ class Employee extends Remote\Model
 
 
     /**
-     * Get the guid property
+     * Get the guid property.
      *
      * @return string
      */
@@ -234,7 +234,7 @@ class Employee extends Remote\Model
 
 
     /**
-     * Get the stem of the API (core.xro) etc
+     * Get the stem of the API (core.xro) etc.
      *
      * @return string|null
      */
@@ -245,7 +245,7 @@ class Employee extends Remote\Model
 
 
     /**
-     * Get the supported methods
+     * Get the supported methods.
      */
     public static function getSupportedMethods()
     {
@@ -262,7 +262,7 @@ class Employee extends Remote\Model
      *  [1] - Type
      *  [2] - PHP type
      *  [3] - Is an Array
-     *  [4] - Saves directly
+     *  [4] - Saves directly.
      *
      * @return array
      */

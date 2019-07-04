@@ -10,13 +10,13 @@ use XeroPHP\Models\PayrollAU\Payslip\ReimbursementLine;
 class OpeningBalance extends Remote\Model
 {
     /**
-     * Opening Balance Date. (YYYY-MM-DD)
+     * Opening Balance Date. (YYYY-MM-DD).
      *
      * @property \DateTimeInterface OpeningBalanceDate
      */
 
     /**
-     * Opening Balance tax
+     * Opening Balance tax.
      *
      * @property string Tax
      */
@@ -52,49 +52,49 @@ class OpeningBalance extends Remote\Model
      */
 
     /**
-     * Xero earnings rate identifier
+     * Xero earnings rate identifier.
      *
      * @property string EarningsRateID
      */
 
     /**
-     * Reimbursement type amount
+     * Reimbursement type amount.
      *
      * @property float Amount
      */
 
     /**
-     * Xero deduction type identifier
+     * Xero deduction type identifier.
      *
      * @property string DeductionTypeID
      */
 
     /**
-     * Xero super membership ID
+     * Xero super membership ID.
      *
      * @property string SuperMembershipID
      */
 
     /**
-     * Calculation type for Super line
+     * Calculation type for Super line.
      *
      * @property string CalculationType
      */
 
     /**
-     * Xero reimbursement type identifier
+     * Xero reimbursement type identifier.
      *
      * @property string ReimbursementTypeID
      */
 
     /**
-     * Xero leave type identifier
+     * Xero leave type identifier.
      *
      * @property string LeaveTypeID
      */
 
     /**
-     * Leave number of units
+     * Leave number of units.
      *
      * @property string NumberOfUnits
      */
@@ -102,7 +102,7 @@ class OpeningBalance extends Remote\Model
 
 
     /**
-     * Get the resource uri of the class (Contacts) etc
+     * Get the resource uri of the class (Contacts) etc.
      *
      * @return string
      */
@@ -113,7 +113,7 @@ class OpeningBalance extends Remote\Model
 
 
     /**
-     * Get the root node name.  Just the unqualified classname
+     * Get the root node name.  Just the unqualified classname.
      *
      * @return string
      */
@@ -124,7 +124,7 @@ class OpeningBalance extends Remote\Model
 
 
     /**
-     * Get the guid property
+     * Get the guid property.
      *
      * @return string
      */
@@ -135,7 +135,7 @@ class OpeningBalance extends Remote\Model
 
 
     /**
-     * Get the stem of the API (core.xro) etc
+     * Get the stem of the API (core.xro) etc.
      *
      * @return string|null
      */
@@ -146,7 +146,7 @@ class OpeningBalance extends Remote\Model
 
 
     /**
-     * Get the supported methods
+     * Get the supported methods.
      */
     public static function getSupportedMethods()
     {
@@ -161,7 +161,7 @@ class OpeningBalance extends Remote\Model
      *  [1] - Type
      *  [2] - PHP type
      *  [3] - Is an Array
-     *  [4] - Saves directly
+     *  [4] - Saves directly.
      *
      * @return array
      */

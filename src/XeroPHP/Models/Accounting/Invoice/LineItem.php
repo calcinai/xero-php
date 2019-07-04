@@ -8,13 +8,13 @@ use XeroPHP\Models\Accounting\TrackingCategory;
 class LineItem extends Remote\Model
 {
     /**
-     * LineItem Description
+     * LineItem Description.
      *
      * @property string Description
      */
 
     /**
-     * LineItem Quantity (max length = 13)
+     * LineItem Quantity (max length = 13).
      *
      * @property string Quantity
      */
@@ -28,13 +28,13 @@ class LineItem extends Remote\Model
      */
 
     /**
-     * See Items
+     * See Items.
      *
      * @property string ItemCode
      */
 
     /**
-     * See Accounts
+     * See Accounts.
      *
      * @property string AccountCode
      */
@@ -62,7 +62,7 @@ class LineItem extends Remote\Model
 
     /**
      * The line amount reflects the discounted price if a DiscountRate has been used i.e LineAmount =
-     * Quantity * Unit Amount * ((100 – DiscountRate)/100)  (can’t exceed 9,999,999,999.99 )
+     * Quantity * Unit Amount * ((100 – DiscountRate)/100)  (can’t exceed 9,999,999,999.99 ).
      *
      * @property float LineAmount
      */
@@ -76,7 +76,7 @@ class LineItem extends Remote\Model
 
     /**
      * Percentage discount being applied to a line item (only supported on ACCREC invoices – ACC PAY
-     * invoices and credit notes in Xero do not support discounts
+     * invoices and credit notes in Xero do not support discounts.
      *
      * @property string DiscountRate
      */
@@ -84,7 +84,7 @@ class LineItem extends Remote\Model
 
 
     /**
-     * Get the resource uri of the class (Contacts) etc
+     * Get the resource uri of the class (Contacts) etc.
      *
      * @return string
      */
@@ -95,7 +95,7 @@ class LineItem extends Remote\Model
 
 
     /**
-     * Get the root node name.  Just the unqualified classname
+     * Get the root node name.  Just the unqualified classname.
      *
      * @return string
      */
@@ -106,7 +106,7 @@ class LineItem extends Remote\Model
 
 
     /**
-     * Get the guid property
+     * Get the guid property.
      *
      * @return string
      */
@@ -117,7 +117,7 @@ class LineItem extends Remote\Model
 
 
     /**
-     * Get the stem of the API (core.xro) etc
+     * Get the stem of the API (core.xro) etc.
      *
      * @return string|null
      */
@@ -128,7 +128,7 @@ class LineItem extends Remote\Model
 
 
     /**
-     * Get the supported methods
+     * Get the supported methods.
      */
     public static function getSupportedMethods()
     {
@@ -143,7 +143,7 @@ class LineItem extends Remote\Model
      *  [1] - Type
      *  [2] - PHP type
      *  [3] - Is an Array
-     *  [4] - Saves directly
+     *  [4] - Saves directly.
      *
      * @return array
      */

@@ -14,7 +14,7 @@ class Contact extends Remote\Model
     use HistoryTrait;
 
     /**
-     * Xero identifier
+     * Xero identifier.
      *
      * @property string ContactID
      */
@@ -28,55 +28,55 @@ class Contact extends Remote\Model
      */
 
     /**
-     * A user defined account number. This can be updated via the API and the Xero UI (max length = 50)
+     * A user defined account number. This can be updated via the API and the Xero UI (max length = 50).
      *
      * @property string AccountNumber
      */
 
     /**
-     * Current status of a contact – see contact status types
+     * Current status of a contact – see contact status types.
      *
      * @property string ContactStatus
      */
 
     /**
-     * Full name of contact/organisation (max length = 255)
+     * Full name of contact/organisation (max length = 255).
      *
      * @property string Name
      */
 
     /**
-     * First name of contact person (max length = 255)
+     * First name of contact person (max length = 255).
      *
      * @property string FirstName
      */
 
     /**
-     * Last name of contact person (max length = 255)
+     * Last name of contact person (max length = 255).
      *
      * @property string LastName
      */
 
     /**
-     * Email address of contact person (umlauts not supported) (max length = 255)
+     * Email address of contact person (umlauts not supported) (max length = 255).
      *
      * @property string EmailAddress
      */
 
     /**
-     * Skype user name of contact
+     * Skype user name of contact.
      *
      * @property string SkypeUserName
      */
 
     /**
-     * See contact persons
+     * See contact persons.
      *
      * @property ContactPerson[] ContactPersons
      */
 
     /**
-     * Bank account number of contact
+     * Bank account number of contact.
      *
      * @property string BankAccountDetails
      */
@@ -84,31 +84,31 @@ class Contact extends Remote\Model
     /**
      * Tax number of contact – this is also known as the ABN (Australia), GST Number (New Zealand), VAT
      * Number (UK) or Tax ID Number (US and global) in the Xero UI depending on which regionalized version
-     * of Xero you are using (max length = 50)
+     * of Xero you are using (max length = 50).
      *
      * @property string TaxNumber
      */
 
     /**
-     * Default tax type used for contact on AR invoices
+     * Default tax type used for contact on AR invoices.
      *
      * @property string AccountsReceivableTaxType
      */
 
     /**
-     * Default tax type used for contact on AP invoices
+     * Default tax type used for contact on AP invoices.
      *
      * @property string AccountsPayableTaxType
      */
 
     /**
-     * Store certain address types for a contact – see address types
+     * Store certain address types for a contact – see address types.
      *
      * @property Address[] Addresses
      */
 
     /**
-     * Store certain phone types for a contact – see phone types
+     * Store certain phone types for a contact – see phone types.
      *
      * @property Phone[] Phones
      */
@@ -130,7 +130,7 @@ class Contact extends Remote\Model
      */
 
     /**
-     * Default currency for raising invoices against contact
+     * Default currency for raising invoices against contact.
      *
      * @property string DefaultCurrency
      */
@@ -142,94 +142,94 @@ class Contact extends Remote\Model
      */
 
     /**
-     * The default sales account code for contacts
+     * The default sales account code for contacts.
      *
      * @property string SalesDefaultAccountCode
      */
 
     /**
-     * The default purchases account code for contacts
+     * The default purchases account code for contacts.
      *
      * @property string PurchasesDefaultAccountCode
      */
 
     /**
-     * The default sales tracking categories for contacts
+     * The default sales tracking categories for contacts.
      *
      * @property TrackingCategory[] SalesTrackingCategories
      */
 
     /**
-     * The default purchases tracking categories for contacts
+     * The default purchases tracking categories for contacts.
      *
      * @property TrackingCategory[] PurchasesTrackingCategories
      */
 
     /**
      * The name of the Tracking Category assigned to the contact under SalesTrackingCategories and
-     * PurchasesTrackingCategories
+     * PurchasesTrackingCategories.
      *
      * @property string TrackingCategoryName
      */
 
     /**
      * The name of the Tracking Option assigned to the contact under SalesTrackingCategories and
-     * PurchasesTrackingCategories
+     * PurchasesTrackingCategories.
      *
      * @property string TrackingCategoryOption
      */
 
     /**
-     * The default payment terms for the contact – see Payment Terms
+     * The default payment terms for the contact – see Payment Terms.
      *
      * @property PaymentTerm[] PaymentTerms
      */
 
     /**
-     * UTC timestamp of last update to contact
+     * UTC timestamp of last update to contact.
      *
      * @property \DateTimeInterface UpdatedDateUTC
      */
 
     /**
-     * Displays which contact groups a contact is included in
+     * Displays which contact groups a contact is included in.
      *
      * @property ContactGroup[] ContactGroups
      */
 
     /**
-     * Website address for contact (read only)
+     * Website address for contact (read only).
      *
      * @property string Website
      */
 
     /**
-     * Default branding theme for contact (read only) – see Branding Themes
+     * Default branding theme for contact (read only) – see Branding Themes.
      *
      * @property BrandingTheme BrandingTheme
      */
 
     /**
-     * batch payment details for contact (read only)
+     * batch payment details for contact (read only).
      *
      * @property string BatchPayments
      */
 
     /**
-     * The default discount rate for the contact (read only)
+     * The default discount rate for the contact (read only).
      *
      * @property float Discount
      */
 
     /**
      * The raw AccountsReceivable(sales invoices) and AccountsPayable(bills) outstanding and overdue
-     * amounts, not converted to base currency (read only)
+     * amounts, not converted to base currency (read only).
      *
      * @property string Balances
      */
 
     /**
-     * A boolean to indicate if a contact has an attachment
+     * A boolean to indicate if a contact has an attachment.
      *
      * @property bool HasAttachments
      */
@@ -240,7 +240,7 @@ class Contact extends Remote\Model
 
 
     /**
-     * Get the resource uri of the class (Contacts) etc
+     * Get the resource uri of the class (Contacts) etc.
      *
      * @return string
      */
@@ -251,7 +251,7 @@ class Contact extends Remote\Model
 
 
     /**
-     * Get the root node name.  Just the unqualified classname
+     * Get the root node name.  Just the unqualified classname.
      *
      * @return string
      */
@@ -262,7 +262,7 @@ class Contact extends Remote\Model
 
 
     /**
-     * Get the guid property
+     * Get the guid property.
      *
      * @return string
      */
@@ -273,7 +273,7 @@ class Contact extends Remote\Model
 
 
     /**
-     * Get the stem of the API (core.xro) etc
+     * Get the stem of the API (core.xro) etc.
      *
      * @return string|null
      */
@@ -284,7 +284,7 @@ class Contact extends Remote\Model
 
 
     /**
-     * Get the supported methods
+     * Get the supported methods.
      */
     public static function getSupportedMethods()
     {
@@ -302,7 +302,7 @@ class Contact extends Remote\Model
      *  [1] - Type
      *  [2] - PHP type
      *  [3] - Is an Array
-     *  [4] - Saves directly
+     *  [4] - Saves directly.
      *
      * @return array
      */

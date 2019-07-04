@@ -8,73 +8,73 @@ use XeroPHP\Models\Accounting\TaxRate\TaxComponent;
 class TaxRate extends Remote\Model
 {
     /**
-     * Name of tax rate
+     * Name of tax rate.
      *
      * @property string Name
      */
 
     /**
-     * See Tax Types – can only be used on update calls
+     * See Tax Types – can only be used on update calls.
      *
      * @property string TaxType
      */
 
     /**
-     * See TaxComponents
+     * See TaxComponents.
      *
      * @property TaxComponent[] TaxComponents
      */
 
     /**
-     * See Status Codes
+     * See Status Codes.
      *
      * @property string Status
      */
 
     /**
-     * See ReportTaxTypes
+     * See ReportTaxTypes.
      *
      * @property string ReportTaxType
      */
 
     /**
-     * Boolean to describe if tax rate can be used for asset accounts i.e. true,false
+     * Boolean to describe if tax rate can be used for asset accounts i.e. true,false.
      *
      * @property bool CanApplyToAssets
      */
 
     /**
-     * Boolean to describe if tax rate can be used for equity accounts i.e. true,false
+     * Boolean to describe if tax rate can be used for equity accounts i.e. true,false.
      *
      * @property bool CanApplyToEquity
      */
 
     /**
-     * Boolean to describe if tax rate can be used for expense accounts i.e. true,false
+     * Boolean to describe if tax rate can be used for expense accounts i.e. true,false.
      *
      * @property bool CanApplyToExpenses
      */
 
     /**
-     * Boolean to describe if tax rate can be used for liability accounts i.e. true,false
+     * Boolean to describe if tax rate can be used for liability accounts i.e. true,false.
      *
      * @property bool CanApplyToLiabilities
      */
 
     /**
-     * Boolean to describe if tax rate can be used for revenue accounts i.e. true,false
+     * Boolean to describe if tax rate can be used for revenue accounts i.e. true,false.
      *
      * @property bool CanApplyToRevenue
      */
 
     /**
-     * Tax Rate (decimal to 4dp) e.g 12.5000
+     * Tax Rate (decimal to 4dp) e.g 12.5000.
      *
      * @property float DisplayTaxRate
      */
 
     /**
-     * Effective Tax Rate (decimal to 4dp) e.g 12.5000
+     * Effective Tax Rate (decimal to 4dp) e.g 12.5000.
      *
      * @property float EffectiveRate
      */
@@ -86,7 +86,7 @@ class TaxRate extends Remote\Model
 
 
     /**
-     * Get the resource uri of the class (Contacts) etc
+     * Get the resource uri of the class (Contacts) etc.
      *
      * @return string
      */
@@ -97,7 +97,7 @@ class TaxRate extends Remote\Model
 
 
     /**
-     * Get the root node name.  Just the unqualified classname
+     * Get the root node name.  Just the unqualified classname.
      *
      * @return string
      */
@@ -108,7 +108,7 @@ class TaxRate extends Remote\Model
 
 
     /**
-     * Get the guid property
+     * Get the guid property.
      *
      * @return string
      */
@@ -119,7 +119,7 @@ class TaxRate extends Remote\Model
 
 
     /**
-     * Get the stem of the API (core.xro) etc
+     * Get the stem of the API (core.xro) etc.
      *
      * @return string|null
      */
@@ -130,7 +130,7 @@ class TaxRate extends Remote\Model
 
 
     /**
-     * Get the supported methods
+     * Get the supported methods.
      */
     public static function getSupportedMethods()
     {
@@ -148,7 +148,7 @@ class TaxRate extends Remote\Model
      *  [1] - Type
      *  [2] - PHP type
      *  [3] - Is an Array
-     *  [4] - Saves directly
+     *  [4] - Saves directly.
      *
      * @return array
      */

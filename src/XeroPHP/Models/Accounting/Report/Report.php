@@ -7,44 +7,44 @@ use XeroPHP\Remote;
 abstract class Report extends Remote\Model
 {
     /**
-     * Xero identifier
+     * Xero identifier.
      *
      * @property string ReportID
      */
 
     /**
-     * Report Name
+     * Report Name.
      *
      * @property string ReportName
      */
 
     /**
-     * Report Type
+     * Report Type.
      *
      * @property string ReportType
      */
 
     /**
-     * Array of the title of this report (one title will be on multiple lines)
+     * Array of the title of this report (one title will be on multiple lines).
      *
      * @property array ReportTitles
      */
 
     /**
-     * Last modified date in UTC format
+     * Last modified date in UTC format.
      *
      * @property \DateTimeInterface UpdatedDateUTC
      */
 
     /**
-     * All the rows of data contained in the report
+     * All the rows of data contained in the report.
      *
      * @property string Rows
      */
 
 
     /**
-     * Get the root node name.  Just the unqualified classname
+     * Get the root node name.  Just the unqualified classname.
      *
      * @return string
      */
@@ -55,7 +55,7 @@ abstract class Report extends Remote\Model
 
 
     /**
-     * Get the guid property
+     * Get the guid property.
      *
      * @return string
      */
@@ -66,7 +66,7 @@ abstract class Report extends Remote\Model
 
 
     /**
-     * Get the stem of the API (core.xro) etc
+     * Get the stem of the API (core.xro) etc.
      *
      * @return string|null
      */
@@ -77,7 +77,7 @@ abstract class Report extends Remote\Model
 
 
     /**
-     * Get the supported methods
+     * Get the supported methods.
      */
     public static function getSupportedMethods()
     {
@@ -93,7 +93,7 @@ abstract class Report extends Remote\Model
      *  [1] - Type
      *  [2] - PHP type
      *  [3] - Is an Array
-     *  [4] - Saves directly
+     *  [4] - Saves directly.
      *
      * @return array
      */

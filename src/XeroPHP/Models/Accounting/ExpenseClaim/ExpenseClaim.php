@@ -8,61 +8,61 @@ use XeroPHP\Models\Accounting\Payment;
 class ExpenseClaim extends Remote\Model
 {
     /**
-     * Xero generated unique identifier for an expense claim
+     * Xero generated unique identifier for an expense claim.
      *
      * @property string ExpenseClaimID
      */
 
     /**
-     * See Payments
+     * See Payments.
      *
      * @property Payment[] Payments
      */
 
     /**
-     * Current status of an expense claim – see status types
+     * Current status of an expense claim – see status types.
      *
      * @property string Status
      */
 
     /**
-     * Last modified date UTC format
+     * Last modified date UTC format.
      *
      * @property \DateTimeInterface UpdatedDateUTC
      */
 
     /**
-     * The total of an expense claim being paid
+     * The total of an expense claim being paid.
      *
      * @property float Total
      */
 
     /**
-     * The amount due to be paid for an expense claim
+     * The amount due to be paid for an expense claim.
      *
      * @property float AmountDue
      */
 
     /**
-     * The amount still to pay for an expense claim
+     * The amount still to pay for an expense claim.
      *
      * @property float AmountPaid
      */
 
     /**
-     * The date when the expense claim is due to be paid YYYY-MM-DD
+     * The date when the expense claim is due to be paid YYYY-MM-DD.
      *
      * @property \DateTimeInterface PaymentDueDate
      */
 
     /**
-     * The date the expense claim will be reported in Xero YYYY-MM-DD
+     * The date the expense claim will be reported in Xero YYYY-MM-DD.
      *
      * @property \DateTimeInterface ReportingDate
      */
 
     /**
-     * The Xero identifier for the Receipt e.g. e59a2c7f-1306-4078-a0f3-73537afcbba9
+     * The Xero identifier for the Receipt e.g. e59a2c7f-1306-4078-a0f3-73537afcbba9.
      *
      * @property string ReceiptID
      */
@@ -70,7 +70,7 @@ class ExpenseClaim extends Remote\Model
 
 
     /**
-     * Get the resource uri of the class (Contacts) etc
+     * Get the resource uri of the class (Contacts) etc.
      *
      * @return string
      */
@@ -81,7 +81,7 @@ class ExpenseClaim extends Remote\Model
 
 
     /**
-     * Get the root node name.  Just the unqualified classname
+     * Get the root node name.  Just the unqualified classname.
      *
      * @return string
      */
@@ -92,7 +92,7 @@ class ExpenseClaim extends Remote\Model
 
 
     /**
-     * Get the guid property
+     * Get the guid property.
      *
      * @return string
      */
@@ -103,7 +103,7 @@ class ExpenseClaim extends Remote\Model
 
 
     /**
-     * Get the stem of the API (core.xro) etc
+     * Get the stem of the API (core.xro) etc.
      *
      * @return string|null
      */
@@ -114,7 +114,7 @@ class ExpenseClaim extends Remote\Model
 
 
     /**
-     * Get the supported methods
+     * Get the supported methods.
      */
     public static function getSupportedMethods()
     {
@@ -129,7 +129,7 @@ class ExpenseClaim extends Remote\Model
      *  [1] - Type
      *  [2] - PHP type
      *  [3] - Is an Array
-     *  [4] - Saves directly
+     *  [4] - Saves directly.
      *
      * @return array
      */
