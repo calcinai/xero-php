@@ -90,8 +90,6 @@ class PayRun extends Remote\Model
      * @property string NetPay
      */
 
-
-
     /**
      * Get the resource uri of the class (Contacts) etc
      *
@@ -101,7 +99,6 @@ class PayRun extends Remote\Model
     {
         return 'PayRuns';
     }
-
 
     /**
      * Get the root node name.  Just the unqualified classname
@@ -113,7 +110,6 @@ class PayRun extends Remote\Model
         return 'PayRun';
     }
 
-
     /**
      * Get the guid property
      *
@@ -124,7 +120,6 @@ class PayRun extends Remote\Model
         return 'PayRunID';
     }
 
-
     /**
      * Get the stem of the API (core.xro) etc
      *
@@ -134,7 +129,6 @@ class PayRun extends Remote\Model
     {
         return Remote\URL::API_PAYROLL;
     }
-
 
     /**
      * Get the supported methods
@@ -311,7 +305,6 @@ class PayRun extends Remote\Model
         return $this->_data['PayslipMessage'];
     }
 
-
     /**
      * @return Payslip[]|Remote\Collection
      * Always returns a collection, switch is for type hinting
@@ -321,7 +314,6 @@ class PayRun extends Remote\Model
         return $this->_data['Payslips'];
     }
 
-
     /**
      * @return string
      */
@@ -329,7 +321,6 @@ class PayRun extends Remote\Model
     {
         return $this->_data['Wages'];
     }
-
 
     /**
      * @return string
@@ -339,7 +330,6 @@ class PayRun extends Remote\Model
         return $this->_data['Deductions'];
     }
 
-
     /**
      * @return float
      */
@@ -347,7 +337,6 @@ class PayRun extends Remote\Model
     {
         return $this->_data['Tax'];
     }
-
 
     /**
      * @return string
@@ -357,7 +346,6 @@ class PayRun extends Remote\Model
         return $this->_data['Super'];
     }
 
-
     /**
      * @return string
      */
@@ -365,7 +353,6 @@ class PayRun extends Remote\Model
     {
         return $this->_data['Reimbursement'];
     }
-
 
     /**
      * @return string

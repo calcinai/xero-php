@@ -38,7 +38,6 @@ class ReportTaxType
     const UK_NONE = 'NONE';
     const UK_GSTONIMPORTS = 'GSTONIMPORTS';
 
-
     /**
      * These have incorrect spelling and will be remove in a future release.
      * Please see "AUSTRALIAN" constants at the top of this file.

@@ -63,7 +63,6 @@ class DeductionType extends Remote\Model
      * @property float CompanyMax
      */
 
-
     const CALCULATION_TYPE_CATCHUPPLAN = 'CATCHUPPLAN';
     const CALCULATION_TYPE_STANDARDPLAN = 'STANDARDPLAN';
 
@@ -80,7 +79,6 @@ class DeductionType extends Remote\Model
     const DEDUCTION_CATEGORY_403BRETIREMENTPLAN = '403BRETIREMENTPLAN';
     const DEDUCTION_CATEGORY_457RETIREMENTPLAN = '457RETIREMENTPLAN';
 
-
     /**
      * Get the resource uri of the class (Contacts) etc
      *
@@ -90,7 +88,6 @@ class DeductionType extends Remote\Model
     {
         return 'DeductionTypes';
     }
-
 
     /**
      * Get the root node name.  Just the unqualified classname
@@ -102,7 +99,6 @@ class DeductionType extends Remote\Model
         return 'DeductionType';
     }
 
-
     /**
      * Get the guid property
      *
@@ -113,7 +109,6 @@ class DeductionType extends Remote\Model
         return 'DeductionTypeID';
     }
 
-
     /**
      * Get the stem of the API (core.xro) etc
      *
@@ -123,7 +118,6 @@ class DeductionType extends Remote\Model
     {
         return Remote\URL::API_PAYROLL;
     }
-
 
     /**
      * Get the supported methods

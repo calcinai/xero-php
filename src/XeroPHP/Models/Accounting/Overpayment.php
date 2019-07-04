@@ -130,14 +130,12 @@ class Overpayment extends Remote\Model
      * @property bool HasAttachments
      */
 
-
     const TYPE_RECEIVE_OVERPAYMENT = 'RECEIVE-OVERPAYMENT';
     const TYPE_SPEND_OVERPAYMENT = 'SPEND-OVERPAYMENT';
 
     const OVERPAYMENT_STATUS_AUTHORISED = 'AUTHORISED';
     const OVERPAYMENT_STATUS_PAID = 'PAID';
     const OVERPAYMENT_STATUS_VOIDED = 'VOIDED';
-
 
     /**
      * Get the resource uri of the class (Contacts) etc
@@ -149,7 +147,6 @@ class Overpayment extends Remote\Model
         return 'Overpayments';
     }
 
-
     /**
      * Get the root node name.  Just the unqualified classname
      *
@@ -159,7 +156,6 @@ class Overpayment extends Remote\Model
     {
         return 'Overpayment';
     }
-
 
     /**
      * Get the guid property
@@ -171,7 +167,6 @@ class Overpayment extends Remote\Model
         return 'OverpaymentID';
     }
 
-
     /**
      * Get the stem of the API (core.xro) etc
      *
@@ -181,7 +176,6 @@ class Overpayment extends Remote\Model
     {
         return Remote\URL::API_CORE;
     }
-
 
     /**
      * Get the supported methods

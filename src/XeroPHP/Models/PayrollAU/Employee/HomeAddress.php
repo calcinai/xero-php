@@ -42,8 +42,6 @@ class HomeAddress extends Remote\Model
      * @property string Country
      */
 
-
-
     /**
      * Get the resource uri of the class (Contacts) etc
      *
@@ -53,7 +51,6 @@ class HomeAddress extends Remote\Model
     {
         return 'HomeAddress';
     }
-
 
     /**
      * Get the root node name.  Just the unqualified classname
@@ -65,7 +62,6 @@ class HomeAddress extends Remote\Model
         return 'HomeAddress';
     }
 
-
     /**
      * Get the guid property
      *
@@ -76,7 +72,6 @@ class HomeAddress extends Remote\Model
         return '';
     }
 
-
     /**
      * Get the stem of the API (core.xro) etc
      *
@@ -86,7 +81,6 @@ class HomeAddress extends Remote\Model
     {
         return Remote\URL::API_PAYROLL;
     }
-
 
     /**
      * Get the supported methods

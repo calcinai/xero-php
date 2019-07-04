@@ -55,8 +55,6 @@ class SalaryAndWage extends Remote\Model
      * @property \DateTimeInterface EffectiveDate
      */
 
-
-
     /**
      * Get the resource uri of the class (Contacts) etc
      *
@@ -66,7 +64,6 @@ class SalaryAndWage extends Remote\Model
     {
         return 'SalaryAndWages';
     }
-
 
     /**
      * Get the root node name.  Just the unqualified classname
@@ -78,7 +75,6 @@ class SalaryAndWage extends Remote\Model
         return 'SalaryAndWage';
     }
 
-
     /**
      * Get the guid property
      *
@@ -89,7 +85,6 @@ class SalaryAndWage extends Remote\Model
         return 'SalaryAndWageID';
     }
 
-
     /**
      * Get the stem of the API (core.xro) etc
      *
@@ -99,7 +94,6 @@ class SalaryAndWage extends Remote\Model
     {
         return Remote\URL::API_PAYROLL;
     }
-
 
     /**
      * Get the supported methods

@@ -103,7 +103,6 @@ class URL
         }
     }
 
-
     public function isOAuth()
     {
         return $this->is_oauth;

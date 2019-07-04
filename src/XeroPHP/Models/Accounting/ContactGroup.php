@@ -34,8 +34,6 @@ class ContactGroup extends Remote\Model
      * @property Contact[] Contacts
      */
 
-
-
     /**
      * Get the resource uri of the class (Contacts) etc
      *
@@ -45,7 +43,6 @@ class ContactGroup extends Remote\Model
     {
         return 'ContactGroups';
     }
-
 
     /**
      * Get the root node name.  Just the unqualified classname
@@ -57,7 +54,6 @@ class ContactGroup extends Remote\Model
         return 'ContactGroup';
     }
 
-
     /**
      * Get the guid property
      *
@@ -68,7 +64,6 @@ class ContactGroup extends Remote\Model
         return 'ContactGroupID';
     }
 
-
     /**
      * Get the stem of the API (core.xro) etc
      *
@@ -78,7 +73,6 @@ class ContactGroup extends Remote\Model
     {
         return Remote\URL::API_CORE;
     }
-
 
     /**
      * Get the supported methods

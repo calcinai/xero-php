@@ -30,12 +30,10 @@ class Phone extends Remote\Model
      * @property string PhoneCountryCode
      */
 
-
     const PHONE_TYPE_DEFAULT = 'DEFAULT';
     const PHONE_TYPE_DDI = 'DDI';
     const PHONE_TYPE_MOBILE = 'MOBILE';
     const PHONE_TYPE_FAX = 'FAX';
-
 
     /**
      * Get the resource uri of the class (Contacts) etc
@@ -47,7 +45,6 @@ class Phone extends Remote\Model
         return 'Phones';
     }
 
-
     /**
      * Get the root node name.  Just the unqualified classname
      *
@@ -57,7 +54,6 @@ class Phone extends Remote\Model
     {
         return 'Phone';
     }
-
 
     /**
      * Get the guid property
@@ -69,7 +65,6 @@ class Phone extends Remote\Model
         return '';
     }
 
-
     /**
      * Get the stem of the API (core.xro) etc
      *
@@ -79,7 +74,6 @@ class Phone extends Remote\Model
     {
         return Remote\URL::API_CORE;
     }
-
 
     /**
      * Get the supported methods

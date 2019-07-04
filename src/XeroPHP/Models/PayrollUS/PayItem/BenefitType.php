@@ -63,7 +63,6 @@ class BenefitType extends Remote\Model
      * @property float ShowBalanceOnPaystub
      */
 
-
     const BENEFITCATEGORY_AFTERTAXBENEFIT = 'AFTERTAXBENEFIT';
     const BENEFITCATEGORY_DEPENDENTCARE = 'DEPENDENTCARE';
     const BENEFITCATEGORY_FLEXIBLESPENDINGACCOUNT = 'FLEXIBLESPENDINGACCOUNT';
@@ -80,7 +79,6 @@ class BenefitType extends Remote\Model
     const BENEFITCATEGORY_GROUPTERMLIFEINSURANCE = 'GROUPTERMLIFEINSURANCE';
     const BENEFITCATEGORY_SCORPHEALTH = 'SCORPHEALTH';
 
-
     /**
      * Get the resource uri of the class (Contacts) etc
      *
@@ -90,7 +88,6 @@ class BenefitType extends Remote\Model
     {
         return 'BenefitTypes';
     }
-
 
     /**
      * Get the root node name.  Just the unqualified classname
@@ -102,7 +99,6 @@ class BenefitType extends Remote\Model
         return 'BenefitType';
     }
 
-
     /**
      * Get the guid property
      *
@@ -113,7 +109,6 @@ class BenefitType extends Remote\Model
         return 'BenefitTypeID';
     }
 
-
     /**
      * Get the stem of the API (core.xro) etc
      *
@@ -123,7 +118,6 @@ class BenefitType extends Remote\Model
     {
         return Remote\URL::API_PAYROLL;
     }
-
 
     /**
      * Get the supported methods

@@ -225,7 +225,6 @@ class Query
         return $this;
     }
 
-
     public function setParameter($key, $value)
     {
         $this->params[(string) $key] = (string) $value;

@@ -186,7 +186,6 @@ class Employee extends Remote\Model
      * @property \DateTimeInterface UpdatedDateUTC
      */
 
-
     const STATEABBREVIATION_ACT = 'ACT';
     const STATEABBREVIATION_NSW = 'NSW';
     const STATEABBREVIATION_NT = 'NT';
@@ -199,7 +198,6 @@ class Employee extends Remote\Model
     const STATUS_ACTIVE = 'ACTIVE';
     const STATUS_TERMINATED = 'TERMINATED';
 
-
     /**
      * Get the resource uri of the class (Contacts) etc
      *
@@ -209,7 +207,6 @@ class Employee extends Remote\Model
     {
         return 'Employees';
     }
-
 
     /**
      * Get the root node name.  Just the unqualified classname
@@ -221,7 +218,6 @@ class Employee extends Remote\Model
         return 'Employee';
     }
 
-
     /**
      * Get the guid property
      *
@@ -232,7 +228,6 @@ class Employee extends Remote\Model
         return 'EmployeeID';
     }
 
-
     /**
      * Get the stem of the API (core.xro) etc
      *
@@ -242,7 +237,6 @@ class Employee extends Remote\Model
     {
         return Remote\URL::API_PAYROLL;
     }
-
 
     /**
      * Get the supported methods
@@ -904,7 +898,6 @@ class Employee extends Remote\Model
 
         return $this;
     }
-
 
     /**
      * @return string

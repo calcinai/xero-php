@@ -40,8 +40,6 @@ class Purchase extends Remote\Model
      * @property string TaxType
      */
 
-
-
     /**
      * Get the resource uri of the class (Contacts) etc
      *
@@ -51,7 +49,6 @@ class Purchase extends Remote\Model
     {
         return 'Purchases';
     }
-
 
     /**
      * Get the root node name.  Just the unqualified classname
@@ -63,7 +60,6 @@ class Purchase extends Remote\Model
         return 'Purchase';
     }
 
-
     /**
      * Get the guid property
      *
@@ -74,7 +70,6 @@ class Purchase extends Remote\Model
         return '';
     }
 
-
     /**
      * Get the stem of the API (core.xro) etc
      *
@@ -84,7 +79,6 @@ class Purchase extends Remote\Model
     {
         return Remote\URL::API_CORE;
     }
-
 
     /**
      * Get the supported methods

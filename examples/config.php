@@ -18,7 +18,6 @@ $xero_base_config = [
         //If you have issues passing the Authorization header, you can set it to append to the query string
         //'signature_location'    => \XeroPHP\Remote\OAuth\Client::SIGN_LOCATION_QUERY
 
-
         //For certs on disk or a string - allows anything that is valid with openssl_pkey_get_(private|public)
         'rsa_private_key' => 'file://certs/private.pem',
         'rsa_public_key' => 'file://certs/public.pem',

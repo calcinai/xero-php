@@ -24,8 +24,6 @@ class EarningsLine extends Remote\Model
      * @property float[] NumberOfUnits
      */
 
-
-
     /**
      * Get the resource uri of the class (Contacts) etc
      *
@@ -35,7 +33,6 @@ class EarningsLine extends Remote\Model
     {
         return 'EarningsLine';
     }
-
 
     /**
      * Get the root node name.  Just the unqualified classname
@@ -47,7 +44,6 @@ class EarningsLine extends Remote\Model
         return 'EarningsLine';
     }
 
-
     /**
      * Get the guid property
      *
@@ -58,7 +54,6 @@ class EarningsLine extends Remote\Model
         return '';
     }
 
-
     /**
      * Get the stem of the API (core.xro) etc
      *
@@ -68,7 +63,6 @@ class EarningsLine extends Remote\Model
     {
         return Remote\URL::API_PAYROLL;
     }
-
 
     /**
      * Get the supported methods

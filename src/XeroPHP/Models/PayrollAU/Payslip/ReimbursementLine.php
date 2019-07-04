@@ -30,8 +30,6 @@ class ReimbursementLine extends Remote\Model
      * @property float Amount
      */
 
-
-
     /**
      * Get the resource uri of the class (Contacts) etc
      *
@@ -41,7 +39,6 @@ class ReimbursementLine extends Remote\Model
     {
         return 'ReimbursementLine';
     }
-
 
     /**
      * Get the root node name.  Just the unqualified classname
@@ -53,7 +50,6 @@ class ReimbursementLine extends Remote\Model
         return 'ReimbursementLine';
     }
 
-
     /**
      * Get the guid property
      *
@@ -64,7 +60,6 @@ class ReimbursementLine extends Remote\Model
         return '';
     }
 
-
     /**
      * Get the stem of the API (core.xro) etc
      *
@@ -74,7 +69,6 @@ class ReimbursementLine extends Remote\Model
     {
         return Remote\URL::API_PAYROLL;
     }
-
 
     /**
      * Get the supported methods

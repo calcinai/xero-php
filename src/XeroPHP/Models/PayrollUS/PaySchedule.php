@@ -36,8 +36,6 @@ class PaySchedule extends Remote\Model
      * @property string PayScheduleId
      */
 
-
-
     /**
      * Get the resource uri of the class (Contacts) etc
      *
@@ -47,7 +45,6 @@ class PaySchedule extends Remote\Model
     {
         return 'PaySchedules';
     }
-
 
     /**
      * Get the root node name.  Just the unqualified classname
@@ -59,7 +56,6 @@ class PaySchedule extends Remote\Model
         return 'PaySchedule';
     }
 
-
     /**
      * Get the guid property
      *
@@ -70,7 +66,6 @@ class PaySchedule extends Remote\Model
         return 'PayScheduleId';
     }
 
-
     /**
      * Get the stem of the API (core.xro) etc
      *
@@ -80,7 +75,6 @@ class PaySchedule extends Remote\Model
     {
         return Remote\URL::API_PAYROLL;
     }
-
 
     /**
      * Get the supported methods

@@ -98,8 +98,6 @@ class RepeatingInvoice extends Remote\Model
      * @property bool HasAttachments
      */
 
-
-
     /**
      * Get the resource uri of the class (Contacts) etc
      *
@@ -109,7 +107,6 @@ class RepeatingInvoice extends Remote\Model
     {
         return 'RepeatingInvoices';
     }
-
 
     /**
      * Get the root node name.  Just the unqualified classname
@@ -121,7 +118,6 @@ class RepeatingInvoice extends Remote\Model
         return 'RepeatingInvoice';
     }
 
-
     /**
      * Get the guid property
      *
@@ -132,7 +128,6 @@ class RepeatingInvoice extends Remote\Model
         return 'RepeatingInvoiceID';
     }
 
-
     /**
      * Get the stem of the API (core.xro) etc
      *
@@ -142,7 +137,6 @@ class RepeatingInvoice extends Remote\Model
     {
         return Remote\URL::API_CORE;
     }
-
 
     /**
      * Get the supported methods

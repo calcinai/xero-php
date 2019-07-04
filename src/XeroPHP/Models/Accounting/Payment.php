@@ -96,7 +96,6 @@ class Payment extends Remote\Model
      * @property string PaymentID
      */
 
-
     const PAYMENT_STATUS_AUTHORISED = 'AUTHORISED';
     const PAYMENT_STATUS_DELETED = 'DELETED';
 
@@ -114,7 +113,6 @@ class Payment extends Remote\Model
     const PAYMENT_TYPE_APPREPAYMENTPAYMENT = 'APPREPAYMENTPAYMENT';
     const PAYMENT_TYPE_APOVERPAYMENTPAYMENT = 'APOVERPAYMENTPAYMENT';
 
-
     /**
      * Get the resource uri of the class (Contacts) etc
      *
@@ -124,7 +122,6 @@ class Payment extends Remote\Model
     {
         return 'Payments';
     }
-
 
     /**
      * Get the root node name.  Just the unqualified classname
@@ -136,7 +133,6 @@ class Payment extends Remote\Model
         return 'Payment';
     }
 
-
     /**
      * Get the guid property
      *
@@ -147,7 +143,6 @@ class Payment extends Remote\Model
         return 'PaymentID';
     }
 
-
     /**
      * Get the stem of the API (core.xro) etc
      *
@@ -157,7 +152,6 @@ class Payment extends Remote\Model
     {
         return Remote\URL::API_CORE;
     }
-
 
     /**
      * Get the supported methods
@@ -435,7 +429,6 @@ class Payment extends Remote\Model
         return $this->_data['PaymentType'];
     }
 
-
     /**
      * @return \DateTimeInterface
      */
@@ -443,7 +436,6 @@ class Payment extends Remote\Model
     {
         return $this->_data['UpdatedDateUTC'];
     }
-
 
     /**
      * @return string

@@ -120,7 +120,6 @@ class Account extends Remote\Model
      * @property \DateTimeInterface UpdatedDateUTC
      */
 
-
     const ACCOUNT_CLASS_TYPE_ASSET = 'ASSET';
     const ACCOUNT_CLASS_TYPE_EQUITY = 'EQUITY';
     const ACCOUNT_CLASS_TYPE_EXPENSE = 'EXPENSE';
@@ -171,7 +170,6 @@ class Account extends Remote\Model
     const SYSTEM_ACCOUNT_UNREALISEDCURRENCYGAIN = 'UNREALISEDCURRENCYGAIN';
     const SYSTEM_ACCOUNT_WAGEPAYABLES = 'WAGEPAYABLES';
 
-
     /**
      * Get the resource uri of the class (Contacts) etc
      *
@@ -181,7 +179,6 @@ class Account extends Remote\Model
     {
         return 'Accounts';
     }
-
 
     /**
      * Get the root node name.  Just the unqualified classname
@@ -193,7 +190,6 @@ class Account extends Remote\Model
         return 'Account';
     }
 
-
     /**
      * Get the guid property
      *
@@ -204,7 +200,6 @@ class Account extends Remote\Model
         return 'AccountID';
     }
 
-
     /**
      * Get the stem of the API (core.xro) etc
      *
@@ -214,7 +209,6 @@ class Account extends Remote\Model
     {
         return Remote\URL::API_CORE;
     }
-
 
     /**
      * Get the supported methods
@@ -517,7 +511,6 @@ class Account extends Remote\Model
         return $this->_data['Class'];
     }
 
-
     /**
      * @return string
      */
@@ -525,7 +518,6 @@ class Account extends Remote\Model
     {
         return $this->_data['SystemAccount'];
     }
-
 
     /**
      * @return string
@@ -535,7 +527,6 @@ class Account extends Remote\Model
         return $this->_data['ReportingCode'];
     }
 
-
     /**
      * @return string
      */
@@ -544,7 +535,6 @@ class Account extends Remote\Model
         return $this->_data['ReportingCodeName'];
     }
 
-
     /**
      * @return bool
      */
@@ -552,7 +542,6 @@ class Account extends Remote\Model
     {
         return $this->_data['HasAttachments'];
     }
-
 
     /**
      * @return \DateTimeInterface

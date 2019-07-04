@@ -86,7 +86,6 @@ class EarningsType extends Remote\Model
      * @property float Amount
      */
 
-
     const RATETYPE_FIXEDAMOUNT = 'FIXEDAMOUNT';
     const RATETYPE_MULTIPLE = 'MULTIPLE';
     const RATETYPE_RATEPERUNIT = 'RATEPERUNIT';
@@ -103,7 +102,6 @@ class EarningsType extends Remote\Model
     const EARNINGSCATEGORY_CLERGYHOUSINGALLOWANCE = 'CLERGYHOUSINGALLOWANCE';
     const EARNINGSCATEGORY_CLERGYHOUSINGINKIND = 'CLERGYHOUSINGINKIND';
 
-
     /**
      * Get the resource uri of the class (Contacts) etc
      *
@@ -113,7 +111,6 @@ class EarningsType extends Remote\Model
     {
         return 'EarningsTypes';
     }
-
 
     /**
      * Get the root node name.  Just the unqualified classname
@@ -125,7 +122,6 @@ class EarningsType extends Remote\Model
         return 'EarningsType';
     }
 
-
     /**
      * Get the guid property
      *
@@ -136,7 +132,6 @@ class EarningsType extends Remote\Model
         return 'EarningsTypeID';
     }
 
-
     /**
      * Get the stem of the API (core.xro) etc
      *
@@ -146,7 +141,6 @@ class EarningsType extends Remote\Model
     {
         return Remote\URL::API_PAYROLL;
     }
-
 
     /**
      * Get the supported methods

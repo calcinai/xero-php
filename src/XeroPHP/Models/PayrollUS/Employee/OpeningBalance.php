@@ -71,8 +71,6 @@ class OpeningBalance extends Remote\Model
      * @deprecated
      */
 
-
-
     /**
      * Get the resource uri of the class (Contacts) etc
      *
@@ -82,7 +80,6 @@ class OpeningBalance extends Remote\Model
     {
         return 'OpeningBalances';
     }
-
 
     /**
      * Get the root node name.  Just the unqualified classname
@@ -94,7 +91,6 @@ class OpeningBalance extends Remote\Model
         return 'OpeningBalance';
     }
 
-
     /**
      * Get the guid property
      *
@@ -105,7 +101,6 @@ class OpeningBalance extends Remote\Model
         return '';
     }
 
-
     /**
      * Get the stem of the API (core.xro) etc
      *
@@ -115,7 +110,6 @@ class OpeningBalance extends Remote\Model
     {
         return Remote\URL::API_PAYROLL;
     }
-
 
     /**
      * Get the supported methods

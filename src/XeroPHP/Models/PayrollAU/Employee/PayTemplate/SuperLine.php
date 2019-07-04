@@ -58,7 +58,6 @@ class SuperLine extends Remote\Model
         return 'SuperLine';
     }
 
-
     /**
      * Get the root node name.  Just the unqualified classname
      *
@@ -68,7 +67,6 @@ class SuperLine extends Remote\Model
     {
         return 'SuperLine';
     }
-
 
     /**
      * Get the guid property
@@ -80,7 +78,6 @@ class SuperLine extends Remote\Model
         return 'SuperMembershipID';
     }
 
-
     /**
      * Get the stem of the API (core.xro) etc
      *
@@ -90,7 +87,6 @@ class SuperLine extends Remote\Model
     {
         return Remote\URL::API_PAYROLL;
     }
-
 
     /**
      * Get the supported methods

@@ -78,8 +78,6 @@ class PayRun extends Remote\Model
      * @property string PayStubs
      */
 
-
-
     /**
      * Get the resource uri of the class (Contacts) etc
      *
@@ -89,7 +87,6 @@ class PayRun extends Remote\Model
     {
         return 'PayRuns';
     }
-
 
     /**
      * Get the root node name.  Just the unqualified classname
@@ -101,7 +98,6 @@ class PayRun extends Remote\Model
         return 'PayRun';
     }
 
-
     /**
      * Get the guid property
      *
@@ -112,7 +108,6 @@ class PayRun extends Remote\Model
         return 'PayRunID';
     }
 
-
     /**
      * Get the stem of the API (core.xro) etc
      *
@@ -122,7 +117,6 @@ class PayRun extends Remote\Model
     {
         return Remote\URL::API_PAYROLL;
     }
-
 
     /**
      * Get the supported methods
@@ -257,7 +251,6 @@ class PayRun extends Remote\Model
         return $this->_data['PayRunPeriodStartDate'];
     }
 
-
     /**
      * @return \DateTimeInterface
      */
@@ -265,7 +258,6 @@ class PayRun extends Remote\Model
     {
         return $this->_data['PaymentDate'];
     }
-
 
     /**
      * @return string
@@ -275,7 +267,6 @@ class PayRun extends Remote\Model
         return $this->_data['Earnings'];
     }
 
-
     /**
      * @return string
      */
@@ -283,7 +274,6 @@ class PayRun extends Remote\Model
     {
         return $this->_data['Deductions'];
     }
-
 
     /**
      * @return string
@@ -293,7 +283,6 @@ class PayRun extends Remote\Model
         return $this->_data['Reimbursement'];
     }
 
-
     /**
      * @return string
      */
@@ -302,7 +291,6 @@ class PayRun extends Remote\Model
         return $this->_data['NetPay'];
     }
 
-
     /**
      * @return \DateTimeInterface
      */
@@ -310,7 +298,6 @@ class PayRun extends Remote\Model
     {
         return $this->_data['UpdateDateUTC'];
     }
-
 
     /**
      * @return string

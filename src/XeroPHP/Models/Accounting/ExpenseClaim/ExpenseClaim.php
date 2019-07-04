@@ -67,8 +67,6 @@ class ExpenseClaim extends Remote\Model
      * @property string ReceiptID
      */
 
-
-
     /**
      * Get the resource uri of the class (Contacts) etc
      *
@@ -78,7 +76,6 @@ class ExpenseClaim extends Remote\Model
     {
         return 'ExpenseClaim';
     }
-
 
     /**
      * Get the root node name.  Just the unqualified classname
@@ -90,7 +87,6 @@ class ExpenseClaim extends Remote\Model
         return 'ExpenseClaim';
     }
 
-
     /**
      * Get the guid property
      *
@@ -101,7 +97,6 @@ class ExpenseClaim extends Remote\Model
         return 'ExpenseClaimID';
     }
 
-
     /**
      * Get the stem of the API (core.xro) etc
      *
@@ -111,7 +106,6 @@ class ExpenseClaim extends Remote\Model
     {
         return Remote\URL::API_CORE;
     }
-
 
     /**
      * Get the supported methods
@@ -183,7 +177,6 @@ class ExpenseClaim extends Remote\Model
         return $this->_data['Payments'];
     }
 
-
     /**
      * @return string
      */
@@ -191,7 +184,6 @@ class ExpenseClaim extends Remote\Model
     {
         return $this->_data['Status'];
     }
-
 
     /**
      * @return \DateTimeInterface
@@ -201,7 +193,6 @@ class ExpenseClaim extends Remote\Model
         return $this->_data['UpdatedDateUTC'];
     }
 
-
     /**
      * @return float
      */
@@ -209,7 +200,6 @@ class ExpenseClaim extends Remote\Model
     {
         return $this->_data['Total'];
     }
-
 
     /**
      * @return float
@@ -219,7 +209,6 @@ class ExpenseClaim extends Remote\Model
         return $this->_data['AmountDue'];
     }
 
-
     /**
      * @return float
      */
@@ -227,7 +216,6 @@ class ExpenseClaim extends Remote\Model
     {
         return $this->_data['AmountPaid'];
     }
-
 
     /**
      * @return \DateTimeInterface
@@ -237,7 +225,6 @@ class ExpenseClaim extends Remote\Model
         return $this->_data['PaymentDueDate'];
     }
 
-
     /**
      * @return \DateTimeInterface
      */
@@ -245,7 +232,6 @@ class ExpenseClaim extends Remote\Model
     {
         return $this->_data['ReportingDate'];
     }
-
 
     /**
      * @return string

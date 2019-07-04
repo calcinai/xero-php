@@ -40,7 +40,6 @@ class DeductionLine extends Remote\Model
         return 'DeductionLine';
     }
 
-
     /**
      * Get the root node name.  Just the unqualified classname
      *
@@ -50,7 +49,6 @@ class DeductionLine extends Remote\Model
     {
         return 'DeductionLine';
     }
-
 
     /**
      * Get the guid property
@@ -62,7 +60,6 @@ class DeductionLine extends Remote\Model
         return '';
     }
 
-
     /**
      * Get the stem of the API (core.xro) etc
      *
@@ -72,7 +69,6 @@ class DeductionLine extends Remote\Model
     {
         return Remote\URL::API_PAYROLL;
     }
-
 
     /**
      * Get the supported methods

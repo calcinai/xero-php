@@ -70,12 +70,10 @@ class ManualJournal extends Remote\Model
      * @property \DateTimeInterface UpdatedDateUTC
      */
 
-
     const MANUAL_JOURNAL_STATUS_DRAFT = 'DRAFT';
     const MANUAL_JOURNAL_STATUS_POSTED = 'POSTED';
     const MANUAL_JOURNAL_STATUS_DELETED = 'DELETED';
     const MANUAL_JOURNAL_STATUS_VOIDED = 'VOIDED';
-
 
     /**
      * Get the resource uri of the class (Contacts) etc
@@ -87,7 +85,6 @@ class ManualJournal extends Remote\Model
         return 'ManualJournals';
     }
 
-
     /**
      * Get the root node name.  Just the unqualified classname
      *
@@ -97,7 +94,6 @@ class ManualJournal extends Remote\Model
     {
         return 'ManualJournal';
     }
-
 
     /**
      * Get the guid property
@@ -109,7 +105,6 @@ class ManualJournal extends Remote\Model
         return 'ManualJournalID';
     }
 
-
     /**
      * Get the stem of the API (core.xro) etc
      *
@@ -119,7 +114,6 @@ class ManualJournal extends Remote\Model
     {
         return Remote\URL::API_CORE;
     }
-
 
     /**
      * Get the supported methods
@@ -336,7 +330,6 @@ class ManualJournal extends Remote\Model
     {
         return $this->_data['HasAttachments'];
     }
-
 
     /**
      * @return \DateTimeInterface

@@ -99,7 +99,6 @@ class TaxType
     const SOUTH_AFRICA_ZERORATED = 'ZERORATED';
     const SOUTH_AFRICA_ZERORATEDOUTPUT = 'ZERORATEDOUTPUT';
 
-
     /**
      * These have incorrect spelling and will be remove in a future release.
      * Please see "AUSTRALIAN" constants at the top of this file.

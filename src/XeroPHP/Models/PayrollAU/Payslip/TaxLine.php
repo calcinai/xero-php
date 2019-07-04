@@ -31,8 +31,6 @@ class TaxLine extends Remote\Model
      * @property string LiabilityAccount
      */
 
-
-
     /**
      * Get the resource uri of the class (Contacts) etc
      *
@@ -42,7 +40,6 @@ class TaxLine extends Remote\Model
     {
         return 'TaxLine';
     }
-
 
     /**
      * Get the root node name.  Just the unqualified classname
@@ -54,7 +51,6 @@ class TaxLine extends Remote\Model
         return 'TaxLine';
     }
 
-
     /**
      * Get the guid property
      *
@@ -65,7 +61,6 @@ class TaxLine extends Remote\Model
         return '';
     }
 
-
     /**
      * Get the stem of the API (core.xro) etc
      *
@@ -75,7 +70,6 @@ class TaxLine extends Remote\Model
     {
         return Remote\URL::API_PAYROLL;
     }
-
 
     /**
      * Get the supported methods

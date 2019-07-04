@@ -12,7 +12,6 @@ class Collection extends \ArrayObject
      */
     protected $_associated_objects;
 
-
     public function addAssociatedObject($parent_property, Model $object)
     {
         $this->_associated_objects[$parent_property] = $object;

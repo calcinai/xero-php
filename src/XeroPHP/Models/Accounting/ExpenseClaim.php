@@ -29,11 +29,9 @@ class ExpenseClaim extends Remote\Model
      * @property Receipt[] Receipts
      */
 
-
     const EXPENSE_CLAIM_STATUS_SUBMITTED = 'SUBMITTED';
     const EXPENSE_CLAIM_STATUS_AUTHORISED = 'AUTHORISED';
     const EXPENSE_CLAIM_STATUS_PAID = 'PAID';
-
 
     /**
      * Get the resource uri of the class (Contacts) etc
@@ -45,7 +43,6 @@ class ExpenseClaim extends Remote\Model
         return 'ExpenseClaims';
     }
 
-
     /**
      * Get the root node name.  Just the unqualified classname
      *
@@ -55,7 +52,6 @@ class ExpenseClaim extends Remote\Model
     {
         return 'ExpenseClaim';
     }
-
 
     /**
      * Get the guid property
@@ -67,7 +63,6 @@ class ExpenseClaim extends Remote\Model
         return 'ExpenseClaimID';
     }
 
-
     /**
      * Get the stem of the API (core.xro) etc
      *
@@ -77,7 +72,6 @@ class ExpenseClaim extends Remote\Model
     {
         return Remote\URL::API_CORE;
     }
-
 
     /**
      * Get the supported methods
@@ -119,7 +113,6 @@ class ExpenseClaim extends Remote\Model
 
         ];
     }
-
 
     public static function isPageable()
     {

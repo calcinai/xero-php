@@ -208,7 +208,6 @@ class Invoice extends Remote\Model
      * @property CreditNote[] CreditNotes
      */
 
-
     const INVOICE_TYPE_ACCPAY = 'ACCPAY';
     const INVOICE_TYPE_ACCREC = 'ACCREC';
 
@@ -223,7 +222,6 @@ class Invoice extends Remote\Model
     const LINEAMOUNT_TYPE_INCLUSIVE = 'Inclusive';
     const LINEAMOUNT_TYPE_NOTAX = 'NoTax';
 
-
     /**
      * Get the resource uri of the class (Contacts) etc
      *
@@ -233,7 +231,6 @@ class Invoice extends Remote\Model
     {
         return 'Invoices';
     }
-
 
     /**
      * Get the root node name.  Just the unqualified classname
@@ -245,7 +242,6 @@ class Invoice extends Remote\Model
         return 'Invoice';
     }
 
-
     /**
      * Get the guid property
      *
@@ -256,7 +252,6 @@ class Invoice extends Remote\Model
         return 'InvoiceID';
     }
 
-
     /**
      * Get the stem of the API (core.xro) etc
      *
@@ -266,7 +261,6 @@ class Invoice extends Remote\Model
     {
         return Remote\URL::API_CORE;
     }
-
 
     /**
      * Get the supported methods
@@ -669,7 +663,6 @@ class Invoice extends Remote\Model
         return $this->_data['SubTotal'];
     }
 
-
     /**
      * @return float
      */
@@ -677,7 +670,6 @@ class Invoice extends Remote\Model
     {
         return $this->_data['TotalTax'];
     }
-
 
     /**
      * @return float
@@ -687,7 +679,6 @@ class Invoice extends Remote\Model
         return $this->_data['Total'];
     }
 
-
     /**
      * @return float
      */
@@ -695,7 +686,6 @@ class Invoice extends Remote\Model
     {
         return $this->_data['TotalDiscount'];
     }
-
 
     /**
      * @return string
@@ -725,7 +715,6 @@ class Invoice extends Remote\Model
         return $this->_data['HasAttachments'];
     }
 
-
     /**
      * @return Payment[]|Remote\Collection
      * Always returns a collection, switch is for type hinting
@@ -734,7 +723,6 @@ class Invoice extends Remote\Model
     {
         return $this->_data['Payments'];
     }
-
 
     /**
      * @return Prepayment[]|Remote\Collection
@@ -745,7 +733,6 @@ class Invoice extends Remote\Model
         return $this->_data['Prepayments'];
     }
 
-
     /**
      * @return Overpayment[]|Remote\Collection
      * Always returns a collection, switch is for type hinting
@@ -755,7 +742,6 @@ class Invoice extends Remote\Model
         return $this->_data['Overpayments'];
     }
 
-
     /**
      * @return float
      */
@@ -763,7 +749,6 @@ class Invoice extends Remote\Model
     {
         return $this->_data['AmountDue'];
     }
-
 
     /**
      * @return float
@@ -773,7 +758,6 @@ class Invoice extends Remote\Model
         return $this->_data['AmountPaid'];
     }
 
-
     /**
      * @return \DateTimeInterface
      */
@@ -781,7 +765,6 @@ class Invoice extends Remote\Model
     {
         return $this->_data['FullyPaidOnDate'];
     }
-
 
     /**
      * @return float
@@ -791,7 +774,6 @@ class Invoice extends Remote\Model
         return $this->_data['AmountCredited'];
     }
 
-
     /**
      * @return \DateTimeInterface
      */
@@ -799,7 +781,6 @@ class Invoice extends Remote\Model
     {
         return $this->_data['UpdatedDateUTC'];
     }
-
 
     /**
      * @return CreditNote[]|Remote\Collection
@@ -809,7 +790,6 @@ class Invoice extends Remote\Model
     {
         return $this->_data['CreditNotes'];
     }
-
 
     /**
      * Retrieve the online invoice URL.

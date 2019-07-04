@@ -45,8 +45,6 @@ class JournalLine extends Remote\Model
      * @property float TaxAmount
      */
 
-
-
     /**
      * Get the resource uri of the class (Contacts) etc
      *
@@ -56,7 +54,6 @@ class JournalLine extends Remote\Model
     {
         return 'JournalLines';
     }
-
 
     /**
      * Get the root node name.  Just the unqualified classname
@@ -68,7 +65,6 @@ class JournalLine extends Remote\Model
         return 'JournalLine';
     }
 
-
     /**
      * Get the guid property
      *
@@ -79,7 +75,6 @@ class JournalLine extends Remote\Model
         return '';
     }
 
-
     /**
      * Get the stem of the API (core.xro) etc
      *
@@ -89,7 +84,6 @@ class JournalLine extends Remote\Model
     {
         return Remote\URL::API_CORE;
     }
-
 
     /**
      * Get the supported methods

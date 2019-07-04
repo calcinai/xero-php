@@ -185,7 +185,6 @@ class Organisation extends Remote\Model
      * @property PaymentTerm[] PaymentTerms
      */
 
-
     const VERSION_TYPE_AU = 'AU';
     const VERSION_TYPE_NZ = 'NZ';
     const VERSION_TYPE_GLOBAL = 'GLOBAL';
@@ -206,7 +205,6 @@ class Organisation extends Remote\Model
     const ORGANISATION_TYPE_SOLETRADER = 'SOLETRADER';
     const ORGANISATION_TYPE_TRUST = 'TRUST';
 
-
     /**
      * Get the resource uri of the class (Contacts) etc
      *
@@ -216,7 +214,6 @@ class Organisation extends Remote\Model
     {
         return 'Organisation';
     }
-
 
     /**
      * Get the root node name.  Just the unqualified classname
@@ -228,7 +225,6 @@ class Organisation extends Remote\Model
         return 'Organisation';
     }
 
-
     /**
      * Get the guid property
      *
@@ -239,7 +235,6 @@ class Organisation extends Remote\Model
         return '';
     }
 
-
     /**
      * Get the stem of the API (core.xro) etc
      *
@@ -249,7 +244,6 @@ class Organisation extends Remote\Model
     {
         return Remote\URL::API_CORE;
     }
-
 
     /**
      * Get the supported methods

@@ -66,11 +66,9 @@ class Address extends Remote\Model
      * @property string AttentionTo
      */
 
-
     const ADDRESS_TYPE_POBOX = 'POBOX';
     const ADDRESS_TYPE_STREET = 'STREET';
     const ADDRESS_TYPE_DELIVERY = 'DELIVERY';
-
 
     /**
      * Get the resource uri of the class (Contacts) etc
@@ -82,7 +80,6 @@ class Address extends Remote\Model
         return 'Addresses';
     }
 
-
     /**
      * Get the root node name.  Just the unqualified classname
      *
@@ -92,7 +89,6 @@ class Address extends Remote\Model
     {
         return 'Address';
     }
-
 
     /**
      * Get the guid property
@@ -104,7 +100,6 @@ class Address extends Remote\Model
         return '';
     }
 
-
     /**
      * Get the stem of the API (core.xro) etc
      *
@@ -114,7 +109,6 @@ class Address extends Remote\Model
     {
         return Remote\URL::API_CORE;
     }
-
 
     /**
      * Get the supported methods

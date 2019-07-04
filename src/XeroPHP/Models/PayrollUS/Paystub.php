@@ -127,8 +127,6 @@ class Paystub extends Remote\Model
      * @property TimeOffLine[] TimeOffLines
      */
 
-
-
     /**
      * Get the resource uri of the class (Contacts) etc
      *
@@ -138,7 +136,6 @@ class Paystub extends Remote\Model
     {
         return 'Paystubs';
     }
-
 
     /**
      * Get the root node name.  Just the unqualified classname
@@ -150,7 +147,6 @@ class Paystub extends Remote\Model
         return 'Paystub';
     }
 
-
     /**
      * Get the guid property
      *
@@ -161,7 +157,6 @@ class Paystub extends Remote\Model
         return 'PaystubID';
     }
 
-
     /**
      * Get the stem of the API (core.xro) etc
      *
@@ -171,7 +166,6 @@ class Paystub extends Remote\Model
     {
         return Remote\URL::API_PAYROLL;
     }
-
 
     /**
      * Get the supported methods

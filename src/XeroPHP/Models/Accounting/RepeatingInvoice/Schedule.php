@@ -49,8 +49,6 @@ class Schedule extends Remote\Model
      * @property \DateTimeInterface EndDate
      */
 
-
-
     /**
      * Get the resource uri of the class (Contacts) etc
      *
@@ -60,7 +58,6 @@ class Schedule extends Remote\Model
     {
         return 'Schedule';
     }
-
 
     /**
      * Get the root node name.  Just the unqualified classname
@@ -72,7 +69,6 @@ class Schedule extends Remote\Model
         return 'Schedule';
     }
 
-
     /**
      * Get the guid property
      *
@@ -83,7 +79,6 @@ class Schedule extends Remote\Model
         return '';
     }
 
-
     /**
      * Get the stem of the API (core.xro) etc
      *
@@ -93,7 +88,6 @@ class Schedule extends Remote\Model
     {
         return Remote\URL::API_CORE;
     }
-
 
     /**
      * Get the supported methods

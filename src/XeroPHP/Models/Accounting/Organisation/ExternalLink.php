@@ -18,13 +18,11 @@ class ExternalLink extends Remote\Model
      * @property string Url
      */
 
-
     const EXTERNAL_LINK_TYPE_FACEBOOK = 'Facebook';
     const EXTERNAL_LINK_TYPE_GOOGLEPLUS = 'GooglePlus';
     const EXTERNAL_LINK_TYPE_LINKEDIN = 'LinkedIn';
     const EXTERNAL_LINK_TYPE_TWITTER = 'Twitter';
     const EXTERNAL_LINK_TYPE_WEBSITE = 'Website';
-
 
     /**
      * Get the resource uri of the class (Contacts) etc
@@ -36,7 +34,6 @@ class ExternalLink extends Remote\Model
         return 'ExternalLinks';
     }
 
-
     /**
      * Get the root node name.  Just the unqualified classname
      *
@@ -46,7 +43,6 @@ class ExternalLink extends Remote\Model
     {
         return 'ExternalLink';
     }
-
 
     /**
      * Get the guid property
@@ -58,7 +54,6 @@ class ExternalLink extends Remote\Model
         return '';
     }
 
-
     /**
      * Get the stem of the API (core.xro) etc
      *
@@ -68,7 +63,6 @@ class ExternalLink extends Remote\Model
     {
         return Remote\URL::API_CORE;
     }
-
 
     /**
      * Get the supported methods

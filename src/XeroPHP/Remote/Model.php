@@ -19,7 +19,6 @@ abstract class Model implements ObjectInterface, \JsonSerializable, \ArrayAccess
     const KEY_IS_ARRAY = 3;
     const KEY_SAVE_DIRECTLY = 4;
 
-
     const PROPERTY_TYPE_STRING = 'string';
     const PROPERTY_TYPE_INT = 'int';
     const PROPERTY_TYPE_FLOAT = 'float';
@@ -249,7 +248,6 @@ abstract class Model implements ObjectInterface, \JsonSerializable, \ArrayAccess
         return $out;
     }
 
-
     /**
      * Convert properties to strings, based on the types parsed.
      *
@@ -391,7 +389,6 @@ abstract class Model implements ObjectInterface, \JsonSerializable, \ArrayAccess
 
         return true;
     }
-
 
     /**
      * Shorthand save an object if it is instantiated with app context.

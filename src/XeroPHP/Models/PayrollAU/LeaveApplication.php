@@ -55,10 +55,8 @@ class LeaveApplication extends Remote\Model
      * @property LeavePeriod[] LeavePeriods
      */
 
-
     const LEAVE_PERIOD_STATUS_SCHEDULED = 'Scheduled';
     const LEAVE_PERIOD_STATUS_PROCESSED = 'Processed';
-
 
     /**
      * Get the resource uri of the class (Contacts) etc
@@ -70,7 +68,6 @@ class LeaveApplication extends Remote\Model
         return 'LeaveApplications';
     }
 
-
     /**
      * Get the root node name.  Just the unqualified classname
      *
@@ -80,7 +77,6 @@ class LeaveApplication extends Remote\Model
     {
         return 'LeaveApplication';
     }
-
 
     /**
      * Get the guid property
@@ -92,7 +88,6 @@ class LeaveApplication extends Remote\Model
         return 'LeaveApplicationID';
     }
 
-
     /**
      * Get the stem of the API (core.xro) etc
      *
@@ -102,7 +97,6 @@ class LeaveApplication extends Remote\Model
     {
         return Remote\URL::API_PAYROLL;
     }
-
 
     /**
      * Get the supported methods

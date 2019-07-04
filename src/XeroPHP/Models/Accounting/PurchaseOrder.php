@@ -163,13 +163,11 @@ class PurchaseOrder extends Remote\Model
      * @property \DateTimeInterface UpdatedDateUTC
      */
 
-
     const PURCHASE_ORDER_STATUS_DRAFT = 'DRAFT';
     const PURCHASE_ORDER_STATUS_SUBMITTED = 'SUBMITTED';
     const PURCHASE_ORDER_STATUS_AUTHORISED = 'AUTHORISED';
     const PURCHASE_ORDER_STATUS_BILLED = 'BILLED';
     const PURCHASE_ORDER_STATUS_DELETED = 'DELETED';
-
 
     /**
      * Get the resource uri of the class (Contacts) etc
@@ -181,7 +179,6 @@ class PurchaseOrder extends Remote\Model
         return 'PurchaseOrders';
     }
 
-
     /**
      * Get the root node name.  Just the unqualified classname
      *
@@ -191,7 +188,6 @@ class PurchaseOrder extends Remote\Model
     {
         return 'PurchaseOrder';
     }
-
 
     /**
      * Get the guid property
@@ -203,7 +199,6 @@ class PurchaseOrder extends Remote\Model
         return 'PurchaseOrderID';
     }
 
-
     /**
      * Get the stem of the API (core.xro) etc
      *
@@ -213,7 +208,6 @@ class PurchaseOrder extends Remote\Model
     {
         return Remote\URL::API_CORE;
     }
-
 
     /**
      * Get the supported methods
@@ -625,7 +619,6 @@ class PurchaseOrder extends Remote\Model
         return $this->_data['CurrencyRate'];
     }
 
-
     /**
      * @return float
      */
@@ -633,7 +626,6 @@ class PurchaseOrder extends Remote\Model
     {
         return $this->_data['SubTotal'];
     }
-
 
     /**
      * @return float
@@ -643,7 +635,6 @@ class PurchaseOrder extends Remote\Model
         return $this->_data['TotalTax'];
     }
 
-
     /**
      * @return float
      */
@@ -651,7 +642,6 @@ class PurchaseOrder extends Remote\Model
     {
         return $this->_data['Total'];
     }
-
 
     /**
      * @return float
@@ -661,7 +651,6 @@ class PurchaseOrder extends Remote\Model
         return $this->_data['TotalDiscount'];
     }
 
-
     /**
      * @return bool
      */
@@ -669,7 +658,6 @@ class PurchaseOrder extends Remote\Model
     {
         return $this->_data['HasAttachments'];
     }
-
 
     /**
      * @return \DateTimeInterface

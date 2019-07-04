@@ -75,13 +75,11 @@ class LinkedTransaction extends Remote\Model
      * @property string SourceTransactionTypeCode
      */
 
-
     const LINKED_TRANSACTION_STATUS_DRAFT = 'DRAFT';
     const LINKED_TRANSACTION_STATUS_APPROVED = 'APPROVED';
     const LINKED_TRANSACTION_STATUS_ONDRAFT = 'ONDRAFT';
     const LINKED_TRANSACTION_STATUS_BILLED = 'BILLED';
     const LINKED_TRANSACTION_STATUS_VOIDED = 'VOIDED';
-
 
     /**
      * Get the resource uri of the class (Contacts) etc
@@ -93,7 +91,6 @@ class LinkedTransaction extends Remote\Model
         return 'LinkedTransactions';
     }
 
-
     /**
      * Get the root node name.  Just the unqualified classname
      *
@@ -103,7 +100,6 @@ class LinkedTransaction extends Remote\Model
     {
         return 'LinkedTransaction';
     }
-
 
     /**
      * Get the guid property
@@ -115,7 +111,6 @@ class LinkedTransaction extends Remote\Model
         return 'LinkedTransactionID';
     }
 
-
     /**
      * Get the stem of the API (core.xro) etc
      *
@@ -125,7 +120,6 @@ class LinkedTransaction extends Remote\Model
     {
         return Remote\URL::API_CORE;
     }
-
 
     /**
      * Get the supported methods

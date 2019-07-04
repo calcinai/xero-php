@@ -84,7 +84,6 @@ class Client
         $this->resetOAuthParams();
     }
 
-
     /**
      * Resets the instance for subsequent signing requests.
      */
@@ -213,7 +212,6 @@ class Client
 
         return $secret;
     }
-
 
     /**
      * Generic nonce generating function for the request.

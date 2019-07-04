@@ -44,8 +44,6 @@ class BankAccount extends Remote\Model
      * @property float Amount
      */
 
-
-
     /**
      * Get the resource uri of the class (Contacts) etc
      *
@@ -55,7 +53,6 @@ class BankAccount extends Remote\Model
     {
         return 'BankAccount';
     }
-
 
     /**
      * Get the root node name.  Just the unqualified classname
@@ -67,7 +64,6 @@ class BankAccount extends Remote\Model
         return 'BankAccount';
     }
 
-
     /**
      * Get the guid property
      *
@@ -78,7 +74,6 @@ class BankAccount extends Remote\Model
         return '';
     }
 
-
     /**
      * Get the stem of the API (core.xro) etc
      *
@@ -88,7 +83,6 @@ class BankAccount extends Remote\Model
     {
         return Remote\URL::API_PAYROLL;
     }
-
 
     /**
      * Get the supported methods

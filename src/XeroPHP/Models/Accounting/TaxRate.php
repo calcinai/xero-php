@@ -79,11 +79,9 @@ class TaxRate extends Remote\Model
      * @property float EffectiveRate
      */
 
-
     const TAX_STATUS_ACTIVE = 'ACTIVE';
     const TAX_STATUS_DELETED = 'DELETED';
     const TAX_STATUS_ARCHIVED = 'ARCHIVED';
-
 
     /**
      * Get the resource uri of the class (Contacts) etc
@@ -95,7 +93,6 @@ class TaxRate extends Remote\Model
         return 'TaxRates';
     }
 
-
     /**
      * Get the root node name.  Just the unqualified classname
      *
@@ -105,7 +102,6 @@ class TaxRate extends Remote\Model
     {
         return 'TaxRate';
     }
-
 
     /**
      * Get the guid property
@@ -117,7 +113,6 @@ class TaxRate extends Remote\Model
         return '';
     }
 
-
     /**
      * Get the stem of the API (core.xro) etc
      *
@@ -127,7 +122,6 @@ class TaxRate extends Remote\Model
     {
         return Remote\URL::API_CORE;
     }
-
 
     /**
      * Get the supported methods
@@ -287,7 +281,6 @@ class TaxRate extends Remote\Model
         return $this->_data['CanApplyToAssets'];
     }
 
-
     /**
      * @return bool
      */
@@ -295,7 +288,6 @@ class TaxRate extends Remote\Model
     {
         return $this->_data['CanApplyToEquity'];
     }
-
 
     /**
      * @return bool
@@ -305,7 +297,6 @@ class TaxRate extends Remote\Model
         return $this->_data['CanApplyToExpenses'];
     }
 
-
     /**
      * @return bool
      */
@@ -313,7 +304,6 @@ class TaxRate extends Remote\Model
     {
         return $this->_data['CanApplyToLiabilities'];
     }
-
 
     /**
      * @return bool
@@ -323,7 +313,6 @@ class TaxRate extends Remote\Model
         return $this->_data['CanApplyToRevenue'];
     }
 
-
     /**
      * @return float
      */
@@ -331,7 +320,6 @@ class TaxRate extends Remote\Model
     {
         return $this->_data['DisplayTaxRate'];
     }
-
 
     /**
      * @return float

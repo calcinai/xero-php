@@ -234,10 +234,8 @@ class Contact extends Remote\Model
      * @property bool HasAttachments
      */
 
-
     const CONTACT_STATUS_ACTIVE = 'ACTIVE';
     const CONTACT_STATUS_ARCHIVED = 'ARCHIVED';
-
 
     /**
      * Get the resource uri of the class (Contacts) etc
@@ -249,7 +247,6 @@ class Contact extends Remote\Model
         return 'Contacts';
     }
 
-
     /**
      * Get the root node name.  Just the unqualified classname
      *
@@ -259,7 +256,6 @@ class Contact extends Remote\Model
     {
         return 'Contact';
     }
-
 
     /**
      * Get the guid property
@@ -271,7 +267,6 @@ class Contact extends Remote\Model
         return 'ContactID';
     }
 
-
     /**
      * Get the stem of the API (core.xro) etc
      *
@@ -281,7 +276,6 @@ class Contact extends Remote\Model
     {
         return Remote\URL::API_CORE;
     }
-
 
     /**
      * Get the supported methods

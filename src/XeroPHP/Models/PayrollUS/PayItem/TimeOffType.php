@@ -47,8 +47,6 @@ class TimeOffType extends Remote\Model
      * @property string ShowBalanceToEmployee
      */
 
-
-
     /**
      * Get the resource uri of the class (Contacts) etc
      *
@@ -58,7 +56,6 @@ class TimeOffType extends Remote\Model
     {
         return 'TimeOffTypes';
     }
-
 
     /**
      * Get the root node name.  Just the unqualified classname
@@ -70,7 +67,6 @@ class TimeOffType extends Remote\Model
         return 'TimeOffType';
     }
 
-
     /**
      * Get the guid property
      *
@@ -81,7 +77,6 @@ class TimeOffType extends Remote\Model
         return 'TimeOffTypeID';
     }
 
-
     /**
      * Get the stem of the API (core.xro) etc
      *
@@ -91,7 +86,6 @@ class TimeOffType extends Remote\Model
     {
         return Remote\URL::API_PAYROLL;
     }
-
 
     /**
      * Get the supported methods

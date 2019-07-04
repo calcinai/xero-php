@@ -55,7 +55,6 @@ class Journal extends Remote\Model
      * @property JournalLine[] JournalLines
      */
 
-
     const JOURNAL_SOURCE_TYPE_ACCREC = 'ACCREC';
     const JOURNAL_SOURCE_TYPE_ACCPAY = 'ACCPAY';
     const JOURNAL_SOURCE_TYPE_ACCRECCREDIT = 'ACCRECCREDIT';
@@ -82,7 +81,6 @@ class Journal extends Remote\Model
     const JOURNAL_SOURCE_TYPE_INTEGRATEDPAYROLLPTPAYMENT = 'INTEGRATEDPAYROLLPTPAYMENT';
     const JOURNAL_SOURCE_TYPE_INTEGRATEDPAYROLLCN = 'INTEGRATEDPAYROLLCN';
 
-
     /**
      * Get the resource uri of the class (Contacts) etc
      *
@@ -92,7 +90,6 @@ class Journal extends Remote\Model
     {
         return 'Journals';
     }
-
 
     /**
      * Get the root node name.  Just the unqualified classname
@@ -104,7 +101,6 @@ class Journal extends Remote\Model
         return 'Journal';
     }
 
-
     /**
      * Get the guid property
      *
@@ -115,7 +111,6 @@ class Journal extends Remote\Model
         return 'JournalID';
     }
 
-
     /**
      * Get the stem of the API (core.xro) etc
      *
@@ -125,7 +120,6 @@ class Journal extends Remote\Model
     {
         return Remote\URL::API_CORE;
     }
-
 
     /**
      * Get the supported methods

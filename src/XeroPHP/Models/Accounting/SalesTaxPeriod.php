@@ -24,7 +24,6 @@ class SalesTaxPeriod
     const UNITED_KINGDOM_QUARTERLY = 'QUARTERLY';
     const UNITED_KINGDOM_YEARLY = 'YEARLY';
 
-
     /**
      * These have incorrect spelling and will be remove in a future release.
      * Please see "AUSTRALIAN" constants at the top of this file.
