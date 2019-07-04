@@ -7,8 +7,6 @@ use XeroPHP\Remote;
 class Phone extends Remote\Model
 {
     /**
-     *
-     *
      * @property string PhoneType
      */
 
@@ -91,7 +89,6 @@ class Phone extends Remote\Model
     }
 
     /**
-     *
      * Get the properties of the object.  Indexed by constants
      *  [0] - Mandatory
      *  [1] - Type

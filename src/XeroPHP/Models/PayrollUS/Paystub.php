@@ -26,8 +26,6 @@ class Paystub extends Remote\Model
      */
 
     /**
-     *
-     *
      * @property string PayRunID
      */
 
@@ -80,8 +78,6 @@ class Paystub extends Remote\Model
      */
 
     /**
-     *
-     *
      * @property \DateTimeInterface UpdatedDateUTC
      */
 
@@ -185,7 +181,6 @@ class Paystub extends Remote\Model
     }
 
     /**
-     *
      * Get the properties of the object.  Indexed by constants
      *  [0] - Mandatory
      *  [1] - Type

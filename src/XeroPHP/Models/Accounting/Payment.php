@@ -10,32 +10,22 @@ class Payment extends Remote\Model
     use HistoryTrait;
 
     /**
-     *
-     *
      * @property Invoice Invoice
      */
 
     /**
-     *
-     *
      * @property CreditNote CreditNote
      */
 
     /**
-     *
-     *
      * @property Prepayment Prepayment
      */
 
     /**
-     *
-     *
      * @property Overpayment Overpayment
      */
 
     /**
-     *
-     *
      * @property Account Account
      */
 
@@ -172,7 +162,6 @@ class Payment extends Remote\Model
     }
 
     /**
-     *
      * Get the properties of the object.  Indexed by constants
      *  [0] - Mandatory
      *  [1] - Type
