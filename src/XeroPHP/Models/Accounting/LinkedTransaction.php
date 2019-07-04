@@ -74,8 +74,6 @@ class LinkedTransaction extends Remote\Model
      *
      * @property string SourceTransactionTypeCode
      */
-
-
     const LINKED_TRANSACTION_STATUS_DRAFT = 'DRAFT';
     const LINKED_TRANSACTION_STATUS_APPROVED = 'APPROVED';
     const LINKED_TRANSACTION_STATUS_ONDRAFT = 'ONDRAFT';

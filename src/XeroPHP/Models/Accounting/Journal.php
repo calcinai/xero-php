@@ -54,8 +54,6 @@ class Journal extends Remote\Model
      *
      * @property JournalLine[] JournalLines
      */
-
-
     const JOURNAL_SOURCE_TYPE_ACCREC = 'ACCREC';
     const JOURNAL_SOURCE_TYPE_ACCPAY = 'ACCPAY';
     const JOURNAL_SOURCE_TYPE_ACCRECCREDIT = 'ACCRECCREDIT';

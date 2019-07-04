@@ -17,8 +17,6 @@ class PaymentMethod extends Remote\Model
      *
      * @property BankAccount[] BankAccounts
      */
-
-
     const PAYMENT_METHOD_TYPE_CHECK = 'CHECK';
     const PAYMENT_METHOD_TYPE_MANUAL = 'MANUAL';
     const PAYMENT_METHOD_TYPE_DIRECTDEPOSIT = 'DIRECTDEPOSIT';

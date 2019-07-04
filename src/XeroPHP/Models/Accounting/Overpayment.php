@@ -129,8 +129,6 @@ class Overpayment extends Remote\Model
      *
      * @property bool HasAttachments
      */
-
-
     const TYPE_RECEIVE_OVERPAYMENT = 'RECEIVE-OVERPAYMENT';
     const TYPE_SPEND_OVERPAYMENT = 'SPEND-OVERPAYMENT';
 

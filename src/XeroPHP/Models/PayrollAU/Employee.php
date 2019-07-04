@@ -185,8 +185,6 @@ class Employee extends Remote\Model
      *
      * @property \DateTimeInterface UpdatedDateUTC
      */
-
-
     const STATEABBREVIATION_ACT = 'ACT';
     const STATEABBREVIATION_NSW = 'NSW';
     const STATEABBREVIATION_NT = 'NT';

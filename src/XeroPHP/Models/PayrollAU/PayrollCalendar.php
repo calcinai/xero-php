@@ -36,8 +36,6 @@ class PayrollCalendar extends Remote\Model
      *
      * @property \DateTimeInterface PaymentDate
      */
-
-
     const CALENDARTYPE_WEEKLY = 'WEEKLY';
     const CALENDARTYPE_FORTNIGHTLY = 'FORTNIGHTLY';
     const CALENDARTYPE_FOURWEEKLY = 'FOURWEEKLY';

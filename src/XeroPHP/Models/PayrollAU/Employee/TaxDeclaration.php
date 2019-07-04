@@ -91,8 +91,6 @@ class TaxDeclaration extends Remote\Model
      *
      * @property string ApprovedWithholdingVariationPercentage
      */
-
-
     const EMPLOYMENTBASIS_FULLTIME = 'FULLTIME';
     const EMPLOYMENTBASIS_PARTTIME = 'PARTTIME';
     const EMPLOYMENTBASIS_CASUAL = 'CASUAL';

@@ -69,8 +69,6 @@ class ManualJournal extends Remote\Model
      *
      * @property \DateTimeInterface UpdatedDateUTC
      */
-
-
     const MANUAL_JOURNAL_STATUS_DRAFT = 'DRAFT';
     const MANUAL_JOURNAL_STATUS_POSTED = 'POSTED';
     const MANUAL_JOURNAL_STATUS_DELETED = 'DELETED';

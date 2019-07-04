@@ -233,8 +233,6 @@ class Contact extends Remote\Model
      *
      * @property bool HasAttachments
      */
-
-
     const CONTACT_STATUS_ACTIVE = 'ACTIVE';
     const CONTACT_STATUS_ARCHIVED = 'ARCHIVED';
 

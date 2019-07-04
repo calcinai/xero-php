@@ -101,8 +101,6 @@ class Receipt extends Remote\Model
      *
      * @property string Url
      */
-
-
     const RECEIPT_STATUS_DRAFT = 'DRAFT';
     const RECEIPT_STATUS_SUBMITTED = 'SUBMITTED';
     const RECEIPT_STATUS_AUTHORISED = 'AUTHORISED';

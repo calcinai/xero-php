@@ -142,8 +142,6 @@ class CreditNote extends Remote\Model
      *
      * @property bool HasAttachments
      */
-
-
     const CREDIT_NOTE_TYPE_ACCPAYCREDIT = 'ACCPAYCREDIT';
     const CREDIT_NOTE_TYPE_ACCRECCREDIT = 'ACCRECCREDIT';
 

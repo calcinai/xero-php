@@ -95,8 +95,6 @@ class Payment extends Remote\Model
      *
      * @property string PaymentID
      */
-
-
     const PAYMENT_STATUS_AUTHORISED = 'AUTHORISED';
     const PAYMENT_STATUS_DELETED = 'DELETED';
 

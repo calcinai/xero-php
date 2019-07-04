@@ -86,8 +86,6 @@ class EarningsRate extends Remote\Model
      *
      * @property float Amount
      */
-
-
     const EARNINGSTYPE_FIXED = 'FIXED';
     const EARNINGSTYPE_ORDINARYTIMEEARNINGS = 'ORDINARYTIMEEARNINGS';
     const EARNINGSTYPE_OVERTIMEEARNINGS = 'OVERTIMEEARNINGS';

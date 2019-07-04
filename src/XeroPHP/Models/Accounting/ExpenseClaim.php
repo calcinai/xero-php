@@ -28,8 +28,6 @@ class ExpenseClaim extends Remote\Model
      *
      * @property Receipt[] Receipts
      */
-
-
     const EXPENSE_CLAIM_STATUS_SUBMITTED = 'SUBMITTED';
     const EXPENSE_CLAIM_STATUS_AUTHORISED = 'AUTHORISED';
     const EXPENSE_CLAIM_STATUS_PAID = 'PAID';

@@ -17,8 +17,6 @@ class PaymentTerm extends Remote\Model
      *
      * @property Sale[] Sales
      */
-
-
      const DAYSAFTERBILLDATE = 'DAYSAFTERBILLDATE';
      const DAYSAFTERBILLMONTH = 'DAYSAFTERBILLMONTH';
      const OFCURRENTMONTH = 'OFCURRENTMONTH';

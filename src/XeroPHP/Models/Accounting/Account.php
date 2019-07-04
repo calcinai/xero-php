@@ -119,8 +119,6 @@ class Account extends Remote\Model
      *
      * @property \DateTimeInterface UpdatedDateUTC
      */
-
-
     const ACCOUNT_CLASS_TYPE_ASSET = 'ASSET';
     const ACCOUNT_CLASS_TYPE_EQUITY = 'EQUITY';
     const ACCOUNT_CLASS_TYPE_EXPENSE = 'EXPENSE';

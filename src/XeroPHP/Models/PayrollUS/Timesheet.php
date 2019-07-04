@@ -48,8 +48,6 @@ class Timesheet extends Remote\Model
      *
      * @property string Hours
      */
-
-
     const STATUS_DRAFT = 'DRAFT';
     const STATUS_PROCESSED = 'PROCESSED';
     const STATUS_APPROVED = 'APPROVED';

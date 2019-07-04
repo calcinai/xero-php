@@ -85,8 +85,6 @@ class EarningsType extends Remote\Model
      *
      * @property float Amount
      */
-
-
     const RATETYPE_FIXEDAMOUNT = 'FIXEDAMOUNT';
     const RATETYPE_MULTIPLE = 'MULTIPLE';
     const RATETYPE_RATEPERUNIT = 'RATEPERUNIT';

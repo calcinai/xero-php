@@ -207,8 +207,6 @@ class Invoice extends Remote\Model
      *
      * @property CreditNote[] CreditNotes
      */
-
-
     const INVOICE_TYPE_ACCPAY = 'ACCPAY';
     const INVOICE_TYPE_ACCREC = 'ACCREC';
 

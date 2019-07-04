@@ -17,8 +17,6 @@ class ExternalLink extends Remote\Model
      *
      * @property string Url
      */
-
-
     const EXTERNAL_LINK_TYPE_FACEBOOK = 'Facebook';
     const EXTERNAL_LINK_TYPE_GOOGLEPLUS = 'GooglePlus';
     const EXTERNAL_LINK_TYPE_LINKEDIN = 'LinkedIn';

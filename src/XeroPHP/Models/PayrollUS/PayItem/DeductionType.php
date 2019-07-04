@@ -62,8 +62,6 @@ class DeductionType extends Remote\Model
      *
      * @property float CompanyMax
      */
-
-
     const CALCULATION_TYPE_CATCHUPPLAN = 'CATCHUPPLAN';
     const CALCULATION_TYPE_STANDARDPLAN = 'STANDARDPLAN';
 

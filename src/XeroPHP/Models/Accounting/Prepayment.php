@@ -123,8 +123,6 @@ class Prepayment extends Remote\Model
      *
      * @property bool HasAttachments
      */
-
-
     const TYPE_RECEIVE_PREPAYMENT = 'RECEIVE-PREPAYMENT';
     const TYPE_SPEND_PREPAYMENT = 'SPEND-PREPAYMENT';
 

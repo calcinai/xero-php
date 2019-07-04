@@ -139,8 +139,6 @@ class BankTransaction extends Remote\Model
      *
      * @property bool HasAttachments
      */
-
-
     const TYPE_RECEIVE = 'RECEIVE';
     const TYPE_RECEIVE_OVERPAYMENT = 'RECEIVE-OVERPAYMENT';
     const TYPE_RECEIVE_PREPAYMENT = 'RECEIVE-PREPAYMENT';

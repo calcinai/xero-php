@@ -162,8 +162,6 @@ class PurchaseOrder extends Remote\Model
      *
      * @property \DateTimeInterface UpdatedDateUTC
      */
-
-
     const PURCHASE_ORDER_STATUS_DRAFT = 'DRAFT';
     const PURCHASE_ORDER_STATUS_SUBMITTED = 'SUBMITTED';
     const PURCHASE_ORDER_STATUS_AUTHORISED = 'AUTHORISED';

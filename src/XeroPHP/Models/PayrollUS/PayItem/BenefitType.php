@@ -62,8 +62,6 @@ class BenefitType extends Remote\Model
      *
      * @property float ShowBalanceOnPaystub
      */
-
-
     const BENEFITCATEGORY_AFTERTAXBENEFIT = 'AFTERTAXBENEFIT';
     const BENEFITCATEGORY_DEPENDENTCARE = 'DEPENDENTCARE';
     const BENEFITCATEGORY_FLEXIBLESPENDINGACCOUNT = 'FLEXIBLESPENDINGACCOUNT';

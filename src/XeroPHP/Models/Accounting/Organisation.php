@@ -184,8 +184,6 @@ class Organisation extends Remote\Model
      *
      * @property PaymentTerm[] PaymentTerms
      */
-
-
     const VERSION_TYPE_AU = 'AU';
     const VERSION_TYPE_NZ = 'NZ';
     const VERSION_TYPE_GLOBAL = 'GLOBAL';

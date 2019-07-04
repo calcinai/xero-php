@@ -69,8 +69,6 @@ class SuperFund extends Remote\Model
      * @property string SPIN
      * @deprecated
      */
-
-
     const TYPE_REGULATED = 'REGULATED';
     const TYPE_SMSF = 'SMSF';
 

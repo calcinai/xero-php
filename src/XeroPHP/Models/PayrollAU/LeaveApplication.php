@@ -54,8 +54,6 @@ class LeaveApplication extends Remote\Model
      *
      * @property LeavePeriod[] LeavePeriods
      */
-
-
     const LEAVE_PERIOD_STATUS_SCHEDULED = 'Scheduled';
     const LEAVE_PERIOD_STATUS_PROCESSED = 'Processed';
 

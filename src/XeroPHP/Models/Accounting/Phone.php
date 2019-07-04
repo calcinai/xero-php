@@ -29,8 +29,6 @@ class Phone extends Remote\Model
      *
      * @property string PhoneCountryCode
      */
-
-
     const PHONE_TYPE_DEFAULT = 'DEFAULT';
     const PHONE_TYPE_DDI = 'DDI';
     const PHONE_TYPE_MOBILE = 'MOBILE';
