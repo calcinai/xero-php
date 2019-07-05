@@ -121,7 +121,8 @@ class Response
                 $response = urldecode($this->response_body);
                 if (false !== stripos($response, 'Organisation is offline')) {
                     throw new OrganisationOfflineException();
-                } elseif (false !== stripos($response, 'Rate limit exceeded')) {
+                }
+                if (false !== stripos($response, 'Rate limit exceeded')) {
                     $problem = isset($this->headers['x-rate-limit-problem']) ? current($this->headers['x-rate-limit-problem']) : null;
                     $exception = new RateLimitExceededException();
                     $exception->setRateLimitProblem($problem);
