@@ -115,7 +115,7 @@ class Attachment extends Model
             'ContentLength' => $content_length,
             'FileName' => $path_info['basename'],
         ]);
-        $instance->setLocalHandle(fopen($file_name, 'r'));
+        $instance->setLocalHandle(fopen($file_name, 'rb'));
 
         return $instance;
     }
