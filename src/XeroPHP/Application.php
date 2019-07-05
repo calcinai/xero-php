@@ -453,9 +453,7 @@ abstract class Application
 
     public function requestCompleted($response, $info, $headers) {
         foreach($this->requestCompletedCallbacks as $callback) {
-            if($callback instanceof \Closure) {
-                call_user_func($callback, $response, $info, $headers);
-            }
+            call_user_func($callback, $response, $info, $headers);
         }
     }
 
