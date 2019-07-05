@@ -52,7 +52,6 @@ class LeaveLine extends Remote\Model
         return 'LeaveLine';
     }
 
-
     /**
      * Get the root node name.  Just the unqualified classname
      *
@@ -62,7 +61,6 @@ class LeaveLine extends Remote\Model
     {
         return 'LeaveLine';
     }
-
 
     /**
      * Get the guid property
@@ -74,7 +72,6 @@ class LeaveLine extends Remote\Model
         return 'LeaveTypeId';
     }
 
-
     /**
      * Get the stem of the API (core.xro) etc
      *
@@ -84,7 +81,6 @@ class LeaveLine extends Remote\Model
     {
         return Remote\URL::API_PAYROLL;
     }
-
 
     /**
      * Get the supported methods

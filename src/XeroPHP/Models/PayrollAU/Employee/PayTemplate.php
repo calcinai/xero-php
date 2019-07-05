@@ -51,7 +51,6 @@ class PayTemplate extends Remote\Model
         return 'PayTemplate';
     }
 
-
     /**
      * Get the root node name.  Just the unqualified classname
      *
@@ -61,7 +60,6 @@ class PayTemplate extends Remote\Model
     {
         return 'PayTemplate';
     }
-
 
     /**
      * Get the guid property
@@ -73,7 +71,6 @@ class PayTemplate extends Remote\Model
         return '';
     }
 
-
     /**
      * Get the stem of the API (core.xro) etc
      *
@@ -83,7 +80,6 @@ class PayTemplate extends Remote\Model
     {
         return Remote\URL::API_PAYROLL;
     }
-
 
     /**
      * Get the supported methods

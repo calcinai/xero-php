@@ -54,8 +54,6 @@ class Setting extends Remote\Model
      * @property string optInForTax
      */
 
-
-
     /**
      * Get the resource uri of the class (Contacts) etc
      *
@@ -65,7 +63,6 @@ class Setting extends Remote\Model
     {
         return 'Settings';
     }
-
 
     /**
      * Get the root node name.  Just the unqualified classname
@@ -77,7 +74,6 @@ class Setting extends Remote\Model
         return 'Setting';
     }
 
-
     /**
      * Get the guid property
      *
@@ -88,7 +84,6 @@ class Setting extends Remote\Model
         return '';
     }
 
-
     /**
      * Get the stem of the API (core.xro) etc
      *
@@ -98,7 +93,6 @@ class Setting extends Remote\Model
     {
         return Remote\URL::API_ASSET;
     }
-
 
     /**
      * Get the supported methods

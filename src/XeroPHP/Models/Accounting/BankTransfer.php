@@ -73,8 +73,6 @@ class BankTransfer extends Remote\Model
      * @property \DateTimeInterface CreatedDateUTC
      */
 
-
-
     /**
      * Get the resource uri of the class (Contacts) etc
      *
@@ -84,7 +82,6 @@ class BankTransfer extends Remote\Model
     {
         return 'BankTransfers';
     }
-
 
     /**
      * Get the root node name.  Just the unqualified classname
@@ -96,7 +93,6 @@ class BankTransfer extends Remote\Model
         return 'BankTransfer';
     }
 
-
     /**
      * Get the guid property
      *
@@ -107,7 +103,6 @@ class BankTransfer extends Remote\Model
         return 'BankTransferID';
     }
 
-
     /**
      * Get the stem of the API (core.xro) etc
      *
@@ -117,7 +112,6 @@ class BankTransfer extends Remote\Model
     {
         return Remote\URL::API_CORE;
     }
-
 
     /**
      * Get the supported methods
@@ -270,7 +264,6 @@ class BankTransfer extends Remote\Model
         return $this->_data['CurrencyRate'];
     }
 
-
     /**
      * @return string
      */
@@ -278,7 +271,6 @@ class BankTransfer extends Remote\Model
     {
         return $this->_data['FromBankTransactionID'];
     }
-
 
     /**
      * @return string
@@ -288,7 +280,6 @@ class BankTransfer extends Remote\Model
         return $this->_data['ToBankTransactionID'];
     }
 
-
     /**
      * @return bool
      */
@@ -296,7 +287,6 @@ class BankTransfer extends Remote\Model
     {
         return $this->_data['HasAttachments'];
     }
-
 
     /**
      * @return \DateTimeInterface

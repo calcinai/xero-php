@@ -55,8 +55,6 @@ class File extends Remote\Model
      * @property string Id
      */
 
-
-
     /**
      * Get the resource uri of the class (Contacts) etc
      *
@@ -66,7 +64,6 @@ class File extends Remote\Model
     {
         return 'Files';
     }
-
 
     /**
      * Get the root node name.  Just the unqualified classname
@@ -78,7 +75,6 @@ class File extends Remote\Model
         return 'File';
     }
 
-
     /**
      * Get the guid property
      *
@@ -89,7 +85,6 @@ class File extends Remote\Model
         return 'Id';
     }
 
-
     /**
      * Get the stem of the API (core.xro) etc
      *
@@ -99,7 +94,6 @@ class File extends Remote\Model
     {
         return Remote\URL::API_FILE;
     }
-
 
     /**
      * Get the supported methods

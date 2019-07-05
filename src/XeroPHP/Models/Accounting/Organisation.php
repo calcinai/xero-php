@@ -184,28 +184,41 @@ class Organisation extends Remote\Model
      *
      * @property PaymentTerm[] PaymentTerms
      */
-
-
     const VERSION_TYPE_AU = 'AU';
+
     const VERSION_TYPE_NZ = 'NZ';
+
     const VERSION_TYPE_GLOBAL = 'GLOBAL';
+
     const VERSION_TYPE_UK = 'UK';
+
     const VERSION_TYPE_US = 'US';
+
     const VERSION_TYPE_AUONRAMP = 'AUONRAMP';
+
     const VERSION_TYPE_NZONRAMP = 'NZONRAMP';
+
     const VERSION_TYPE_GLOBALONRAMP = 'GLOBALONRAMP';
+
     const VERSION_TYPE_UKONRAMP = 'UKONRAMP';
+
     const VERSION_TYPE_USONRAMP = 'USONRAMP';
 
     const ORGANISATION_TYPE_COMPANY = 'COMPANY';
-    const ORGANISATION_TYPE_CHARITY = 'CHARITY';
-    const ORGANISATION_TYPE_CLUBSOCIETY = 'CLUBSOCIETY';
-    const ORGANISATION_TYPE_PARTNERSHIP = 'PARTNERSHIP';
-    const ORGANISATION_TYPE_PRACTICE = 'PRACTICE';
-    const ORGANISATION_TYPE_PERSON = 'PERSON';
-    const ORGANISATION_TYPE_SOLETRADER = 'SOLETRADER';
-    const ORGANISATION_TYPE_TRUST = 'TRUST';
 
+    const ORGANISATION_TYPE_CHARITY = 'CHARITY';
+
+    const ORGANISATION_TYPE_CLUBSOCIETY = 'CLUBSOCIETY';
+
+    const ORGANISATION_TYPE_PARTNERSHIP = 'PARTNERSHIP';
+
+    const ORGANISATION_TYPE_PRACTICE = 'PRACTICE';
+
+    const ORGANISATION_TYPE_PERSON = 'PERSON';
+
+    const ORGANISATION_TYPE_SOLETRADER = 'SOLETRADER';
+
+    const ORGANISATION_TYPE_TRUST = 'TRUST';
 
     /**
      * Get the resource uri of the class (Contacts) etc
@@ -217,7 +230,6 @@ class Organisation extends Remote\Model
         return 'Organisation';
     }
 
-
     /**
      * Get the root node name.  Just the unqualified classname
      *
@@ -227,7 +239,6 @@ class Organisation extends Remote\Model
     {
         return 'Organisation';
     }
-
 
     /**
      * Get the guid property
@@ -239,7 +250,6 @@ class Organisation extends Remote\Model
         return '';
     }
 
-
     /**
      * Get the stem of the API (core.xro) etc
      *
@@ -249,7 +259,6 @@ class Organisation extends Remote\Model
     {
         return Remote\URL::API_CORE;
     }
-
 
     /**
      * Get the supported methods

@@ -60,8 +60,6 @@ class SuperannuationLine extends Remote\Model
      * @property float Amount
      */
 
-
-
     /**
      * Get the resource uri of the class (Contacts) etc
      *
@@ -71,7 +69,6 @@ class SuperannuationLine extends Remote\Model
     {
         return 'SuperannuationLine';
     }
-
 
     /**
      * Get the root node name.  Just the unqualified classname
@@ -83,7 +80,6 @@ class SuperannuationLine extends Remote\Model
         return 'SuperannuationLine';
     }
 
-
     /**
      * Get the guid property
      *
@@ -94,7 +90,6 @@ class SuperannuationLine extends Remote\Model
         return '';
     }
 
-
     /**
      * Get the stem of the API (core.xro) etc
      *
@@ -104,7 +99,6 @@ class SuperannuationLine extends Remote\Model
     {
         return Remote\URL::API_PAYROLL;
     }
-
 
     /**
      * Get the supported methods

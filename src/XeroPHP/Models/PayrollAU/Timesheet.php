@@ -48,12 +48,11 @@ class Timesheet extends Remote\Model
      *
      * @property string TimesheetID
      */
-
-
     const STATUS_DRAFT = 'DRAFT';
-    const STATUS_PROCESSED = 'PROCESSED';
-    const STATUS_APPROVED = 'APPROVED';
 
+    const STATUS_PROCESSED = 'PROCESSED';
+
+    const STATUS_APPROVED = 'APPROVED';
 
     /**
      * Get the resource uri of the class (Contacts) etc
@@ -65,7 +64,6 @@ class Timesheet extends Remote\Model
         return 'Timesheets';
     }
 
-
     /**
      * Get the root node name.  Just the unqualified classname
      *
@@ -75,7 +73,6 @@ class Timesheet extends Remote\Model
     {
         return 'Timesheet';
     }
-
 
     /**
      * Get the guid property
@@ -87,7 +84,6 @@ class Timesheet extends Remote\Model
         return 'TimesheetID';
     }
 
-
     /**
      * Get the stem of the API (core.xro) etc
      *
@@ -97,7 +93,6 @@ class Timesheet extends Remote\Model
     {
         return Remote\URL::API_PAYROLL;
     }
-
 
     /**
      * Get the supported methods

@@ -41,8 +41,6 @@ class PayItem extends Remote\Model
      * @property TimeOffType[] TimeOffTypes
      */
 
-
-
     /**
      * Get the resource uri of the class (Contacts) etc
      *
@@ -52,7 +50,6 @@ class PayItem extends Remote\Model
     {
         return 'PayItems';
     }
-
 
     /**
      * Get the root node name.  Just the unqualified classname
@@ -64,7 +61,6 @@ class PayItem extends Remote\Model
         return 'PayItem';
     }
 
-
     /**
      * Get the guid property
      *
@@ -75,7 +71,6 @@ class PayItem extends Remote\Model
         return '';
     }
 
-
     /**
      * Get the stem of the API (core.xro) etc
      *
@@ -85,7 +80,6 @@ class PayItem extends Remote\Model
     {
         return Remote\URL::API_PAYROLL;
     }
-
 
     /**
      * Get the supported methods

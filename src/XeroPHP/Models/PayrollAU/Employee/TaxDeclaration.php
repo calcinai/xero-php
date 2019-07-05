@@ -91,19 +91,23 @@ class TaxDeclaration extends Remote\Model
      *
      * @property string ApprovedWithholdingVariationPercentage
      */
-
-
     const EMPLOYMENTBASIS_FULLTIME = 'FULLTIME';
+
     const EMPLOYMENTBASIS_PARTTIME = 'PARTTIME';
+
     const EMPLOYMENTBASIS_CASUAL = 'CASUAL';
+
     const EMPLOYMENTBASIS_LABOURHIRE = 'LABOURHIRE';
+
     const EMPLOYMENTBASIS_SUPERINCOMESTREAM = 'SUPERINCOMESTREAM';
 
     const TFNEXEMPTIONTYPE_NOTQUOTED = 'NOTQUOTED';
-    const TFNEXEMPTIONTYPE_PENDING = 'PENDING';
-    const TFNEXEMPTIONTYPE_PENSIONER = 'PENSIONER';
-    const TFNEXEMPTIONTYPE_UNDER18 = 'UNDER18';
 
+    const TFNEXEMPTIONTYPE_PENDING = 'PENDING';
+
+    const TFNEXEMPTIONTYPE_PENSIONER = 'PENSIONER';
+
+    const TFNEXEMPTIONTYPE_UNDER18 = 'UNDER18';
 
     /**
      * Get the resource uri of the class (Contacts) etc
@@ -115,7 +119,6 @@ class TaxDeclaration extends Remote\Model
         return 'TaxDeclaration';
     }
 
-
     /**
      * Get the root node name.  Just the unqualified classname
      *
@@ -125,7 +128,6 @@ class TaxDeclaration extends Remote\Model
     {
         return 'TaxDeclaration';
     }
-
 
     /**
      * Get the guid property
@@ -137,7 +139,6 @@ class TaxDeclaration extends Remote\Model
         return '';
     }
 
-
     /**
      * Get the stem of the API (core.xro) etc
      *
@@ -147,7 +148,6 @@ class TaxDeclaration extends Remote\Model
     {
         return Remote\URL::API_PAYROLL;
     }
-
 
     /**
      * Get the supported methods
@@ -295,7 +295,6 @@ class TaxDeclaration extends Remote\Model
         return $this;
     }
 
-
     /** @param string $value
      * @return $this
      */
@@ -314,7 +313,6 @@ class TaxDeclaration extends Remote\Model
     {
         return $this->_data['ResidencyStatus'];
     }
-
 
     /**
      * @return string

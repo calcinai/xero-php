@@ -123,15 +123,15 @@ class Prepayment extends Remote\Model
      *
      * @property bool HasAttachments
      */
-
-
     const TYPE_RECEIVE_PREPAYMENT = 'RECEIVE-PREPAYMENT';
+
     const TYPE_SPEND_PREPAYMENT = 'SPEND-PREPAYMENT';
 
     const PREPAYMENT_STATUS_AUTHORISED = 'AUTHORISED';
-    const PREPAYMENT_STATUS_PAID = 'PAID';
-    const PREPAYMENT_STATUS_VOIDED = 'VOIDED';
 
+    const PREPAYMENT_STATUS_PAID = 'PAID';
+
+    const PREPAYMENT_STATUS_VOIDED = 'VOIDED';
 
     /**
      * Get the resource uri of the class (Contacts) etc
@@ -143,7 +143,6 @@ class Prepayment extends Remote\Model
         return 'Prepayments';
     }
 
-
     /**
      * Get the root node name.  Just the unqualified classname
      *
@@ -153,7 +152,6 @@ class Prepayment extends Remote\Model
     {
         return 'Prepayment';
     }
-
 
     /**
      * Get the guid property
@@ -165,7 +163,6 @@ class Prepayment extends Remote\Model
         return 'PrepaymentID';
     }
 
-
     /**
      * Get the stem of the API (core.xro) etc
      *
@@ -175,7 +172,6 @@ class Prepayment extends Remote\Model
     {
         return Remote\URL::API_CORE;
     }
-
 
     /**
      * Get the supported methods

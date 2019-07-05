@@ -48,8 +48,6 @@ class User extends Remote\Model
      * @property string OrganisationRole
      */
 
-
-
     /**
      * Get the resource uri of the class (Contacts) etc
      *
@@ -59,7 +57,6 @@ class User extends Remote\Model
     {
         return 'Users';
     }
-
 
     /**
      * Get the root node name.  Just the unqualified classname
@@ -71,7 +68,6 @@ class User extends Remote\Model
         return 'User';
     }
 
-
     /**
      * Get the guid property
      *
@@ -82,7 +78,6 @@ class User extends Remote\Model
         return 'UserID';
     }
 
-
     /**
      * Get the stem of the API (core.xro) etc
      *
@@ -92,7 +87,6 @@ class User extends Remote\Model
     {
         return Remote\URL::API_CORE;
     }
-
 
     /**
      * Get the supported methods

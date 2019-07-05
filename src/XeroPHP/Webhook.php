@@ -8,18 +8,22 @@ class Webhook
      * @var \XeroPHP\Application
      */
     private $application;
+
     /**
      * @var string
      */
     private $key;
+
     /**
      * @var string
      */
     private $rawPayload;
+
     /**
      * @var array
      */
     private $payload;
+
     /**
      * @var string
      */

@@ -139,20 +139,25 @@ class BankTransaction extends Remote\Model
      *
      * @property bool HasAttachments
      */
-
-
     const TYPE_RECEIVE = 'RECEIVE';
+
     const TYPE_RECEIVE_OVERPAYMENT = 'RECEIVE-OVERPAYMENT';
+
     const TYPE_RECEIVE_PREPAYMENT = 'RECEIVE-PREPAYMENT';
+
     const TYPE_SPEND = 'SPEND';
+
     const TYPE_SPEND_OVERPAYMENT = 'SPEND-OVERPAYMENT';
+
     const TYPE_SPEND_PREPAYMENT = 'SPEND-PREPAYMENT';
+
     const TYPE_RECEIVE_TRANSFER = 'RECEIVE-TRANSFER';
+
     const TYPE_SPEND_TRANSFER = 'SPEND-TRANSFER';
 
     const BANK_TRANSACTION_STATUS_AUTHORISED = 'AUTHORISED';
-    const BANK_TRANSACTION_STATUS_DELETED = 'DELETED';
 
+    const BANK_TRANSACTION_STATUS_DELETED = 'DELETED';
 
     /**
      * Get the resource uri of the class (Contacts) etc
@@ -164,7 +169,6 @@ class BankTransaction extends Remote\Model
         return 'BankTransactions';
     }
 
-
     /**
      * Get the root node name.  Just the unqualified classname
      *
@@ -174,7 +178,6 @@ class BankTransaction extends Remote\Model
     {
         return 'BankTransaction';
     }
-
 
     /**
      * Get the guid property
@@ -186,7 +189,6 @@ class BankTransaction extends Remote\Model
         return 'BankTransactionID';
     }
 
-
     /**
      * Get the stem of the API (core.xro) etc
      *
@@ -196,7 +198,6 @@ class BankTransaction extends Remote\Model
     {
         return Remote\URL::API_CORE;
     }
-
 
     /**
      * Get the supported methods
@@ -584,7 +585,6 @@ class BankTransaction extends Remote\Model
         return $this->_data['PrepaymentID'];
     }
 
-
     /**
      * @return string
      */
@@ -593,7 +593,6 @@ class BankTransaction extends Remote\Model
         return $this->_data['OverpaymentID'];
     }
 
-
     /**
      * @return \DateTimeInterface
      */
@@ -601,7 +600,6 @@ class BankTransaction extends Remote\Model
     {
         return $this->_data['UpdatedDateUTC'];
     }
-
 
     /**
      * @return bool

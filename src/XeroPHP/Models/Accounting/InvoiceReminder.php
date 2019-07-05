@@ -22,7 +22,6 @@ class InvoiceReminder extends Remote\Model
         return 'InvoiceReminders/Settings';
     }
 
-
     /**
      * Get the root node name.  Just the unqualified classname
      *
@@ -32,7 +31,6 @@ class InvoiceReminder extends Remote\Model
     {
         return 'InvoiceReminder';
     }
-
 
     /**
      * Get the guid property
@@ -44,7 +42,6 @@ class InvoiceReminder extends Remote\Model
         return '';
     }
 
-
     /**
      * Get the stem of the API (core.xro) etc
      *
@@ -54,7 +51,6 @@ class InvoiceReminder extends Remote\Model
     {
         return Remote\URL::API_CORE;
     }
-
 
     /**
      * Get the supported methods
@@ -88,7 +84,6 @@ class InvoiceReminder extends Remote\Model
     {
         return false;
     }
-
 
     /**
      * @return bool

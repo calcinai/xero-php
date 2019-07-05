@@ -26,8 +26,6 @@ class Association extends Remote\Model
      * @property string ObjectType
      */
 
-
-
     /**
      * Get the resource uri of the class (Contacts) etc
      *
@@ -37,7 +35,6 @@ class Association extends Remote\Model
     {
         return 'Files/{FileId}/Associations';
     }
-
 
     /**
      * Get the root node name.  Just the unqualified classname
@@ -49,7 +46,6 @@ class Association extends Remote\Model
         return 'Association';
     }
 
-
     /**
      * Get the guid property
      *
@@ -60,7 +56,6 @@ class Association extends Remote\Model
         return '';
     }
 
-
     /**
      * Get the stem of the API (core.xro) etc
      *
@@ -70,7 +65,6 @@ class Association extends Remote\Model
     {
         return Remote\URL::API_FILE;
     }
-
 
     /**
      * Get the supported methods

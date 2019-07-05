@@ -101,8 +101,6 @@ class Item extends Remote\Model
      * @property \DateTimeInterface UpdatedDateUTC
      */
 
-
-
     /**
      * Get the resource uri of the class (Contacts) etc
      *
@@ -112,7 +110,6 @@ class Item extends Remote\Model
     {
         return 'Items';
     }
-
 
     /**
      * Get the root node name.  Just the unqualified classname
@@ -124,7 +121,6 @@ class Item extends Remote\Model
         return 'Item';
     }
 
-
     /**
      * Get the guid property
      *
@@ -135,7 +131,6 @@ class Item extends Remote\Model
         return 'ItemID';
     }
 
-
     /**
      * Get the stem of the API (core.xro) etc
      *
@@ -145,7 +140,6 @@ class Item extends Remote\Model
     {
         return Remote\URL::API_CORE;
     }
-
 
     /**
      * Get the supported methods

@@ -36,15 +36,17 @@ class PayrollCalendar extends Remote\Model
      *
      * @property \DateTimeInterface PaymentDate
      */
-
-
     const CALENDARTYPE_WEEKLY = 'WEEKLY';
-    const CALENDARTYPE_FORTNIGHTLY = 'FORTNIGHTLY';
-    const CALENDARTYPE_FOURWEEKLY = 'FOURWEEKLY';
-    const CALENDARTYPE_MONTHLY = 'MONTHLY';
-    const CALENDARTYPE_TWICEMONTHLY = 'TWICEMONTHLY';
-    const CALENDARTYPE_QUARTERLY = 'QUARTERLY';
 
+    const CALENDARTYPE_FORTNIGHTLY = 'FORTNIGHTLY';
+
+    const CALENDARTYPE_FOURWEEKLY = 'FOURWEEKLY';
+
+    const CALENDARTYPE_MONTHLY = 'MONTHLY';
+
+    const CALENDARTYPE_TWICEMONTHLY = 'TWICEMONTHLY';
+
+    const CALENDARTYPE_QUARTERLY = 'QUARTERLY';
 
     /**
      * Get the resource uri of the class (Contacts) etc
@@ -56,7 +58,6 @@ class PayrollCalendar extends Remote\Model
         return 'PayrollCalendars';
     }
 
-
     /**
      * Get the root node name.  Just the unqualified classname
      *
@@ -66,7 +67,6 @@ class PayrollCalendar extends Remote\Model
     {
         return 'PayrollCalendar';
     }
-
 
     /**
      * Get the guid property
@@ -78,7 +78,6 @@ class PayrollCalendar extends Remote\Model
         return 'PayrollCalendarID';
     }
 
-
     /**
      * Get the stem of the API (core.xro) etc
      *
@@ -88,7 +87,6 @@ class PayrollCalendar extends Remote\Model
     {
         return Remote\URL::API_PAYROLL;
     }
-
 
     /**
      * Get the supported methods

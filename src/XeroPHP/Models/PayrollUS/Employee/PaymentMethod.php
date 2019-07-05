@@ -17,12 +17,11 @@ class PaymentMethod extends Remote\Model
      *
      * @property BankAccount[] BankAccounts
      */
-
-
     const PAYMENT_METHOD_TYPE_CHECK = 'CHECK';
-    const PAYMENT_METHOD_TYPE_MANUAL = 'MANUAL';
-    const PAYMENT_METHOD_TYPE_DIRECTDEPOSIT = 'DIRECTDEPOSIT';
 
+    const PAYMENT_METHOD_TYPE_MANUAL = 'MANUAL';
+
+    const PAYMENT_METHOD_TYPE_DIRECTDEPOSIT = 'DIRECTDEPOSIT';
 
     /**
      * Get the resource uri of the class (Contacts) etc
@@ -34,7 +33,6 @@ class PaymentMethod extends Remote\Model
         return 'PaymentMethod';
     }
 
-
     /**
      * Get the root node name.  Just the unqualified classname
      *
@@ -44,7 +42,6 @@ class PaymentMethod extends Remote\Model
     {
         return 'PaymentMethod';
     }
-
 
     /**
      * Get the guid property
@@ -56,7 +53,6 @@ class PaymentMethod extends Remote\Model
         return '';
     }
 
-
     /**
      * Get the stem of the API (core.xro) etc
      *
@@ -66,7 +62,6 @@ class PaymentMethod extends Remote\Model
     {
         return Remote\URL::API_PAYROLL;
     }
-
 
     /**
      * Get the supported methods
