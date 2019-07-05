@@ -112,9 +112,9 @@ abstract class Model implements ObjectInterface, \JsonSerializable, \ArrayAccess
     {
         if ($property === null) {
             return count($this->_dirty) > 0;
-        } else {
-            return isset($this->_dirty[$property]);
         }
+
+        return isset($this->_dirty[$property]);
     }
 
     /**

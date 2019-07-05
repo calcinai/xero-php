@@ -89,9 +89,10 @@ class Response
                     $message .= $this->parseBadRequest();
 
                     throw new BadRequestException($message, $this->root_error['code']);
-                } else {
-                    throw new BadRequestException();
                 }
+
+                throw new BadRequestException();
+
 
             /** @noinspection PhpMissingBreakStatementInspection */
             // no break
@@ -126,9 +127,9 @@ class Response
                     $exception->setRateLimitProblem($problem);
 
                     throw $exception;
-                } else {
-                    throw new NotAvailableException();
                 }
+
+                throw new NotAvailableException();
         }
     }
 
