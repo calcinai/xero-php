@@ -7,50 +7,50 @@ use XeroPHP\Remote;
 class Schedule extends Remote\Model
 {
     /**
-     * Integer used with the unit e.g. 1 (every 1 week), 2 (every 2 months)
+     * Integer used with the unit e.g. 1 (every 1 week), 2 (every 2 months).
      *
      * @property int Period
      */
 
     /**
-     * One of the following : WEEKLY or MONTHLY
+     * One of the following : WEEKLY or MONTHLY.
      *
      * @property string Unit
      */
 
     /**
-     * Integer used with due date type e.g 20 (of following month), 31 (of current month)
+     * Integer used with due date type e.g 20 (of following month), 31 (of current month).
      *
      * @property int DueDate
      */
 
     /**
-     * Get the due date type
+     * Get the due date type.
      *
      * @property string DueDateType
      */
 
     /**
      * Date the first invoice of the current version of the repeating schedule was generated (changes when
-     * repeating invoice is edited)
+     * repeating invoice is edited).
      *
      * @property \DateTimeInterface StartDate
      */
 
     /**
-     * The calendar date of the next invoice in the schedule to be generated
+     * The calendar date of the next invoice in the schedule to be generated.
      *
      * @property \DateTimeInterface NextScheduledDate
      */
 
     /**
-     * Invoice end date – only returned if the template has an end date set
+     * Invoice end date – only returned if the template has an end date set.
      *
      * @property \DateTimeInterface EndDate
      */
 
     /**
-     * Get the resource uri of the class (Contacts) etc
+     * Get the resource uri of the class (Contacts) etc.
      *
      * @return string
      */
@@ -60,7 +60,7 @@ class Schedule extends Remote\Model
     }
 
     /**
-     * Get the root node name.  Just the unqualified classname
+     * Get the root node name.  Just the unqualified classname.
      *
      * @return string
      */
@@ -70,7 +70,7 @@ class Schedule extends Remote\Model
     }
 
     /**
-     * Get the guid property
+     * Get the guid property.
      *
      * @return string
      */
@@ -80,7 +80,7 @@ class Schedule extends Remote\Model
     }
 
     /**
-     * Get the stem of the API (core.xro) etc
+     * Get the stem of the API (core.xro) etc.
      *
      * @return string|null
      */
@@ -90,7 +90,7 @@ class Schedule extends Remote\Model
     }
 
     /**
-     * Get the supported methods
+     * Get the supported methods.
      */
     public static function getSupportedMethods()
     {
@@ -105,7 +105,7 @@ class Schedule extends Remote\Model
      *  [1] - Type
      *  [2] - PHP type
      *  [3] - Is an Array
-     *  [4] - Saves directly
+     *  [4] - Saves directly.
      *
      * @return array
      */

@@ -11,61 +11,61 @@ class ManualJournal extends Remote\Model
     use AttachmentTrait;
 
     /**
-     * Xero identifier
+     * Xero identifier.
      *
      * @property string ManualJournalID
      */
 
     /**
-     * Description of journal being posted
+     * Description of journal being posted.
      *
      * @property string Narration
      */
 
     /**
-     * See JournalLines
+     * See JournalLines.
      *
      * @property JournalLine[] JournalLines
      */
 
     /**
-     * Date journal was posted – YYYY-MM-DD
+     * Date journal was posted – YYYY-MM-DD.
      *
      * @property \DateTimeInterface Date
      */
 
     /**
-     * NoTax by default if you don’t specify this element. See Line Amount Types
+     * NoTax by default if you don’t specify this element. See Line Amount Types.
      *
      * @property string LineAmountTypes
      */
 
     /**
-     * See Manual Journal Status Codes
+     * See Manual Journal Status Codes.
      *
      * @property string Status
      */
 
     /**
-     * Url link to a source document – shown as “Go to [appName]” in the Xero app
+     * Url link to a source document – shown as “Go to [appName]” in the Xero app.
      *
      * @property string Url
      */
 
     /**
-     * Boolean – default is true if not specified
+     * Boolean – default is true if not specified.
      *
      * @property bool ShowOnCashBasisReports
      */
 
     /**
-     * Boolean to indicate if a manual journal has an attachment
+     * Boolean to indicate if a manual journal has an attachment.
      *
      * @property bool HasAttachments
      */
 
     /**
-     * Last modified date UTC format
+     * Last modified date UTC format.
      *
      * @property \DateTimeInterface UpdatedDateUTC
      */
@@ -78,7 +78,7 @@ class ManualJournal extends Remote\Model
     const MANUAL_JOURNAL_STATUS_VOIDED = 'VOIDED';
 
     /**
-     * Get the resource uri of the class (Contacts) etc
+     * Get the resource uri of the class (Contacts) etc.
      *
      * @return string
      */
@@ -88,7 +88,7 @@ class ManualJournal extends Remote\Model
     }
 
     /**
-     * Get the root node name.  Just the unqualified classname
+     * Get the root node name.  Just the unqualified classname.
      *
      * @return string
      */
@@ -98,7 +98,7 @@ class ManualJournal extends Remote\Model
     }
 
     /**
-     * Get the guid property
+     * Get the guid property.
      *
      * @return string
      */
@@ -108,7 +108,7 @@ class ManualJournal extends Remote\Model
     }
 
     /**
-     * Get the stem of the API (core.xro) etc
+     * Get the stem of the API (core.xro) etc.
      *
      * @return string|null
      */
@@ -118,7 +118,7 @@ class ManualJournal extends Remote\Model
     }
 
     /**
-     * Get the supported methods
+     * Get the supported methods.
      */
     public static function getSupportedMethods()
     {
@@ -136,7 +136,7 @@ class ManualJournal extends Remote\Model
      *  [1] - Type
      *  [2] - PHP type
      *  [3] - Is an Array
-     *  [4] - Saves directly
+     *  [4] - Saves directly.
      *
      * @return array
      */

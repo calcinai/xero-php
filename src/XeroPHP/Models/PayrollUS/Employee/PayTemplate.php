@@ -10,37 +10,37 @@ use XeroPHP\Models\PayrollUS\Paystub\ReimbursementLine;
 class PayTemplate extends Remote\Model
 {
     /**
-     * The earnings rate lines
+     * The earnings rate lines.
      *
      * @property float[] EarningsLines
      */
 
     /**
-     * The deduction type lines
+     * The deduction type lines.
      *
      * @property DeductionLine[] DeductionLines
      */
 
     /**
-     * The reimbursement type lines
+     * The reimbursement type lines.
      *
      * @property ReimbursementLine[] ReimbursementLines
      */
 
     /**
-     * The benefit type lines
+     * The benefit type lines.
      *
      * @property BenefitLine[] BenefitLines
      */
 
     /**
-     * Xero earnings rate identifier
+     * Xero earnings rate identifier.
      *
      * @property string EarningsTypeID
      */
 
     /**
-     * The Units or Hours for the earnings line
+     * The Units or Hours for the earnings line.
      *
      * @property string UnitsOrHours
      */
@@ -52,49 +52,49 @@ class PayTemplate extends Remote\Model
      */
 
     /**
-     * The amount of the reimbursement type
+     * The amount of the reimbursement type.
      *
      * @property float Amount
      */
 
     /**
-     * Xero deduction type identifier
+     * Xero deduction type identifier.
      *
      * @property string DeductionTypeID
      */
 
     /**
-     * See Benefit Line Calculation Type
+     * See Benefit Line Calculation Type.
      *
      * @property string CalculationType
      */
 
     /**
-     * Maximum amount an employee can receive
+     * Maximum amount an employee can receive.
      *
      * @property float EmployeeMax
      */
 
     /**
-     * The percentage of deduction line
+     * The percentage of deduction line.
      *
      * @property string Percentage
      */
 
     /**
-     * Xero identifier for reimbursement type
+     * Xero identifier for reimbursement type.
      *
      * @property string ReimbursementTypeID
      */
 
     /**
-     * The description of the reimbursement line
+     * The description of the reimbursement line.
      *
      * @property string Description
      */
 
     /**
-     * Xero identifier for benefit type
+     * Xero identifier for benefit type.
      *
      * @property string BenefitTypeID
      */
@@ -109,7 +109,7 @@ class PayTemplate extends Remote\Model
     const BENEFIT_LINE_CALCULATION_TYPE_STANDARDAMOUNT = 'STANDARDAMOUNT';
 
     /**
-     * Get the resource uri of the class (Contacts) etc
+     * Get the resource uri of the class (Contacts) etc.
      *
      * @return string
      */
@@ -119,7 +119,7 @@ class PayTemplate extends Remote\Model
     }
 
     /**
-     * Get the root node name.  Just the unqualified classname
+     * Get the root node name.  Just the unqualified classname.
      *
      * @return string
      */
@@ -129,7 +129,7 @@ class PayTemplate extends Remote\Model
     }
 
     /**
-     * Get the guid property
+     * Get the guid property.
      *
      * @return string
      */
@@ -139,7 +139,7 @@ class PayTemplate extends Remote\Model
     }
 
     /**
-     * Get the stem of the API (core.xro) etc
+     * Get the stem of the API (core.xro) etc.
      *
      * @return string|null
      */
@@ -149,7 +149,7 @@ class PayTemplate extends Remote\Model
     }
 
     /**
-     * Get the supported methods
+     * Get the supported methods.
      */
     public static function getSupportedMethods()
     {
@@ -164,7 +164,7 @@ class PayTemplate extends Remote\Model
      *  [1] - Type
      *  [2] - PHP type
      *  [3] - Is an Array
-     *  [4] - Saves directly
+     *  [4] - Saves directly.
      *
      * @return array
      */

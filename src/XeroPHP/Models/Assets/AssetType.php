@@ -8,37 +8,37 @@ use XeroPHP\Models\Assets\AssetType\BookDepreciationSetting;
 class AssetType extends Remote\Model
 {
     /**
-     * The name of the asset type
+     * The name of the asset type.
      *
      * @property string assetTypeName
      */
 
     /**
-     * The asset account for fixed assets of this type
+     * The asset account for fixed assets of this type.
      *
      * @property string fixedAssetAccountId
      */
 
     /**
-     * The expense account for the depreciation of fixed assets of this type
+     * The expense account for the depreciation of fixed assets of this type.
      *
      * @property string depreciationExpenseAccountId
      */
 
     /**
-     * The account for accumulated depreciation of fixed assets of this type
+     * The account for accumulated depreciation of fixed assets of this type.
      *
      * @property string accumulatedDepreciationAccountId
      */
 
     /**
-     * See bookDepreciationSetting
+     * See bookDepreciationSetting.
      *
      * @property BookDepreciationSetting BookDepreciationSetting
      */
 
     /**
-     * Xero generated unique identifier for asset types
+     * Xero generated unique identifier for asset types.
      *
      * @property string assetTypeId
      */
@@ -51,7 +51,7 @@ class AssetType extends Remote\Model
      */
 
     /**
-     * Get the resource uri of the class (Contacts) etc
+     * Get the resource uri of the class (Contacts) etc.
      *
      * @return string
      */
@@ -61,7 +61,7 @@ class AssetType extends Remote\Model
     }
 
     /**
-     * Get the root node name.  Just the unqualified classname
+     * Get the root node name.  Just the unqualified classname.
      *
      * @return string
      */
@@ -71,7 +71,7 @@ class AssetType extends Remote\Model
     }
 
     /**
-     * Get the guid property
+     * Get the guid property.
      *
      * @return string
      */
@@ -81,7 +81,7 @@ class AssetType extends Remote\Model
     }
 
     /**
-     * Get the stem of the API (core.xro) etc
+     * Get the stem of the API (core.xro) etc.
      *
      * @return string|null
      */
@@ -91,7 +91,7 @@ class AssetType extends Remote\Model
     }
 
     /**
-     * Get the supported methods
+     * Get the supported methods.
      */
     public static function getSupportedMethods()
     {
@@ -108,7 +108,7 @@ class AssetType extends Remote\Model
      *  [1] - Type
      *  [2] - PHP type
      *  [3] - Is an Array
-     *  [4] - Saves directly
+     *  [4] - Saves directly.
      *
      * @return array
      */

@@ -7,72 +7,72 @@ use XeroPHP\Remote;
 class EarningsType extends Remote\Model
 {
     /**
-     * Name of the earnings type (max length = 100)
+     * Name of the earnings type (max length = 100).
      *
      * @property EarningsType EarningsType
      */
 
     /**
-     * This property has been removed from the Xero API
+     * This property has been removed from the Xero API.
      *
      * @property string DisplayName
      * @deprecated
      */
 
     /**
-     * See Accounts
+     * See Accounts.
      *
      * @property string ExpenseAccountCode
      */
 
     /**
-     * See EarningsCategory
+     * See EarningsCategory.
      *
      * @property string EarningsCategory
      */
 
     /**
-     * Only when EarningsCategory is OVERTIMEEARNINGS, ALLOWANCE, ADDITIONALEARNINGS
+     * Only when EarningsCategory is OVERTIMEEARNINGS, ALLOWANCE, ADDITIONALEARNINGS.
      *
      * @property string RateType
      */
 
     /**
-     * Only when EarningsCategory is ADDITIONALEARNINGS, ALLOWANCE and RateType is RATEPERUNIT
+     * Only when EarningsCategory is ADDITIONALEARNINGS, ALLOWANCE and RateType is RATEPERUNIT.
      *
      * @property string TypeOfUnits
      */
 
     /**
-     * This property has been removed from the Xero API
+     * This property has been removed from the Xero API.
      *
      * @property string EarningsRateID
      * @deprecated
      */
 
     /**
-     * Xero identifier
+     * Xero identifier.
      *
      * @property string EarningsTypeID
      */
 
     /**
      * This is the multiplier used to calculate the rate per unit, based on the employee’s ordinary
-     * earnings type. For example, for time and a half enter 1.5. Only applicable if RateType is MULTIPLE
+     * earnings type. For example, for time and a half enter 1.5. Only applicable if RateType is MULTIPLE.
      *
      * @property float Multiple
      */
 
     /**
      * Set it to true if time off is NOT to be accumulated based on the hours reported to this earnings
-     * type
+     * type.
      *
      * @property string DoNotAccrueTimeOff
      */
 
     /**
      * Set it to true if this earnings type qualifies as a supplemental earnings according to the IRS
-     * regulations, e.g bonus or commission
+     * regulations, e.g bonus or commission.
      *
      * @property string IsSupplemental
      */
@@ -81,7 +81,7 @@ class EarningsType extends Remote\Model
      * Optional for EarningsCategory COMMISSION, BONUS, CASHTIPS, NONCASHTIPS, RETROACTIVEPAY,
      * CLERGYHOUSINGALLOWANCE, CLERGYHOUSINGINKIND (this will be the amount that will be added to the
      * employee’s earnings on a per pay period basis). The ALLOWANCE & ADDITIONALEARNINGS
-     * EarningsCategory will also have the Amount field when the Rate Type is selected as FIXEDAMOUNT
+     * EarningsCategory will also have the Amount field when the Rate Type is selected as FIXEDAMOUNT.
      *
      * @property float Amount
      */
@@ -114,7 +114,7 @@ class EarningsType extends Remote\Model
     const EARNINGSCATEGORY_CLERGYHOUSINGINKIND = 'CLERGYHOUSINGINKIND';
 
     /**
-     * Get the resource uri of the class (Contacts) etc
+     * Get the resource uri of the class (Contacts) etc.
      *
      * @return string
      */
@@ -124,7 +124,7 @@ class EarningsType extends Remote\Model
     }
 
     /**
-     * Get the root node name.  Just the unqualified classname
+     * Get the root node name.  Just the unqualified classname.
      *
      * @return string
      */
@@ -134,7 +134,7 @@ class EarningsType extends Remote\Model
     }
 
     /**
-     * Get the guid property
+     * Get the guid property.
      *
      * @return string
      */
@@ -144,7 +144,7 @@ class EarningsType extends Remote\Model
     }
 
     /**
-     * Get the stem of the API (core.xro) etc
+     * Get the stem of the API (core.xro) etc.
      *
      * @return string|null
      */
@@ -154,7 +154,7 @@ class EarningsType extends Remote\Model
     }
 
     /**
-     * Get the supported methods
+     * Get the supported methods.
      */
     public static function getSupportedMethods()
     {
@@ -169,7 +169,7 @@ class EarningsType extends Remote\Model
      *  [1] - Type
      *  [2] - PHP type
      *  [3] - Is an Array
-     *  [4] - Saves directly
+     *  [4] - Saves directly.
      *
      * @return array
      */

@@ -8,31 +8,31 @@ use XeroPHP\Models\PayrollAU\PayItem;
 class LeaveBalance extends Remote\Model
 {
     /**
-     * The name of the leave type
+     * The name of the leave type.
      *
      * @property string LeaveName
      */
 
     /**
-     * Identifier of the leave type (see PayItems)
+     * Identifier of the leave type (see PayItems).
      *
      * @property string LeaveTypeID
      */
 
     /**
-     * The balance of the leave available
+     * The balance of the leave available.
      *
      * @property string NumberOfUnits
      */
 
     /**
-     * The type of units as specified by the LeaveType (see PayItems)
+     * The type of units as specified by the LeaveType (see PayItems).
      *
      * @property PayItem[] TypeOfUnits
      */
 
     /**
-     * Get the resource uri of the class (Contacts) etc
+     * Get the resource uri of the class (Contacts) etc.
      *
      * @return string
      */
@@ -42,7 +42,7 @@ class LeaveBalance extends Remote\Model
     }
 
     /**
-     * Get the root node name.  Just the unqualified classname
+     * Get the root node name.  Just the unqualified classname.
      *
      * @return string
      */
@@ -52,7 +52,7 @@ class LeaveBalance extends Remote\Model
     }
 
     /**
-     * Get the guid property
+     * Get the guid property.
      *
      * @return string
      */
@@ -62,7 +62,7 @@ class LeaveBalance extends Remote\Model
     }
 
     /**
-     * Get the stem of the API (core.xro) etc
+     * Get the stem of the API (core.xro) etc.
      *
      * @return string|null
      */
@@ -72,7 +72,7 @@ class LeaveBalance extends Remote\Model
     }
 
     /**
-     * Get the supported methods
+     * Get the supported methods.
      */
     public static function getSupportedMethods()
     {
@@ -87,7 +87,7 @@ class LeaveBalance extends Remote\Model
      *  [1] - Type
      *  [2] - PHP type
      *  [3] - Is an Array
-     *  [4] - Saves directly
+     *  [4] - Saves directly.
      *
      * @return array
      */

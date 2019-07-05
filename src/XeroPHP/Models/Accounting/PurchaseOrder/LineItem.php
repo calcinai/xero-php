@@ -9,31 +9,31 @@ class LineItem extends Remote\Model
 {
     /**
      * The description of the line item. A line item can be created with only a description (i.e no unit
-     * amount or quantity)
+     * amount or quantity).
      *
      * @property string Description
      */
 
     /**
-     * LineItem Quantity. If Quantity is specified then a UnitAmount must be specified
+     * LineItem Quantity. If Quantity is specified then a UnitAmount must be specified.
      *
      * @property float Quantity
      */
 
     /**
-     * Lineitem unit amount. Will be rounded to four decimal places
+     * Lineitem unit amount. Will be rounded to four decimal places.
      *
      * @property float UnitAmount
      */
 
     /**
-     * See Items
+     * See Items.
      *
      * @property string ItemCode
      */
 
     /**
-     * See Accounts
+     * See Accounts.
      *
      * @property string AccountCode
      */
@@ -46,7 +46,7 @@ class LineItem extends Remote\Model
      */
 
     /**
-     * Percentage discount being applied to a line item
+     * Percentage discount being applied to a line item.
      *
      * @property string DiscountRate
      */
@@ -73,13 +73,13 @@ class LineItem extends Remote\Model
 
     /**
      * The line amount reflects the discounted price if a DiscountRate has been used . i.e LineAmount =
-     * Quantity * Unit Amount * ((100 – DiscountRate)/100)
+     * Quantity * Unit Amount * ((100 – DiscountRate)/100).
      *
      * @property float LineAmount
      */
 
     /**
-     * Get the resource uri of the class (Contacts) etc
+     * Get the resource uri of the class (Contacts) etc.
      *
      * @return string
      */
@@ -89,7 +89,7 @@ class LineItem extends Remote\Model
     }
 
     /**
-     * Get the root node name.  Just the unqualified classname
+     * Get the root node name.  Just the unqualified classname.
      *
      * @return string
      */
@@ -99,7 +99,7 @@ class LineItem extends Remote\Model
     }
 
     /**
-     * Get the guid property
+     * Get the guid property.
      *
      * @return string
      */
@@ -109,7 +109,7 @@ class LineItem extends Remote\Model
     }
 
     /**
-     * Get the stem of the API (core.xro) etc
+     * Get the stem of the API (core.xro) etc.
      *
      * @return string|null
      */
@@ -119,7 +119,7 @@ class LineItem extends Remote\Model
     }
 
     /**
-     * Get the supported methods
+     * Get the supported methods.
      */
     public static function getSupportedMethods()
     {
@@ -134,7 +134,7 @@ class LineItem extends Remote\Model
      *  [1] - Type
      *  [2] - PHP type
      *  [3] - Is an Array
-     *  [4] - Saves directly
+     *  [4] - Saves directly.
      *
      * @return array
      */

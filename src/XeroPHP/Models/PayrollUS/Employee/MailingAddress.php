@@ -7,49 +7,49 @@ use XeroPHP\Remote;
 class MailingAddress extends Remote\Model
 {
     /**
-     * Street Address for employee home address
+     * Street Address for employee home address.
      *
      * @property string StreetAddress
      */
 
     /**
-     * Suite, Apartment or Unit information for employee home address
+     * Suite, Apartment or Unit information for employee home address.
      *
      * @property string SuiteOrAptOrUnit
      */
 
     /**
-     * City for employee home address
+     * City for employee home address.
      *
      * @property string City
      */
 
     /**
-     * State abbreviation for employee home address
+     * State abbreviation for employee home address.
      *
      * @property string State
      */
 
     /**
-     * Zip (Post code) for employee home address
+     * Zip (Post code) for employee home address.
      *
      * @property string Zip
      */
 
     /**
-     * The Latitude of employee home address
+     * The Latitude of employee home address.
      *
      * @property string Lattitude
      */
 
     /**
-     * The Longitude of employee home address
+     * The Longitude of employee home address.
      *
      * @property string Longitude
      */
 
     /**
-     * Get the resource uri of the class (Contacts) etc
+     * Get the resource uri of the class (Contacts) etc.
      *
      * @return string
      */
@@ -59,7 +59,7 @@ class MailingAddress extends Remote\Model
     }
 
     /**
-     * Get the root node name.  Just the unqualified classname
+     * Get the root node name.  Just the unqualified classname.
      *
      * @return string
      */
@@ -69,7 +69,7 @@ class MailingAddress extends Remote\Model
     }
 
     /**
-     * Get the guid property
+     * Get the guid property.
      *
      * @return string
      */
@@ -79,7 +79,7 @@ class MailingAddress extends Remote\Model
     }
 
     /**
-     * Get the stem of the API (core.xro) etc
+     * Get the stem of the API (core.xro) etc.
      *
      * @return string|null
      */
@@ -89,7 +89,7 @@ class MailingAddress extends Remote\Model
     }
 
     /**
-     * Get the supported methods
+     * Get the supported methods.
      */
     public static function getSupportedMethods()
     {
@@ -104,7 +104,7 @@ class MailingAddress extends Remote\Model
      *  [1] - Type
      *  [2] - PHP type
      *  [3] - Is an Array
-     *  [4] - Saves directly
+     *  [4] - Saves directly.
      *
      * @return array
      */

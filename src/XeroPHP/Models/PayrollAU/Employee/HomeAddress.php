@@ -7,43 +7,43 @@ use XeroPHP\Remote;
 class HomeAddress extends Remote\Model
 {
     /**
-     * Address line 1 for employee home address (max length = 50)
+     * Address line 1 for employee home address (max length = 50).
      *
      * @property string AddressLine1
      */
 
     /**
-     * Address line 2 for employee home address (max length = 50)
+     * Address line 2 for employee home address (max length = 50).
      *
      * @property string AddressLine2
      */
 
     /**
-     * Suburb for employee home address (max length = 50)
+     * Suburb for employee home address (max length = 50).
      *
      * @property string City
      */
 
     /**
-     * State abbreviation for employee home address
+     * State abbreviation for employee home address.
      *
      * @property string Region
      */
 
     /**
-     * PostCode for employee home address (max length = 4)
+     * PostCode for employee home address (max length = 4).
      *
      * @property string PostalCode
      */
 
     /**
-     * Country of HomeAddress
+     * Country of HomeAddress.
      *
      * @property string Country
      */
 
     /**
-     * Get the resource uri of the class (Contacts) etc
+     * Get the resource uri of the class (Contacts) etc.
      *
      * @return string
      */
@@ -53,7 +53,7 @@ class HomeAddress extends Remote\Model
     }
 
     /**
-     * Get the root node name.  Just the unqualified classname
+     * Get the root node name.  Just the unqualified classname.
      *
      * @return string
      */
@@ -63,7 +63,7 @@ class HomeAddress extends Remote\Model
     }
 
     /**
-     * Get the guid property
+     * Get the guid property.
      *
      * @return string
      */
@@ -73,7 +73,7 @@ class HomeAddress extends Remote\Model
     }
 
     /**
-     * Get the stem of the API (core.xro) etc
+     * Get the stem of the API (core.xro) etc.
      *
      * @return string|null
      */
@@ -83,7 +83,7 @@ class HomeAddress extends Remote\Model
     }
 
     /**
-     * Get the supported methods
+     * Get the supported methods.
      */
     public static function getSupportedMethods()
     {
@@ -98,7 +98,7 @@ class HomeAddress extends Remote\Model
      *  [1] - Type
      *  [2] - PHP type
      *  [3] - Is an Array
-     *  [4] - Saves directly
+     *  [4] - Saves directly.
      *
      * @return array
      */

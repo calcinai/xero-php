@@ -12,26 +12,26 @@ class Item extends Remote\Model
     use HistoryTrait;
 
     /**
-     * Xero identifier
+     * Xero identifier.
      *
      * @property string ItemID
      */
 
     /**
-     * User defined item code (max length = 30)
+     * User defined item code (max length = 30).
      *
      * @property string Code
      */
 
     /**
      * The inventory asset account for the item. The account must be of type INVENTORY. The
-     * COGSAccountCode in PurchaseDetails is also required to create a tracked item
+     * COGSAccountCode in PurchaseDetails is also required to create a tracked item.
      *
      * @property string InventoryAssetAccountCode
      */
 
     /**
-     * The name of the item (max length = 50)
+     * The name of the item (max length = 50).
      *
      * @property string Name
      */
@@ -53,25 +53,25 @@ class Item extends Remote\Model
      */
 
     /**
-     * The sales description of the item (max length = 4000)
+     * The sales description of the item (max length = 4000).
      *
      * @property string Description
      */
 
     /**
-     * The purchase description of the item (max length = 4000)
+     * The purchase description of the item (max length = 4000).
      *
      * @property string PurchaseDescription
      */
 
     /**
-     * See Purchases & Sales
+     * See Purchases & Sales.
      *
      * @property Purchase[] PurchaseDetails
      */
 
     /**
-     * See Purchases & Sales
+     * See Purchases & Sales.
      *
      * @property Sale[] SalesDetails
      */
@@ -90,19 +90,19 @@ class Item extends Remote\Model
      */
 
     /**
-     * The quantity of the item on hand
+     * The quantity of the item on hand.
      *
      * @property string QuantityOnHand
      */
 
     /**
-     * Last modified date in UTC format
+     * Last modified date in UTC format.
      *
      * @property \DateTimeInterface UpdatedDateUTC
      */
 
     /**
-     * Get the resource uri of the class (Contacts) etc
+     * Get the resource uri of the class (Contacts) etc.
      *
      * @return string
      */
@@ -112,7 +112,7 @@ class Item extends Remote\Model
     }
 
     /**
-     * Get the root node name.  Just the unqualified classname
+     * Get the root node name.  Just the unqualified classname.
      *
      * @return string
      */
@@ -122,7 +122,7 @@ class Item extends Remote\Model
     }
 
     /**
-     * Get the guid property
+     * Get the guid property.
      *
      * @return string
      */
@@ -132,7 +132,7 @@ class Item extends Remote\Model
     }
 
     /**
-     * Get the stem of the API (core.xro) etc
+     * Get the stem of the API (core.xro) etc.
      *
      * @return string|null
      */
@@ -142,7 +142,7 @@ class Item extends Remote\Model
     }
 
     /**
-     * Get the supported methods
+     * Get the supported methods.
      */
     public static function getSupportedMethods()
     {
@@ -161,7 +161,7 @@ class Item extends Remote\Model
      *  [1] - Type
      *  [2] - PHP type
      *  [3] - Is an Array
-     *  [4] - Saves directly
+     *  [4] - Saves directly.
      *
      * @return array
      */

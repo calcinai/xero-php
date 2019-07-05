@@ -10,67 +10,67 @@ class Account extends Remote\Model
     use AttachmentTrait;
 
     /**
-     * Customer defined alpha numeric account code e.g 200 or SALES (max length = 10)
+     * Customer defined alpha numeric account code e.g 200 or SALES (max length = 10).
      *
      * @property string Code
      */
 
     /**
-     * Name of account (max length = 150)
+     * Name of account (max length = 150).
      *
      * @property string Name
      */
 
     /**
-     * See Account Types
+     * See Account Types.
      *
      * @property string Type
      */
 
     /**
-     * For bank accounts only (Account Type BANK)
+     * For bank accounts only (Account Type BANK).
      *
      * @property string BankAccountNumber
      */
 
     /**
-     * Accounts with a status of ACTIVE can be updated to ARCHIVED. See Account Status Codes
+     * Accounts with a status of ACTIVE can be updated to ARCHIVED. See Account Status Codes.
      *
      * @property string Status
      */
 
     /**
-     * Description of the Account. Valid for all types of accounts except bank accounts (max length = 4000)
+     * Description of the Account. Valid for all types of accounts except bank accounts (max length = 4000).
      *
      * @property string Description
      */
 
     /**
-     * For bank accounts only. See Bank Account types
+     * For bank accounts only. See Bank Account types.
      *
      * @property string BankAccountType
      */
 
     /**
-     * For bank accounts only
+     * For bank accounts only.
      *
      * @property string CurrencyCode
      */
 
     /**
-     * See Tax Types
+     * See Tax Types.
      *
      * @property string TaxType
      */
 
     /**
-     * Boolean – describes whether account can have payments applied to it
+     * Boolean – describes whether account can have payments applied to it.
      *
      * @property bool EnablePaymentsToAccount
      */
 
     /**
-     * Boolean – describes whether account code is available for use with expense claims
+     * Boolean – describes whether account code is available for use with expense claims.
      *
      * @property bool ShowInExpenseClaims
      */
@@ -78,13 +78,13 @@ class Account extends Remote\Model
     /**
      * The Xero identifier for an account – specified as a string following the endpoint name
      * e.g.
-     * /297c2dc5-cc47-4afd-8ec8-74990b8761e9
+     * /297c2dc5-cc47-4afd-8ec8-74990b8761e9.
      *
      * @property string AccountID
      */
 
     /**
-     * See Account Class Types
+     * See Account Class Types.
      *
      * @property string Class
      */
@@ -97,25 +97,25 @@ class Account extends Remote\Model
      */
 
     /**
-     * Shown if set
+     * Shown if set.
      *
      * @property string ReportingCode
      */
 
     /**
-     * Shown if set
+     * Shown if set.
      *
      * @property string ReportingCodeName
      */
 
     /**
-     * boolean to indicate if an account has an attachment (read only)
+     * boolean to indicate if an account has an attachment (read only).
      *
      * @property bool HasAttachments
      */
 
     /**
-     * Last modified date UTC format
+     * Last modified date UTC format.
      *
      * @property \DateTimeInterface UpdatedDateUTC
      */
@@ -210,7 +210,7 @@ class Account extends Remote\Model
     const SYSTEM_ACCOUNT_WAGEPAYABLES = 'WAGEPAYABLES';
 
     /**
-     * Get the resource uri of the class (Contacts) etc
+     * Get the resource uri of the class (Contacts) etc.
      *
      * @return string
      */
@@ -220,7 +220,7 @@ class Account extends Remote\Model
     }
 
     /**
-     * Get the root node name.  Just the unqualified classname
+     * Get the root node name.  Just the unqualified classname.
      *
      * @return string
      */
@@ -230,7 +230,7 @@ class Account extends Remote\Model
     }
 
     /**
-     * Get the guid property
+     * Get the guid property.
      *
      * @return string
      */
@@ -240,7 +240,7 @@ class Account extends Remote\Model
     }
 
     /**
-     * Get the stem of the API (core.xro) etc
+     * Get the stem of the API (core.xro) etc.
      *
      * @return string|null
      */
@@ -250,7 +250,7 @@ class Account extends Remote\Model
     }
 
     /**
-     * Get the supported methods
+     * Get the supported methods.
      */
     public static function getSupportedMethods()
     {
@@ -269,7 +269,7 @@ class Account extends Remote\Model
      *  [1] - Type
      *  [2] - PHP type
      *  [3] - Is an Array
-     *  [4] - Saves directly
+     *  [4] - Saves directly.
      *
      * @return array
      */

@@ -14,13 +14,13 @@ class BankTransfer extends Remote\Model
     use HistoryTrait;
 
     /**
-     * See FromBankAccount
+     * See FromBankAccount.
      *
      * @property FromBankAccount FromBankAccount
      */
 
     /**
-     * See ToBankAccount
+     * See ToBankAccount.
      *
      * @property ToBankAccount ToBankAccount
      */
@@ -32,49 +32,49 @@ class BankTransfer extends Remote\Model
      */
 
     /**
-     * The date of the Transfer YYYY-MM-DD
+     * The date of the Transfer YYYY-MM-DD.
      *
      * @property \DateTimeInterface Date
      */
 
     /**
-     * The identifier of the Bank Transfer
+     * The identifier of the Bank Transfer.
      *
      * @property string BankTransferID
      */
 
     /**
-     * The currency rate
+     * The currency rate.
      *
      * @property float CurrencyRate
      */
 
     /**
-     * The Bank Transaction ID for the source account
+     * The Bank Transaction ID for the source account.
      *
      * @property string FromBankTransactionID
      */
 
     /**
-     * The Bank Transaction ID for the destination account
+     * The Bank Transaction ID for the destination account.
      *
      * @property string ToBankTransactionID
      */
 
     /**
-     * Boolean to indicate if a Bank Transfer has an attachment
+     * Boolean to indicate if a Bank Transfer has an attachment.
      *
      * @property bool HasAttachments
      */
 
     /**
-     * UTC timestamp of creation date of bank transfer
+     * UTC timestamp of creation date of bank transfer.
      *
      * @property \DateTimeInterface CreatedDateUTC
      */
 
     /**
-     * Get the resource uri of the class (Contacts) etc
+     * Get the resource uri of the class (Contacts) etc.
      *
      * @return string
      */
@@ -84,7 +84,7 @@ class BankTransfer extends Remote\Model
     }
 
     /**
-     * Get the root node name.  Just the unqualified classname
+     * Get the root node name.  Just the unqualified classname.
      *
      * @return string
      */
@@ -94,7 +94,7 @@ class BankTransfer extends Remote\Model
     }
 
     /**
-     * Get the guid property
+     * Get the guid property.
      *
      * @return string
      */
@@ -104,7 +104,7 @@ class BankTransfer extends Remote\Model
     }
 
     /**
-     * Get the stem of the API (core.xro) etc
+     * Get the stem of the API (core.xro) etc.
      *
      * @return string|null
      */
@@ -114,7 +114,7 @@ class BankTransfer extends Remote\Model
     }
 
     /**
-     * Get the supported methods
+     * Get the supported methods.
      */
     public static function getSupportedMethods()
     {
@@ -131,7 +131,7 @@ class BankTransfer extends Remote\Model
      *  [1] - Type
      *  [2] - PHP type
      *  [3] - Is an Array
-     *  [4] - Saves directly
+     *  [4] - Saves directly.
      *
      * @return array
      */

@@ -7,31 +7,31 @@ use XeroPHP\Remote;
 class BrandingTheme extends Remote\Model
 {
     /**
-     * Xero identifier
+     * Xero identifier.
      *
      * @property string BrandingThemeID
      */
 
     /**
-     * Name of branding theme
+     * Name of branding theme.
      *
      * @property string Name
      */
 
     /**
-     * Integer – ranked order of branding theme. The default branding theme has a value of 0
+     * Integer – ranked order of branding theme. The default branding theme has a value of 0.
      *
      * @property int SortOrder
      */
 
     /**
-     * UTC timestamp of creation date of branding theme
+     * UTC timestamp of creation date of branding theme.
      *
      * @property \DateTimeInterface CreatedDateUTC
      */
 
     /**
-     * Get the resource uri of the class (Contacts) etc
+     * Get the resource uri of the class (Contacts) etc.
      *
      * @return string
      */
@@ -41,7 +41,7 @@ class BrandingTheme extends Remote\Model
     }
 
     /**
-     * Get the root node name.  Just the unqualified classname
+     * Get the root node name.  Just the unqualified classname.
      *
      * @return string
      */
@@ -51,7 +51,7 @@ class BrandingTheme extends Remote\Model
     }
 
     /**
-     * Get the guid property
+     * Get the guid property.
      *
      * @return string
      */
@@ -61,7 +61,7 @@ class BrandingTheme extends Remote\Model
     }
 
     /**
-     * Get the stem of the API (core.xro) etc
+     * Get the stem of the API (core.xro) etc.
      *
      * @return string|null
      */
@@ -71,7 +71,7 @@ class BrandingTheme extends Remote\Model
     }
 
     /**
-     * Get the supported methods
+     * Get the supported methods.
      */
     public static function getSupportedMethods()
     {
@@ -87,7 +87,7 @@ class BrandingTheme extends Remote\Model
      *  [1] - Type
      *  [2] - PHP type
      *  [3] - Is an Array
-     *  [4] - Saves directly
+     *  [4] - Saves directly.
      *
      * @return array
      */

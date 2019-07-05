@@ -40,34 +40,34 @@ class Payment extends Remote\Model
      */
 
     /**
-     * Date the payment is being made (YYYY-MM-DD) e.g. 2009-09-06
+     * Date the payment is being made (YYYY-MM-DD) e.g. 2009-09-06.
      *
      * @property \DateTimeInterface Date
      */
 
     /**
      * Exchange rate when payment is received. Only used for non base currency invoices and credit notes
-     * e.g. 0.7500
+     * e.g. 0.7500.
      *
      * @property float CurrencyRate
      */
 
     /**
      * The amount of the payment. Must be less than or equal to the outstanding amount owing on the invoice
-     * e.g. 200.00
+     * e.g. 200.00.
      *
      * @property float Amount
      */
 
     /**
-     * An optional description for the payment e.g. Direct Debit
+     * An optional description for the payment e.g. Direct Debit.
      *
      * @property string Reference
      */
 
     /**
      * An optional parameter for the payment. A boolean indicating whether you would like the payment to be
-     * created as reconciled when using PUT, or whether a payment has been reconciled when using GET
+     * created as reconciled when using PUT, or whether a payment has been reconciled when using GET.
      *
      * @property string IsReconciled
      */
@@ -85,13 +85,13 @@ class Payment extends Remote\Model
      */
 
     /**
-     * UTC timestamp of last update to the payment
+     * UTC timestamp of last update to the payment.
      *
      * @property \DateTimeInterface UpdatedDateUTC
      */
 
     /**
-     * The Xero identifier for an Payment e.g. 297c2dc5-cc47-4afd-8ec8-74990b8761e9
+     * The Xero identifier for an Payment e.g. 297c2dc5-cc47-4afd-8ec8-74990b8761e9.
      *
      * @property string PaymentID
      */
@@ -124,7 +124,7 @@ class Payment extends Remote\Model
     const PAYMENT_TYPE_APOVERPAYMENTPAYMENT = 'APOVERPAYMENTPAYMENT';
 
     /**
-     * Get the resource uri of the class (Contacts) etc
+     * Get the resource uri of the class (Contacts) etc.
      *
      * @return string
      */
@@ -134,7 +134,7 @@ class Payment extends Remote\Model
     }
 
     /**
-     * Get the root node name.  Just the unqualified classname
+     * Get the root node name.  Just the unqualified classname.
      *
      * @return string
      */
@@ -144,7 +144,7 @@ class Payment extends Remote\Model
     }
 
     /**
-     * Get the guid property
+     * Get the guid property.
      *
      * @return string
      */
@@ -154,7 +154,7 @@ class Payment extends Remote\Model
     }
 
     /**
-     * Get the stem of the API (core.xro) etc
+     * Get the stem of the API (core.xro) etc.
      *
      * @return string|null
      */
@@ -164,7 +164,7 @@ class Payment extends Remote\Model
     }
 
     /**
-     * Get the supported methods
+     * Get the supported methods.
      */
     public static function getSupportedMethods()
     {
@@ -182,7 +182,7 @@ class Payment extends Remote\Model
      *  [1] - Type
      *  [2] - PHP type
      *  [3] - Is an Array
-     *  [4] - Saves directly
+     *  [4] - Saves directly.
      *
      * @return array
      */

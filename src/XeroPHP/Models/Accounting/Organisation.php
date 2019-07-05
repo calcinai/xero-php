@@ -9,49 +9,49 @@ use XeroPHP\Models\Accounting\Organisation\ExternalLink;
 class Organisation extends Remote\Model
 {
     /**
-     * Display a unique key used for Xero-to-Xero transactions
+     * Display a unique key used for Xero-to-Xero transactions.
      *
      * @property string APIKey
      */
 
     /**
-     * Display name of organisation shown in Xero
+     * Display name of organisation shown in Xero.
      *
      * @property string Name
      */
 
     /**
-     * Organisation name shown on Reports
+     * Organisation name shown on Reports.
      *
      * @property string LegalName
      */
 
     /**
-     * Boolean to describe if organisation is registered with a local tax authority i.e. true, false
+     * Boolean to describe if organisation is registered with a local tax authority i.e. true, false.
      *
      * @property bool PaysTax
      */
 
     /**
-     * See Version Types
+     * See Version Types.
      *
      * @property string Version
      */
 
     /**
-     * Organisation Type
+     * Organisation Type.
      *
      * @property string OrganisationType
      */
 
     /**
-     * Default currency for organisation. See ISO 4217 Currency Codes
+     * Default currency for organisation. See ISO 4217 Currency Codes.
      *
      * @property string BaseCurrency
      */
 
     /**
-     * Country code for organisation. See ISO 3166-2 Country Codes
+     * Country code for organisation. See ISO 3166-2 Country Codes.
      *
      * @property string CountryCode
      */
@@ -63,13 +63,13 @@ class Organisation extends Remote\Model
      */
 
     /**
-     * Will be set to ACTIVE if you can connect to organisation via the Xero API
+     * Will be set to ACTIVE if you can connect to organisation via the Xero API.
      *
      * @property string OrganisationStatus
      */
 
     /**
-     * Shows for New Zealand, Australian and UK organisations
+     * Shows for New Zealand, Australian and UK organisations.
      *
      * @property string RegistrationNumber
      */
@@ -82,67 +82,67 @@ class Organisation extends Remote\Model
      */
 
     /**
-     * Calendar day e.g. 0-31
+     * Calendar day e.g. 0-31.
      *
      * @property string FinancialYearEndDay
      */
 
     /**
-     * Calendar Month e.g. 1-12
+     * Calendar Month e.g. 1-12.
      *
      * @property string FinancialYearEndMonth
      */
 
     /**
-     * The accounting basis used for tax returns. See Sales Tax Basis
+     * The accounting basis used for tax returns. See Sales Tax Basis.
      *
      * @property string SalesTaxBasis
      */
 
     /**
-     * The frequency with which tax returns are processed. See Sales Tax Period
+     * The frequency with which tax returns are processed. See Sales Tax Period.
      *
      * @property string SalesTaxPeriod
      */
 
     /**
-     * The default for LineAmountTypes on sales transactions
+     * The default for LineAmountTypes on sales transactions.
      *
      * @property string DefaultSalesTax
      */
 
     /**
-     * The default for LineAmountTypes on purchase transactions
+     * The default for LineAmountTypes on purchase transactions.
      *
      * @property string DefaultPurchasesTax
      */
 
     /**
-     * Shown if set. See lock dates
+     * Shown if set. See lock dates.
      *
      * @property string PeriodLockDate
      */
 
     /**
-     * Shown if set. See lock dates
+     * Shown if set. See lock dates.
      *
      * @property string EndOfYearLockDate
      */
 
     /**
-     * Timestamp when the organisation was created in Xero
+     * Timestamp when the organisation was created in Xero.
      *
      * @property \DateTimeInterface CreatedDateUTC
      */
 
     /**
-     * Timezone specifications
+     * Timezone specifications.
      *
      * @property string Timezone
      */
 
     /**
-     * Organisation Type
+     * Organisation Type.
      *
      * @property string OrganisationEntityType
      */
@@ -154,19 +154,19 @@ class Organisation extends Remote\Model
      */
 
     /**
-     * Description of business type as defined in Organisation settings
+     * Description of business type as defined in Organisation settings.
      *
      * @property string LineOfBusiness
      */
 
     /**
-     * Address details for organisation – see Addresses
+     * Address details for organisation – see Addresses.
      *
      * @property Address[] Addresses
      */
 
     /**
-     * Phones details for organisation – see Phones
+     * Phones details for organisation – see Phones.
      *
      * @property Phone[] Phones
      */
@@ -174,13 +174,13 @@ class Organisation extends Remote\Model
     /**
      * Organisation profile links for popular services such as Facebook, Twitter, GooglePlus and LinkedIn.
      * You can also add link to your website here. Shown if Organisation settings  is updated in Xero. See
-     * ExternalLinks below
+     * ExternalLinks below.
      *
      * @property ExternalLink[] ExternalLinks
      */
 
     /**
-     * Default payment terms for the organisation if set – See Payment Terms below
+     * Default payment terms for the organisation if set – See Payment Terms below.
      *
      * @property PaymentTerm[] PaymentTerms
      */
@@ -221,7 +221,7 @@ class Organisation extends Remote\Model
     const ORGANISATION_TYPE_TRUST = 'TRUST';
 
     /**
-     * Get the resource uri of the class (Contacts) etc
+     * Get the resource uri of the class (Contacts) etc.
      *
      * @return string
      */
@@ -231,7 +231,7 @@ class Organisation extends Remote\Model
     }
 
     /**
-     * Get the root node name.  Just the unqualified classname
+     * Get the root node name.  Just the unqualified classname.
      *
      * @return string
      */
@@ -241,7 +241,7 @@ class Organisation extends Remote\Model
     }
 
     /**
-     * Get the guid property
+     * Get the guid property.
      *
      * @return string
      */
@@ -251,7 +251,7 @@ class Organisation extends Remote\Model
     }
 
     /**
-     * Get the stem of the API (core.xro) etc
+     * Get the stem of the API (core.xro) etc.
      *
      * @return string|null
      */
@@ -261,7 +261,7 @@ class Organisation extends Remote\Model
     }
 
     /**
-     * Get the supported methods
+     * Get the supported methods.
      */
     public static function getSupportedMethods()
     {
@@ -277,7 +277,7 @@ class Organisation extends Remote\Model
      *  [1] - Type
      *  [2] - PHP type
      *  [3] - Is an Array
-     *  [4] - Saves directly
+     *  [4] - Saves directly.
      *
      * @return array
      */

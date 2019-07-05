@@ -8,19 +8,19 @@ use XeroPHP\Models\Accounting\TrackingCategory;
 class JournalLine extends Remote\Model
 {
     /**
-     * total for line. Debits are positive, credits are negative value
+     * total for line. Debits are positive, credits are negative value.
      *
      * @property string LineAmount
      */
 
     /**
-     * See Accounts
+     * See Accounts.
      *
      * @property string AccountCode
      */
 
     /**
-     * Description for journal line
+     * Description for journal line.
      *
      * @property string Description
      */
@@ -40,13 +40,13 @@ class JournalLine extends Remote\Model
      */
 
     /**
-     * The calculated tax amount based on the TaxType and LineAmount
+     * The calculated tax amount based on the TaxType and LineAmount.
      *
      * @property float TaxAmount
      */
 
     /**
-     * Get the resource uri of the class (Contacts) etc
+     * Get the resource uri of the class (Contacts) etc.
      *
      * @return string
      */
@@ -56,7 +56,7 @@ class JournalLine extends Remote\Model
     }
 
     /**
-     * Get the root node name.  Just the unqualified classname
+     * Get the root node name.  Just the unqualified classname.
      *
      * @return string
      */
@@ -66,7 +66,7 @@ class JournalLine extends Remote\Model
     }
 
     /**
-     * Get the guid property
+     * Get the guid property.
      *
      * @return string
      */
@@ -76,7 +76,7 @@ class JournalLine extends Remote\Model
     }
 
     /**
-     * Get the stem of the API (core.xro) etc
+     * Get the stem of the API (core.xro) etc.
      *
      * @return string|null
      */
@@ -86,7 +86,7 @@ class JournalLine extends Remote\Model
     }
 
     /**
-     * Get the supported methods
+     * Get the supported methods.
      */
     public static function getSupportedMethods()
     {
@@ -101,7 +101,7 @@ class JournalLine extends Remote\Model
      *  [1] - Type
      *  [2] - PHP type
      *  [3] - Is an Array
-     *  [4] - Saves directly
+     *  [4] - Saves directly.
      *
      * @return array
      */

@@ -146,7 +146,7 @@ abstract class Application
     }
 
     /**
-     * Validates and expands the provided model class to a full PHP class
+     * Validates and expands the provided model class to a full PHP class.
      *
      * @param string $class
      * @throws Exception
@@ -179,7 +179,7 @@ abstract class Application
     }
 
     /**
-     * As you should never have a GUID for a non-existent object, will throw a NotFoundExceptioon
+     * As you should never have a GUID for a non-existent object, will throw a NotFoundExceptioon.
      *
      * @param $model
      * @param $guid
@@ -216,7 +216,7 @@ abstract class Application
     }
 
     /**
-     * Filter by comma separated string of guid's
+     * Filter by comma separated string of guid's.
      *
      * @param $model
      * @param string $guids

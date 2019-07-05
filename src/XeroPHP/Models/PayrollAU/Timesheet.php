@@ -8,43 +8,43 @@ use XeroPHP\Models\PayrollAU\Timesheet\TimesheetLine;
 class Timesheet extends Remote\Model
 {
     /**
-     * The Xero identifier for an employee
+     * The Xero identifier for an employee.
      *
      * @property string EmployeeID
      */
 
     /**
-     * Period start date (YYYY-MM-DD)
+     * Period start date (YYYY-MM-DD).
      *
      * @property \DateTimeInterface StartDate
      */
 
     /**
-     * Period end date (YYYY-MM-DD)
+     * Period end date (YYYY-MM-DD).
      *
      * @property \DateTimeInterface EndDate
      */
 
     /**
-     * See TimesheetLines
+     * See TimesheetLines.
      *
      * @property TimesheetLine[] TimesheetLines
      */
 
     /**
-     * See Timesheet Status Codes
+     * See Timesheet Status Codes.
      *
      * @property string Status
      */
 
     /**
-     * Timesheet total hours
+     * Timesheet total hours.
      *
      * @property string Hours
      */
 
     /**
-     * The Xero identifier for a Payroll Timesheet
+     * The Xero identifier for a Payroll Timesheet.
      *
      * @property string TimesheetID
      */
@@ -55,7 +55,7 @@ class Timesheet extends Remote\Model
     const STATUS_APPROVED = 'APPROVED';
 
     /**
-     * Get the resource uri of the class (Contacts) etc
+     * Get the resource uri of the class (Contacts) etc.
      *
      * @return string
      */
@@ -65,7 +65,7 @@ class Timesheet extends Remote\Model
     }
 
     /**
-     * Get the root node name.  Just the unqualified classname
+     * Get the root node name.  Just the unqualified classname.
      *
      * @return string
      */
@@ -75,7 +75,7 @@ class Timesheet extends Remote\Model
     }
 
     /**
-     * Get the guid property
+     * Get the guid property.
      *
      * @return string
      */
@@ -85,7 +85,7 @@ class Timesheet extends Remote\Model
     }
 
     /**
-     * Get the stem of the API (core.xro) etc
+     * Get the stem of the API (core.xro) etc.
      *
      * @return string|null
      */
@@ -95,7 +95,7 @@ class Timesheet extends Remote\Model
     }
 
     /**
-     * Get the supported methods
+     * Get the supported methods.
      */
     public static function getSupportedMethods()
     {
@@ -112,7 +112,7 @@ class Timesheet extends Remote\Model
      *  [1] - Type
      *  [2] - PHP type
      *  [3] - Is an Array
-     *  [4] - Saves directly
+     *  [4] - Saves directly.
      *
      * @return array
      */

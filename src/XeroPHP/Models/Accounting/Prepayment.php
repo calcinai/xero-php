@@ -14,112 +14,112 @@ class Prepayment extends Remote\Model
     use HistoryTrait;
 
     /**
-     * This property has been removed from the Xero API
+     * This property has been removed from the Xero API.
      *
      * @property string Reference
      * @deprecated
      */
 
     /**
-     * See Prepayment Types
+     * See Prepayment Types.
      *
      * @property string Type
      */
 
     /**
-     * See Contacts
+     * See Contacts.
      *
      * @property Contact Contact
      */
 
     /**
-     * The date the prepayment is created YYYY-MM-DD
+     * The date the prepayment is created YYYY-MM-DD.
      *
      * @property \DateTimeInterface Date
      */
 
     /**
-     * See Prepayment Status Codes
+     * See Prepayment Status Codes.
      *
      * @property string Status
      */
 
     /**
-     * See Prepayment Line Amount Types
+     * See Prepayment Line Amount Types.
      *
      * @property string LineAmountTypes
      */
 
     /**
-     * See Prepayment Line Items
+     * See Prepayment Line Items.
      *
      * @property LineItem[] LineItems
      */
 
     /**
-     * The subtotal of the prepayment excluding taxes
+     * The subtotal of the prepayment excluding taxes.
      *
      * @property float SubTotal
      */
 
     /**
-     * The total tax on the prepayment
+     * The total tax on the prepayment.
      *
      * @property float TotalTax
      */
 
     /**
-     * The total of the prepayment(subtotal + total tax)
+     * The total of the prepayment(subtotal + total tax).
      *
      * @property float Total
      */
 
     /**
-     * UTC timestamp of last update to the prepayment
+     * UTC timestamp of last update to the prepayment.
      *
      * @property \DateTimeInterface UpdatedDateUTC
      */
 
     /**
-     * Currency used for the prepayment
+     * Currency used for the prepayment.
      *
      * @property string CurrencyCode
      */
 
     /**
-     * This property has been removed from the Xero API
+     * This property has been removed from the Xero API.
      *
      * @property string FullyPaidOnDate
      * @deprecated
      */
 
     /**
-     * Xero generated unique identifier
+     * Xero generated unique identifier.
      *
      * @property string PrepaymentID
      */
 
     /**
      * The currency rate for a multicurrency prepayment. If no rate is specified, the XE.com day rate is
-     * used
+     * used.
      *
      * @property float CurrencyRate
      */
 
     /**
-     * The remaining credit balance on the prepayment
+     * The remaining credit balance on the prepayment.
      *
      * @property string RemainingCredit
      */
 
     /**
-     * See Allocations
+     * See Allocations.
      *
      * @property Allocation[] Allocations
      */
 
     /**
-     * boolean to indicate if a prepayment has an attachment
+     * boolean to indicate if a prepayment has an attachment.
      *
      * @property bool HasAttachments
      */
@@ -134,7 +134,7 @@ class Prepayment extends Remote\Model
     const PREPAYMENT_STATUS_VOIDED = 'VOIDED';
 
     /**
-     * Get the resource uri of the class (Contacts) etc
+     * Get the resource uri of the class (Contacts) etc.
      *
      * @return string
      */
@@ -144,7 +144,7 @@ class Prepayment extends Remote\Model
     }
 
     /**
-     * Get the root node name.  Just the unqualified classname
+     * Get the root node name.  Just the unqualified classname.
      *
      * @return string
      */
@@ -154,7 +154,7 @@ class Prepayment extends Remote\Model
     }
 
     /**
-     * Get the guid property
+     * Get the guid property.
      *
      * @return string
      */
@@ -164,7 +164,7 @@ class Prepayment extends Remote\Model
     }
 
     /**
-     * Get the stem of the API (core.xro) etc
+     * Get the stem of the API (core.xro) etc.
      *
      * @return string|null
      */
@@ -174,7 +174,7 @@ class Prepayment extends Remote\Model
     }
 
     /**
-     * Get the supported methods
+     * Get the supported methods.
      */
     public static function getSupportedMethods()
     {
@@ -191,7 +191,7 @@ class Prepayment extends Remote\Model
      *  [1] - Type
      *  [2] - PHP type
      *  [3] - Is an Array
-     *  [4] - Saves directly
+     *  [4] - Saves directly.
      *
      * @return array
      */

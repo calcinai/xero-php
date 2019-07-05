@@ -7,31 +7,31 @@ use XeroPHP\Remote;
 class ReimbursementLine extends Remote\Model
 {
     /**
-     * Xero identifier for payroll reimbursement type
+     * Xero identifier for payroll reimbursement type.
      *
      * @property string ReimbursementTypeID
      */
 
     /**
-     * Reimbursement lines description (max length 50)
+     * Reimbursement lines description (max length 50).
      *
      * @property string Description
      */
 
     /**
-     * Reimbursement expense account. For posted pay run you should be able to see expense account code
+     * Reimbursement expense account. For posted pay run you should be able to see expense account code.
      *
      * @property string ExpenseAccount
      */
 
     /**
-     * Reimbursement amount
+     * Reimbursement amount.
      *
      * @property float Amount
      */
 
     /**
-     * Get the resource uri of the class (Contacts) etc
+     * Get the resource uri of the class (Contacts) etc.
      *
      * @return string
      */
@@ -41,7 +41,7 @@ class ReimbursementLine extends Remote\Model
     }
 
     /**
-     * Get the root node name.  Just the unqualified classname
+     * Get the root node name.  Just the unqualified classname.
      *
      * @return string
      */
@@ -51,7 +51,7 @@ class ReimbursementLine extends Remote\Model
     }
 
     /**
-     * Get the guid property
+     * Get the guid property.
      *
      * @return string
      */
@@ -61,7 +61,7 @@ class ReimbursementLine extends Remote\Model
     }
 
     /**
-     * Get the stem of the API (core.xro) etc
+     * Get the stem of the API (core.xro) etc.
      *
      * @return string|null
      */
@@ -71,7 +71,7 @@ class ReimbursementLine extends Remote\Model
     }
 
     /**
-     * Get the supported methods
+     * Get the supported methods.
      */
     public static function getSupportedMethods()
     {
@@ -86,7 +86,7 @@ class ReimbursementLine extends Remote\Model
      *  [1] - Type
      *  [2] - PHP type
      *  [3] - Is an Array
-     *  [4] - Saves directly
+     *  [4] - Saves directly.
      *
      * @return array
      */

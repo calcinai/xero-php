@@ -9,19 +9,19 @@ use XeroPHP\Models\PayrollUS\Setting\TrackingCategory;
 class Setting extends Remote\Model
 {
     /**
-     * Payroll Account details for Bank, WagesPayable and WagesExpense. See Accounts
+     * Payroll Account details for Bank, WagesPayable and WagesExpense. See Accounts.
      *
      * @property Account[] Accounts
      */
 
     /**
-     * Tracking categories for Employees and Timesheets. See Tracking Categories
+     * Tracking categories for Employees and Timesheets. See Tracking Categories.
      *
      * @property TrackingCategory[] TrackingCategories
      */
 
     /**
-     * Get the resource uri of the class (Contacts) etc
+     * Get the resource uri of the class (Contacts) etc.
      *
      * @return string
      */
@@ -31,7 +31,7 @@ class Setting extends Remote\Model
     }
 
     /**
-     * Get the root node name.  Just the unqualified classname
+     * Get the root node name.  Just the unqualified classname.
      *
      * @return string
      */
@@ -41,7 +41,7 @@ class Setting extends Remote\Model
     }
 
     /**
-     * Get the guid property
+     * Get the guid property.
      *
      * @return string
      */
@@ -51,7 +51,7 @@ class Setting extends Remote\Model
     }
 
     /**
-     * Get the stem of the API (core.xro) etc
+     * Get the stem of the API (core.xro) etc.
      *
      * @return string|null
      */
@@ -61,7 +61,7 @@ class Setting extends Remote\Model
     }
 
     /**
-     * Get the supported methods
+     * Get the supported methods.
      */
     public static function getSupportedMethods()
     {
@@ -77,7 +77,7 @@ class Setting extends Remote\Model
      *  [1] - Type
      *  [2] - PHP type
      *  [3] - Is an Array
-     *  [4] - Saves directly
+     *  [4] - Saves directly.
      *
      * @return array
      */

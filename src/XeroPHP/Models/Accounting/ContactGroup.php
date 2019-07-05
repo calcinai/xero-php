@@ -7,7 +7,7 @@ use XeroPHP\Remote;
 class ContactGroup extends Remote\Model
 {
     /**
-     * The Name of the contact group. Required when creating a new contact group
+     * The Name of the contact group. Required when creating a new contact group.
      *
      * @property string Name
      */
@@ -22,7 +22,7 @@ class ContactGroup extends Remote\Model
     /**
      * The Xero identifier for an contact group – specified as a string following the endpoint name.
      * e.g.
-     * /297c2dc5-cc47-4afd-8ec8-74990b8761e9
+     * /297c2dc5-cc47-4afd-8ec8-74990b8761e9.
      *
      * @property string ContactGroupID
      */
@@ -35,7 +35,7 @@ class ContactGroup extends Remote\Model
      */
 
     /**
-     * Get the resource uri of the class (Contacts) etc
+     * Get the resource uri of the class (Contacts) etc.
      *
      * @return string
      */
@@ -45,7 +45,7 @@ class ContactGroup extends Remote\Model
     }
 
     /**
-     * Get the root node name.  Just the unqualified classname
+     * Get the root node name.  Just the unqualified classname.
      *
      * @return string
      */
@@ -55,7 +55,7 @@ class ContactGroup extends Remote\Model
     }
 
     /**
-     * Get the guid property
+     * Get the guid property.
      *
      * @return string
      */
@@ -65,7 +65,7 @@ class ContactGroup extends Remote\Model
     }
 
     /**
-     * Get the stem of the API (core.xro) etc
+     * Get the stem of the API (core.xro) etc.
      *
      * @return string|null
      */
@@ -75,7 +75,7 @@ class ContactGroup extends Remote\Model
     }
 
     /**
-     * Get the supported methods
+     * Get the supported methods.
      */
     public static function getSupportedMethods()
     {
@@ -94,7 +94,7 @@ class ContactGroup extends Remote\Model
      *  [1] - Type
      *  [2] - PHP type
      *  [3] - Is an Array
-     *  [4] - Saves directly
+     *  [4] - Saves directly.
      *
      * @return array
      */

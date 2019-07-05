@@ -7,31 +7,31 @@ use XeroPHP\Remote;
 class SuperFund extends Remote\Model
 {
     /**
-     * Xero identifier
+     * Xero identifier.
      *
      * @property string SuperFundID
      */
 
     /**
-     * REGULATED see Super Fund Types
+     * REGULATED see Super Fund Types.
      *
      * @property string Type
      */
 
     /**
-     * The ABN of the Regulated SuperFund
+     * The ABN of the Regulated SuperFund.
      *
      * @property string ABN
      */
 
     /**
-     * The USI of the Regulated SuperFund
+     * The USI of the Regulated SuperFund.
      *
      * @property string USI
      */
 
     /**
-     * Get the resource uri of the class (Contacts) etc
+     * Get the resource uri of the class (Contacts) etc.
      *
      * @return string
      */
@@ -41,7 +41,7 @@ class SuperFund extends Remote\Model
     }
 
     /**
-     * Get the root node name.  Just the unqualified classname
+     * Get the root node name.  Just the unqualified classname.
      *
      * @return string
      */
@@ -51,7 +51,7 @@ class SuperFund extends Remote\Model
     }
 
     /**
-     * Get the guid property
+     * Get the guid property.
      *
      * @return string
      */
@@ -61,7 +61,7 @@ class SuperFund extends Remote\Model
     }
 
     /**
-     * Get the stem of the API (core.xro) etc
+     * Get the stem of the API (core.xro) etc.
      *
      * @return string|null
      */
@@ -71,7 +71,7 @@ class SuperFund extends Remote\Model
     }
 
     /**
-     * Get the supported methods
+     * Get the supported methods.
      */
     public static function getSupportedMethods()
     {
@@ -88,7 +88,7 @@ class SuperFund extends Remote\Model
      *  [1] - Type
      *  [2] - PHP type
      *  [3] - Is an Array
-     *  [4] - Saves directly
+     *  [4] - Saves directly.
      *
      * @return array
      */

@@ -6,12 +6,12 @@ use XeroPHP\Helpers;
 use XeroPHP\Application;
 
 /**
- * Class Model
+ * Class Model.
  */
 abstract class Model implements ObjectInterface, \JsonSerializable, \ArrayAccess
 {
     /**
-     * Keys for the meta properties array
+     * Keys for the meta properties array.
      */
     const KEY_MANDATORY = 0;
 
@@ -42,14 +42,14 @@ abstract class Model implements ObjectInterface, \JsonSerializable, \ArrayAccess
     const PROPERTY_TYPE_OBJECT = 'object';
 
     /**
-     * Container to the actual properties of the object
+     * Container to the actual properties of the object.
      *
      * @var array
      */
     protected $_data;
 
     /**
-     * Holds a record of which properties have been changed
+     * Holds a record of which properties have been changed.
      *
      * @var array
      */
@@ -64,7 +64,7 @@ abstract class Model implements ObjectInterface, \JsonSerializable, \ArrayAccess
 
     /**
      * Holds a ref to the application that was used to load the object,
-     * enables shorthand $object->save();
+     * enables shorthand $object->save();.
      *
      * @var Application
      */
@@ -103,7 +103,7 @@ abstract class Model implements ObjectInterface, \JsonSerializable, \ArrayAccess
     }
 
     /**
-     * If there have been any properties changed since load
+     * If there have been any properties changed since load.
      *
      * @param null $property
      * @return bool
@@ -118,7 +118,7 @@ abstract class Model implements ObjectInterface, \JsonSerializable, \ArrayAccess
     }
 
     /**
-     * Manually set a property as dirty
+     * Manually set a property as dirty.
      *
      * @param $property
      * @return self
@@ -131,7 +131,7 @@ abstract class Model implements ObjectInterface, \JsonSerializable, \ArrayAccess
     }
 
     /**
-     * Manually set a property as clean
+     * Manually set a property as clean.
      *
      * @param null $property
      * @return self
@@ -148,7 +148,7 @@ abstract class Model implements ObjectInterface, \JsonSerializable, \ArrayAccess
     }
 
     /**
-     * This is used to detect if the object has copy at the source
+     * This is used to detect if the object has copy at the source.
      *
      * @return bool
      */
@@ -178,7 +178,7 @@ abstract class Model implements ObjectInterface, \JsonSerializable, \ArrayAccess
 
     /**
      * Load an assoc array into the instance of the object $property => $value
-     * $replace_data - replace existing data
+     * $replace_data - replace existing data.
      *
      * @param $input_array
      * @param $replace_data
@@ -446,7 +446,7 @@ abstract class Model implements ObjectInterface, \JsonSerializable, \ArrayAccess
     }
 
     /**
-     * Magic method for testing if properties exist
+     * Magic method for testing if properties exist.
      *
      * @param $property
      * @return bool
@@ -457,7 +457,7 @@ abstract class Model implements ObjectInterface, \JsonSerializable, \ArrayAccess
     }
 
     /**
-     * Magic getter for accessing properties directly
+     * Magic getter for accessing properties directly.
      *
      * @param $property
      * @return mixed
@@ -476,7 +476,7 @@ abstract class Model implements ObjectInterface, \JsonSerializable, \ArrayAccess
     }
 
     /**
-     * Magic setter for setting properties directly
+     * Magic setter for setting properties directly.
      *
      * @param $property
      * @param $value
@@ -512,7 +512,7 @@ abstract class Model implements ObjectInterface, \JsonSerializable, \ArrayAccess
     }
 
     /**
-     * If the object supports a specific HTTP method
+     * If the object supports a specific HTTP method.
      *
      * @param $method
      * @return bool
@@ -523,7 +523,7 @@ abstract class Model implements ObjectInterface, \JsonSerializable, \ArrayAccess
     }
 
     /**
-     * JSON Encode overload to pull out hidden properties
+     * JSON Encode overload to pull out hidden properties.
      *
      * @return string
      */

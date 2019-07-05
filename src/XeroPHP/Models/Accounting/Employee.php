@@ -8,25 +8,25 @@ use XeroPHP\Models\Accounting\Organisation\ExternalLink;
 class Employee extends Remote\Model
 {
     /**
-     * Xero identifier
+     * Xero identifier.
      *
      * @property string EmployeeID
      */
 
     /**
-     * Current status of an employee – see contact status types
+     * Current status of an employee – see contact status types.
      *
      * @property string Status
      */
 
     /**
-     * First name of an employee (max length = 255)
+     * First name of an employee (max length = 255).
      *
      * @property string FirstName
      */
 
     /**
-     * Last name of an employee (max length = 255)
+     * Last name of an employee (max length = 255).
      *
      * @property string LastName
      */
@@ -41,7 +41,7 @@ class Employee extends Remote\Model
      */
 
     /**
-     * Get the resource uri of the class (Contacts) etc
+     * Get the resource uri of the class (Contacts) etc.
      *
      * @return string
      */
@@ -51,7 +51,7 @@ class Employee extends Remote\Model
     }
 
     /**
-     * Get the root node name.  Just the unqualified classname
+     * Get the root node name.  Just the unqualified classname.
      *
      * @return string
      */
@@ -61,7 +61,7 @@ class Employee extends Remote\Model
     }
 
     /**
-     * Get the guid property
+     * Get the guid property.
      *
      * @return string
      */
@@ -71,7 +71,7 @@ class Employee extends Remote\Model
     }
 
     /**
-     * Get the stem of the API (core.xro) etc
+     * Get the stem of the API (core.xro) etc.
      *
      * @return string|null
      */
@@ -81,7 +81,7 @@ class Employee extends Remote\Model
     }
 
     /**
-     * Get the supported methods
+     * Get the supported methods.
      */
     public static function getSupportedMethods()
     {
@@ -99,7 +99,7 @@ class Employee extends Remote\Model
      *  [1] - Type
      *  [2] - PHP type
      *  [3] - Is an Array
-     *  [4] - Saves directly
+     *  [4] - Saves directly.
      *
      * @return array
      */

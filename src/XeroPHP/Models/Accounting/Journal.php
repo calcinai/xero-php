@@ -8,25 +8,25 @@ use XeroPHP\Models\Accounting\Journal\JournalLine;
 class Journal extends Remote\Model
 {
     /**
-     * Xero identifier
+     * Xero identifier.
      *
      * @property string JournalID
      */
 
     /**
-     * Date the journal was posted
+     * Date the journal was posted.
      *
      * @property \DateTimeInterface JournalDate
      */
 
     /**
-     * Xero generated journal number
+     * Xero generated journal number.
      *
      * @property string JournalNumber
      */
 
     /**
-     * Created date UTC format
+     * Created date UTC format.
      *
      * @property \DateTimeInterface CreatedDateUTC
      */
@@ -38,19 +38,19 @@ class Journal extends Remote\Model
      */
 
     /**
-     * The identifier for the source transaction (e.g. InvoiceID)
+     * The identifier for the source transaction (e.g. InvoiceID).
      *
      * @property string SourceID
      */
 
     /**
-     * The journal source type. The type of transaction that created the journal
+     * The journal source type. The type of transaction that created the journal.
      *
      * @property string SourceType
      */
 
     /**
-     * See JournalLines
+     * See JournalLines.
      *
      * @property JournalLine[] JournalLines
      */
@@ -105,7 +105,7 @@ class Journal extends Remote\Model
     const JOURNAL_SOURCE_TYPE_INTEGRATEDPAYROLLCN = 'INTEGRATEDPAYROLLCN';
 
     /**
-     * Get the resource uri of the class (Contacts) etc
+     * Get the resource uri of the class (Contacts) etc.
      *
      * @return string
      */
@@ -115,7 +115,7 @@ class Journal extends Remote\Model
     }
 
     /**
-     * Get the root node name.  Just the unqualified classname
+     * Get the root node name.  Just the unqualified classname.
      *
      * @return string
      */
@@ -125,7 +125,7 @@ class Journal extends Remote\Model
     }
 
     /**
-     * Get the guid property
+     * Get the guid property.
      *
      * @return string
      */
@@ -135,7 +135,7 @@ class Journal extends Remote\Model
     }
 
     /**
-     * Get the stem of the API (core.xro) etc
+     * Get the stem of the API (core.xro) etc.
      *
      * @return string|null
      */
@@ -145,7 +145,7 @@ class Journal extends Remote\Model
     }
 
     /**
-     * Get the supported methods
+     * Get the supported methods.
      */
     public static function getSupportedMethods()
     {
@@ -161,7 +161,7 @@ class Journal extends Remote\Model
      *  [1] - Type
      *  [2] - PHP type
      *  [3] - Is an Array
-     *  [4] - Saves directly
+     *  [4] - Saves directly.
      *
      * @return array
      */

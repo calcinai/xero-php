@@ -14,7 +14,7 @@ class LineItem extends Remote\Model
      */
 
     /**
-     * Quantity must be >= 0
+     * Quantity must be >= 0.
      *
      * @property string Quantity
      */
@@ -28,7 +28,7 @@ class LineItem extends Remote\Model
      */
 
     /**
-     * AccountCode must be active for the organisation. See Accounts
+     * AccountCode must be active for the organisation. See Accounts.
      *
      * @property string AccountCode
      */
@@ -56,7 +56,7 @@ class LineItem extends Remote\Model
 
     /**
      * If you wish to omit either of the <Quantity> or <UnitAmount> you can provide a LineAmount and Xero
-     * will calculate the missing amount for you
+     * will calculate the missing amount for you.
      *
      * @property float LineAmount
      */
@@ -69,7 +69,7 @@ class LineItem extends Remote\Model
      */
 
     /**
-     * Get the resource uri of the class (Contacts) etc
+     * Get the resource uri of the class (Contacts) etc.
      *
      * @return string
      */
@@ -79,7 +79,7 @@ class LineItem extends Remote\Model
     }
 
     /**
-     * Get the root node name.  Just the unqualified classname
+     * Get the root node name.  Just the unqualified classname.
      *
      * @return string
      */
@@ -89,7 +89,7 @@ class LineItem extends Remote\Model
     }
 
     /**
-     * Get the guid property
+     * Get the guid property.
      *
      * @return string
      */
@@ -99,7 +99,7 @@ class LineItem extends Remote\Model
     }
 
     /**
-     * Get the stem of the API (core.xro) etc
+     * Get the stem of the API (core.xro) etc.
      *
      * @return string|null
      */
@@ -109,7 +109,7 @@ class LineItem extends Remote\Model
     }
 
     /**
-     * Get the supported methods
+     * Get the supported methods.
      */
     public static function getSupportedMethods()
     {
@@ -124,7 +124,7 @@ class LineItem extends Remote\Model
      *  [1] - Type
      *  [2] - PHP type
      *  [3] - Is an Array
-     *  [4] - Saves directly
+     *  [4] - Saves directly.
      *
      * @return array
      */

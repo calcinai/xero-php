@@ -13,13 +13,13 @@ class LeaveLine extends Remote\Model
      */
 
     /**
-     * See Superannuation Calculation Types
+     * See Superannuation Calculation Types.
      *
      * @property string CalculationType
      */
 
     /**
-     * Hours of leave accrued each year
+     * Hours of leave accrued each year.
      *
      * @property string AnnualNumberOfUnits
      */
@@ -43,7 +43,7 @@ class LeaveLine extends Remote\Model
      */
 
     /**
-     * Get the resource uri of the class (Contacts) etc
+     * Get the resource uri of the class (Contacts) etc.
      *
      * @return string
      */
@@ -53,7 +53,7 @@ class LeaveLine extends Remote\Model
     }
 
     /**
-     * Get the root node name.  Just the unqualified classname
+     * Get the root node name.  Just the unqualified classname.
      *
      * @return string
      */
@@ -63,7 +63,7 @@ class LeaveLine extends Remote\Model
     }
 
     /**
-     * Get the guid property
+     * Get the guid property.
      *
      * @return string
      */
@@ -73,7 +73,7 @@ class LeaveLine extends Remote\Model
     }
 
     /**
-     * Get the stem of the API (core.xro) etc
+     * Get the stem of the API (core.xro) etc.
      *
      * @return string|null
      */
@@ -83,7 +83,7 @@ class LeaveLine extends Remote\Model
     }
 
     /**
-     * Get the supported methods
+     * Get the supported methods.
      */
     public static function getSupportedMethods()
     {
@@ -98,7 +98,7 @@ class LeaveLine extends Remote\Model
      *  [1] - Type
      *  [2] - PHP type
      *  [3] - Is an Array
-     *  [4] - Saves directly
+     *  [4] - Saves directly.
      *
      * @return array
      */

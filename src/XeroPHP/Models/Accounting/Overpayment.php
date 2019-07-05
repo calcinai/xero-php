@@ -14,118 +14,118 @@ class Overpayment extends Remote\Model
     use HistoryTrait;
 
     /**
-     * This property has been removed from the Xero API
+     * This property has been removed from the Xero API.
      *
      * @property string Reference
      * @deprecated
      */
 
     /**
-     * See Overpayment Types
+     * See Overpayment Types.
      *
      * @property string Type
      */
 
     /**
-     * See Contacts
+     * See Contacts.
      *
      * @property Contact Contact
      */
 
     /**
-     * The date the overpayment is created YYYY-MM-DD
+     * The date the overpayment is created YYYY-MM-DD.
      *
      * @property \DateTimeInterface Date
      */
 
     /**
-     * See Overpayment Status Codes
+     * See Overpayment Status Codes.
      *
      * @property string Status
      */
 
     /**
-     * See Overpayment Line Amount Types
+     * See Overpayment Line Amount Types.
      *
      * @property string LineAmountTypes
      */
 
     /**
-     * See Overpayment Line Items
+     * See Overpayment Line Items.
      *
      * @property LineItem[] LineItems
      */
 
     /**
-     * The subtotal of the overpayment excluding taxes
+     * The subtotal of the overpayment excluding taxes.
      *
      * @property float SubTotal
      */
 
     /**
-     * The total tax on the overpayment
+     * The total tax on the overpayment.
      *
      * @property float TotalTax
      */
 
     /**
-     * The total of the overpayment (subtotal + total tax)
+     * The total of the overpayment (subtotal + total tax).
      *
      * @property float Total
      */
 
     /**
-     * UTC timestamp of last update to the overpayment
+     * UTC timestamp of last update to the overpayment.
      *
      * @property \DateTimeInterface UpdatedDateUTC
      */
 
     /**
-     * Currency used for the overpayment
+     * Currency used for the overpayment.
      *
      * @property string CurrencyCode
      */
 
     /**
-     * This property has been removed from the Xero API
+     * This property has been removed from the Xero API.
      *
      * @property string FullyPaidOnDate
      * @deprecated
      */
 
     /**
-     * Xero generated unique identifier
+     * Xero generated unique identifier.
      *
      * @property string OverpaymentID
      */
 
     /**
      * The currency rate for a multicurrency overpayment. If no rate is specified, the XE.com day rate is
-     * used
+     * used.
      *
      * @property float CurrencyRate
      */
 
     /**
-     * The remaining credit balance on the overpayment
+     * The remaining credit balance on the overpayment.
      *
      * @property string RemainingCredit
      */
 
     /**
-     * See Allocations
+     * See Allocations.
      *
      * @property Allocation[] Allocations
      */
 
     /**
-     * See Payments
+     * See Payments.
      *
      * @property Payment[] Payments
      */
 
     /**
-     * boolean to indicate if a overpayment has an attachment
+     * boolean to indicate if a overpayment has an attachment.
      *
      * @property bool HasAttachments
      */
@@ -140,7 +140,7 @@ class Overpayment extends Remote\Model
     const OVERPAYMENT_STATUS_VOIDED = 'VOIDED';
 
     /**
-     * Get the resource uri of the class (Contacts) etc
+     * Get the resource uri of the class (Contacts) etc.
      *
      * @return string
      */
@@ -150,7 +150,7 @@ class Overpayment extends Remote\Model
     }
 
     /**
-     * Get the root node name.  Just the unqualified classname
+     * Get the root node name.  Just the unqualified classname.
      *
      * @return string
      */
@@ -160,7 +160,7 @@ class Overpayment extends Remote\Model
     }
 
     /**
-     * Get the guid property
+     * Get the guid property.
      *
      * @return string
      */
@@ -170,7 +170,7 @@ class Overpayment extends Remote\Model
     }
 
     /**
-     * Get the stem of the API (core.xro) etc
+     * Get the stem of the API (core.xro) etc.
      *
      * @return string|null
      */
@@ -180,7 +180,7 @@ class Overpayment extends Remote\Model
     }
 
     /**
-     * Get the supported methods
+     * Get the supported methods.
      */
     public static function getSupportedMethods()
     {
@@ -197,7 +197,7 @@ class Overpayment extends Remote\Model
      *  [1] - Type
      *  [2] - PHP type
      *  [3] - Is an Array
-     *  [4] - Saves directly
+     *  [4] - Saves directly.
      *
      * @return array
      */

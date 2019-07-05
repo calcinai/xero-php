@@ -71,7 +71,7 @@ class Query
     }
 
     /**
-     * Chains an OR WHERE statement on to the query
+     * Chains an OR WHERE statement on to the query.
      *
      * @return $this
      */
@@ -83,7 +83,7 @@ class Query
     /**
      * Chains an AND WHERE statement on to the query.
      * ( Note this method is effectively an alias for where() to help make fluent
-     * queries more readable and less ambiguous )
+     * queries more readable and less ambiguous ).
      *
      * @return $this
      */
@@ -130,7 +130,7 @@ class Query
 
     /**
      * Concatenates the array of where statements stored in $this->where and returns
-     * them as a string
+     * them as a string.
      *
      * @return string
      */

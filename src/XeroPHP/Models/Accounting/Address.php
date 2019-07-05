@@ -13,55 +13,55 @@ class Address extends Remote\Model
      */
 
     /**
-     *  max length = 500
+     *  max length = 500.
      *
      * @property string AddressLine1
      */
 
     /**
-     *  max length = 500
+     *  max length = 500.
      *
      * @property string AddressLine2
      */
 
     /**
-     *  max length = 500
+     *  max length = 500.
      *
      * @property string AddressLine3
      */
 
     /**
-     *  max length = 500
+     *  max length = 500.
      *
      * @property string AddressLine4
      */
 
     /**
-     *  max length = 255
+     *  max length = 255.
      *
      * @property string City
      */
 
     /**
-     *  max length = 255
+     *  max length = 255.
      *
      * @property string Region
      */
 
     /**
-     *  max length = 50
+     *  max length = 50.
      *
      * @property string PostalCode
      */
 
     /**
-     *  max length = 50, [A-Z], [a-z] only
+     *  max length = 50, [A-Z], [a-z] only.
      *
      * @property string Country
      */
 
     /**
-     *  max length = 255
+     *  max length = 255.
      *
      * @property string AttentionTo
      */
@@ -72,7 +72,7 @@ class Address extends Remote\Model
     const ADDRESS_TYPE_DELIVERY = 'DELIVERY';
 
     /**
-     * Get the resource uri of the class (Contacts) etc
+     * Get the resource uri of the class (Contacts) etc.
      *
      * @return string
      */
@@ -82,7 +82,7 @@ class Address extends Remote\Model
     }
 
     /**
-     * Get the root node name.  Just the unqualified classname
+     * Get the root node name.  Just the unqualified classname.
      *
      * @return string
      */
@@ -92,7 +92,7 @@ class Address extends Remote\Model
     }
 
     /**
-     * Get the guid property
+     * Get the guid property.
      *
      * @return string
      */
@@ -102,7 +102,7 @@ class Address extends Remote\Model
     }
 
     /**
-     * Get the stem of the API (core.xro) etc
+     * Get the stem of the API (core.xro) etc.
      *
      * @return string|null
      */
@@ -112,7 +112,7 @@ class Address extends Remote\Model
     }
 
     /**
-     * Get the supported methods
+     * Get the supported methods.
      */
     public static function getSupportedMethods()
     {
@@ -127,7 +127,7 @@ class Address extends Remote\Model
      *  [1] - Type
      *  [2] - PHP type
      *  [3] - Is an Array
-     *  [4] - Saves directly
+     *  [4] - Saves directly.
      *
      * @return array
      */

@@ -22,88 +22,88 @@ class PurchaseOrder extends Remote\Model
      */
 
     /**
-     * See LineItems
+     * See LineItems.
      *
      * @property LineItem[] LineItems
      */
 
     /**
-     * Date purchase order was issued – YYYY-MM-DD. Learn more
+     * Date purchase order was issued – YYYY-MM-DD. Learn more.
      *
      * @property \DateTimeInterface Date
      */
 
     /**
-     * Date the goods are to be delivered – YYYY-MM-DD
+     * Date the goods are to be delivered – YYYY-MM-DD.
      *
      * @property \DateTimeInterface DeliveryDate
      */
 
     /**
      * Line amounts are exclusive of tax by default if you don’t specify this element. See Line Amount
-     * Types
+     * Types.
      *
      * @property string LineAmountTypes
      */
 
     /**
      * Unique alpha numeric code identifying purchase order (when missing will auto-generate from your
-     * Organisation Invoice Settings)
+     * Organisation Invoice Settings).
      *
      * @property string PurchaseOrderNumber
      */
 
     /**
-     * Additional reference number
+     * Additional reference number.
      *
      * @property string Reference
      */
 
     /**
-     * See BrandingThemes
+     * See BrandingThemes.
      *
      * @property string BrandingThemeID
      */
 
     /**
-     * The currency that purchase order has been raised in (see Currencies)
+     * The currency that purchase order has been raised in (see Currencies).
      *
      * @property string CurrencyCode
      */
 
     /**
-     * See Purchase Order Status Codes
+     * See Purchase Order Status Codes.
      *
      * @property string Status
      */
 
     /**
      * Boolean to set whether the purchase order should be marked as “sent”. This can be set only on
-     * purchase orders that have been approved or billed
+     * purchase orders that have been approved or billed.
      *
      * @property bool SentToContact
      */
 
     /**
-     * The address the goods are to be delivered to
+     * The address the goods are to be delivered to.
      *
      * @property string DeliveryAddress
      */
 
     /**
-     * The person that the delivery is going to
+     * The person that the delivery is going to.
      *
      * @property string AttentionTo
      */
 
     /**
-     * The phone number for the person accepting the delivery
+     * The phone number for the person accepting the delivery.
      *
      * @property string Telephone
      */
 
     /**
-     * A free text feild for instructions (500 characters max)
+     * A free text feild for instructions (500 characters max).
      *
      * @property string DeliveryInstructions
      */
@@ -115,7 +115,7 @@ class PurchaseOrder extends Remote\Model
      */
 
     /**
-     * Xero generated unique identifier for purchase order
+     * Xero generated unique identifier for purchase order.
      *
      * @property string PurchaseOrderID
      */
@@ -128,37 +128,37 @@ class PurchaseOrder extends Remote\Model
      */
 
     /**
-     * Total of purchase order excluding taxes
+     * Total of purchase order excluding taxes.
      *
      * @property float SubTotal
      */
 
     /**
-     * Total tax on purchase order
+     * Total tax on purchase order.
      *
      * @property float TotalTax
      */
 
     /**
-     * Total of Purchase Order tax inclusive (i.e. SubTotal + TotalTax)
+     * Total of Purchase Order tax inclusive (i.e. SubTotal + TotalTax).
      *
      * @property float Total
      */
 
     /**
-     * Total of discounts applied on the purchase order line items
+     * Total of discounts applied on the purchase order line items.
      *
      * @property float TotalDiscount
      */
 
     /**
-     * boolean to indicate if a purchase order has an attachment
+     * boolean to indicate if a purchase order has an attachment.
      *
      * @property bool HasAttachments
      */
 
     /**
-     * Last modified date UTC format
+     * Last modified date UTC format.
      *
      * @property \DateTimeInterface UpdatedDateUTC
      */
@@ -173,7 +173,7 @@ class PurchaseOrder extends Remote\Model
     const PURCHASE_ORDER_STATUS_DELETED = 'DELETED';
 
     /**
-     * Get the resource uri of the class (Contacts) etc
+     * Get the resource uri of the class (Contacts) etc.
      *
      * @return string
      */
@@ -183,7 +183,7 @@ class PurchaseOrder extends Remote\Model
     }
 
     /**
-     * Get the root node name.  Just the unqualified classname
+     * Get the root node name.  Just the unqualified classname.
      *
      * @return string
      */
@@ -193,7 +193,7 @@ class PurchaseOrder extends Remote\Model
     }
 
     /**
-     * Get the guid property
+     * Get the guid property.
      *
      * @return string
      */
@@ -203,7 +203,7 @@ class PurchaseOrder extends Remote\Model
     }
 
     /**
-     * Get the stem of the API (core.xro) etc
+     * Get the stem of the API (core.xro) etc.
      *
      * @return string|null
      */
@@ -213,7 +213,7 @@ class PurchaseOrder extends Remote\Model
     }
 
     /**
-     * Get the supported methods
+     * Get the supported methods.
      */
     public static function getSupportedMethods()
     {
@@ -231,7 +231,7 @@ class PurchaseOrder extends Remote\Model
      *  [1] - Type
      *  [2] - PHP type
      *  [3] - Is an Array
-     *  [4] - Saves directly
+     *  [4] - Saves directly.
      *
      * @return array
      */

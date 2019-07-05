@@ -14,37 +14,37 @@ class BankTransaction extends Remote\Model
     use HistoryTrait;
 
     /**
-     * See Bank Transaction Types
+     * See Bank Transaction Types.
      *
      * @property string Type
      */
 
     /**
-     * See Contacts
+     * See Contacts.
      *
      * @property Contact Contact
      */
 
     /**
-     * See LineItems
+     * See LineItems.
      *
      * @property LineItem[] LineItems
      */
 
     /**
-     * Bank account for transaction. See BankAccount
+     * Bank account for transaction. See BankAccount.
      *
      * @property BankAccount BankAccount
      */
 
     /**
-     * Boolean to show if transaction is reconciled
+     * Boolean to show if transaction is reconciled.
      *
      * @property bool IsReconciled
      */
 
     /**
-     * Date of transaction – YYYY-MM-DD
+     * Date of transaction – YYYY-MM-DD.
      *
      * @property \DateTimeInterface Date
      */
@@ -72,70 +72,70 @@ class BankTransaction extends Remote\Model
      */
 
     /**
-     * URL link to a source document – shown as “Go to App Name”
+     * URL link to a source document – shown as “Go to App Name”.
      *
      * @property string Url
      */
 
     /**
-     * See Bank Transaction Status Codes
+     * See Bank Transaction Status Codes.
      *
      * @property string Status
      */
 
     /**
      * Line amounts are exclusive of tax by default if you don’t specify this element. See Line Amount
-     * Types
+     * Types.
      *
      * @property string LineAmountTypes
      */
 
     /**
-     * Total of bank transaction excluding taxes
+     * Total of bank transaction excluding taxes.
      *
      * @property float SubTotal
      */
 
     /**
-     * Total tax on bank transaction
+     * Total tax on bank transaction.
      *
      * @property float TotalTax
      */
 
     /**
-     * Total of bank transaction tax inclusive
+     * Total of bank transaction tax inclusive.
      *
      * @property float Total
      */
 
     /**
-     * Xero generated unique identifier for bank transaction
+     * Xero generated unique identifier for bank transaction.
      *
      * @property string BankTransactionID
      */
 
     /**
      * Xero generated unique identifier for a Prepayment. This will be returned on BankTransactions with a
-     * Type of SPEND-PREPAYMENT or RECEIVE-PREPAYMENT
+     * Type of SPEND-PREPAYMENT or RECEIVE-PREPAYMENT.
      *
      * @property string PrepaymentID
      */
 
     /**
      * Xero generated unique identifier for an Overpayment. This will be returned on BankTransactions with
-     * a Type of SPEND-OVERPAYMENT or RECEIVE-OVERPAYMENT
+     * a Type of SPEND-OVERPAYMENT or RECEIVE-OVERPAYMENT.
      *
      * @property string OverpaymentID
      */
 
     /**
-     * Last modified date UTC format
+     * Last modified date UTC format.
      *
      * @property \DateTimeInterface UpdatedDateUTC
      */
 
     /**
-     * Boolean to indicate if a bank transaction has an attachment
+     * Boolean to indicate if a bank transaction has an attachment.
      *
      * @property bool HasAttachments
      */
@@ -160,7 +160,7 @@ class BankTransaction extends Remote\Model
     const BANK_TRANSACTION_STATUS_DELETED = 'DELETED';
 
     /**
-     * Get the resource uri of the class (Contacts) etc
+     * Get the resource uri of the class (Contacts) etc.
      *
      * @return string
      */
@@ -170,7 +170,7 @@ class BankTransaction extends Remote\Model
     }
 
     /**
-     * Get the root node name.  Just the unqualified classname
+     * Get the root node name.  Just the unqualified classname.
      *
      * @return string
      */
@@ -180,7 +180,7 @@ class BankTransaction extends Remote\Model
     }
 
     /**
-     * Get the guid property
+     * Get the guid property.
      *
      * @return string
      */
@@ -190,7 +190,7 @@ class BankTransaction extends Remote\Model
     }
 
     /**
-     * Get the stem of the API (core.xro) etc
+     * Get the stem of the API (core.xro) etc.
      *
      * @return string|null
      */
@@ -200,7 +200,7 @@ class BankTransaction extends Remote\Model
     }
 
     /**
-     * Get the supported methods
+     * Get the supported methods.
      */
     public static function getSupportedMethods()
     {
@@ -218,7 +218,7 @@ class BankTransaction extends Remote\Model
      *  [1] - Type
      *  [2] - PHP type
      *  [3] - Is an Array
-     *  [4] - Saves directly
+     *  [4] - Saves directly.
      *
      * @return array
      */

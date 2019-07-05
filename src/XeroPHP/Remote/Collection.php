@@ -18,7 +18,7 @@ class Collection extends \ArrayObject
     }
 
     /**
-     * Remove an item at a specific index
+     * Remove an item at a specific index.
      *
      * @param $index
      */
@@ -36,7 +36,7 @@ class Collection extends \ArrayObject
     }
 
     /**
-     * Remove a specific object from the collection
+     * Remove a specific object from the collection.
      *
      * @param Model $object
      */
@@ -50,7 +50,7 @@ class Collection extends \ArrayObject
     }
 
     /**
-     *  Remove all of the values int he collection
+     *  Remove all of the values int he collection.
      */
     public function removeAll()
     {
