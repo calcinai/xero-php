@@ -261,7 +261,7 @@ class Client
             return $this->config['token'];
         }
 
-        return;
+        
     }
 
     /**
@@ -351,7 +351,7 @@ class Client
             return $this->token_secret;
         }
 
-        return;
+        
     }
 
     public function setVerifier($verifier)
@@ -367,6 +367,6 @@ class Client
             return $this->verifier;
         }
 
-        return;
+        
     }
 }

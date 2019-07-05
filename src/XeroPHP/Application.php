@@ -212,7 +212,7 @@ abstract class Application
             return $object;
         }
 
-        return;
+        
     }
 
     /**
