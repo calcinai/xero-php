@@ -227,7 +227,6 @@ class OpeningBalance extends Remote\Model
 
     /**
      * @return EarningsLine[]|Remote\Collection
-     * Always returns a collection, switch is for type hinting
      */
     public function getEarningsLines()
     {
@@ -251,7 +250,6 @@ class OpeningBalance extends Remote\Model
 
     /**
      * @return DeductionLine[]|Remote\Collection
-     * Always returns a collection, switch is for type hinting
      */
     public function getDeductionLines()
     {
@@ -295,7 +293,6 @@ class OpeningBalance extends Remote\Model
 
     /**
      * @return ReimbursementLine[]|Remote\Collection
-     * Always returns a collection, switch is for type hinting
      */
     public function getReimbursementLines()
     {

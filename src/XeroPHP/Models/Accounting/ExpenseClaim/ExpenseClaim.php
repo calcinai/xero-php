@@ -170,7 +170,6 @@ class ExpenseClaim extends Remote\Model
 
     /**
      * @return Payment[]|Remote\Collection
-     * Always returns a collection, switch is for type hinting
      */
     public function getPayments()
     {

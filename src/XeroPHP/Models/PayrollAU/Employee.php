@@ -692,7 +692,6 @@ class Employee extends Remote\Model
 
     /**
      * @return BankAccount[]|Remote\Collection
-     * Always returns a collection, switch is for type hinting
      */
     public function getBankAccounts()
     {
@@ -736,7 +735,6 @@ class Employee extends Remote\Model
 
     /**
      * @return OpeningBalance[]|Remote\Collection
-     * Always returns a collection, switch is for type hinting
      */
     public function getOpeningBalances()
     {
@@ -760,7 +758,6 @@ class Employee extends Remote\Model
 
     /**
      * @return LeaveBalance[]|Remote\Collection
-     * Always returns a collection, switch is for type hinting
      */
     public function getLeaveBalances()
     {
@@ -784,7 +781,6 @@ class Employee extends Remote\Model
 
     /**
      * @return SuperMembership[]|Remote\Collection
-     * Always returns a collection, switch is for type hinting
      */
     public function getSuperMemberships()
     {

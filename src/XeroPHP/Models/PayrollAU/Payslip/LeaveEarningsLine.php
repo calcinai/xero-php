@@ -140,7 +140,6 @@ class LeaveEarningsLine extends Remote\Model
 
     /**
      * @return float[]|Remote\Collection
-     * Always returns a collection, switch is for type hinting
      */
     public function getNumberOfUnits()
     {

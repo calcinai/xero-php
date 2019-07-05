@@ -376,7 +376,6 @@ class Invoice extends Remote\Model
 
     /**
      * @return LineItem[]|Remote\Collection
-     * Always returns a collection, switch is for type hinting
      */
     public function getLineItems()
     {
@@ -724,7 +723,6 @@ class Invoice extends Remote\Model
 
     /**
      * @return Payment[]|Remote\Collection
-     * Always returns a collection, switch is for type hinting
      */
     public function getPayments()
     {
@@ -733,7 +731,6 @@ class Invoice extends Remote\Model
 
     /**
      * @return Prepayment[]|Remote\Collection
-     * Always returns a collection, switch is for type hinting
      */
     public function getPrepayments()
     {
@@ -742,7 +739,6 @@ class Invoice extends Remote\Model
 
     /**
      * @return Overpayment[]|Remote\Collection
-     * Always returns a collection, switch is for type hinting
      */
     public function getOverpayments()
     {
@@ -791,7 +787,6 @@ class Invoice extends Remote\Model
 
     /**
      * @return CreditNote[]|Remote\Collection
-     * Always returns a collection, switch is for type hinting
      */
     public function getCreditNotes()
     {

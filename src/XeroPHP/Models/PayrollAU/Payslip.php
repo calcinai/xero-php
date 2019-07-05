@@ -296,7 +296,6 @@ class Payslip extends Remote\Model
 
     /**
      * @return EarningsLine[]|Remote\Collection
-     * Always returns a collection, switch is for type hinting
      */
     public function getEarningsLines()
     {
@@ -320,7 +319,6 @@ class Payslip extends Remote\Model
 
     /**
      * @return TimesheetEarningsLine[]|Remote\Collection
-     * Always returns a collection, switch is for type hinting
      */
     public function getTimesheetEarningsLines()
     {
@@ -344,7 +342,6 @@ class Payslip extends Remote\Model
 
     /**
      * @return DeductionLine[]|Remote\Collection
-     * Always returns a collection, switch is for type hinting
      */
     public function getDeductionLines()
     {
@@ -368,7 +365,6 @@ class Payslip extends Remote\Model
 
     /**
      * @return LeaveAccrualLine[]|Remote\Collection
-     * Always returns a collection, switch is for type hinting
      */
     public function getLeaveAccrualLines()
     {
@@ -392,7 +388,6 @@ class Payslip extends Remote\Model
 
     /**
      * @return ReimbursementLine[]|Remote\Collection
-     * Always returns a collection, switch is for type hinting
      */
     public function getReimbursementLines()
     {
@@ -416,7 +411,6 @@ class Payslip extends Remote\Model
 
     /**
      * @return SuperannuationLine[]|Remote\Collection
-     * Always returns a collection, switch is for type hinting
      */
     public function getSuperannuationLines()
     {
@@ -440,7 +434,6 @@ class Payslip extends Remote\Model
 
     /**
      * @return TaxLine[]|Remote\Collection
-     * Always returns a collection, switch is for type hinting
      */
     public function getTaxLines()
     {
@@ -496,7 +489,6 @@ class Payslip extends Remote\Model
 
     /**
      * @return float[]|Remote\Collection
-     * Always returns a collection, switch is for type hinting
      */
     public function getWages()
     {
@@ -505,7 +497,6 @@ class Payslip extends Remote\Model
 
     /**
      * @return float[]|Remote\Collection
-     * Always returns a collection, switch is for type hinting
      */
     public function getDeductions()
     {
@@ -538,7 +529,6 @@ class Payslip extends Remote\Model
 
     /**
      * @return float[]|Remote\Collection
-     * Always returns a collection, switch is for type hinting
      */
     public function getReimbursements()
     {
@@ -547,7 +537,6 @@ class Payslip extends Remote\Model
 
     /**
      * @return LeaveEarningsLine[]|Remote\Collection
-     * Always returns a collection, switch is for type hinting
      */
     public function getLeaveEarningsLines()
     {

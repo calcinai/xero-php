@@ -196,7 +196,6 @@ class Timesheet extends Remote\Model
 
     /**
      * @return TimesheetLine[]|Remote\Collection
-     * Always returns a collection, switch is for type hinting
      */
     public function getTimesheetLines()
     {

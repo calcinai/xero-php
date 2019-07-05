@@ -824,7 +824,6 @@ class Organisation extends Remote\Model
 
     /**
      * @return Address[]|Remote\Collection
-     * Always returns a collection, switch is for type hinting
      */
     public function getAddresses()
     {
@@ -848,7 +847,6 @@ class Organisation extends Remote\Model
 
     /**
      * @return Phone[]|Remote\Collection
-     * Always returns a collection, switch is for type hinting
      */
     public function getPhones()
     {
@@ -872,7 +870,6 @@ class Organisation extends Remote\Model
 
     /**
      * @return ExternalLink[]|Remote\Collection
-     * Always returns a collection, switch is for type hinting
      */
     public function getExternalLinks()
     {
@@ -896,7 +893,6 @@ class Organisation extends Remote\Model
 
     /**
      * @return PaymentTerm[]|Remote\Collection
-     * Always returns a collection, switch is for type hinting
      */
     public function getPaymentTerms()
     {

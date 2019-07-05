@@ -119,7 +119,6 @@ class PayTemplate extends Remote\Model
 
     /**
      * @return EarningsLine[]|Remote\Collection
-     * Always returns a collection, switch is for type hinting
      */
     public function getEarningsLines()
     {
@@ -143,7 +142,6 @@ class PayTemplate extends Remote\Model
 
     /**
      * @return DeductionLine[]|Remote\Collection
-     * Always returns a collection, switch is for type hinting
      */
     public function getDeductionLines()
     {
@@ -167,7 +165,6 @@ class PayTemplate extends Remote\Model
 
     /**
      * @return SuperLine[]|Remote\Collection
-     * Always returns a collection, switch is for type hinting
      */
     public function getSuperLines()
     {
@@ -191,7 +188,6 @@ class PayTemplate extends Remote\Model
 
     /**
      * @return ReimbursementLine[]|Remote\Collection
-     * Always returns a collection, switch is for type hinting
      */
     public function getReimbursementLines()
     {
@@ -215,7 +211,6 @@ class PayTemplate extends Remote\Model
 
     /**
      * @return LeaveLine[]|Remote\Collection
-     * Always returns a collection, switch is for type hinting
      */
     public function getLeaveLines()
     {

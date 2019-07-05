@@ -240,7 +240,6 @@ class Receipt extends Remote\Model
 
     /**
      * @return LineItem[]|Remote\Collection
-     * Always returns a collection, switch is for type hinting
      */
     public function getLineItems()
     {

@@ -175,7 +175,6 @@ class ContactGroup extends Remote\Model
 
     /**
      * @return Contact[]|Remote\Collection
-     * Always returns a collection, switch is for type hinting
      */
     public function getContacts()
     {

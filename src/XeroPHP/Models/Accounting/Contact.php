@@ -528,7 +528,6 @@ class Contact extends Remote\Model
 
     /**
      * @return ContactPerson[]|Remote\Collection
-     * Always returns a collection, switch is for type hinting
      */
     public function getContactPersons()
     {
@@ -632,7 +631,6 @@ class Contact extends Remote\Model
 
     /**
      * @return Address[]|Remote\Collection
-     * Always returns a collection, switch is for type hinting
      */
     public function getAddresses()
     {
@@ -656,7 +654,6 @@ class Contact extends Remote\Model
 
     /**
      * @return Phone[]|Remote\Collection
-     * Always returns a collection, switch is for type hinting
      */
     public function getPhones()
     {
@@ -792,7 +789,6 @@ class Contact extends Remote\Model
 
     /**
      * @return TrackingCategory[]|Remote\Collection
-     * Always returns a collection, switch is for type hinting
      */
     public function getSalesTrackingCategories()
     {
@@ -816,7 +812,6 @@ class Contact extends Remote\Model
 
     /**
      * @return TrackingCategory[]|Remote\Collection
-     * Always returns a collection, switch is for type hinting
      */
     public function getPurchasesTrackingCategories()
     {
@@ -880,7 +875,6 @@ class Contact extends Remote\Model
 
     /**
      * @return PaymentTerm[]|Remote\Collection
-     * Always returns a collection, switch is for type hinting
      */
     public function getPaymentTerms()
     {
@@ -924,7 +918,6 @@ class Contact extends Remote\Model
 
     /**
      * @return ContactGroup[]|Remote\Collection
-     * Always returns a collection, switch is for type hinting
      */
     public function getContactGroups()
     {

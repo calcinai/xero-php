@@ -121,7 +121,6 @@ class PayItem extends Remote\Model
 
     /**
      * @return EarningsType[]|Remote\Collection
-     * Always returns a collection, switch is for type hinting
      */
     public function getEarningsTypes()
     {
@@ -145,7 +144,6 @@ class PayItem extends Remote\Model
 
     /**
      * @return BenefitType[]|Remote\Collection
-     * Always returns a collection, switch is for type hinting
      */
     public function getBenefitTypes()
     {
@@ -169,7 +167,6 @@ class PayItem extends Remote\Model
 
     /**
      * @return DeductionType[]|Remote\Collection
-     * Always returns a collection, switch is for type hinting
      */
     public function getDeductionTypes()
     {
@@ -193,7 +190,6 @@ class PayItem extends Remote\Model
 
     /**
      * @return ReimbursementType[]|Remote\Collection
-     * Always returns a collection, switch is for type hinting
      */
     public function getReimbursementTypes()
     {
@@ -217,7 +213,6 @@ class PayItem extends Remote\Model
 
     /**
      * @return TimeOffType[]|Remote\Collection
-     * Always returns a collection, switch is for type hinting
      */
     public function getTimeOffTypes()
     {
