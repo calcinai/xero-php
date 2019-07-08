@@ -108,6 +108,7 @@ class ToBankAccount extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return ToBankAccount
      */
     public function setCode($value)
@@ -128,6 +129,7 @@ class ToBankAccount extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return ToBankAccount
      */
     public function setAccountID($value)

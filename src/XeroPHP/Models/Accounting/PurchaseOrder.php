@@ -280,6 +280,7 @@ class PurchaseOrder extends Remote\Model
 
     /**
      * @param Contact $value
+     *
      * @return PurchaseOrder
      */
     public function setContact(Contact $value)
@@ -300,6 +301,7 @@ class PurchaseOrder extends Remote\Model
 
     /**
      * @param LineItem $value
+     *
      * @return PurchaseOrder
      */
     public function addLineItem(LineItem $value)
@@ -323,6 +325,7 @@ class PurchaseOrder extends Remote\Model
 
     /**
      * @param \DateTimeInterface $value
+     *
      * @return PurchaseOrder
      */
     public function setDate(\DateTimeInterface $value)
@@ -343,6 +346,7 @@ class PurchaseOrder extends Remote\Model
 
     /**
      * @param \DateTimeInterface $value
+     *
      * @return PurchaseOrder
      */
     public function setDeliveryDate(\DateTimeInterface $value)
@@ -363,6 +367,7 @@ class PurchaseOrder extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return PurchaseOrder
      */
     public function setLineAmountType($value)
@@ -383,6 +388,7 @@ class PurchaseOrder extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return PurchaseOrder
      */
     public function setPurchaseOrderNumber($value)
@@ -403,6 +409,7 @@ class PurchaseOrder extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return PurchaseOrder
      */
     public function setReference($value)
@@ -423,6 +430,7 @@ class PurchaseOrder extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return PurchaseOrder
      */
     public function setBrandingThemeID($value)
@@ -443,6 +451,7 @@ class PurchaseOrder extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return PurchaseOrder
      */
     public function setCurrencyCode($value)
@@ -463,6 +472,7 @@ class PurchaseOrder extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return PurchaseOrder
      */
     public function setStatus($value)
@@ -483,6 +493,7 @@ class PurchaseOrder extends Remote\Model
 
     /**
      * @param bool $value
+     *
      * @return PurchaseOrder
      */
     public function setSentToContact($value)
@@ -503,6 +514,7 @@ class PurchaseOrder extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return PurchaseOrder
      */
     public function setDeliveryAddress($value)
@@ -523,6 +535,7 @@ class PurchaseOrder extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return PurchaseOrder
      */
     public function setAttentionTo($value)
@@ -543,6 +556,7 @@ class PurchaseOrder extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return PurchaseOrder
      */
     public function setTelephone($value)
@@ -563,6 +577,7 @@ class PurchaseOrder extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return PurchaseOrder
      */
     public function setDeliveryInstruction($value)
@@ -583,6 +598,7 @@ class PurchaseOrder extends Remote\Model
 
     /**
      * @param \DateTimeInterface $value
+     *
      * @return PurchaseOrder
      */
     public function setExpectedArrivalDate(\DateTimeInterface $value)
@@ -603,6 +619,7 @@ class PurchaseOrder extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return PurchaseOrder
      */
     public function setPurchaseOrderID($value)

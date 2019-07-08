@@ -124,6 +124,7 @@ class PaySchedule extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return PaySchedule
      */
     public function setPayScheduleName($value)
@@ -144,6 +145,7 @@ class PaySchedule extends Remote\Model
 
     /**
      * @param \DateTimeInterface $value
+     *
      * @return PaySchedule
      */
     public function setPaymentDate(\DateTimeInterface $value)
@@ -164,6 +166,7 @@ class PaySchedule extends Remote\Model
 
     /**
      * @param \DateTimeInterface $value
+     *
      * @return PaySchedule
      */
     public function setStartDate(\DateTimeInterface $value)
@@ -184,6 +187,7 @@ class PaySchedule extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return PaySchedule
      */
     public function setScheduleType($value)
@@ -204,6 +208,7 @@ class PaySchedule extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return PaySchedule
      */
     public function setPayScheduleId($value)

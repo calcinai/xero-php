@@ -123,6 +123,7 @@ class ContactGroup extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return ContactGroup
      */
     public function setName($value)
@@ -143,6 +144,7 @@ class ContactGroup extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return ContactGroup
      */
     public function setStatus($value)
@@ -163,6 +165,7 @@ class ContactGroup extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return ContactGroup
      */
     public function setContactGroupID($value)
@@ -183,6 +186,7 @@ class ContactGroup extends Remote\Model
 
     /**
      * @param Contact $value
+     *
      * @return ContactGroup
      */
     public function addContact(Contact $value)

@@ -64,6 +64,7 @@ class TaxDeclaration extends Remote\Model
      * This property has been removed from the Xero API.
      *
      * @property bool HasTSLDebt
+     *
      * @deprecated
      */
 
@@ -205,6 +206,7 @@ class TaxDeclaration extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return TaxDeclaration
      */
     public function setEmployeeID($value)
@@ -225,6 +227,7 @@ class TaxDeclaration extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return TaxDeclaration
      */
     public function setEmploymentBasis($value)
@@ -245,6 +248,7 @@ class TaxDeclaration extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return TaxDeclaration
      */
     public function setTFNExemptionType($value)
@@ -265,6 +269,7 @@ class TaxDeclaration extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return TaxDeclaration
      */
     public function setTaxFileNumber($value)
@@ -285,6 +290,7 @@ class TaxDeclaration extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return TaxDeclaration
      */
     public function setAustralianResidentForTaxPurpose($value)
@@ -324,6 +330,7 @@ class TaxDeclaration extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return TaxDeclaration
      */
     public function setTaxFreeThresholdClaimed($value)
@@ -344,6 +351,7 @@ class TaxDeclaration extends Remote\Model
 
     /**
      * @param float $value
+     *
      * @return TaxDeclaration
      */
     public function setTaxOffsetEstimatedAmount($value)
@@ -364,6 +372,7 @@ class TaxDeclaration extends Remote\Model
 
     /**
      * @param bool $value
+     *
      * @return TaxDeclaration
      */
     public function setHasHELPDebt($value)
@@ -384,6 +393,7 @@ class TaxDeclaration extends Remote\Model
 
     /**
      * @param bool $value
+     *
      * @return TaxDeclaration
      */
     public function setHasSFSSDebt($value)
@@ -396,6 +406,7 @@ class TaxDeclaration extends Remote\Model
 
     /**
      * @return bool
+     *
      * @deprecated
      */
     public function getHasTSLDebt()
@@ -405,7 +416,9 @@ class TaxDeclaration extends Remote\Model
 
     /**
      * @param bool $value
+     *
      * @return TaxDeclaration
+     *
      * @deprecated
      */
     public function setHasTSLDebt($value)
@@ -426,6 +439,7 @@ class TaxDeclaration extends Remote\Model
 
     /**
      * @param bool $value
+     *
      * @return TaxDeclaration
      */
     public function setHasTradeSupportLoanDebt($value)
@@ -446,6 +460,7 @@ class TaxDeclaration extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return TaxDeclaration
      */
     public function setUpwardVariationTaxWithholdingAmount($value)
@@ -466,6 +481,7 @@ class TaxDeclaration extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return TaxDeclaration
      */
     public function setEligibleToReceiveLeaveLoading($value)
@@ -486,6 +502,7 @@ class TaxDeclaration extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return TaxDeclaration
      */
     public function setApprovedWithholdingVariationPercentage($value)

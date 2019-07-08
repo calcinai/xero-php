@@ -162,6 +162,7 @@ class Address extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return Address
      */
     public function setAddressType($value)
@@ -182,6 +183,7 @@ class Address extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return Address
      */
     public function setAddressLine1($value)
@@ -202,6 +204,7 @@ class Address extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return Address
      */
     public function setAddressLine2($value)
@@ -222,6 +225,7 @@ class Address extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return Address
      */
     public function setAddressLine3($value)
@@ -242,6 +246,7 @@ class Address extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return Address
      */
     public function setAddressLine4($value)
@@ -262,6 +267,7 @@ class Address extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return Address
      */
     public function setCity($value)
@@ -282,6 +288,7 @@ class Address extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return Address
      */
     public function setRegion($value)
@@ -302,6 +309,7 @@ class Address extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return Address
      */
     public function setPostalCode($value)
@@ -322,6 +330,7 @@ class Address extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return Address
      */
     public function setCountry($value)
@@ -342,6 +351,7 @@ class Address extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return Address
      */
     public function setAttentionTo($value)

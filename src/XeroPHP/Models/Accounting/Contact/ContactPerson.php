@@ -115,6 +115,7 @@ class ContactPerson extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return ContactPerson
      */
     public function setFirstName($value)
@@ -135,6 +136,7 @@ class ContactPerson extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return ContactPerson
      */
     public function setLastName($value)
@@ -155,6 +157,7 @@ class ContactPerson extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return ContactPerson
      */
     public function setEmailAddress($value)
@@ -175,6 +178,7 @@ class ContactPerson extends Remote\Model
 
     /**
      * @param bool $value
+     *
      * @return ContactPerson
      */
     public function setIncludeInEmail($value)

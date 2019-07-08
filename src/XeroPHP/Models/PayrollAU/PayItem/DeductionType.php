@@ -124,6 +124,7 @@ class DeductionType extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return DeductionType
      */
     public function setName($value)
@@ -144,6 +145,7 @@ class DeductionType extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return DeductionType
      */
     public function setAccountCode($value)
@@ -164,6 +166,7 @@ class DeductionType extends Remote\Model
 
     /**
      * @param float $value
+     *
      * @return DeductionType
      */
     public function setReducesTax($value)
@@ -184,6 +187,7 @@ class DeductionType extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return DeductionType
      */
     public function setReducesSuper($value)
@@ -204,6 +208,7 @@ class DeductionType extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return DeductionType
      */
     public function setDeductionTypeID($value)

@@ -17,6 +17,7 @@ class Prepayment extends Remote\Model
      * This property has been removed from the Xero API.
      *
      * @property string Reference
+     *
      * @deprecated
      */
 
@@ -90,6 +91,7 @@ class Prepayment extends Remote\Model
      * This property has been removed from the Xero API.
      *
      * @property string FullyPaidOnDate
+     *
      * @deprecated
      */
 
@@ -226,6 +228,7 @@ class Prepayment extends Remote\Model
 
     /**
      * @return string
+     *
      * @deprecated
      */
     public function getReference()
@@ -235,7 +238,9 @@ class Prepayment extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return Prepayment
+     *
      * @deprecated
      */
     public function setReference($value)
@@ -256,6 +261,7 @@ class Prepayment extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return Prepayment
      */
     public function setType($value)
@@ -276,6 +282,7 @@ class Prepayment extends Remote\Model
 
     /**
      * @param Contact $value
+     *
      * @return Prepayment
      */
     public function setContact(Contact $value)
@@ -296,6 +303,7 @@ class Prepayment extends Remote\Model
 
     /**
      * @param \DateTimeInterface $value
+     *
      * @return Prepayment
      */
     public function setDate(\DateTimeInterface $value)
@@ -316,6 +324,7 @@ class Prepayment extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return Prepayment
      */
     public function setStatus($value)
@@ -336,6 +345,7 @@ class Prepayment extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return Prepayment
      */
     public function setLineAmountType($value)
@@ -356,6 +366,7 @@ class Prepayment extends Remote\Model
 
     /**
      * @param LineItem $value
+     *
      * @return Prepayment
      */
     public function addLineItem(LineItem $value)
@@ -379,6 +390,7 @@ class Prepayment extends Remote\Model
 
     /**
      * @param float $value
+     *
      * @return Prepayment
      */
     public function setSubTotal($value)
@@ -399,6 +411,7 @@ class Prepayment extends Remote\Model
 
     /**
      * @param float $value
+     *
      * @return Prepayment
      */
     public function setTotalTax($value)
@@ -419,6 +432,7 @@ class Prepayment extends Remote\Model
 
     /**
      * @param float $value
+     *
      * @return Prepayment
      */
     public function setTotal($value)
@@ -439,6 +453,7 @@ class Prepayment extends Remote\Model
 
     /**
      * @param \DateTimeInterface $value
+     *
      * @return Prepayment
      */
     public function setUpdatedDateUTC(\DateTimeInterface $value)
@@ -459,6 +474,7 @@ class Prepayment extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return Prepayment
      */
     public function setCurrencyCode($value)
@@ -471,6 +487,7 @@ class Prepayment extends Remote\Model
 
     /**
      * @return string
+     *
      * @deprecated
      */
     public function getFullyPaidOnDate()
@@ -480,7 +497,9 @@ class Prepayment extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return Prepayment
+     *
      * @deprecated
      */
     public function setFullyPaidOnDate($value)
@@ -501,6 +520,7 @@ class Prepayment extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return Prepayment
      */
     public function setPrepaymentID($value)
@@ -521,6 +541,7 @@ class Prepayment extends Remote\Model
 
     /**
      * @param float $value
+     *
      * @return Prepayment
      */
     public function setCurrencyRate($value)
@@ -541,6 +562,7 @@ class Prepayment extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return Prepayment
      */
     public function setRemainingCredit($value)
@@ -561,6 +583,7 @@ class Prepayment extends Remote\Model
 
     /**
      * @param Allocation $value
+     *
      * @return Prepayment
      */
     public function addAllocation(Allocation $value)
@@ -584,6 +607,7 @@ class Prepayment extends Remote\Model
 
     /**
      * @deprecated - this is a read only property and this method will be removed in future versions
+     *
      * @param $value
      */
     public function setHasAttachment($value)

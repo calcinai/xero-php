@@ -178,6 +178,7 @@ class DeductionType extends Remote\Model
 
     /**
      * @param DeductionType $value
+     *
      * @return DeductionType
      */
     public function setDeductionType(self $value)
@@ -198,6 +199,7 @@ class DeductionType extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return DeductionType
      */
     public function setDeductionCategory($value)
@@ -218,6 +220,7 @@ class DeductionType extends Remote\Model
 
     /**
      * @param float $value
+     *
      * @return DeductionType
      */
     public function setCalculationType($value)
@@ -238,6 +241,7 @@ class DeductionType extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return DeductionType
      */
     public function setLiabilityAccountCode($value)
@@ -258,6 +262,7 @@ class DeductionType extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return DeductionType
      */
     public function setDeductionTypeID($value)
@@ -278,6 +283,7 @@ class DeductionType extends Remote\Model
 
     /**
      * @param float $value
+     *
      * @return DeductionType
      */
     public function setStandardAmount($value)
@@ -298,6 +304,7 @@ class DeductionType extends Remote\Model
 
     /**
      * @param float $value
+     *
      * @return DeductionType
      */
     public function setCompanyMax($value)

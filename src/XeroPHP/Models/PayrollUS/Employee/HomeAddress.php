@@ -136,6 +136,7 @@ class HomeAddress extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return HomeAddress
      */
     public function setStreetAddress($value)
@@ -156,6 +157,7 @@ class HomeAddress extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return HomeAddress
      */
     public function setSuiteOrAptOrUnit($value)
@@ -176,6 +178,7 @@ class HomeAddress extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return HomeAddress
      */
     public function setCity($value)
@@ -196,6 +199,7 @@ class HomeAddress extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return HomeAddress
      */
     public function setState($value)
@@ -216,6 +220,7 @@ class HomeAddress extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return HomeAddress
      */
     public function setZip($value)
@@ -236,6 +241,7 @@ class HomeAddress extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return HomeAddress
      */
     public function setLattitude($value)
@@ -256,6 +262,7 @@ class HomeAddress extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return HomeAddress
      */
     public function setLongitude($value)

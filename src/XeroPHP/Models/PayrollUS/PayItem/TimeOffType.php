@@ -134,6 +134,7 @@ class TimeOffType extends Remote\Model
 
     /**
      * @param TimeOffType $value
+     *
      * @return TimeOffType
      */
     public function setTimeOffType(self $value)
@@ -154,6 +155,7 @@ class TimeOffType extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return TimeOffType
      */
     public function setTimeOffCategory($value)
@@ -174,6 +176,7 @@ class TimeOffType extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return TimeOffType
      */
     public function setExpenseAccountCode($value)
@@ -194,6 +197,7 @@ class TimeOffType extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return TimeOffType
      */
     public function setLiabilityAccountCode($value)
@@ -214,6 +218,7 @@ class TimeOffType extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return TimeOffType
      */
     public function setTimeOffTypeID($value)
@@ -234,6 +239,7 @@ class TimeOffType extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return TimeOffType
      */
     public function setShowBalanceToEmployee($value)

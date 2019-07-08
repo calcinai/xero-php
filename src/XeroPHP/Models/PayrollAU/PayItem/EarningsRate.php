@@ -16,6 +16,7 @@ class EarningsRate extends Remote\Model
      * This property has been removed from the Xero API.
      *
      * @property string DisplayName
+     *
      * @deprecated
      */
 
@@ -196,6 +197,7 @@ class EarningsRate extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return EarningsRate
      */
     public function setName($value)
@@ -208,6 +210,7 @@ class EarningsRate extends Remote\Model
 
     /**
      * @return string
+     *
      * @deprecated
      */
     public function getDisplayName()
@@ -217,7 +220,9 @@ class EarningsRate extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return EarningsRate
+     *
      * @deprecated
      */
     public function setDisplayName($value)
@@ -238,6 +243,7 @@ class EarningsRate extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return EarningsRate
      */
     public function setAccountCode($value)
@@ -258,6 +264,7 @@ class EarningsRate extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return EarningsRate
      */
     public function setTypeOfUnit($value)
@@ -278,6 +285,7 @@ class EarningsRate extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return EarningsRate
      */
     public function setIsExemptFromTax($value)
@@ -298,6 +306,7 @@ class EarningsRate extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return EarningsRate
      */
     public function setIsExemptFromSuper($value)
@@ -318,6 +327,7 @@ class EarningsRate extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return EarningsRate
      */
     public function setEarningsType($value)
@@ -338,6 +348,7 @@ class EarningsRate extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return EarningsRate
      */
     public function setEarningsRateID($value)
@@ -358,6 +369,7 @@ class EarningsRate extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return EarningsRate
      */
     public function setRateType($value)
@@ -378,6 +390,7 @@ class EarningsRate extends Remote\Model
 
     /**
      * @param float $value
+     *
      * @return EarningsRate
      */
     public function setRatePerUnit($value)
@@ -398,6 +411,7 @@ class EarningsRate extends Remote\Model
 
     /**
      * @param float $value
+     *
      * @return EarningsRate
      */
     public function setMultiplier($value)
@@ -418,6 +432,7 @@ class EarningsRate extends Remote\Model
 
     /**
      * @param float $value
+     *
      * @return EarningsRate
      */
     public function setAccrueLeave($value)
@@ -438,6 +453,7 @@ class EarningsRate extends Remote\Model
 
     /**
      * @param float $value
+     *
      * @return EarningsRate
      */
     public function setAmount($value)

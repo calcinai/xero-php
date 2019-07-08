@@ -33,7 +33,9 @@ class Webhook
      * @param \XeroPHP\Application $application
      * @param string $payload
      * @param string|null $event
+     *
      * @throws \XeroPHP\Application\Exception
+     *
      * @return void
      */
     public function __construct($application, $payload, $event = null)
@@ -78,6 +80,7 @@ class Webhook
 
     /**
      * @param string $signature
+     *
      * @return bool
      */
     public function validate($signature)

@@ -344,6 +344,7 @@ class Invoice extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return Invoice
      */
     public function setType($value)
@@ -364,6 +365,7 @@ class Invoice extends Remote\Model
 
     /**
      * @param Contact $value
+     *
      * @return Invoice
      */
     public function setContact(Contact $value)
@@ -388,6 +390,7 @@ class Invoice extends Remote\Model
 
     /**
      * @param LineItem $value
+     *
      * @return Invoice
      */
     public function addLineItem(LineItem $value)
@@ -411,6 +414,7 @@ class Invoice extends Remote\Model
 
     /**
      * @param \DateTimeInterface $value
+     *
      * @return Invoice
      */
     public function setDate(\DateTimeInterface $value)
@@ -431,6 +435,7 @@ class Invoice extends Remote\Model
 
     /**
      * @param \DateTimeInterface $value
+     *
      * @return Invoice
      */
     public function setDueDate(\DateTimeInterface $value)
@@ -451,6 +456,7 @@ class Invoice extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return Invoice
      */
     public function setLineAmountType($value)
@@ -471,6 +477,7 @@ class Invoice extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return Invoice
      */
     public function setInvoiceNumber($value)
@@ -491,6 +498,7 @@ class Invoice extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return Invoice
      */
     public function setReference($value)
@@ -511,6 +519,7 @@ class Invoice extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return Invoice
      */
     public function setBrandingThemeID($value)
@@ -531,6 +540,7 @@ class Invoice extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return Invoice
      */
     public function setUrl($value)
@@ -551,6 +561,7 @@ class Invoice extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return Invoice
      */
     public function setCurrencyCode($value)
@@ -571,6 +582,7 @@ class Invoice extends Remote\Model
 
     /**
      * @param float $value
+     *
      * @return Invoice
      */
     public function setCurrencyRate($value)
@@ -591,6 +603,7 @@ class Invoice extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return Invoice
      */
     public function setStatus($value)
@@ -611,6 +624,7 @@ class Invoice extends Remote\Model
 
     /**
      * @param bool $value
+     *
      * @return Invoice
      */
     public function setSentToContact($value)
@@ -631,6 +645,7 @@ class Invoice extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return Invoice
      */
     public function setExpectedPaymentDate($value)
@@ -651,6 +666,7 @@ class Invoice extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return Invoice
      */
     public function setPlannedPaymentDate($value)
@@ -703,6 +719,7 @@ class Invoice extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return Invoice
      */
     public function setInvoiceID($value)
@@ -797,6 +814,7 @@ class Invoice extends Remote\Model
      * Retrieve the online invoice URL.
      *
      * @throws \XeroPHP\Exception
+     *
      * @return string
      */
     public function getOnlineInvoiceUrl()

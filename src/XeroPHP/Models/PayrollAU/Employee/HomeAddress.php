@@ -129,6 +129,7 @@ class HomeAddress extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return HomeAddress
      */
     public function setAddressLine1($value)
@@ -149,6 +150,7 @@ class HomeAddress extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return HomeAddress
      */
     public function setAddressLine2($value)
@@ -169,6 +171,7 @@ class HomeAddress extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return HomeAddress
      */
     public function setCity($value)
@@ -189,6 +192,7 @@ class HomeAddress extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return HomeAddress
      */
     public function setRegion($value)
@@ -209,6 +213,7 @@ class HomeAddress extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return HomeAddress
      */
     public function setPostalCode($value)
@@ -229,6 +234,7 @@ class HomeAddress extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return HomeAddress
      */
     public function setCountry($value)

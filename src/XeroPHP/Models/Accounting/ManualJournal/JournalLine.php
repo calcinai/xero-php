@@ -132,6 +132,7 @@ class JournalLine extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return JournalLine
      */
     public function setLineAmount($value)
@@ -152,6 +153,7 @@ class JournalLine extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return JournalLine
      */
     public function setAccountCode($value)
@@ -172,6 +174,7 @@ class JournalLine extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return JournalLine
      */
     public function setDescription($value)
@@ -192,6 +195,7 @@ class JournalLine extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return JournalLine
      */
     public function setTaxType($value)
@@ -212,6 +216,7 @@ class JournalLine extends Remote\Model
 
     /**
      * @param TrackingCategory $value
+     *
      * @return JournalLine
      */
     public function addTracking(TrackingCategory $value)

@@ -106,6 +106,7 @@ class PaymentMethod extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return PaymentMethod
      */
     public function setPaymentMethodType($value)
@@ -126,6 +127,7 @@ class PaymentMethod extends Remote\Model
 
     /**
      * @param BankAccount $value
+     *
      * @return PaymentMethod
      */
     public function addBankAccount(BankAccount $value)

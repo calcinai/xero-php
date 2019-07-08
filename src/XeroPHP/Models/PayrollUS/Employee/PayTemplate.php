@@ -204,6 +204,7 @@ class PayTemplate extends Remote\Model
 
     /**
      * @param float $value
+     *
      * @return PayTemplate
      */
     public function addEarningsLine($value)
@@ -227,6 +228,7 @@ class PayTemplate extends Remote\Model
 
     /**
      * @param DeductionLine $value
+     *
      * @return PayTemplate
      */
     public function addDeductionLine(DeductionLine $value)
@@ -250,6 +252,7 @@ class PayTemplate extends Remote\Model
 
     /**
      * @param ReimbursementLine $value
+     *
      * @return PayTemplate
      */
     public function addReimbursementLine(ReimbursementLine $value)
@@ -273,6 +276,7 @@ class PayTemplate extends Remote\Model
 
     /**
      * @param BenefitLine $value
+     *
      * @return PayTemplate
      */
     public function addBenefitLine(BenefitLine $value)
@@ -296,6 +300,7 @@ class PayTemplate extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return PayTemplate
      */
     public function setEarningsTypeID($value)
@@ -316,6 +321,7 @@ class PayTemplate extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return PayTemplate
      */
     public function setUnitsOrHour($value)
@@ -336,6 +342,7 @@ class PayTemplate extends Remote\Model
 
     /**
      * @param float $value
+     *
      * @return PayTemplate
      */
     public function setRatePerUnit($value)
@@ -356,6 +363,7 @@ class PayTemplate extends Remote\Model
 
     /**
      * @param float $value
+     *
      * @return PayTemplate
      */
     public function setAmount($value)
@@ -376,6 +384,7 @@ class PayTemplate extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return PayTemplate
      */
     public function setDeductionTypeID($value)
@@ -396,6 +405,7 @@ class PayTemplate extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return PayTemplate
      */
     public function setCalculationType($value)
@@ -416,6 +426,7 @@ class PayTemplate extends Remote\Model
 
     /**
      * @param float $value
+     *
      * @return PayTemplate
      */
     public function setEmployeeMax($value)
@@ -436,6 +447,7 @@ class PayTemplate extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return PayTemplate
      */
     public function setPercentage($value)
@@ -456,6 +468,7 @@ class PayTemplate extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return PayTemplate
      */
     public function setReimbursementTypeID($value)
@@ -476,6 +489,7 @@ class PayTemplate extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return PayTemplate
      */
     public function setDescription($value)
@@ -496,6 +510,7 @@ class PayTemplate extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return PayTemplate
      */
     public function setBenefitTypeID($value)

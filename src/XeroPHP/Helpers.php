@@ -19,6 +19,7 @@ class Helpers
      *
      * @param array $array
      * @param null $key_override
+     *
      * @return string
      */
     public static function arrayToXML(array $array, $key_override = null)
@@ -96,6 +97,7 @@ class Helpers
      * so only good for a quick basic singularisation.
      *
      * @param $string
+     *
      * @return mixed
      */
     public static function singularize($string)
@@ -169,6 +171,7 @@ class Helpers
      * @param string $format
      * @param string|null $glue
      * @param bool $escape
+     *
      * @return string|array if no glue provided, it won't be imploded
      */
     public static function flattenAssocArray(
@@ -201,6 +204,7 @@ class Helpers
      * the SimpleOAuth class.
      *
      * @param $string
+     *
      * @return string
      */
     public static function escape($string)
@@ -211,7 +215,9 @@ class Helpers
     /**
      * @param $knownString string
      * @param $userInput string
+     *
      * @return bool
+     *
      * @see https://github.com/symfony/polyfill-php56
      */
     public static function hashEquals($knownString, $userInput)

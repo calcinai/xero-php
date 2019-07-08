@@ -129,6 +129,7 @@ class LeaveLine extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return PayTemplate
      */
     public function setLeaveTypeID($value)
@@ -149,6 +150,7 @@ class LeaveLine extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return EarningsLine
      */
     public function setCalculationType($value)
@@ -169,6 +171,7 @@ class LeaveLine extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return PayTemplate
      */
     public function setAnnualNumberOfUnit($value)
@@ -189,6 +192,7 @@ class LeaveLine extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return PayTemplate
      */
     public function setFullTimeNumberOfUnitsPerPeriod($value)
@@ -209,6 +213,7 @@ class LeaveLine extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return PayTemplate
      */
     public function setNumberOfUnit($value)
@@ -229,6 +234,7 @@ class LeaveLine extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return PayTemplate
      */
     public function setEntitlementFinalPayPayoutType($value)

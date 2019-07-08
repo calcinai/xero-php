@@ -244,6 +244,7 @@ class Payslip extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return Payslip
      */
     public function setEmployeeID($value)
@@ -264,6 +265,7 @@ class Payslip extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return Payslip
      */
     public function setPayRunID($value)
@@ -284,6 +286,7 @@ class Payslip extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return Payslip
      */
     public function setPayslipID($value)
@@ -304,6 +307,7 @@ class Payslip extends Remote\Model
 
     /**
      * @param EarningsLine $value
+     *
      * @return Payslip
      */
     public function addEarningsLine(EarningsLine $value)
@@ -327,6 +331,7 @@ class Payslip extends Remote\Model
 
     /**
      * @param TimesheetEarningsLine $value
+     *
      * @return Payslip
      */
     public function addTimesheetEarningsLine(TimesheetEarningsLine $value)
@@ -350,6 +355,7 @@ class Payslip extends Remote\Model
 
     /**
      * @param DeductionLine $value
+     *
      * @return Payslip
      */
     public function addDeductionLine(DeductionLine $value)
@@ -373,6 +379,7 @@ class Payslip extends Remote\Model
 
     /**
      * @param LeaveAccrualLine $value
+     *
      * @return Payslip
      */
     public function addLeaveAccrualLine(LeaveAccrualLine $value)
@@ -396,6 +403,7 @@ class Payslip extends Remote\Model
 
     /**
      * @param ReimbursementLine $value
+     *
      * @return Payslip
      */
     public function addReimbursementLine(ReimbursementLine $value)
@@ -419,6 +427,7 @@ class Payslip extends Remote\Model
 
     /**
      * @param SuperannuationLine $value
+     *
      * @return Payslip
      */
     public function addSuperannuationLine(SuperannuationLine $value)
@@ -442,6 +451,7 @@ class Payslip extends Remote\Model
 
     /**
      * @param TaxLine $value
+     *
      * @return Payslip
      */
     public function addTaxLine(TaxLine $value)

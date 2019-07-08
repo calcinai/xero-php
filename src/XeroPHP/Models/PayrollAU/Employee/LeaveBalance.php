@@ -116,6 +116,7 @@ class LeaveBalance extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return LeaveBalance
      */
     public function setLeaveName($value)
@@ -136,6 +137,7 @@ class LeaveBalance extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return LeaveBalance
      */
     public function setLeaveTypeID($value)
@@ -156,6 +158,7 @@ class LeaveBalance extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return LeaveBalance
      */
     public function setNumberOfUnit($value)
@@ -176,6 +179,7 @@ class LeaveBalance extends Remote\Model
 
     /**
      * @param PayItem $value
+     *
      * @return LeaveBalance
      */
     public function addTypeOfUnit(PayItem $value)

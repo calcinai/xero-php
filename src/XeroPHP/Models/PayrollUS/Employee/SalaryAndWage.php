@@ -10,6 +10,7 @@ class SalaryAndWage extends Remote\Model
      * This property has been removed from the Xero API.
      *
      * @property string SalaryAndWageID
+     *
      * @deprecated
      */
 
@@ -136,6 +137,7 @@ class SalaryAndWage extends Remote\Model
 
     /**
      * @return string
+     *
      * @deprecated
      */
     public function getSalaryAndWageID()
@@ -145,7 +147,9 @@ class SalaryAndWage extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return SalaryAndWage
+     *
      * @deprecated
      */
     public function setSalaryAndWageID($value)
@@ -166,6 +170,7 @@ class SalaryAndWage extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return SalaryAndWage
      */
     public function setSalaryAndWagesID($value)
@@ -186,6 +191,7 @@ class SalaryAndWage extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return SalaryAndWage
      */
     public function setEarningsTypeID($value)
@@ -206,6 +212,7 @@ class SalaryAndWage extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return SalaryAndWage
      */
     public function setSalaryWagesType($value)
@@ -226,6 +233,7 @@ class SalaryAndWage extends Remote\Model
 
     /**
      * @param float $value
+     *
      * @return SalaryAndWage
      */
     public function setHourlyRate($value)
@@ -246,6 +254,7 @@ class SalaryAndWage extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return SalaryAndWage
      */
     public function setAnnualSalary($value)
@@ -266,6 +275,7 @@ class SalaryAndWage extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return SalaryAndWage
      */
     public function setStandardHoursPerWeek($value)
@@ -286,6 +296,7 @@ class SalaryAndWage extends Remote\Model
 
     /**
      * @param \DateTimeInterface $value
+     *
      * @return SalaryAndWage
      */
     public function setEffectiveDate(\DateTimeInterface $value)

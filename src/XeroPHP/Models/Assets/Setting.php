@@ -144,6 +144,7 @@ class Setting extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return Setting
      */
     public function setassetNumberPrefix($value)
@@ -164,6 +165,7 @@ class Setting extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return Setting
      */
     public function setassetNumberSequence($value)
@@ -184,6 +186,7 @@ class Setting extends Remote\Model
 
     /**
      * @param \DateTimeInterface $value
+     *
      * @return Setting
      */
     public function setassetStartDate(\DateTimeInterface $value)
@@ -204,6 +207,7 @@ class Setting extends Remote\Model
 
     /**
      * @param \DateTimeInterface $value
+     *
      * @return Setting
      */
     public function setlastDepreciationDate(\DateTimeInterface $value)
@@ -224,6 +228,7 @@ class Setting extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return Setting
      */
     public function setdefaultGainOnDisposalAccountId($value)
@@ -244,6 +249,7 @@ class Setting extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return Setting
      */
     public function setdefaultLossOnDisposalAccountId($value)
@@ -264,6 +270,7 @@ class Setting extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return Setting
      */
     public function setdefaultCapitalGainOnDisposalAccount($value)
@@ -284,6 +291,7 @@ class Setting extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return Setting
      */
     public function setoptInForTax($value)

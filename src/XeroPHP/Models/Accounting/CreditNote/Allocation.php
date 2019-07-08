@@ -110,6 +110,7 @@ class Allocation extends Remote\Model
 
     /**
      * @param Invoice $value
+     *
      * @return Allocation
      */
     public function setInvoice(Invoice $value)
@@ -130,6 +131,7 @@ class Allocation extends Remote\Model
 
     /**
      * @param float $value
+     *
      * @return Allocation
      */
     public function setAppliedAmount($value)
@@ -150,6 +152,7 @@ class Allocation extends Remote\Model
 
     /**
      * @param \DateTimeInterface $value
+     *
      * @return Allocation
      */
     public function setDate(\DateTimeInterface $value)

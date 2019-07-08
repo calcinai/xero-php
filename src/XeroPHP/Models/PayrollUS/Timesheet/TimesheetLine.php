@@ -117,6 +117,7 @@ class TimesheetLine extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return TimesheetLine
      */
     public function setEarningsTypeID($value)
@@ -137,6 +138,7 @@ class TimesheetLine extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return TimesheetLine
      */
     public function setTrackingItemID($value)
@@ -157,6 +159,7 @@ class TimesheetLine extends Remote\Model
 
     /**
      * @param float $value
+     *
      * @return TimesheetLine
      */
     public function addNumberOfUnit($value)
@@ -180,6 +183,7 @@ class TimesheetLine extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return TimesheetLine
      */
     public function setWorkLocationID($value)

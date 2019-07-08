@@ -200,6 +200,7 @@ class Item extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return Item
      */
     public function setItemID($value)
@@ -220,6 +221,7 @@ class Item extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return Item
      */
     public function setCode($value)
@@ -240,6 +242,7 @@ class Item extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return Item
      */
     public function setInventoryAssetAccountCode($value)
@@ -260,6 +263,7 @@ class Item extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return Item
      */
     public function setName($value)
@@ -280,6 +284,7 @@ class Item extends Remote\Model
 
     /**
      * @param bool $value
+     *
      * @return Item
      */
     public function setIsSold($value)
@@ -300,6 +305,7 @@ class Item extends Remote\Model
 
     /**
      * @param bool $value
+     *
      * @return Item
      */
     public function setIsPurchased($value)
@@ -320,6 +326,7 @@ class Item extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return Item
      */
     public function setDescription($value)
@@ -340,6 +347,7 @@ class Item extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return Item
      */
     public function setPurchaseDescription($value)
@@ -360,7 +368,9 @@ class Item extends Remote\Model
 
     /**
      * @param Purchase $value
+     *
      * @return Item
+     *
      * @deprecated
      */
     public function addPurchaseDetail(Purchase $value)
@@ -369,6 +379,7 @@ class Item extends Remote\Model
 
     /**
      * @param Purchase $value
+     *
      * @return Item
      */
     public function setPurchaseDetails(Purchase $value)
@@ -389,7 +400,9 @@ class Item extends Remote\Model
 
     /**
      * @param Sale $value
+     *
      * @return Item
+     *
      * @deprecated
      */
     public function addSalesDetail(Sale $value)
@@ -398,6 +411,7 @@ class Item extends Remote\Model
 
     /**
      * @param Sale $value
+     *
      * @return Item
      */
     public function setSalesDetails(Sale $value)
@@ -418,6 +432,7 @@ class Item extends Remote\Model
 
     /**
      * @param bool $value
+     *
      * @return Item
      */
     public function setIsTrackedAsInventory($value)
@@ -438,6 +453,7 @@ class Item extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return Item
      */
     public function setTotalCostPool($value)
@@ -458,6 +474,7 @@ class Item extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return Item
      */
     public function setQuantityOnHand($value)
@@ -478,6 +495,7 @@ class Item extends Remote\Model
 
     /**
      * @param \DateTimeInterface $value
+     *
      * @return Item
      */
     public function setUpdatedDateUTC(\DateTimeInterface $value)

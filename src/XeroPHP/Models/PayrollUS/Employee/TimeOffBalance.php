@@ -123,6 +123,7 @@ class TimeOffBalance extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return TimeOffBalance
      */
     public function setTimeOffName($value)
@@ -143,6 +144,7 @@ class TimeOffBalance extends Remote\Model
 
     /**
      * @param PayItem $value
+     *
      * @return TimeOffBalance
      */
     public function setTimeOffTypeId(PayItem $value)
@@ -163,6 +165,7 @@ class TimeOffBalance extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return TimeOffBalance
      */
     public function setNumberOfUnit($value)
@@ -183,6 +186,7 @@ class TimeOffBalance extends Remote\Model
 
     /**
      * @param PayItem $value
+     *
      * @return TimeOffBalance
      */
     public function addTypeOfUnit(PayItem $value)
@@ -206,6 +210,7 @@ class TimeOffBalance extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return TimeOffBalance
      */
     public function setEmployeeID($value)

@@ -195,6 +195,7 @@ class OpeningBalance extends Remote\Model
 
     /**
      * @param \DateTimeInterface $value
+     *
      * @return OpeningBalance
      */
     public function setOpeningBalanceDate(\DateTimeInterface $value)
@@ -215,6 +216,7 @@ class OpeningBalance extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return OpeningBalance
      */
     public function setTax($value)
@@ -235,6 +237,7 @@ class OpeningBalance extends Remote\Model
 
     /**
      * @param EarningsLine $value
+     *
      * @return OpeningBalance
      */
     public function addEarningsLine(EarningsLine $value)
@@ -258,6 +261,7 @@ class OpeningBalance extends Remote\Model
 
     /**
      * @param DeductionLine $value
+     *
      * @return OpeningBalance
      */
     public function addDeductionLine(DeductionLine $value)
@@ -281,6 +285,7 @@ class OpeningBalance extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return OpeningBalance
      */
     public function setSuperLine($value)
@@ -301,6 +306,7 @@ class OpeningBalance extends Remote\Model
 
     /**
      * @param ReimbursementLine $value
+     *
      * @return OpeningBalance
      */
     public function addReimbursementLine(ReimbursementLine $value)
@@ -324,6 +330,7 @@ class OpeningBalance extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return OpeningBalance
      */
     public function setLeaveLine($value)
@@ -344,6 +351,7 @@ class OpeningBalance extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return OpeningBalance
      */
     public function setEarningsRateID($value)
@@ -364,6 +372,7 @@ class OpeningBalance extends Remote\Model
 
     /**
      * @param float $value
+     *
      * @return OpeningBalance
      */
     public function setAmount($value)
@@ -384,6 +393,7 @@ class OpeningBalance extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return OpeningBalance
      */
     public function setDeductionTypeID($value)
@@ -404,6 +414,7 @@ class OpeningBalance extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return OpeningBalance
      */
     public function setSuperMembershipID($value)
@@ -424,6 +435,7 @@ class OpeningBalance extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return OpeningBalance
      */
     public function setCalculationType($value)
@@ -444,6 +456,7 @@ class OpeningBalance extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return OpeningBalance
      */
     public function setReimbursementTypeID($value)
@@ -464,6 +477,7 @@ class OpeningBalance extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return OpeningBalance
      */
     public function setLeaveTypeID($value)
@@ -484,6 +498,7 @@ class OpeningBalance extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return OpeningBalance
      */
     public function setNumberOfUnit($value)

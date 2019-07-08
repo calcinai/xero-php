@@ -68,6 +68,7 @@ class OpeningBalance extends Remote\Model
      * This property has been removed from the Xero API.
      *
      * @property string EmployeeID
+     *
      * @deprecated
      */
 
@@ -162,6 +163,7 @@ class OpeningBalance extends Remote\Model
 
     /**
      * @param EarningsLine $value
+     *
      * @return OpeningBalance
      */
     public function addEarningsLine(EarningsLine $value)
@@ -185,6 +187,7 @@ class OpeningBalance extends Remote\Model
 
     /**
      * @param BenefitLine $value
+     *
      * @return OpeningBalance
      */
     public function addBenefitLine(BenefitLine $value)
@@ -208,6 +211,7 @@ class OpeningBalance extends Remote\Model
 
     /**
      * @param DeductionLine $value
+     *
      * @return OpeningBalance
      */
     public function addDeductionLine(DeductionLine $value)
@@ -231,6 +235,7 @@ class OpeningBalance extends Remote\Model
 
     /**
      * @param ReimbursementLine $value
+     *
      * @return OpeningBalance
      */
     public function addReimbursementLine(ReimbursementLine $value)
@@ -254,6 +259,7 @@ class OpeningBalance extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return OpeningBalance
      */
     public function setEarningsTypeID($value)
@@ -274,6 +280,7 @@ class OpeningBalance extends Remote\Model
 
     /**
      * @param float $value
+     *
      * @return OpeningBalance
      */
     public function setAmount($value)
@@ -294,6 +301,7 @@ class OpeningBalance extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return OpeningBalance
      */
     public function setBenefitTypeID($value)
@@ -314,6 +322,7 @@ class OpeningBalance extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return OpeningBalance
      */
     public function setDeductionTypeID($value)
@@ -334,6 +343,7 @@ class OpeningBalance extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return OpeningBalance
      */
     public function setReimbursementTypeID($value)
@@ -346,6 +356,7 @@ class OpeningBalance extends Remote\Model
 
     /**
      * @return string
+     *
      * @deprecated
      */
     public function getEmployeeID()
@@ -355,7 +366,9 @@ class OpeningBalance extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return OpeningBalance
+     *
      * @deprecated
      */
     public function setEmployeeID($value)

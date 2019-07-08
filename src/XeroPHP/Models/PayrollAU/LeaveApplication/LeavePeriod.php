@@ -115,6 +115,7 @@ class LeavePeriod extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return LeavePeriod
      */
     public function setNumberOfUnit($value)
@@ -135,6 +136,7 @@ class LeavePeriod extends Remote\Model
 
     /**
      * @param \DateTimeInterface $value
+     *
      * @return LeavePeriod
      */
     public function setPayPeriodEndDate(\DateTimeInterface $value)
@@ -155,6 +157,7 @@ class LeavePeriod extends Remote\Model
 
     /**
      * @param \DateTimeInterface $value
+     *
      * @return LeavePeriod
      */
     public function setPayPeriodStartDate(\DateTimeInterface $value)
@@ -175,6 +178,7 @@ class LeavePeriod extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return LeavePeriod
      */
     public function setLeavePeriodStatus($value)

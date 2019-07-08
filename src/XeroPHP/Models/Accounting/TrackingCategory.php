@@ -129,6 +129,7 @@ class TrackingCategory extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return TrackingCategory
      */
     public function setTrackingCategoryID($value)
@@ -149,6 +150,7 @@ class TrackingCategory extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return TrackingCategory
      */
     public function setName($value)
@@ -169,6 +171,7 @@ class TrackingCategory extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return TrackingCategory
      */
     public function setTrackingCategoryName($value)
@@ -189,6 +192,7 @@ class TrackingCategory extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return TrackingCategory
      */
     public function setTrackingOptionName($value)
@@ -209,6 +213,7 @@ class TrackingCategory extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return TrackingCategory
      */
     public function setStatus($value)
@@ -229,6 +234,7 @@ class TrackingCategory extends Remote\Model
 
     /**
      * @param TrackingOption $value
+     *
      * @return TrackingCategory
      */
     public function addOption(TrackingOption $value)
@@ -254,6 +260,7 @@ class TrackingCategory extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return TrackingCategory
      */
     public function setOption($value)

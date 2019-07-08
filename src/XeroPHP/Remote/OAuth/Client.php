@@ -54,6 +54,7 @@ class Client
      * This method puts it in the oauth params in the Authorization header by default.
      *
      * @param Request $request Request to sign
+     *
      * @throws Exception
      */
     public function sign(Request $request)
@@ -133,7 +134,9 @@ class Client
      * consistency, pass the same constructor to each one.
      *
      * @param Request $request
+     *
      * @throws Exception
+     *
      * @return string
      */
     private function getSignature(Request $request)
@@ -179,6 +182,7 @@ class Client
      * GET&https%3A%2F%2Fapi.xero.com%2Fapi.xro%2F2.0%2FContacts&oauth_consumer etc.
      *
      * @param Request $request
+     *
      * @return string
      */
     public function getSBS(Request $request)
@@ -223,6 +227,7 @@ class Client
      * server will reject any request that reuses one.
      *
      * @param int $length
+     *
      * @return string
      */
     private function getNonce($length = 20)
@@ -298,6 +303,7 @@ class Client
 
     /**
      * @param string|null $oauth_token
+     *
      * @return string
      */
     public function getAuthorizeURL($oauth_token = null)
@@ -317,6 +323,7 @@ class Client
      *
      * @param string $url
      * @param array $query
+     *
      * @return string
      */
     protected function appendUrlQuery($url, $query)
@@ -330,6 +337,7 @@ class Client
      * Determine if the URL has a query string.
      *
      * @param string $url
+     *
      * @return bool
      */
     protected function urlHasQuery($url)

@@ -9,6 +9,7 @@ use XeroPHP\Application;
  * OAuth related ones.
  *
  * Class URL
+ *
  * @author Michael Calcinai
  */
 class URL
@@ -43,6 +44,7 @@ class URL
      * @param Application $app
      * @param $endpoint
      * @param null $api
+     *
      * @throws Exception
      */
     public function __construct(Application $app, $endpoint, $api = null)

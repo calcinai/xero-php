@@ -312,6 +312,7 @@ class Account extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return Account
      */
     public function setCode($value)
@@ -332,6 +333,7 @@ class Account extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return Account
      */
     public function setName($value)
@@ -352,6 +354,7 @@ class Account extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return Account
      */
     public function setType($value)
@@ -372,6 +375,7 @@ class Account extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return Account
      */
     public function setBankAccountNumber($value)
@@ -392,6 +396,7 @@ class Account extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return Account
      */
     public function setStatus($value)
@@ -412,6 +417,7 @@ class Account extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return Account
      */
     public function setDescription($value)
@@ -432,6 +438,7 @@ class Account extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return Account
      */
     public function setBankAccountType($value)
@@ -452,6 +459,7 @@ class Account extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return Account
      */
     public function setCurrencyCode($value)
@@ -472,6 +480,7 @@ class Account extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return Account
      */
     public function setTaxType($value)
@@ -492,6 +501,7 @@ class Account extends Remote\Model
 
     /**
      * @param bool $value
+     *
      * @return Account
      */
     public function setEnablePaymentsToAccount($value)
@@ -512,6 +522,7 @@ class Account extends Remote\Model
 
     /**
      * @param bool $value
+     *
      * @return Account
      */
     public function setShowInExpenseClaim($value)
@@ -532,6 +543,7 @@ class Account extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return Account
      */
     public function setAccountID($value)

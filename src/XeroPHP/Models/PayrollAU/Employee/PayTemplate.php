@@ -127,6 +127,7 @@ class PayTemplate extends Remote\Model
 
     /**
      * @param EarningsLine $value
+     *
      * @return PayTemplate
      */
     public function addEarningsLine(EarningsLine $value)
@@ -150,6 +151,7 @@ class PayTemplate extends Remote\Model
 
     /**
      * @param DeductionLine $value
+     *
      * @return PayTemplate
      */
     public function addDeductionLine(DeductionLine $value)
@@ -173,6 +175,7 @@ class PayTemplate extends Remote\Model
 
     /**
      * @param SuperLine $value
+     *
      * @return PayTemplate
      */
     public function addSuperLine(SuperLine $value)
@@ -196,6 +199,7 @@ class PayTemplate extends Remote\Model
 
     /**
      * @param ReimbursementLine $value
+     *
      * @return PayTemplate
      */
     public function addReimbursementLine(ReimbursementLine $value)
@@ -219,6 +223,7 @@ class PayTemplate extends Remote\Model
 
     /**
      * @param LeaveLine $value
+     *
      * @return PayTemplate
      */
     public function addLeaveLine(LeaveLine $value)

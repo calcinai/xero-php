@@ -116,6 +116,7 @@ class DeductionLine extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return DeductionLine
      */
     public function setDeductionTypeID($value)
@@ -136,6 +137,7 @@ class DeductionLine extends Remote\Model
 
     /**
      * @param float $value
+     *
      * @return DeductionLine
      */
     public function setCalculationType($value)
@@ -156,6 +158,7 @@ class DeductionLine extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return DeductionLine
      */
     public function setAmount($value)
@@ -176,6 +179,7 @@ class DeductionLine extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return DeductionLine
      */
     public function setPercentage($value)
@@ -196,6 +200,7 @@ class DeductionLine extends Remote\Model
 
     /**
      * @param float $value
+     *
      * @return DeductionLine
      */
     public function addNumberOfUnit($value)

@@ -76,6 +76,7 @@ abstract class Application
 
     /**
      * @param string|null $oauth_token
+     *
      * @return string
      */
     public function getAuthorizeURL($oauth_token = null)
@@ -85,7 +86,9 @@ abstract class Application
 
     /**
      * @param mixed $key
+     *
      * @throws Exception
+     *
      * @return mixed
      */
     public function getConfig($key)
@@ -101,7 +104,9 @@ abstract class Application
      * @param string $config
      * @param mixed $option
      * @param mixed $value
+     *
      * @throws Exception
+     *
      * @return mixed
      */
     public function getConfigOption($config, $option)
@@ -115,6 +120,7 @@ abstract class Application
 
     /**
      * @param array $config
+     *
      * @return array
      */
     public function setConfig($config)
@@ -132,7 +138,9 @@ abstract class Application
      * @param string $config
      * @param mixed $option
      * @param mixed $value
+     *
      * @throws Exception
+     *
      * @return array
      */
     public function setConfigOption($config, $option, $value)
@@ -149,7 +157,9 @@ abstract class Application
      * Validates and expands the provided model class to a full PHP class.
      *
      * @param string $class
+     *
      * @throws Exception
+     *
      * @return string
      */
     public function validateModelClass($class)
@@ -171,6 +181,7 @@ abstract class Application
      * Prepend the configuration namespace to the class.
      *
      * @param string $class
+     *
      * @return string
      */
     protected function prependConfigNamespace($class)
@@ -183,8 +194,10 @@ abstract class Application
      *
      * @param $model
      * @param $guid
+     *
      * @throws Exception
      * @throws Remote\Exception\NotFoundException
+     *
      * @return Remote\Model|null
      */
     public function loadByGUID($model, $guid)
@@ -220,8 +233,10 @@ abstract class Application
      *
      * @param $model
      * @param string $guids
+     *
      * @throws Exception
      * @throws Remote\Exception\NotFoundException
+     *
      * @return Collection
      */
     public function loadByGUIDs($model, $guids)
@@ -253,7 +268,9 @@ abstract class Application
 
     /**
      * @param string $model
+     *
      * @throws Remote\Exception
+     *
      * @return Query
      */
     public function load($model)
@@ -266,7 +283,9 @@ abstract class Application
     /**
      * @param Remote\Model $object
      * @param bool $replace_data
+     *
      * @throws Exception
+     *
      * @return Remote\Response|null
      */
     public function save(Remote\Model $object, $replace_data = false)
@@ -316,7 +335,9 @@ abstract class Application
      * @param Collection|array $objects
      * @param mixed $checkGuid
      * @param mixed $replace_data
+     *
      * @throws Exception
+     *
      * @return Remote\Response
      */
     public function saveAll($objects, $checkGuid = true, $replace_data = false)
@@ -377,6 +398,7 @@ abstract class Application
      * adding contacts to ContactGroups
      *
      * @param Remote\Model $object
+     *
      * @throws Exception
      */
     private function savePropertiesDirectly(Remote\Model $object)
@@ -418,7 +440,9 @@ abstract class Application
 
     /**
      * @param Remote\Model $object
+     *
      * @throws Exception
+     *
      * @return Remote\Response
      */
     public function delete(Remote\Model $object)

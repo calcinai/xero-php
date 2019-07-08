@@ -108,6 +108,7 @@ class TimesheetEarningsLine extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return TimesheetEarningsLine
      */
     public function setEarningsTypeID($value)
@@ -128,6 +129,7 @@ class TimesheetEarningsLine extends Remote\Model
 
     /**
      * @param float $value
+     *
      * @return TimesheetEarningsLine
      */
     public function setRatePerUnit($value)
@@ -148,6 +150,7 @@ class TimesheetEarningsLine extends Remote\Model
 
     /**
      * @param float $value
+     *
      * @return TimesheetEarningsLine
      */
     public function addNumberOfUnit($value)

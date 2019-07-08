@@ -129,6 +129,7 @@ class Employee extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return Employee
      */
     public function setEmployeeID($value)
@@ -149,6 +150,7 @@ class Employee extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return Employee
      */
     public function setStatus($value)
@@ -169,6 +171,7 @@ class Employee extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return Employee
      */
     public function setFirstName($value)
@@ -189,6 +192,7 @@ class Employee extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return Employee
      */
     public function setLastName($value)
@@ -209,6 +213,7 @@ class Employee extends Remote\Model
 
     /**
      * @param ExternalLink $value
+     *
      * @return Employee
      */
     public function setExternalLink(ExternalLink $value)

@@ -263,6 +263,7 @@ class BankTransaction extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return BankTransaction
      */
     public function setType($value)
@@ -283,6 +284,7 @@ class BankTransaction extends Remote\Model
 
     /**
      * @param Contact $value
+     *
      * @return BankTransaction
      */
     public function setContact(Contact $value)
@@ -303,6 +305,7 @@ class BankTransaction extends Remote\Model
 
     /**
      * @param LineItem $value
+     *
      * @return BankTransaction
      */
     public function addLineItem(LineItem $value)
@@ -326,6 +329,7 @@ class BankTransaction extends Remote\Model
 
     /**
      * @param BankAccount $value
+     *
      * @return BankTransaction
      */
     public function setBankAccount(BankAccount $value)
@@ -346,6 +350,7 @@ class BankTransaction extends Remote\Model
 
     /**
      * @param bool $value
+     *
      * @return BankTransaction
      */
     public function setIsReconciled($value)
@@ -366,6 +371,7 @@ class BankTransaction extends Remote\Model
 
     /**
      * @param \DateTimeInterface $value
+     *
      * @return BankTransaction
      */
     public function setDate(\DateTimeInterface $value)
@@ -386,6 +392,7 @@ class BankTransaction extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return BankTransaction
      */
     public function setReference($value)
@@ -406,6 +413,7 @@ class BankTransaction extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return BankTransaction
      */
     public function setCurrencyCode($value)
@@ -426,6 +434,7 @@ class BankTransaction extends Remote\Model
 
     /**
      * @param float $value
+     *
      * @return BankTransaction
      */
     public function setCurrencyRate($value)
@@ -446,6 +455,7 @@ class BankTransaction extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return BankTransaction
      */
     public function setUrl($value)
@@ -466,6 +476,7 @@ class BankTransaction extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return BankTransaction
      */
     public function setStatus($value)
@@ -486,6 +497,7 @@ class BankTransaction extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return BankTransaction
      */
     public function setLineAmountType($value)
@@ -506,6 +518,7 @@ class BankTransaction extends Remote\Model
 
     /**
      * @param float $value
+     *
      * @return BankTransaction
      */
     public function setSubTotal($value)
@@ -526,6 +539,7 @@ class BankTransaction extends Remote\Model
 
     /**
      * @param float $value
+     *
      * @return BankTransaction
      */
     public function setTotalTax($value)
@@ -546,6 +560,7 @@ class BankTransaction extends Remote\Model
 
     /**
      * @param float $value
+     *
      * @return BankTransaction
      */
     public function setTotal($value)
@@ -566,6 +581,7 @@ class BankTransaction extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return BankTransaction
      */
     public function setBankTransactionID($value)

@@ -115,6 +115,7 @@ class SuperMembership extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return SuperMembership
      */
     public function setSuperFundID($value)
@@ -135,6 +136,7 @@ class SuperMembership extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return SuperMembership
      */
     public function setEmployeeNumber($value)
@@ -155,6 +157,7 @@ class SuperMembership extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return SuperMembership
      */
     public function setSuperMembershipID($value)
@@ -175,6 +178,7 @@ class SuperMembership extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return SuperMembership
      */
     public function setEmployeeID($value)

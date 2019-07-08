@@ -124,6 +124,7 @@ class SuperFund extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return SuperFund
      */
     public function setSuperFundID($value)
@@ -144,6 +145,7 @@ class SuperFund extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return SuperFund
      */
     public function setType($value)
@@ -164,6 +166,7 @@ class SuperFund extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return SuperFund
      */
     public function setABN($value)
@@ -184,6 +187,7 @@ class SuperFund extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return SuperFund
      */
     public function setUSI($value)
@@ -206,6 +210,7 @@ class SuperFund extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return SuperFund
      */
     public function setBSB($value)
@@ -226,6 +231,7 @@ class SuperFund extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return SuperFund
      */
     public function setAccountNumber($value)
@@ -246,6 +252,7 @@ class SuperFund extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return SuperFund
      */
     public function setAccountName($value)
@@ -266,6 +273,7 @@ class SuperFund extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return SuperFund
      */
     public function setElectronicServiceAddress($value)
@@ -286,6 +294,7 @@ class SuperFund extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return SuperFund
      */
     public function setEmployerNumber($value)
@@ -298,6 +307,7 @@ class SuperFund extends Remote\Model
 
     /**
      * @return string
+     *
      * @deprecated
      */
     public function getSPIN()
@@ -307,7 +317,9 @@ class SuperFund extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return SuperFund
+     *
      * @deprecated
      */
     public function setSPIN($value)
@@ -328,6 +340,7 @@ class SuperFund extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return SuperFund
      */
     public function setName($value)
