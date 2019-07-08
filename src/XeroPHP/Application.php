@@ -451,9 +451,9 @@ abstract class Application
         return $object;
     }
 
-    public function requestCompleted($response, $info, $headers) {
+    public function requestCompleted($response) {
         foreach($this->requestCompletedCallbacks as $callback) {
-            call_user_func($callback, $response, $info, $headers);
+            call_user_func($callback, $response);
         }
     }
 
