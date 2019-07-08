@@ -186,10 +186,6 @@ class Response
         return $this->oauth_response;
     }
 
-    public function getRequest() {
-        return $this->request;
-    }
-
     public function getHeaders() {
         return $this->headers;
     }

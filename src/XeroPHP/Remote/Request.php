@@ -125,7 +125,7 @@ class Request
         }
 
         $this->response = new Response($this, $response, $info, $headers);
-        $this->app->requestCompleted($this->response);
+        $this->app->requestCompleted($this);
 
         $this->response->parse();
 
