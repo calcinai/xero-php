@@ -190,6 +190,10 @@ class Response
         return $this->request;
     }
 
+    public function getHeaders() {
+        return $this->headers;
+    }
+
     public function parseBody()
     {
         if ($this->request->getUrl()->isOAuth()) {
