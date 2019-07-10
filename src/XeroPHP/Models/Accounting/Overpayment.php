@@ -582,7 +582,11 @@ class Overpayment extends Remote\Model
         if (! isset($this->_data['Allocations'])) {
             $this->_data['Allocations'] = new Remote\Collection();
         }
-        $this->_data['Allocations'] = [$value];
+
+        // The allocations endpoint is additive. You can only add new allocations, not append to an existing collection.
+        $this->getAllocations()->removeAll();
+
+        $this->_data['Allocations'][] = $value;
 
         return $this;
     }
