@@ -6,17 +6,17 @@ use XeroPHP\Remote;
 
 class PaymentTerm extends Remote\Model
 {
-    /**
-     * Default payment terms for bills (accounts payable) – see Payment Terms.
-     *
-     * @property Bill[] Bills
-     */
+     /**
+      * Default payment terms for bills (accounts payable) – see Payment Terms.
+      *
+      * @property Bill[] Bills
+      */
 
-    /**
-     * Default payment terms for sales invoices(accounts receivable) – see Payment Terms.
-     *
-     * @property Sale[] Sales
-     */
+     /**
+      * Default payment terms for sales invoices(accounts receivable) – see Payment Terms.
+      *
+      * @property Sale[] Sales
+      */
      const DAYSAFTERBILLDATE = 'DAYSAFTERBILLDATE';
 
      const DAYSAFTERBILLMONTH = 'DAYSAFTERBILLMONTH';
