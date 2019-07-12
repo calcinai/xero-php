@@ -180,6 +180,7 @@ class TaxRate extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return TaxRate
      */
     public function setName($value)
@@ -200,6 +201,7 @@ class TaxRate extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return TaxRate
      */
     public function setTaxType($value)
@@ -220,6 +222,7 @@ class TaxRate extends Remote\Model
 
     /**
      * @param TaxComponent $value
+     *
      * @return TaxRate
      */
     public function addTaxComponent(TaxComponent $value)
@@ -243,6 +246,7 @@ class TaxRate extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return TaxRate
      */
     public function setStatus($value)
@@ -263,6 +267,7 @@ class TaxRate extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return TaxRate
      */
     public function setReportTaxType($value)

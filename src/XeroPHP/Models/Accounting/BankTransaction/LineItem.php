@@ -158,6 +158,7 @@ class LineItem extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return LineItem
      */
     public function setDescription($value)
@@ -178,6 +179,7 @@ class LineItem extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return LineItem
      */
     public function setQuantity($value)
@@ -198,6 +200,7 @@ class LineItem extends Remote\Model
 
     /**
      * @param float $value
+     *
      * @return LineItem
      */
     public function setUnitAmount($value)
@@ -218,6 +221,7 @@ class LineItem extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return LineItem
      */
     public function setAccountCode($value)
@@ -238,6 +242,7 @@ class LineItem extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return LineItem
      */
     public function setItemCode($value)
@@ -258,6 +263,7 @@ class LineItem extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return LineItem
      */
     public function setLineItemID($value)
@@ -278,6 +284,7 @@ class LineItem extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return LineItem
      */
     public function setTaxType($value)
@@ -298,6 +305,7 @@ class LineItem extends Remote\Model
 
     /**
      * @param float $value
+     *
      * @return LineItem
      */
     public function setLineAmount($value)
@@ -318,6 +326,7 @@ class LineItem extends Remote\Model
 
     /**
      * @param TrackingCategory $value
+     *
      * @return LineItem
      */
     public function addTracking(TrackingCategory $value)

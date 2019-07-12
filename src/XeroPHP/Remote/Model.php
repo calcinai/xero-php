@@ -83,6 +83,7 @@ abstract class Model implements ObjectInterface, \JsonSerializable, \ArrayAccess
      * but will have to be like this for BC until the next major version.
      *
      * @param Application $application
+     *
      * @return $this
      */
     public function setApplication(Application $application)
@@ -106,6 +107,7 @@ abstract class Model implements ObjectInterface, \JsonSerializable, \ArrayAccess
      * If there have been any properties changed since load.
      *
      * @param null $property
+     *
      * @return bool
      */
     public function isDirty($property = null)
@@ -121,6 +123,7 @@ abstract class Model implements ObjectInterface, \JsonSerializable, \ArrayAccess
      * Manually set a property as dirty.
      *
      * @param $property
+     *
      * @return self
      */
     public function setDirty($property)
@@ -134,6 +137,7 @@ abstract class Model implements ObjectInterface, \JsonSerializable, \ArrayAccess
      * Manually set a property as clean.
      *
      * @param null $property
+     *
      * @return self
      */
     public function setClean($property = null)
@@ -167,6 +171,7 @@ abstract class Model implements ObjectInterface, \JsonSerializable, \ArrayAccess
 
     /**
      * @param string $guid
+     *
      * @return $this
      */
     public function setGUID($guid)
@@ -230,6 +235,7 @@ abstract class Model implements ObjectInterface, \JsonSerializable, \ArrayAccess
      * Convert the object into an array, and any non-primitives to string.
      *
      * @param mixed $dirty_only
+     *
      * @return array
      */
     public function toStringArray($dirty_only = false)
@@ -265,6 +271,7 @@ abstract class Model implements ObjectInterface, \JsonSerializable, \ArrayAccess
      *
      * @param $type
      * @param $value
+     *
      * @return string
      */
     public static function castToString($type, $value)
@@ -310,6 +317,7 @@ abstract class Model implements ObjectInterface, \JsonSerializable, \ArrayAccess
      * @param $type
      * @param $value
      * @param $php_type
+     *
      * @return bool|\DateTimeInterface|float|int|string
      */
     public static function castFromString($type, $value, $php_type)
@@ -361,7 +369,9 @@ abstract class Model implements ObjectInterface, \JsonSerializable, \ArrayAccess
      * Validate the object and (optionally) the child objects recursively.
      *
      * @param bool $check_children
+     *
      * @throws Exception
+     *
      * @return bool
      */
     public function validate($check_children = true)
@@ -406,6 +416,7 @@ abstract class Model implements ObjectInterface, \JsonSerializable, \ArrayAccess
      * Shorthand save an object if it is instantiated with app context.
      *
      * @throws Exception
+     *
      * @return Response|null
      */
     public function save()
@@ -423,6 +434,7 @@ abstract class Model implements ObjectInterface, \JsonSerializable, \ArrayAccess
      * Shorthand delete an object if it is instantiated with app context.
      *
      * @throws Exception
+     *
      * @return Response|null
      */
     public function delete()
@@ -449,6 +461,7 @@ abstract class Model implements ObjectInterface, \JsonSerializable, \ArrayAccess
      * Magic method for testing if properties exist.
      *
      * @param $property
+     *
      * @return bool
      */
     public function __isset($property)
@@ -460,6 +473,7 @@ abstract class Model implements ObjectInterface, \JsonSerializable, \ArrayAccess
      * Magic getter for accessing properties directly.
      *
      * @param $property
+     *
      * @return mixed
      */
     public function __get($property)
@@ -480,6 +494,7 @@ abstract class Model implements ObjectInterface, \JsonSerializable, \ArrayAccess
      *
      * @param $property
      * @param $value
+     *
      * @return mixed
      */
     public function __set($property, $value)
@@ -515,6 +530,7 @@ abstract class Model implements ObjectInterface, \JsonSerializable, \ArrayAccess
      * If the object supports a specific HTTP method.
      *
      * @param $method
+     *
      * @return bool
      */
     public static function supportsMethod($method)
@@ -534,6 +550,7 @@ abstract class Model implements ObjectInterface, \JsonSerializable, \ArrayAccess
 
     /**
      * @param mixed $offset
+     *
      * @return bool
      */
     public function offsetExists($offset)
@@ -543,6 +560,7 @@ abstract class Model implements ObjectInterface, \JsonSerializable, \ArrayAccess
 
     /**
      * @param mixed $offset
+     *
      * @return mixed
      */
     public function offsetGet($offset)
@@ -553,6 +571,7 @@ abstract class Model implements ObjectInterface, \JsonSerializable, \ArrayAccess
     /**
      * @param mixed $offset
      * @param mixed $value
+     *
      * @return mixed
      */
     public function offsetSet($offset, $value)

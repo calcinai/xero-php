@@ -113,6 +113,7 @@ class Association extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return Association
      */
     public function setObjectId($value)
@@ -133,6 +134,7 @@ class Association extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return Association
      */
     public function setObjectGroup($value)
@@ -153,6 +155,7 @@ class Association extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return Association
      */
     public function setObjectType($value)

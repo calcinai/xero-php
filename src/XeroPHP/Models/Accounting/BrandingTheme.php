@@ -116,6 +116,7 @@ class BrandingTheme extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return BrandingTheme
      */
     public function setBrandingThemeID($value)
@@ -136,6 +137,7 @@ class BrandingTheme extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return BrandingTheme
      */
     public function setName($value)
@@ -156,6 +158,7 @@ class BrandingTheme extends Remote\Model
 
     /**
      * @param int $value
+     *
      * @return BrandingTheme
      */
     public function setSortOrder($value)
@@ -176,6 +179,7 @@ class BrandingTheme extends Remote\Model
 
     /**
      * @param \DateTimeInterface $value
+     *
      * @return BrandingTheme
      */
     public function setCreatedDateUTC(\DateTimeInterface $value)

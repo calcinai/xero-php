@@ -179,6 +179,7 @@ class LinkedTransaction extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return LinkedTransaction
      */
     public function setSourceTransactionID($value)
@@ -199,6 +200,7 @@ class LinkedTransaction extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return LinkedTransaction
      */
     public function setSourceLineItemID($value)
@@ -219,6 +221,7 @@ class LinkedTransaction extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return LinkedTransaction
      */
     public function setContactID($value)
@@ -239,6 +242,7 @@ class LinkedTransaction extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return LinkedTransaction
      */
     public function setTargetTransactionID($value)
@@ -259,6 +263,7 @@ class LinkedTransaction extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return LinkedTransaction
      */
     public function setTargetLineItemID($value)
@@ -279,6 +284,7 @@ class LinkedTransaction extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return LinkedTransaction
      */
     public function setLinkedTransactionID($value)
@@ -299,6 +305,7 @@ class LinkedTransaction extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return LinkedTransaction
      */
     public function setStatus($value)
@@ -319,6 +326,7 @@ class LinkedTransaction extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return LinkedTransaction
      */
     public function setType($value)
@@ -339,6 +347,7 @@ class LinkedTransaction extends Remote\Model
 
     /**
      * @param \DateTimeInterface $value
+     *
      * @return LinkedTransaction
      */
     public function setUpdatedDateUTC(\DateTimeInterface $value)
@@ -359,6 +368,7 @@ class LinkedTransaction extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return LinkedTransaction
      */
     public function setSourceTransactionTypeCode($value)

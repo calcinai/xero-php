@@ -121,6 +121,7 @@ class PayItem extends Remote\Model
 
     /**
      * @param EarningsRate $value
+     *
      * @return PayItem
      */
     public function addEarningsRate(EarningsRate $value)
@@ -144,6 +145,7 @@ class PayItem extends Remote\Model
 
     /**
      * @param DeductionType $value
+     *
      * @return PayItem
      */
     public function addDeductionType(DeductionType $value)
@@ -167,6 +169,7 @@ class PayItem extends Remote\Model
 
     /**
      * @param LeaveType $value
+     *
      * @return PayItem
      */
     public function addLeaveType(LeaveType $value)
@@ -190,6 +193,7 @@ class PayItem extends Remote\Model
 
     /**
      * @param ReimbursementType $value
+     *
      * @return PayItem
      */
     public function addReimbursementType(ReimbursementType $value)

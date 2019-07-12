@@ -101,6 +101,7 @@ class Bill extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return Bill
      */
     public function setDay($value)
@@ -121,6 +122,7 @@ class Bill extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return Bill
      */
     public function setType($value)

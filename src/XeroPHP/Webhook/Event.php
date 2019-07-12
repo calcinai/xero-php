@@ -55,6 +55,7 @@ class Event
      *
      * @param \XeroPHP\Webhook $webhook
      * @param array $event event details
+     *
      * @throws \XeroPHP\Application\Exception if the provided payload is malformed
      */
     public function __construct($webhook, $event)
@@ -173,6 +174,7 @@ class Event
      *
      * @param \XeroPHP\Application $application an optional application instance to use to retrieve the remote resource.
      *                                          Useful if you have separate instances with different oauth tokens based on the tenant
+     *
      * @return \XeroPHP\Remote\Model|array If the event category is known, returns the model, otherwise, returns the resource as an array
      */
     public function getResource($application = null)

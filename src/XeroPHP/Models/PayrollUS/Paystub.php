@@ -229,6 +229,7 @@ class Paystub extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return Paystub
      */
     public function setEmployeeID($value)
@@ -249,6 +250,7 @@ class Paystub extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return Paystub
      */
     public function setPaystubID($value)
@@ -269,6 +271,7 @@ class Paystub extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return Paystub
      */
     public function setPayRunID($value)
@@ -289,6 +292,7 @@ class Paystub extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return Paystub
      */
     public function setFirstName($value)
@@ -309,6 +313,7 @@ class Paystub extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return Paystub
      */
     public function setLastName($value)
@@ -329,6 +334,7 @@ class Paystub extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return Paystub
      */
     public function setLastEdited($value)
@@ -349,6 +355,7 @@ class Paystub extends Remote\Model
 
     /**
      * @param float $value
+     *
      * @return Paystub
      */
     public function addEarning($value)
@@ -372,6 +379,7 @@ class Paystub extends Remote\Model
 
     /**
      * @param float $value
+     *
      * @return Paystub
      */
     public function addDeduction($value)
@@ -395,6 +403,7 @@ class Paystub extends Remote\Model
 
     /**
      * @param float $value
+     *
      * @return Paystub
      */
     public function setTax($value)
@@ -415,6 +424,7 @@ class Paystub extends Remote\Model
 
     /**
      * @param float $value
+     *
      * @return Paystub
      */
     public function addReimbursement($value)
@@ -438,6 +448,7 @@ class Paystub extends Remote\Model
 
     /**
      * @param float $value
+     *
      * @return Paystub
      */
     public function setNetPay($value)
@@ -458,6 +469,7 @@ class Paystub extends Remote\Model
 
     /**
      * @param \DateTimeInterface $value
+     *
      * @return Paystub
      */
     public function setUpdatedDateUTC(\DateTimeInterface $value)
@@ -478,6 +490,7 @@ class Paystub extends Remote\Model
 
     /**
      * @param EarningsLine $value
+     *
      * @return Paystub
      */
     public function addEarningsLine(EarningsLine $value)
@@ -501,6 +514,7 @@ class Paystub extends Remote\Model
 
     /**
      * @param LeaveEarningsLine $value
+     *
      * @return Paystub
      */
     public function addLeaveEarningsLine(LeaveEarningsLine $value)
@@ -524,6 +538,7 @@ class Paystub extends Remote\Model
 
     /**
      * @param TimesheetEarningsLine $value
+     *
      * @return Paystub
      */
     public function addTimesheetEarningsLine(TimesheetEarningsLine $value)
@@ -547,6 +562,7 @@ class Paystub extends Remote\Model
 
     /**
      * @param DeductionLine $value
+     *
      * @return Paystub
      */
     public function addDeductionLine(DeductionLine $value)
@@ -570,6 +586,7 @@ class Paystub extends Remote\Model
 
     /**
      * @param ReimbursementLine $value
+     *
      * @return Paystub
      */
     public function addReimbursementLine(ReimbursementLine $value)
@@ -593,6 +610,7 @@ class Paystub extends Remote\Model
 
     /**
      * @param BenefitLine $value
+     *
      * @return Paystub
      */
     public function addBenefitLine(BenefitLine $value)
@@ -616,6 +634,7 @@ class Paystub extends Remote\Model
 
     /**
      * @param TimeOffLine $value
+     *
      * @return Paystub
      */
     public function addTimeOffLine(TimeOffLine $value)

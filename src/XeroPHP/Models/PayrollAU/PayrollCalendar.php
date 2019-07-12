@@ -136,6 +136,7 @@ class PayrollCalendar extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return PayrollCalendar
      */
     public function setPayrollCalendarID($value)
@@ -156,6 +157,7 @@ class PayrollCalendar extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return PayrollCalendar
      */
     public function setName($value)
@@ -176,6 +178,7 @@ class PayrollCalendar extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return PayrollCalendar
      */
     public function setCalendarType($value)
@@ -196,6 +199,7 @@ class PayrollCalendar extends Remote\Model
 
     /**
      * @param \DateTimeInterface $value
+     *
      * @return PayrollCalendar
      */
     public function setStartDate(\DateTimeInterface $value)
@@ -216,6 +220,7 @@ class PayrollCalendar extends Remote\Model
 
     /**
      * @param \DateTimeInterface $value
+     *
      * @return PayrollCalendar
      */
     public function setPaymentDate(\DateTimeInterface $value)

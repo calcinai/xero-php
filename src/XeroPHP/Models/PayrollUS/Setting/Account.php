@@ -115,6 +115,7 @@ class Account extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return Account
      */
     public function setAccountID($value)
@@ -135,6 +136,7 @@ class Account extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return Account
      */
     public function setType($value)
@@ -155,6 +157,7 @@ class Account extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return Account
      */
     public function setCode($value)
@@ -175,6 +178,7 @@ class Account extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return Account
      */
     public function setName($value)

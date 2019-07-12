@@ -149,6 +149,7 @@ class LeaveApplication extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return LeaveApplication
      */
     public function setLeaveApplicationID($value)
@@ -169,6 +170,7 @@ class LeaveApplication extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return LeaveApplication
      */
     public function setEmployeeID($value)
@@ -189,6 +191,7 @@ class LeaveApplication extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return LeaveApplication
      */
     public function setLeaveTypeID($value)
@@ -209,6 +212,7 @@ class LeaveApplication extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return LeaveApplication
      */
     public function setTitle($value)
@@ -229,6 +233,7 @@ class LeaveApplication extends Remote\Model
 
     /**
      * @param \DateTimeInterface $value
+     *
      * @return LeaveApplication
      */
     public function setStartDate(\DateTimeInterface $value)
@@ -249,6 +254,7 @@ class LeaveApplication extends Remote\Model
 
     /**
      * @param \DateTimeInterface $value
+     *
      * @return LeaveApplication
      */
     public function setEndDate(\DateTimeInterface $value)
@@ -269,6 +275,7 @@ class LeaveApplication extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return LeaveApplication
      */
     public function setDescription($value)
@@ -289,6 +296,7 @@ class LeaveApplication extends Remote\Model
 
     /**
      * @param LeavePeriod $value
+     *
      * @return LeaveApplication
      */
     public function addLeavePeriod(LeavePeriod $value)

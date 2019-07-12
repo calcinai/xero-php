@@ -50,6 +50,7 @@ class Query
 
     /**
      * @param string $class
+     *
      * @return $this
      */
     public function from($class)
@@ -95,6 +96,7 @@ class Query
     /**
      * @param string $operator
      * @param array $args
+     *
      * @return $this
      */
     public function addWhere($operator, $args)
@@ -142,6 +144,7 @@ class Query
     /**
      * @param string $order
      * @param string $direction
+     *
      * @return $this
      */
     public function orderBy($order, $direction = self::ORDER_ASC)
@@ -153,6 +156,7 @@ class Query
 
     /**
      * @param \DateTimeInterface|null $modifiedAfter
+     *
      * @return $this
      */
     public function modifiedAfter(\DateTimeInterface $modifiedAfter = null)
@@ -168,6 +172,7 @@ class Query
 
     /**
      * @param DateTime $fromDate
+     *
      * @return $this
      */
     public function fromDate(DateTime $fromDate)
@@ -179,6 +184,7 @@ class Query
 
     /**
      * @param DateTime $toDate
+     *
      * @return $this
      */
     public function toDate(DateTime $toDate)
@@ -190,6 +196,7 @@ class Query
 
     /**
      * @param DateTime $date
+     *
      * @return $this
      */
     public function date(DateTime $date)
@@ -201,7 +208,9 @@ class Query
 
     /**
      * @param int $page
+     *
      * @throws Exception
+     *
      * @return $this
      */
     public function page($page = 1)
@@ -220,6 +229,7 @@ class Query
 
     /**
      * @param int $offset
+     *
      * @return $this
      */
     public function offset($offset = 0)

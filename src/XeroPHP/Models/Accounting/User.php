@@ -137,6 +137,7 @@ class User extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return User
      */
     public function setUserID($value)
@@ -157,6 +158,7 @@ class User extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return User
      */
     public function setEmailAddress($value)
@@ -177,6 +179,7 @@ class User extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return User
      */
     public function setFirstName($value)
@@ -197,6 +200,7 @@ class User extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return User
      */
     public function setLastName($value)
@@ -217,6 +221,7 @@ class User extends Remote\Model
 
     /**
      * @param \DateTimeInterface $value
+     *
      * @return User
      */
     public function setUpdatedDateUTC(\DateTimeInterface $value)
@@ -237,6 +242,7 @@ class User extends Remote\Model
 
     /**
      * @param bool $value
+     *
      * @return User
      */
     public function setIsSubscriber($value)
@@ -257,6 +263,7 @@ class User extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return User
      */
     public function setOrganisationRole($value)

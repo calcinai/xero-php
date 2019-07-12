@@ -194,6 +194,7 @@ class Journal extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return Journal
      */
     public function setJournalID($value)
@@ -214,6 +215,7 @@ class Journal extends Remote\Model
 
     /**
      * @param \DateTimeInterface $value
+     *
      * @return Journal
      */
     public function setJournalDate(\DateTimeInterface $value)
@@ -234,6 +236,7 @@ class Journal extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return Journal
      */
     public function setJournalNumber($value)
@@ -254,6 +257,7 @@ class Journal extends Remote\Model
 
     /**
      * @param \DateTimeInterface $value
+     *
      * @return Journal
      */
     public function setCreatedDateUTC(\DateTimeInterface $value)
@@ -274,6 +278,7 @@ class Journal extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return Journal
      */
     public function setReference($value)
@@ -294,6 +299,7 @@ class Journal extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return Journal
      */
     public function setSourceID($value)
@@ -314,6 +320,7 @@ class Journal extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return Journal
      */
     public function setSourceType($value)
@@ -334,6 +341,7 @@ class Journal extends Remote\Model
 
     /**
      * @param JournalLine $value
+     *
      * @return Journal
      */
     public function addJournalLine(JournalLine $value)

@@ -110,6 +110,7 @@ class ExternalLink extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return ExternalLink
      */
     public function setLinkType($value)
@@ -130,6 +131,7 @@ class ExternalLink extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return ExternalLink
      */
     public function setUrl($value)

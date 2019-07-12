@@ -142,6 +142,7 @@ class Folder extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return Folder
      */
     public function setName($value)
@@ -162,6 +163,7 @@ class Folder extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return Folder
      */
     public function setFileCount($value)
@@ -182,6 +184,7 @@ class Folder extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return Folder
      */
     public function setEmail($value)
@@ -202,6 +205,7 @@ class Folder extends Remote\Model
 
     /**
      * @param bool $value
+     *
      * @return Folder
      */
     public function setIsInbox($value)
@@ -222,6 +226,7 @@ class Folder extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return Folder
      */
     public function setId($value)
@@ -242,6 +247,7 @@ class Folder extends Remote\Model
 
     /**
      * @param File $value
+     *
      * @return Folder
      */
     public function addFile(File $value)
@@ -265,6 +271,7 @@ class Folder extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return Folder
      */
     public function setFolderId($value)

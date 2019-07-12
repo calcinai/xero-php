@@ -108,6 +108,7 @@ class TimeOffLine extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return TimeOffLine
      */
     public function setTimeOffTypeID($value)
@@ -128,6 +129,7 @@ class TimeOffLine extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return TimeOffLine
      */
     public function setHour($value)
@@ -148,6 +150,7 @@ class TimeOffLine extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return TimeOffLine
      */
     public function setBalance($value)

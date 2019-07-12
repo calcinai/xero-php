@@ -131,6 +131,7 @@ class BankAccount extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return BankAccount
      */
     public function setStatementText($value)
@@ -151,6 +152,7 @@ class BankAccount extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return BankAccount
      */
     public function setAccountName($value)
@@ -171,6 +173,7 @@ class BankAccount extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return BankAccount
      */
     public function setBSB($value)
@@ -191,6 +194,7 @@ class BankAccount extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return BankAccount
      */
     public function setAccountNumber($value)
@@ -211,6 +215,7 @@ class BankAccount extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return BankAccount
      */
     public function setRemainder($value)
@@ -231,6 +236,7 @@ class BankAccount extends Remote\Model
 
     /**
      * @param float $value
+     *
      * @return BankAccount
      */
     public function setAmount($value)

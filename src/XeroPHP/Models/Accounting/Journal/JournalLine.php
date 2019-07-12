@@ -173,6 +173,7 @@ class JournalLine extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return JournalLine
      */
     public function setJournalLineID($value)
@@ -193,6 +194,7 @@ class JournalLine extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return JournalLine
      */
     public function setAccountID($value)
@@ -213,6 +215,7 @@ class JournalLine extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return JournalLine
      */
     public function setAccountCode($value)
@@ -233,6 +236,7 @@ class JournalLine extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return JournalLine
      */
     public function setAccountType($value)
@@ -253,6 +257,7 @@ class JournalLine extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return JournalLine
      */
     public function setAccountName($value)
@@ -273,6 +278,7 @@ class JournalLine extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return JournalLine
      */
     public function setDescription($value)
@@ -293,6 +299,7 @@ class JournalLine extends Remote\Model
 
     /**
      * @param float $value
+     *
      * @return JournalLine
      */
     public function setNetAmount($value)
@@ -313,6 +320,7 @@ class JournalLine extends Remote\Model
 
     /**
      * @param float $value
+     *
      * @return JournalLine
      */
     public function setGrossAmount($value)
@@ -333,6 +341,7 @@ class JournalLine extends Remote\Model
 
     /**
      * @param float $value
+     *
      * @return JournalLine
      */
     public function setTaxAmount($value)
@@ -353,6 +362,7 @@ class JournalLine extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return JournalLine
      */
     public function setTaxType($value)
@@ -373,6 +383,7 @@ class JournalLine extends Remote\Model
 
     /**
      * @param TaxRate $value
+     *
      * @return JournalLine
      */
     public function setTaxName(TaxRate $value)
@@ -393,6 +404,7 @@ class JournalLine extends Remote\Model
 
     /**
      * @param TrackingCategory $value
+     *
      * @return JournalLine
      */
     public function addTrackingCategory(TrackingCategory $value)

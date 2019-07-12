@@ -97,6 +97,7 @@ class Employee extends Remote\Model
      * This property has been removed from the Xero API.
      *
      * @property string Occupation
+     *
      * @deprecated
      */
 
@@ -318,6 +319,7 @@ class Employee extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return Employee
      */
     public function setFirstName($value)
@@ -338,6 +340,7 @@ class Employee extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return Employee
      */
     public function setLastName($value)
@@ -358,6 +361,7 @@ class Employee extends Remote\Model
 
     /**
      * @param \DateTimeInterface $value
+     *
      * @return Employee
      */
     public function setDateOfBirth(\DateTimeInterface $value)
@@ -378,6 +382,7 @@ class Employee extends Remote\Model
 
     /**
      * @param HomeAddress $value
+     *
      * @return Employee
      */
     public function setHomeAddress(HomeAddress $value)
@@ -398,6 +403,7 @@ class Employee extends Remote\Model
 
     /**
      * @param \DateTimeInterface $value
+     *
      * @return Employee
      */
     public function setStartDate(\DateTimeInterface $value)
@@ -418,6 +424,7 @@ class Employee extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return Employee
      */
     public function setTitle($value)
@@ -438,6 +445,7 @@ class Employee extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return Employee
      */
     public function setMiddleName($value)
@@ -458,6 +466,7 @@ class Employee extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return Employee
      */
     public function setEmail($value)
@@ -478,6 +487,7 @@ class Employee extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return Employee
      */
     public function setGender($value)
@@ -498,6 +508,7 @@ class Employee extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return Employee
      */
     public function setMobile($value)
@@ -518,6 +529,7 @@ class Employee extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return Employee
      */
     public function setTwitterUserName($value)
@@ -538,6 +550,7 @@ class Employee extends Remote\Model
 
     /**
      * @param bool $value
+     *
      * @return Employee
      */
     public function setIsAuthorisedToApproveLeave($value)
@@ -558,6 +571,7 @@ class Employee extends Remote\Model
 
     /**
      * @param bool $value
+     *
      * @return Employee
      */
     public function setIsAuthorisedToApproveTimesheet($value)
@@ -570,6 +584,7 @@ class Employee extends Remote\Model
 
     /**
      * @return string
+     *
      * @deprecated
      */
     public function getOccupation()
@@ -579,7 +594,9 @@ class Employee extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return Employee
+     *
      * @deprecated
      */
     public function setOccupation($value)
@@ -600,6 +617,7 @@ class Employee extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return Employee
      */
     public function setJobTitle($value)
@@ -620,6 +638,7 @@ class Employee extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return Employee
      */
     public function setClassification($value)
@@ -640,6 +659,7 @@ class Employee extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return Employee
      */
     public function setOrdinaryEarningsRateID($value)
@@ -660,6 +680,7 @@ class Employee extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return Employee
      */
     public function setPayrollCalendarID($value)
@@ -680,6 +701,7 @@ class Employee extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return Employee
      */
     public function setEmployeeGroupName($value)
@@ -700,6 +722,7 @@ class Employee extends Remote\Model
 
     /**
      * @param BankAccount $value
+     *
      * @return Employee
      */
     public function addBankAccount(BankAccount $value)
@@ -723,6 +746,7 @@ class Employee extends Remote\Model
 
     /**
      * @param PayTemplate $value
+     *
      * @return Employee
      */
     public function setPayTemplate(PayTemplate $value)
@@ -743,6 +767,7 @@ class Employee extends Remote\Model
 
     /**
      * @param OpeningBalance $value
+     *
      * @return Employee
      */
     public function addOpeningBalance(OpeningBalance $value)
@@ -766,6 +791,7 @@ class Employee extends Remote\Model
 
     /**
      * @param LeaveBalance $value
+     *
      * @return Employee
      */
     public function addLeaveBalance(LeaveBalance $value)
@@ -789,6 +815,7 @@ class Employee extends Remote\Model
 
     /**
      * @param SuperMembership $value
+     *
      * @return Employee
      */
     public function addSuperMembership(SuperMembership $value)
@@ -812,6 +839,7 @@ class Employee extends Remote\Model
 
     /**
      * @param \DateTimeInterface $value
+     *
      * @return Employee
      */
     public function setTerminationDate(\DateTimeInterface $value)
@@ -832,6 +860,7 @@ class Employee extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return Employee
      */
     public function setEmployeeID($value)
@@ -852,6 +881,7 @@ class Employee extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return Employee
      */
     public function setStatus($value)
@@ -872,6 +902,7 @@ class Employee extends Remote\Model
 
     /**
      * @param \DateTimeInterface $value
+     *
      * @return Employee
      */
     public function setUpdatedDateUTC(\DateTimeInterface $value)
@@ -892,6 +923,7 @@ class Employee extends Remote\Model
 
     /**
      * @param TaxDeclaration $value
+     *
      * @return Employee
      */
     public function setTaxDeclaration(TaxDeclaration $value)
@@ -912,6 +944,7 @@ class Employee extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return Employee
      */
     public function setPhone($value)

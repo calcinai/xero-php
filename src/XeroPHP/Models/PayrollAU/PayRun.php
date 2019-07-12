@@ -187,6 +187,7 @@ class PayRun extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return PayRun
      */
     public function setPayrollCalendarID($value)
@@ -207,6 +208,7 @@ class PayRun extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return PayRun
      */
     public function setPayRunID($value)
@@ -227,6 +229,7 @@ class PayRun extends Remote\Model
 
     /**
      * @param \DateTimeInterface $value
+     *
      * @return PayRun
      */
     public function setPayRunPeriodStartDate(\DateTimeInterface $value)
@@ -247,6 +250,7 @@ class PayRun extends Remote\Model
 
     /**
      * @param \DateTimeInterface $value
+     *
      * @return PayRun
      */
     public function setPayRunPeriodEndDate(\DateTimeInterface $value)
@@ -267,6 +271,7 @@ class PayRun extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return PayRun
      */
     public function setPayRunStatus($value)
@@ -287,6 +292,7 @@ class PayRun extends Remote\Model
 
     /**
      * @param \DateTimeInterface $value
+     *
      * @return PayRun
      */
     public function setPaymentDate(\DateTimeInterface $value)

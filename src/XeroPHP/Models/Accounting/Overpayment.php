@@ -17,6 +17,7 @@ class Overpayment extends Remote\Model
      * This property has been removed from the Xero API.
      *
      * @property string Reference
+     *
      * @deprecated
      */
 
@@ -90,6 +91,7 @@ class Overpayment extends Remote\Model
      * This property has been removed from the Xero API.
      *
      * @property string FullyPaidOnDate
+     *
      * @deprecated
      */
 
@@ -233,6 +235,7 @@ class Overpayment extends Remote\Model
 
     /**
      * @return string
+     *
      * @deprecated
      */
     public function getReference()
@@ -242,7 +245,9 @@ class Overpayment extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return Overpayment
+     *
      * @deprecated
      */
     public function setReference($value)
@@ -263,6 +268,7 @@ class Overpayment extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return Overpayment
      */
     public function setType($value)
@@ -283,6 +289,7 @@ class Overpayment extends Remote\Model
 
     /**
      * @param Contact $value
+     *
      * @return Overpayment
      */
     public function setContact(Contact $value)
@@ -303,6 +310,7 @@ class Overpayment extends Remote\Model
 
     /**
      * @param \DateTimeInterface $value
+     *
      * @return Overpayment
      */
     public function setDate(\DateTimeInterface $value)
@@ -323,6 +331,7 @@ class Overpayment extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return Overpayment
      */
     public function setStatus($value)
@@ -343,6 +352,7 @@ class Overpayment extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return Overpayment
      */
     public function setLineAmountType($value)
@@ -363,6 +373,7 @@ class Overpayment extends Remote\Model
 
     /**
      * @param LineItem $value
+     *
      * @return Overpayment
      */
     public function addLineItem(LineItem $value)
@@ -386,6 +397,7 @@ class Overpayment extends Remote\Model
 
     /**
      * @param float $value
+     *
      * @return Overpayment
      */
     public function setSubTotal($value)
@@ -406,6 +418,7 @@ class Overpayment extends Remote\Model
 
     /**
      * @param float $value
+     *
      * @return Overpayment
      */
     public function setTotalTax($value)
@@ -426,6 +439,7 @@ class Overpayment extends Remote\Model
 
     /**
      * @param float $value
+     *
      * @return Overpayment
      */
     public function setTotal($value)
@@ -446,6 +460,7 @@ class Overpayment extends Remote\Model
 
     /**
      * @param \DateTimeInterface $value
+     *
      * @return Overpayment
      */
     public function setUpdatedDateUTC(\DateTimeInterface $value)
@@ -466,6 +481,7 @@ class Overpayment extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return Overpayment
      */
     public function setCurrencyCode($value)
@@ -478,6 +494,7 @@ class Overpayment extends Remote\Model
 
     /**
      * @return string
+     *
      * @deprecated
      */
     public function getFullyPaidOnDate()
@@ -487,7 +504,9 @@ class Overpayment extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return Overpayment
+     *
      * @deprecated
      */
     public function setFullyPaidOnDate($value)
@@ -508,6 +527,7 @@ class Overpayment extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return Overpayment
      */
     public function setOverpaymentID($value)
@@ -528,6 +548,7 @@ class Overpayment extends Remote\Model
 
     /**
      * @param float $value
+     *
      * @return Overpayment
      */
     public function setCurrencyRate($value)
@@ -548,6 +569,7 @@ class Overpayment extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return Overpayment
      */
     public function setRemainingCredit($value)
@@ -568,6 +590,7 @@ class Overpayment extends Remote\Model
 
     /**
      * @param Allocation $value
+     *
      * @return Overpayment
      */
     public function addAllocation(Allocation $value)
@@ -591,6 +614,7 @@ class Overpayment extends Remote\Model
 
     /**
      * @param Payment $value
+     *
      * @return Overpayment
      */
     public function addPayment(Payment $value)
@@ -614,6 +638,7 @@ class Overpayment extends Remote\Model
 
     /**
      * @deprecated - this is a read only property and this method will be removed in future versions
+     *
      * @param $value
      */
     public function setHasAttachment($value)

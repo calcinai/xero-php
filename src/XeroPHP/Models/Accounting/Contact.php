@@ -356,6 +356,7 @@ class Contact extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return Contact
      */
     public function setContactID($value)
@@ -376,6 +377,7 @@ class Contact extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return Contact
      */
     public function setContactNumber($value)
@@ -396,6 +398,7 @@ class Contact extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return Contact
      */
     public function setAccountNumber($value)
@@ -416,6 +419,7 @@ class Contact extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return Contact
      */
     public function setContactStatus($value)
@@ -436,6 +440,7 @@ class Contact extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return Contact
      */
     public function setName($value)
@@ -456,6 +461,7 @@ class Contact extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return Contact
      */
     public function setFirstName($value)
@@ -476,6 +482,7 @@ class Contact extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return Contact
      */
     public function setLastName($value)
@@ -496,6 +503,7 @@ class Contact extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return Contact
      */
     public function setEmailAddress($value)
@@ -516,6 +524,7 @@ class Contact extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return Contact
      */
     public function setSkypeUserName($value)
@@ -536,6 +545,7 @@ class Contact extends Remote\Model
 
     /**
      * @param ContactPerson $value
+     *
      * @return Contact
      */
     public function addContactPerson(ContactPerson $value)
@@ -559,6 +569,7 @@ class Contact extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return Contact
      */
     public function setBankAccountDetail($value)
@@ -579,6 +590,7 @@ class Contact extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return Contact
      */
     public function setTaxNumber($value)
@@ -599,6 +611,7 @@ class Contact extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return Contact
      */
     public function setAccountsReceivableTaxType($value)
@@ -619,6 +632,7 @@ class Contact extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return Contact
      */
     public function setAccountsPayableTaxType($value)
@@ -639,6 +653,7 @@ class Contact extends Remote\Model
 
     /**
      * @param Address $value
+     *
      * @return Contact
      */
     public function addAddress(Address $value)
@@ -662,6 +677,7 @@ class Contact extends Remote\Model
 
     /**
      * @param Phone $value
+     *
      * @return Contact
      */
     public function addPhone(Phone $value)
@@ -685,6 +701,7 @@ class Contact extends Remote\Model
 
     /**
      * @deprecated - this is a read only property and this method will be removed in future versions
+     *
      * @param $value
      */
     public function setIsSupplier($value)
@@ -701,6 +718,7 @@ class Contact extends Remote\Model
 
     /**
      * @deprecated - this is a read only property and this method will be removed in future versions
+     *
      * @param $value
      */
     public function setIsCustomer($value)
@@ -717,6 +735,7 @@ class Contact extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return Contact
      */
     public function setDefaultCurrency($value)
@@ -737,6 +756,7 @@ class Contact extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return Contact
      */
     public function setXeroNetworkKey($value)
@@ -757,6 +777,7 @@ class Contact extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return Contact
      */
     public function setSalesDefaultAccountCode($value)
@@ -777,6 +798,7 @@ class Contact extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return Contact
      */
     public function setPurchasesDefaultAccountCode($value)
@@ -797,6 +819,7 @@ class Contact extends Remote\Model
 
     /**
      * @param TrackingCategory $value
+     *
      * @return Contact
      */
     public function addSalesTrackingCategory(TrackingCategory $value)
@@ -820,6 +843,7 @@ class Contact extends Remote\Model
 
     /**
      * @param TrackingCategory $value
+     *
      * @return Contact
      */
     public function addPurchasesTrackingCategory(TrackingCategory $value)
@@ -843,6 +867,7 @@ class Contact extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return Contact
      */
     public function setTrackingCategoryName($value)
@@ -863,6 +888,7 @@ class Contact extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return Contact
      */
     public function setTrackingCategoryOption($value)
@@ -883,6 +909,7 @@ class Contact extends Remote\Model
 
     /**
      * @param PaymentTerm $value
+     *
      * @return Contact
      */
     public function addPaymentTerm(PaymentTerm $value)
@@ -906,6 +933,7 @@ class Contact extends Remote\Model
 
     /**
      * @param \DateTimeInterface $value
+     *
      * @return Contact
      */
     public function setUpdatedDateUTC(\DateTimeInterface $value)
@@ -926,6 +954,7 @@ class Contact extends Remote\Model
 
     /**
      * @param ContactGroup $value
+     *
      * @return Contact
      */
     public function addContactGroup(ContactGroup $value)
@@ -949,6 +978,7 @@ class Contact extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return Contact
      */
     public function setWebsite($value)
@@ -969,6 +999,7 @@ class Contact extends Remote\Model
 
     /**
      * @param BrandingTheme $value
+     *
      * @return Contact
      */
     public function setBrandingTheme(BrandingTheme $value)
@@ -989,6 +1020,7 @@ class Contact extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return Contact
      */
     public function setBatchPayment($value)
@@ -1009,6 +1041,7 @@ class Contact extends Remote\Model
 
     /**
      * @param float $value
+     *
      * @return Contact
      */
     public function setDiscount($value)
@@ -1029,6 +1062,7 @@ class Contact extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return Contact
      */
     public function setBalance($value)
@@ -1049,6 +1083,7 @@ class Contact extends Remote\Model
 
     /**
      * @deprecated - this is a read only property and this method will be removed in future versions
+     *
      * @param $value
      */
     public function setHasAttachment($value)

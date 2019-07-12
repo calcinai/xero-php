@@ -332,6 +332,7 @@ class Organisation extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return Organisation
      */
     public function setAPIKey($value)
@@ -352,6 +353,7 @@ class Organisation extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return Organisation
      */
     public function setName($value)
@@ -372,6 +374,7 @@ class Organisation extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return Organisation
      */
     public function setLegalName($value)
@@ -392,6 +395,7 @@ class Organisation extends Remote\Model
 
     /**
      * @param bool $value
+     *
      * @return Organisation
      */
     public function setPaysTax($value)
@@ -412,6 +416,7 @@ class Organisation extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return Organisation
      */
     public function setVersion($value)
@@ -432,6 +437,7 @@ class Organisation extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return Organisation
      */
     public function setOrganisationType($value)
@@ -452,6 +458,7 @@ class Organisation extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return Organisation
      */
     public function setBaseCurrency($value)
@@ -472,6 +479,7 @@ class Organisation extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return Organisation
      */
     public function setCountryCode($value)
@@ -492,6 +500,7 @@ class Organisation extends Remote\Model
 
     /**
      * @param bool $value
+     *
      * @return Organisation
      */
     public function setIsDemoCompany($value)
@@ -512,6 +521,7 @@ class Organisation extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return Organisation
      */
     public function setOrganisationStatus($value)
@@ -532,6 +542,7 @@ class Organisation extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return Organisation
      */
     public function setRegistrationNumber($value)
@@ -552,6 +563,7 @@ class Organisation extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return Organisation
      */
     public function setTaxNumber($value)
@@ -572,6 +584,7 @@ class Organisation extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return Organisation
      */
     public function setFinancialYearEndDay($value)
@@ -592,6 +605,7 @@ class Organisation extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return Organisation
      */
     public function setFinancialYearEndMonth($value)
@@ -612,6 +626,7 @@ class Organisation extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return Organisation
      */
     public function setSalesTaxBasis($value)
@@ -632,6 +647,7 @@ class Organisation extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return Organisation
      */
     public function setSalesTaxPeriod($value)
@@ -652,6 +668,7 @@ class Organisation extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return Organisation
      */
     public function setDefaultSalesTax($value)
@@ -672,6 +689,7 @@ class Organisation extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return Organisation
      */
     public function setDefaultPurchasesTax($value)
@@ -692,6 +710,7 @@ class Organisation extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return Organisation
      */
     public function setPeriodLockDate($value)
@@ -712,6 +731,7 @@ class Organisation extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return Organisation
      */
     public function setEndOfYearLockDate($value)
@@ -732,6 +752,7 @@ class Organisation extends Remote\Model
 
     /**
      * @param \DateTimeInterface $value
+     *
      * @return Organisation
      */
     public function setCreatedDateUTC(\DateTimeInterface $value)
@@ -752,6 +773,7 @@ class Organisation extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return Organisation
      */
     public function setTimezone($value)
@@ -772,6 +794,7 @@ class Organisation extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return Organisation
      */
     public function setOrganisationEntityType($value)
@@ -792,6 +815,7 @@ class Organisation extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return Organisation
      */
     public function setShortCode($value)
@@ -812,6 +836,7 @@ class Organisation extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return Organisation
      */
     public function setLineOfBusiness($value)
@@ -832,6 +857,7 @@ class Organisation extends Remote\Model
 
     /**
      * @param Address $value
+     *
      * @return Organisation
      */
     public function addAddress(Address $value)
@@ -855,6 +881,7 @@ class Organisation extends Remote\Model
 
     /**
      * @param Phone $value
+     *
      * @return Organisation
      */
     public function addPhone(Phone $value)
@@ -878,6 +905,7 @@ class Organisation extends Remote\Model
 
     /**
      * @param ExternalLink $value
+     *
      * @return Organisation
      */
     public function addExternalLink(ExternalLink $value)
@@ -901,6 +929,7 @@ class Organisation extends Remote\Model
 
     /**
      * @param PaymentTerm $value
+     *
      * @return Organisation
      */
     public function addPaymentTerm(PaymentTerm $value)

@@ -10,6 +10,7 @@ class Currency extends Remote\Model
      * This property has been removed from the Xero API.
      *
      * @property string ModifiedAfter
+     *
      * @deprecated
      */
 
@@ -103,6 +104,7 @@ class Currency extends Remote\Model
 
     /**
      * @return string
+     *
      * @deprecated
      */
     public function getModifiedAfter()
@@ -112,7 +114,9 @@ class Currency extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return Currency
+     *
      * @deprecated
      */
     public function setModifiedAfter($value)
@@ -133,6 +137,7 @@ class Currency extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return Currency
      */
     public function setCode($value)
@@ -153,6 +158,7 @@ class Currency extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return Currency
      */
     public function setDescription($value)

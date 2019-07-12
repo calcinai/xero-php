@@ -30,6 +30,7 @@ class Sale extends Remote\Model
      * This property has been removed from the Xero API.
      *
      * @property \DateTimeInterface UpdatedDateUTC
+     *
      * @deprecated
      */
 
@@ -126,6 +127,7 @@ class Sale extends Remote\Model
 
     /**
      * @param float $value
+     *
      * @return Sale
      */
     public function setUnitPrice($value)
@@ -146,6 +148,7 @@ class Sale extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return Sale
      */
     public function setAccountCode($value)
@@ -166,6 +169,7 @@ class Sale extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return Sale
      */
     public function setCOGSAccountCode($value)
@@ -178,6 +182,7 @@ class Sale extends Remote\Model
 
     /**
      * @return \DateTimeInterface
+     *
      * @deprecated
      */
     public function getUpdatedDateUTC()
@@ -187,7 +192,9 @@ class Sale extends Remote\Model
 
     /**
      * @param \DateTimeInterface $value
+     *
      * @return Sale
+     *
      * @deprecated
      */
     public function setUpdatedDateUTC(\DateTimeInterface $value)
@@ -208,6 +215,7 @@ class Sale extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return Sale
      */
     public function setTaxType($value)

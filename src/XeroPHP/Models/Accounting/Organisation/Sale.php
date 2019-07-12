@@ -101,6 +101,7 @@ class Sale extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return Sale
      */
     public function setDay($value)
@@ -121,6 +122,7 @@ class Sale extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return Sale
      */
     public function setType($value)

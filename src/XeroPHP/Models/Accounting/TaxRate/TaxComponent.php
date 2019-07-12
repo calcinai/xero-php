@@ -108,6 +108,7 @@ class TaxComponent extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return TaxComponent
      */
     public function setName($value)
@@ -128,6 +129,7 @@ class TaxComponent extends Remote\Model
 
     /**
      * @param float $value
+     *
      * @return TaxComponent
      */
     public function setRate($value)
@@ -148,6 +150,7 @@ class TaxComponent extends Remote\Model
 
     /**
      * @param bool $value
+     *
      * @return TaxComponent
      */
     public function setIsCompound($value)

@@ -108,6 +108,7 @@ class ReimbursementLine extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return ReimbursementLine
      */
     public function setReimbursementTypeID($value)
@@ -128,6 +129,7 @@ class ReimbursementLine extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return ReimbursementLine
      */
     public function setDescription($value)
@@ -148,6 +150,7 @@ class ReimbursementLine extends Remote\Model
 
     /**
      * @param float $value
+     *
      * @return ReimbursementLine
      */
     public function setAmount($value)

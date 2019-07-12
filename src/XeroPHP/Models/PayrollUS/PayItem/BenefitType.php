@@ -182,6 +182,7 @@ class BenefitType extends Remote\Model
 
     /**
      * @param BenefitType $value
+     *
      * @return BenefitType
      */
     public function setBenefitType(self $value)
@@ -202,6 +203,7 @@ class BenefitType extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return BenefitType
      */
     public function setBenefitCategory($value)
@@ -222,6 +224,7 @@ class BenefitType extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return BenefitType
      */
     public function setLiabilityAccountCode($value)
@@ -242,6 +245,7 @@ class BenefitType extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return BenefitType
      */
     public function setExpenseAccountCode($value)
@@ -262,6 +266,7 @@ class BenefitType extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return BenefitType
      */
     public function setBenefitTypeID($value)
@@ -282,6 +287,7 @@ class BenefitType extends Remote\Model
 
     /**
      * @param float $value
+     *
      * @return BenefitType
      */
     public function setStandardAmount($value)
@@ -302,6 +308,7 @@ class BenefitType extends Remote\Model
 
     /**
      * @param float $value
+     *
      * @return BenefitType
      */
     public function setCompanyMax($value)
@@ -322,6 +329,7 @@ class BenefitType extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return BenefitType
      */
     public function setPercentage($value)
@@ -342,6 +350,7 @@ class BenefitType extends Remote\Model
 
     /**
      * @param float $value
+     *
      * @return BenefitType
      */
     public function setShowBalanceOnPaystub($value)

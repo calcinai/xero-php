@@ -221,6 +221,7 @@ class Payment extends Remote\Model
 
     /**
      * @param Invoice $value
+     *
      * @return Payment
      */
     public function setInvoice(Invoice $value)
@@ -241,6 +242,7 @@ class Payment extends Remote\Model
 
     /**
      * @param CreditNote $value
+     *
      * @return Payment
      */
     public function setCreditNote(CreditNote $value)
@@ -261,6 +263,7 @@ class Payment extends Remote\Model
 
     /**
      * @param Prepayment $value
+     *
      * @return Payment
      */
     public function setPrepayment(Prepayment $value)
@@ -281,6 +284,7 @@ class Payment extends Remote\Model
 
     /**
      * @param Overpayment $value
+     *
      * @return Payment
      */
     public function setOverpayment(Overpayment $value)
@@ -301,6 +305,7 @@ class Payment extends Remote\Model
 
     /**
      * @param Account $value
+     *
      * @return Payment
      */
     public function setAccount(Account $value)
@@ -321,6 +326,7 @@ class Payment extends Remote\Model
 
     /**
      * @param \DateTimeInterface $value
+     *
      * @return Payment
      */
     public function setDate(\DateTimeInterface $value)
@@ -341,6 +347,7 @@ class Payment extends Remote\Model
 
     /**
      * @param float $value
+     *
      * @return Payment
      */
     public function setCurrencyRate($value)
@@ -361,6 +368,7 @@ class Payment extends Remote\Model
 
     /**
      * @param float $value
+     *
      * @return Payment
      */
     public function setAmount($value)
@@ -381,6 +389,7 @@ class Payment extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return Payment
      */
     public function setReference($value)
@@ -401,6 +410,7 @@ class Payment extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return Payment
      */
     public function setIsReconciled($value)
@@ -421,6 +431,7 @@ class Payment extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return Payment
      */
     public function setStatus($value)
@@ -457,6 +468,7 @@ class Payment extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return Payment
      */
     public function setPaymentID($value)

@@ -140,6 +140,7 @@ class AssetType extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return AssetType
      */
     public function setassetTypeName($value)
@@ -160,6 +161,7 @@ class AssetType extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return AssetType
      */
     public function setfixedAssetAccountId($value)
@@ -180,6 +182,7 @@ class AssetType extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return AssetType
      */
     public function setdepreciationExpenseAccountId($value)
@@ -200,6 +203,7 @@ class AssetType extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return AssetType
      */
     public function setaccumulatedDepreciationAccountId($value)
@@ -220,6 +224,7 @@ class AssetType extends Remote\Model
 
     /**
      * @param BookDepreciationSetting $value
+     *
      * @return AssetType
      */
     public function setBookDepreciationSetting(BookDepreciationSetting $value)
@@ -240,6 +245,7 @@ class AssetType extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return AssetType
      */
     public function setassetTypeId($value)
@@ -260,6 +266,7 @@ class AssetType extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return AssetType
      */
     public function setLock($value)

@@ -252,6 +252,7 @@ class CreditNote extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return CreditNote
      */
     public function setType($value)
@@ -272,6 +273,7 @@ class CreditNote extends Remote\Model
 
     /**
      * @param Contact $value
+     *
      * @return CreditNote
      */
     public function setContact(Contact $value)
@@ -292,6 +294,7 @@ class CreditNote extends Remote\Model
 
     /**
      * @param \DateTimeInterface $value
+     *
      * @return CreditNote
      */
     public function setDate(\DateTimeInterface $value)
@@ -312,6 +315,7 @@ class CreditNote extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return CreditNote
      */
     public function setStatus($value)
@@ -332,6 +336,7 @@ class CreditNote extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return CreditNote
      */
     public function setLineAmountType($value)
@@ -352,6 +357,7 @@ class CreditNote extends Remote\Model
 
     /**
      * @param LineItem $value
+     *
      * @return CreditNote
      */
     public function addLineItem(LineItem $value)
@@ -383,6 +389,7 @@ class CreditNote extends Remote\Model
 
     /**
      * @param float $value
+     *
      * @return CreditNote
      */
     public function setSubTotal($value)
@@ -403,6 +410,7 @@ class CreditNote extends Remote\Model
 
     /**
      * @param float $value
+     *
      * @return CreditNote
      */
     public function setTotalTax($value)
@@ -423,6 +431,7 @@ class CreditNote extends Remote\Model
 
     /**
      * @param float $value
+     *
      * @return CreditNote
      */
     public function setTotal($value)
@@ -443,6 +452,7 @@ class CreditNote extends Remote\Model
 
     /**
      * @param \DateTimeInterface $value
+     *
      * @return CreditNote
      */
     public function setUpdatedDateUTC(\DateTimeInterface $value)
@@ -463,6 +473,7 @@ class CreditNote extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return CreditNote
      */
     public function setCurrencyCode($value)
@@ -483,6 +494,7 @@ class CreditNote extends Remote\Model
 
     /**
      * @param \DateTimeInterface $value
+     *
      * @return CreditNote
      */
     public function setFullyPaidOnDate(\DateTimeInterface $value)
@@ -503,6 +515,7 @@ class CreditNote extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return CreditNote
      */
     public function setCreditNoteID($value)
@@ -523,6 +536,7 @@ class CreditNote extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return CreditNote
      */
     public function setCreditNoteNumber($value)
@@ -543,6 +557,7 @@ class CreditNote extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return CreditNote
      */
     public function setReference($value)
@@ -563,6 +578,7 @@ class CreditNote extends Remote\Model
 
     /**
      * @param bool $value
+     *
      * @return CreditNote
      */
     public function setSentToContact($value)
@@ -583,6 +599,7 @@ class CreditNote extends Remote\Model
 
     /**
      * @param float $value
+     *
      * @return CreditNote
      */
     public function setCurrencyRate($value)
@@ -603,6 +620,7 @@ class CreditNote extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return CreditNote
      */
     public function setRemainingCredit($value)
@@ -623,6 +641,7 @@ class CreditNote extends Remote\Model
 
     /**
      * @param Allocation $value
+     *
      * @return CreditNote
      */
     public function addAllocation(Allocation $value)
@@ -646,6 +665,7 @@ class CreditNote extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return CreditNote
      */
     public function setBrandingThemeID($value)
@@ -666,6 +686,7 @@ class CreditNote extends Remote\Model
 
     /**
      * @deprecated - this is a read only property and this method will be removed in future versions
+     *
      * @param $value
      */
     public function setHasAttachment($value)

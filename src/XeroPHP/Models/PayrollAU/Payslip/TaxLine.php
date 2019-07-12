@@ -116,6 +116,7 @@ class TaxLine extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return TaxLine
      */
     public function setTaxTypeName($value)
@@ -136,6 +137,7 @@ class TaxLine extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return TaxLine
      */
     public function setDescription($value)
@@ -156,6 +158,7 @@ class TaxLine extends Remote\Model
 
     /**
      * @param float $value
+     *
      * @return TaxLine
      */
     public function setAmount($value)
@@ -176,6 +179,7 @@ class TaxLine extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return TaxLine
      */
     public function setLiabilityAccount($value)

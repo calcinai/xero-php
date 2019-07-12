@@ -145,6 +145,7 @@ class WorkLocation extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return WorkLocation
      */
     public function setStreetAddress($value)
@@ -165,6 +166,7 @@ class WorkLocation extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return WorkLocation
      */
     public function setCity($value)
@@ -185,6 +187,7 @@ class WorkLocation extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return WorkLocation
      */
     public function setState($value)
@@ -205,6 +208,7 @@ class WorkLocation extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return WorkLocation
      */
     public function setLatitude($value)
@@ -225,6 +229,7 @@ class WorkLocation extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return WorkLocation
      */
     public function setLongitude($value)
@@ -245,6 +250,7 @@ class WorkLocation extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return WorkLocation
      */
     public function setWorkLocationID($value)
@@ -265,6 +271,7 @@ class WorkLocation extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return WorkLocation
      */
     public function setSuitOrAptOrUnit($value)
@@ -285,6 +292,7 @@ class WorkLocation extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return WorkLocation
      */
     public function setIsPrimary($value)

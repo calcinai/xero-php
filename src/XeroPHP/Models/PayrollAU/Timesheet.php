@@ -144,6 +144,7 @@ class Timesheet extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return Timesheet
      */
     public function setEmployeeID($value)
@@ -164,6 +165,7 @@ class Timesheet extends Remote\Model
 
     /**
      * @param \DateTimeInterface $value
+     *
      * @return Timesheet
      */
     public function setStartDate(\DateTimeInterface $value)
@@ -184,6 +186,7 @@ class Timesheet extends Remote\Model
 
     /**
      * @param \DateTimeInterface $value
+     *
      * @return Timesheet
      */
     public function setEndDate(\DateTimeInterface $value)
@@ -204,6 +207,7 @@ class Timesheet extends Remote\Model
 
     /**
      * @param TimesheetLine $value
+     *
      * @return Timesheet
      */
     public function addTimesheetLine(TimesheetLine $value)
@@ -227,6 +231,7 @@ class Timesheet extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return Timesheet
      */
     public function setStatus($value)
@@ -247,6 +252,7 @@ class Timesheet extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return Timesheet
      */
     public function setHour($value)
@@ -267,6 +273,7 @@ class Timesheet extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return Timesheet
      */
     public function setTimesheetID($value)

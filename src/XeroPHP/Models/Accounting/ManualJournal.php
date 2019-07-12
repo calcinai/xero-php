@@ -171,6 +171,7 @@ class ManualJournal extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return ManualJournal
      */
     public function setManualJournalID($value)
@@ -191,6 +192,7 @@ class ManualJournal extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return ManualJournal
      */
     public function setNarration($value)
@@ -211,6 +213,7 @@ class ManualJournal extends Remote\Model
 
     /**
      * @param JournalLine $value
+     *
      * @return ManualJournal
      */
     public function addJournalLine(JournalLine $value)
@@ -234,6 +237,7 @@ class ManualJournal extends Remote\Model
 
     /**
      * @param \DateTimeInterface $value
+     *
      * @return ManualJournal
      */
     public function setDate(\DateTimeInterface $value)
@@ -254,6 +258,7 @@ class ManualJournal extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return ManualJournal
      */
     public function setLineAmountType($value)
@@ -274,6 +279,7 @@ class ManualJournal extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return ManualJournal
      */
     public function setStatus($value)
@@ -294,6 +300,7 @@ class ManualJournal extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return ManualJournal
      */
     public function setUrl($value)
@@ -314,6 +321,7 @@ class ManualJournal extends Remote\Model
 
     /**
      * @param bool $value
+     *
      * @return ManualJournal
      */
     public function setShowOnCashBasisReport($value)

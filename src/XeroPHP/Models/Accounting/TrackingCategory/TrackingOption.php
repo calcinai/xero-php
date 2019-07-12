@@ -108,6 +108,7 @@ class TrackingOption extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return TrackingOption
      */
     public function setTrackingOptionID($value)
@@ -128,6 +129,7 @@ class TrackingOption extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return TrackingOption
      */
     public function setName($value)
@@ -148,6 +150,7 @@ class TrackingOption extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return TrackingOption
      */
     public function setStatus($value)

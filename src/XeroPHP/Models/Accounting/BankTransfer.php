@@ -166,6 +166,7 @@ class BankTransfer extends Remote\Model
 
     /**
      * @param FromBankAccount $value
+     *
      * @return BankTransfer
      */
     public function setFromBankAccount(FromBankAccount $value)
@@ -186,6 +187,7 @@ class BankTransfer extends Remote\Model
 
     /**
      * @param ToBankAccount $value
+     *
      * @return BankTransfer
      */
     public function setToBankAccount(ToBankAccount $value)
@@ -206,6 +208,7 @@ class BankTransfer extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return BankTransfer
      */
     public function setAmount($value)
@@ -226,6 +229,7 @@ class BankTransfer extends Remote\Model
 
     /**
      * @param \DateTimeInterface $value
+     *
      * @return BankTransfer
      */
     public function setDate(\DateTimeInterface $value)
@@ -246,6 +250,7 @@ class BankTransfer extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return BankTransfer
      */
     public function setBankTransferID($value)

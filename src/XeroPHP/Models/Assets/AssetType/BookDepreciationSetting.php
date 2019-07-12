@@ -122,6 +122,7 @@ class BookDepreciationSetting extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return BookDepreciationSetting
      */
     public function setdepreciationMethod($value)
@@ -142,6 +143,7 @@ class BookDepreciationSetting extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return BookDepreciationSetting
      */
     public function setaveragingMethod($value)
@@ -162,6 +164,7 @@ class BookDepreciationSetting extends Remote\Model
 
     /**
      * @param float $value
+     *
      * @return BookDepreciationSetting
      */
     public function setdepreciationRate($value)
@@ -182,6 +185,7 @@ class BookDepreciationSetting extends Remote\Model
 
     /**
      * @param float $value
+     *
      * @return BookDepreciationSetting
      */
     public function addeffectiveLifeYear($value)
@@ -205,6 +209,7 @@ class BookDepreciationSetting extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return BookDepreciationSetting
      */
     public function setdepreciationCalculationMethod($value)

@@ -130,6 +130,7 @@ class ExpenseClaim extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return ExpenseClaim
      */
     public function setExpenseClaimID($value)
@@ -150,6 +151,7 @@ class ExpenseClaim extends Remote\Model
 
     /**
      * @param User $value
+     *
      * @return ExpenseClaim
      */
     public function setUser(User $value)
@@ -170,6 +172,7 @@ class ExpenseClaim extends Remote\Model
 
     /**
      * @param Receipt $value
+     *
      * @return ExpenseClaim
      */
     public function addReceipt(Receipt $value)
@@ -201,6 +204,7 @@ class ExpenseClaim extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return ExpenseClaim
      */
     public function setStatus($value)

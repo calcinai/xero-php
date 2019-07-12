@@ -122,6 +122,7 @@ class Phone extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return Phone
      */
     public function setPhoneType($value)
@@ -142,6 +143,7 @@ class Phone extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return Phone
      */
     public function setPhoneNumber($value)
@@ -162,6 +164,7 @@ class Phone extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return Phone
      */
     public function setPhoneAreaCode($value)
@@ -182,6 +185,7 @@ class Phone extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return Phone
      */
     public function setPhoneCountryCode($value)

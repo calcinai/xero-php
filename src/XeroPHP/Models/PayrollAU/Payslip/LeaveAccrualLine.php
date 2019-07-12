@@ -108,6 +108,7 @@ class LeaveAccrualLine extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return LeaveAccrualLine
      */
     public function setLeaveTypeID($value)
@@ -128,6 +129,7 @@ class LeaveAccrualLine extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return LeaveAccrualLine
      */
     public function setNumberOfUnit($value)
@@ -148,6 +150,7 @@ class LeaveAccrualLine extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return LeaveAccrualLine
      */
     public function setAutoCalculate($value)

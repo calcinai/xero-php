@@ -101,6 +101,7 @@ class TrackingCategory extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return TrackingCategory
      */
     public function setTrackingCategoryID($value)
@@ -121,6 +122,7 @@ class TrackingCategory extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return TrackingCategory
      */
     public function setTrackingCategoryName($value)

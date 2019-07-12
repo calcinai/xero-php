@@ -150,6 +150,7 @@ class SuperannuationLine extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return SuperannuationLine
      */
     public function setSuperMembershipID($value)
@@ -170,6 +171,7 @@ class SuperannuationLine extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return SuperannuationLine
      */
     public function setContributionType($value)
@@ -190,6 +192,7 @@ class SuperannuationLine extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return SuperannuationLine
      */
     public function setCalculationType($value)
@@ -210,6 +213,7 @@ class SuperannuationLine extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return SuperannuationLine
      */
     public function setMinimumMonthlyEarning($value)
@@ -230,6 +234,7 @@ class SuperannuationLine extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return SuperannuationLine
      */
     public function setExpenseAccountCode($value)
@@ -250,6 +255,7 @@ class SuperannuationLine extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return SuperannuationLine
      */
     public function setLiabilityAccountCode($value)
@@ -270,6 +276,7 @@ class SuperannuationLine extends Remote\Model
 
     /**
      * @param \DateTimeInterface $value
+     *
      * @return SuperannuationLine
      */
     public function setPaymentDateForThisPeriod(\DateTimeInterface $value)
@@ -290,6 +297,7 @@ class SuperannuationLine extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return SuperannuationLine
      */
     public function setPercentage($value)
@@ -310,6 +318,7 @@ class SuperannuationLine extends Remote\Model
 
     /**
      * @param float $value
+     *
      * @return SuperannuationLine
      */
     public function setAmount($value)

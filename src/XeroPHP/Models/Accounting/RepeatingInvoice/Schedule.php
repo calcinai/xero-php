@@ -137,6 +137,7 @@ class Schedule extends Remote\Model
 
     /**
      * @param int $value
+     *
      * @return Schedule
      */
     public function setPeriod($value)
@@ -157,6 +158,7 @@ class Schedule extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return Schedule
      */
     public function setUnit($value)
@@ -177,6 +179,7 @@ class Schedule extends Remote\Model
 
     /**
      * @param int $value
+     *
      * @return Schedule
      */
     public function setDueDate($value)
@@ -197,6 +200,7 @@ class Schedule extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return Schedule
      */
     public function setDueDateType($value)
@@ -217,6 +221,7 @@ class Schedule extends Remote\Model
 
     /**
      * @param \DateTimeInterface $value
+     *
      * @return Schedule
      */
     public function setStartDate(\DateTimeInterface $value)
@@ -237,6 +242,7 @@ class Schedule extends Remote\Model
 
     /**
      * @param \DateTimeInterface $value
+     *
      * @return Schedule
      */
     public function setNextScheduledDate(\DateTimeInterface $value)
@@ -257,6 +263,7 @@ class Schedule extends Remote\Model
 
     /**
      * @param \DateTimeInterface $value
+     *
      * @return Schedule
      */
     public function setEndDate(\DateTimeInterface $value)

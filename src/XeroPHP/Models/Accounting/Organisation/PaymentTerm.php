@@ -108,6 +108,7 @@ class PaymentTerm extends Remote\Model
 
     /**
      * @param Bill $value
+     *
      * @return PaymentTerm
      */
     public function addBill(Bill $value)
@@ -131,6 +132,7 @@ class PaymentTerm extends Remote\Model
 
     /**
      * @param Sale $value
+     *
      * @return PaymentTerm
      */
     public function addSale(Sale $value)

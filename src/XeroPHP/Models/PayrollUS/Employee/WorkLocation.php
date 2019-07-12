@@ -101,6 +101,7 @@ class WorkLocation extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return WorkLocation
      */
     public function setWorkLocationID($value)
@@ -121,6 +122,7 @@ class WorkLocation extends Remote\Model
 
     /**
      * @param bool $value
+     *
      * @return WorkLocation
      */
     public function setIsPrimary($value)

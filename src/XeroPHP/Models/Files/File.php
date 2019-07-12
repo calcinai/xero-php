@@ -148,6 +148,7 @@ class File extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return File
      */
     public function setName($value)
@@ -168,6 +169,7 @@ class File extends Remote\Model
 
     /**
      * @param Folder $value
+     *
      * @return File
      */
     public function setFolderId(Folder $value)
@@ -188,6 +190,7 @@ class File extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return File
      */
     public function setMimeType($value)
@@ -208,6 +211,7 @@ class File extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return File
      */
     public function setSize($value)
@@ -228,6 +232,7 @@ class File extends Remote\Model
 
     /**
      * @param \DateTimeInterface $value
+     *
      * @return File
      */
     public function setCreatedDateUTC(\DateTimeInterface $value)
@@ -248,6 +253,7 @@ class File extends Remote\Model
 
     /**
      * @param \DateTimeInterface $value
+     *
      * @return File
      */
     public function setUpdatedDateUTC(\DateTimeInterface $value)
@@ -268,6 +274,7 @@ class File extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return File
      */
     public function setUser($value)
@@ -288,6 +295,7 @@ class File extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return File
      */
     public function setId($value)

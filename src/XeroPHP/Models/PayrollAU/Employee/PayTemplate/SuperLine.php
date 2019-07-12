@@ -136,6 +136,7 @@ class SuperLine extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return SuperLine
      */
     public function setSuperMembershipID($value)
@@ -156,6 +157,7 @@ class SuperLine extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return SuperLine
      */
     public function setContributionType($value)
@@ -176,6 +178,7 @@ class SuperLine extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return SuperLine
      */
     public function setCalculationType($value)
@@ -196,6 +199,7 @@ class SuperLine extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return SuperLine
      */
     public function setExpenseAccountCode($value)
@@ -216,6 +220,7 @@ class SuperLine extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return SuperLine
      */
     public function setLiabilityAccountCode($value)
@@ -236,6 +241,7 @@ class SuperLine extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return SuperLine
      */
     public function setMinimumMonthlyEarning($value)
@@ -256,6 +262,7 @@ class SuperLine extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return SuperLine
      */
     public function setPercentage($value)

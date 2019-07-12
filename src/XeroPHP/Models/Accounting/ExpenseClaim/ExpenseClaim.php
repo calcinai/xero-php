@@ -158,6 +158,7 @@ class ExpenseClaim extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return ExpenseClaim
      */
     public function setExpenseClaimID($value)
@@ -242,6 +243,7 @@ class ExpenseClaim extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return ExpenseClaim
      */
     public function setReceiptID($value)

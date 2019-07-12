@@ -105,6 +105,7 @@ class History extends Model
 
     /**
      * @param string $value
+     *
      * @return History
      */
     public function setDetails($value)

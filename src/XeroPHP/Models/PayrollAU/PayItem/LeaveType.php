@@ -138,6 +138,7 @@ class LeaveType extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return LeaveType
      */
     public function setName($value)
@@ -158,6 +159,7 @@ class LeaveType extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return LeaveType
      */
     public function setTypeOfUnits($value)
@@ -178,6 +180,7 @@ class LeaveType extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return LeaveType
      */
     public function setIsPaidLeave($value)
@@ -198,6 +201,7 @@ class LeaveType extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return LeaveType
      */
     public function setShowOnPayslip($value)
@@ -218,6 +222,7 @@ class LeaveType extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return LeaveType
      */
     public function setLeaveTypeID($value)
@@ -238,6 +243,7 @@ class LeaveType extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return LeaveType
      */
     public function setNormalEntitlement($value)
@@ -258,6 +264,7 @@ class LeaveType extends Remote\Model
 
     /**
      * @param float $value
+     *
      * @return LeaveType
      */
     public function setLeaveLoadingRate($value)

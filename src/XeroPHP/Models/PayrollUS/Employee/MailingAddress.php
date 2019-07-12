@@ -136,6 +136,7 @@ class MailingAddress extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return MailingAddress
      */
     public function setStreetAddress($value)
@@ -156,6 +157,7 @@ class MailingAddress extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return MailingAddress
      */
     public function setSuiteOrAptOrUnit($value)
@@ -176,6 +178,7 @@ class MailingAddress extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return MailingAddress
      */
     public function setCity($value)
@@ -196,6 +199,7 @@ class MailingAddress extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return MailingAddress
      */
     public function setState($value)
@@ -216,6 +220,7 @@ class MailingAddress extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return MailingAddress
      */
     public function setZip($value)
@@ -236,6 +241,7 @@ class MailingAddress extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return MailingAddress
      */
     public function setLattitude($value)
@@ -256,6 +262,7 @@ class MailingAddress extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return MailingAddress
      */
     public function setLongitude($value)

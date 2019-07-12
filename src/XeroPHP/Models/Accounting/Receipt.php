@@ -208,6 +208,7 @@ class Receipt extends Remote\Model
 
     /**
      * @param \DateTimeInterface $value
+     *
      * @return Receipt
      */
     public function setDate(\DateTimeInterface $value)
@@ -228,6 +229,7 @@ class Receipt extends Remote\Model
 
     /**
      * @param Contact $value
+     *
      * @return Receipt
      */
     public function setContact(Contact $value)
@@ -248,6 +250,7 @@ class Receipt extends Remote\Model
 
     /**
      * @param LineItem $value
+     *
      * @return Receipt
      */
     public function addLineItem(LineItem $value)
@@ -271,6 +274,7 @@ class Receipt extends Remote\Model
 
     /**
      * @param User $value
+     *
      * @return Receipt
      */
     public function setUser(User $value)
@@ -291,6 +295,7 @@ class Receipt extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return Receipt
      */
     public function setReference($value)
@@ -311,6 +316,7 @@ class Receipt extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return Receipt
      */
     public function setLineAmountType($value)
@@ -331,6 +337,7 @@ class Receipt extends Remote\Model
 
     /**
      * @param float $value
+     *
      * @return Receipt
      */
     public function setSubTotal($value)
@@ -351,6 +358,7 @@ class Receipt extends Remote\Model
 
     /**
      * @param float $value
+     *
      * @return Receipt
      */
     public function setTotalTax($value)
@@ -371,6 +379,7 @@ class Receipt extends Remote\Model
 
     /**
      * @param float $value
+     *
      * @return Receipt
      */
     public function setTotal($value)
@@ -391,6 +400,7 @@ class Receipt extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return Receipt
      */
     public function setReceiptID($value)

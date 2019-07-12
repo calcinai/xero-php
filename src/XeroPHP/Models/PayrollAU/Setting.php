@@ -112,6 +112,7 @@ class Setting extends Remote\Model
 
     /**
      * @param Account $value
+     *
      * @return Setting
      */
     public function addAccount(Account $value)
@@ -135,6 +136,7 @@ class Setting extends Remote\Model
 
     /**
      * @param TrackingCategory $value
+     *
      * @return Setting
      */
     public function addTrackingCategory(TrackingCategory $value)
@@ -158,6 +160,7 @@ class Setting extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return Setting
      */
     public function setDaysInPayrollYear($value)

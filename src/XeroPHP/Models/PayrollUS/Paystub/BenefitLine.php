@@ -101,6 +101,7 @@ class BenefitLine extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return BenefitLine
      */
     public function setBenefitTypeID($value)
@@ -121,6 +122,7 @@ class BenefitLine extends Remote\Model
 
     /**
      * @param float $value
+     *
      * @return BenefitLine
      */
     public function setAmount($value)

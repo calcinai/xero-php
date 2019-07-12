@@ -23,6 +23,7 @@ class SuperFundProduct extends Remote\Model
      * will not have a SPIN value.  The USI field should be used instead of SPIN.
      *
      * @property string SPIN
+     *
      * @deprecated
      */
 
@@ -118,6 +119,7 @@ class SuperFundProduct extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return SuperFundProduct
      */
     public function setABN($value)
@@ -138,6 +140,7 @@ class SuperFundProduct extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return SuperFundProduct
      */
     public function setUSI($value)
@@ -150,6 +153,7 @@ class SuperFundProduct extends Remote\Model
 
     /**
      * @return string
+     *
      * @deprecated
      */
     public function getSPIN()
@@ -159,7 +163,9 @@ class SuperFundProduct extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return SuperFundProduct
+     *
      * @deprecated
      */
     public function setSPIN($value)
@@ -180,6 +186,7 @@ class SuperFundProduct extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return SuperFundProduct
      */
     public function setProductName($value)

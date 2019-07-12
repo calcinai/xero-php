@@ -115,6 +115,7 @@ class EarningsLine extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return EarningsLine
      */
     public function setEarningsRateID($value)
@@ -135,6 +136,7 @@ class EarningsLine extends Remote\Model
 
     /**
      * @param float $value
+     *
      * @return EarningsLine
      */
     public function setRatePerUnit($value)
@@ -155,6 +157,7 @@ class EarningsLine extends Remote\Model
 
     /**
      * @param float $value
+     *
      * @return EarningsLine
      */
     public function setNumberOfUnits($value)
@@ -175,6 +178,7 @@ class EarningsLine extends Remote\Model
 
     /**
      * @param float $value
+     *
      * @return EarningsLine
      */
     public function setFixedAmount($value)
