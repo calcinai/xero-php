@@ -7,13 +7,13 @@ use XeroPHP\Remote;
 class InvoiceReminder extends Remote\Model
 {
     /**
-     * Boolean to set when InvocieReminders are turned on in Xero
+     * Boolean to set when InvocieReminders are turned on in Xero.
      *
      * @property bool Enabled
      */
 
     /**
-     * Get the resource uri of the class (Contacts) etc
+     * Get the resource uri of the class (Contacts) etc.
      *
      * @return string
      */
@@ -22,9 +22,8 @@ class InvoiceReminder extends Remote\Model
         return 'InvoiceReminders/Settings';
     }
 
-
     /**
-     * Get the root node name.  Just the unqualified classname
+     * Get the root node name.  Just the unqualified classname.
      *
      * @return string
      */
@@ -33,9 +32,8 @@ class InvoiceReminder extends Remote\Model
         return 'InvoiceReminder';
     }
 
-
     /**
-     * Get the guid property
+     * Get the guid property.
      *
      * @return string
      */
@@ -44,9 +42,8 @@ class InvoiceReminder extends Remote\Model
         return '';
     }
 
-
     /**
-     * Get the stem of the API (core.xro) etc
+     * Get the stem of the API (core.xro) etc.
      *
      * @return string|null
      */
@@ -55,9 +52,8 @@ class InvoiceReminder extends Remote\Model
         return Remote\URL::API_CORE;
     }
 
-
     /**
-     * Get the supported methods
+     * Get the supported methods.
      */
     public static function getSupportedMethods()
     {
@@ -72,7 +68,7 @@ class InvoiceReminder extends Remote\Model
      *  [1] - Type
      *  [2] - PHP type
      *  [3] - Is an Array
-     *  [4] - Saves directly
+     *  [4] - Saves directly.
      *
      * @return array
      */
@@ -87,7 +83,6 @@ class InvoiceReminder extends Remote\Model
     {
         return false;
     }
-
 
     /**
      * @return bool

@@ -7,7 +7,7 @@ use XeroPHP\Remote;
 class TimeOffType extends Remote\Model
 {
     /**
-     * Name of the time off type (max length = 50)
+     * Name of the time off type (max length = 50).
      *
      * @property TimeOffType TimeOffType
      */
@@ -16,26 +16,26 @@ class TimeOffType extends Remote\Model
      * Select Unpaid Time Off to indicate that an employee will not get paid when taking this time off
      * type.
      * If Paid Time Off is selected the employee will get paid when taking this time off type and you
-     * can accrue the liability on the Balance Sheet
+     * can accrue the liability on the Balance Sheet.
      *
      * @property string TimeOffCategory
      */
 
     /**
      * The account to which the amount of the time off is to be debited. Only applies for TimeOffCategory
-     * of PAIDTIMEOFF
+     * of PAIDTIMEOFF.
      *
      * @property string ExpenseAccountCode
      */
 
     /**
-     * The computed amount of the time off is credited to this account
+     * The computed amount of the time off is credited to this account.
      *
      * @property string LiabilityAccountCode
      */
 
     /**
-     * Xero identifier
+     * Xero identifier.
      *
      * @property string TimeOffTypeID
      */
@@ -47,10 +47,8 @@ class TimeOffType extends Remote\Model
      * @property string ShowBalanceToEmployee
      */
 
-
-
     /**
-     * Get the resource uri of the class (Contacts) etc
+     * Get the resource uri of the class (Contacts) etc.
      *
      * @return string
      */
@@ -59,9 +57,8 @@ class TimeOffType extends Remote\Model
         return 'TimeOffTypes';
     }
 
-
     /**
-     * Get the root node name.  Just the unqualified classname
+     * Get the root node name.  Just the unqualified classname.
      *
      * @return string
      */
@@ -70,9 +67,8 @@ class TimeOffType extends Remote\Model
         return 'TimeOffType';
     }
 
-
     /**
-     * Get the guid property
+     * Get the guid property.
      *
      * @return string
      */
@@ -81,9 +77,8 @@ class TimeOffType extends Remote\Model
         return 'TimeOffTypeID';
     }
 
-
     /**
-     * Get the stem of the API (core.xro) etc
+     * Get the stem of the API (core.xro) etc.
      *
      * @return string|null
      */
@@ -92,9 +87,8 @@ class TimeOffType extends Remote\Model
         return Remote\URL::API_PAYROLL;
     }
 
-
     /**
-     * Get the supported methods
+     * Get the supported methods.
      */
     public static function getSupportedMethods()
     {
@@ -108,7 +102,7 @@ class TimeOffType extends Remote\Model
      *  [1] - Type
      *  [2] - PHP type
      *  [3] - Is an Array
-     *  [4] - Saves directly
+     *  [4] - Saves directly.
      *
      * @return array
      */
@@ -139,6 +133,7 @@ class TimeOffType extends Remote\Model
 
     /**
      * @param TimeOffType $value
+     *
      * @return TimeOffType
      */
     public function setTimeOffType(self $value)
@@ -159,6 +154,7 @@ class TimeOffType extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return TimeOffType
      */
     public function setTimeOffCategory($value)
@@ -179,6 +175,7 @@ class TimeOffType extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return TimeOffType
      */
     public function setExpenseAccountCode($value)
@@ -199,6 +196,7 @@ class TimeOffType extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return TimeOffType
      */
     public function setLiabilityAccountCode($value)
@@ -219,6 +217,7 @@ class TimeOffType extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return TimeOffType
      */
     public function setTimeOffTypeID($value)
@@ -239,6 +238,7 @@ class TimeOffType extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return TimeOffType
      */
     public function setShowBalanceToEmployee($value)

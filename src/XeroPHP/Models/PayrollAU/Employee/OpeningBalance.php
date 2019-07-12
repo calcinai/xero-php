@@ -10,13 +10,13 @@ use XeroPHP\Models\PayrollAU\Payslip\ReimbursementLine;
 class OpeningBalance extends Remote\Model
 {
     /**
-     * Opening Balance Date. (YYYY-MM-DD)
+     * Opening Balance Date. (YYYY-MM-DD).
      *
      * @property \DateTimeInterface OpeningBalanceDate
      */
 
     /**
-     * Opening Balance tax
+     * Opening Balance tax.
      *
      * @property string Tax
      */
@@ -52,57 +52,55 @@ class OpeningBalance extends Remote\Model
      */
 
     /**
-     * Xero earnings rate identifier
+     * Xero earnings rate identifier.
      *
      * @property string EarningsRateID
      */
 
     /**
-     * Reimbursement type amount
+     * Reimbursement type amount.
      *
      * @property float Amount
      */
 
     /**
-     * Xero deduction type identifier
+     * Xero deduction type identifier.
      *
      * @property string DeductionTypeID
      */
 
     /**
-     * Xero super membership ID
+     * Xero super membership ID.
      *
      * @property string SuperMembershipID
      */
 
     /**
-     * Calculation type for Super line
+     * Calculation type for Super line.
      *
      * @property string CalculationType
      */
 
     /**
-     * Xero reimbursement type identifier
+     * Xero reimbursement type identifier.
      *
      * @property string ReimbursementTypeID
      */
 
     /**
-     * Xero leave type identifier
+     * Xero leave type identifier.
      *
      * @property string LeaveTypeID
      */
 
     /**
-     * Leave number of units
+     * Leave number of units.
      *
      * @property string NumberOfUnits
      */
 
-
-
     /**
-     * Get the resource uri of the class (Contacts) etc
+     * Get the resource uri of the class (Contacts) etc.
      *
      * @return string
      */
@@ -111,9 +109,8 @@ class OpeningBalance extends Remote\Model
         return 'OpeningBalances';
     }
 
-
     /**
-     * Get the root node name.  Just the unqualified classname
+     * Get the root node name.  Just the unqualified classname.
      *
      * @return string
      */
@@ -122,9 +119,8 @@ class OpeningBalance extends Remote\Model
         return 'OpeningBalance';
     }
 
-
     /**
-     * Get the guid property
+     * Get the guid property.
      *
      * @return string
      */
@@ -133,9 +129,8 @@ class OpeningBalance extends Remote\Model
         return '';
     }
 
-
     /**
-     * Get the stem of the API (core.xro) etc
+     * Get the stem of the API (core.xro) etc.
      *
      * @return string|null
      */
@@ -144,9 +139,8 @@ class OpeningBalance extends Remote\Model
         return Remote\URL::API_PAYROLL;
     }
 
-
     /**
-     * Get the supported methods
+     * Get the supported methods.
      */
     public static function getSupportedMethods()
     {
@@ -160,7 +154,7 @@ class OpeningBalance extends Remote\Model
      *  [1] - Type
      *  [2] - PHP type
      *  [3] - Is an Array
-     *  [4] - Saves directly
+     *  [4] - Saves directly.
      *
      * @return array
      */
@@ -200,6 +194,7 @@ class OpeningBalance extends Remote\Model
 
     /**
      * @param \DateTimeInterface $value
+     *
      * @return OpeningBalance
      */
     public function setOpeningBalanceDate(\DateTimeInterface $value)
@@ -220,6 +215,7 @@ class OpeningBalance extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return OpeningBalance
      */
     public function setTax($value)
@@ -232,7 +228,6 @@ class OpeningBalance extends Remote\Model
 
     /**
      * @return EarningsLine[]|Remote\Collection
-     * Always returns a collection, switch is for type hinting
      */
     public function getEarningsLines()
     {
@@ -241,6 +236,7 @@ class OpeningBalance extends Remote\Model
 
     /**
      * @param EarningsLine $value
+     *
      * @return OpeningBalance
      */
     public function addEarningsLine(EarningsLine $value)
@@ -256,7 +252,6 @@ class OpeningBalance extends Remote\Model
 
     /**
      * @return DeductionLine[]|Remote\Collection
-     * Always returns a collection, switch is for type hinting
      */
     public function getDeductionLines()
     {
@@ -265,6 +260,7 @@ class OpeningBalance extends Remote\Model
 
     /**
      * @param DeductionLine $value
+     *
      * @return OpeningBalance
      */
     public function addDeductionLine(DeductionLine $value)
@@ -288,6 +284,7 @@ class OpeningBalance extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return OpeningBalance
      */
     public function setSuperLine($value)
@@ -300,7 +297,6 @@ class OpeningBalance extends Remote\Model
 
     /**
      * @return ReimbursementLine[]|Remote\Collection
-     * Always returns a collection, switch is for type hinting
      */
     public function getReimbursementLines()
     {
@@ -309,6 +305,7 @@ class OpeningBalance extends Remote\Model
 
     /**
      * @param ReimbursementLine $value
+     *
      * @return OpeningBalance
      */
     public function addReimbursementLine(ReimbursementLine $value)
@@ -332,6 +329,7 @@ class OpeningBalance extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return OpeningBalance
      */
     public function setLeaveLine($value)
@@ -352,6 +350,7 @@ class OpeningBalance extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return OpeningBalance
      */
     public function setEarningsRateID($value)
@@ -372,6 +371,7 @@ class OpeningBalance extends Remote\Model
 
     /**
      * @param float $value
+     *
      * @return OpeningBalance
      */
     public function setAmount($value)
@@ -392,6 +392,7 @@ class OpeningBalance extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return OpeningBalance
      */
     public function setDeductionTypeID($value)
@@ -412,6 +413,7 @@ class OpeningBalance extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return OpeningBalance
      */
     public function setSuperMembershipID($value)
@@ -432,6 +434,7 @@ class OpeningBalance extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return OpeningBalance
      */
     public function setCalculationType($value)
@@ -452,6 +455,7 @@ class OpeningBalance extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return OpeningBalance
      */
     public function setReimbursementTypeID($value)
@@ -472,6 +476,7 @@ class OpeningBalance extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return OpeningBalance
      */
     public function setLeaveTypeID($value)
@@ -492,6 +497,7 @@ class OpeningBalance extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return OpeningBalance
      */
     public function setNumberOfUnit($value)

@@ -7,33 +7,31 @@ use XeroPHP\Remote;
 class LeavePeriod extends Remote\Model
 {
     /**
-     * The Number of Units for the leave
+     * The Number of Units for the leave.
      *
      * @property string NumberOfUnits
      */
 
     /**
-     * The Pay Period End Date (YYYY-MM-DD)
+     * The Pay Period End Date (YYYY-MM-DD).
      *
      * @property \DateTimeInterface PayPeriodEndDate
      */
 
     /**
-     * The Pay Period Start Date (YYYY-MM-DD)
+     * The Pay Period Start Date (YYYY-MM-DD).
      *
      * @property \DateTimeInterface PayPeriodStartDate
      */
 
     /**
-     * See LeavePeriodStatus
+     * See LeavePeriodStatus.
      *
      * @property string LeavePeriodStatus
      */
 
-
-
     /**
-     * Get the resource uri of the class (Contacts) etc
+     * Get the resource uri of the class (Contacts) etc.
      *
      * @return string
      */
@@ -42,9 +40,8 @@ class LeavePeriod extends Remote\Model
         return 'LeavePeriod';
     }
 
-
     /**
-     * Get the root node name.  Just the unqualified classname
+     * Get the root node name.  Just the unqualified classname.
      *
      * @return string
      */
@@ -53,9 +50,8 @@ class LeavePeriod extends Remote\Model
         return 'LeavePeriod';
     }
 
-
     /**
-     * Get the guid property
+     * Get the guid property.
      *
      * @return string
      */
@@ -64,9 +60,8 @@ class LeavePeriod extends Remote\Model
         return '';
     }
 
-
     /**
-     * Get the stem of the API (core.xro) etc
+     * Get the stem of the API (core.xro) etc.
      *
      * @return string|null
      */
@@ -75,9 +70,8 @@ class LeavePeriod extends Remote\Model
         return Remote\URL::API_PAYROLL;
     }
 
-
     /**
-     * Get the supported methods
+     * Get the supported methods.
      */
     public static function getSupportedMethods()
     {
@@ -91,7 +85,7 @@ class LeavePeriod extends Remote\Model
      *  [1] - Type
      *  [2] - PHP type
      *  [3] - Is an Array
-     *  [4] - Saves directly
+     *  [4] - Saves directly.
      *
      * @return array
      */
@@ -120,6 +114,7 @@ class LeavePeriod extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return LeavePeriod
      */
     public function setNumberOfUnit($value)
@@ -140,6 +135,7 @@ class LeavePeriod extends Remote\Model
 
     /**
      * @param \DateTimeInterface $value
+     *
      * @return LeavePeriod
      */
     public function setPayPeriodEndDate(\DateTimeInterface $value)
@@ -160,6 +156,7 @@ class LeavePeriod extends Remote\Model
 
     /**
      * @param \DateTimeInterface $value
+     *
      * @return LeavePeriod
      */
     public function setPayPeriodStartDate(\DateTimeInterface $value)
@@ -180,6 +177,7 @@ class LeavePeriod extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return LeavePeriod
      */
     public function setLeavePeriodStatus($value)

@@ -8,39 +8,37 @@ use XeroPHP\Models\PayrollUS\PayItem;
 class TimeOffBalance extends Remote\Model
 {
     /**
-     * The name of the leave type
+     * The name of the leave type.
      *
      * @property string TimeOffName
      */
 
     /**
-     * Identifier of the leave type (see PayItems)
+     * Identifier of the leave type (see PayItems).
      *
      * @property PayItem TimeOffTypeId
      */
 
     /**
-     * The balance of the leave available
+     * The balance of the leave available.
      *
      * @property string NumberOfUnits
      */
 
     /**
-     * The type of units as specified by the LeaveType (see PayItems)
+     * The type of units as specified by the LeaveType (see PayItems).
      *
      * @property PayItem[] TypeOfUnits
      */
 
     /**
-     * The Xero identifier for an employee e.g. 297c2dc5-cc47-4afd-8ec8-74990b8761e9
+     * The Xero identifier for an employee e.g. 297c2dc5-cc47-4afd-8ec8-74990b8761e9.
      *
      * @property string EmployeeID
      */
 
-
-
     /**
-     * Get the resource uri of the class (Contacts) etc
+     * Get the resource uri of the class (Contacts) etc.
      *
      * @return string
      */
@@ -49,9 +47,8 @@ class TimeOffBalance extends Remote\Model
         return 'TimeOffBalances';
     }
 
-
     /**
-     * Get the root node name.  Just the unqualified classname
+     * Get the root node name.  Just the unqualified classname.
      *
      * @return string
      */
@@ -60,9 +57,8 @@ class TimeOffBalance extends Remote\Model
         return 'TimeOffBalance';
     }
 
-
     /**
-     * Get the guid property
+     * Get the guid property.
      *
      * @return string
      */
@@ -71,9 +67,8 @@ class TimeOffBalance extends Remote\Model
         return '';
     }
 
-
     /**
-     * Get the stem of the API (core.xro) etc
+     * Get the stem of the API (core.xro) etc.
      *
      * @return string|null
      */
@@ -82,9 +77,8 @@ class TimeOffBalance extends Remote\Model
         return Remote\URL::API_PAYROLL;
     }
 
-
     /**
-     * Get the supported methods
+     * Get the supported methods.
      */
     public static function getSupportedMethods()
     {
@@ -98,7 +92,7 @@ class TimeOffBalance extends Remote\Model
      *  [1] - Type
      *  [2] - PHP type
      *  [3] - Is an Array
-     *  [4] - Saves directly
+     *  [4] - Saves directly.
      *
      * @return array
      */
@@ -128,6 +122,7 @@ class TimeOffBalance extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return TimeOffBalance
      */
     public function setTimeOffName($value)
@@ -148,6 +143,7 @@ class TimeOffBalance extends Remote\Model
 
     /**
      * @param PayItem $value
+     *
      * @return TimeOffBalance
      */
     public function setTimeOffTypeId(PayItem $value)
@@ -168,6 +164,7 @@ class TimeOffBalance extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return TimeOffBalance
      */
     public function setNumberOfUnit($value)
@@ -180,7 +177,6 @@ class TimeOffBalance extends Remote\Model
 
     /**
      * @return PayItem[]|Remote\Collection
-     * Always returns a collection, switch is for type hinting
      */
     public function getTypeOfUnits()
     {
@@ -189,6 +185,7 @@ class TimeOffBalance extends Remote\Model
 
     /**
      * @param PayItem $value
+     *
      * @return TimeOffBalance
      */
     public function addTypeOfUnit(PayItem $value)
@@ -212,6 +209,7 @@ class TimeOffBalance extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return TimeOffBalance
      */
     public function setEmployeeID($value)

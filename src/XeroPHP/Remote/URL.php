@@ -9,22 +9,28 @@ use XeroPHP\Application;
  * OAuth related ones.
  *
  * Class URL
+ *
  * @author Michael Calcinai
  */
 class URL
 {
     const API_CORE = 'api.xro';
+
     const API_PAYROLL = 'payroll.xro';
+
     const API_FILE = 'files.xro';
+
     const API_ASSET = 'assets.xro';
 
     const OAUTH_REQUEST_TOKEN = 'RequestToken';
+
     const OAUTH_ACCESS_TOKEN = 'AccessToken';
 
     /**
      * @var string The base API URL for the ap type
      */
     private $base_url;
+
     private $endpoint;
 
     private $is_oauth;
@@ -38,6 +44,7 @@ class URL
      * @param Application $app
      * @param $endpoint
      * @param null $api
+     *
      * @throws Exception
      */
     public function __construct(Application $app, $endpoint, $api = null)
@@ -102,7 +109,6 @@ class URL
             $this->path = sprintf('%s/%s/%s', $api, $version, $this->endpoint);
         }
     }
-
 
     public function isOAuth()
     {

@@ -7,25 +7,25 @@ use XeroPHP\Remote;
 class ReimbursementLine extends Remote\Model
 {
     /**
-     * Xero reimbursement type identifier
+     * Xero reimbursement type identifier.
      *
      * @property string ReimbursementTypeID
      */
 
     /**
-     * The description of the reimbursement type
+     * The description of the reimbursement type.
      *
      * @property string Description
      */
 
     /**
-     * The amount of the reimbursement type
+     * The amount of the reimbursement type.
      *
      * @property float Amount
      */
 
     /**
-     * Get the resource uri of the class (Contacts) etc
+     * Get the resource uri of the class (Contacts) etc.
      *
      * @return string
      */
@@ -34,9 +34,8 @@ class ReimbursementLine extends Remote\Model
         return 'ReimbursementLine';
     }
 
-
     /**
-     * Get the root node name.  Just the unqualified classname
+     * Get the root node name.  Just the unqualified classname.
      *
      * @return string
      */
@@ -45,9 +44,8 @@ class ReimbursementLine extends Remote\Model
         return 'ReimbursementLine';
     }
 
-
     /**
-     * Get the guid property
+     * Get the guid property.
      *
      * @return string
      */
@@ -56,9 +54,8 @@ class ReimbursementLine extends Remote\Model
         return '';
     }
 
-
     /**
-     * Get the stem of the API (core.xro) etc
+     * Get the stem of the API (core.xro) etc.
      *
      * @return string|null
      */
@@ -67,9 +64,8 @@ class ReimbursementLine extends Remote\Model
         return Remote\URL::API_PAYROLL;
     }
 
-
     /**
-     * Get the supported methods
+     * Get the supported methods.
      */
     public static function getSupportedMethods()
     {
@@ -83,7 +79,7 @@ class ReimbursementLine extends Remote\Model
      *  [1] - Type
      *  [2] - PHP type
      *  [3] - Is an Array
-     *  [4] - Saves directly
+     *  [4] - Saves directly.
      *
      * @return array
      */
@@ -111,6 +107,7 @@ class ReimbursementLine extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return ReimbursementLine
      */
     public function setReimbursementTypeID($value)
@@ -131,6 +128,7 @@ class ReimbursementLine extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return ReimbursementLine
      */
     public function setDescription($value)
@@ -151,6 +149,7 @@ class ReimbursementLine extends Remote\Model
 
     /**
      * @param float $value
+     *
      * @return ReimbursementLine
      */
     public function setAmount($value)

@@ -7,21 +7,19 @@ use XeroPHP\Remote;
 class WorkLocation extends Remote\Model
 {
     /**
-     * Xero unique identifier for WorkLocation. e.g c56b19ef-75bf-45e8-98a4-e699a96609f7
+     * Xero unique identifier for WorkLocation. e.g c56b19ef-75bf-45e8-98a4-e699a96609f7.
      *
      * @property string WorkLocationID
      */
 
     /**
-     * Boolean to specify if this work location is the primary work location
+     * Boolean to specify if this work location is the primary work location.
      *
      * @property bool IsPrimary
      */
 
-
-
     /**
-     * Get the resource uri of the class (Contacts) etc
+     * Get the resource uri of the class (Contacts) etc.
      *
      * @return string
      */
@@ -30,9 +28,8 @@ class WorkLocation extends Remote\Model
         return 'WorkLocations';
     }
 
-
     /**
-     * Get the root node name.  Just the unqualified classname
+     * Get the root node name.  Just the unqualified classname.
      *
      * @return string
      */
@@ -41,9 +38,8 @@ class WorkLocation extends Remote\Model
         return 'WorkLocation';
     }
 
-
     /**
-     * Get the guid property
+     * Get the guid property.
      *
      * @return string
      */
@@ -52,9 +48,8 @@ class WorkLocation extends Remote\Model
         return 'WorkLocationID';
     }
 
-
     /**
-     * Get the stem of the API (core.xro) etc
+     * Get the stem of the API (core.xro) etc.
      *
      * @return string|null
      */
@@ -63,9 +58,8 @@ class WorkLocation extends Remote\Model
         return Remote\URL::API_PAYROLL;
     }
 
-
     /**
-     * Get the supported methods
+     * Get the supported methods.
      */
     public static function getSupportedMethods()
     {
@@ -79,7 +73,7 @@ class WorkLocation extends Remote\Model
      *  [1] - Type
      *  [2] - PHP type
      *  [3] - Is an Array
-     *  [4] - Saves directly
+     *  [4] - Saves directly.
      *
      * @return array
      */
@@ -106,6 +100,7 @@ class WorkLocation extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return WorkLocation
      */
     public function setWorkLocationID($value)
@@ -126,6 +121,7 @@ class WorkLocation extends Remote\Model
 
     /**
      * @param bool $value
+     *
      * @return WorkLocation
      */
     public function setIsPrimary($value)

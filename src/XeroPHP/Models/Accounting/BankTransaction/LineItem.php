@@ -14,7 +14,7 @@ class LineItem extends Remote\Model
      */
 
     /**
-     * Quantity must be >= 0
+     * Quantity must be >= 0.
      *
      * @property string Quantity
      */
@@ -28,7 +28,7 @@ class LineItem extends Remote\Model
      */
 
     /**
-     * AccountCode must be active for the organisation. See Accounts
+     * AccountCode must be active for the organisation. See Accounts.
      *
      * @property string AccountCode
      */
@@ -56,7 +56,7 @@ class LineItem extends Remote\Model
 
     /**
      * If you wish to omit either of the <Quantity> or <UnitAmount> you can provide a LineAmount and Xero
-     * will calculate the missing amount for you
+     * will calculate the missing amount for you.
      *
      * @property float LineAmount
      */
@@ -68,10 +68,8 @@ class LineItem extends Remote\Model
      * @property TrackingCategory[] Tracking
      */
 
-
-
     /**
-     * Get the resource uri of the class (Contacts) etc
+     * Get the resource uri of the class (Contacts) etc.
      *
      * @return string
      */
@@ -80,9 +78,8 @@ class LineItem extends Remote\Model
         return 'LineItems';
     }
 
-
     /**
-     * Get the root node name.  Just the unqualified classname
+     * Get the root node name.  Just the unqualified classname.
      *
      * @return string
      */
@@ -91,9 +88,8 @@ class LineItem extends Remote\Model
         return 'LineItem';
     }
 
-
     /**
-     * Get the guid property
+     * Get the guid property.
      *
      * @return string
      */
@@ -102,9 +98,8 @@ class LineItem extends Remote\Model
         return 'LineItemID';
     }
 
-
     /**
-     * Get the stem of the API (core.xro) etc
+     * Get the stem of the API (core.xro) etc.
      *
      * @return string|null
      */
@@ -113,9 +108,8 @@ class LineItem extends Remote\Model
         return Remote\URL::API_CORE;
     }
 
-
     /**
-     * Get the supported methods
+     * Get the supported methods.
      */
     public static function getSupportedMethods()
     {
@@ -129,7 +123,7 @@ class LineItem extends Remote\Model
      *  [1] - Type
      *  [2] - PHP type
      *  [3] - Is an Array
-     *  [4] - Saves directly
+     *  [4] - Saves directly.
      *
      * @return array
      */
@@ -163,6 +157,7 @@ class LineItem extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return LineItem
      */
     public function setDescription($value)
@@ -183,6 +178,7 @@ class LineItem extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return LineItem
      */
     public function setQuantity($value)
@@ -203,6 +199,7 @@ class LineItem extends Remote\Model
 
     /**
      * @param float $value
+     *
      * @return LineItem
      */
     public function setUnitAmount($value)
@@ -223,6 +220,7 @@ class LineItem extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return LineItem
      */
     public function setAccountCode($value)
@@ -243,6 +241,7 @@ class LineItem extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return LineItem
      */
     public function setItemCode($value)
@@ -263,6 +262,7 @@ class LineItem extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return LineItem
      */
     public function setLineItemID($value)
@@ -283,6 +283,7 @@ class LineItem extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return LineItem
      */
     public function setTaxType($value)
@@ -303,6 +304,7 @@ class LineItem extends Remote\Model
 
     /**
      * @param float $value
+     *
      * @return LineItem
      */
     public function setLineAmount($value)
@@ -315,7 +317,6 @@ class LineItem extends Remote\Model
 
     /**
      * @return TrackingCategory[]|Remote\Collection
-     * Always returns a collection, switch is for type hinting
      */
     public function getTracking()
     {
@@ -324,6 +325,7 @@ class LineItem extends Remote\Model
 
     /**
      * @param TrackingCategory $value
+     *
      * @return LineItem
      */
     public function addTracking(TrackingCategory $value)

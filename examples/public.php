@@ -49,40 +49,40 @@ if (null === $oauth_session = getOAuthSession()) {
         $xero->getAuthorizeURL($oauth_response['oauth_token'])
     );
     exit;
-} else {
-    $xero->getOAuthClient()
-        ->setToken($oauth_session['token'])
-        ->setTokenSecret($oauth_session['token_secret']);
+}
 
-    if (isset($_REQUEST['oauth_verifier'])) {
-        $xero->getOAuthClient()->setVerifier($_REQUEST['oauth_verifier']);
+$xero->getOAuthClient()
+    ->setToken($oauth_session['token'])
+    ->setTokenSecret($oauth_session['token_secret']);
 
-        $url = new URL($xero, URL::OAUTH_ACCESS_TOKEN);
-        $request = new Request($xero, $url);
+if (isset($_REQUEST['oauth_verifier'])) {
+    $xero->getOAuthClient()->setVerifier($_REQUEST['oauth_verifier']);
 
-        $request->send();
-        $oauth_response = $request->getResponse()->getOAuthResponse();
+    $url = new URL($xero, URL::OAUTH_ACCESS_TOKEN);
+    $request = new Request($xero, $url);
 
-        setOAuthSession(
-            $oauth_response['oauth_token'],
-            $oauth_response['oauth_token_secret'],
-            $oauth_response['oauth_expires_in']
-        );
+    $request->send();
+    $oauth_response = $request->getResponse()->getOAuthResponse();
 
-        //drop the qs
-        $uri_parts = explode('?', $_SERVER['REQUEST_URI']);
+    setOAuthSession(
+        $oauth_response['oauth_token'],
+        $oauth_response['oauth_token_secret'],
+        $oauth_response['oauth_expires_in']
+    );
 
-        //Just for demo purposes
-        header(
-            sprintf(
-                'Location: http%s://%s%s',
-                (isset($_SERVER['HTTPS']) ? 's' : ''),
-                $_SERVER['HTTP_HOST'],
-                $uri_parts[0]
-            )
-        );
-        exit;
-    }
+    //drop the qs
+    $uri_parts = explode('?', $_SERVER['REQUEST_URI']);
+
+    //Just for demo purposes
+    header(
+        sprintf(
+            'Location: http%s://%s%s',
+            (isset($_SERVER['HTTPS']) ? 's' : ''),
+            $_SERVER['HTTP_HOST'],
+            $uri_parts[0]
+        )
+    );
+    exit;
 }
 
 //Otherwise, you're in.

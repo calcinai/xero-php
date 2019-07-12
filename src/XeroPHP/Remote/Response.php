@@ -16,22 +16,34 @@ use XeroPHP\Remote\Exception\OrganisationOfflineException;
 class Response
 {
     const STATUS_OK = 200;
+
     const STATUS_BAD_REQUEST = 400;
+
     const STATUS_UNAUTHORISED = 401;
+
     const STATUS_FORBIDDEN = 403;
+
     const STATUS_NOT_FOUND = 404;
+
     const STATUS_INTERNAL_ERROR = 500;
+
     const STATUS_NOT_IMPLEMENTED = 501;
 
     //Seriously, 1 code for 3 different things!
     const STATUS_NOT_AVAILABLE = 503;
+
     const STATUS_RATE_LIMIT_EXCEEDED = 503;
+
     const STATUS_ORGANISATION_OFFLINE = 503;
 
     private $request;
+
     private $headers;
+
     private $status;
+
     private $content_type;
+
     private $response_body;
 
     private $oauth_response;
@@ -39,6 +51,7 @@ class Response
     private $elements;
 
     private $element_errors;
+
     private $element_warnings;
 
     private $root_error;
@@ -76,9 +89,10 @@ class Response
                     $message .= $this->parseBadRequest();
 
                     throw new BadRequestException($message, $this->root_error['code']);
-                } else {
-                    throw new BadRequestException();
                 }
+
+                throw new BadRequestException();
+
 
             /** @noinspection PhpMissingBreakStatementInspection */
             // no break
@@ -107,15 +121,16 @@ class Response
                 $response = urldecode($this->response_body);
                 if (false !== stripos($response, 'Organisation is offline')) {
                     throw new OrganisationOfflineException();
-                } elseif (false !== stripos($response, 'Rate limit exceeded')) {
+                }
+                if (false !== stripos($response, 'Rate limit exceeded')) {
                     $problem = isset($this->headers['x-rate-limit-problem']) ? current($this->headers['x-rate-limit-problem']) : null;
                     $exception = new RateLimitExceededException();
                     $exception->setRateLimitProblem($problem);
 
                     throw $exception;
-                } else {
-                    throw new NotAvailableException();
                 }
+
+                throw new NotAvailableException();
         }
     }
 
@@ -163,7 +178,7 @@ class Response
             return $this->element_errors[$element_id];
         }
 
-        return;
+        
     }
 
     public function getElementErrors()

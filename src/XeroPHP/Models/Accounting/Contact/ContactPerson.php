@@ -7,19 +7,19 @@ use XeroPHP\Remote;
 class ContactPerson extends Remote\Model
 {
     /**
-     * First name of person
+     * First name of person.
      *
      * @property string FirstName
      */
 
     /**
-     * Last name of person
+     * Last name of person.
      *
      * @property string LastName
      */
 
     /**
-     * Email address of person
+     * Email address of person.
      *
      * @property string EmailAddress
      */
@@ -30,10 +30,8 @@ class ContactPerson extends Remote\Model
      * @property bool IncludeInEmails
      */
 
-
-
     /**
-     * Get the resource uri of the class (Contacts) etc
+     * Get the resource uri of the class (Contacts) etc.
      *
      * @return string
      */
@@ -42,9 +40,8 @@ class ContactPerson extends Remote\Model
         return 'ContactPerson';
     }
 
-
     /**
-     * Get the root node name.  Just the unqualified classname
+     * Get the root node name.  Just the unqualified classname.
      *
      * @return string
      */
@@ -53,9 +50,8 @@ class ContactPerson extends Remote\Model
         return 'ContactPerson';
     }
 
-
     /**
-     * Get the guid property
+     * Get the guid property.
      *
      * @return string
      */
@@ -64,9 +60,8 @@ class ContactPerson extends Remote\Model
         return '';
     }
 
-
     /**
-     * Get the stem of the API (core.xro) etc
+     * Get the stem of the API (core.xro) etc.
      *
      * @return string|null
      */
@@ -75,9 +70,8 @@ class ContactPerson extends Remote\Model
         return Remote\URL::API_CORE;
     }
 
-
     /**
-     * Get the supported methods
+     * Get the supported methods.
      */
     public static function getSupportedMethods()
     {
@@ -91,7 +85,7 @@ class ContactPerson extends Remote\Model
      *  [1] - Type
      *  [2] - PHP type
      *  [3] - Is an Array
-     *  [4] - Saves directly
+     *  [4] - Saves directly.
      *
      * @return array
      */
@@ -120,6 +114,7 @@ class ContactPerson extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return ContactPerson
      */
     public function setFirstName($value)
@@ -140,6 +135,7 @@ class ContactPerson extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return ContactPerson
      */
     public function setLastName($value)
@@ -160,6 +156,7 @@ class ContactPerson extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return ContactPerson
      */
     public function setEmailAddress($value)
@@ -180,6 +177,7 @@ class ContactPerson extends Remote\Model
 
     /**
      * @param bool $value
+     *
      * @return ContactPerson
      */
     public function setIncludeInEmail($value)

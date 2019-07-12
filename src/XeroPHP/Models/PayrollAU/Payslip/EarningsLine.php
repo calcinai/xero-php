@@ -25,13 +25,13 @@ class EarningsLine extends Remote\Model
      */
 
     /**
-     * Earnings rate amount.  Only applicable if the EarningsRate RateType is Fixed
+     * Earnings rate amount.  Only applicable if the EarningsRate RateType is Fixed.
      *
      * @property float FixedAmount
      */
 
     /**
-     * Get the resource uri of the class (Contacts) etc
+     * Get the resource uri of the class (Contacts) etc.
      *
      * @return string
      */
@@ -41,7 +41,7 @@ class EarningsLine extends Remote\Model
     }
 
     /**
-     * Get the root node name.  Just the unqualified classname
+     * Get the root node name.  Just the unqualified classname.
      *
      * @return string
      */
@@ -51,7 +51,7 @@ class EarningsLine extends Remote\Model
     }
 
     /**
-     * Get the guid property
+     * Get the guid property.
      *
      * @return string
      */
@@ -61,7 +61,7 @@ class EarningsLine extends Remote\Model
     }
 
     /**
-     * Get the stem of the API (core.xro) etc
+     * Get the stem of the API (core.xro) etc.
      *
      * @return string|null
      */
@@ -71,7 +71,7 @@ class EarningsLine extends Remote\Model
     }
 
     /**
-     * Get the supported methods
+     * Get the supported methods.
      */
     public static function getSupportedMethods()
     {
@@ -85,7 +85,7 @@ class EarningsLine extends Remote\Model
      *  [1] - Type
      *  [2] - PHP type
      *  [3] - Is an Array
-     *  [4] - Saves directly
+     *  [4] - Saves directly.
      *
      * @return array
      */
@@ -114,6 +114,7 @@ class EarningsLine extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return EarningsLine
      */
     public function setEarningsRateID($value)
@@ -134,6 +135,7 @@ class EarningsLine extends Remote\Model
 
     /**
      * @param float $value
+     *
      * @return EarningsLine
      */
     public function setRatePerUnit($value)
@@ -146,7 +148,6 @@ class EarningsLine extends Remote\Model
 
     /**
      * @return float[]|Remote\Collection
-     * Always returns a collection, switch is for type hinting
      */
     public function getNumberOfUnits()
     {
@@ -155,6 +156,7 @@ class EarningsLine extends Remote\Model
 
     /**
      * @param float $value
+     *
      * @return EarningsLine
      */
     public function setNumberOfUnits($value)
@@ -175,6 +177,7 @@ class EarningsLine extends Remote\Model
 
     /**
      * @param float $value
+     *
      * @return EarningsLine
      */
     public function setFixedAmount($value)

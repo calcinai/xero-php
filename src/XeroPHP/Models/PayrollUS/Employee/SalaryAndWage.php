@@ -7,58 +7,57 @@ use XeroPHP\Remote;
 class SalaryAndWage extends Remote\Model
 {
     /**
-     * This property has been removed from the Xero API
+     * This property has been removed from the Xero API.
      *
      * @property string SalaryAndWageID
+     *
      * @deprecated
      */
 
     /**
-     * Xero unique identifier for SalaryAndWage item. e.g c56b19ef-75bf-45e8-98a4-e699a96609f7
+     * Xero unique identifier for SalaryAndWage item. e.g c56b19ef-75bf-45e8-98a4-e699a96609f7.
      *
      * @property string SalaryAndWagesID
      */
 
     /**
-     * Xero unique identifier for EarningsType item. e.g c56b19ef-75bf-45e8-98a4-e699a96609f7
+     * Xero unique identifier for EarningsType item. e.g c56b19ef-75bf-45e8-98a4-e699a96609f7.
      *
      * @property string EarningsTypeID
      */
 
     /**
-     * See Salary and Wages Types
+     * See Salary and Wages Types.
      *
      * @property string SalaryWagesType
      */
 
     /**
-     * The Hourly rate of the Salary and Wages Type. Applies only when SalaryWagesType is HOURLY
+     * The Hourly rate of the Salary and Wages Type. Applies only when SalaryWagesType is HOURLY.
      *
      * @property float HourlyRate
      */
 
     /**
-     * The annual salary for the Salary and wages. Applies only when SalaryWagesType is SALARY
+     * The annual salary for the Salary and wages. Applies only when SalaryWagesType is SALARY.
      *
      * @property string AnnualSalary
      */
 
     /**
-     * Number of hours per week
+     * Number of hours per week.
      *
      * @property string StandardHoursPerWeek
      */
 
     /**
-     * The effective date of the Salary and Wages
+     * The effective date of the Salary and Wages.
      *
      * @property \DateTimeInterface EffectiveDate
      */
 
-
-
     /**
-     * Get the resource uri of the class (Contacts) etc
+     * Get the resource uri of the class (Contacts) etc.
      *
      * @return string
      */
@@ -67,9 +66,8 @@ class SalaryAndWage extends Remote\Model
         return 'SalaryAndWages';
     }
 
-
     /**
-     * Get the root node name.  Just the unqualified classname
+     * Get the root node name.  Just the unqualified classname.
      *
      * @return string
      */
@@ -78,9 +76,8 @@ class SalaryAndWage extends Remote\Model
         return 'SalaryAndWage';
     }
 
-
     /**
-     * Get the guid property
+     * Get the guid property.
      *
      * @return string
      */
@@ -89,9 +86,8 @@ class SalaryAndWage extends Remote\Model
         return 'SalaryAndWageID';
     }
 
-
     /**
-     * Get the stem of the API (core.xro) etc
+     * Get the stem of the API (core.xro) etc.
      *
      * @return string|null
      */
@@ -100,9 +96,8 @@ class SalaryAndWage extends Remote\Model
         return Remote\URL::API_PAYROLL;
     }
 
-
     /**
-     * Get the supported methods
+     * Get the supported methods.
      */
     public static function getSupportedMethods()
     {
@@ -116,7 +111,7 @@ class SalaryAndWage extends Remote\Model
      *  [1] - Type
      *  [2] - PHP type
      *  [3] - Is an Array
-     *  [4] - Saves directly
+     *  [4] - Saves directly.
      *
      * @return array
      */
@@ -141,6 +136,7 @@ class SalaryAndWage extends Remote\Model
 
     /**
      * @return string
+     *
      * @deprecated
      */
     public function getSalaryAndWageID()
@@ -150,7 +146,9 @@ class SalaryAndWage extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return SalaryAndWage
+     *
      * @deprecated
      */
     public function setSalaryAndWageID($value)
@@ -171,6 +169,7 @@ class SalaryAndWage extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return SalaryAndWage
      */
     public function setSalaryAndWagesID($value)
@@ -191,6 +190,7 @@ class SalaryAndWage extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return SalaryAndWage
      */
     public function setEarningsTypeID($value)
@@ -211,6 +211,7 @@ class SalaryAndWage extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return SalaryAndWage
      */
     public function setSalaryWagesType($value)
@@ -231,6 +232,7 @@ class SalaryAndWage extends Remote\Model
 
     /**
      * @param float $value
+     *
      * @return SalaryAndWage
      */
     public function setHourlyRate($value)
@@ -251,6 +253,7 @@ class SalaryAndWage extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return SalaryAndWage
      */
     public function setAnnualSalary($value)
@@ -271,6 +274,7 @@ class SalaryAndWage extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return SalaryAndWage
      */
     public function setStandardHoursPerWeek($value)
@@ -291,6 +295,7 @@ class SalaryAndWage extends Remote\Model
 
     /**
      * @param \DateTimeInterface $value
+     *
      * @return SalaryAndWage
      */
     public function setEffectiveDate(\DateTimeInterface $value)

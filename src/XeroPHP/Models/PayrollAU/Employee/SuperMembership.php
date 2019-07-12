@@ -7,7 +7,7 @@ use XeroPHP\Remote;
 class SuperMembership extends Remote\Model
 {
     /**
-     * Xero identifier for super fund
+     * Xero identifier for super fund.
      *
      * @property string SuperFundID
      */
@@ -19,21 +19,19 @@ class SuperMembership extends Remote\Model
      */
 
     /**
-     * Xero unique identifier for Super membership
+     * Xero unique identifier for Super membership.
      *
      * @property string SuperMembershipID
      */
 
     /**
-     * The Xero identifier for an employee e.g. 297c2dc5-cc47-4afd-8ec8-74990b8761e9
+     * The Xero identifier for an employee e.g. 297c2dc5-cc47-4afd-8ec8-74990b8761e9.
      *
      * @property string EmployeeID
      */
 
-
-
     /**
-     * Get the resource uri of the class (Contacts) etc
+     * Get the resource uri of the class (Contacts) etc.
      *
      * @return string
      */
@@ -42,9 +40,8 @@ class SuperMembership extends Remote\Model
         return 'SuperMembership';
     }
 
-
     /**
-     * Get the root node name.  Just the unqualified classname
+     * Get the root node name.  Just the unqualified classname.
      *
      * @return string
      */
@@ -53,9 +50,8 @@ class SuperMembership extends Remote\Model
         return 'SuperMembership';
     }
 
-
     /**
-     * Get the guid property
+     * Get the guid property.
      *
      * @return string
      */
@@ -64,9 +60,8 @@ class SuperMembership extends Remote\Model
         return 'SuperMembershipID';
     }
 
-
     /**
-     * Get the stem of the API (core.xro) etc
+     * Get the stem of the API (core.xro) etc.
      *
      * @return string|null
      */
@@ -75,9 +70,8 @@ class SuperMembership extends Remote\Model
         return Remote\URL::API_PAYROLL;
     }
 
-
     /**
-     * Get the supported methods
+     * Get the supported methods.
      */
     public static function getSupportedMethods()
     {
@@ -91,7 +85,7 @@ class SuperMembership extends Remote\Model
      *  [1] - Type
      *  [2] - PHP type
      *  [3] - Is an Array
-     *  [4] - Saves directly
+     *  [4] - Saves directly.
      *
      * @return array
      */
@@ -120,6 +114,7 @@ class SuperMembership extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return SuperMembership
      */
     public function setSuperFundID($value)
@@ -140,6 +135,7 @@ class SuperMembership extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return SuperMembership
      */
     public function setEmployeeNumber($value)
@@ -160,6 +156,7 @@ class SuperMembership extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return SuperMembership
      */
     public function setSuperMembershipID($value)
@@ -180,6 +177,7 @@ class SuperMembership extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return SuperMembership
      */
     public function setEmployeeID($value)

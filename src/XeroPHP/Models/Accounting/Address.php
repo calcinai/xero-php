@@ -11,67 +11,66 @@ class Address extends Remote\Model
      */
 
     /**
-     *  max length = 500
+     *  max length = 500.
      *
      * @property string AddressLine1
      */
 
     /**
-     *  max length = 500
+     *  max length = 500.
      *
      * @property string AddressLine2
      */
 
     /**
-     *  max length = 500
+     *  max length = 500.
      *
      * @property string AddressLine3
      */
 
     /**
-     *  max length = 500
+     *  max length = 500.
      *
      * @property string AddressLine4
      */
 
     /**
-     *  max length = 255
+     *  max length = 255.
      *
      * @property string City
      */
 
     /**
-     *  max length = 255
+     *  max length = 255.
      *
      * @property string Region
      */
 
     /**
-     *  max length = 50
+     *  max length = 50.
      *
      * @property string PostalCode
      */
 
     /**
-     *  max length = 50, [A-Z], [a-z] only
+     *  max length = 50, [A-Z], [a-z] only.
      *
      * @property string Country
      */
 
     /**
-     *  max length = 255
+     *  max length = 255.
      *
      * @property string AttentionTo
      */
-
-
     const ADDRESS_TYPE_POBOX = 'POBOX';
+
     const ADDRESS_TYPE_STREET = 'STREET';
+
     const ADDRESS_TYPE_DELIVERY = 'DELIVERY';
 
-
     /**
-     * Get the resource uri of the class (Contacts) etc
+     * Get the resource uri of the class (Contacts) etc.
      *
      * @return string
      */
@@ -80,9 +79,8 @@ class Address extends Remote\Model
         return 'Addresses';
     }
 
-
     /**
-     * Get the root node name.  Just the unqualified classname
+     * Get the root node name.  Just the unqualified classname.
      *
      * @return string
      */
@@ -91,9 +89,8 @@ class Address extends Remote\Model
         return 'Address';
     }
 
-
     /**
-     * Get the guid property
+     * Get the guid property.
      *
      * @return string
      */
@@ -102,9 +99,8 @@ class Address extends Remote\Model
         return '';
     }
 
-
     /**
-     * Get the stem of the API (core.xro) etc
+     * Get the stem of the API (core.xro) etc.
      *
      * @return string|null
      */
@@ -113,9 +109,8 @@ class Address extends Remote\Model
         return Remote\URL::API_CORE;
     }
 
-
     /**
-     * Get the supported methods
+     * Get the supported methods.
      */
     public static function getSupportedMethods()
     {
@@ -129,7 +124,7 @@ class Address extends Remote\Model
      *  [1] - Type
      *  [2] - PHP type
      *  [3] - Is an Array
-     *  [4] - Saves directly
+     *  [4] - Saves directly.
      *
      * @return array
      */
@@ -164,6 +159,7 @@ class Address extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return Address
      */
     public function setAddressType($value)
@@ -184,6 +180,7 @@ class Address extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return Address
      */
     public function setAddressLine1($value)
@@ -204,6 +201,7 @@ class Address extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return Address
      */
     public function setAddressLine2($value)
@@ -224,6 +222,7 @@ class Address extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return Address
      */
     public function setAddressLine3($value)
@@ -244,6 +243,7 @@ class Address extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return Address
      */
     public function setAddressLine4($value)
@@ -264,6 +264,7 @@ class Address extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return Address
      */
     public function setCity($value)
@@ -284,6 +285,7 @@ class Address extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return Address
      */
     public function setRegion($value)
@@ -304,6 +306,7 @@ class Address extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return Address
      */
     public function setPostalCode($value)
@@ -324,6 +327,7 @@ class Address extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return Address
      */
     public function setCountry($value)
@@ -344,6 +348,7 @@ class Address extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return Address
      */
     public function setAttentionTo($value)

@@ -12,6 +12,7 @@ trait PDFTrait
      * Get the raw content of the resource's PDF file.
      *
      * @throws \XeroPHP\Exception
+     *
      * @return string
      */
     public function getPDF()

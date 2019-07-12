@@ -14,94 +14,92 @@ class RepeatingInvoice extends Remote\Model
     use HistoryTrait;
 
     /**
-     * See Invoice Types
+     * See Invoice Types.
      *
      * @property string Type
      */
 
     /**
-     * See Contacts
+     * See Contacts.
      *
      * @property Contact Contact
      */
 
     /**
-     * See Schedule
+     * See Schedule.
      *
      * @property Schedule Schedule
      */
 
     /**
-     * See LineItems
+     * See LineItems.
      *
      * @property LineItem[] LineItems
      */
 
     /**
      * Line amounts are exclusive of tax by default if you don’t specify this element. See Line Amount
-     * Types
+     * Types.
      *
      * @property string LineAmountTypes
      */
 
     /**
-     * ACCREC only – additional reference number
+     * ACCREC only – additional reference number.
      *
      * @property string Reference
      */
 
     /**
-     * See BrandingThemes
+     * See BrandingThemes.
      *
      * @property string BrandingThemeID
      */
 
     /**
-     * The currency that invoice has been raised in (see Currencies)
+     * The currency that invoice has been raised in (see Currencies).
      *
      * @property string CurrencyCode
      */
 
     /**
-     * One of the following : DRAFT or AUTHORISED – See Invoice Status Codes
+     * One of the following : DRAFT or AUTHORISED – See Invoice Status Codes.
      *
      * @property string Status
      */
 
     /**
-     * Total of invoice excluding taxes
+     * Total of invoice excluding taxes.
      *
      * @property float SubTotal
      */
 
     /**
-     * Total tax on invoice
+     * Total tax on invoice.
      *
      * @property float TotalTax
      */
 
     /**
-     * Total of Invoice tax inclusive (i.e. SubTotal + TotalTax)
+     * Total of Invoice tax inclusive (i.e. SubTotal + TotalTax).
      *
      * @property float Total
      */
 
     /**
-     * Xero generated unique identifier for repeating invoice template
+     * Xero generated unique identifier for repeating invoice template.
      *
      * @property string RepeatingInvoiceID
      */
 
     /**
-     * boolean to indicate if an invoice has an attachment
+     * boolean to indicate if an invoice has an attachment.
      *
      * @property bool HasAttachments
      */
 
-
-
     /**
-     * Get the resource uri of the class (Contacts) etc
+     * Get the resource uri of the class (Contacts) etc.
      *
      * @return string
      */
@@ -110,9 +108,8 @@ class RepeatingInvoice extends Remote\Model
         return 'RepeatingInvoices';
     }
 
-
     /**
-     * Get the root node name.  Just the unqualified classname
+     * Get the root node name.  Just the unqualified classname.
      *
      * @return string
      */
@@ -121,9 +118,8 @@ class RepeatingInvoice extends Remote\Model
         return 'RepeatingInvoice';
     }
 
-
     /**
-     * Get the guid property
+     * Get the guid property.
      *
      * @return string
      */
@@ -132,9 +128,8 @@ class RepeatingInvoice extends Remote\Model
         return 'RepeatingInvoiceID';
     }
 
-
     /**
-     * Get the stem of the API (core.xro) etc
+     * Get the stem of the API (core.xro) etc.
      *
      * @return string|null
      */
@@ -143,9 +138,8 @@ class RepeatingInvoice extends Remote\Model
         return Remote\URL::API_CORE;
     }
 
-
     /**
-     * Get the supported methods
+     * Get the supported methods.
      */
     public static function getSupportedMethods()
     {
@@ -160,7 +154,7 @@ class RepeatingInvoice extends Remote\Model
      *  [1] - Type
      *  [2] - PHP type
      *  [3] - Is an Array
-     *  [4] - Saves directly
+     *  [4] - Saves directly.
      *
      * @return array
      */
@@ -199,6 +193,7 @@ class RepeatingInvoice extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return RepeatingInvoice
      */
     public function setType($value)
@@ -219,6 +214,7 @@ class RepeatingInvoice extends Remote\Model
 
     /**
      * @param Contact $value
+     *
      * @return RepeatingInvoice
      */
     public function setContact(Contact $value)
@@ -239,6 +235,7 @@ class RepeatingInvoice extends Remote\Model
 
     /**
      * @param Schedule $value
+     *
      * @return RepeatingInvoice
      */
     public function setSchedule(Schedule $value)
@@ -251,7 +248,6 @@ class RepeatingInvoice extends Remote\Model
 
     /**
      * @return LineItem[]|Remote\Collection
-     * Always returns a collection, switch is for type hinting
      */
     public function getLineItems()
     {
@@ -260,6 +256,7 @@ class RepeatingInvoice extends Remote\Model
 
     /**
      * @param LineItem $value
+     *
      * @return RepeatingInvoice
      */
     public function addLineItem(LineItem $value)
@@ -283,6 +280,7 @@ class RepeatingInvoice extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return RepeatingInvoice
      */
     public function setLineAmountType($value)
@@ -303,6 +301,7 @@ class RepeatingInvoice extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return RepeatingInvoice
      */
     public function setReference($value)
@@ -323,6 +322,7 @@ class RepeatingInvoice extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return RepeatingInvoice
      */
     public function setBrandingThemeID($value)
@@ -343,6 +343,7 @@ class RepeatingInvoice extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return RepeatingInvoice
      */
     public function setCurrencyCode($value)
@@ -363,6 +364,7 @@ class RepeatingInvoice extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return RepeatingInvoice
      */
     public function setStatus($value)
@@ -383,6 +385,7 @@ class RepeatingInvoice extends Remote\Model
 
     /**
      * @param float $value
+     *
      * @return RepeatingInvoice
      */
     public function setSubTotal($value)
@@ -403,6 +406,7 @@ class RepeatingInvoice extends Remote\Model
 
     /**
      * @param float $value
+     *
      * @return RepeatingInvoice
      */
     public function setTotalTax($value)
@@ -423,6 +427,7 @@ class RepeatingInvoice extends Remote\Model
 
     /**
      * @param float $value
+     *
      * @return RepeatingInvoice
      */
     public function setTotal($value)
@@ -443,6 +448,7 @@ class RepeatingInvoice extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return RepeatingInvoice
      */
     public function setRepeatingInvoiceID($value)
@@ -463,6 +469,7 @@ class RepeatingInvoice extends Remote\Model
 
     /**
      * @deprecated - this is a read only property and this method will be removed in future versions
+     *
      * @param $value
      */
     public function setHasAttachment($value)

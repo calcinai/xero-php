@@ -10,37 +10,37 @@ use XeroPHP\Models\PayrollUS\Paystub\ReimbursementLine;
 class PayTemplate extends Remote\Model
 {
     /**
-     * The earnings rate lines
+     * The earnings rate lines.
      *
      * @property float[] EarningsLines
      */
 
     /**
-     * The deduction type lines
+     * The deduction type lines.
      *
      * @property DeductionLine[] DeductionLines
      */
 
     /**
-     * The reimbursement type lines
+     * The reimbursement type lines.
      *
      * @property ReimbursementLine[] ReimbursementLines
      */
 
     /**
-     * The benefit type lines
+     * The benefit type lines.
      *
      * @property BenefitLine[] BenefitLines
      */
 
     /**
-     * Xero earnings rate identifier
+     * Xero earnings rate identifier.
      *
      * @property string EarningsTypeID
      */
 
     /**
-     * The Units or Hours for the earnings line
+     * The Units or Hours for the earnings line.
      *
      * @property string UnitsOrHours
      */
@@ -52,64 +52,64 @@ class PayTemplate extends Remote\Model
      */
 
     /**
-     * The amount of the reimbursement type
+     * The amount of the reimbursement type.
      *
      * @property float Amount
      */
 
     /**
-     * Xero deduction type identifier
+     * Xero deduction type identifier.
      *
      * @property string DeductionTypeID
      */
 
     /**
-     * See Benefit Line Calculation Type
+     * See Benefit Line Calculation Type.
      *
      * @property string CalculationType
      */
 
     /**
-     * Maximum amount an employee can receive
+     * Maximum amount an employee can receive.
      *
      * @property float EmployeeMax
      */
 
     /**
-     * The percentage of deduction line
+     * The percentage of deduction line.
      *
      * @property string Percentage
      */
 
     /**
-     * Xero identifier for reimbursement type
+     * Xero identifier for reimbursement type.
      *
      * @property string ReimbursementTypeID
      */
 
     /**
-     * The description of the reimbursement line
+     * The description of the reimbursement line.
      *
      * @property string Description
      */
 
     /**
-     * Xero identifier for benefit type
+     * Xero identifier for benefit type.
      *
      * @property string BenefitTypeID
      */
-
-
     const DEDUCTION_LINE_CALCULATION_TYPE_FIXEDAMOUNT = 'FIXEDAMOUNT';
+
     const DEDUCTION_LINE_CALCULATION_TYPE_STANDARDAMOUNT = 'STANDARDAMOUNT';
+
     const DEDUCTION_LINE_CALCULATION_TYPE_PERCENTAGEOFGROSS = 'PERCENTAGEOFGROSS';
 
     const BENEFIT_LINE_CALCULATION_TYPE_FIXEDAMOUNT = 'FIXEDAMOUNT';
+
     const BENEFIT_LINE_CALCULATION_TYPE_STANDARDAMOUNT = 'STANDARDAMOUNT';
 
-
     /**
-     * Get the resource uri of the class (Contacts) etc
+     * Get the resource uri of the class (Contacts) etc.
      *
      * @return string
      */
@@ -118,9 +118,8 @@ class PayTemplate extends Remote\Model
         return 'PayTemplate';
     }
 
-
     /**
-     * Get the root node name.  Just the unqualified classname
+     * Get the root node name.  Just the unqualified classname.
      *
      * @return string
      */
@@ -129,9 +128,8 @@ class PayTemplate extends Remote\Model
         return 'PayTemplate';
     }
 
-
     /**
-     * Get the guid property
+     * Get the guid property.
      *
      * @return string
      */
@@ -140,9 +138,8 @@ class PayTemplate extends Remote\Model
         return '';
     }
 
-
     /**
-     * Get the stem of the API (core.xro) etc
+     * Get the stem of the API (core.xro) etc.
      *
      * @return string|null
      */
@@ -151,9 +148,8 @@ class PayTemplate extends Remote\Model
         return Remote\URL::API_PAYROLL;
     }
 
-
     /**
-     * Get the supported methods
+     * Get the supported methods.
      */
     public static function getSupportedMethods()
     {
@@ -167,7 +163,7 @@ class PayTemplate extends Remote\Model
      *  [1] - Type
      *  [2] - PHP type
      *  [3] - Is an Array
-     *  [4] - Saves directly
+     *  [4] - Saves directly.
      *
      * @return array
      */
@@ -199,7 +195,6 @@ class PayTemplate extends Remote\Model
 
     /**
      * @return float[]|Remote\Collection
-     * Always returns a collection, switch is for type hinting
      */
     public function getEarningsLines()
     {
@@ -208,6 +203,7 @@ class PayTemplate extends Remote\Model
 
     /**
      * @param float $value
+     *
      * @return PayTemplate
      */
     public function addEarningsLine($value)
@@ -223,7 +219,6 @@ class PayTemplate extends Remote\Model
 
     /**
      * @return DeductionLine[]|Remote\Collection
-     * Always returns a collection, switch is for type hinting
      */
     public function getDeductionLines()
     {
@@ -232,6 +227,7 @@ class PayTemplate extends Remote\Model
 
     /**
      * @param DeductionLine $value
+     *
      * @return PayTemplate
      */
     public function addDeductionLine(DeductionLine $value)
@@ -247,7 +243,6 @@ class PayTemplate extends Remote\Model
 
     /**
      * @return ReimbursementLine[]|Remote\Collection
-     * Always returns a collection, switch is for type hinting
      */
     public function getReimbursementLines()
     {
@@ -256,6 +251,7 @@ class PayTemplate extends Remote\Model
 
     /**
      * @param ReimbursementLine $value
+     *
      * @return PayTemplate
      */
     public function addReimbursementLine(ReimbursementLine $value)
@@ -271,7 +267,6 @@ class PayTemplate extends Remote\Model
 
     /**
      * @return BenefitLine[]|Remote\Collection
-     * Always returns a collection, switch is for type hinting
      */
     public function getBenefitLines()
     {
@@ -280,6 +275,7 @@ class PayTemplate extends Remote\Model
 
     /**
      * @param BenefitLine $value
+     *
      * @return PayTemplate
      */
     public function addBenefitLine(BenefitLine $value)
@@ -303,6 +299,7 @@ class PayTemplate extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return PayTemplate
      */
     public function setEarningsTypeID($value)
@@ -323,6 +320,7 @@ class PayTemplate extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return PayTemplate
      */
     public function setUnitsOrHour($value)
@@ -343,6 +341,7 @@ class PayTemplate extends Remote\Model
 
     /**
      * @param float $value
+     *
      * @return PayTemplate
      */
     public function setRatePerUnit($value)
@@ -363,6 +362,7 @@ class PayTemplate extends Remote\Model
 
     /**
      * @param float $value
+     *
      * @return PayTemplate
      */
     public function setAmount($value)
@@ -383,6 +383,7 @@ class PayTemplate extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return PayTemplate
      */
     public function setDeductionTypeID($value)
@@ -403,6 +404,7 @@ class PayTemplate extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return PayTemplate
      */
     public function setCalculationType($value)
@@ -423,6 +425,7 @@ class PayTemplate extends Remote\Model
 
     /**
      * @param float $value
+     *
      * @return PayTemplate
      */
     public function setEmployeeMax($value)
@@ -443,6 +446,7 @@ class PayTemplate extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return PayTemplate
      */
     public function setPercentage($value)
@@ -463,6 +467,7 @@ class PayTemplate extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return PayTemplate
      */
     public function setReimbursementTypeID($value)
@@ -483,6 +488,7 @@ class PayTemplate extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return PayTemplate
      */
     public function setDescription($value)
@@ -503,6 +509,7 @@ class PayTemplate extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return PayTemplate
      */
     public function setBenefitTypeID($value)

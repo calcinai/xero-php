@@ -14,194 +14,200 @@ use XeroPHP\Models\PayrollAU\Employee\SuperMembership;
 class Employee extends Remote\Model
 {
     /**
-     * First name of employee (max length = 35)
+     * First name of employee (max length = 35).
      *
      * @property string FirstName
      */
 
     /**
-     * Last name of employee (max length = 35)
+     * Last name of employee (max length = 35).
      *
      * @property string LastName
      */
 
     /**
-     * Date of birth of the employee (YYYY-MM-DD)
+     * Date of birth of the employee (YYYY-MM-DD).
      *
      * @property \DateTimeInterface DateOfBirth
      */
 
     /**
-     * Employee home address. See HomeAddress
+     * Employee home address. See HomeAddress.
      *
      * @property HomeAddress HomeAddress
      */
 
     /**
      * If you aren’t sure of the exact start date for an employee, you can just enter the start of the
-     * current financial year (YYYY-MM-DD)
+     * current financial year (YYYY-MM-DD).
      *
      * @property \DateTimeInterface StartDate
      */
 
     /**
-     * Title of the employee (max length = 10)
+     * Title of the employee (max length = 10).
      *
      * @property string Title
      */
 
     /**
-     * Middle name(s) of the employee (max length = 35)
+     * Middle name(s) of the employee (max length = 35).
      *
      * @property string MiddleNames
      */
 
     /**
-     * The email address for the employee (max length = 100)
+     * The email address for the employee (max length = 100).
      *
      * @property string Email
      */
 
     /**
-     * The employee’s gender (M or F)
+     * The employee’s gender (M or F).
      *
      * @property string Gender
      */
 
     /**
-     * Employee mobile number (max length = 50)
+     * Employee mobile number (max length = 50).
      *
      * @property string Mobile
      */
 
     /**
-     * Employee’s twitter name, entered as @twittername (max length = 50)
+     * Employee’s twitter name, entered as @twittername (max length = 50).
      *
      * @property string TwitterUserName
      */
 
     /**
      * Boolean (true / false) – set this to true if the employee is authorised to approve other
-     * employees’ leave requests
+     * employees’ leave requests.
      *
      * @property bool IsAuthorisedToApproveLeave
      */
 
     /**
-     * Booelan – set this to true if the employee is authorised to approve timesheets
+     * Booelan – set this to true if the employee is authorised to approve timesheets.
      *
      * @property bool IsAuthorisedToApproveTimesheets
      */
 
     /**
-     * This property has been removed from the Xero API
+     * This property has been removed from the Xero API.
      *
      * @property string Occupation
+     *
      * @deprecated
      */
 
     /**
-     * JobTitle of the employee (max length = 50)
+     * JobTitle of the employee (max length = 50).
      *
      * @property string JobTitle
      */
 
     /**
      * Employees under an award scheme will be covered by a modern award classification. If you record a
-     * classification, it will be included on your payslips (max length = 100)
+     * classification, it will be included on your payslips (max length = 100).
      *
      * @property string Classification
      */
 
     /**
-     * Xero unique identifier for earnings rate
+     * Xero unique identifier for earnings rate.
      *
      * @property string OrdinaryEarningsRateID
      */
 
     /**
-     * Xero unique identifier for payroll calendar for the employee
+     * Xero unique identifier for payroll calendar for the employee.
      *
      * @property string PayrollCalendarID
      */
 
     /**
      * The Employee Group allows you to report on payroll expenses and liabilities for each group of
-     * employees
+     * employees.
      *
      * @property string EmployeeGroupName
      */
 
     /**
-     * See BankAccount
+     * See BankAccount.
      *
      * @property BankAccount[] BankAccounts
      */
 
     /**
-     * See PayTemplate
+     * See PayTemplate.
      *
      * @property PayTemplate PayTemplate
      */
 
     /**
-     * See OpeningBalances
+     * See OpeningBalances.
      *
      * @property OpeningBalance[] OpeningBalances
      */
 
     /**
-     * See LeaveBalances
+     * See LeaveBalances.
      *
      * @property LeaveBalance[] LeaveBalances
      */
 
     /**
-     * See SuperMemberships
+     * See SuperMemberships.
      *
      * @property SuperMembership[] SuperMemberships
      */
 
     /**
-     * Employee Termination Date (YYYY-MM-DD)
+     * Employee Termination Date (YYYY-MM-DD).
      *
      * @property \DateTimeInterface TerminationDate
      */
 
     /**
-     * Xero unique identifier for an Employee
+     * Xero unique identifier for an Employee.
      *
      * @property string EmployeeID
      */
 
     /**
-     * See Employee Status Types
+     * See Employee Status Types.
      *
      * @property string Status
      */
 
     /**
-     * Last modified timestamp
+     * Last modified timestamp.
      *
      * @property \DateTimeInterface UpdatedDateUTC
      */
-
-
     const STATEABBREVIATION_ACT = 'ACT';
+
     const STATEABBREVIATION_NSW = 'NSW';
+
     const STATEABBREVIATION_NT = 'NT';
+
     const STATEABBREVIATION_QLD = 'QLD';
+
     const STATEABBREVIATION_SA = 'SA';
+
     const STATEABBREVIATION_TAS = 'TAS';
+
     const STATEABBREVIATION_VIC = 'VIC';
+
     const STATEABBREVIATION_WA = 'WA';
 
     const STATUS_ACTIVE = 'ACTIVE';
+
     const STATUS_TERMINATED = 'TERMINATED';
 
-
     /**
-     * Get the resource uri of the class (Contacts) etc
+     * Get the resource uri of the class (Contacts) etc.
      *
      * @return string
      */
@@ -210,9 +216,8 @@ class Employee extends Remote\Model
         return 'Employees';
     }
 
-
     /**
-     * Get the root node name.  Just the unqualified classname
+     * Get the root node name.  Just the unqualified classname.
      *
      * @return string
      */
@@ -221,9 +226,8 @@ class Employee extends Remote\Model
         return 'Employee';
     }
 
-
     /**
-     * Get the guid property
+     * Get the guid property.
      *
      * @return string
      */
@@ -232,9 +236,8 @@ class Employee extends Remote\Model
         return 'EmployeeID';
     }
 
-
     /**
-     * Get the stem of the API (core.xro) etc
+     * Get the stem of the API (core.xro) etc.
      *
      * @return string|null
      */
@@ -243,9 +246,8 @@ class Employee extends Remote\Model
         return Remote\URL::API_PAYROLL;
     }
 
-
     /**
-     * Get the supported methods
+     * Get the supported methods.
      */
     public static function getSupportedMethods()
     {
@@ -261,7 +263,7 @@ class Employee extends Remote\Model
      *  [1] - Type
      *  [2] - PHP type
      *  [3] - Is an Array
-     *  [4] - Saves directly
+     *  [4] - Saves directly.
      *
      * @return array
      */
@@ -316,6 +318,7 @@ class Employee extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return Employee
      */
     public function setFirstName($value)
@@ -336,6 +339,7 @@ class Employee extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return Employee
      */
     public function setLastName($value)
@@ -356,6 +360,7 @@ class Employee extends Remote\Model
 
     /**
      * @param \DateTimeInterface $value
+     *
      * @return Employee
      */
     public function setDateOfBirth(\DateTimeInterface $value)
@@ -376,6 +381,7 @@ class Employee extends Remote\Model
 
     /**
      * @param HomeAddress $value
+     *
      * @return Employee
      */
     public function setHomeAddress(HomeAddress $value)
@@ -396,6 +402,7 @@ class Employee extends Remote\Model
 
     /**
      * @param \DateTimeInterface $value
+     *
      * @return Employee
      */
     public function setStartDate(\DateTimeInterface $value)
@@ -416,6 +423,7 @@ class Employee extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return Employee
      */
     public function setTitle($value)
@@ -436,6 +444,7 @@ class Employee extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return Employee
      */
     public function setMiddleName($value)
@@ -456,6 +465,7 @@ class Employee extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return Employee
      */
     public function setEmail($value)
@@ -476,6 +486,7 @@ class Employee extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return Employee
      */
     public function setGender($value)
@@ -496,6 +507,7 @@ class Employee extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return Employee
      */
     public function setMobile($value)
@@ -516,6 +528,7 @@ class Employee extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return Employee
      */
     public function setTwitterUserName($value)
@@ -536,6 +549,7 @@ class Employee extends Remote\Model
 
     /**
      * @param bool $value
+     *
      * @return Employee
      */
     public function setIsAuthorisedToApproveLeave($value)
@@ -556,6 +570,7 @@ class Employee extends Remote\Model
 
     /**
      * @param bool $value
+     *
      * @return Employee
      */
     public function setIsAuthorisedToApproveTimesheet($value)
@@ -568,6 +583,7 @@ class Employee extends Remote\Model
 
     /**
      * @return string
+     *
      * @deprecated
      */
     public function getOccupation()
@@ -577,7 +593,9 @@ class Employee extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return Employee
+     *
      * @deprecated
      */
     public function setOccupation($value)
@@ -598,6 +616,7 @@ class Employee extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return Employee
      */
     public function setJobTitle($value)
@@ -618,6 +637,7 @@ class Employee extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return Employee
      */
     public function setClassification($value)
@@ -638,6 +658,7 @@ class Employee extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return Employee
      */
     public function setOrdinaryEarningsRateID($value)
@@ -658,6 +679,7 @@ class Employee extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return Employee
      */
     public function setPayrollCalendarID($value)
@@ -678,6 +700,7 @@ class Employee extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return Employee
      */
     public function setEmployeeGroupName($value)
@@ -690,7 +713,6 @@ class Employee extends Remote\Model
 
     /**
      * @return BankAccount[]|Remote\Collection
-     * Always returns a collection, switch is for type hinting
      */
     public function getBankAccounts()
     {
@@ -699,6 +721,7 @@ class Employee extends Remote\Model
 
     /**
      * @param BankAccount $value
+     *
      * @return Employee
      */
     public function addBankAccount(BankAccount $value)
@@ -722,6 +745,7 @@ class Employee extends Remote\Model
 
     /**
      * @param PayTemplate $value
+     *
      * @return Employee
      */
     public function setPayTemplate(PayTemplate $value)
@@ -734,7 +758,6 @@ class Employee extends Remote\Model
 
     /**
      * @return OpeningBalance[]|Remote\Collection
-     * Always returns a collection, switch is for type hinting
      */
     public function getOpeningBalances()
     {
@@ -743,6 +766,7 @@ class Employee extends Remote\Model
 
     /**
      * @param OpeningBalance $value
+     *
      * @return Employee
      */
     public function addOpeningBalance(OpeningBalance $value)
@@ -758,7 +782,6 @@ class Employee extends Remote\Model
 
     /**
      * @return LeaveBalance[]|Remote\Collection
-     * Always returns a collection, switch is for type hinting
      */
     public function getLeaveBalances()
     {
@@ -767,6 +790,7 @@ class Employee extends Remote\Model
 
     /**
      * @param LeaveBalance $value
+     *
      * @return Employee
      */
     public function addLeaveBalance(LeaveBalance $value)
@@ -782,7 +806,6 @@ class Employee extends Remote\Model
 
     /**
      * @return SuperMembership[]|Remote\Collection
-     * Always returns a collection, switch is for type hinting
      */
     public function getSuperMemberships()
     {
@@ -791,6 +814,7 @@ class Employee extends Remote\Model
 
     /**
      * @param SuperMembership $value
+     *
      * @return Employee
      */
     public function addSuperMembership(SuperMembership $value)
@@ -814,6 +838,7 @@ class Employee extends Remote\Model
 
     /**
      * @param \DateTimeInterface $value
+     *
      * @return Employee
      */
     public function setTerminationDate(\DateTimeInterface $value)
@@ -834,6 +859,7 @@ class Employee extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return Employee
      */
     public function setEmployeeID($value)
@@ -854,6 +880,7 @@ class Employee extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return Employee
      */
     public function setStatus($value)
@@ -874,6 +901,7 @@ class Employee extends Remote\Model
 
     /**
      * @param \DateTimeInterface $value
+     *
      * @return Employee
      */
     public function setUpdatedDateUTC(\DateTimeInterface $value)
@@ -894,6 +922,7 @@ class Employee extends Remote\Model
 
     /**
      * @param TaxDeclaration $value
+     *
      * @return Employee
      */
     public function setTaxDeclaration(TaxDeclaration $value)
@@ -903,7 +932,6 @@ class Employee extends Remote\Model
 
         return $this;
     }
-
 
     /**
      * @return string
@@ -915,6 +943,7 @@ class Employee extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return Employee
      */
     public function setPhone($value)

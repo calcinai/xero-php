@@ -7,7 +7,7 @@ use XeroPHP\Remote;
 class File extends Remote\Model
 {
     /**
-     * The name of the file
+     * The name of the file.
      *
      * @property string Name
      */
@@ -19,25 +19,25 @@ class File extends Remote\Model
      */
 
     /**
-     * The Mime type of the file
+     * The Mime type of the file.
      *
      * @property string MimeType
      */
 
     /**
-     * The file size in bytes
+     * The file size in bytes.
      *
      * @property string Size
      */
 
     /**
-     * UTC timestamp of the file creation
+     * UTC timestamp of the file creation.
      *
      * @property \DateTimeInterface CreatedDateUTC
      */
 
     /**
-     * UTC timestamp of the last modified date
+     * UTC timestamp of the last modified date.
      *
      * @property \DateTimeInterface UpdatedDateUTC
      */
@@ -50,15 +50,13 @@ class File extends Remote\Model
      */
 
     /**
-     * Xero unique identifier for a file
+     * Xero unique identifier for a file.
      *
      * @property string Id
      */
 
-
-
     /**
-     * Get the resource uri of the class (Contacts) etc
+     * Get the resource uri of the class (Contacts) etc.
      *
      * @return string
      */
@@ -67,9 +65,8 @@ class File extends Remote\Model
         return 'Files';
     }
 
-
     /**
-     * Get the root node name.  Just the unqualified classname
+     * Get the root node name.  Just the unqualified classname.
      *
      * @return string
      */
@@ -78,9 +75,8 @@ class File extends Remote\Model
         return 'File';
     }
 
-
     /**
-     * Get the guid property
+     * Get the guid property.
      *
      * @return string
      */
@@ -89,9 +85,8 @@ class File extends Remote\Model
         return 'Id';
     }
 
-
     /**
-     * Get the stem of the API (core.xro) etc
+     * Get the stem of the API (core.xro) etc.
      *
      * @return string|null
      */
@@ -100,9 +95,8 @@ class File extends Remote\Model
         return Remote\URL::API_FILE;
     }
 
-
     /**
-     * Get the supported methods
+     * Get the supported methods.
      */
     public static function getSupportedMethods()
     {
@@ -120,7 +114,7 @@ class File extends Remote\Model
      *  [1] - Type
      *  [2] - PHP type
      *  [3] - Is an Array
-     *  [4] - Saves directly
+     *  [4] - Saves directly.
      *
      * @return array
      */
@@ -153,6 +147,7 @@ class File extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return File
      */
     public function setName($value)
@@ -173,6 +168,7 @@ class File extends Remote\Model
 
     /**
      * @param Folder $value
+     *
      * @return File
      */
     public function setFolderId(Folder $value)
@@ -193,6 +189,7 @@ class File extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return File
      */
     public function setMimeType($value)
@@ -213,6 +210,7 @@ class File extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return File
      */
     public function setSize($value)
@@ -233,6 +231,7 @@ class File extends Remote\Model
 
     /**
      * @param \DateTimeInterface $value
+     *
      * @return File
      */
     public function setCreatedDateUTC(\DateTimeInterface $value)
@@ -253,6 +252,7 @@ class File extends Remote\Model
 
     /**
      * @param \DateTimeInterface $value
+     *
      * @return File
      */
     public function setUpdatedDateUTC(\DateTimeInterface $value)
@@ -273,6 +273,7 @@ class File extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return File
      */
     public function setUser($value)
@@ -293,6 +294,7 @@ class File extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return File
      */
     public function setId($value)

@@ -8,21 +8,32 @@ use XeroPHP\Application;
 class Query
 {
     const ORDER_ASC = 'ASC';
+
     const ORDER_DESC = 'DESC';
 
     /** @var \XeroPHP\Application */
     private $app;
 
     private $from_class;
+
     private $where;
+
     private $order;
+
     private $modifiedAfter;
+
     private $page;
+
     private $fromDate;
+
     private $toDate;
+
     private $date;
+
     private $offset;
+
     private $includeArchived;
+
     private $params;
 
     public function __construct(Application $app)
@@ -39,6 +50,7 @@ class Query
 
     /**
      * @param string $class
+     *
      * @return $this
      */
     public function from($class)
@@ -60,7 +72,7 @@ class Query
     }
 
     /**
-     * Chains an OR WHERE statement on to the query
+     * Chains an OR WHERE statement on to the query.
      *
      * @return $this
      */
@@ -72,7 +84,7 @@ class Query
     /**
      * Chains an AND WHERE statement on to the query.
      * ( Note this method is effectively an alias for where() to help make fluent
-     * queries more readable and less ambiguous )
+     * queries more readable and less ambiguous ).
      *
      * @return $this
      */
@@ -84,6 +96,7 @@ class Query
     /**
      * @param string $operator
      * @param array $args
+     *
      * @return $this
      */
     public function addWhere($operator, $args)
@@ -119,7 +132,7 @@ class Query
 
     /**
      * Concatenates the array of where statements stored in $this->where and returns
-     * them as a string
+     * them as a string.
      *
      * @return string
      */
@@ -131,6 +144,7 @@ class Query
     /**
      * @param string $order
      * @param string $direction
+     *
      * @return $this
      */
     public function orderBy($order, $direction = self::ORDER_ASC)
@@ -142,6 +156,7 @@ class Query
 
     /**
      * @param \DateTimeInterface|null $modifiedAfter
+     *
      * @return $this
      */
     public function modifiedAfter(\DateTimeInterface $modifiedAfter = null)
@@ -157,6 +172,7 @@ class Query
 
     /**
      * @param DateTime $fromDate
+     *
      * @return $this
      */
     public function fromDate(DateTime $fromDate)
@@ -168,6 +184,7 @@ class Query
 
     /**
      * @param DateTime $toDate
+     *
      * @return $this
      */
     public function toDate(DateTime $toDate)
@@ -179,6 +196,7 @@ class Query
 
     /**
      * @param DateTime $date
+     *
      * @return $this
      */
     public function date(DateTime $date)
@@ -190,7 +208,9 @@ class Query
 
     /**
      * @param int $page
+     *
      * @throws Exception
+     *
      * @return $this
      */
     public function page($page = 1)
@@ -209,6 +229,7 @@ class Query
 
     /**
      * @param int $offset
+     *
      * @return $this
      */
     public function offset($offset = 0)
@@ -224,7 +245,6 @@ class Query
 
         return $this;
     }
-
 
     public function setParameter($key, $value)
     {

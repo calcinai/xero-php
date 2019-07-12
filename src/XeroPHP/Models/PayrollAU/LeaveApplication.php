@@ -8,60 +8,58 @@ use XeroPHP\Models\PayrollAU\LeaveApplication\LeavePeriod;
 class LeaveApplication extends Remote\Model
 {
     /**
-     * Xero identifier
+     * Xero identifier.
      *
      * @property string LeaveApplicationID
      */
 
     /**
-     * The Xero identifier for Payroll Employee
+     * The Xero identifier for Payroll Employee.
      *
      * @property string EmployeeID
      */
 
     /**
-     * The Xero identifier for Leave Type
+     * The Xero identifier for Leave Type.
      *
      * @property string LeaveTypeID
      */
 
     /**
-     * The title of the leave (max length = 50)
+     * The title of the leave (max length = 50).
      *
      * @property string Title
      */
 
     /**
-     * Start date of the leave (YYYY-MM-DD)
+     * Start date of the leave (YYYY-MM-DD).
      *
      * @property \DateTimeInterface StartDate
      */
 
     /**
-     * End date of the leave (YYYY-MM-DD)
+     * End date of the leave (YYYY-MM-DD).
      *
      * @property \DateTimeInterface EndDate
      */
 
     /**
-     * The Description of the Leave (max length = 200)
+     * The Description of the Leave (max length = 200).
      *
      * @property string Description
      */
 
     /**
-     * The leave period information
+     * The leave period information.
      *
      * @property LeavePeriod[] LeavePeriods
      */
-
-
     const LEAVE_PERIOD_STATUS_SCHEDULED = 'Scheduled';
+
     const LEAVE_PERIOD_STATUS_PROCESSED = 'Processed';
 
-
     /**
-     * Get the resource uri of the class (Contacts) etc
+     * Get the resource uri of the class (Contacts) etc.
      *
      * @return string
      */
@@ -70,9 +68,8 @@ class LeaveApplication extends Remote\Model
         return 'LeaveApplications';
     }
 
-
     /**
-     * Get the root node name.  Just the unqualified classname
+     * Get the root node name.  Just the unqualified classname.
      *
      * @return string
      */
@@ -81,9 +78,8 @@ class LeaveApplication extends Remote\Model
         return 'LeaveApplication';
     }
 
-
     /**
-     * Get the guid property
+     * Get the guid property.
      *
      * @return string
      */
@@ -92,9 +88,8 @@ class LeaveApplication extends Remote\Model
         return 'LeaveApplicationID';
     }
 
-
     /**
-     * Get the stem of the API (core.xro) etc
+     * Get the stem of the API (core.xro) etc.
      *
      * @return string|null
      */
@@ -103,9 +98,8 @@ class LeaveApplication extends Remote\Model
         return Remote\URL::API_PAYROLL;
     }
 
-
     /**
-     * Get the supported methods
+     * Get the supported methods.
      */
     public static function getSupportedMethods()
     {
@@ -121,7 +115,7 @@ class LeaveApplication extends Remote\Model
      *  [1] - Type
      *  [2] - PHP type
      *  [3] - Is an Array
-     *  [4] - Saves directly
+     *  [4] - Saves directly.
      *
      * @return array
      */
@@ -154,6 +148,7 @@ class LeaveApplication extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return LeaveApplication
      */
     public function setLeaveApplicationID($value)
@@ -174,6 +169,7 @@ class LeaveApplication extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return LeaveApplication
      */
     public function setEmployeeID($value)
@@ -194,6 +190,7 @@ class LeaveApplication extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return LeaveApplication
      */
     public function setLeaveTypeID($value)
@@ -214,6 +211,7 @@ class LeaveApplication extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return LeaveApplication
      */
     public function setTitle($value)
@@ -234,6 +232,7 @@ class LeaveApplication extends Remote\Model
 
     /**
      * @param \DateTimeInterface $value
+     *
      * @return LeaveApplication
      */
     public function setStartDate(\DateTimeInterface $value)
@@ -254,6 +253,7 @@ class LeaveApplication extends Remote\Model
 
     /**
      * @param \DateTimeInterface $value
+     *
      * @return LeaveApplication
      */
     public function setEndDate(\DateTimeInterface $value)
@@ -274,6 +274,7 @@ class LeaveApplication extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return LeaveApplication
      */
     public function setDescription($value)
@@ -286,7 +287,6 @@ class LeaveApplication extends Remote\Model
 
     /**
      * @return LeavePeriod[]|Remote\Collection
-     * Always returns a collection, switch is for type hinting
      */
     public function getLeavePeriods()
     {
@@ -295,6 +295,7 @@ class LeaveApplication extends Remote\Model
 
     /**
      * @param LeavePeriod $value
+     *
      * @return LeaveApplication
      */
     public function addLeavePeriod(LeavePeriod $value)

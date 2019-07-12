@@ -15,7 +15,7 @@ class Purchase extends Remote\Model
 
     /**
      * Default account code to be used for purchased/sale. Not applicable to the purchase details of
-     * tracked items
+     * tracked items.
      *
      * @property string AccountCode
      */
@@ -27,9 +27,10 @@ class Purchase extends Remote\Model
      */
 
     /**
-     * This property has been removed from the Xero API
+     * This property has been removed from the Xero API.
      *
      * @property \DateTimeInterface UpdatedDateUTC
+     *
      * @deprecated
      */
 
@@ -40,10 +41,8 @@ class Purchase extends Remote\Model
      * @property string TaxType
      */
 
-
-
     /**
-     * Get the resource uri of the class (Contacts) etc
+     * Get the resource uri of the class (Contacts) etc.
      *
      * @return string
      */
@@ -52,9 +51,8 @@ class Purchase extends Remote\Model
         return 'Purchases';
     }
 
-
     /**
-     * Get the root node name.  Just the unqualified classname
+     * Get the root node name.  Just the unqualified classname.
      *
      * @return string
      */
@@ -63,9 +61,8 @@ class Purchase extends Remote\Model
         return 'Purchase';
     }
 
-
     /**
-     * Get the guid property
+     * Get the guid property.
      *
      * @return string
      */
@@ -74,9 +71,8 @@ class Purchase extends Remote\Model
         return '';
     }
 
-
     /**
-     * Get the stem of the API (core.xro) etc
+     * Get the stem of the API (core.xro) etc.
      *
      * @return string|null
      */
@@ -85,9 +81,8 @@ class Purchase extends Remote\Model
         return Remote\URL::API_CORE;
     }
 
-
     /**
-     * Get the supported methods
+     * Get the supported methods.
      */
     public static function getSupportedMethods()
     {
@@ -101,7 +96,7 @@ class Purchase extends Remote\Model
      *  [1] - Type
      *  [2] - PHP type
      *  [3] - Is an Array
-     *  [4] - Saves directly
+     *  [4] - Saves directly.
      *
      * @return array
      */
@@ -131,6 +126,7 @@ class Purchase extends Remote\Model
 
     /**
      * @param float $value
+     *
      * @return Purchase
      */
     public function setUnitPrice($value)
@@ -151,6 +147,7 @@ class Purchase extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return Purchase
      */
     public function setAccountCode($value)
@@ -171,6 +168,7 @@ class Purchase extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return Purchase
      */
     public function setCOGSAccountCode($value)
@@ -183,6 +181,7 @@ class Purchase extends Remote\Model
 
     /**
      * @return \DateTimeInterface
+     *
      * @deprecated
      */
     public function getUpdatedDateUTC()
@@ -192,7 +191,9 @@ class Purchase extends Remote\Model
 
     /**
      * @param \DateTimeInterface $value
+     *
      * @return Purchase
+     *
      * @deprecated
      */
     public function setUpdatedDateUTC(\DateTimeInterface $value)
@@ -213,6 +214,7 @@ class Purchase extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return Purchase
      */
     public function setTaxType($value)

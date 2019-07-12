@@ -7,27 +7,25 @@ use XeroPHP\Remote;
 class TaxComponent extends Remote\Model
 {
     /**
-     * Name of Tax Component
+     * Name of Tax Component.
      *
      * @property string Name
      */
 
     /**
-     * Tax Rate (up to 4dp)
+     * Tax Rate (up to 4dp).
      *
      * @property float Rate
      */
 
     /**
-     * Boolean to describe if Tax rate is compounded.Learn more
+     * Boolean to describe if Tax rate is compounded.Learn more.
      *
      * @property bool IsCompound
      */
 
-
-
     /**
-     * Get the resource uri of the class (Contacts) etc
+     * Get the resource uri of the class (Contacts) etc.
      *
      * @return string
      */
@@ -36,9 +34,8 @@ class TaxComponent extends Remote\Model
         return 'TaxComponents';
     }
 
-
     /**
-     * Get the root node name.  Just the unqualified classname
+     * Get the root node name.  Just the unqualified classname.
      *
      * @return string
      */
@@ -47,9 +44,8 @@ class TaxComponent extends Remote\Model
         return 'TaxComponent';
     }
 
-
     /**
-     * Get the guid property
+     * Get the guid property.
      *
      * @return string
      */
@@ -58,9 +54,8 @@ class TaxComponent extends Remote\Model
         return '';
     }
 
-
     /**
-     * Get the stem of the API (core.xro) etc
+     * Get the stem of the API (core.xro) etc.
      *
      * @return string|null
      */
@@ -69,9 +64,8 @@ class TaxComponent extends Remote\Model
         return Remote\URL::API_CORE;
     }
 
-
     /**
-     * Get the supported methods
+     * Get the supported methods.
      */
     public static function getSupportedMethods()
     {
@@ -85,7 +79,7 @@ class TaxComponent extends Remote\Model
      *  [1] - Type
      *  [2] - PHP type
      *  [3] - Is an Array
-     *  [4] - Saves directly
+     *  [4] - Saves directly.
      *
      * @return array
      */
@@ -113,6 +107,7 @@ class TaxComponent extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return TaxComponent
      */
     public function setName($value)
@@ -133,6 +128,7 @@ class TaxComponent extends Remote\Model
 
     /**
      * @param float $value
+     *
      * @return TaxComponent
      */
     public function setRate($value)
@@ -153,6 +149,7 @@ class TaxComponent extends Remote\Model
 
     /**
      * @param bool $value
+     *
      * @return TaxComponent
      */
     public function setIsCompound($value)

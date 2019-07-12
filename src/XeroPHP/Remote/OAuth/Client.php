@@ -19,12 +19,15 @@ class Client
 {
     //Supported hashing mechanisms
     const SIGNATURE_RSA_SHA1 = 'RSA-SHA1';
+
     const SIGNATURE_HMAC_SHA1 = 'HMAC-SHA1';
+
     const SIGNATURE_PLAINTEXT = 'PLAINTEXT';
 
     const OAUTH_VERSION = '1.0';
 
     const SIGN_LOCATION_HEADER = 'header';
+
     const SIGN_LOCATION_QUERY = 'query_string';
 
     private $config;
@@ -33,6 +36,7 @@ class Client
     private $oauth_params;
 
     private $token_secret;
+
     private $verifier;
 
     /**
@@ -50,6 +54,7 @@ class Client
      * This method puts it in the oauth params in the Authorization header by default.
      *
      * @param Request $request Request to sign
+     *
      * @throws Exception
      */
     public function sign(Request $request)
@@ -83,7 +88,6 @@ class Client
         //Mainly for the nonce.
         $this->resetOAuthParams();
     }
-
 
     /**
      * Resets the instance for subsequent signing requests.
@@ -130,7 +134,9 @@ class Client
      * consistency, pass the same constructor to each one.
      *
      * @param Request $request
+     *
      * @throws Exception
+     *
      * @return string
      */
     private function getSignature(Request $request)
@@ -176,6 +182,7 @@ class Client
      * GET&https%3A%2F%2Fapi.xero.com%2Fapi.xro%2F2.0%2FContacts&oauth_consumer etc.
      *
      * @param Request $request
+     *
      * @return string
      */
     public function getSBS(Request $request)
@@ -214,13 +221,13 @@ class Client
         return $secret;
     }
 
-
     /**
      * Generic nonce generating function for the request.
      * It's important that it's long enough as the spec says the
      * server will reject any request that reuses one.
      *
      * @param int $length
+     *
      * @return string
      */
     private function getNonce($length = 20)
@@ -259,7 +266,7 @@ class Client
             return $this->config['token'];
         }
 
-        return;
+        
     }
 
     /**
@@ -296,6 +303,7 @@ class Client
 
     /**
      * @param string|null $oauth_token
+     *
      * @return string
      */
     public function getAuthorizeURL($oauth_token = null)
@@ -313,8 +321,9 @@ class Client
     /**
      * Prepend URL with query string.
      *
-     * @param  string  $url
-     * @param  array  $query
+     * @param string $url
+     * @param array $query
+     *
      * @return string
      */
     protected function appendUrlQuery($url, $query)
@@ -327,7 +336,8 @@ class Client
     /**
      * Determine if the URL has a query string.
      *
-     * @param  string  $url
+     * @param string $url
+     *
      * @return bool
      */
     protected function urlHasQuery($url)
@@ -349,7 +359,7 @@ class Client
             return $this->token_secret;
         }
 
-        return;
+        
     }
 
     public function setVerifier($verifier)
@@ -365,6 +375,6 @@ class Client
             return $this->verifier;
         }
 
-        return;
+        
     }
 }

@@ -16,140 +16,138 @@ class CreditNote extends Remote\Model
     use HistoryTrait;
 
     /**
-     * See Credit Note Types
+     * See Credit Note Types.
      *
      * @property string Type
      */
 
     /**
-     * See Contacts
+     * See Contacts.
      *
      * @property Contact Contact
      */
 
     /**
-     * The date the credit note is issued YYYY-MM-DD
+     * The date the credit note is issued YYYY-MM-DD.
      *
      * @property \DateTimeInterface Date
      */
 
     /**
-     * See Credit Note Status Codes
+     * See Credit Note Status Codes.
      *
      * @property string Status
      */
 
     /**
-     * See Invoice Line Amount Types
+     * See Invoice Line Amount Types.
      *
      * @property string LineAmountTypes
      */
 
     /**
-     * See Invoice Line Items
+     * See Invoice Line Items.
      *
      * @property LineItem[] LineItems
      */
 
     /**
-     * The subtotal of the credit note excluding taxes
+     * The subtotal of the credit note excluding taxes.
      *
      * @property float SubTotal
      */
 
     /**
-     * The total tax on the credit note
+     * The total tax on the credit note.
      *
      * @property float TotalTax
      */
 
     /**
-     * The total of the Credit Note(subtotal + total tax)
+     * The total of the Credit Note(subtotal + total tax).
      *
      * @property float Total
      */
 
     /**
-     * UTC timestamp of last update to the credit note
+     * UTC timestamp of last update to the credit note.
      *
      * @property \DateTimeInterface UpdatedDateUTC
      */
 
     /**
-     * Currency used for the Credit Note
+     * Currency used for the Credit Note.
      *
      * @property string CurrencyCode
      */
 
     /**
-     * Date when credit note was fully paid(UTC format)
+     * Date when credit note was fully paid(UTC format).
      *
      * @property \DateTimeInterface FullyPaidOnDate
      */
 
     /**
-     * Xero generated unique identifier
+     * Xero generated unique identifier.
      *
      * @property string CreditNoteID
      */
 
     /**
      * ACCRECCREDIT – Unique alpha numeric code identifying credit note (when missing will auto-generate
-     * from your Organisation Invoice Settings)
+     * from your Organisation Invoice Settings).
      *
      * @property string CreditNoteNumber
      */
 
     /**
-     * ACCRECCREDIT only – additional reference number
+     * ACCRECCREDIT only – additional reference number.
      *
      * @property string Reference
      */
 
     /**
      * boolean to indicate if a credit note has been sent to a contact via the Xero app (currently read
-     * only)
+     * only).
      *
      * @property bool SentToContact
      */
 
     /**
-     * The currency rate for a multicurrency invoice. If no rate is specified, the XE.com day rate is used
+     * The currency rate for a multicurrency invoice. If no rate is specified, the XE.com day rate is used.
      *
      * @property float CurrencyRate
      */
 
     /**
-     * The remaining credit balance on the Credit Note
+     * The remaining credit balance on the Credit Note.
      *
      * @property string RemainingCredit
      */
 
     /**
-     * See Allocations
+     * See Allocations.
      *
      * @property Allocation[] Allocations
      */
 
     /**
-     * See BrandingThemes
+     * See BrandingThemes.
      *
      * @property string BrandingThemeID
      */
 
     /**
-     * boolean to indicate if a credit note has an attachment
+     * boolean to indicate if a credit note has an attachment.
      *
      * @property bool HasAttachments
      */
-
-
     const CREDIT_NOTE_TYPE_ACCPAYCREDIT = 'ACCPAYCREDIT';
+
     const CREDIT_NOTE_TYPE_ACCRECCREDIT = 'ACCRECCREDIT';
 
-
     /**
-     * Get the resource uri of the class (Contacts) etc
+     * Get the resource uri of the class (Contacts) etc.
      *
      * @return string
      */
@@ -158,9 +156,8 @@ class CreditNote extends Remote\Model
         return 'CreditNotes';
     }
 
-
     /**
-     * Get the root node name.  Just the unqualified classname
+     * Get the root node name.  Just the unqualified classname.
      *
      * @return string
      */
@@ -169,9 +166,8 @@ class CreditNote extends Remote\Model
         return 'CreditNote';
     }
 
-
     /**
-     * Get the guid property
+     * Get the guid property.
      *
      * @return string
      */
@@ -180,9 +176,8 @@ class CreditNote extends Remote\Model
         return 'CreditNoteID';
     }
 
-
     /**
-     * Get the stem of the API (core.xro) etc
+     * Get the stem of the API (core.xro) etc.
      *
      * @return string|null
      */
@@ -191,9 +186,8 @@ class CreditNote extends Remote\Model
         return Remote\URL::API_CORE;
     }
 
-
     /**
-     * Get the supported methods
+     * Get the supported methods.
      */
     public static function getSupportedMethods()
     {
@@ -210,7 +204,7 @@ class CreditNote extends Remote\Model
      *  [1] - Type
      *  [2] - PHP type
      *  [3] - Is an Array
-     *  [4] - Saves directly
+     *  [4] - Saves directly.
      *
      * @return array
      */
@@ -257,6 +251,7 @@ class CreditNote extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return CreditNote
      */
     public function setType($value)
@@ -277,6 +272,7 @@ class CreditNote extends Remote\Model
 
     /**
      * @param Contact $value
+     *
      * @return CreditNote
      */
     public function setContact(Contact $value)
@@ -297,6 +293,7 @@ class CreditNote extends Remote\Model
 
     /**
      * @param \DateTimeInterface $value
+     *
      * @return CreditNote
      */
     public function setDate(\DateTimeInterface $value)
@@ -317,6 +314,7 @@ class CreditNote extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return CreditNote
      */
     public function setStatus($value)
@@ -337,6 +335,7 @@ class CreditNote extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return CreditNote
      */
     public function setLineAmountType($value)
@@ -349,7 +348,6 @@ class CreditNote extends Remote\Model
 
     /**
      * @return LineItem[]|Remote\Collection
-     * Always returns a collection, switch is for type hinting
      */
     public function getLineItems()
     {
@@ -358,6 +356,7 @@ class CreditNote extends Remote\Model
 
     /**
      * @param LineItem $value
+     *
      * @return CreditNote
      */
     public function addLineItem(LineItem $value)
@@ -373,7 +372,6 @@ class CreditNote extends Remote\Model
 
     /**
      * @return LineItem[]|Remote\Collection
-     * Always returns a collection, switch is for type hinting
      */
     public function getPayments()
     {
@@ -390,6 +388,7 @@ class CreditNote extends Remote\Model
 
     /**
      * @param float $value
+     *
      * @return CreditNote
      */
     public function setSubTotal($value)
@@ -410,6 +409,7 @@ class CreditNote extends Remote\Model
 
     /**
      * @param float $value
+     *
      * @return CreditNote
      */
     public function setTotalTax($value)
@@ -430,6 +430,7 @@ class CreditNote extends Remote\Model
 
     /**
      * @param float $value
+     *
      * @return CreditNote
      */
     public function setTotal($value)
@@ -450,6 +451,7 @@ class CreditNote extends Remote\Model
 
     /**
      * @param \DateTimeInterface $value
+     *
      * @return CreditNote
      */
     public function setUpdatedDateUTC(\DateTimeInterface $value)
@@ -470,6 +472,7 @@ class CreditNote extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return CreditNote
      */
     public function setCurrencyCode($value)
@@ -490,6 +493,7 @@ class CreditNote extends Remote\Model
 
     /**
      * @param \DateTimeInterface $value
+     *
      * @return CreditNote
      */
     public function setFullyPaidOnDate(\DateTimeInterface $value)
@@ -510,6 +514,7 @@ class CreditNote extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return CreditNote
      */
     public function setCreditNoteID($value)
@@ -530,6 +535,7 @@ class CreditNote extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return CreditNote
      */
     public function setCreditNoteNumber($value)
@@ -550,6 +556,7 @@ class CreditNote extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return CreditNote
      */
     public function setReference($value)
@@ -570,6 +577,7 @@ class CreditNote extends Remote\Model
 
     /**
      * @param bool $value
+     *
      * @return CreditNote
      */
     public function setSentToContact($value)
@@ -590,6 +598,7 @@ class CreditNote extends Remote\Model
 
     /**
      * @param float $value
+     *
      * @return CreditNote
      */
     public function setCurrencyRate($value)
@@ -610,6 +619,7 @@ class CreditNote extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return CreditNote
      */
     public function setRemainingCredit($value)
@@ -622,7 +632,6 @@ class CreditNote extends Remote\Model
 
     /**
      * @return Allocation[]|Remote\Collection
-     * Always returns a collection, switch is for type hinting
      */
     public function getAllocations()
     {
@@ -631,6 +640,7 @@ class CreditNote extends Remote\Model
 
     /**
      * @param Allocation $value
+     *
      * @return CreditNote
      */
     public function addAllocation(Allocation $value)
@@ -654,6 +664,7 @@ class CreditNote extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return CreditNote
      */
     public function setBrandingThemeID($value)
@@ -674,6 +685,7 @@ class CreditNote extends Remote\Model
 
     /**
      * @deprecated - this is a read only property and this method will be removed in future versions
+     *
      * @param $value
      */
     public function setHasAttachment($value)

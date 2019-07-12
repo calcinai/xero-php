@@ -7,7 +7,7 @@ use XeroPHP\Remote;
 class TimesheetLine extends Remote\Model
 {
     /**
-     * The Xero identifier for an Earnings Type
+     * The Xero identifier for an Earnings Type.
      *
      * @property string EarningsTypeID
      */
@@ -20,7 +20,7 @@ class TimesheetLine extends Remote\Model
      */
 
     /**
-     * Number of units of a Timesheet line
+     * Number of units of a Timesheet line.
      *
      * @property float[] NumberOfUnits
      */
@@ -32,10 +32,8 @@ class TimesheetLine extends Remote\Model
      * @property string WorkLocationID
      */
 
-
-
     /**
-     * Get the resource uri of the class (Contacts) etc
+     * Get the resource uri of the class (Contacts) etc.
      *
      * @return string
      */
@@ -44,9 +42,8 @@ class TimesheetLine extends Remote\Model
         return 'TimesheetLines';
     }
 
-
     /**
-     * Get the root node name.  Just the unqualified classname
+     * Get the root node name.  Just the unqualified classname.
      *
      * @return string
      */
@@ -55,9 +52,8 @@ class TimesheetLine extends Remote\Model
         return 'TimesheetLine';
     }
 
-
     /**
-     * Get the guid property
+     * Get the guid property.
      *
      * @return string
      */
@@ -66,9 +62,8 @@ class TimesheetLine extends Remote\Model
         return '';
     }
 
-
     /**
-     * Get the stem of the API (core.xro) etc
+     * Get the stem of the API (core.xro) etc.
      *
      * @return string|null
      */
@@ -77,9 +72,8 @@ class TimesheetLine extends Remote\Model
         return Remote\URL::API_PAYROLL;
     }
 
-
     /**
-     * Get the supported methods
+     * Get the supported methods.
      */
     public static function getSupportedMethods()
     {
@@ -93,7 +87,7 @@ class TimesheetLine extends Remote\Model
      *  [1] - Type
      *  [2] - PHP type
      *  [3] - Is an Array
-     *  [4] - Saves directly
+     *  [4] - Saves directly.
      *
      * @return array
      */
@@ -122,6 +116,7 @@ class TimesheetLine extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return TimesheetLine
      */
     public function setEarningsTypeID($value)
@@ -142,6 +137,7 @@ class TimesheetLine extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return TimesheetLine
      */
     public function setTrackingItemID($value)
@@ -154,7 +150,6 @@ class TimesheetLine extends Remote\Model
 
     /**
      * @return float[]|Remote\Collection
-     * Always returns a collection, switch is for type hinting
      */
     public function getNumberOfUnits()
     {
@@ -163,6 +158,7 @@ class TimesheetLine extends Remote\Model
 
     /**
      * @param float $value
+     *
      * @return TimesheetLine
      */
     public function addNumberOfUnit($value)
@@ -186,6 +182,7 @@ class TimesheetLine extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return TimesheetLine
      */
     public function setWorkLocationID($value)

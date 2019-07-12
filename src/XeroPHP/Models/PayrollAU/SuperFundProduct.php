@@ -7,35 +7,34 @@ use XeroPHP\Remote;
 class SuperFundProduct extends Remote\Model
 {
     /**
-     * The ABN of the Regulated SuperFund (e.g 40022701955)
+     * The ABN of the Regulated SuperFund (e.g 40022701955).
      *
      * @property string ABN
      */
 
     /**
-     * The USI of the Regulated SuperFund (e.g 40022701955001)
+     * The USI of the Regulated SuperFund (e.g 40022701955001).
      *
      * @property string USI
      */
 
     /**
      * The SPIN of the Regulated SuperFund. (e.g NML0117AU) This field has been deprecated.  New superfunds
-     * will not have a SPIN value.  The USI field should be used instead of SPIN
+     * will not have a SPIN value.  The USI field should be used instead of SPIN.
      *
      * @property string SPIN
+     *
      * @deprecated
      */
 
     /**
-     * The name of the Regulated SuperFund
+     * The name of the Regulated SuperFund.
      *
      * @property string ProductName
      */
 
-
-
     /**
-     * Get the resource uri of the class (Contacts) etc
+     * Get the resource uri of the class (Contacts) etc.
      *
      * @return string
      */
@@ -44,9 +43,8 @@ class SuperFundProduct extends Remote\Model
         return 'SuperFundProducts';
     }
 
-
     /**
-     * Get the root node name.  Just the unqualified classname
+     * Get the root node name.  Just the unqualified classname.
      *
      * @return string
      */
@@ -55,9 +53,8 @@ class SuperFundProduct extends Remote\Model
         return 'SuperFundProduct';
     }
 
-
     /**
-     * Get the guid property
+     * Get the guid property.
      *
      * @return string
      */
@@ -66,9 +63,8 @@ class SuperFundProduct extends Remote\Model
         return '';
     }
 
-
     /**
-     * Get the stem of the API (core.xro) etc
+     * Get the stem of the API (core.xro) etc.
      *
      * @return string|null
      */
@@ -77,9 +73,8 @@ class SuperFundProduct extends Remote\Model
         return Remote\URL::API_PAYROLL;
     }
 
-
     /**
-     * Get the supported methods
+     * Get the supported methods.
      */
     public static function getSupportedMethods()
     {
@@ -94,7 +89,7 @@ class SuperFundProduct extends Remote\Model
      *  [1] - Type
      *  [2] - PHP type
      *  [3] - Is an Array
-     *  [4] - Saves directly
+     *  [4] - Saves directly.
      *
      * @return array
      */
@@ -123,6 +118,7 @@ class SuperFundProduct extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return SuperFundProduct
      */
     public function setABN($value)
@@ -143,6 +139,7 @@ class SuperFundProduct extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return SuperFundProduct
      */
     public function setUSI($value)
@@ -155,6 +152,7 @@ class SuperFundProduct extends Remote\Model
 
     /**
      * @return string
+     *
      * @deprecated
      */
     public function getSPIN()
@@ -164,7 +162,9 @@ class SuperFundProduct extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return SuperFundProduct
+     *
      * @deprecated
      */
     public function setSPIN($value)
@@ -185,6 +185,7 @@ class SuperFundProduct extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return SuperFundProduct
      */
     public function setProductName($value)
