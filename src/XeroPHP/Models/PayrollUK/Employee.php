@@ -86,21 +86,22 @@ class Employee extends Remote\Model
     public static function getProperties()
     {
         return [
-            'employeeID'     => [false, self::PROPERTY_TYPE_GUID, null, false, false],
+            'employeeID' => [false, self::PROPERTY_TYPE_GUID, null, false, false],
 
             // Required when creating, not brought back in root GET
-            'title'          => [false, self::PROPERTY_TYPE_STRING, null, false, false],
-            'gender'         => [false, self::PROPERTY_TYPE_STRING, null, false, false],
-            'address'        => [false, self::PROPERTY_TYPE_OBJECT, 'PayrollUK\\Employee\\Address', false, false],
+            'title'      => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'gender'     => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'address'    => [false, self::PROPERTY_TYPE_OBJECT, 'PayrollUK\\Employee\\Address', false, false],
 
-            'firstName'      => [true, self::PROPERTY_TYPE_STRING, null, false, false],
-            'lastName'       => [true, self::PROPERTY_TYPE_STRING, null, false, false],
-            'dateOfBirth'    => [true, self::PROPERTY_TYPE_DATE, '\\DateTimeInterface', false, false],
-            'email'          => [false, self::PROPERTY_TYPE_STRING, null, false, false],
-            'phoneNumber'    => [false, self::PROPERTY_TYPE_STRING, null, false, false],
-            'updatedDateUTC' => [false, self::PROPERTY_TYPE_TIMESTAMP, '\\DateTimeInterface', false, false],
-            'createdDateUTC' => [false, self::PROPERTY_TYPE_TIMESTAMP, '\\DateTimeInterface', false, false],
-            'employment'     => [false, self::PROPERTY_TYPE_OBJECT, 'PayrollUK\\Employee\\Employment', false, true],
+            'firstName'         => [true, self::PROPERTY_TYPE_STRING, null, false, false],
+            'lastName'          => [true, self::PROPERTY_TYPE_STRING, null, false, false],
+            'dateOfBirth'       => [true, self::PROPERTY_TYPE_DATE, '\\DateTimeInterface', false, false],
+            'email'             => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'phoneNumber'       => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'updatedDateUTC'    => [false, self::PROPERTY_TYPE_TIMESTAMP, '\\DateTimeInterface', false, false],
+            'createdDateUTC'    => [false, self::PROPERTY_TYPE_TIMESTAMP, '\\DateTimeInterface', false, false],
+            'employment'        => [false, self::PROPERTY_TYPE_OBJECT, 'PayrollUK\\Employee\\Employment', false, true],
+            'payrollCalendarID' => [false, self::PROPERTY_TYPE_GUID, null, false, false]
         ];
     }
 
@@ -315,8 +316,16 @@ class Employee extends Remote\Model
     {
         $this->propertyUpdated('employeeID', $value);
         $this->_data[ 'employeeID' ] = $value;
-        
+
         return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getPayrollCalendarID()
+    {
+        return $this->_data['payrollCalendarID'];
     }
 
     /**
