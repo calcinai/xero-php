@@ -179,6 +179,7 @@ class EarningsRate extends Remote\Model
             'Multiplier' => [false, self::PROPERTY_TYPE_FLOAT, null, false, false],
             'AccrueLeave' => [false, self::PROPERTY_TYPE_FLOAT, null, false, false],
             'Amount' => [false, self::PROPERTY_TYPE_FLOAT, null, false, false],
+            'CurrentRecord' => [false, self::PROPERTY_TYPE_STRING, null, false, false]
         ];
     }
 
@@ -460,6 +461,27 @@ class EarningsRate extends Remote\Model
     {
         $this->propertyUpdated('Amount', $value);
         $this->_data['Amount'] = $value;
+
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getCurrentRecord()
+    {
+        return $this->_data['CurrentRecord'];
+    }
+
+    /**
+     * @param string $value
+     *
+     * @return EarningsRate
+     */
+    public function setCurrentRecord($value)
+    {
+        $this->propertyUpdated('CurrentRecord', $value);
+        $this->_data['CurrentRecord'] = $value;
 
         return $this;
     }
