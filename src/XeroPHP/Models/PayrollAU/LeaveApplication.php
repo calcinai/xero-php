@@ -110,7 +110,6 @@ class LeaveApplication extends Remote\Model
     }
 
     /**
-     *
      * Get the properties of the object.  Indexed by constants
      *  [0] - Mandatory
      *  [1] - Type

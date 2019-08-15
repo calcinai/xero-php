@@ -49,8 +49,6 @@ class Setting extends Remote\Model
      */
 
     /**
-     *
-     *
      * @property string optInForTax
      */
 
@@ -105,7 +103,6 @@ class Setting extends Remote\Model
     }
 
     /**
-     *
      * Get the properties of the object.  Indexed by constants
      *  [0] - Mandatory
      *  [1] - Type
