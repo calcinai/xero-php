@@ -138,6 +138,7 @@ class LineItem extends Remote\Model
             'ItemCode' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
             'LineItemID' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
             'TaxType' => [false, self::PROPERTY_TYPE_ENUM, null, false, false],
+            'TaxAmount' => [false, self::PROPERTY_TYPE_FLOAT, null, false, false],
             'LineAmount' => [false, self::PROPERTY_TYPE_FLOAT, null, false, false],
             'Tracking' => [false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\TrackingCategory', true, false],
         ];
@@ -293,6 +294,14 @@ class LineItem extends Remote\Model
         $this->_data['TaxType'] = $value;
 
         return $this;
+    }
+
+    /**
+     * @return float
+     */
+    public function getTaxAmount()
+    {
+        return $this->_data['TaxAmount'];
     }
 
     /**
