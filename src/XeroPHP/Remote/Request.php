@@ -160,7 +160,7 @@ class Request
     /**
      * @param $key string Name of the header
      *
-     * @return null|string Header or null if not defined
+     * @return string|null Header or null if not defined
      */
     public function getHeader($key)
     {

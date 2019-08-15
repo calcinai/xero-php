@@ -212,7 +212,7 @@ class TaxRate extends Remote\Model
     }
 
     /**
-     * @return TaxComponent[]|Remote\Collection
+     * @return Remote\Collection|TaxComponent[]
      */
     public function getTaxComponents()
     {

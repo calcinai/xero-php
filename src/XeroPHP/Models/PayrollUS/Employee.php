@@ -711,7 +711,7 @@ class Employee extends Remote\Model
     }
 
     /**
-     * @return SalaryAndWage[]|Remote\Collection
+     * @return Remote\Collection|SalaryAndWage[]
      */
     public function getSalaryAndWages()
     {
@@ -735,7 +735,7 @@ class Employee extends Remote\Model
     }
 
     /**
-     * @return WorkLocation[]|Remote\Collection
+     * @return Remote\Collection|WorkLocation[]
      */
     public function getWorkLocations()
     {
@@ -825,7 +825,7 @@ class Employee extends Remote\Model
     }
 
     /**
-     * @return TimeOffBalance[]|Remote\Collection
+     * @return Remote\Collection|TimeOffBalance[]
      */
     public function getTimeOffBalances()
     {

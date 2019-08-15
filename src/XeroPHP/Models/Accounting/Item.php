@@ -390,7 +390,7 @@ class Item extends Remote\Model
     }
 
     /**
-     * @return Sale[]|Remote\Collection
+     * @return Remote\Collection|Sale[]
      */
     public function getSalesDetails()
     {

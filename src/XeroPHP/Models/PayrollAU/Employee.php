@@ -805,7 +805,7 @@ class Employee extends Remote\Model
     }
 
     /**
-     * @return SuperMembership[]|Remote\Collection
+     * @return Remote\Collection|SuperMembership[]
      */
     public function getSuperMemberships()
     {
