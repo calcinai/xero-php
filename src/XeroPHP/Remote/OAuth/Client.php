@@ -222,24 +222,33 @@ class Client
     }
 
     /**
-     * Generic nonce generating function for the request.
-     * It's important that it's long enough as the spec says the
-     * server will reject any request that reuses one.
-     *
-     * @param int $length
+     * This snippet was taken from implementations of the laravel/framework
+     * \Illuminate\Suppport\Str::random() method.
      *
      * @return string
      */
-    private function getNonce($length = 20)
+    private function getNonce()
     {
-        $parts = explode('.', number_format(microtime(true), 22, '.', ''));
-        if (! isset($parts[1])) {
-            $parts[1] = 0;
-        }
-        $nonce = base_convert($parts[1], 10, 36);
+        $length = 20;
+        $nonce = '';
 
-        for ($i = 0; $i < $length - strlen($nonce); $i++) {
-            $nonce .= base_convert(mt_rand(0, 35), 10, 36);
+        while (($len = strlen($nonce)) < $length) {
+            $size = $length - $len;
+
+            // this does not have to be cryptograpically secure, it just needs
+            // to to be random enough to not hit duplicate values, but it
+            // doesn't hurt to utilise `random_bytes` if it is available.
+            if (PHP_MAJOR_VERSION >= 7) {
+                $bytes = random_bytes($size);
+            } else {
+                $bytes = openssl_random_pseudo_bytes($size);
+
+                if ($bytes === false) {
+                    throw new Exception('Unable to generate random bytes for the nonce');
+                }
+            }
+
+            $nonce .= substr(str_replace(['/', '+', '='], '', base64_encode($bytes)), 0, $size);
         }
 
         return $nonce;
