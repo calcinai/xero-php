@@ -524,7 +524,7 @@ class Paystub extends Remote\Model
     }
 
     /**
-     * @return TimesheetEarningsLine[]|Remote\Collection
+     * @return Remote\Collection|TimesheetEarningsLine[]
      */
     public function getTimesheetEarningsLines()
     {
@@ -620,7 +620,7 @@ class Paystub extends Remote\Model
     }
 
     /**
-     * @return TimeOffLine[]|Remote\Collection
+     * @return Remote\Collection|TimeOffLine[]
      */
     public function getTimeOffLines()
     {

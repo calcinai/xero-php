@@ -172,7 +172,7 @@ class Helpers
      * @param string|null $glue
      * @param bool $escape
      *
-     * @return string|array if no glue provided, it won't be imploded
+     * @return array|string if no glue provided, it won't be imploded
      */
     public static function flattenAssocArray(
         array $array,

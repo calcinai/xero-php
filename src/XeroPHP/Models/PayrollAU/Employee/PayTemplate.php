@@ -165,7 +165,7 @@ class PayTemplate extends Remote\Model
     }
 
     /**
-     * @return SuperLine[]|Remote\Collection
+     * @return Remote\Collection|SuperLine[]
      */
     public function getSuperLines()
     {

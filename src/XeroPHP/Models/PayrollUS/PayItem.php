@@ -215,7 +215,7 @@ class PayItem extends Remote\Model
     }
 
     /**
-     * @return TimeOffType[]|Remote\Collection
+     * @return Remote\Collection|TimeOffType[]
      */
     public function getTimeOffTypes()
     {

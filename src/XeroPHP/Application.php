@@ -332,7 +332,7 @@ abstract class Application
     }
 
     /**
-     * @param Collection|array $objects
+     * @param array|Collection $objects
      * @param mixed $checkGuid
      * @param mixed $replace_data
      *

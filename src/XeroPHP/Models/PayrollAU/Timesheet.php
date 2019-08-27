@@ -197,7 +197,7 @@ class Timesheet extends Remote\Model
     }
 
     /**
-     * @return TimesheetLine[]|Remote\Collection
+     * @return Remote\Collection|TimesheetLine[]
      */
     public function getTimesheetLines()
     {

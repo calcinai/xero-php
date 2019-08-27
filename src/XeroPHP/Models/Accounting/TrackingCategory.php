@@ -224,7 +224,7 @@ class TrackingCategory extends Remote\Model
     }
 
     /**
-     * @return TrackingOption[]|Remote\Collection
+     * @return Remote\Collection|TrackingOption[]
      */
     public function getOptions()
     {

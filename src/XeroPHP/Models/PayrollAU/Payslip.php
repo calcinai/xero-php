@@ -321,7 +321,7 @@ class Payslip extends Remote\Model
     }
 
     /**
-     * @return TimesheetEarningsLine[]|Remote\Collection
+     * @return Remote\Collection|TimesheetEarningsLine[]
      */
     public function getTimesheetEarningsLines()
     {
@@ -417,7 +417,7 @@ class Payslip extends Remote\Model
     }
 
     /**
-     * @return SuperannuationLine[]|Remote\Collection
+     * @return Remote\Collection|SuperannuationLine[]
      */
     public function getSuperannuationLines()
     {
@@ -441,7 +441,7 @@ class Payslip extends Remote\Model
     }
 
     /**
-     * @return TaxLine[]|Remote\Collection
+     * @return Remote\Collection|TaxLine[]
      */
     public function getTaxLines()
     {

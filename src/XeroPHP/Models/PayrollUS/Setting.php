@@ -118,7 +118,7 @@ class Setting extends Remote\Model
     }
 
     /**
-     * @return TrackingCategory[]|Remote\Collection
+     * @return Remote\Collection|TrackingCategory[]
      */
     public function getTrackingCategories()
     {
