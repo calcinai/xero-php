@@ -7,6 +7,7 @@ use SimpleXMLElement;
 use XeroPHP\Remote\Exception\NotFoundException;
 use XeroPHP\Remote\Exception\BadRequestException;
 use XeroPHP\Remote\Exception\ForbiddenException;
+use XeroPHP\Remote\Exception\ReportPermissionMissingException;
 use XeroPHP\Remote\Exception\NotAvailableException;
 use XeroPHP\Remote\Exception\UnauthorizedException;
 use XeroPHP\Remote\Exception\InternalErrorException;
@@ -78,6 +79,7 @@ class Response
      * @throws RateLimitExceededException
      * @throws UnauthorizedException
      * @throws ForbiddenException
+     * @throws ReportPermissionMissingException
      */
     public function parse()
     {
@@ -103,8 +105,11 @@ class Response
                 if (isset($this->oauth_response['oauth_problem_advice'])) {
                     throw new UnauthorizedException($this->oauth_response['oauth_problem_advice']);
                 }
-                // no break since 401 responses that are not oauth related are assumed to be a 403's
-            case self::STATUS_FORBIDDEN:
+           
+                $response = urldecode($this->response_body);
+                if (false !== stripos($response, 'You are not permitted to access this resource without the reporting role or higher privileges')) {
+                    throw new ReportPermissionMissingException();
+                }
                 throw new ForbiddenException();
 
             case self::STATUS_NOT_FOUND:
