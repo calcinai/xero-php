@@ -174,7 +174,7 @@ This library will parse the response Xero returns and throw an exception when it
 | --------- | ------------- |
 | 400 Bad Request | `\XeroPHP\Remote\Exception\BadRequestException` |
 | 401 Unauthorized | `\XeroPHP\Remote\Exception\UnauthorizedException` |
-| 403 Forbidden | `\XeroPHP\Remote\Exception\UnauthorizedException` |
+| 403 Forbidden | `\XeroPHP\Remote\Exception\ForbiddenException` |
 | 404 Not Found | `\XeroPHP\Remote\Exception\NotFoundException` |
 | 500 Internal Error | `\XeroPHP\Remote\Exception\InternalErrorException` |
 | 501 Not Implemented | `\XeroPHP\Remote\Exception\NotImplementedException` |

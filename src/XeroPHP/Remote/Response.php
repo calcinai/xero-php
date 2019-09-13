@@ -6,6 +6,7 @@ use XeroPHP\Helpers;
 use SimpleXMLElement;
 use XeroPHP\Remote\Exception\NotFoundException;
 use XeroPHP\Remote\Exception\BadRequestException;
+use XeroPHP\Remote\Exception\ForbiddenException;
 use XeroPHP\Remote\Exception\NotAvailableException;
 use XeroPHP\Remote\Exception\UnauthorizedException;
 use XeroPHP\Remote\Exception\InternalErrorException;
@@ -76,6 +77,7 @@ class Response
      * @throws OrganisationOfflineException
      * @throws RateLimitExceededException
      * @throws UnauthorizedException
+     * @throws ForbiddenException
      */
     public function parse()
     {
@@ -101,9 +103,9 @@ class Response
                 if (isset($this->oauth_response['oauth_problem_advice'])) {
                     throw new UnauthorizedException($this->oauth_response['oauth_problem_advice']);
                 }
-                // no break
+                // no break since 401 responses that are not oauth related are assumed to be a 403's
             case self::STATUS_FORBIDDEN:
-                throw new UnauthorizedException();
+                throw new ForbiddenException();
 
             case self::STATUS_NOT_FOUND:
                 throw new NotFoundException();
