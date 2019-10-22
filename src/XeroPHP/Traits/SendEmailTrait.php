@@ -24,6 +24,7 @@ trait SendEmailTrait
 
         $url = new URL($this->_application, $uri);
         $request = new Request($this->_application, $url, Request::METHOD_POST);
+        $request->setBody('');
 
         $request->send();
 
