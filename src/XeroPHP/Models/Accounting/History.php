@@ -88,6 +88,14 @@ class History extends Model
     }
 
     /**
+     * @return \DateTimeInterface
+     */
+    public function getDateUTC()
+    {
+        return $this->_data['DateUTC'];
+    }
+
+    /**
      * @return int
      */
     public function getUser()
