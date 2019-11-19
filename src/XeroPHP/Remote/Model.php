@@ -246,8 +246,8 @@ abstract class Model implements ObjectInterface, \JsonSerializable, \ArrayAccess
                 continue;
             }
 
-            //if we only want the dirty props, stop here
-            if ( ! $this->isRequired($property) && $dirty_only && ! isset($this->_dirty[$property])) {
+            //if we only want the dirty props, stop here, unless it is required
+            if ( $dirty_only && ! isset($this->_dirty[$property]) && ! $this->isRequired($property) ) {
                 continue;
             }
 
@@ -267,7 +267,7 @@ abstract class Model implements ObjectInterface, \JsonSerializable, \ArrayAccess
     }
 
     /**
-     * Checks to see if the property is required, and skips dirty checking if it is
+     * Checks to see if the property is required
      *
      * @param string $property
      *
