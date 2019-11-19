@@ -247,7 +247,7 @@ abstract class Model implements ObjectInterface, \JsonSerializable, \ArrayAccess
             }
 
             //if we only want the dirty props, stop here
-            if ( ! $this->isNeeded($property) && $dirty_only && ! isset($this->_dirty[$property])) {
+            if ( ! $this->isRequired($property) && $dirty_only && ! isset($this->_dirty[$property])) {
                 continue;
             }
 
@@ -267,13 +267,13 @@ abstract class Model implements ObjectInterface, \JsonSerializable, \ArrayAccess
     }
 
     /**
-     * Checks to see if the property is needed, and skips dirty checking if it is
+     * Checks to see if the property is required, and skips dirty checking if it is
      *
      * @param string $property
      *
      * @return bool
      */
-    private function isNeeded($property)
+    private function isRequired($property)
     {
       switch( get_class($this) ) {
         case 'XeroPHP\Models\Accounting\Item':
