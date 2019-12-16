@@ -179,7 +179,7 @@ class EarningsRate extends Remote\Model
             'Multiplier' => [false, self::PROPERTY_TYPE_FLOAT, null, false, false],
             'AccrueLeave' => [false, self::PROPERTY_TYPE_FLOAT, null, false, false],
             'Amount' => [false, self::PROPERTY_TYPE_FLOAT, null, false, false],
-            'CurrentRecord' => [false, self::PROPERTY_TYPE_STRING, null, false, false]
+            'CurrentRecord' => [false, self::PROPERTY_TYPE_BOOLEAN, null, false, false]
         ];
     }
 
@@ -466,7 +466,7 @@ class EarningsRate extends Remote\Model
     }
 
     /**
-     * @return string
+     * @return bool
      */
     public function getCurrentRecord()
     {
@@ -474,7 +474,7 @@ class EarningsRate extends Remote\Model
     }
 
     /**
-     * @param string $value
+     * @param bool $value
      *
      * @return EarningsRate
      */

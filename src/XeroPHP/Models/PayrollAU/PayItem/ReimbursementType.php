@@ -90,7 +90,7 @@ class ReimbursementType extends Remote\Model
             'Name' => [true, self::PROPERTY_TYPE_STRING, null, false, false],
             'AccountCode' => [true, self::PROPERTY_TYPE_STRING, null, false, false],
             'ReimbursementTypeID' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
-            'CurrentRecord' => [false, self::PROPERTY_TYPE_STRING, null, false, false]
+            'CurrentRecord' => [false, self::PROPERTY_TYPE_BOOLEAN, null, false, false]
         ];
     }
 
@@ -163,7 +163,7 @@ class ReimbursementType extends Remote\Model
     }
 
     /**
-     * @return string
+     * @return bool
      */
     public function getCurrentRecord()
     {
@@ -171,7 +171,7 @@ class ReimbursementType extends Remote\Model
     }
 
     /**
-     * @param string $value
+     * @param bool $value
      *
      * @return ReimbursementType
      */
