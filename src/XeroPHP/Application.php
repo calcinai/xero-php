@@ -408,7 +408,8 @@ abstract class Application
                 //Then actually save
                 $property_objects = $object->$property_name;
                 /** @var Remote\Model $property_type */
-                $property_type = get_class(current($property_objects));
+                $first_property = $property_objects->offsetGet(0);
+                $property_type = get_class($first_property);
 
                 $url = new URL($this, sprintf('%s/%s/%s', $object::getResourceURI(), $object->getGUID(), $property_type::getResourceURI()));
                 $request = new Request($this, $url, Request::METHOD_PUT);
