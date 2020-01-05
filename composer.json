@@ -6,9 +6,8 @@
     "license": "MIT",
 
     "require": {
-        "php": ">=5.6.0",
-        "ext-curl": "*",
-        "ext-openssl": "*"
+        "php": ">=5.7.0",
+        "league/oauth2-client": "^2.4"
     },
 
     "require-dev": {

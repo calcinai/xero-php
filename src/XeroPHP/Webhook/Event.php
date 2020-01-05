@@ -56,7 +56,7 @@ class Event
      * @param \XeroPHP\Webhook $webhook
      * @param array $event event details
      *
-     * @throws \XeroPHP\Application\Exception if the provided payload is malformed
+     * @throws \XeroPHP\Exception if the provided payload is malformed
      */
     public function __construct($webhook, $event)
     {
@@ -73,7 +73,7 @@ class Event
 
         foreach ($fields as $required) {
             if (! isset($event[$required])) {
-                throw new \XeroPHP\Application\Exception("The event payload was malformed; missing required field {$required}");
+                throw new \XeroPHP\Exception("The event payload was malformed; missing required field {$required}");
             }
 
             $this->{$required} = $event[$required];
@@ -150,7 +150,7 @@ class Event
             return \XeroPHP\Models\Accounting\Contact::class;
         }
 
-        
+
     }
 
     /**

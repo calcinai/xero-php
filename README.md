@@ -5,16 +5,12 @@ XeroPHP
 [![Latest Stable Version](https://poser.pugx.org/calcinai/xero-php/v/stable)](https://packagist.org/packages/calcinai/xero-php)
 [![Total Downloads](https://poser.pugx.org/calcinai/xero-php/downloads)](https://packagist.org/packages/calcinai/xero-php)
 
-A client library for the [Xero API](<http://developer.xero.com>), including an OAuth interface and ORM-like abstraction.
+A client library for the [Xero API](<http://developer.xero.com>), wrapping an OAuth 2 client and ORM-like models.
 
-This is loosely based on the functional flow of XeroAPI/XeroOAuth-PHP, but is split logically into more of an OO design.
-
-This library has been tested with Private, Public and Partner applications.
+This library was developed for the traditional Private, Public and Partner applications, but is now based on OAuth 2 scopes.
 
 ## Requirements
-* PHP 5.5+
-* php\_curl extension - ensure a recent version (7.30+)
-* php\_openssl extension
+* PHP 5.7+
 
 ## Setup
 
@@ -33,7 +29,7 @@ All the examples below refer to models in the `XeroPHP\Models\Accounting` namesp
 Create a XeroPHP instance (sample config included):
 
 ```php
-$xero = new \XeroPHP\Application\PrivateApplication($config);
+$xero = new \XeroPHP\Application($config);
 ```
 
 Load a collection of objects and loop through them

@@ -32,7 +32,7 @@ class EventTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException \XeroPHP\Application\Exception
+     * @expectedException \XeroPHP\Exception
      */
     public function testMalformedPayload()
     {

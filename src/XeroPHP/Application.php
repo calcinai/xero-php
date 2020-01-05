@@ -2,53 +2,38 @@
 
 namespace XeroPHP;
 
-use XeroPHP\Remote\URL;
+use League\OAuth2\Client\Provider\AbstractProvider;
+use League\OAuth2\Client\Provider\GenericProvider;
+use XeroPHP\Remote\Collection;
 use XeroPHP\Remote\Query;
 use XeroPHP\Remote\Request;
-use XeroPHP\Remote\Collection;
-use XeroPHP\Remote\OAuth\Client;
+use XeroPHP\Remote\URL;
 
-abstract class Application
+class Application
 {
     protected static $_config_defaults = [
         'xero' => [
-            'site' => 'https://api.xero.com',
-            'base_url' => 'https://api.xero.com',
             'core_version' => '2.0',
             'payroll_version' => '1.0',
             'file_version' => '1.0',
-            'model_namespace' => '\\XeroPHP\\Models',
         ],
         //OAuth config
         'oauth' => [
-            'signature_method' => Client::SIGNATURE_RSA_SHA1,
-            'signature_location' => Client::SIGN_LOCATION_HEADER,
-            'authorize_url' => 'https://api.xero.com/oauth/Authorize',
-            'request_token_path' => 'oauth/RequestToken',
-            'access_token_path' => 'oauth/AccessToken',
-        ],
-        'curl' => [
-            CURLOPT_USERAGENT => 'XeroPHP',
-            CURLOPT_CONNECTTIMEOUT => 30,
-            CURLOPT_TIMEOUT => 20,
-            CURLOPT_SSL_VERIFYPEER => 2,
-            CURLOPT_SSL_VERIFYHOST => 2,
-            CURLOPT_FOLLOWLOCATION => false,
-            CURLOPT_PROXY => false,
-            CURLOPT_PROXYUSERPWD => false,
-            CURLOPT_ENCODING => '',
-        ],
+            'urlAuthorize' => 'https://login.xero.com/identity/connect/authorize',
+            'urlAccessToken' => 'https://identity.xero.com/connect/token',
+            'urlResourceOwnerDetails' => 'https://api.xero.com/api.xro/2.0/Organisation'
+        ]
     ];
+
+    /**
+     * @var GenericProvider
+     */
+    public $oauth_provider;
 
     /**
      * @var array
      */
     protected $config;
-
-    /**
-     * @var Client
-     */
-    protected $oauth_client;
 
     /**
      * @var array
@@ -63,25 +48,15 @@ abstract class Application
         //better here for overriding
         $this->setConfig($config);
 
-        $this->oauth_client = new Client($this->config['oauth']);
+        $this->oauth_provider = new GenericProvider($this->config['oauth']);
     }
 
     /**
-     * @return Client
+     * @return AbstractProvider
      */
-    public function getOAuthClient()
+    public function getOAuthProvider()
     {
-        return $this->oauth_client;
-    }
-
-    /**
-     * @param string|null $oauth_token
-     *
-     * @return string
-     */
-    public function getAuthorizeURL($oauth_token = null)
-    {
-        return $this->oauth_client->getAuthorizeURL($oauth_token);
+        return $this->oauth_provider;
     }
 
     /**
@@ -93,7 +68,7 @@ abstract class Application
      */
     public function getConfig($key)
     {
-        if (! isset($this->config[$key])) {
+        if (!isset($this->config[$key])) {
             throw new Exception("Invalid configuration key [{$key}]");
         }
 
@@ -111,7 +86,7 @@ abstract class Application
      */
     public function getConfigOption($config, $option)
     {
-        if (! isset($this->getConfig($config)[$option])) {
+        if (!isset($this->getConfig($config)[$option])) {
             throw new Exception("Invalid configuration option [{$option}]");
         }
 
@@ -145,7 +120,7 @@ abstract class Application
      */
     public function setConfigOption($config, $option, $value)
     {
-        if (! isset($this->config[$config])) {
+        if (!isset($this->config[$config])) {
             throw new Exception("Invalid configuration key [{$config}]");
         }
         $this->config[$config][$option] = $value;
@@ -170,7 +145,7 @@ abstract class Application
 
         $class = $this->prependConfigNamespace($class);
 
-        if (! class_exists($class)) {
+        if (!class_exists($class)) {
             throw new Exception("Class does not exist [{$class}]");
         }
 
@@ -186,7 +161,7 @@ abstract class Application
      */
     protected function prependConfigNamespace($class)
     {
-        return $this->getConfig('xero')['model_namespace'].'\\'.$class;
+        return '\\XeroPHP\\Models\\' . $class;
     }
 
     /**
@@ -202,9 +177,7 @@ abstract class Application
      */
     public function loadByGUID($model, $guid)
     {
-        /**
-         * @var Remote\Model
-         */
+        /** @var Remote\Model $class */
         $class = $this->validateModelClass($model);
 
         $uri = sprintf('%s/%s', $class::getResourceURI(), $guid);
@@ -216,16 +189,16 @@ abstract class Application
 
         //Return the first (if any) element from the response.
         foreach ($request->getResponse()->getElements() as $element) {
-            /**
-             * @var Remote\Model
-             */
+
+            /** @var $object Remote\Model */
             $object = new $class($this);
             $object->fromStringArray($element);
 
             return $object;
         }
 
-        
+        //This will never happen; if not found an exception will be thrown
+        return null;
     }
 
     /**
@@ -241,9 +214,7 @@ abstract class Application
      */
     public function loadByGUIDs($model, $guids)
     {
-        /**
-         * @var Remote\Model
-         */
+        /** @var $class Remote\Model */
         $class = $this->validateModelClass($model);
 
         $uri = sprintf('%s', $class::getResourceURI());
@@ -254,10 +225,10 @@ abstract class Application
         $request->setParameter('IDs', $guids);
         $request->send();
         $elements = new Collection();
+
         foreach ($request->getResponse()->getElements() as $element) {
-            /**
-             * @var Remote\Model
-             */
+
+            /** @var $object Remote\Model */
             $object = new $class($this);
             $object->fromStringArray($element);
             $elements->append($object);
@@ -268,8 +239,6 @@ abstract class Application
 
     /**
      * @param string $model
-     *
-     * @throws Remote\Exception
      *
      * @return Query
      */
@@ -294,9 +263,10 @@ abstract class Application
         //(special saving endpoints)
         $this->savePropertiesDirectly($object);
 
-        if (! $object->isDirty()) {
-            return;
+        if (!$object->isDirty()) {
+            return null;
         }
+
         $object->validate();
 
         if ($object->hasGUID()) {
@@ -310,7 +280,7 @@ abstract class Application
             $object->setApplication($this);
         }
 
-        if (! $object::supportsMethod($method)) {
+        if (!$object::supportsMethod($method)) {
             throw new Exception(sprintf('%s doesn\'t support [%s] via the API', get_class($object), $method));
         }
 
@@ -346,9 +316,8 @@ abstract class Application
 
         //Just get one type to compare with, doesn't matter which.
         $current_object = $objects[0];
-        /**
-         * @var Remote\Model
-         */
+
+        /** @var $type Remote\Model */
         $type = get_class($current_object);
         $has_guid = $checkGuid ? $current_object->hasGUID() : true;
         $object_arrays = [];
@@ -443,11 +412,11 @@ abstract class Application
      *
      * @throws Exception
      *
-     * @return Remote\Response
+     * @return Remote\Model
      */
     public function delete(Remote\Model $object)
     {
-        if (! $object::supportsMethod(Request::METHOD_DELETE)) {
+        if (!$object::supportsMethod(Request::METHOD_DELETE)) {
             throw new Exception(
                 sprintf(
                     '%s doesn\'t support [DELETE] via the API',

@@ -81,7 +81,7 @@ class Request
     public function send()
     {
         //Sign the request - this just sets the Authorization header
-        $this->app->getOAuthClient()->sign($this);
+        $this->app->getOAuthProvider()->sign($this);
 
         // configure curl
         $ch = curl_init();
@@ -185,7 +185,7 @@ class Request
             return $this->response;
         }
 
-        
+
     }
 
     /**
