@@ -13,14 +13,6 @@ class EarningsRate extends Remote\Model
      */
 
     /**
-     * This property has been removed from the Xero API.
-     *
-     * @property string DisplayName
-     *
-     * @deprecated
-     */
-
-    /**
      * See Accounts.
      *
      * @property string AccountCode
@@ -96,7 +88,7 @@ class EarningsRate extends Remote\Model
     const EARNINGSTYPE_ALLOWANCE = 'ALLOWANCE';
 
     const EARNINGSTYPE_LUMPSUMD = 'LUMPSUMD';
-    
+
     const EARNINGS_TYPE_EMPLOYMENTTERMINATIONPAYMENT = 'EMPLOYMENTTERMINATIONPAYMENT';
 
     const RATETYPE_FIXEDAMOUNT = 'FIXEDAMOUNT';
@@ -168,7 +160,6 @@ class EarningsRate extends Remote\Model
     {
         return [
             'Name' => [true, self::PROPERTY_TYPE_STRING, null, false, false],
-            'DisplayName' => [true, self::PROPERTY_TYPE_STRING, null, false, false],
             'AccountCode' => [true, self::PROPERTY_TYPE_STRING, null, false, false],
             'TypeOfUnits' => [true, self::PROPERTY_TYPE_STRING, null, false, false],
             'IsExemptFromTax' => [true, self::PROPERTY_TYPE_STRING, null, false, false],
@@ -205,31 +196,6 @@ class EarningsRate extends Remote\Model
     {
         $this->propertyUpdated('Name', $value);
         $this->_data['Name'] = $value;
-
-        return $this;
-    }
-
-    /**
-     * @return string
-     *
-     * @deprecated
-     */
-    public function getDisplayName()
-    {
-        return $this->_data['DisplayName'];
-    }
-
-    /**
-     * @param string $value
-     *
-     * @return EarningsRate
-     *
-     * @deprecated
-     */
-    public function setDisplayName($value)
-    {
-        $this->propertyUpdated('DisplayName', $value);
-        $this->_data['DisplayName'] = $value;
 
         return $this;
     }
