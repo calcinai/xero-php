@@ -7,15 +7,12 @@
 
     "require": {
         "php": ">=5.7.0",
-        "league/oauth2-client": "^2.4"
+        "calcinai/oauth2-xero": "^0.1.0"
     },
 
     "require-dev": {
         "phpunit/phpunit": "~4.7"
     },
-
-    "repositories": [
-    ],
 
     "autoload": {
         "psr-4": {
