@@ -2,8 +2,8 @@
 
 namespace XeroPHP\Webhook;
 
-use XeroPHP\Remote\URL;
 use XeroPHP\Remote\Request;
+use XeroPHP\Remote\URL;
 
 /**
  * Represents a single event within a webhook.
@@ -72,7 +72,7 @@ class Event
         ];
 
         foreach ($fields as $required) {
-            if (! isset($event[$required])) {
+            if (!isset($event[$required])) {
                 throw new \XeroPHP\Exception("The event payload was malformed; missing required field {$required}");
             }
 
@@ -176,6 +176,7 @@ class Event
      *                                          Useful if you have separate instances with different oauth tokens based on the tenant
      *
      * @return array|\XeroPHP\Remote\Model If the event category is known, returns the model, otherwise, returns the resource as an array
+     * @throws \XeroPHP\Remote\Exception
      */
     public function getResource($application = null)
     {

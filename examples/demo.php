@@ -51,9 +51,10 @@ if (!isset($_GET['code'])) {
 //construct the XeroPHP application and make authenticated requests
 
 //For the purposes of the demo, both of these parameters are used from above, but they should be stored.
-$application = new \XeroPHP\Application([
-    'accessToken' => $token->getToken(),
-    'tenantId' => $tenants[0]->tenantId
-]);
+$application = new \XeroPHP\Application(
+    $token->getToken(),
+    $tenants[0]->tenantId
+);
 
-
+$org = $application->load(\XeroPHP\Models\Accounting\Organisation::class)->execute();
+print_r($org);

@@ -2,8 +2,8 @@
 
 namespace XeroPHP;
 
-use League\OAuth2\Client\Provider\AbstractProvider;
-use League\OAuth2\Client\Provider\GenericProvider;
+use GuzzleHttp\Client;
+use GuzzleHttp\ClientInterface;
 use XeroPHP\Remote\Collection;
 use XeroPHP\Remote\Query;
 use XeroPHP\Remote\Request;
@@ -11,24 +11,17 @@ use XeroPHP\Remote\URL;
 
 class Application
 {
+    const USER_AGENT_STRING = 'XeroPHP/%s (+https://github.com/calcinai/xero-php)';
+
     protected static $_config_defaults = [
         'xero' => [
+            'base_url' => 'https://api.xero.com/',
+
             'core_version' => '2.0',
             'payroll_version' => '1.0',
             'file_version' => '1.0',
-        ],
-        //OAuth config
-        'oauth' => [
-            'urlAuthorize' => 'https://login.xero.com/identity/connect/authorize',
-            'urlAccessToken' => 'https://identity.xero.com/connect/token',
-            'urlResourceOwnerDetails' => 'https://api.xero.com/api.xro/2.0/Organisation'
         ]
     ];
-
-    /**
-     * @var GenericProvider
-     */
-    public $oauth_provider;
 
     /**
      * @var array
@@ -36,28 +29,30 @@ class Application
     protected $config;
 
     /**
-     * @var array
+     * @var ClientInterface
      */
-    protected static $_type_config_defaults = [];
+    private $transport;
 
     /**
-     * @param array $config
+     * @param $token
+     * @param $tenantId
      */
-    public function __construct(array $config)
+    public function __construct($token, $tenantId)
     {
-        //better here for overriding
-        $this->setConfig($config);
+        $this->config = static::$_config_defaults;
 
-        $this->oauth_provider = new GenericProvider($this->config['oauth']);
+        //Not sure if this is necessary, but it's one less thing to have to create outside the instance.
+        $transport = new Client([
+            'headers' => [
+                'User-Agent' => sprintf(static::USER_AGENT_STRING, Helpers::getPackageVersion()),
+                'Authorization' => sprintf('Bearer %s', $token),
+                'Xero-tenant-id' => $tenantId,
+            ]
+        ]);
+
+        $this->transport = $transport;
     }
 
-    /**
-     * @return AbstractProvider
-     */
-    public function getOAuthProvider()
-    {
-        return $this->oauth_provider;
-    }
 
     /**
      * @param mixed $key
@@ -102,7 +97,6 @@ class Application
     {
         $this->config = array_replace_recursive(
             self::$_config_defaults,
-            static::$_type_config_defaults,
             $config
         );
 
@@ -126,6 +120,11 @@ class Application
         $this->config[$config][$option] = $value;
 
         return $this->config;
+    }
+
+    public function getTransport()
+    {
+        return $this->transport;
     }
 
     /**

@@ -12,6 +12,9 @@ use XeroPHP\Models\Accounting\TrackingCategory;
  */
 class Helpers
 {
+    const PACKAGE_NAME         = 'calcinai/xero-php';
+    const PACKAGE_VERSION_FILE = __DIR__ . '/VERSION';
+
     /**
      * Convert a multi-d assoc array into an xml representation.
      * Straightforward <key>val</key> unless there are numeric keys,
@@ -75,7 +78,7 @@ class Helpers
             if ($child->count() > 0) {
                 $node = self::XMLToArray($child);
             } else {
-                $node = (string) $child;
+                $node = (string)$child;
             }
 
             //don't make it assoc, as the keys will all be the same
@@ -160,7 +163,7 @@ class Helpers
 
     public static function isAssoc(array $array)
     {
-        return (bool) count(array_filter(array_keys($array), 'is_string'));
+        return (bool)count(array_filter(array_keys($array), 'is_string'));
     }
 
     /**
@@ -226,14 +229,14 @@ class Helpers
             return hash_equals($knownString, $userInput);
         }
 
-        if (! is_string($knownString)) {
-            trigger_error('Expected known_string to be a string, '.gettype($knownString).' given', E_USER_WARNING);
+        if (!is_string($knownString)) {
+            trigger_error('Expected known_string to be a string, ' . gettype($knownString) . ' given', E_USER_WARNING);
 
             return false;
         }
 
-        if (! is_string($userInput)) {
-            trigger_error('Expected user_input to be a string, '.gettype($userInput).' given', E_USER_WARNING);
+        if (!is_string($userInput)) {
+            trigger_error('Expected user_input to be a string, ' . gettype($userInput) . ' given', E_USER_WARNING);
 
             return false;
         }
@@ -257,5 +260,45 @@ class Helpers
         }
 
         return $result === 0;
+    }
+
+
+    /**
+     * Gets the version of xero-php. Required for accurately populating the User-Agent header for requests.  This is important so
+     * Xero can see which version of the library is being used when they get support requests.
+     *
+     * Simpler to hook post-install and cache than build it into the CI - inspired by composer require ocramius/package-versions
+     * but unfortunately needed to roll my own for legacy PHP support.
+     *
+     * TODO, replace with something more robust.
+     *
+     * @throws \ReflectionException
+     */
+    public static function cachePackageVersion()
+    {
+        $vendorDir = dirname(dirname(dirname(__FILE__)));
+        $filename = sprintf('%s/composer/installed.json', $vendorDir);
+
+        if (!file_exists($filename)) {
+            return;
+        }
+
+        $packages = json_decode(file_get_contents($filename));
+
+        foreach ($packages as $package) {
+            if ($package->name === self::PACKAGE_NAME) {
+                file_put_contents(self::PACKAGE_VERSION_FILE, $package->version);
+                return;
+            }
+        }
+    }
+
+    public static function getPackageVersion()
+    {
+        if (!file_exists(self::PACKAGE_VERSION_FILE)) {
+            return false;
+        }
+
+        return file_get_contents(self::PACKAGE_VERSION_FILE);
     }
 }
