@@ -211,35 +211,40 @@ class Response
         $this->element_warnings = [];
         $this->root_error = [];
 
-        //Could possibly iterate these until a match
-        $content_type = null;
-        if ($this->getStatus() !== 204) {
-            list($content_type) = explode(';', $this->headers[Request::HEADER_CONTENT_TYPE][0]);
+        if (!isset($this->headers[Request::HEADER_CONTENT_TYPE])) {
+            //Nothing to parse
+            return;
         }
 
-        switch ($content_type) {
-            case Request::CONTENT_TYPE_XML:
-                $this->parseXML();
+        //Iterate in priority order
+        foreach ($this->headers[Request::HEADER_CONTENT_TYPE] as $ct) {
+            list($content_type) = explode(';', $ct);
 
-                break;
+            switch ($content_type) {
+                case Request::CONTENT_TYPE_XML:
+                    $this->parseXML();
+                    break;
 
-            case Request::CONTENT_TYPE_JSON:
-                $this->parseJSON();
+                case Request::CONTENT_TYPE_JSON:
+                    $this->parseJSON();
+                    break;
 
-                break;
+                case Request::CONTENT_TYPE_HTML:
+                    $this->parseHTML();
+                    break;
 
-            case Request::CONTENT_TYPE_HTML:
-                $this->parseHTML();
+                default:
+                    //Try the next content type
+                    continue 2;
 
-                break;
+            }
 
-            default:
-                //Don't try to parse anything else.
-                return;
-        }
+            foreach ($this->elements as $index => $element) {
+                $this->findElementErrors($element, $index);
+            }
 
-        foreach ($this->elements as $index => $element) {
-            $this->findElementErrors($element, $index);
+            //A matching content-type was found, break the foreach
+            break;
         }
     }
 
