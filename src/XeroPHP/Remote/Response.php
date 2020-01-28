@@ -212,7 +212,10 @@ class Response
         $this->root_error = [];
 
         //Could possibly iterate these until a match
-        list($content_type) = explode(';', $this->headers[Request::HEADER_CONTENT_TYPE][0]);
+        $content_type = null;
+        if ($this->getStatus() !== 204) {
+            list($content_type) = explode(';', $this->headers[Request::HEADER_CONTENT_TYPE][0]);
+        }
 
         switch ($content_type) {
             case Request::CONTENT_TYPE_XML:
