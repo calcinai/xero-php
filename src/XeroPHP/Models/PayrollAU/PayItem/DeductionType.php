@@ -105,6 +105,7 @@ class DeductionType extends Remote\Model
             'ReducesTax' => [true, self::PROPERTY_TYPE_FLOAT, null, false, false],
             'ReducesSuper' => [true, self::PROPERTY_TYPE_STRING, null, false, false],
             'DeductionTypeID' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'CurrentRecord' => [false, self::PROPERTY_TYPE_BOOLEAN, null, false, false]
         ];
     }
 
@@ -214,6 +215,27 @@ class DeductionType extends Remote\Model
     {
         $this->propertyUpdated('DeductionTypeID', $value);
         $this->_data['DeductionTypeID'] = $value;
+
+        return $this;
+    }
+
+    /**
+     * @return bool
+     */
+    public function getCurrentRecord()
+    {
+        return $this->_data['CurrentRecord'];
+    }
+
+    /**
+     * @param bool $value
+     *
+     * @return DeductionType
+     */
+    public function setCurrentRecord($value)
+    {
+        $this->propertyUpdated('CurrentRecord', $value);
+        $this->_data['CurrentRecord'] = $value;
 
         return $this;
     }

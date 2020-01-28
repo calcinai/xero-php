@@ -119,6 +119,7 @@ class LeaveType extends Remote\Model
             'LeaveTypeID' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
             'NormalEntitlement' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
             'LeaveLoadingRate' => [false, self::PROPERTY_TYPE_FLOAT, null, false, false],
+            'CurrentRecord' => [false, self::PROPERTY_TYPE_BOOLEAN, null, false, false]
         ];
     }
 
@@ -270,6 +271,27 @@ class LeaveType extends Remote\Model
     {
         $this->propertyUpdated('LeaveLoadingRate', $value);
         $this->_data['LeaveLoadingRate'] = $value;
+
+        return $this;
+    }
+
+    /**
+     * @return bool
+     */
+    public function getCurrentRecord()
+    {
+        return $this->_data['CurrentRecord'];
+    }
+
+    /**
+     * @param bool $value
+     *
+     * @return LeaveType
+     */
+    public function setCurrentRecord($value)
+    {
+        $this->propertyUpdated('CurrentRecord', $value);
+        $this->_data['CurrentRecord'] = $value;
 
         return $this;
     }
