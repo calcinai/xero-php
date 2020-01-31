@@ -14,6 +14,7 @@ class Helpers
 {
     const PACKAGE_NAME         = 'calcinai/xero-php';
     const PACKAGE_VERSION_FILE = __DIR__ . '/VERSION';
+    const DEFAULT_VERSION      = 'v2.0.0';
 
     /**
      * Convert a multi-d assoc array into an xml representation.
@@ -264,39 +265,14 @@ class Helpers
 
 
     /**
-     * Gets the version of xero-php. Required for accurately populating the User-Agent header for requests.  This is important so
-     * Xero can see which version of the library is being used when they get support requests.
+     * TODO drop PHP5 and use packageVersions package
      *
-     * Simpler to hook post-install and cache than build it into the CI - inspired by composer require ocramius/package-versions
-     * but unfortunately needed to roll my own for legacy PHP support.
-     *
-     * TODO, replace with something more robust.
-     *
-     * @throws \ReflectionException
+     * @return bool|false|string
      */
-    public static function cachePackageVersion()
-    {
-        $vendorDir = dirname(dirname(dirname(__FILE__)));
-        $filename = sprintf('%s/composer/installed.json', $vendorDir);
-
-        if (!file_exists($filename)) {
-            return;
-        }
-
-        $packages = json_decode(file_get_contents($filename));
-
-        foreach ($packages as $package) {
-            if ($package->name === self::PACKAGE_NAME) {
-                file_put_contents(self::PACKAGE_VERSION_FILE, $package->version);
-                return;
-            }
-        }
-    }
-
     public static function getPackageVersion()
     {
         if (!file_exists(self::PACKAGE_VERSION_FILE)) {
-            return false;
+            return self::DEFAULT_VERSION;
         }
 
         return file_get_contents(self::PACKAGE_VERSION_FILE);

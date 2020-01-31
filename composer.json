@@ -17,9 +17,5 @@
       "psr-4": {
          "XeroPHP\\": "src/XeroPHP/"
       }
-   },
-   "scripts": {
-      "post-update-cmd": "XeroPHP\\Helpers::cachePackageVersion",
-      "post-install-cmd": "XeroPHP\\Helpers::cachePackageVersion"
    }
 }

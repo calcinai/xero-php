@@ -2,8 +2,9 @@
 
 namespace XeroPHP\Remote;
 
+use GuzzleHttp\Psr7\Request as PsrRequest;
+use GuzzleHttp\Psr7\Uri;
 use XeroPHP\Application;
-use XeroPHP\Helpers;
 
 class Request
 {
@@ -86,47 +87,28 @@ class Request
         }
     }
 
+    /**
+     * @return Response
+     * @throws Exception
+     * @throws Exception\BadRequestException
+     * @throws Exception\ForbiddenException
+     * @throws Exception\InternalErrorException
+     * @throws Exception\NotAvailableException
+     * @throws Exception\NotFoundException
+     * @throws Exception\NotImplementedException
+     * @throws Exception\OrganisationOfflineException
+     * @throws Exception\RateLimitExceededException
+     * @throws Exception\ReportPermissionMissingException
+     * @throws Exception\UnauthorizedException
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     */
     public function send()
     {
-        $full_uri = $this->getUrl()->getFullURL();
-        //build parameter array - the only time there's a post body is with the XML,
-        //only escape at this point
-        $query_string = Helpers::flattenAssocArray($this->getParameters(), '%s=%s', '&', true);
+        $uri = Uri::withQueryValues(new Uri($this->getUrl()->getFullURL()), $this->getParameters());
 
-        if (strlen($query_string) > 0) {
-            $full_uri .= "?{$query_string}";
-        }
-
-
-        $request = new \GuzzleHttp\Psr7\Request($this->getMethod(), $full_uri, $this->getHeaders(), $this->body);
+        $request = new PsrRequest($this->getMethod(), $uri, $this->getHeaders(), $this->body);
 
         $guzzleResponse = $this->app->getTransport()->send($request);
-
-//        $headers = [];
-//        curl_setopt($ch, CURLOPT_HEADERFUNCTION, function ($curl, $header) use (&$headers) {
-//            $len = strlen($header);
-//            if (strpos($header, ':') === false) {
-//                return $len;
-//            }
-//
-//            list($name, $value) = explode(':', $header, 2);
-//            $name = strtolower(trim($name));
-//            $value = trim($value);
-//            if (! array_key_exists($name, $headers)) {
-//                $headers[$name] = [];
-//            }
-//            $headers[$name][] = $value;
-//
-//            return $len;
-//        });
-//
-//        $response = curl_exec($ch);
-//        $info = curl_getinfo($ch);
-//
-//        if ($response === false) {
-//            throw new Exception('Curl error: '.curl_error($ch));
-//        }
-
 
         $this->response = new Response($this,
             $guzzleResponse->getBody()->getContents(),
@@ -158,7 +140,7 @@ class Request
     public function getHeader($key)
     {
         if (!isset($this->headers[$key])) {
-            return;
+            return null;
         }
 
         return $this->headers[$key];
@@ -178,7 +160,7 @@ class Request
             return $this->response;
         }
 
-
+        return null;
     }
 
     /**
