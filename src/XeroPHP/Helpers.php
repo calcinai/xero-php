@@ -12,6 +12,10 @@ use XeroPHP\Models\Accounting\TrackingCategory;
  */
 class Helpers
 {
+    const PACKAGE_NAME         = 'calcinai/xero-php';
+    const PACKAGE_VERSION_FILE = __DIR__ . '/VERSION';
+    const DEFAULT_VERSION      = 'v2.0.0';
+
     /**
      * Convert a multi-d assoc array into an xml representation.
      * Straightforward <key>val</key> unless there are numeric keys,
@@ -75,7 +79,7 @@ class Helpers
             if ($child->count() > 0) {
                 $node = self::XMLToArray($child);
             } else {
-                $node = (string) $child;
+                $node = (string)$child;
             }
 
             //don't make it assoc, as the keys will all be the same
@@ -160,7 +164,7 @@ class Helpers
 
     public static function isAssoc(array $array)
     {
-        return (bool) count(array_filter(array_keys($array), 'is_string'));
+        return (bool)count(array_filter(array_keys($array), 'is_string'));
     }
 
     /**
@@ -226,14 +230,14 @@ class Helpers
             return hash_equals($knownString, $userInput);
         }
 
-        if (! is_string($knownString)) {
-            trigger_error('Expected known_string to be a string, '.gettype($knownString).' given', E_USER_WARNING);
+        if (!is_string($knownString)) {
+            trigger_error('Expected known_string to be a string, ' . gettype($knownString) . ' given', E_USER_WARNING);
 
             return false;
         }
 
-        if (! is_string($userInput)) {
-            trigger_error('Expected user_input to be a string, '.gettype($userInput).' given', E_USER_WARNING);
+        if (!is_string($userInput)) {
+            trigger_error('Expected user_input to be a string, ' . gettype($userInput) . ' given', E_USER_WARNING);
 
             return false;
         }
@@ -257,5 +261,20 @@ class Helpers
         }
 
         return $result === 0;
+    }
+
+
+    /**
+     * TODO drop PHP5 and use packageVersions package
+     *
+     * @return bool|false|string
+     */
+    public static function getPackageVersion()
+    {
+        if (!file_exists(self::PACKAGE_VERSION_FILE)) {
+            return self::DEFAULT_VERSION;
+        }
+
+        return file_get_contents(self::PACKAGE_VERSION_FILE);
     }
 }

@@ -34,7 +34,7 @@ class Webhook
      * @param string $payload
      * @param string|null $event
      *
-     * @throws \XeroPHP\Application\Exception
+     * @throws \XeroPHP\Exception
      *
      * @return void
      */
@@ -51,14 +51,14 @@ class Webhook
 
         // bail if json_decode fails
         if ($this->payload === null) {
-            throw new Application\Exception('The webhook payload could not be decoded: '.json_last_error_msg());
+            throw new Exception('The webhook payload could not be decoded: '.json_last_error_msg());
         }
 
         // bail if we don't have all the fields we are expecting
         if (! isset($this->payload['events']) ||
             ! isset($this->payload['firstEventSequence']) ||
             ! isset($this->payload['lastEventSequence'])) {
-            throw new Application\Exception('The webhook payload was malformed');
+            throw new Exception('The webhook payload was malformed');
         }
     }
 

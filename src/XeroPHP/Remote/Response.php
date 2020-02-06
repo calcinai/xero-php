@@ -2,18 +2,18 @@
 
 namespace XeroPHP\Remote;
 
-use XeroPHP\Helpers;
 use SimpleXMLElement;
-use XeroPHP\Remote\Exception\NotFoundException;
+use XeroPHP\Helpers;
 use XeroPHP\Remote\Exception\BadRequestException;
 use XeroPHP\Remote\Exception\ForbiddenException;
-use XeroPHP\Remote\Exception\ReportPermissionMissingException;
-use XeroPHP\Remote\Exception\NotAvailableException;
-use XeroPHP\Remote\Exception\UnauthorizedException;
 use XeroPHP\Remote\Exception\InternalErrorException;
+use XeroPHP\Remote\Exception\NotAvailableException;
+use XeroPHP\Remote\Exception\NotFoundException;
 use XeroPHP\Remote\Exception\NotImplementedException;
-use XeroPHP\Remote\Exception\RateLimitExceededException;
 use XeroPHP\Remote\Exception\OrganisationOfflineException;
+use XeroPHP\Remote\Exception\RateLimitExceededException;
+use XeroPHP\Remote\Exception\ReportPermissionMissingException;
+use XeroPHP\Remote\Exception\UnauthorizedException;
 
 class Response
 {
@@ -44,8 +44,6 @@ class Response
 
     private $status;
 
-    private $content_type;
-
     private $response_body;
 
     private $oauth_response;
@@ -58,14 +56,12 @@ class Response
 
     private $root_error;
 
-    public function __construct(Request $request, $response_body, array $curl_info, $headers)
+    public function __construct(Request $request, $response_body, $status, $headers)
     {
         $this->request = $request;
         $this->response_body = $response_body;
-        $this->status = $curl_info['http_code'];
+        $this->status = $status;
         $this->headers = $headers;
-
-        list($this->content_type) = explode(';', $curl_info['content_type']);
     }
 
     /**
@@ -88,7 +84,7 @@ class Response
         switch ($this->status) {
             case self::STATUS_BAD_REQUEST:
                 //This catches actual app errors
-                if (isset($this->root_error) && ! empty($this->root_error)) {
+                if (isset($this->root_error) && !empty($this->root_error)) {
                     $message = sprintf('%s (%s)', $this->root_error['message'], implode(', ', $this->element_errors));
                     $message .= $this->parseBadRequest();
 
@@ -105,9 +101,10 @@ class Response
                 if (isset($this->oauth_response['oauth_problem_advice'])) {
                     throw new UnauthorizedException($this->oauth_response['oauth_problem_advice']);
                 }
-           
+
                 $response = urldecode($this->response_body);
-                if (false !== stripos($response, 'You are not permitted to access this resource without the reporting role or higher privileges')) {
+                if (false !== stripos($response,
+                        'You are not permitted to access this resource without the reporting role or higher privileges')) {
                     throw new ReportPermissionMissingException();
                 }
                 throw new ForbiddenException();
@@ -143,10 +140,11 @@ class Response
 
     /**
      * @return string
+     * @throws UnauthorizedException
      */
     private function parseBadRequest()
     {
-        if (! empty($this->elements)) {
+        if (!empty($this->elements)) {
             $field_errors = [];
             foreach ($this->elements as $n => $element) {
                 if (isset($element['ValidationErrors'])) {
@@ -154,7 +152,7 @@ class Response
                 }
             }
 
-            return "\nValidation errors:\n".implode("\n", $field_errors);
+            return "\nValidation errors:\n" . implode("\n", $field_errors);
         }
 
         if (isset($this->oauth_response['oauth_problem_advice'])) {
@@ -184,8 +182,6 @@ class Response
         if (isset($this->element_errors[$element_id])) {
             return $this->element_errors[$element_id];
         }
-
-        
     }
 
     public function getElementErrors()
@@ -210,47 +206,52 @@ class Response
 
     public function parseBody()
     {
-        if ($this->request->getUrl()->isOAuth()) {
-            $this->parseHTML();
-
-            return;
-        }
-
         $this->elements = [];
         $this->element_errors = [];
         $this->element_warnings = [];
         $this->root_error = [];
 
-        switch ($this->content_type) {
-            case Request::CONTENT_TYPE_XML:
-                $this->parseXML();
-
-                break;
-
-            case Request::CONTENT_TYPE_JSON:
-                $this->parseJSON();
-
-                break;
-
-            case Request::CONTENT_TYPE_HTML:
-                $this->parseHTML();
-
-                break;
-
-            default:
-                //Don't try to parse anything else.
-                return;
+        if (!isset($this->headers[Request::HEADER_CONTENT_TYPE])) {
+            //Nothing to parse
+            return;
         }
 
-        foreach ($this->elements as $index => $element) {
-            $this->findElementErrors($element, $index);
+        //Iterate in priority order
+        foreach ($this->headers[Request::HEADER_CONTENT_TYPE] as $ct) {
+            list($content_type) = explode(';', $ct);
+
+            switch ($content_type) {
+                case Request::CONTENT_TYPE_XML:
+                    $this->parseXML();
+                    break;
+
+                case Request::CONTENT_TYPE_JSON:
+                    $this->parseJSON();
+                    break;
+
+                case Request::CONTENT_TYPE_HTML:
+                    $this->parseHTML();
+                    break;
+
+                default:
+                    //Try the next content type
+                    continue 2;
+
+            }
+
+            foreach ($this->elements as $index => $element) {
+                $this->findElementErrors($element, $index);
+            }
+
+            //A matching content-type was found, break the foreach
+            break;
         }
     }
 
     public function findElementErrors($element, $element_index)
     {
         foreach ($element as $property => $value) {
-            switch ((string) $property) {
+            switch ((string)$property) {
                 case 'ValidationErrors':
                     if (is_array($value)) {
                         foreach ($value as $error) {
@@ -286,15 +287,15 @@ class Response
         foreach ($sxml as $child_index => $root_child) {
             switch ($child_index) {
                 case 'ErrorNumber':
-                    $this->root_error['code'] = (string) $root_child;
+                    $this->root_error['code'] = (string)$root_child;
 
                     break;
                 case 'Type':
-                    $this->root_error['type'] = (string) $root_child;
+                    $this->root_error['type'] = (string)$root_child;
 
                     break;
                 case 'Message':
-                    $this->root_error['message'] = (string) $root_child;
+                    $this->root_error['message'] = (string)$root_child;
 
                     break;
                 case 'Payslip':
