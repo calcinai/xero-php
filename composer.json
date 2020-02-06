@@ -5,7 +5,7 @@
    "homepage": "https://github.com/calcinai/xero-php",
    "license": "MIT",
    "require": {
-      "php": ">=5.7.0",
+      "php": ">=5.6.0",
       "calcinai/oauth2-xero": "^0.1.0",
       "ext-json": "*",
       "ext-simplexml": "*"
