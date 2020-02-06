@@ -82,6 +82,13 @@ class LineItem extends Remote\Model
      */
 
     /**
+     * Discount amount being applied to a line item (only supported on ACCREC invoices – ACC PAY
+     * invoices and credit notes in Xero do not support discounts.
+     *
+     * @property float DiscountAmount
+     */
+
+    /**
      * Get the resource uri of the class (Contacts) etc.
      *
      * @return string
@@ -154,6 +161,7 @@ class LineItem extends Remote\Model
             'LineAmount' => [false, self::PROPERTY_TYPE_FLOAT, null, false, false],
             'Tracking' => [false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\TrackingCategory', true, false],
             'DiscountRate' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'DiscountAmount' => [false, self::PROPERTY_TYPE_FLOAT, null, false, false],
         ];
     }
 
@@ -392,6 +400,27 @@ class LineItem extends Remote\Model
     {
         $this->propertyUpdated('DiscountRate', $value);
         $this->_data['DiscountRate'] = $value;
+
+        return $this;
+    }
+
+    /**
+     * @return float
+     */
+    public function getDiscountAmount()
+    {
+        return $this->_data['DiscountAmount'];
+    }
+
+    /**
+     * @param float $value
+     *
+     * @return LineItem
+     */
+    public function setDiscountAmount($value)
+    {
+        $this->propertyUpdated('DiscountAmount', $value);
+        $this->_data['DiscountAmount'] = $value;
 
         return $this;
     }
