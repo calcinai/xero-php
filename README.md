@@ -10,7 +10,7 @@ A client library for the [Xero API](<http://developer.xero.com>), wrapping Guzzl
 This library was developed for the traditional Private, Public and Partner applications, but is now based on OAuth 2 scopes.
 
 ## Requirements
-* PHP 5.7+
+* PHP 5.6+
 
 ## Setup
 
