@@ -73,11 +73,8 @@ class Application
     /**
      * @param string $config
      * @param mixed $option
-     * @param mixed $value
-     *
-     * @throws Exception
-     *
      * @return mixed
+     * @throws Exception
      */
     public function getConfigOption($config, $option)
     {
@@ -122,9 +119,21 @@ class Application
         return $this->config;
     }
 
+    /**
+     * @return ClientInterface
+     */
     public function getTransport()
     {
         return $this->transport;
+    }
+
+    /**
+     * @param ClientInterface $client
+     * @return ClientInterface
+     */
+    public function setTransport(ClientInterface $client)
+    {
+        return $this->transport = $client;
     }
 
     /**

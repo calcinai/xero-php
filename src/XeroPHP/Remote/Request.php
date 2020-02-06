@@ -100,7 +100,6 @@ class Request
      * @throws Exception\RateLimitExceededException
      * @throws Exception\ReportPermissionMissingException
      * @throws Exception\UnauthorizedException
-     * @throws \GuzzleHttp\Exception\GuzzleException
      */
     public function send()
     {
@@ -108,7 +107,11 @@ class Request
 
         $request = new PsrRequest($this->getMethod(), $uri, $this->getHeaders(), $this->body);
 
-        $guzzleResponse = $this->app->getTransport()->send($request);
+        try {
+            $guzzleResponse = $this->app->getTransport()->send($request);
+        } catch (\GuzzleHttp\Exception\GuzzleException $e) {
+            throw new Exception($e->getMessage(), $e->getCode());
+        }
 
         $this->response = new Response($this,
             $guzzleResponse->getBody()->getContents(),
