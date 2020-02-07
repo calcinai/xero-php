@@ -88,7 +88,6 @@ class Request
     }
 
     /**
-     * @return Response
      * @throws Exception
      * @throws Exception\BadRequestException
      * @throws Exception\ForbiddenException
@@ -109,17 +108,15 @@ class Request
 
         try {
             $guzzleResponse = $this->app->getTransport()->send($request);
-        } catch (\GuzzleHttp\Exception\GuzzleException $e) {
-            throw new Exception($e->getMessage(), $e->getCode());
+        }  catch (\GuzzleHttp\Exception\GuzzleException $e) {
+            $guzzleResponse = $e->getResponse();
         }
-
         $this->response = new Response($this,
             $guzzleResponse->getBody()->getContents(),
             $guzzleResponse->getStatusCode(),
             $guzzleResponse->getHeaders()
         );
         $this->response->parse();
-
         return $this->response;
     }
 
