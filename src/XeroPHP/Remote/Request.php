@@ -88,7 +88,29 @@ class Request
     }
 
     /**
-     * @return Response
+     * @param $response
+     * @throws Exception
+     * @throws Exception\BadRequestException
+     * @throws Exception\ForbiddenException
+     * @throws Exception\InternalErrorException
+     * @throws Exception\NotAvailableException
+     * @throws Exception\NotFoundException
+     * @throws Exception\NotImplementedException
+     * @throws Exception\OrganisationOfflineException
+     * @throws Exception\RateLimitExceededException
+     * @throws Exception\ReportPermissionMissingException
+     * @throws Exception\UnauthorizedException
+     */
+    private function parseResponse($response) {
+        $this->response = new Response($this,
+            $response->getBody()->getContents(),
+            $response->getStatusCode(),
+            $response->getHeaders()
+        );
+        $this->response->parse();
+    }
+
+    /**
      * @throws Exception
      * @throws Exception\BadRequestException
      * @throws Exception\ForbiddenException
@@ -109,17 +131,14 @@ class Request
 
         try {
             $guzzleResponse = $this->app->getTransport()->send($request);
+        } catch (\GuzzleHttp\Exception\BadResponseException $e) {
+            $response = $e->getResponse();
+            $this->parseResponse($response);
+            return $this->response;
         } catch (\GuzzleHttp\Exception\GuzzleException $e) {
             throw new Exception($e->getMessage(), $e->getCode());
         }
-
-        $this->response = new Response($this,
-            $guzzleResponse->getBody()->getContents(),
-            $guzzleResponse->getStatusCode(),
-            $guzzleResponse->getHeaders()
-        );
-        $this->response->parse();
-
+        $this->parseResponse($guzzleResponse);
         return $this->response;
     }
 
