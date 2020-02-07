@@ -88,6 +88,7 @@ class Request
     }
 
     /**
+     * Parse Response from Guzzle / HTTP Client
      * @param $response
      * @throws Exception
      * @throws Exception\BadRequestException
