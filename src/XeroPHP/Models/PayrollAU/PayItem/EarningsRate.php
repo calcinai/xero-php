@@ -308,19 +308,21 @@ class EarningsRate extends Remote\Model
     /**
      * @return string
      */
-    public function getAllowanceType() {
+    public function getAllowanceType()
+    {
         return $this->_data['AllowanceType'];
     }
 
     /**
      * @param string $value
-     * 
+     *
      * @return EarningsRate
      */
-    public function setAllowanceType($value) {
+    public function setAllowanceType($value)
+    {
         $this->propertyUpdated('AllowanceType', $value);
         $this->_data['AllowanceType'] = $value;
-        
+
         return $this;
     }
 
