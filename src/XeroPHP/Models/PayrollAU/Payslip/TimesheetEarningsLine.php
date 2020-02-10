@@ -88,7 +88,7 @@ class TimesheetEarningsLine extends Remote\Model
         return [
             'EarningsRateID' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
             'RatePerUnit' => [false, self::PROPERTY_TYPE_FLOAT, null, false, false],
-            'Amount' => [false, self::PROPERTY_TYPE_FLOAT, null, false, false],
+            'NumberOfUnits' => [false, self::PROPERTY_TYPE_FLOAT, null, false, false],
         ];
     }
 
@@ -140,11 +140,11 @@ class TimesheetEarningsLine extends Remote\Model
     }
 
     /**
-     * @return float
+     * @return float[]|Remote\Collection
      */
-    public function getAmount()
+    public function getNumberOfUnits()
     {
-        return $this->_data['Amount'];
+        return $this->_data['NumberOfUnits'];
     }
 
     /**
@@ -152,10 +152,10 @@ class TimesheetEarningsLine extends Remote\Model
      *
      * @return TimesheetEarningsLine
      */
-    public function setAmount($value)
+    public function setNumberOfUnits($value)
     {
-        $this->propertyUpdated('Amount', $value);
-        $this->_data['Amount'] = $value;
+        $this->propertyUpdated('NumberOfUnits', $value);
+        $this->_data['NumberOfUnits'] = $value;
 
         return $this;
     }
