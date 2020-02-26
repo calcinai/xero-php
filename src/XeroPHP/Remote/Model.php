@@ -275,16 +275,8 @@ abstract class Model implements ObjectInterface, \JsonSerializable, \ArrayAccess
      */
     private function isRequired($property)
     {
-      switch( get_class($this) ) {
-        case 'XeroPHP\Models\Accounting\Item':
-          switch( $property ) {
-            case 'Code':
-              return true;
-          }
-
-      }
-
-      return false;
+      $properties = $this->getProperties();
+      return (isset($properties[$property]) && $properties[$property][0]);
     }
 
     /**
