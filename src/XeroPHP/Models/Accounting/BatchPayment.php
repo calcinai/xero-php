@@ -14,8 +14,10 @@ class BatchPayment extends Remote\Model
      */
 
     /**
-     * Narticulars, Code, Reference
+     * Particulars, Code, Reference (NZ Only) Optional references for the batch payment transaction.
      *
+     * @property string Particulars
+     * @property string Code
      * @property string Reference
      */
 
@@ -41,13 +43,13 @@ class BatchPayment extends Remote\Model
      * (UK Only) Only shows on the statement line in Xero. Max length =18
      *
      * @property string Narrative
-     */ 
+     */
 
     /**
      * See Types.
      *
      * @property string PaymentType
-     */        
+     */
 
     public static function getResourceURI()
     {
@@ -114,6 +116,9 @@ class BatchPayment extends Remote\Model
     {
         return [
             'Account' => [false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Account', false, false],
+            'Particulars' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'Code' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'Reference' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
             'Narrative' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
             'Details' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
             'BatchPaymentID' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
@@ -148,6 +153,64 @@ class BatchPayment extends Remote\Model
     {
         $this->propertyUpdated('Account', $value);
         $this->_data['Account'] = $value;
+        return $this;
+    }
+
+
+    /**
+     * @return string
+     */
+    public function getParticulars()
+    {
+        return $this->_data['Particulars'];
+    }
+
+    /**
+     * @param string $value
+     * @return Payment
+     */
+    public function setParticulars($value)
+    {
+        $this->propertyUpdated('Particulars', $value);
+        $this->_data['Particulars'] = $value;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getCode()
+    {
+        return $this->_data['Code'];
+    }
+
+    /**
+     * @param string $value
+     * @return Payment
+     */
+    public function setCode($value)
+    {
+        $this->propertyUpdated('Code', $value);
+        $this->_data['Code'] = $value;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getReference()
+    {
+        return $this->_data['Reference'];
+    }
+
+    /**
+     * @param string $value
+     * @return Payment
+     */
+    public function setReference($value)
+    {
+        $this->propertyUpdated('Reference', $value);
+        $this->_data['Reference'] = $value;
         return $this;
     }
 
@@ -187,7 +250,7 @@ class BatchPayment extends Remote\Model
         $this->propertyUpdated('Details', $value);
         $this->_data['Details'] = $value;
         return $this;
-    }    
+    }
 
     /**
      * @return \DateTimeInterface
@@ -251,6 +314,6 @@ class BatchPayment extends Remote\Model
         $this->propertyUpdated('BatchPaymentID', $value);
         $this->_data['BatchPaymentID'] = $value;
         return $this;
-    }    
+    }
 
 }
