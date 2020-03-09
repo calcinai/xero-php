@@ -127,8 +127,8 @@ class BatchPayment extends Remote\Model
             'Type' => [false, self::PROPERTY_TYPE_ENUM, null, false, false],
             'Status' => [false, self::PROPERTY_TYPE_ENUM, null, false, false],
             'TotalAmount' => [false, self::PROPERTY_TYPE_FLOAT, null, false, false],
+            'IsReconciled' => [false, self::PROPERTY_TYPE_BOOLEAN, null, false, false],
             'UpdatedDateUTC' => [false, self::PROPERTY_TYPE_TIMESTAMP, '\\DateTimeInterface', false, false],
-            'IsReconciled' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
         ];
     }
 
@@ -167,7 +167,7 @@ class BatchPayment extends Remote\Model
 
     /**
      * @param string $value
-     * @return Payment
+     * @return BatchPayment
      */
     public function setParticulars($value)
     {
@@ -186,7 +186,7 @@ class BatchPayment extends Remote\Model
 
     /**
      * @param string $value
-     * @return Payment
+     * @return BatchPayment
      */
     public function setCode($value)
     {
@@ -205,7 +205,7 @@ class BatchPayment extends Remote\Model
 
     /**
      * @param string $value
-     * @return Payment
+     * @return BatchPayment
      */
     public function setReference($value)
     {
@@ -224,7 +224,7 @@ class BatchPayment extends Remote\Model
 
     /**
      * @param string $value
-     * @return Payment
+     * @return BatchPayment
      */
     public function setNarrative($value)
     {
@@ -243,7 +243,7 @@ class BatchPayment extends Remote\Model
 
     /**
      * @param string $value
-     * @return Payment
+     * @return BatchPayment
      */
     public function setDetails($value)
     {
@@ -262,7 +262,7 @@ class BatchPayment extends Remote\Model
 
     /**
      * @param \DateTimeInterface $value
-     * @return Payment
+     * @return BatchPayment
      */
     public function setDate(\DateTimeInterface $value)
     {
@@ -272,20 +272,17 @@ class BatchPayment extends Remote\Model
     }
 
     /**
-     * @return Payment
+     * @return Payment[]|Remote\Collection
+     * @deprecated Use `getPayments()` instead. This is a typo
      */
     public function getPayment()
     {
-        if (!isset($this->_data['Payments'])) {
-            $this->_data['Payments'] = new Remote\Collection();
-        }
-
-        return $this->_data['Payments'];
+        return $this->getPayments();
     }
 
     /**
      * @param Payment $value
-     * @return Payment
+     * @return BatchPayment
      */
     public function addPayments(Payment $value)
     {
@@ -307,7 +304,7 @@ class BatchPayment extends Remote\Model
 
     /**
      * @param string $value
-     * @return Payment
+     * @return BatchPayment
      */
     public function setBatchPaymentID($value)
     {
@@ -316,4 +313,55 @@ class BatchPayment extends Remote\Model
         return $this;
     }
 
+    /**
+     * @return Payment[]|Remote\Collection
+     */
+    public function getPayments()
+    {
+        if (!isset($this->_data['Payments'])) {
+            $this->_data['Payments'] = new Remote\Collection();
+        }
+
+        return $this->_data['Payments'];
+    }
+
+    /**
+     * @return float
+     */
+    public function getType()
+    {
+        return $this->_data['Type'];
+    }
+
+    /**
+     * @return string
+     */
+    public function getStatus()
+    {
+        return $this->_data['Status'];
+    }
+
+    /**
+     * @return float
+     */
+    public function getTotalAmount()
+    {
+        return $this->_data['TotalAmount'];
+    }
+
+    /**
+     * @return bool
+     */
+    public function getIsReconciled()
+    {
+        return $this->_data['IsReconciled'];
+    }
+
+    /**
+     * @return \DateTimeInterface
+     */
+    public function getUpdatedDateUTC()
+    {
+        return $this->_data['UpdatedDateUTC'];
+    }
 }
