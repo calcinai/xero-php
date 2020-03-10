@@ -326,7 +326,7 @@ class BatchPayment extends Remote\Model
     }
 
     /**
-     * @return float
+     * @return string
      */
     public function getType()
     {
