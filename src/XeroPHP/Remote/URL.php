@@ -96,6 +96,6 @@ class URL
      */
     public function getFullURL()
     {
-        return sprintf('%s/%s', $this->base_url, $this->path);
+        return sprintf('%s%s', $this->base_url, $this->path);
     }
 }
