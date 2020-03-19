@@ -309,6 +309,19 @@ class PayRun extends Remote\Model
     {
         return $this->_data['PayslipMessage'];
     }
+    
+     /**
+     * @param string $value
+     *
+     * @return PayRun
+     */
+    public function setPayslipMessage($value)
+    {
+        $this->propertyUpdated('PayslipMessage', $value);
+        $this->_data['PayslipMessage'] = $value;
+
+        return $this;
+    }
 
     /**
      * @return Payslip[]|Remote\Collection
