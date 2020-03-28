@@ -2,100 +2,90 @@
 
 namespace XeroPHP\tests\Application;
 
-use XeroPHP\Application\PrivateApplication;
+use XeroPHP\Application;
 
 class ApplicationTest extends \PHPUnit_Framework_TestCase
 {
-    public function test_prepends_config_namespace_when_validating_model_class()
-    {
-        $app = $this->instance();
-        $class = 'Accounting\\Invoice';
-
-        $this->assertEquals(
-            $app->validateModelClass($class),
-            $app->getConfig('xero')['model_namespace'].'\\'.$class
-        );
-    }
-
-    public function test_allows_FQN_when_validating_model_class()
+    public function testAllowsFQNWhenValidatingModelClass()
     {
         $class = \XeroPHP\Models\Accounting\Invoice::class;
 
-        $this->assertEquals(
+        $this->assertSame(
             $this->instance()->validateModelClass($class),
             $class
         );
     }
 
-    public function test_allows_FQN_beginning_with_backslash_when_validating_model_class()
+    public function testAllowsFQNBeginningWithBackslashWhenValidatingModelClass()
     {
-        $class = '\XeroPHP\Models\Accounting\Invoice';
+        $class = '\\XeroPHP\\Models\\Accounting\\Invoice';
 
-        $this->assertEquals(
+        $this->assertSame(
             $this->instance()->validateModelClass($class),
             $class
         );
     }
 
-    public function test_throws_exception_when_unable_to_validate_class()
+    public function testThrowsExceptionWhenUnableToValidateClass()
     {
         $this->setExpectedException(\Exception::class);
 
         $this->instance()->validateModelClass('Unknown\\Namespaced\\Class');
+
     }
 
-    public function test_setting_missing_config_option_throws_exception()
+    public function testSettingMissingConfigOptionThrowsException()
     {
         $this->setExpectedException(\Exception::class);
 
         $this->instance()->setConfigOption('non_exitant_key', 'sub_key', 'value');
     }
 
-    public function test_set_config_option_updates_configuration()
+    public function testSetConfigOptionUpdatesConfiguration()
     {
-        $key = 'oauth';
+        $key = 'xero';
         $subkey = 'test_sub_key';
         $expected = 'test_value';
         $app = $this->instance();
         $app->setConfigOption($key, $subkey, $expected);
 
-        $this->assertEquals(
+        $this->assertSame(
             $expected,
             $app->getConfigOption($key, $subkey, $expected)
         );
     }
 
-    public function test_can_retrieve_config()
+    public function testCanRetrieveConfig()
     {
         $key = 'test_key';
         $expected = ['sub_test_key' => 'test_value'];
 
-        $this->assertEquals(
+        $this->assertSame(
             $expected,
             $this->instance([$key => $expected])->getConfig($key)
         );
     }
 
-    public function test_can_retrieve_config_option()
+    public function testCanRetrieveConfigOption()
     {
         $key = 'test_key';
         $subKey = 'sub_test_key';
         $expected = 'test_value';
 
-        $this->assertEquals(
+        $this->assertSame(
             $expected,
             $this->instance([$key => [$subKey => $expected]])->getConfigOption($key, $subKey)
         );
     }
 
-    public function test_accessing_missing_config_option_throws_exception()
+    public function testAccessingMissingConfigOptionThrowsException()
     {
         $this->setExpectedException(\Exception::class);
 
-        $this->instance()->getConfigOption('oauth', 'non_existent_key');
+        $this->instance()->getConfigOption('xero', 'non_existent_key');
     }
 
-    public function test_accessing_missing_config_throws_exception()
+    public function testAccessingMissingConfigThrowsException()
     {
         $this->setExpectedException(\Exception::class);
 
@@ -104,10 +94,9 @@ class ApplicationTest extends \PHPUnit_Framework_TestCase
 
     protected function instance($config = [])
     {
-        return new PrivateApplication(
-            array_merge_recursive([
-                'oauth' => ['consumer_key' => 'CONSUMER_KEY'],
-            ], $config)
-        );
+        $application = new Application('token', 'tenantId');
+        $application->setConfig($config);
+
+        return $application;
     }
 }

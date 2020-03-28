@@ -1,31 +1,31 @@
 <?php
+
 namespace XeroPHP\Models\PayrollAU\Employee\PayTemplate;
 
 use XeroPHP\Remote;
 
-class EarningsLine extends Remote\Object
+class EarningsLine extends Remote\Model
 {
-
     /**
-     * Xero earnings rate identifier
+     * Xero earnings rate identifier.
      *
      * @property string EarningsRateID
      */
 
     /**
-     * See Earnings Rate Calculation Type
+     * See Earnings Rate Calculation Type.
      *
      * @property string CalculationType
      */
 
     /**
-     * Hours per week for the EarningsLine. Applicable for ANNUALSALARY CalculationType
+     * Hours per week for the EarningsLine. Applicable for ANNUALSALARY CalculationType.
      *
      * @property string NumberOfUnitsPerWeek
      */
 
     /**
-     * Annual Salary of employee
+     * Annual Salary of employee.
      *
      * @property string AnnualSalary
      */
@@ -37,17 +37,18 @@ class EarningsLine extends Remote\Object
      */
 
     /**
-     * Normal number of units for EarningsLine.  Applicable when RateType is “MULTIPLE”
+     * Normal number of units for EarningsLine.  Applicable when RateType is “MULTIPLE”.
      *
      * @property string NormalNumberOfUnits
      */
+    const EARNINGSRATECALCULATIONTYPE_USEEARNINGSRATE = 'USEEARNINGSRATE';
 
-     const EARNINGSRATECALCULATIONTYPE_USEEARNINGSRATE   = 'USEEARNINGSRATE';
-     const EARNINGSRATECALCULATIONTYPE_ENTEREARNINGSRATE = 'ENTEREARNINGSRATE';
-     const EARNINGSRATECALCULATIONTYPE_ANNUALSALARY      = 'ANNUALSALARY';
+    const EARNINGSRATECALCULATIONTYPE_ENTEREARNINGSRATE = 'ENTEREARNINGSRATE';
+
+    const EARNINGSRATECALCULATIONTYPE_ANNUALSALARY = 'ANNUALSALARY';
 
     /**
-     * Get the resource uri of the class (Contacts) etc
+     * Get the resource uri of the class (Contacts) etc.
      *
      * @return string
      */
@@ -56,9 +57,8 @@ class EarningsLine extends Remote\Object
         return 'EarningsLine';
     }
 
-
     /**
-     * Get the root node name.  Just the unqualified classname
+     * Get the root node name.  Just the unqualified classname.
      *
      * @return string
      */
@@ -67,9 +67,8 @@ class EarningsLine extends Remote\Object
         return 'EarningsLine';
     }
 
-
     /**
-     * Get the guid property
+     * Get the guid property.
      *
      * @return string
      */
@@ -78,9 +77,8 @@ class EarningsLine extends Remote\Object
         return '';
     }
 
-
     /**
-     * Get the stem of the API (core.xro) etc
+     * Get the stem of the API (core.xro) etc.
      *
      * @return string|null
      */
@@ -89,9 +87,8 @@ class EarningsLine extends Remote\Object
         return Remote\URL::API_PAYROLL;
     }
 
-
     /**
-     * Get the supported methods
+     * Get the supported methods.
      */
     public static function getSupportedMethods()
     {
@@ -100,13 +97,12 @@ class EarningsLine extends Remote\Object
     }
 
     /**
-     *
      * Get the properties of the object.  Indexed by constants
      *  [0] - Mandatory
      *  [1] - Type
      *  [2] - PHP type
      *  [3] - Is an Array
-     *  [4] - Saves directly
+     *  [4] - Saves directly.
      *
      * @return array
      */
@@ -118,7 +114,7 @@ class EarningsLine extends Remote\Object
             'NumberOfUnitsPerWeek' => [false, self::PROPERTY_TYPE_FLOAT, null, false, false],
             'AnnualSalary' => [false, self::PROPERTY_TYPE_FLOAT, null, false, false],
             'RatePerUnit' => [false, self::PROPERTY_TYPE_FLOAT, null, false, false],
-            'NormalNumberOfUnits' => [false, self::PROPERTY_TYPE_FLOAT, null, false, false]
+            'NormalNumberOfUnits' => [false, self::PROPERTY_TYPE_FLOAT, null, false, false],
         ];
     }
 
@@ -126,7 +122,6 @@ class EarningsLine extends Remote\Object
     {
         return false;
     }
-
 
     /**
      * @return string
@@ -138,12 +133,14 @@ class EarningsLine extends Remote\Object
 
     /**
      * @param string $value
+     *
      * @return EarningsLine
      */
     public function setEarningsRateID($value)
     {
         $this->propertyUpdated('EarningsRateID', $value);
         $this->_data['EarningsRateID'] = $value;
+
         return $this;
     }
 
@@ -157,12 +154,14 @@ class EarningsLine extends Remote\Object
 
     /**
      * @param string $value
+     *
      * @return EarningsLine
      */
     public function setCalculationType($value)
     {
         $this->propertyUpdated('CalculationType', $value);
         $this->_data['CalculationType'] = $value;
+
         return $this;
     }
 
@@ -176,12 +175,14 @@ class EarningsLine extends Remote\Object
 
     /**
      * @param float $value
+     *
      * @return EarningsLine
      */
     public function setNumberOfUnitsPerWeek($value)
     {
         $this->propertyUpdated('NumberOfUnitsPerWeek', $value);
         $this->_data['NumberOfUnitsPerWeek'] = $value;
+
         return $this;
     }
 
@@ -195,12 +196,14 @@ class EarningsLine extends Remote\Object
 
     /**
      * @param float $value
+     *
      * @return EarningsLine
      */
     public function setAnnualSalary($value)
     {
         $this->propertyUpdated('AnnualSalary', $value);
         $this->_data['AnnualSalary'] = $value;
+
         return $this;
     }
 
@@ -214,12 +217,14 @@ class EarningsLine extends Remote\Object
 
     /**
      * @param float $value
+     *
      * @return EarningsLine
      */
     public function setRatePerUnit($value)
     {
         $this->propertyUpdated('RatePerUnit', $value);
         $this->_data['RatePerUnit'] = $value;
+
         return $this;
     }
 
@@ -233,12 +238,14 @@ class EarningsLine extends Remote\Object
 
     /**
      * @param float $value
+     *
      * @return EarningsLine
      */
     public function setNormalNumberOfUnit($value)
     {
         $this->propertyUpdated('NormalNumberOfUnits', $value);
         $this->_data['NormalNumberOfUnits'] = $value;
+
         return $this;
     }
 }

@@ -1,19 +1,19 @@
 <?php
+
 namespace XeroPHP\Models\PayrollUS\PayItem;
 
 use XeroPHP\Remote;
 
-class DeductionType extends Remote\Object
+class DeductionType extends Remote\Model
 {
-
     /**
-     * Name of the deduction type (max length = 50)
+     * Name of the deduction type (max length = 50).
      *
      * @property DeductionType DeductionType
      */
 
     /**
-     * The category defines the tax implications of the deduction type so it is taxed properly
+     * The category defines the tax implications of the deduction type so it is taxed properly.
      *
      * @property string DeductionCategory
      */
@@ -22,19 +22,19 @@ class DeductionType extends Remote\Object
      * Deductions can be a fixed amount, or they can be calculated as a percentage of the employee’s
      * total earnings. Standard Plan, Catch-up Plan. Only needed DeductionCategory is not
      * AFTERTAXDEDUCTION, DEPENDEDNTCARE, FLEXIBLESPENDINGACCOUNT,HSASINGLEPLAN, HSAFAMILYPLAN,
-     * SECTION125PLAN
+     * SECTION125PLAN.
      *
      * @property float CalculationType
      */
 
     /**
-     * The computed amount of the deduction is credited to this account. See See Accounts
+     * The computed amount of the deduction is credited to this account. See See Accounts.
      *
      * @property string LiabilityAccountCode
      */
 
     /**
-     * Xero identifier
+     * Xero identifier.
      *
      * @property string DeductionTypeID
      */
@@ -45,7 +45,7 @@ class DeductionType extends Remote\Object
      * you time when setting up the employee deductions. If you choose not to set an amount here, you can
      * enter the amounts to be deducted on a per employee basis. Only applicable when DeductionCategory is
      * AFTERTAXDEDUCTION, DEPENDENTCARE, FLEXIBLESPENDINGACCOUNT,
-SECTION125PLAN
+     * SECTION125PLAN.
      *
      * @property float StandardAmount
      */
@@ -56,33 +56,42 @@ SECTION125PLAN
      * publishes limits for certain deduction types each year. You can set a company maximum that is lower
      * than the IRS limit, depending on your plan requirements. If you don’t set a maximum, the deduction
      * will stop automatically when the IRS limit is reached.
-Only applicable when DeductionCategory is
+     * Only applicable when DeductionCategory is
      * AFTERTAXDEDUCTION, DEPENDENTCARE, FLEXIBLESPENDINGACCOUNT,
-SECTION125PLAN
+     * SECTION125PLAN.
      *
      * @property float CompanyMax
      */
+    const CALCULATION_TYPE_CATCHUPPLAN = 'CATCHUPPLAN';
 
-
-    const CALCULATION_TYPE_CATCHUPPLAN  = 'CATCHUPPLAN';
     const CALCULATION_TYPE_STANDARDPLAN = 'STANDARDPLAN';
 
-    const DEDUCTION_CATEGORY_AFTERTAXDEDUCTION       = 'AFTERTAXDEDUCTION';
-    const DEDUCTION_CATEGORY_DEPENDENTCARE           = 'DEPENDENTCARE';
-    const DEDUCTION_CATEGORY_FLEXIBLESPENDINGACCOUNT = 'FLEXIBLESPENDINGACCOUNT';
-    const DEDUCTION_CATEGORY_HSASINGLEPLAN           = 'HSASINGLEPLAN';
-    const DEDUCTION_CATEGORY_HSAFAMILYPLAN           = 'HSAFAMILYPLAN';
-    const DEDUCTION_CATEGORY_ROTH401KRETIREMENTPLAN  = 'ROTH401KRETIREMENTPLAN';
-    const DEDUCTION_CATEGORY_ROTH403BRETIREMENTPLAN  = 'ROTH403BRETIREMENTPLAN';
-    const DEDUCTION_CATEGORY_SECTION125PLAN          = 'SECTION125PLAN';
-    const DEDUCTION_CATEGORY_SIMPLEIRARETIREMENTPLAN = 'SIMPLEIRARETIREMENTPLAN';
-    const DEDUCTION_CATEGORY_401KRETIREMENTPLAN      = '401KRETIREMENTPLAN';
-    const DEDUCTION_CATEGORY_403BRETIREMENTPLAN      = '403BRETIREMENTPLAN';
-    const DEDUCTION_CATEGORY_457RETIREMENTPLAN       = '457RETIREMENTPLAN';
+    const DEDUCTION_CATEGORY_AFTERTAXDEDUCTION = 'AFTERTAXDEDUCTION';
 
+    const DEDUCTION_CATEGORY_DEPENDENTCARE = 'DEPENDENTCARE';
+
+    const DEDUCTION_CATEGORY_FLEXIBLESPENDINGACCOUNT = 'FLEXIBLESPENDINGACCOUNT';
+
+    const DEDUCTION_CATEGORY_HSASINGLEPLAN = 'HSASINGLEPLAN';
+
+    const DEDUCTION_CATEGORY_HSAFAMILYPLAN = 'HSAFAMILYPLAN';
+
+    const DEDUCTION_CATEGORY_ROTH401KRETIREMENTPLAN = 'ROTH401KRETIREMENTPLAN';
+
+    const DEDUCTION_CATEGORY_ROTH403BRETIREMENTPLAN = 'ROTH403BRETIREMENTPLAN';
+
+    const DEDUCTION_CATEGORY_SECTION125PLAN = 'SECTION125PLAN';
+
+    const DEDUCTION_CATEGORY_SIMPLEIRARETIREMENTPLAN = 'SIMPLEIRARETIREMENTPLAN';
+
+    const DEDUCTION_CATEGORY_401KRETIREMENTPLAN = '401KRETIREMENTPLAN';
+
+    const DEDUCTION_CATEGORY_403BRETIREMENTPLAN = '403BRETIREMENTPLAN';
+
+    const DEDUCTION_CATEGORY_457RETIREMENTPLAN = '457RETIREMENTPLAN';
 
     /**
-     * Get the resource uri of the class (Contacts) etc
+     * Get the resource uri of the class (Contacts) etc.
      *
      * @return string
      */
@@ -91,9 +100,8 @@ SECTION125PLAN
         return 'DeductionTypes';
     }
 
-
     /**
-     * Get the root node name.  Just the unqualified classname
+     * Get the root node name.  Just the unqualified classname.
      *
      * @return string
      */
@@ -102,9 +110,8 @@ SECTION125PLAN
         return 'DeductionType';
     }
 
-
     /**
-     * Get the guid property
+     * Get the guid property.
      *
      * @return string
      */
@@ -113,9 +120,8 @@ SECTION125PLAN
         return 'DeductionTypeID';
     }
 
-
     /**
-     * Get the stem of the API (core.xro) etc
+     * Get the stem of the API (core.xro) etc.
      *
      * @return string|null
      */
@@ -124,9 +130,8 @@ SECTION125PLAN
         return Remote\URL::API_PAYROLL;
     }
 
-
     /**
-     * Get the supported methods
+     * Get the supported methods.
      */
     public static function getSupportedMethods()
     {
@@ -135,13 +140,12 @@ SECTION125PLAN
     }
 
     /**
-     *
      * Get the properties of the object.  Indexed by constants
      *  [0] - Mandatory
      *  [1] - Type
      *  [2] - PHP type
      *  [3] - Is an Array
-     *  [4] - Saves directly
+     *  [4] - Saves directly.
      *
      * @return array
      */
@@ -154,7 +158,7 @@ SECTION125PLAN
             'LiabilityAccountCode' => [true, self::PROPERTY_TYPE_STRING, null, false, false],
             'DeductionTypeID' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
             'StandardAmount' => [false, self::PROPERTY_TYPE_FLOAT, null, false, false],
-            'CompanyMax' => [false, self::PROPERTY_TYPE_FLOAT, null, false, false]
+            'CompanyMax' => [false, self::PROPERTY_TYPE_FLOAT, null, false, false],
         ];
     }
 
@@ -173,12 +177,14 @@ SECTION125PLAN
 
     /**
      * @param DeductionType $value
+     *
      * @return DeductionType
      */
-    public function setDeductionType(DeductionType $value)
+    public function setDeductionType(self $value)
     {
         $this->propertyUpdated('DeductionType', $value);
         $this->_data['DeductionType'] = $value;
+
         return $this;
     }
 
@@ -192,12 +198,14 @@ SECTION125PLAN
 
     /**
      * @param string $value
+     *
      * @return DeductionType
      */
     public function setDeductionCategory($value)
     {
         $this->propertyUpdated('DeductionCategory', $value);
         $this->_data['DeductionCategory'] = $value;
+
         return $this;
     }
 
@@ -211,12 +219,14 @@ SECTION125PLAN
 
     /**
      * @param float $value
+     *
      * @return DeductionType
      */
     public function setCalculationType($value)
     {
         $this->propertyUpdated('CalculationType', $value);
         $this->_data['CalculationType'] = $value;
+
         return $this;
     }
 
@@ -230,12 +240,14 @@ SECTION125PLAN
 
     /**
      * @param string $value
+     *
      * @return DeductionType
      */
     public function setLiabilityAccountCode($value)
     {
         $this->propertyUpdated('LiabilityAccountCode', $value);
         $this->_data['LiabilityAccountCode'] = $value;
+
         return $this;
     }
 
@@ -249,12 +261,14 @@ SECTION125PLAN
 
     /**
      * @param string $value
+     *
      * @return DeductionType
      */
     public function setDeductionTypeID($value)
     {
         $this->propertyUpdated('DeductionTypeID', $value);
         $this->_data['DeductionTypeID'] = $value;
+
         return $this;
     }
 
@@ -268,12 +282,14 @@ SECTION125PLAN
 
     /**
      * @param float $value
+     *
      * @return DeductionType
      */
     public function setStandardAmount($value)
     {
         $this->propertyUpdated('StandardAmount', $value);
         $this->_data['StandardAmount'] = $value;
+
         return $this;
     }
 
@@ -287,14 +303,14 @@ SECTION125PLAN
 
     /**
      * @param float $value
+     *
      * @return DeductionType
      */
     public function setCompanyMax($value)
     {
         $this->propertyUpdated('CompanyMax', $value);
         $this->_data['CompanyMax'] = $value;
+
         return $this;
     }
-
-
 }

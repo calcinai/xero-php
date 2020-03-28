@@ -1,34 +1,37 @@
 <?php
+
 namespace XeroPHP\Models\Accounting;
 
 use XeroPHP\Remote;
-use XeroPHP\Models\Accounting\Item\Purchase;
+use XeroPHP\Traits\HistoryTrait;
 use XeroPHP\Models\Accounting\Item\Sale;
+use XeroPHP\Models\Accounting\Item\Purchase;
 
-class Item extends Remote\Object
+class Item extends Remote\Model
 {
+    use HistoryTrait;
 
     /**
-     * Xero identifier
+     * Xero identifier.
      *
      * @property string ItemID
      */
 
     /**
-     * User defined item code (max length = 30)
+     * User defined item code (max length = 30).
      *
      * @property string Code
      */
 
     /**
-     * The inventory asset account for the item. The account must be of type INVENTORY. The 
-     * COGSAccountCode in PurchaseDetails is also required to create a tracked item
+     * The inventory asset account for the item. The account must be of type INVENTORY. The
+     * COGSAccountCode in PurchaseDetails is also required to create a tracked item.
      *
      * @property string InventoryAssetAccountCode
      */
 
     /**
-     * The name of the item (max length = 50)
+     * The name of the item (max length = 50).
      *
      * @property string Name
      */
@@ -50,27 +53,27 @@ class Item extends Remote\Object
      */
 
     /**
-     * The sales description of the item (max length = 4000)
+     * The sales description of the item (max length = 4000).
      *
      * @property string Description
      */
 
     /**
-     * The purchase description of the item (max length = 4000)
+     * The purchase description of the item (max length = 4000).
      *
      * @property string PurchaseDescription
      */
 
     /**
-     * See Purchases & Sales
+     * See Purchases & Sales.
      *
-     * @property Purchase[] PurchaseDetails
+     * @property Purchase PurchaseDetails
      */
 
     /**
-     * See Purchases & Sales
+     * See Purchases & Sales.
      *
-     * @property Sale[] SalesDetails
+     * @property Sale SalesDetails
      */
 
     /**
@@ -87,21 +90,19 @@ class Item extends Remote\Object
      */
 
     /**
-     * The quantity of the item on hand
+     * The quantity of the item on hand.
      *
      * @property string QuantityOnHand
      */
 
     /**
-     * Last modified date in UTC format
+     * Last modified date in UTC format.
      *
      * @property \DateTimeInterface UpdatedDateUTC
      */
 
-
-
     /**
-     * Get the resource uri of the class (Contacts) etc
+     * Get the resource uri of the class (Contacts) etc.
      *
      * @return string
      */
@@ -110,9 +111,8 @@ class Item extends Remote\Object
         return 'Items';
     }
 
-
     /**
-     * Get the root node name.  Just the unqualified classname
+     * Get the root node name.  Just the unqualified classname.
      *
      * @return string
      */
@@ -121,9 +121,8 @@ class Item extends Remote\Object
         return 'Item';
     }
 
-
     /**
-     * Get the guid property
+     * Get the guid property.
      *
      * @return string
      */
@@ -132,9 +131,8 @@ class Item extends Remote\Object
         return 'ItemID';
     }
 
-
     /**
-     * Get the stem of the API (core.xro) etc
+     * Get the stem of the API (core.xro) etc.
      *
      * @return string|null
      */
@@ -143,9 +141,8 @@ class Item extends Remote\Object
         return Remote\URL::API_CORE;
     }
 
-
     /**
-     * Get the supported methods
+     * Get the supported methods.
      */
     public static function getSupportedMethods()
     {
@@ -153,18 +150,17 @@ class Item extends Remote\Object
             Remote\Request::METHOD_GET,
             Remote\Request::METHOD_PUT,
             Remote\Request::METHOD_POST,
-            Remote\Request::METHOD_DELETE
+            Remote\Request::METHOD_DELETE,
         ];
     }
 
     /**
-     *
      * Get the properties of the object.  Indexed by constants
      *  [0] - Mandatory
      *  [1] - Type
      *  [2] - PHP type
      *  [3] - Is an Array
-     *  [4] - Saves directly
+     *  [4] - Saves directly.
      *
      * @return array
      */
@@ -184,7 +180,7 @@ class Item extends Remote\Object
             'IsTrackedAsInventory' => [false, self::PROPERTY_TYPE_BOOLEAN, null, false, false],
             'TotalCostPool' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
             'QuantityOnHand' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
-            'UpdatedDateUTC' => [false, self::PROPERTY_TYPE_TIMESTAMP, '\\DateTimeInterface', false, false]
+            'UpdatedDateUTC' => [false, self::PROPERTY_TYPE_TIMESTAMP, '\\DateTimeInterface', false, false],
         ];
     }
 
@@ -203,12 +199,14 @@ class Item extends Remote\Object
 
     /**
      * @param string $value
+     *
      * @return Item
      */
     public function setItemID($value)
     {
         $this->propertyUpdated('ItemID', $value);
         $this->_data['ItemID'] = $value;
+
         return $this;
     }
 
@@ -222,12 +220,14 @@ class Item extends Remote\Object
 
     /**
      * @param string $value
+     *
      * @return Item
      */
     public function setCode($value)
     {
         $this->propertyUpdated('Code', $value);
         $this->_data['Code'] = $value;
+
         return $this;
     }
 
@@ -241,12 +241,14 @@ class Item extends Remote\Object
 
     /**
      * @param string $value
+     *
      * @return Item
      */
     public function setInventoryAssetAccountCode($value)
     {
         $this->propertyUpdated('InventoryAssetAccountCode', $value);
         $this->_data['InventoryAssetAccountCode'] = $value;
+
         return $this;
     }
 
@@ -260,12 +262,14 @@ class Item extends Remote\Object
 
     /**
      * @param string $value
+     *
      * @return Item
      */
     public function setName($value)
     {
         $this->propertyUpdated('Name', $value);
         $this->_data['Name'] = $value;
+
         return $this;
     }
 
@@ -279,12 +283,14 @@ class Item extends Remote\Object
 
     /**
      * @param bool $value
+     *
      * @return Item
      */
     public function setIsSold($value)
     {
         $this->propertyUpdated('IsSold', $value);
         $this->_data['IsSold'] = $value;
+
         return $this;
     }
 
@@ -298,12 +304,14 @@ class Item extends Remote\Object
 
     /**
      * @param bool $value
+     *
      * @return Item
      */
     public function setIsPurchased($value)
     {
         $this->propertyUpdated('IsPurchased', $value);
         $this->_data['IsPurchased'] = $value;
+
         return $this;
     }
 
@@ -317,12 +325,14 @@ class Item extends Remote\Object
 
     /**
      * @param string $value
+     *
      * @return Item
      */
     public function setDescription($value)
     {
         $this->propertyUpdated('Description', $value);
         $this->_data['Description'] = $value;
+
         return $this;
     }
 
@@ -336,18 +346,19 @@ class Item extends Remote\Object
 
     /**
      * @param string $value
+     *
      * @return Item
      */
     public function setPurchaseDescription($value)
     {
         $this->propertyUpdated('PurchaseDescription', $value);
         $this->_data['PurchaseDescription'] = $value;
+
         return $this;
     }
 
     /**
-     * @return Purchase[]|Remote\Collection
-     * Always returns a collection, switch is for type hinting
+     * @return Purchase
      */
     public function getPurchaseDetails()
     {
@@ -356,21 +367,30 @@ class Item extends Remote\Object
 
     /**
      * @param Purchase $value
+     *
      * @return Item
+     *
+     * @deprecated
      */
     public function addPurchaseDetail(Purchase $value)
     {
+    }
+
+    /**
+     * @param Purchase $value
+     *
+     * @return Item
+     */
+    public function setPurchaseDetails(Purchase $value)
+    {
         $this->propertyUpdated('PurchaseDetails', $value);
-        if (!isset($this->_data['PurchaseDetails'])) {
-            $this->_data['PurchaseDetails'] = new Remote\Collection();
-        }
-        $this->_data['PurchaseDetails'][] = $value;
+        $this->_data['PurchaseDetails'] = $value;
+
         return $this;
     }
 
     /**
-     * @return Sale[]|Remote\Collection
-     * Always returns a collection, switch is for type hinting
+     * @return Sale
      */
     public function getSalesDetails()
     {
@@ -379,15 +399,25 @@ class Item extends Remote\Object
 
     /**
      * @param Sale $value
+     *
      * @return Item
+     *
+     * @deprecated
      */
     public function addSalesDetail(Sale $value)
     {
+    }
+
+    /**
+     * @param Sale $value
+     *
+     * @return Item
+     */
+    public function setSalesDetails(Sale $value)
+    {
         $this->propertyUpdated('SalesDetails', $value);
-        if (!isset($this->_data['SalesDetails'])) {
-            $this->_data['SalesDetails'] = new Remote\Collection();
-        }
-        $this->_data['SalesDetails'][] = $value;
+        $this->_data['SalesDetails'] = $value;
+
         return $this;
     }
 
@@ -401,12 +431,14 @@ class Item extends Remote\Object
 
     /**
      * @param bool $value
+     *
      * @return Item
      */
     public function setIsTrackedAsInventory($value)
     {
         $this->propertyUpdated('IsTrackedAsInventory', $value);
         $this->_data['IsTrackedAsInventory'] = $value;
+
         return $this;
     }
 
@@ -420,12 +452,14 @@ class Item extends Remote\Object
 
     /**
      * @param string $value
+     *
      * @return Item
      */
     public function setTotalCostPool($value)
     {
         $this->propertyUpdated('TotalCostPool', $value);
         $this->_data['TotalCostPool'] = $value;
+
         return $this;
     }
 
@@ -439,12 +473,14 @@ class Item extends Remote\Object
 
     /**
      * @param string $value
+     *
      * @return Item
      */
     public function setQuantityOnHand($value)
     {
         $this->propertyUpdated('QuantityOnHand', $value);
         $this->_data['QuantityOnHand'] = $value;
+
         return $this;
     }
 
@@ -458,14 +494,14 @@ class Item extends Remote\Object
 
     /**
      * @param \DateTimeInterface $value
+     *
      * @return Item
      */
     public function setUpdatedDateUTC(\DateTimeInterface $value)
     {
         $this->propertyUpdated('UpdatedDateUTC', $value);
         $this->_data['UpdatedDateUTC'] = $value;
+
         return $this;
     }
-
-
 }

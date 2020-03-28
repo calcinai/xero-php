@@ -1,20 +1,20 @@
 <?php
+
 namespace XeroPHP\Models\Accounting\Prepayment;
 
 use XeroPHP\Remote;
 use XeroPHP\Models\Accounting\Invoice;
 
-class Allocation extends Remote\Object
+class Allocation extends Remote\Model
 {
-
     /**
-     * the invoice the prepayment is being allocated against
+     * the invoice the prepayment is being allocated against.
      *
      * @property Invoice Invoice
      */
 
     /**
-     * the amount being applied to the invoice
+     * the amount being applied to the invoice.
      *
      * @property float AppliedAmount
      */
@@ -26,10 +26,8 @@ class Allocation extends Remote\Object
      * @property \DateTimeInterface Date
      */
 
-
-
     /**
-     * Get the resource uri of the class (Contacts) etc
+     * Get the resource uri of the class (Contacts) etc.
      *
      * @return string
      */
@@ -38,9 +36,8 @@ class Allocation extends Remote\Object
         return 'Allocations';
     }
 
-
     /**
-     * Get the root node name.  Just the unqualified classname
+     * Get the root node name.  Just the unqualified classname.
      *
      * @return string
      */
@@ -49,9 +46,8 @@ class Allocation extends Remote\Object
         return 'Allocation';
     }
 
-
     /**
-     * Get the guid property
+     * Get the guid property.
      *
      * @return string
      */
@@ -60,9 +56,8 @@ class Allocation extends Remote\Object
         return '';
     }
 
-
     /**
-     * Get the stem of the API (core.xro) etc
+     * Get the stem of the API (core.xro) etc.
      *
      * @return string|null
      */
@@ -71,9 +66,8 @@ class Allocation extends Remote\Object
         return Remote\URL::API_CORE;
     }
 
-
     /**
-     * Get the supported methods
+     * Get the supported methods.
      */
     public static function getSupportedMethods()
     {
@@ -82,13 +76,12 @@ class Allocation extends Remote\Object
     }
 
     /**
-     *
      * Get the properties of the object.  Indexed by constants
      *  [0] - Mandatory
      *  [1] - Type
      *  [2] - PHP type
      *  [3] - Is an Array
-     *  [4] - Saves directly
+     *  [4] - Saves directly.
      *
      * @return array
      */
@@ -97,7 +90,7 @@ class Allocation extends Remote\Object
         return [
             'Invoice' => [false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Invoice', false, false],
             'AppliedAmount' => [false, self::PROPERTY_TYPE_FLOAT, null, false, false],
-            'Date' => [false, self::PROPERTY_TYPE_DATE, '\\DateTimeInterface', false, false]
+            'Date' => [false, self::PROPERTY_TYPE_DATE, '\\DateTimeInterface', false, false],
         ];
     }
 
@@ -116,12 +109,14 @@ class Allocation extends Remote\Object
 
     /**
      * @param Invoice $value
+     *
      * @return Allocation
      */
     public function setInvoice(Invoice $value)
     {
         $this->propertyUpdated('Invoice', $value);
         $this->_data['Invoice'] = $value;
+
         return $this;
     }
 
@@ -135,12 +130,14 @@ class Allocation extends Remote\Object
 
     /**
      * @param float $value
+     *
      * @return Allocation
      */
     public function setAppliedAmount($value)
     {
         $this->propertyUpdated('AppliedAmount', $value);
         $this->_data['AppliedAmount'] = $value;
+
         return $this;
     }
 
@@ -154,14 +151,14 @@ class Allocation extends Remote\Object
 
     /**
      * @param \DateTimeInterface $value
+     *
      * @return Allocation
      */
     public function setDate(\DateTimeInterface $value)
     {
         $this->propertyUpdated('Date', $value);
         $this->_data['Date'] = $value;
+
         return $this;
     }
-
-
 }

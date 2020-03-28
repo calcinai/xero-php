@@ -1,87 +1,85 @@
 <?php
+
 namespace XeroPHP\Models\PayrollUS;
 
 use XeroPHP\Remote;
 
-class PayRun extends Remote\Object
+class PayRun extends Remote\Model
 {
-
     /**
-     * Xero Identifier for the Pay Schedule
+     * Xero Identifier for the Pay Schedule.
      *
      * @property string PayScheduleID
      */
 
     /**
-     * Pay run period end date. Needed if it is an unscheduled pay run
+     * Pay run period end date. Needed if it is an unscheduled pay run.
      *
      * @property \DateTimeInterface PayRunPeriodEndDate
      */
 
     /**
-     * See Pay run status types
+     * See Pay run status types.
      *
      * @property string PayRunStatus
      */
 
     /**
-     * Xero identifier for pay run
+     * Xero identifier for pay run.
      *
      * @property string PayRunID
      */
 
     /**
-     * Period Start Date for the PayRun
+     * Period Start Date for the PayRun.
      *
      * @property \DateTimeInterface PayRunPeriodStartDate
      */
 
     /**
-     * Payment Date for the PayRun
+     * Payment Date for the PayRun.
      *
      * @property \DateTimeInterface PaymentDate
      */
 
     /**
-     * Total Earnings for the PayRun
+     * Total Earnings for the PayRun.
      *
      * @property string Earnings
      */
 
     /**
-     * Total Deduction for the PayRun
+     * Total Deduction for the PayRun.
      *
      * @property string Deductions
      */
 
     /**
-     * Total Reimbursement for the PayRun
+     * Total Reimbursement for the PayRun.
      *
      * @property string Reimbursement
      */
 
     /**
-     * Total NetPay for the PayRun
+     * Total NetPay for the PayRun.
      *
      * @property string NetPay
      */
 
     /**
-     * The update date for the PayRun
+     * The update date for the PayRun.
      *
      * @property \DateTimeInterface UpdateDateUTC
      */
 
     /**
-     * See PayStubs
+     * See PayStubs.
      *
      * @property string PayStubs
      */
 
-
-
     /**
-     * Get the resource uri of the class (Contacts) etc
+     * Get the resource uri of the class (Contacts) etc.
      *
      * @return string
      */
@@ -90,9 +88,8 @@ class PayRun extends Remote\Object
         return 'PayRuns';
     }
 
-
     /**
-     * Get the root node name.  Just the unqualified classname
+     * Get the root node name.  Just the unqualified classname.
      *
      * @return string
      */
@@ -101,9 +98,8 @@ class PayRun extends Remote\Object
         return 'PayRun';
     }
 
-
     /**
-     * Get the guid property
+     * Get the guid property.
      *
      * @return string
      */
@@ -112,9 +108,8 @@ class PayRun extends Remote\Object
         return 'PayRunID';
     }
 
-
     /**
-     * Get the stem of the API (core.xro) etc
+     * Get the stem of the API (core.xro) etc.
      *
      * @return string|null
      */
@@ -123,26 +118,24 @@ class PayRun extends Remote\Object
         return Remote\URL::API_PAYROLL;
     }
 
-
     /**
-     * Get the supported methods
+     * Get the supported methods.
      */
     public static function getSupportedMethods()
     {
         return [
             Remote\Request::METHOD_POST,
-            Remote\Request::METHOD_GET
+            Remote\Request::METHOD_GET,
         ];
     }
 
     /**
-     *
      * Get the properties of the object.  Indexed by constants
      *  [0] - Mandatory
      *  [1] - Type
      *  [2] - PHP type
      *  [3] - Is an Array
-     *  [4] - Saves directly
+     *  [4] - Saves directly.
      *
      * @return array
      */
@@ -160,7 +153,7 @@ class PayRun extends Remote\Object
             'Reimbursement' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
             'NetPay' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
             'UpdateDateUTC' => [false, self::PROPERTY_TYPE_TIMESTAMP, '\\DateTimeInterface', false, false],
-            'PayStubs' => [false, self::PROPERTY_TYPE_STRING, null, false, false]
+            'PayStubs' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
         ];
     }
 
@@ -179,12 +172,14 @@ class PayRun extends Remote\Object
 
     /**
      * @param string $value
+     *
      * @return PayRun
      */
     public function setPayScheduleID($value)
     {
         $this->propertyUpdated('PayScheduleID', $value);
         $this->_data['PayScheduleID'] = $value;
+
         return $this;
     }
 
@@ -198,12 +193,14 @@ class PayRun extends Remote\Object
 
     /**
      * @param \DateTimeInterface $value
+     *
      * @return PayRun
      */
     public function setPayRunPeriodEndDate(\DateTimeInterface $value)
     {
         $this->propertyUpdated('PayRunPeriodEndDate', $value);
         $this->_data['PayRunPeriodEndDate'] = $value;
+
         return $this;
     }
 
@@ -217,12 +214,14 @@ class PayRun extends Remote\Object
 
     /**
      * @param string $value
+     *
      * @return PayRun
      */
     public function setPayRunStatus($value)
     {
         $this->propertyUpdated('PayRunStatus', $value);
         $this->_data['PayRunStatus'] = $value;
+
         return $this;
     }
 
@@ -236,12 +235,14 @@ class PayRun extends Remote\Object
 
     /**
      * @param string $value
+     *
      * @return PayRun
      */
     public function setPayRunID($value)
     {
         $this->propertyUpdated('PayRunID', $value);
         $this->_data['PayRunID'] = $value;
+
         return $this;
     }
 
@@ -253,7 +254,6 @@ class PayRun extends Remote\Object
         return $this->_data['PayRunPeriodStartDate'];
     }
 
-
     /**
      * @return \DateTimeInterface
      */
@@ -261,7 +261,6 @@ class PayRun extends Remote\Object
     {
         return $this->_data['PaymentDate'];
     }
-
 
     /**
      * @return string
@@ -271,7 +270,6 @@ class PayRun extends Remote\Object
         return $this->_data['Earnings'];
     }
 
-
     /**
      * @return string
      */
@@ -279,7 +277,6 @@ class PayRun extends Remote\Object
     {
         return $this->_data['Deductions'];
     }
-
 
     /**
      * @return string
@@ -289,7 +286,6 @@ class PayRun extends Remote\Object
         return $this->_data['Reimbursement'];
     }
 
-
     /**
      * @return string
      */
@@ -297,7 +293,6 @@ class PayRun extends Remote\Object
     {
         return $this->_data['NetPay'];
     }
-
 
     /**
      * @return \DateTimeInterface
@@ -307,7 +302,6 @@ class PayRun extends Remote\Object
         return $this->_data['UpdateDateUTC'];
     }
 
-
     /**
      * @return string
      */
@@ -315,7 +309,4 @@ class PayRun extends Remote\Object
     {
         return $this->_data['PayStubs'];
     }
-
-
-
 }

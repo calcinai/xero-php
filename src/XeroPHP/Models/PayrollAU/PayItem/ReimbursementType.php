@@ -1,33 +1,31 @@
 <?php
+
 namespace XeroPHP\Models\PayrollAU\PayItem;
 
 use XeroPHP\Remote;
 
-class ReimbursementType extends Remote\Object
+class ReimbursementType extends Remote\Model
 {
-
     /**
-     * Name of the reimbursement type (max length = 50)
+     * Name of the reimbursement type (max length = 50).
      *
      * @property string Name
      */
 
     /**
-     * See Accounts
+     * See Accounts.
      *
      * @property string AccountCode
      */
 
     /**
-     * Xero identifier
+     * Xero identifier.
      *
      * @property string ReimbursementTypeID
      */
 
-
-
     /**
-     * Get the resource uri of the class (Contacts) etc
+     * Get the resource uri of the class (Contacts) etc.
      *
      * @return string
      */
@@ -36,9 +34,8 @@ class ReimbursementType extends Remote\Object
         return 'ReimbursementTypes';
     }
 
-
     /**
-     * Get the root node name.  Just the unqualified classname
+     * Get the root node name.  Just the unqualified classname.
      *
      * @return string
      */
@@ -47,9 +44,8 @@ class ReimbursementType extends Remote\Object
         return 'ReimbursementType';
     }
 
-
     /**
-     * Get the guid property
+     * Get the guid property.
      *
      * @return string
      */
@@ -58,9 +54,8 @@ class ReimbursementType extends Remote\Object
         return 'ReimbursementTypeID';
     }
 
-
     /**
-     * Get the stem of the API (core.xro) etc
+     * Get the stem of the API (core.xro) etc.
      *
      * @return string|null
      */
@@ -69,9 +64,8 @@ class ReimbursementType extends Remote\Object
         return Remote\URL::API_PAYROLL;
     }
 
-
     /**
-     * Get the supported methods
+     * Get the supported methods.
      */
     public static function getSupportedMethods()
     {
@@ -80,13 +74,12 @@ class ReimbursementType extends Remote\Object
     }
 
     /**
-     *
      * Get the properties of the object.  Indexed by constants
      *  [0] - Mandatory
      *  [1] - Type
      *  [2] - PHP type
      *  [3] - Is an Array
-     *  [4] - Saves directly
+     *  [4] - Saves directly.
      *
      * @return array
      */
@@ -95,7 +88,8 @@ class ReimbursementType extends Remote\Object
         return [
             'Name' => [true, self::PROPERTY_TYPE_STRING, null, false, false],
             'AccountCode' => [true, self::PROPERTY_TYPE_STRING, null, false, false],
-            'ReimbursementTypeID' => [false, self::PROPERTY_TYPE_STRING, null, false, false]
+            'ReimbursementTypeID' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'CurrentRecord' => [false, self::PROPERTY_TYPE_BOOLEAN, null, false, false]
         ];
     }
 
@@ -114,12 +108,14 @@ class ReimbursementType extends Remote\Object
 
     /**
      * @param string $value
+     *
      * @return ReimbursementType
      */
     public function setName($value)
     {
         $this->propertyUpdated('Name', $value);
         $this->_data['Name'] = $value;
+
         return $this;
     }
 
@@ -133,12 +129,14 @@ class ReimbursementType extends Remote\Object
 
     /**
      * @param string $value
+     *
      * @return ReimbursementType
      */
     public function setAccountCode($value)
     {
         $this->propertyUpdated('AccountCode', $value);
         $this->_data['AccountCode'] = $value;
+
         return $this;
     }
 
@@ -152,14 +150,35 @@ class ReimbursementType extends Remote\Object
 
     /**
      * @param string $value
+     *
      * @return ReimbursementType
      */
     public function setReimbursementTypeID($value)
     {
         $this->propertyUpdated('ReimbursementTypeID', $value);
         $this->_data['ReimbursementTypeID'] = $value;
+
         return $this;
     }
 
+    /**
+     * @return bool
+     */
+    public function getCurrentRecord()
+    {
+        return $this->_data['CurrentRecord'];
+    }
 
+    /**
+     * @param bool $value
+     *
+     * @return ReimbursementType
+     */
+    public function setCurrentRecord($value)
+    {
+        $this->propertyUpdated('CurrentRecord', $value);
+        $this->_data['CurrentRecord'] = $value;
+
+        return $this;
+    }
 }

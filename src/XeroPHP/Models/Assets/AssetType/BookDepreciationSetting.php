@@ -1,25 +1,25 @@
 <?php
+
 namespace XeroPHP\Models\Assets\AssetType;
 
 use XeroPHP\Remote;
 
-class BookDepreciationSetting extends Remote\Object
+class BookDepreciationSetting extends Remote\Model
 {
-
     /**
-     * The method of depreciation applied to this asset. See Depreciation Methods
+     * The method of depreciation applied to this asset. See Depreciation Methods.
      *
      * @property string depreciationMethod
      */
 
     /**
-     * The method of averaging applied to this asset. See Averaging Methods
+     * The method of averaging applied to this asset. See Averaging Methods.
      *
      * @property string averagingMethod
      */
 
     /**
-     * The rate of depreciation (e.g. 0.05)
+     * The rate of depreciation (e.g. 0.05).
      *
      * @property float depreciationRate
      */
@@ -31,15 +31,13 @@ class BookDepreciationSetting extends Remote\Object
      */
 
     /**
-     * See Depreciation Calculation Methods
+     * See Depreciation Calculation Methods.
      *
      * @property string depreciationCalculationMethod
      */
 
-
-
     /**
-     * Get the resource uri of the class (Contacts) etc
+     * Get the resource uri of the class (Contacts) etc.
      *
      * @return string
      */
@@ -48,9 +46,8 @@ class BookDepreciationSetting extends Remote\Object
         return 'BookDepreciationSetting';
     }
 
-
     /**
-     * Get the root node name.  Just the unqualified classname
+     * Get the root node name.  Just the unqualified classname.
      *
      * @return string
      */
@@ -59,9 +56,8 @@ class BookDepreciationSetting extends Remote\Object
         return 'BookDepreciationSetting';
     }
 
-
     /**
-     * Get the guid property
+     * Get the guid property.
      *
      * @return string
      */
@@ -70,9 +66,8 @@ class BookDepreciationSetting extends Remote\Object
         return '';
     }
 
-
     /**
-     * Get the stem of the API (core.xro) etc
+     * Get the stem of the API (core.xro) etc.
      *
      * @return string|null
      */
@@ -81,9 +76,8 @@ class BookDepreciationSetting extends Remote\Object
         return Remote\URL::API_ASSET;
     }
 
-
     /**
-     * Get the supported methods
+     * Get the supported methods.
      */
     public static function getSupportedMethods()
     {
@@ -92,13 +86,12 @@ class BookDepreciationSetting extends Remote\Object
     }
 
     /**
-     *
      * Get the properties of the object.  Indexed by constants
      *  [0] - Mandatory
      *  [1] - Type
      *  [2] - PHP type
      *  [3] - Is an Array
-     *  [4] - Saves directly
+     *  [4] - Saves directly.
      *
      * @return array
      */
@@ -109,7 +102,7 @@ class BookDepreciationSetting extends Remote\Object
             'averagingMethod' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
             'depreciationRate' => [false, self::PROPERTY_TYPE_FLOAT, null, false, false],
             'effectiveLifeYears' => [false, self::PROPERTY_TYPE_FLOAT, null, true, false],
-            'depreciationCalculationMethod' => [false, self::PROPERTY_TYPE_STRING, null, false, false]
+            'depreciationCalculationMethod' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
         ];
     }
 
@@ -128,12 +121,14 @@ class BookDepreciationSetting extends Remote\Object
 
     /**
      * @param string $value
+     *
      * @return BookDepreciationSetting
      */
     public function setdepreciationMethod($value)
     {
         $this->propertyUpdated('depreciationMethod', $value);
         $this->_data['depreciationMethod'] = $value;
+
         return $this;
     }
 
@@ -147,12 +142,14 @@ class BookDepreciationSetting extends Remote\Object
 
     /**
      * @param string $value
+     *
      * @return BookDepreciationSetting
      */
     public function setaveragingMethod($value)
     {
         $this->propertyUpdated('averagingMethod', $value);
         $this->_data['averagingMethod'] = $value;
+
         return $this;
     }
 
@@ -166,18 +163,19 @@ class BookDepreciationSetting extends Remote\Object
 
     /**
      * @param float $value
+     *
      * @return BookDepreciationSetting
      */
     public function setdepreciationRate($value)
     {
         $this->propertyUpdated('depreciationRate', $value);
         $this->_data['depreciationRate'] = $value;
+
         return $this;
     }
 
     /**
      * @return float[]|Remote\Collection
-     * Always returns a collection, switch is for type hinting
      */
     public function geteffectiveLifeYears()
     {
@@ -186,15 +184,17 @@ class BookDepreciationSetting extends Remote\Object
 
     /**
      * @param float $value
+     *
      * @return BookDepreciationSetting
      */
     public function addeffectiveLifeYear($value)
     {
         $this->propertyUpdated('effectiveLifeYears', $value);
-        if (!isset($this->_data['effectiveLifeYears'])) {
+        if (! isset($this->_data['effectiveLifeYears'])) {
             $this->_data['effectiveLifeYears'] = new Remote\Collection();
         }
         $this->_data['effectiveLifeYears'][] = $value;
+
         return $this;
     }
 
@@ -208,14 +208,14 @@ class BookDepreciationSetting extends Remote\Object
 
     /**
      * @param string $value
+     *
      * @return BookDepreciationSetting
      */
     public function setdepreciationCalculationMethod($value)
     {
         $this->propertyUpdated('depreciationCalculationMethod', $value);
         $this->_data['depreciationCalculationMethod'] = $value;
+
         return $this;
     }
-
-
 }

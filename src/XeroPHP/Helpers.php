@@ -9,10 +9,13 @@ use XeroPHP\Models\Accounting\TrackingCategory;
  * This is to avoid external dependencies.
  *
  * Class Helpers
- * @package XeroPHP
  */
 class Helpers
 {
+    const PACKAGE_NAME         = 'calcinai/xero-php';
+    const PACKAGE_VERSION_FILE = __DIR__ . '/VERSION';
+    const DEFAULT_VERSION      = 'v2.0.0';
+
     /**
      * Convert a multi-d assoc array into an xml representation.
      * Straightforward <key>val</key> unless there are numeric keys,
@@ -20,6 +23,7 @@ class Helpers
      *
      * @param array $array
      * @param null $key_override
+     *
      * @return string
      */
     public static function arrayToXML(array $array, $key_override = null)
@@ -70,18 +74,19 @@ class Helpers
 
         foreach ($sxml->children() as $child_name => $child) {
             /**
-             * @var \SimpleXMLElement $child
+             * @var \SimpleXMLElement
              */
             if ($child->count() > 0) {
                 $node = self::XMLToArray($child);
             } else {
-                $node = (string) $child;
+                $node = (string)$child;
             }
 
             //don't make it assoc, as the keys will all be the same
             if ($child_name === $singular_node_name ||
                 //Handle strange XML
-                ($singular_node_name === 'Tracking' && $child_name === TrackingCategory::getRootNodeName())) {
+                ($singular_node_name === 'Tracking' && $child_name === TrackingCategory::getRootNodeName()) ||
+                ($singular_node_name == Payslip\TimesheetEarningsLine::getRootNodeName() && $child_name == 'EarningsLine')) {
                 $output[] = $node;
             } else {
                 $output[$child_name] = $node;
@@ -97,22 +102,23 @@ class Helpers
      * so only good for a quick basic singularisation.
      *
      * @param $string
+     *
      * @return mixed
      */
     public static function singularize($string)
     {
         $singular = [
-            '/(vert|ind)ices$/i'    => "$1ex",
-            '/(alias)es$/i'         => "$1",
-            '/(x|ch|ss|sh)es$/i'    => "$1",
-            '/(s)eries$/i'          => "$1eries",
-            '/(s)tatus$/i'          => "$1tatus",
-            '/([^aeiouy]|qu)ies$/i' => "$1y",
-            '/([lr])ves$/i'         => "$1f",
-            '/([ti])a$/i'           => "$1um",
-            '/(us)es$/i'            => "$1",
-            '/(basis)$/i'           => "$1",
-            '/([^s])s$/i'           => "$1"
+            '/(vert|ind)ices$/i' => '$1ex',
+            '/(alias)es$/i' => '$1',
+            '/(x|ch|ss|sh)es$/i' => '$1',
+            '/(s)eries$/i' => '$1eries',
+            '/(s)tatus$/i' => '$1tatus',
+            '/([^aeiouy]|qu)ies$/i' => '$1y',
+            '/([lr])ves$/i' => '$1f',
+            '/([ti])a$/i' => '$1um',
+            '/(us)es$/i' => '$1',
+            '/(basis)$/i' => '$1',
+            '/([^s])s$/i' => '$1',
         ];
 
         // check for matches using regular expressions
@@ -129,22 +135,22 @@ class Helpers
     public static function pluralize($string)
     {
         $plural = [
-            '/(quiz)$/i'                     => "$1zes",
-            '/(matr|vert|ind)ix|ex$/i'       => "$1ices",
-            '/(x|ch|ss|sh)$/i'               => "$1es",
-            '/([^aeiouy]|qu)y$/i'            => "$1ies",
-            '/(hive)$/i'                     => "$1s",
-            '/(?:([^f])fe|([lr])f)$/i'       => "$1$2ves",
-            '/(shea|lea|loa|thie)f$/i'       => "$1ves",
-            '/sis$/i'                        => "ses",
-            '/([ti])um$/i'                   => "$1a",
-            '/(tomat|potat|ech|her|vet)o$/i' => "$1oes",
-            '/(bu)s$/i'                      => "$1ses",
-            '/(alias)$/i'                    => "$1es",
-            '/(ax|test)is$/i'                => "$1es",
-            '/(us)$/i'                       => "$1es",
-            '/s$/i'                          => "s",
-            '/$/'                            => "s"
+            '/(quiz)$/i' => '$1zes',
+            '/(matr|vert|ind)ix|ex$/i' => '$1ices',
+            '/(x|ch|ss|sh)$/i' => '$1es',
+            '/([^aeiouy]|qu)y$/i' => '$1ies',
+            '/(hive)$/i' => '$1s',
+            '/(?:([^f])fe|([lr])f)$/i' => '$1$2ves',
+            '/(shea|lea|loa|thie)f$/i' => '$1ves',
+            '/sis$/i' => 'ses',
+            '/([ti])um$/i' => '$1a',
+            '/(tomat|potat|ech|her|vet)o$/i' => '$1oes',
+            '/(bu)s$/i' => '$1ses',
+            '/(alias)$/i' => '$1es',
+            '/(ax|test)is$/i' => '$1es',
+            '/(us)$/i' => '$1es',
+            '/s$/i' => 's',
+            '/$/' => 's',
         ];
 
         // check for matches using regular expressions
@@ -159,7 +165,7 @@ class Helpers
 
     public static function isAssoc(array $array)
     {
-        return (bool) count(array_filter(array_keys($array), 'is_string'));
+        return (bool)count(array_filter(array_keys($array), 'is_string'));
     }
 
     /**
@@ -170,7 +176,8 @@ class Helpers
      * @param string $format
      * @param string|null $glue
      * @param bool $escape
-     * @return string|array If no glue provided, it won't be imploded.
+     *
+     * @return array|string if no glue provided, it won't be imploded
      */
     public static function flattenAssocArray(
         array $array,
@@ -190,9 +197,9 @@ class Helpers
         //Return array if no glue provided
         if ($glue === null) {
             return $pairs;
-        } else {
-            return implode($glue, $pairs);
         }
+
+        return implode($glue, $pairs);
     }
 
     /**
@@ -202,10 +209,73 @@ class Helpers
      * the SimpleOAuth class.
      *
      * @param $string
+     *
      * @return string
      */
     public static function escape($string)
     {
         return rawurlencode($string);
+    }
+
+    /**
+     * @param $knownString string
+     * @param $userInput string
+     *
+     * @return bool
+     *
+     * @see https://github.com/symfony/polyfill-php56
+     */
+    public static function hashEquals($knownString, $userInput)
+    {
+        if (PHP_VERSION_ID >= 50600) {
+            return hash_equals($knownString, $userInput);
+        }
+
+        if (!is_string($knownString)) {
+            trigger_error('Expected known_string to be a string, ' . gettype($knownString) . ' given', E_USER_WARNING);
+
+            return false;
+        }
+
+        if (!is_string($userInput)) {
+            trigger_error('Expected user_input to be a string, ' . gettype($userInput) . ' given', E_USER_WARNING);
+
+            return false;
+        }
+
+        if (extension_loaded('mbstring')) {
+            $knownLen = mb_strlen($knownString, '8bit');
+            $userLen = mb_strlen($userInput, '8bit');
+        } else {
+            $knownLen = strlen($knownString);
+            $userLen = strlen($userInput);
+        }
+
+        if ($knownLen !== $userLen) {
+            return false;
+        }
+
+        $result = 0;
+
+        for ($i = 0; $i < $knownLen; ++$i) {
+            $result |= ord($knownString[$i]) ^ ord($userInput[$i]);
+        }
+
+        return $result === 0;
+    }
+
+
+    /**
+     * TODO drop PHP5 and use packageVersions package
+     *
+     * @return bool|false|string
+     */
+    public static function getPackageVersion()
+    {
+        if (!file_exists(self::PACKAGE_VERSION_FILE)) {
+            return self::DEFAULT_VERSION;
+        }
+
+        return file_get_contents(self::PACKAGE_VERSION_FILE);
     }
 }

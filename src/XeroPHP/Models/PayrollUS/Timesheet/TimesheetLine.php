@@ -1,13 +1,13 @@
 <?php
+
 namespace XeroPHP\Models\PayrollUS\Timesheet;
 
 use XeroPHP\Remote;
 
-class TimesheetLine extends Remote\Object
+class TimesheetLine extends Remote\Model
 {
-
     /**
-     * The Xero identifier for an Earnings Type
+     * The Xero identifier for an Earnings Type.
      *
      * @property string EarningsTypeID
      */
@@ -20,7 +20,7 @@ class TimesheetLine extends Remote\Object
      */
 
     /**
-     * Number of units of a Timesheet line
+     * Number of units of a Timesheet line.
      *
      * @property float[] NumberOfUnits
      */
@@ -32,10 +32,8 @@ class TimesheetLine extends Remote\Object
      * @property string WorkLocationID
      */
 
-
-
     /**
-     * Get the resource uri of the class (Contacts) etc
+     * Get the resource uri of the class (Contacts) etc.
      *
      * @return string
      */
@@ -44,9 +42,8 @@ class TimesheetLine extends Remote\Object
         return 'TimesheetLines';
     }
 
-
     /**
-     * Get the root node name.  Just the unqualified classname
+     * Get the root node name.  Just the unqualified classname.
      *
      * @return string
      */
@@ -55,9 +52,8 @@ class TimesheetLine extends Remote\Object
         return 'TimesheetLine';
     }
 
-
     /**
-     * Get the guid property
+     * Get the guid property.
      *
      * @return string
      */
@@ -66,9 +62,8 @@ class TimesheetLine extends Remote\Object
         return '';
     }
 
-
     /**
-     * Get the stem of the API (core.xro) etc
+     * Get the stem of the API (core.xro) etc.
      *
      * @return string|null
      */
@@ -77,9 +72,8 @@ class TimesheetLine extends Remote\Object
         return Remote\URL::API_PAYROLL;
     }
 
-
     /**
-     * Get the supported methods
+     * Get the supported methods.
      */
     public static function getSupportedMethods()
     {
@@ -88,13 +82,12 @@ class TimesheetLine extends Remote\Object
     }
 
     /**
-     *
      * Get the properties of the object.  Indexed by constants
      *  [0] - Mandatory
      *  [1] - Type
      *  [2] - PHP type
      *  [3] - Is an Array
-     *  [4] - Saves directly
+     *  [4] - Saves directly.
      *
      * @return array
      */
@@ -104,7 +97,7 @@ class TimesheetLine extends Remote\Object
             'EarningsTypeID' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
             'TrackingItemID' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
             'NumberOfUnits' => [false, self::PROPERTY_TYPE_FLOAT, null, true, false],
-            'WorkLocationID' => [false, self::PROPERTY_TYPE_STRING, null, false, false]
+            'WorkLocationID' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
         ];
     }
 
@@ -123,12 +116,14 @@ class TimesheetLine extends Remote\Object
 
     /**
      * @param string $value
+     *
      * @return TimesheetLine
      */
     public function setEarningsTypeID($value)
     {
         $this->propertyUpdated('EarningsTypeID', $value);
         $this->_data['EarningsTypeID'] = $value;
+
         return $this;
     }
 
@@ -142,18 +137,19 @@ class TimesheetLine extends Remote\Object
 
     /**
      * @param string $value
+     *
      * @return TimesheetLine
      */
     public function setTrackingItemID($value)
     {
         $this->propertyUpdated('TrackingItemID', $value);
         $this->_data['TrackingItemID'] = $value;
+
         return $this;
     }
 
     /**
      * @return float[]|Remote\Collection
-     * Always returns a collection, switch is for type hinting
      */
     public function getNumberOfUnits()
     {
@@ -162,15 +158,17 @@ class TimesheetLine extends Remote\Object
 
     /**
      * @param float $value
+     *
      * @return TimesheetLine
      */
     public function addNumberOfUnit($value)
     {
         $this->propertyUpdated('NumberOfUnits', $value);
-        if (!isset($this->_data['NumberOfUnits'])) {
+        if (! isset($this->_data['NumberOfUnits'])) {
             $this->_data['NumberOfUnits'] = new Remote\Collection();
         }
         $this->_data['NumberOfUnits'][] = $value;
+
         return $this;
     }
 
@@ -184,14 +182,14 @@ class TimesheetLine extends Remote\Object
 
     /**
      * @param string $value
+     *
      * @return TimesheetLine
      */
     public function setWorkLocationID($value)
     {
         $this->propertyUpdated('WorkLocationID', $value);
         $this->_data['WorkLocationID'] = $value;
+
         return $this;
     }
-
-
 }

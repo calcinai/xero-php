@@ -1,37 +1,41 @@
 <?php
+
 namespace XeroPHP\Models\Accounting;
 
 use XeroPHP\Remote;
+use XeroPHP\Traits\HistoryTrait;
+use XeroPHP\Traits\AttachmentTrait;
 
-class ExpenseClaim extends Remote\Object
+class ExpenseClaim extends Remote\Model
 {
+    use AttachmentTrait;
+    use HistoryTrait;
 
     /**
-     * Xero identifier
+     * Xero identifier.
      *
      * @property string ExpenseClaimID
      */
 
     /**
-     * See Users
+     * See Users.
      *
      * @property User User
      */
 
     /**
-     * See Receipts
+     * See Receipts.
      *
      * @property Receipt[] Receipts
      */
+    const EXPENSE_CLAIM_STATUS_SUBMITTED = 'SUBMITTED';
 
-
-    const EXPENSE_CLAIM_STATUS_SUBMITTED  = 'SUBMITTED';
     const EXPENSE_CLAIM_STATUS_AUTHORISED = 'AUTHORISED';
-    const EXPENSE_CLAIM_STATUS_PAID       = 'PAID';
 
+    const EXPENSE_CLAIM_STATUS_PAID = 'PAID';
 
     /**
-     * Get the resource uri of the class (Contacts) etc
+     * Get the resource uri of the class (Contacts) etc.
      *
      * @return string
      */
@@ -40,9 +44,8 @@ class ExpenseClaim extends Remote\Object
         return 'ExpenseClaims';
     }
 
-
     /**
-     * Get the root node name.  Just the unqualified classname
+     * Get the root node name.  Just the unqualified classname.
      *
      * @return string
      */
@@ -51,9 +54,8 @@ class ExpenseClaim extends Remote\Object
         return 'ExpenseClaim';
     }
 
-
     /**
-     * Get the guid property
+     * Get the guid property.
      *
      * @return string
      */
@@ -62,9 +64,8 @@ class ExpenseClaim extends Remote\Object
         return 'ExpenseClaimID';
     }
 
-
     /**
-     * Get the stem of the API (core.xro) etc
+     * Get the stem of the API (core.xro) etc.
      *
      * @return string|null
      */
@@ -73,27 +74,25 @@ class ExpenseClaim extends Remote\Object
         return Remote\URL::API_CORE;
     }
 
-
     /**
-     * Get the supported methods
+     * Get the supported methods.
      */
     public static function getSupportedMethods()
     {
         return [
             Remote\Request::METHOD_GET,
             Remote\Request::METHOD_PUT,
-            Remote\Request::METHOD_POST
+            Remote\Request::METHOD_POST,
         ];
     }
 
     /**
-     *
      * Get the properties of the object.  Indexed by constants
      *  [0] - Mandatory
      *  [1] - Type
      *  [2] - PHP type
      *  [3] - Is an Array
-     *  [4] - Saves directly
+     *  [4] - Saves directly.
      *
      * @return array
      */
@@ -115,7 +114,6 @@ class ExpenseClaim extends Remote\Object
         ];
     }
 
-
     public static function isPageable()
     {
         return false;
@@ -131,12 +129,14 @@ class ExpenseClaim extends Remote\Object
 
     /**
      * @param string $value
+     *
      * @return ExpenseClaim
      */
     public function setExpenseClaimID($value)
     {
         $this->propertyUpdated('ExpenseClaimID', $value);
         $this->_data['ExpenseClaimID'] = $value;
+
         return $this;
     }
 
@@ -150,18 +150,19 @@ class ExpenseClaim extends Remote\Object
 
     /**
      * @param User $value
+     *
      * @return ExpenseClaim
      */
     public function setUser(User $value)
     {
         $this->propertyUpdated('User', $value);
         $this->_data['User'] = $value;
+
         return $this;
     }
 
     /**
      * @return Receipt[]|Remote\Collection
-     * Always returns a collection, switch is for type hinting
      */
     public function getReceipts()
     {
@@ -170,15 +171,17 @@ class ExpenseClaim extends Remote\Object
 
     /**
      * @param Receipt $value
+     *
      * @return ExpenseClaim
      */
     public function addReceipt(Receipt $value)
     {
         $this->propertyUpdated('Receipts', $value);
-        if (!isset($this->_data['Receipts'])) {
+        if (! isset($this->_data['Receipts'])) {
             $this->_data['Receipts'] = new Remote\Collection();
         }
         $this->_data['Receipts'][] = $value;
+
         return $this;
     }
 
@@ -200,12 +203,14 @@ class ExpenseClaim extends Remote\Object
 
     /**
      * @param string $value
+     *
      * @return ExpenseClaim
      */
     public function setStatus($value)
     {
         $this->propertyUpdated('Status', $value);
         $this->_data['Status'] = $value;
+
         return $this;
     }
 

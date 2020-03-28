@@ -1,11 +1,11 @@
 <?php
+
 namespace XeroPHP\Models\PayrollAU\Payslip;
 
 use XeroPHP\Remote;
 
-class LeaveAccrualLine extends Remote\Object
+class LeaveAccrualLine extends Remote\Model
 {
-
     /**
      * Xero identifier for the Leave type.
      *
@@ -24,10 +24,8 @@ class LeaveAccrualLine extends Remote\Object
      * @property string AutoCalculate
      */
 
-
-
     /**
-     * Get the resource uri of the class (Contacts) etc
+     * Get the resource uri of the class (Contacts) etc.
      *
      * @return string
      */
@@ -36,9 +34,8 @@ class LeaveAccrualLine extends Remote\Object
         return 'LeaveAccrualLine';
     }
 
-
     /**
-     * Get the root node name.  Just the unqualified classname
+     * Get the root node name.  Just the unqualified classname.
      *
      * @return string
      */
@@ -47,9 +44,8 @@ class LeaveAccrualLine extends Remote\Object
         return 'LeaveAccrualLine';
     }
 
-
     /**
-     * Get the guid property
+     * Get the guid property.
      *
      * @return string
      */
@@ -58,9 +54,8 @@ class LeaveAccrualLine extends Remote\Object
         return '';
     }
 
-
     /**
-     * Get the stem of the API (core.xro) etc
+     * Get the stem of the API (core.xro) etc.
      *
      * @return string|null
      */
@@ -69,9 +64,8 @@ class LeaveAccrualLine extends Remote\Object
         return Remote\URL::API_PAYROLL;
     }
 
-
     /**
-     * Get the supported methods
+     * Get the supported methods.
      */
     public static function getSupportedMethods()
     {
@@ -80,13 +74,12 @@ class LeaveAccrualLine extends Remote\Object
     }
 
     /**
-     *
      * Get the properties of the object.  Indexed by constants
      *  [0] - Mandatory
      *  [1] - Type
      *  [2] - PHP type
      *  [3] - Is an Array
-     *  [4] - Saves directly
+     *  [4] - Saves directly.
      *
      * @return array
      */
@@ -95,7 +88,7 @@ class LeaveAccrualLine extends Remote\Object
         return [
             'LeaveTypeID' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
             'NumberOfUnits' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
-            'AutoCalculate' => [false, self::PROPERTY_TYPE_STRING, null, false, false]
+            'AutoCalculate' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
         ];
     }
 
@@ -114,12 +107,14 @@ class LeaveAccrualLine extends Remote\Object
 
     /**
      * @param string $value
+     *
      * @return LeaveAccrualLine
      */
     public function setLeaveTypeID($value)
     {
         $this->propertyUpdated('LeaveTypeID', $value);
         $this->_data['LeaveTypeID'] = $value;
+
         return $this;
     }
 
@@ -133,12 +128,14 @@ class LeaveAccrualLine extends Remote\Object
 
     /**
      * @param string $value
+     *
      * @return LeaveAccrualLine
      */
     public function setNumberOfUnit($value)
     {
         $this->propertyUpdated('NumberOfUnits', $value);
         $this->_data['NumberOfUnits'] = $value;
+
         return $this;
     }
 
@@ -152,14 +149,14 @@ class LeaveAccrualLine extends Remote\Object
 
     /**
      * @param string $value
+     *
      * @return LeaveAccrualLine
      */
     public function setAutoCalculate($value)
     {
         $this->propertyUpdated('AutoCalculate', $value);
         $this->_data['AutoCalculate'] = $value;
+
         return $this;
     }
-
-
 }

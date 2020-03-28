@@ -1,27 +1,25 @@
 <?php
+
 namespace XeroPHP\Models\Accounting\BankTransaction;
 
 use XeroPHP\Remote;
 
-class BankAccount extends Remote\Object
+class BankAccount extends Remote\Model
 {
-
     /**
-     * BankAccount code (this value may not always be present for a bank account)
+     * BankAccount code (this value may not always be present for a bank account).
      *
      * @property string Code
      */
 
     /**
-     * BankAccount identifier
+     * BankAccount identifier.
      *
      * @property string AccountID
      */
 
-
-
     /**
-     * Get the resource uri of the class (Contacts) etc
+     * Get the resource uri of the class (Contacts) etc.
      *
      * @return string
      */
@@ -30,9 +28,8 @@ class BankAccount extends Remote\Object
         return 'BankAccount';
     }
 
-
     /**
-     * Get the root node name.  Just the unqualified classname
+     * Get the root node name.  Just the unqualified classname.
      *
      * @return string
      */
@@ -41,9 +38,8 @@ class BankAccount extends Remote\Object
         return 'BankAccount';
     }
 
-
     /**
-     * Get the guid property
+     * Get the guid property.
      *
      * @return string
      */
@@ -52,9 +48,8 @@ class BankAccount extends Remote\Object
         return '';
     }
 
-
     /**
-     * Get the stem of the API (core.xro) etc
+     * Get the stem of the API (core.xro) etc.
      *
      * @return string|null
      */
@@ -63,9 +58,8 @@ class BankAccount extends Remote\Object
         return Remote\URL::API_CORE;
     }
 
-
     /**
-     * Get the supported methods
+     * Get the supported methods.
      */
     public static function getSupportedMethods()
     {
@@ -74,13 +68,12 @@ class BankAccount extends Remote\Object
     }
 
     /**
-     *
      * Get the properties of the object.  Indexed by constants
      *  [0] - Mandatory
      *  [1] - Type
      *  [2] - PHP type
      *  [3] - Is an Array
-     *  [4] - Saves directly
+     *  [4] - Saves directly.
      *
      * @return array
      */
@@ -88,7 +81,7 @@ class BankAccount extends Remote\Object
     {
         return [
             'Code' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
-            'AccountID' => [false, self::PROPERTY_TYPE_STRING, null, false, false]
+            'AccountID' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
         ];
     }
 
@@ -107,12 +100,14 @@ class BankAccount extends Remote\Object
 
     /**
      * @param string $value
+     *
      * @return BankAccount
      */
     public function setCode($value)
     {
         $this->propertyUpdated('Code', $value);
         $this->_data['Code'] = $value;
+
         return $this;
     }
 
@@ -126,14 +121,14 @@ class BankAccount extends Remote\Object
 
     /**
      * @param string $value
+     *
      * @return BankAccount
      */
     public function setAccountID($value)
     {
         $this->propertyUpdated('AccountID', $value);
         $this->_data['AccountID'] = $value;
+
         return $this;
     }
-
-
 }

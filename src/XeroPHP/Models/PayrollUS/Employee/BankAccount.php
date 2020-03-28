@@ -1,11 +1,11 @@
 <?php
+
 namespace XeroPHP\Models\PayrollUS\Employee;
 
 use XeroPHP\Remote;
 
-class BankAccount extends Remote\Object
+class BankAccount extends Remote\Model
 {
-
     /**
      * The name of bank account holder exactly how the bank has it.
      *
@@ -13,46 +13,44 @@ class BankAccount extends Remote\Object
      */
 
     /**
-     * The text that will appear on your employee’s bank statement when they receive payment
+     * The text that will appear on your employee’s bank statement when they receive payment.
      *
      * @property string StatementText
      */
 
     /**
-     * See Account Types
+     * See Account Types.
      *
      * @property string AccountType
      */
 
     /**
-     * Bank routing number is the nine digit number used to identify a financial institution
+     * Bank routing number is the nine digit number used to identify a financial institution.
      *
      * @property string RoutingNumber
      */
 
     /**
-     * The account number for the bank account
+     * The account number for the bank account.
      *
      * @property string AccountNumber
      */
 
     /**
      * Fixed amounts (for example, if an employee wants to have $100 of their salary transferred to one
-     * account, and the remaining amount to another)
+     * account, and the remaining amount to another).
      *
      * @property float Amount
      */
 
     /**
-     * Set it to true if this bank account should be the Remainder bank account
+     * Set it to true if this bank account should be the Remainder bank account.
      *
      * @property string Remainder
      */
 
-
-
     /**
-     * Get the resource uri of the class (Contacts) etc
+     * Get the resource uri of the class (Contacts) etc.
      *
      * @return string
      */
@@ -61,9 +59,8 @@ class BankAccount extends Remote\Object
         return 'BankAccount';
     }
 
-
     /**
-     * Get the root node name.  Just the unqualified classname
+     * Get the root node name.  Just the unqualified classname.
      *
      * @return string
      */
@@ -72,9 +69,8 @@ class BankAccount extends Remote\Object
         return 'BankAccount';
     }
 
-
     /**
-     * Get the guid property
+     * Get the guid property.
      *
      * @return string
      */
@@ -83,9 +79,8 @@ class BankAccount extends Remote\Object
         return '';
     }
 
-
     /**
-     * Get the stem of the API (core.xro) etc
+     * Get the stem of the API (core.xro) etc.
      *
      * @return string|null
      */
@@ -94,9 +89,8 @@ class BankAccount extends Remote\Object
         return Remote\URL::API_PAYROLL;
     }
 
-
     /**
-     * Get the supported methods
+     * Get the supported methods.
      */
     public static function getSupportedMethods()
     {
@@ -105,13 +99,12 @@ class BankAccount extends Remote\Object
     }
 
     /**
-     *
      * Get the properties of the object.  Indexed by constants
      *  [0] - Mandatory
      *  [1] - Type
      *  [2] - PHP type
      *  [3] - Is an Array
-     *  [4] - Saves directly
+     *  [4] - Saves directly.
      *
      * @return array
      */
@@ -124,7 +117,7 @@ class BankAccount extends Remote\Object
             'RoutingNumber' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
             'AccountNumber' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
             'Amount' => [false, self::PROPERTY_TYPE_FLOAT, null, false, false],
-            'Remainder' => [false, self::PROPERTY_TYPE_STRING, null, false, false]
+            'Remainder' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
         ];
     }
 
@@ -143,12 +136,14 @@ class BankAccount extends Remote\Object
 
     /**
      * @param string $value
+     *
      * @return BankAccount
      */
     public function setAccountHolderName($value)
     {
         $this->propertyUpdated('AccountHolderName', $value);
         $this->_data['AccountHolderName'] = $value;
+
         return $this;
     }
 
@@ -162,12 +157,14 @@ class BankAccount extends Remote\Object
 
     /**
      * @param string $value
+     *
      * @return BankAccount
      */
     public function setStatementText($value)
     {
         $this->propertyUpdated('StatementText', $value);
         $this->_data['StatementText'] = $value;
+
         return $this;
     }
 
@@ -181,12 +178,14 @@ class BankAccount extends Remote\Object
 
     /**
      * @param string $value
+     *
      * @return BankAccount
      */
     public function setAccountType($value)
     {
         $this->propertyUpdated('AccountType', $value);
         $this->_data['AccountType'] = $value;
+
         return $this;
     }
 
@@ -200,12 +199,14 @@ class BankAccount extends Remote\Object
 
     /**
      * @param string $value
+     *
      * @return BankAccount
      */
     public function setRoutingNumber($value)
     {
         $this->propertyUpdated('RoutingNumber', $value);
         $this->_data['RoutingNumber'] = $value;
+
         return $this;
     }
 
@@ -219,12 +220,14 @@ class BankAccount extends Remote\Object
 
     /**
      * @param string $value
+     *
      * @return BankAccount
      */
     public function setAccountNumber($value)
     {
         $this->propertyUpdated('AccountNumber', $value);
         $this->_data['AccountNumber'] = $value;
+
         return $this;
     }
 
@@ -238,12 +241,14 @@ class BankAccount extends Remote\Object
 
     /**
      * @param float $value
+     *
      * @return BankAccount
      */
     public function setAmount($value)
     {
         $this->propertyUpdated('Amount', $value);
         $this->_data['Amount'] = $value;
+
         return $this;
     }
 
@@ -257,14 +262,14 @@ class BankAccount extends Remote\Object
 
     /**
      * @param string $value
+     *
      * @return BankAccount
      */
     public function setRemainder($value)
     {
         $this->propertyUpdated('Remainder', $value);
         $this->_data['Remainder'] = $value;
+
         return $this;
     }
-
-
 }

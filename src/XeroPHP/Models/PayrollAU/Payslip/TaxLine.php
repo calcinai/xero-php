@@ -1,40 +1,38 @@
 <?php
+
 namespace XeroPHP\Models\PayrollAU\Payslip;
 
 use XeroPHP\Remote;
 
-class TaxLine extends Remote\Object
+class TaxLine extends Remote\Model
 {
-
     /**
-     * Name of the tax type
+     * Name of the tax type.
      *
      * @property string TaxTypeName
      */
 
     /**
-     * Description of the tax line
+     * Description of the tax line.
      *
      * @property string Description
      */
 
     /**
-     * The tax line amount
+     * The tax line amount.
      *
      * @property float Amount
      */
 
     /**
      * The tax line liability account code. For posted pay run you should be able to see liability account
-     * code
+     * code.
      *
      * @property string LiabilityAccount
      */
 
-
-
     /**
-     * Get the resource uri of the class (Contacts) etc
+     * Get the resource uri of the class (Contacts) etc.
      *
      * @return string
      */
@@ -43,9 +41,8 @@ class TaxLine extends Remote\Object
         return 'TaxLine';
     }
 
-
     /**
-     * Get the root node name.  Just the unqualified classname
+     * Get the root node name.  Just the unqualified classname.
      *
      * @return string
      */
@@ -54,9 +51,8 @@ class TaxLine extends Remote\Object
         return 'TaxLine';
     }
 
-
     /**
-     * Get the guid property
+     * Get the guid property.
      *
      * @return string
      */
@@ -65,9 +61,8 @@ class TaxLine extends Remote\Object
         return '';
     }
 
-
     /**
-     * Get the stem of the API (core.xro) etc
+     * Get the stem of the API (core.xro) etc.
      *
      * @return string|null
      */
@@ -76,9 +71,8 @@ class TaxLine extends Remote\Object
         return Remote\URL::API_PAYROLL;
     }
 
-
     /**
-     * Get the supported methods
+     * Get the supported methods.
      */
     public static function getSupportedMethods()
     {
@@ -87,13 +81,12 @@ class TaxLine extends Remote\Object
     }
 
     /**
-     *
      * Get the properties of the object.  Indexed by constants
      *  [0] - Mandatory
      *  [1] - Type
      *  [2] - PHP type
      *  [3] - Is an Array
-     *  [4] - Saves directly
+     *  [4] - Saves directly.
      *
      * @return array
      */
@@ -103,7 +96,7 @@ class TaxLine extends Remote\Object
             'TaxTypeName' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
             'Description' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
             'Amount' => [false, self::PROPERTY_TYPE_FLOAT, null, false, false],
-            'LiabilityAccount' => [false, self::PROPERTY_TYPE_STRING, null, false, false]
+            'LiabilityAccount' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
         ];
     }
 
@@ -122,12 +115,14 @@ class TaxLine extends Remote\Object
 
     /**
      * @param string $value
+     *
      * @return TaxLine
      */
     public function setTaxTypeName($value)
     {
         $this->propertyUpdated('TaxTypeName', $value);
         $this->_data['TaxTypeName'] = $value;
+
         return $this;
     }
 
@@ -141,12 +136,14 @@ class TaxLine extends Remote\Object
 
     /**
      * @param string $value
+     *
      * @return TaxLine
      */
     public function setDescription($value)
     {
         $this->propertyUpdated('Description', $value);
         $this->_data['Description'] = $value;
+
         return $this;
     }
 
@@ -160,12 +157,14 @@ class TaxLine extends Remote\Object
 
     /**
      * @param float $value
+     *
      * @return TaxLine
      */
     public function setAmount($value)
     {
         $this->propertyUpdated('Amount', $value);
         $this->_data['Amount'] = $value;
+
         return $this;
     }
 
@@ -179,14 +178,14 @@ class TaxLine extends Remote\Object
 
     /**
      * @param string $value
+     *
      * @return TaxLine
      */
     public function setLiabilityAccount($value)
     {
         $this->propertyUpdated('LiabilityAccount', $value);
         $this->_data['LiabilityAccount'] = $value;
+
         return $this;
     }
-
-
 }

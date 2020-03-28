@@ -1,13 +1,13 @@
 <?php
+
 namespace XeroPHP\Models\PayrollUS\PayItem;
 
 use XeroPHP\Remote;
 
-class TimeOffType extends Remote\Object
+class TimeOffType extends Remote\Model
 {
-
     /**
-     * Name of the time off type (max length = 50)
+     * Name of the time off type (max length = 50).
      *
      * @property TimeOffType TimeOffType
      */
@@ -15,27 +15,27 @@ class TimeOffType extends Remote\Object
     /**
      * Select Unpaid Time Off to indicate that an employee will not get paid when taking this time off
      * type.
-If Paid Time Off is selected the employee will get paid when taking this time off type and you
-     * can accrue the liability on the Balance Sheet
+     * If Paid Time Off is selected the employee will get paid when taking this time off type and you
+     * can accrue the liability on the Balance Sheet.
      *
      * @property string TimeOffCategory
      */
 
     /**
      * The account to which the amount of the time off is to be debited. Only applies for TimeOffCategory
-     * of PAIDTIMEOFF
+     * of PAIDTIMEOFF.
      *
      * @property string ExpenseAccountCode
      */
 
     /**
-     * The computed amount of the time off is credited to this account
+     * The computed amount of the time off is credited to this account.
      *
      * @property string LiabilityAccountCode
      */
 
     /**
-     * Xero identifier
+     * Xero identifier.
      *
      * @property string TimeOffTypeID
      */
@@ -47,10 +47,8 @@ If Paid Time Off is selected the employee will get paid when taking this time of
      * @property string ShowBalanceToEmployee
      */
 
-
-
     /**
-     * Get the resource uri of the class (Contacts) etc
+     * Get the resource uri of the class (Contacts) etc.
      *
      * @return string
      */
@@ -59,9 +57,8 @@ If Paid Time Off is selected the employee will get paid when taking this time of
         return 'TimeOffTypes';
     }
 
-
     /**
-     * Get the root node name.  Just the unqualified classname
+     * Get the root node name.  Just the unqualified classname.
      *
      * @return string
      */
@@ -70,9 +67,8 @@ If Paid Time Off is selected the employee will get paid when taking this time of
         return 'TimeOffType';
     }
 
-
     /**
-     * Get the guid property
+     * Get the guid property.
      *
      * @return string
      */
@@ -81,9 +77,8 @@ If Paid Time Off is selected the employee will get paid when taking this time of
         return 'TimeOffTypeID';
     }
 
-
     /**
-     * Get the stem of the API (core.xro) etc
+     * Get the stem of the API (core.xro) etc.
      *
      * @return string|null
      */
@@ -92,9 +87,8 @@ If Paid Time Off is selected the employee will get paid when taking this time of
         return Remote\URL::API_PAYROLL;
     }
 
-
     /**
-     * Get the supported methods
+     * Get the supported methods.
      */
     public static function getSupportedMethods()
     {
@@ -103,13 +97,12 @@ If Paid Time Off is selected the employee will get paid when taking this time of
     }
 
     /**
-     *
      * Get the properties of the object.  Indexed by constants
      *  [0] - Mandatory
      *  [1] - Type
      *  [2] - PHP type
      *  [3] - Is an Array
-     *  [4] - Saves directly
+     *  [4] - Saves directly.
      *
      * @return array
      */
@@ -121,7 +114,7 @@ If Paid Time Off is selected the employee will get paid when taking this time of
             'ExpenseAccountCode' => [true, self::PROPERTY_TYPE_STRING, null, false, false],
             'LiabilityAccountCode' => [true, self::PROPERTY_TYPE_STRING, null, false, false],
             'TimeOffTypeID' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
-            'ShowBalanceToEmployee' => [false, self::PROPERTY_TYPE_STRING, null, false, false]
+            'ShowBalanceToEmployee' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
         ];
     }
 
@@ -140,12 +133,14 @@ If Paid Time Off is selected the employee will get paid when taking this time of
 
     /**
      * @param TimeOffType $value
+     *
      * @return TimeOffType
      */
-    public function setTimeOffType(TimeOffType $value)
+    public function setTimeOffType(self $value)
     {
         $this->propertyUpdated('TimeOffType', $value);
         $this->_data['TimeOffType'] = $value;
+
         return $this;
     }
 
@@ -159,12 +154,14 @@ If Paid Time Off is selected the employee will get paid when taking this time of
 
     /**
      * @param string $value
+     *
      * @return TimeOffType
      */
     public function setTimeOffCategory($value)
     {
         $this->propertyUpdated('TimeOffCategory', $value);
         $this->_data['TimeOffCategory'] = $value;
+
         return $this;
     }
 
@@ -178,12 +175,14 @@ If Paid Time Off is selected the employee will get paid when taking this time of
 
     /**
      * @param string $value
+     *
      * @return TimeOffType
      */
     public function setExpenseAccountCode($value)
     {
         $this->propertyUpdated('ExpenseAccountCode', $value);
         $this->_data['ExpenseAccountCode'] = $value;
+
         return $this;
     }
 
@@ -197,12 +196,14 @@ If Paid Time Off is selected the employee will get paid when taking this time of
 
     /**
      * @param string $value
+     *
      * @return TimeOffType
      */
     public function setLiabilityAccountCode($value)
     {
         $this->propertyUpdated('LiabilityAccountCode', $value);
         $this->_data['LiabilityAccountCode'] = $value;
+
         return $this;
     }
 
@@ -216,12 +217,14 @@ If Paid Time Off is selected the employee will get paid when taking this time of
 
     /**
      * @param string $value
+     *
      * @return TimeOffType
      */
     public function setTimeOffTypeID($value)
     {
         $this->propertyUpdated('TimeOffTypeID', $value);
         $this->_data['TimeOffTypeID'] = $value;
+
         return $this;
     }
 
@@ -235,14 +238,14 @@ If Paid Time Off is selected the employee will get paid when taking this time of
 
     /**
      * @param string $value
+     *
      * @return TimeOffType
      */
     public function setShowBalanceToEmployee($value)
     {
         $this->propertyUpdated('ShowBalanceToEmployee', $value);
         $this->_data['ShowBalanceToEmployee'] = $value;
+
         return $this;
     }
-
-
 }

@@ -1,32 +1,32 @@
 <?php
+
 namespace XeroPHP\Models\Accounting;
 
 use XeroPHP\Remote;
 use XeroPHP\Models\Accounting\Organisation\ExternalLink;
 
-class Employee extends Remote\Object
+class Employee extends Remote\Model
 {
-
     /**
-     * Xero identifier
+     * Xero identifier.
      *
      * @property string EmployeeID
      */
 
     /**
-     * Current status of an employee – see contact status types
+     * Current status of an employee – see contact status types.
      *
      * @property string Status
      */
 
     /**
-     * First name of an employee (max length = 255)
+     * First name of an employee (max length = 255).
      *
      * @property string FirstName
      */
 
     /**
-     * Last name of an employee (max length = 255)
+     * Last name of an employee (max length = 255).
      *
      * @property string LastName
      */
@@ -34,16 +34,14 @@ class Employee extends Remote\Object
     /**
      * Link to an external resource, for example, an employee record in an external system. You can specify
      * the URL element.
-The description of the link is auto-generated in the form “Go to <App name>”.
+     * The description of the link is auto-generated in the form “Go to <App name>”.
      * <App name> refers to the Xero application name that is making the API call.
      *
      * @property ExternalLink ExternalLink
      */
 
-
-
     /**
-     * Get the resource uri of the class (Contacts) etc
+     * Get the resource uri of the class (Contacts) etc.
      *
      * @return string
      */
@@ -52,9 +50,8 @@ The description of the link is auto-generated in the form “Go to <App name>”
         return 'Employees';
     }
 
-
     /**
-     * Get the root node name.  Just the unqualified classname
+     * Get the root node name.  Just the unqualified classname.
      *
      * @return string
      */
@@ -63,9 +60,8 @@ The description of the link is auto-generated in the form “Go to <App name>”
         return 'Employee';
     }
 
-
     /**
-     * Get the guid property
+     * Get the guid property.
      *
      * @return string
      */
@@ -74,9 +70,8 @@ The description of the link is auto-generated in the form “Go to <App name>”
         return 'EmployeeID';
     }
 
-
     /**
-     * Get the stem of the API (core.xro) etc
+     * Get the stem of the API (core.xro) etc.
      *
      * @return string|null
      */
@@ -85,27 +80,25 @@ The description of the link is auto-generated in the form “Go to <App name>”
         return Remote\URL::API_CORE;
     }
 
-
     /**
-     * Get the supported methods
+     * Get the supported methods.
      */
     public static function getSupportedMethods()
     {
         return [
             Remote\Request::METHOD_POST,
             Remote\Request::METHOD_PUT,
-            Remote\Request::METHOD_GET
+            Remote\Request::METHOD_GET,
         ];
     }
 
     /**
-     *
      * Get the properties of the object.  Indexed by constants
      *  [0] - Mandatory
      *  [1] - Type
      *  [2] - PHP type
      *  [3] - Is an Array
-     *  [4] - Saves directly
+     *  [4] - Saves directly.
      *
      * @return array
      */
@@ -116,7 +109,7 @@ The description of the link is auto-generated in the form “Go to <App name>”
             'Status' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
             'FirstName' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
             'LastName' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
-            'ExternalLink' => [false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Organisation\\ExternalLink', false, false]
+            'ExternalLink' => [false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Organisation\\ExternalLink', false, false],
         ];
     }
 
@@ -135,12 +128,14 @@ The description of the link is auto-generated in the form “Go to <App name>”
 
     /**
      * @param string $value
+     *
      * @return Employee
      */
     public function setEmployeeID($value)
     {
         $this->propertyUpdated('EmployeeID', $value);
         $this->_data['EmployeeID'] = $value;
+
         return $this;
     }
 
@@ -154,12 +149,14 @@ The description of the link is auto-generated in the form “Go to <App name>”
 
     /**
      * @param string $value
+     *
      * @return Employee
      */
     public function setStatus($value)
     {
         $this->propertyUpdated('Status', $value);
         $this->_data['Status'] = $value;
+
         return $this;
     }
 
@@ -173,12 +170,14 @@ The description of the link is auto-generated in the form “Go to <App name>”
 
     /**
      * @param string $value
+     *
      * @return Employee
      */
     public function setFirstName($value)
     {
         $this->propertyUpdated('FirstName', $value);
         $this->_data['FirstName'] = $value;
+
         return $this;
     }
 
@@ -192,12 +191,14 @@ The description of the link is auto-generated in the form “Go to <App name>”
 
     /**
      * @param string $value
+     *
      * @return Employee
      */
     public function setLastName($value)
     {
         $this->propertyUpdated('LastName', $value);
         $this->_data['LastName'] = $value;
+
         return $this;
     }
 
@@ -211,14 +212,14 @@ The description of the link is auto-generated in the form “Go to <App name>”
 
     /**
      * @param ExternalLink $value
+     *
      * @return Employee
      */
     public function setExternalLink(ExternalLink $value)
     {
         $this->propertyUpdated('ExternalLink', $value);
         $this->_data['ExternalLink'] = $value;
+
         return $this;
     }
-
-
 }

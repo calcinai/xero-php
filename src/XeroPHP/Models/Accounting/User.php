@@ -1,57 +1,55 @@
 <?php
+
 namespace XeroPHP\Models\Accounting;
 
 use XeroPHP\Remote;
 
-class User extends Remote\Object
+class User extends Remote\Model
 {
-
     /**
-     * Xero identifier
+     * Xero identifier.
      *
      * @property string UserID
      */
 
     /**
-     * Email address of user
+     * Email address of user.
      *
      * @property string EmailAddress
      */
 
     /**
-     * First name of user
+     * First name of user.
      *
      * @property string FirstName
      */
 
     /**
-     * Last name of user
+     * Last name of user.
      *
      * @property string LastName
      */
 
     /**
-     * Timestamp of last change to user
+     * Timestamp of last change to user.
      *
      * @property \DateTimeInterface UpdatedDateUTC
      */
 
     /**
-     * Boolean to indicate if user is the subscriber
+     * Boolean to indicate if user is the subscriber.
      *
      * @property bool IsSubscriber
      */
 
     /**
-     * User role (see Types)
+     * User role (see Types).
      *
      * @property string OrganisationRole
      */
 
-
-
     /**
-     * Get the resource uri of the class (Contacts) etc
+     * Get the resource uri of the class (Contacts) etc.
      *
      * @return string
      */
@@ -60,9 +58,8 @@ class User extends Remote\Object
         return 'Users';
     }
 
-
     /**
-     * Get the root node name.  Just the unqualified classname
+     * Get the root node name.  Just the unqualified classname.
      *
      * @return string
      */
@@ -71,9 +68,8 @@ class User extends Remote\Object
         return 'User';
     }
 
-
     /**
-     * Get the guid property
+     * Get the guid property.
      *
      * @return string
      */
@@ -82,9 +78,8 @@ class User extends Remote\Object
         return 'UserID';
     }
 
-
     /**
-     * Get the stem of the API (core.xro) etc
+     * Get the stem of the API (core.xro) etc.
      *
      * @return string|null
      */
@@ -93,25 +88,23 @@ class User extends Remote\Object
         return Remote\URL::API_CORE;
     }
 
-
     /**
-     * Get the supported methods
+     * Get the supported methods.
      */
     public static function getSupportedMethods()
     {
         return [
-            Remote\Request::METHOD_GET
+            Remote\Request::METHOD_GET,
         ];
     }
 
     /**
-     *
      * Get the properties of the object.  Indexed by constants
      *  [0] - Mandatory
      *  [1] - Type
      *  [2] - PHP type
      *  [3] - Is an Array
-     *  [4] - Saves directly
+     *  [4] - Saves directly.
      *
      * @return array
      */
@@ -124,7 +117,7 @@ class User extends Remote\Object
             'LastName' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
             'UpdatedDateUTC' => [false, self::PROPERTY_TYPE_TIMESTAMP, '\\DateTimeInterface', false, false],
             'IsSubscriber' => [false, self::PROPERTY_TYPE_BOOLEAN, null, false, false],
-            'OrganisationRole' => [false, self::PROPERTY_TYPE_ENUM, null, false, false]
+            'OrganisationRole' => [false, self::PROPERTY_TYPE_ENUM, null, false, false],
         ];
     }
 
@@ -143,12 +136,14 @@ class User extends Remote\Object
 
     /**
      * @param string $value
+     *
      * @return User
      */
     public function setUserID($value)
     {
         $this->propertyUpdated('UserID', $value);
         $this->_data['UserID'] = $value;
+
         return $this;
     }
 
@@ -162,12 +157,14 @@ class User extends Remote\Object
 
     /**
      * @param string $value
+     *
      * @return User
      */
     public function setEmailAddress($value)
     {
         $this->propertyUpdated('EmailAddress', $value);
         $this->_data['EmailAddress'] = $value;
+
         return $this;
     }
 
@@ -181,12 +178,14 @@ class User extends Remote\Object
 
     /**
      * @param string $value
+     *
      * @return User
      */
     public function setFirstName($value)
     {
         $this->propertyUpdated('FirstName', $value);
         $this->_data['FirstName'] = $value;
+
         return $this;
     }
 
@@ -200,12 +199,14 @@ class User extends Remote\Object
 
     /**
      * @param string $value
+     *
      * @return User
      */
     public function setLastName($value)
     {
         $this->propertyUpdated('LastName', $value);
         $this->_data['LastName'] = $value;
+
         return $this;
     }
 
@@ -219,12 +220,14 @@ class User extends Remote\Object
 
     /**
      * @param \DateTimeInterface $value
+     *
      * @return User
      */
     public function setUpdatedDateUTC(\DateTimeInterface $value)
     {
         $this->propertyUpdated('UpdatedDateUTC', $value);
         $this->_data['UpdatedDateUTC'] = $value;
+
         return $this;
     }
 
@@ -238,12 +241,14 @@ class User extends Remote\Object
 
     /**
      * @param bool $value
+     *
      * @return User
      */
     public function setIsSubscriber($value)
     {
         $this->propertyUpdated('IsSubscriber', $value);
         $this->_data['IsSubscriber'] = $value;
+
         return $this;
     }
 
@@ -257,14 +262,14 @@ class User extends Remote\Object
 
     /**
      * @param string $value
+     *
      * @return User
      */
     public function setOrganisationRole($value)
     {
         $this->propertyUpdated('OrganisationRole', $value);
         $this->_data['OrganisationRole'] = $value;
+
         return $this;
     }
-
-
 }

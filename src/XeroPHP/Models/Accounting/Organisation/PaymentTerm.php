@@ -1,27 +1,32 @@
 <?php
+
 namespace XeroPHP\Models\Accounting\Organisation;
 
 use XeroPHP\Remote;
 
-class PaymentTerm extends Remote\Object
+class PaymentTerm extends Remote\Model
 {
+     /**
+      * Default payment terms for bills (accounts payable) – see Payment Terms.
+      *
+      * @property Bill[] Bills
+      */
+
+     /**
+      * Default payment terms for sales invoices(accounts receivable) – see Payment Terms.
+      *
+      * @property Sale[] Sales
+      */
+     const DAYSAFTERBILLDATE = 'DAYSAFTERBILLDATE';
+
+     const DAYSAFTERBILLMONTH = 'DAYSAFTERBILLMONTH';
+
+     const OFCURRENTMONTH = 'OFCURRENTMONTH';
+
+     const OFFOLLOWINGMONTH = 'OFFOLLOWINGMONTH';
 
     /**
-     * Default payment terms for bills (accounts payable) – see Payment Terms
-     *
-     * @property Bill[] Bills
-     */
-
-    /**
-     * Default payment terms for sales invoices(accounts receivable) – see Payment Terms
-     *
-     * @property Sale[] Sales
-     */
-
-
-
-    /**
-     * Get the resource uri of the class (Contacts) etc
+     * Get the resource uri of the class (Contacts) etc.
      *
      * @return string
      */
@@ -30,9 +35,8 @@ class PaymentTerm extends Remote\Object
         return 'PaymentTerms';
     }
 
-
     /**
-     * Get the root node name.  Just the unqualified classname
+     * Get the root node name.  Just the unqualified classname.
      *
      * @return string
      */
@@ -41,9 +45,8 @@ class PaymentTerm extends Remote\Object
         return 'PaymentTerm';
     }
 
-
     /**
-     * Get the guid property
+     * Get the guid property.
      *
      * @return string
      */
@@ -52,9 +55,8 @@ class PaymentTerm extends Remote\Object
         return '';
     }
 
-
     /**
-     * Get the stem of the API (core.xro) etc
+     * Get the stem of the API (core.xro) etc.
      *
      * @return string|null
      */
@@ -63,9 +65,8 @@ class PaymentTerm extends Remote\Object
         return Remote\URL::API_CORE;
     }
 
-
     /**
-     * Get the supported methods
+     * Get the supported methods.
      */
     public static function getSupportedMethods()
     {
@@ -74,13 +75,12 @@ class PaymentTerm extends Remote\Object
     }
 
     /**
-     *
      * Get the properties of the object.  Indexed by constants
      *  [0] - Mandatory
      *  [1] - Type
      *  [2] - PHP type
      *  [3] - Is an Array
-     *  [4] - Saves directly
+     *  [4] - Saves directly.
      *
      * @return array
      */
@@ -88,7 +88,7 @@ class PaymentTerm extends Remote\Object
     {
         return [
             'Bills' => [false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Organisation\\Bill', true, false],
-            'Sales' => [false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Organisation\\Sale', true, false]
+            'Sales' => [false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Organisation\\Sale', true, false],
         ];
     }
 
@@ -99,7 +99,6 @@ class PaymentTerm extends Remote\Object
 
     /**
      * @return Bill[]|Remote\Collection
-     * Always returns a collection, switch is for type hinting
      */
     public function getBills()
     {
@@ -108,21 +107,22 @@ class PaymentTerm extends Remote\Object
 
     /**
      * @param Bill $value
+     *
      * @return PaymentTerm
      */
     public function addBill(Bill $value)
     {
         $this->propertyUpdated('Bills', $value);
-        if (!isset($this->_data['Bills'])) {
+        if (! isset($this->_data['Bills'])) {
             $this->_data['Bills'] = new Remote\Collection();
         }
         $this->_data['Bills'][] = $value;
+
         return $this;
     }
 
     /**
-     * @return Sale[]|Remote\Collection
-     * Always returns a collection, switch is for type hinting
+     * @return Remote\Collection|Sale[]
      */
     public function getSales()
     {
@@ -131,17 +131,17 @@ class PaymentTerm extends Remote\Object
 
     /**
      * @param Sale $value
+     *
      * @return PaymentTerm
      */
     public function addSale(Sale $value)
     {
         $this->propertyUpdated('Sales', $value);
-        if (!isset($this->_data['Sales'])) {
+        if (! isset($this->_data['Sales'])) {
             $this->_data['Sales'] = new Remote\Collection();
         }
         $this->_data['Sales'][] = $value;
+
         return $this;
     }
-
-
 }

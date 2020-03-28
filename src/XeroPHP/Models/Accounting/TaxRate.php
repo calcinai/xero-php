@@ -1,92 +1,91 @@
 <?php
+
 namespace XeroPHP\Models\Accounting;
 
 use XeroPHP\Remote;
 use XeroPHP\Models\Accounting\TaxRate\TaxComponent;
 
-class TaxRate extends Remote\Object
+class TaxRate extends Remote\Model
 {
-
     /**
-     * Name of tax rate
+     * Name of tax rate.
      *
      * @property string Name
      */
 
     /**
-     * See Tax Types – can only be used on update calls
+     * See Tax Types – can only be used on update calls.
      *
      * @property string TaxType
      */
 
     /**
-     * See TaxComponents
+     * See TaxComponents.
      *
      * @property TaxComponent[] TaxComponents
      */
 
     /**
-     * See Status Codes
+     * See Status Codes.
      *
      * @property string Status
      */
 
     /**
-     * See ReportTaxTypes
+     * See ReportTaxTypes.
      *
      * @property string ReportTaxType
      */
 
     /**
-     * Boolean to describe if tax rate can be used for asset accounts i.e. true,false
+     * Boolean to describe if tax rate can be used for asset accounts i.e. true,false.
      *
      * @property bool CanApplyToAssets
      */
 
     /**
-     * Boolean to describe if tax rate can be used for equity accounts i.e. true,false
+     * Boolean to describe if tax rate can be used for equity accounts i.e. true,false.
      *
      * @property bool CanApplyToEquity
      */
 
     /**
-     * Boolean to describe if tax rate can be used for expense accounts i.e. true,false
+     * Boolean to describe if tax rate can be used for expense accounts i.e. true,false.
      *
      * @property bool CanApplyToExpenses
      */
 
     /**
-     * Boolean to describe if tax rate can be used for liability accounts i.e. true,false
+     * Boolean to describe if tax rate can be used for liability accounts i.e. true,false.
      *
      * @property bool CanApplyToLiabilities
      */
 
     /**
-     * Boolean to describe if tax rate can be used for revenue accounts i.e. true,false
+     * Boolean to describe if tax rate can be used for revenue accounts i.e. true,false.
      *
      * @property bool CanApplyToRevenue
      */
 
     /**
-     * Tax Rate (decimal to 4dp) e.g 12.5000
+     * Tax Rate (decimal to 4dp) e.g 12.5000.
      *
      * @property float DisplayTaxRate
      */
 
     /**
-     * Effective Tax Rate (decimal to 4dp) e.g 12.5000
+     * Effective Tax Rate (decimal to 4dp) e.g 12.5000.
      *
      * @property float EffectiveRate
      */
+    const TAX_STATUS_ACTIVE = 'ACTIVE';
 
+    const TAX_STATUS_DELETED = 'DELETED';
 
-    const TAX_STATUS_ACTIVE   = 'ACTIVE';
-    const TAX_STATUS_DELETED  = 'DELETED';
     const TAX_STATUS_ARCHIVED = 'ARCHIVED';
 
-
     /**
-     * Get the resource uri of the class (Contacts) etc
+     * Get the resource uri of the class (Contacts) etc.
      *
      * @return string
      */
@@ -95,9 +94,8 @@ class TaxRate extends Remote\Object
         return 'TaxRates';
     }
 
-
     /**
-     * Get the root node name.  Just the unqualified classname
+     * Get the root node name.  Just the unqualified classname.
      *
      * @return string
      */
@@ -106,9 +104,8 @@ class TaxRate extends Remote\Object
         return 'TaxRate';
     }
 
-
     /**
-     * Get the guid property
+     * Get the guid property.
      *
      * @return string
      */
@@ -117,9 +114,8 @@ class TaxRate extends Remote\Object
         return '';
     }
 
-
     /**
-     * Get the stem of the API (core.xro) etc
+     * Get the stem of the API (core.xro) etc.
      *
      * @return string|null
      */
@@ -128,27 +124,25 @@ class TaxRate extends Remote\Object
         return Remote\URL::API_CORE;
     }
 
-
     /**
-     * Get the supported methods
+     * Get the supported methods.
      */
     public static function getSupportedMethods()
     {
         return [
             Remote\Request::METHOD_GET,
             Remote\Request::METHOD_PUT,
-            Remote\Request::METHOD_POST
+            Remote\Request::METHOD_POST,
         ];
     }
 
     /**
-     *
      * Get the properties of the object.  Indexed by constants
      *  [0] - Mandatory
      *  [1] - Type
      *  [2] - PHP type
      *  [3] - Is an Array
-     *  [4] - Saves directly
+     *  [4] - Saves directly.
      *
      * @return array
      */
@@ -159,14 +153,14 @@ class TaxRate extends Remote\Object
             'TaxType' => [false, self::PROPERTY_TYPE_ENUM, null, false, false],
             'TaxComponents' => [false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\TaxRate\\TaxComponent', true, false],
             'Status' => [false, self::PROPERTY_TYPE_ENUM, null, false, false],
-            'ReportTaxType' => [true, self::PROPERTY_TYPE_ENUM, null, false, false],
+            'ReportTaxType' => [false, self::PROPERTY_TYPE_ENUM, null, false, false],
             'CanApplyToAssets' => [false, self::PROPERTY_TYPE_BOOLEAN, null, false, false],
             'CanApplyToEquity' => [false, self::PROPERTY_TYPE_BOOLEAN, null, false, false],
             'CanApplyToExpenses' => [false, self::PROPERTY_TYPE_BOOLEAN, null, false, false],
             'CanApplyToLiabilities' => [false, self::PROPERTY_TYPE_BOOLEAN, null, false, false],
             'CanApplyToRevenue' => [false, self::PROPERTY_TYPE_BOOLEAN, null, false, false],
             'DisplayTaxRate' => [false, self::PROPERTY_TYPE_FLOAT, null, false, false],
-            'EffectiveRate' => [false, self::PROPERTY_TYPE_FLOAT, null, false, false]
+            'EffectiveRate' => [false, self::PROPERTY_TYPE_FLOAT, null, false, false],
         ];
     }
 
@@ -185,12 +179,14 @@ class TaxRate extends Remote\Object
 
     /**
      * @param string $value
+     *
      * @return TaxRate
      */
     public function setName($value)
     {
         $this->propertyUpdated('Name', $value);
         $this->_data['Name'] = $value;
+
         return $this;
     }
 
@@ -204,18 +200,19 @@ class TaxRate extends Remote\Object
 
     /**
      * @param string $value
+     *
      * @return TaxRate
      */
     public function setTaxType($value)
     {
         $this->propertyUpdated('TaxType', $value);
         $this->_data['TaxType'] = $value;
+
         return $this;
     }
 
     /**
-     * @return TaxComponent[]|Remote\Collection
-     * Always returns a collection, switch is for type hinting
+     * @return Remote\Collection|TaxComponent[]
      */
     public function getTaxComponents()
     {
@@ -224,15 +221,17 @@ class TaxRate extends Remote\Object
 
     /**
      * @param TaxComponent $value
+     *
      * @return TaxRate
      */
     public function addTaxComponent(TaxComponent $value)
     {
         $this->propertyUpdated('TaxComponents', $value);
-        if (!isset($this->_data['TaxComponents'])) {
+        if (! isset($this->_data['TaxComponents'])) {
             $this->_data['TaxComponents'] = new Remote\Collection();
         }
         $this->_data['TaxComponents'][] = $value;
+
         return $this;
     }
 
@@ -246,12 +245,14 @@ class TaxRate extends Remote\Object
 
     /**
      * @param string $value
+     *
      * @return TaxRate
      */
     public function setStatus($value)
     {
         $this->propertyUpdated('Status', $value);
         $this->_data['Status'] = $value;
+
         return $this;
     }
 
@@ -265,12 +266,14 @@ class TaxRate extends Remote\Object
 
     /**
      * @param string $value
+     *
      * @return TaxRate
      */
     public function setReportTaxType($value)
     {
         $this->propertyUpdated('ReportTaxType', $value);
         $this->_data['ReportTaxType'] = $value;
+
         return $this;
     }
 
@@ -282,7 +285,6 @@ class TaxRate extends Remote\Object
         return $this->_data['CanApplyToAssets'];
     }
 
-
     /**
      * @return bool
      */
@@ -290,7 +292,6 @@ class TaxRate extends Remote\Object
     {
         return $this->_data['CanApplyToEquity'];
     }
-
 
     /**
      * @return bool
@@ -300,7 +301,6 @@ class TaxRate extends Remote\Object
         return $this->_data['CanApplyToExpenses'];
     }
 
-
     /**
      * @return bool
      */
@@ -308,7 +308,6 @@ class TaxRate extends Remote\Object
     {
         return $this->_data['CanApplyToLiabilities'];
     }
-
 
     /**
      * @return bool
@@ -318,7 +317,6 @@ class TaxRate extends Remote\Object
         return $this->_data['CanApplyToRevenue'];
     }
 
-
     /**
      * @return float
      */
@@ -327,7 +325,6 @@ class TaxRate extends Remote\Object
         return $this->_data['DisplayTaxRate'];
     }
 
-
     /**
      * @return float
      */
@@ -335,7 +332,4 @@ class TaxRate extends Remote\Object
     {
         return $this->_data['EffectiveRate'];
     }
-
-
-
 }
