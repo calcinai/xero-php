@@ -247,7 +247,7 @@ abstract class Model implements ObjectInterface, \JsonSerializable, \ArrayAccess
             }
 
             //if we only want the dirty props, stop here
-            if ($dirty_only && ! isset($this->_dirty[$property])) {
+            if ($dirty_only && ! isset($this->_dirty[$property]) && $property !== static::getGUIDProperty()) {
                 continue;
             }
 
