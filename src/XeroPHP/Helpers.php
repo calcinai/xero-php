@@ -3,7 +3,7 @@
 namespace XeroPHP;
 
 use XeroPHP\Models\Accounting\TrackingCategory;
-use XeroPHP\Models\PayrollUS\Paystub\TimesheetEarningsLine;
+use XeroPHP\Models\PayrollAU\Payslip\TimesheetEarningsLine;
 
 /**
  * Unfortunate class for methods that don't really have a home.
