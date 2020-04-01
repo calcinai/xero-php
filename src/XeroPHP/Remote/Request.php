@@ -108,7 +108,7 @@ class Request
 
         try {
             $guzzleResponse = $this->app->getTransport()->send($request);
-        }  catch (\GuzzleHttp\Exception\GuzzleException $e) {
+        }  catch (\GuzzleHttp\Exception\BadResponseException $e) {
             $guzzleResponse = $e->getResponse();
         }
         $this->response = new Response($this,
