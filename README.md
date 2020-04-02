@@ -5,16 +5,12 @@ XeroPHP
 [![Latest Stable Version](https://poser.pugx.org/calcinai/xero-php/v/stable)](https://packagist.org/packages/calcinai/xero-php)
 [![Total Downloads](https://poser.pugx.org/calcinai/xero-php/downloads)](https://packagist.org/packages/calcinai/xero-php)
 
-A client library for the [Xero API](<http://developer.xero.com>), including an OAuth interface and ORM-like abstraction.
+A client library for the [Xero API](<http://developer.xero.com>), wrapping Guzzle and ORM-like models.
 
-This is loosely based on the functional flow of XeroAPI/XeroOAuth-PHP, but is split logically into more of an OO design.
-
-This library has been tested with Private, Public and Partner applications.
+This library was developed for the traditional Private, Public and Partner applications, but is now based on OAuth 2 scopes.
 
 ## Requirements
-* PHP 5.5+
-* php\_curl extension - ensure a recent version (7.30+)
-* php\_openssl extension
+* PHP 5.6+
 
 ## Setup
 
@@ -24,16 +20,103 @@ Using composer:
 composer require calcinai/xero-php
 ```
 
-Otherwise just download the package and add it to your autoloader.  Namespaces are PSR-4 compliant.
+## Migration from 1.x/OAuth 1a
+
+There is now only one flow for all applications, which is most similar to the legacy _Public_ application.  All applications now require the
+OAuth 2 authorisation flow and specific organisations to be authorised at runtime, rather than creating certificates during app creation.
+
+As there is now only one type of application, you now create a generic `XeroPHP\Application` with your access token and tenantId, from this 
+point onward, all your code should remain the same.
 
 ## Usage
 
-All the examples below refer to models in the `XeroPHP\Models\Accounting` namespace. Additionally, there are models for `PayrollAU`, `PayrollUS`, `Files`, and `Assets`
+Before resource requests can be made, the application must be authorised.  The authorisation flow will give you an access token and a 
+refresh token.  The access token can be used to retrieve a list of tenants (Xero organisations) which the app is authorised to query, then,
+in conjunction with the desired tenantId, you can instantiate a `XeroPHP\Application` to query the API relating to a specific organisation.
+
+For applications that require long-lived access to organisations, the refresh flow will need to be built in to catch and expired access 
+token and refresh it.
+
+
+### Authorization Code Flow
+
+Usage is the same as The League's OAuth client, using `\Calcinai\OAuth2\Client\Provider\Xero` as the provider.
+
+```php
+session_start();
+ 
+$provider = new \Calcinai\OAuth2\Client\Provider\Xero([
+    'clientId'          => '{xero-client-id}',
+    'clientSecret'      => '{xero-client-secret}',
+    'redirectUri'       => 'https://example.com/callback-url',
+]);
+ 
+if (!isset($_GET['code'])) {
+
+    // If we don't have an authorization code then get one
+    $authUrl = $provider->getAuthorizationUrl([
+        'scope' => 'openid email profile accounting.transactions'
+    ]);
+
+    $_SESSION['oauth2state'] = $provider->getState();
+    header('Location: ' . $authUrl);
+    exit;
+
+// Check given state against previously stored one to mitigate CSRF attack
+} elseif (empty($_GET['state']) || ($_GET['state'] !== $_SESSION['oauth2state'])) {
+
+    unset($_SESSION['oauth2state']);
+    exit('Invalid state');
+
+} else {
+
+    // Try to get an access token (using the authorization code grant)
+    $token = $provider->getAccessToken('authorization_code', [
+        'code' => $_GET['code']
+    ]);
+
+
+    //If you added the openid/profile scopes you can access the authorizing user's identity.
+    $identity = $provider->getResourceOwner($token);
+    print_r($identity);
+
+    //Get the tenants that this user is authorized to access
+    $tenants = $provider->getTenants($token);
+    print_r($tenants);
+}
+```
+
+You can then store the token and use it to make requests against the api to the desired tenants
+
+
+### Scopes
+OAuth scopes, indicating which parts of the Xero organisation you'd like your app to be able to access. The complete list of scopes can be
+found [here](https://developer.xero.com/documentation/oauth2/scopes).
+ 
+ ```php
+$authUrl = $provider->$provider->getAuthorizationUrl([
+'scope' => 'bankfeeds accounting.transactions'
+]);
+ ```
+ 
+### Refreshing a token
+
+```php
+$newAccessToken = $provider->getAccessToken('refresh_token', [
+    'refresh_token' => $existingAccessToken->getRefreshToken()
+]);
+```
+
+
+## Interacting with the API
+
+Once you've got a valid access token and tenantId, you can instantiate a `XeroPHP\Application`.  All the examples below refer to models 
+in the `XeroPHP\Models\Accounting` namespace. Additionally, there are models for `PayrollAU`, `PayrollUS`, `Files`, and `Assets`
 
 Create a XeroPHP instance (sample config included):
 
 ```php
-$xero = new \XeroPHP\Application\PrivateApplication($config);
+$xero = new \XeroPHP\Application($accessToken, $tenantId);
 ```
 
 Load a collection of objects and loop through them

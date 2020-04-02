@@ -15,24 +15,16 @@ class EventTest extends \PHPUnit_Framework_TestCase
 
     protected function setUp()
     {
-        $config = [
-            'oauth' => [
-                'callback' => 'oob',
-                'consumer_key' => 'k',
-                'consumer_secret' => 's',
-                'rsa_private_key' => 'file://certs/private.pem',
-                'rsa_public_key' => 'file://certs/public.pem',
-            ],
+        $this->application = new Application('token', 'tenantId');
+        $this->application->setConfig([
             'webhook' => [
                 'signing_key' => 'test_key',
-            ],
-        ];
-
-        $this->application = new PrivateApplication($config);
+            ]
+        ]);
     }
 
     /**
-     * @expectedException \XeroPHP\Application\Exception
+     * @expectedException \XeroPHP\Exception
      */
     public function testMalformedPayload()
     {
