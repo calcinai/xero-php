@@ -193,6 +193,7 @@ abstract class Model implements ObjectInterface, \JsonSerializable, \ArrayAccess
         foreach (static::getProperties() as $property => $meta) {
             $type = $meta[self::KEY_TYPE];
             $php_type = $meta[self::KEY_PHP_TYPE];
+            $isArray = $meta[self::KEY_IS_ARRAY];
 
             //If set and NOT replace data, continue
             if (! $replace_data && isset($this->_data[$property])) {
@@ -205,10 +206,16 @@ abstract class Model implements ObjectInterface, \JsonSerializable, \ArrayAccess
                 continue;
             }
 
+            if ($isArray && ! is_array($input_array[$property])) {
+                $this->_data[$property] = null;
+
+                continue;
+            }
+
             //Fix for an earlier assumption that the API didn't return more than
             //two levels of nested objects.
             //Handles Invoice > Contact > Address etc. in one build.
-            if (is_array($input_array[$property]) && Helpers::isAssoc($input_array[$property]) === false) {
+            if ($isArray && Helpers::isAssoc($input_array[$property]) === false) {
                 $collection = new Collection();
                 $collection->addAssociatedObject($property, $this);
                 foreach ($input_array[$property] as $assoc_element) {
