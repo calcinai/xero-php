@@ -157,7 +157,7 @@ class TimesheetEarningsLine extends Remote\Model
      *
      * @deprecated
      */
-    public function setAmount()
+    public function setAmount($value)
     {
         $this->propertyUpdated('Amount', $value);
         $this->_data['Amount'] = $value;
