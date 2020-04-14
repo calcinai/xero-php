@@ -6,7 +6,7 @@
    "license": "MIT",
    "require": {
       "php": ">=5.6.0",
-      "calcinai/oauth2-xero": "^0.1.0",
+      "calcinai/oauth2-xero": "^1.0",
       "guzzlehttp/guzzle": "^6.5",
       "guzzlehttp/psr7": "^1.5",
       "ext-json": "*",
