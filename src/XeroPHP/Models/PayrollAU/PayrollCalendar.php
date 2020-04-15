@@ -30,6 +30,12 @@ class PayrollCalendar extends Remote\Model
      *
      * @property \DateTimeInterface StartDate
      */
+    
+    /**
+     * The date the calendar was last updated
+     *
+     * @property \DateTimeInterface UpdatedDateUTC
+     */
 
     /**
      * The date on which employees will be paid for the upcoming pay period (YYYY-MM-DD), more details.
@@ -117,6 +123,7 @@ class PayrollCalendar extends Remote\Model
             'CalendarType' => [true, self::PROPERTY_TYPE_ENUM, null, false, false],
             'StartDate' => [true, self::PROPERTY_TYPE_DATE, '\\DateTimeInterface', false, false],
             'PaymentDate' => [true, self::PROPERTY_TYPE_DATE, '\\DateTimeInterface', false, false],
+            'UpdatedDateUTC' => [false, self::PROPERTY_TYPE_DATE, '\\DateTimeInterface', false, false]
         ];
     }
 
@@ -228,5 +235,13 @@ class PayrollCalendar extends Remote\Model
         $this->_data['PaymentDate'] = $value;
 
         return $this;
+    }
+    
+    /**
+     * return \DateTimeInterface
+     */
+    public function getUpdatedDateUTC()
+    {
+        return $this->_data['UpdatedDateUTC'];
     }
 }

@@ -188,6 +188,10 @@ class Application
         /** @var Remote\Model $class */
         $class = $this->validateModelClass($model);
 
+        if(!$guid){
+            throw new Remote\Exception\NotFoundException;
+        }
+
         $uri = sprintf('%s/%s', $class::getResourceURI(), $guid);
         $api = $class::getAPIStem();
 
@@ -224,6 +228,10 @@ class Application
     {
         /** @var $class Remote\Model */
         $class = $this->validateModelClass($model);
+
+        if(empty($guids)){
+            return [];
+        }
 
         $uri = sprintf('%s', $class::getResourceURI());
         $api = $class::getAPIStem();
