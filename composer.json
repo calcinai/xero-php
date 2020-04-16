@@ -17,7 +17,8 @@
    },
    "autoload": {
       "psr-4": {
-         "XeroPHP\\": "src/XeroPHP/"
+         "XeroPHP\\": "src/XeroPHP/",
+         "XeroPHP\\Tests\\": "tests/"
       }
    }
 }
