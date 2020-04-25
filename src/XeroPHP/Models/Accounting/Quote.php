@@ -3,6 +3,7 @@
 namespace XeroPHP\Models\Accounting;
 
 use XeroPHP\Remote;
+use XeroPHP\Traits\PDFTrait;
 use XeroPHP\Traits\HistoryTrait;
 use XeroPHP\Models\Accounting\Invoice\LineItem;
 
