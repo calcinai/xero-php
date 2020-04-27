@@ -2,7 +2,14 @@
 
 namespace XeroPHP\Tests\Remote;
 
+use GuzzleHttp\Client;
+use GuzzleHttp\Handler\MockHandler;
+use GuzzleHttp\HandlerStack;
+use GuzzleHttp\Psr7\Request as GuzzleRequest;
+use GuzzleHttp\Psr7\Response;
+use XeroPHP\Application;
 use XeroPHP\Remote\Model;
+use XeroPHP\Tests\Remote\Model\ModelWithCollection;
 
 class ModelTest extends \PHPUnit_Framework_TestCase
 {
@@ -41,6 +48,23 @@ class ModelTest extends \PHPUnit_Framework_TestCase
 
         $this->assertSame('5b96e86b-418e-48e8-8949-308c14aec278', $object->getGUID());
         $this->assertTrue($object->hasGUID());
+    }
+
+    public function testSetsEmptyCollection()
+    {
+        $testXML = '<Response><Models><Model><ModelID>test</ModelID><EarningsLines /></Model></Models></Response>';
+        $mock = new MockHandler([
+            new Response(200, ['Content-Type' => 'text/xml'], $testXML),
+        ]);
+        $handlerStack = HandlerStack::create($mock);
+
+        $client = new Client(['handler' => $handlerStack]);
+        $app = new Application('', '');
+        $app->setTransport($client);
+
+        $model = $app->loadByGUID(ModelWithCollection::class, 'test');
+        $this->assertSame('test', $model->getModelID());
+        $this->assertNull($model->getEarningsLines());
     }
 }
 
