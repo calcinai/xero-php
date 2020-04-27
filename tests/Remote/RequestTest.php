@@ -13,6 +13,7 @@ use XeroPHP\Application;
 use XeroPHP\Remote\Request as XeroRequest;
 use XeroPHP\Remote\URL;
 use XeroPHP\Remote\Exception\BadRequestException;
+use XeroPHP\Remote\Exception\RateLimitExceededException;
 
 class RequestTest extends \PHPUnit_Framework_TestCase
 {
@@ -48,5 +49,50 @@ class RequestTest extends \PHPUnit_Framework_TestCase
 
         $this->expectException(ConnectException::class);
         $request->send();
+    }
+
+    public function testOauth1RateLimitExceededIsThrown()
+    {
+        $app = $this->getMockedApplication([
+            new Response(
+                503,
+                [ 'X-Rate-Limit-Problem' => 'daily' ],
+                'oauth_problem=rate limit exceeded&oauth_problem_advice=please wait before retrying the xero api'
+            )
+        ]);
+        $request = new XeroRequest($app, new URL($app, 'test'));
+
+        $exception = null;
+        try {
+            $request->send();
+        } catch (RateLimitExceededException $e) {
+            $exception = $e;
+        }
+
+        $this->assertInstanceOf(RateLimitExceededException::class, $exception);
+        $this->assertSame('daily', $exception->getRateLimitProblem());
+    }
+
+    public function testOauth2RateLimitExceededIsThrown()
+    {
+        $app = $this->getMockedApplication([
+            new Response(
+                429,
+                [ 'X-Rate-Limit-Problem' => 'minute', 'Retry-After' => '8' ],
+                ''
+            )
+        ]);
+        $request = new XeroRequest($app, new URL($app, 'test'));
+
+        $exception = null;
+        try {
+            $request->send();
+        } catch (RateLimitExceededException $e) {
+            $exception = $e;
+        }
+
+        $this->assertInstanceOf(RateLimitExceededException::class, $exception);
+        $this->assertSame('minute', $exception->getRateLimitProblem());
+        $this->assertSame(8, $exception->getRetryAfter());
     }
 }
