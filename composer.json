@@ -19,5 +19,10 @@
       "psr-4": {
          "XeroPHP\\": "src/XeroPHP/"
       }
+  },
+   "autoload-dev": {
+      "psr-4": {
+         "XeroPHP\\Tests\\": "tests/"
+      }
    }
 }

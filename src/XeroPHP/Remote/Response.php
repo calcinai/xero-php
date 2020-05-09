@@ -38,6 +38,8 @@ class Response
 
     const STATUS_ORGANISATION_OFFLINE = 503;
 
+    const STATUS_TOO_MANY_REQUESTS = 429;
+
     private $request;
 
     private $headers;
@@ -118,6 +120,9 @@ class Response
             case self::STATUS_NOT_IMPLEMENTED:
                 throw new NotImplementedException();
 
+            case self::STATUS_TOO_MANY_REQUESTS:
+                throw RateLimitExceededException::createFromHeaders($this->headers);
+
             case self::STATUS_NOT_AVAILABLE:
             case self::STATUS_RATE_LIMIT_EXCEEDED:
             case self::STATUS_ORGANISATION_OFFLINE:
@@ -127,11 +132,7 @@ class Response
                     throw new OrganisationOfflineException();
                 }
                 if (false !== stripos($response, 'Rate limit exceeded')) {
-                    $problem = isset($this->headers['x-rate-limit-problem']) ? current($this->headers['x-rate-limit-problem']) : null;
-                    $exception = new RateLimitExceededException();
-                    $exception->setRateLimitProblem($problem);
-
-                    throw $exception;
+                    throw RateLimitExceededException::createFromHeaders($this->headers);
                 }
 
                 throw new NotAvailableException();
