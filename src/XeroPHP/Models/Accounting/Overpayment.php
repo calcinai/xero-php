@@ -5,7 +5,7 @@ namespace XeroPHP\Models\Accounting;
 use XeroPHP\Remote;
 use XeroPHP\Traits\HistoryTrait;
 use XeroPHP\Traits\AttachmentTrait;
-use XeroPHP\Models\Accounting\Overpayment\LineItem;
+use XeroPHP\Models\Accounting\LineItem;
 use XeroPHP\Models\Accounting\Overpayment\Allocation;
 
 class Overpayment extends Remote\Model

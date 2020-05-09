@@ -8,7 +8,7 @@ use XeroPHP\Traits\PDFTrait;
 use XeroPHP\Traits\HistoryTrait;
 use XeroPHP\Traits\SendEmailTrait;
 use XeroPHP\Traits\AttachmentTrait;
-use XeroPHP\Models\Accounting\Invoice\LineItem;
+use XeroPHP\Models\Accounting\LineItem;
 
 class Invoice extends Remote\Model
 {

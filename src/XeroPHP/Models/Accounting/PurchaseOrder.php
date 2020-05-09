@@ -6,7 +6,7 @@ use XeroPHP\Remote;
 use XeroPHP\Traits\PDFTrait;
 use XeroPHP\Traits\HistoryTrait;
 use XeroPHP\Traits\AttachmentTrait;
-use XeroPHP\Models\Accounting\PurchaseOrder\LineItem;
+use XeroPHP\Models\Accounting\LineItem;
 
 class PurchaseOrder extends Remote\Model
 {

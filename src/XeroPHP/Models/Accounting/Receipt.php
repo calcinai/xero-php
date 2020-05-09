@@ -5,7 +5,7 @@ namespace XeroPHP\Models\Accounting;
 use XeroPHP\Remote;
 use XeroPHP\Traits\HistoryTrait;
 use XeroPHP\Traits\AttachmentTrait;
-use XeroPHP\Models\Accounting\Receipt\LineItem;
+use XeroPHP\Models\Accounting\LineItem;
 
 class Receipt extends Remote\Model
 {
