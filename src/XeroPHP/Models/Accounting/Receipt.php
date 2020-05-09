@@ -176,7 +176,7 @@ class Receipt extends Remote\Model
         return [
             'Date' => [true, self::PROPERTY_TYPE_DATE, '\\DateTimeInterface', false, false],
             'Contact' => [true, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Contact', false, false],
-            'LineItems' => [true, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Receipt\\LineItem', true, false],
+            'LineItems' => [true, self::PROPERTY_TYPE_OBJECT, 'Accounting\\LineItem', true, false],
             'User' => [true, self::PROPERTY_TYPE_OBJECT, 'Accounting\\User', false, false],
             'Reference' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
             'LineAmountTypes' => [false, self::PROPERTY_TYPE_ENUM, null, false, false],

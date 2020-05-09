@@ -223,10 +223,19 @@ class Invoice extends Remote\Model
 
     const INVOICE_STATUS_VOIDED = 'VOIDED';
 
+    /**
+     * @deprecated 2.0.5 Use \XeroPHP\Models\Accounting\LineItem::LINEAMOUNT_TYPE_EXCLUSIVE instead.
+     */
     const LINEAMOUNT_TYPE_EXCLUSIVE = 'Exclusive';
 
+    /**
+     * @deprecated 2.0.5 Use \XeroPHP\Models\Accounting\LineItem::LINEAMOUNT_TYPE_INCLUSIVE instead.
+     */
     const LINEAMOUNT_TYPE_INCLUSIVE = 'Inclusive';
 
+    /**
+     * @deprecated 2.0.5 Use \XeroPHP\Models\Accounting\LineItem::LINEAMOUNT_TYPE_NOTAX instead.
+     */
     const LINEAMOUNT_TYPE_NOTAX = 'NoTax';
 
     /**
@@ -296,7 +305,7 @@ class Invoice extends Remote\Model
         return [
             'Type' => [true, self::PROPERTY_TYPE_ENUM, null, false, false],
             'Contact' => [true, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Contact', false, false],
-            'LineItems' => [true, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Invoice\\LineItem', true, false],
+            'LineItems' => [true, self::PROPERTY_TYPE_OBJECT, 'Accounting\\LineItem', true, false],
             'Date' => [false, self::PROPERTY_TYPE_DATE, '\\DateTimeInterface', false, false],
             'DueDate' => [false, self::PROPERTY_TYPE_DATE, '\\DateTimeInterface', false, false],
             'LineAmountTypes' => [false, self::PROPERTY_TYPE_ENUM, null, false, false],
