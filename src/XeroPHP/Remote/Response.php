@@ -14,6 +14,7 @@ use XeroPHP\Remote\Exception\OrganisationOfflineException;
 use XeroPHP\Remote\Exception\RateLimitExceededException;
 use XeroPHP\Remote\Exception\ReportPermissionMissingException;
 use XeroPHP\Remote\Exception\UnauthorizedException;
+use XeroPHP\Remote\Exception\UnknownStatusException;
 
 class Response
 {
@@ -78,6 +79,7 @@ class Response
      * @throws UnauthorizedException
      * @throws ForbiddenException
      * @throws ReportPermissionMissingException
+     * @throws UnknownStatusException
      */
     public function parse()
     {
@@ -136,6 +138,10 @@ class Response
                 }
 
                 throw new NotAvailableException();
+        }
+
+        if ($this->status !== self::STATUS_OK) {
+            throw new UnknownStatusException('The API returned a non-successful status code that is not recognised.', $this->status);
         }
     }
 
