@@ -18,6 +18,19 @@ use XeroPHP\Remote\Exception\UnknownStatusException;
 
 class Response
 {
+    const STATUS_SUCCESS = [
+        'OK' => 200,
+        'CREATED' => 201,
+        'ACCEPTED' => 202,
+        'NON_AUTHORITATIVE_INFORMATION' => 203,
+        'NO_CONTENT' => 204,
+        'RESET_CONTENT' => 205,
+        'PARTIAL_CONTENT' => 206,
+        'MULTI_STATUS' => 207,
+        'ALREADY_REPORTED' => 208,
+        'IM_USED' => 226,
+    ];
+
     const STATUS_OK = 200;
 
     const STATUS_BAD_REQUEST = 400;
@@ -140,7 +153,7 @@ class Response
                 throw new NotAvailableException();
         }
 
-        if ($this->status !== self::STATUS_OK) {
+        if (!in_array($this->status, self::STATUS_SUCCESS)) {
             throw new UnknownStatusException('The API returned a non-successful status code that is not recognised.', $this->status);
         }
     }
