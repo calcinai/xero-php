@@ -5,7 +5,7 @@ namespace XeroPHP\Models\Accounting;
 use XeroPHP\Remote;
 use XeroPHP\Traits\HistoryTrait;
 use XeroPHP\Traits\AttachmentTrait;
-use XeroPHP\Models\Accounting\Prepayment\LineItem;
+use XeroPHP\Models\Accounting\LineItem;
 use XeroPHP\Models\Accounting\Prepayment\Allocation;
 
 class Prepayment extends Remote\Model
@@ -205,7 +205,7 @@ class Prepayment extends Remote\Model
             'Date' => [false, self::PROPERTY_TYPE_DATE, '\\DateTimeInterface', false, false],
             'Status' => [false, self::PROPERTY_TYPE_ENUM, null, false, false],
             'LineAmountTypes' => [false, self::PROPERTY_TYPE_ENUM, null, false, false],
-            'LineItems' => [false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Prepayment\\LineItem', true, false],
+            'LineItems' => [false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\LineItem', true, false],
             'SubTotal' => [false, self::PROPERTY_TYPE_FLOAT, null, false, false],
             'TotalTax' => [false, self::PROPERTY_TYPE_FLOAT, null, false, false],
             'Total' => [false, self::PROPERTY_TYPE_FLOAT, null, false, false],

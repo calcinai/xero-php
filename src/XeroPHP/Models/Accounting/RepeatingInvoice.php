@@ -5,7 +5,7 @@ namespace XeroPHP\Models\Accounting;
 use XeroPHP\Remote;
 use XeroPHP\Traits\HistoryTrait;
 use XeroPHP\Traits\AttachmentTrait;
-use XeroPHP\Models\Accounting\RepeatingInvoice\LineItem;
+use XeroPHP\Models\Accounting\LineItem;
 use XeroPHP\Models\Accounting\RepeatingInvoice\Schedule;
 
 class RepeatingInvoice extends Remote\Model
@@ -164,7 +164,7 @@ class RepeatingInvoice extends Remote\Model
             'Type' => [false, self::PROPERTY_TYPE_ENUM, null, false, false],
             'Contact' => [false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Contact', false, false],
             'Schedule' => [false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\RepeatingInvoice\\Schedule', false, false],
-            'LineItems' => [false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\RepeatingInvoice\\LineItem', true, false],
+            'LineItems' => [false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\LineItem', true, false],
             'LineAmountTypes' => [false, self::PROPERTY_TYPE_ENUM, null, false, false],
             'Reference' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
             'BrandingThemeID' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
