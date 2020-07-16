@@ -126,6 +126,9 @@ class Response
                 }
                 throw new ForbiddenException();
 
+            case self::STATUS_FORBIDDEN:
+                throw new ForbiddenException();
+
             case self::STATUS_NOT_FOUND:
                 throw new NotFoundException();
 
