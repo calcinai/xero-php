@@ -10,6 +10,7 @@ use GuzzleHttp\HandlerStack;
 use GuzzleHttp\Psr7\Request as GuzzleRequest;
 use GuzzleHttp\Psr7\Response;
 use XeroPHP\Application;
+use XeroPHP\Remote\Exception\UnknownStatusException;
 use XeroPHP\Remote\Request as XeroRequest;
 use XeroPHP\Remote\URL;
 use XeroPHP\Remote\Exception\BadRequestException;
@@ -94,5 +95,16 @@ class RequestTest extends \PHPUnit_Framework_TestCase
         $this->assertInstanceOf(RateLimitExceededException::class, $exception);
         $this->assertSame('minute', $exception->getRateLimitProblem());
         $this->assertSame(8, $exception->getRetryAfter());
+    }
+
+    public function testUnknownStatusExceptionIsThrown()
+    {
+        $app = $this->getMockedApplication([
+            new Response(599)
+        ]);
+        $request = new XeroRequest($app, new URL($app, 'test'));
+
+        $this->expectException(UnknownStatusException::class);
+        $request->send();
     }
 }
