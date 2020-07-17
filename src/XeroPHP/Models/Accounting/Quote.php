@@ -5,7 +5,7 @@ namespace XeroPHP\Models\Accounting;
 use XeroPHP\Remote;
 use XeroPHP\Traits\PDFTrait;
 use XeroPHP\Traits\HistoryTrait;
-use XeroPHP\Models\Accounting\Invoice\LineItem;
+use XeroPHP\Models\Accounting\LineItem;
 
 class Quote extends Remote\Model
 {
@@ -220,7 +220,7 @@ class Quote extends Remote\Model
             'ExpiryDate' => [false, self::PROPERTY_TYPE_DATE, '\\DateTimeInterface', false, false],
             'Status' => [false, self::PROPERTY_TYPE_ENUM, null, false, false],
             'LineAmountTypes' => [false, self::PROPERTY_TYPE_ENUM, null, false, false],
-            'LineItems' => [true, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Invoice\\LineItem', true, false],
+            'LineItems' => [true, self::PROPERTY_TYPE_OBJECT, 'Accounting\\LineItem', true, false],
             'SubTotal' => [false, self::PROPERTY_TYPE_FLOAT, null, false, false],
             'TotalTax' => [false, self::PROPERTY_TYPE_FLOAT, null, false, false],
             'Total' => [false, self::PROPERTY_TYPE_FLOAT, null, false, false],
