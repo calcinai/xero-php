@@ -144,12 +144,6 @@ class Quote extends Remote\Model
 
     const QUOTE_STATUS_INVOICED = 'INVOICED';
 
-    const LINEAMOUNT_TYPE_EXCLUSIVE = 'Exclusive';
-
-    const LINEAMOUNT_TYPE_INCLUSIVE = 'Inclusive';
-
-    const LINEAMOUNT_TYPE_NOTAX = 'NoTax';
-
     /**
      * Get the resource URI of the class.
      *
