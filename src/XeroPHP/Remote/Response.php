@@ -127,6 +127,12 @@ class Response
                 throw new ForbiddenException();
 
             case self::STATUS_FORBIDDEN:
+                $response = urldecode($this->response_body);
+                if (stripos($response,
+                        'AuthenticationUnsuccessful')) {
+                        throw new ForbiddenException("You are not permitted to access this resource. Check ".
+                        "that you have all required scopes, including offline_access if required");
+                }
                 throw new ForbiddenException();
 
             case self::STATUS_NOT_FOUND:
@@ -157,7 +163,7 @@ class Response
         }
 
         if (!in_array($this->status, self::STATUS_SUCCESS)) {
-            throw new UnknownStatusException('The API returned a non-successful status code that is not recognised.', $this->status);
+            throw new UnknownStatusException('The API returned a non-successful status code that is not recognised. Status: '.$this->status." - Response: ".$this->getResponseBody(), $this->status);
         }
     }
 
