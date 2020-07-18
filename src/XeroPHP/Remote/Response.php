@@ -131,7 +131,7 @@ class Response
                 if (stripos($response,
                         'AuthenticationUnsuccessful')) {
                         throw new ForbiddenException("You are not permitted to access this resource. Check ".
-                        "that you have all required scopes, including offline_access if required");
+                        "that you have all required scopes, including offline_access if required", $this->status);
                 }
                 throw new ForbiddenException();
 
