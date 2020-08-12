@@ -85,7 +85,7 @@ class URL
                     $version = $xero_config['file_version'];
 
                     break;
-                case self::API_PRACTICE_MANAGERCORE:
+                case self::API_PRACTICE_MANAGER:
                     $version = $xero_config['practice_manager_version'];
 
                     break;

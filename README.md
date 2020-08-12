@@ -202,6 +202,21 @@ PDF - Models that support PDF export will inherit a ```->getPDF()``` method, whi
 
 Refer to the [examples](examples) for more complex usage and nested/related objects.  There's also [a sample PHP app](https://github.com/XeroAPI/xero-php-sample-app) using this library.
 
+## Practice Manager
+
+If requiring the "practicemanager" scope please query models using the following syntax
+
+```php
+$clients = $xero->load(\XeroPHP\Models\PracticeManager\Client::class)
+            ->setParameter('detailed', true)
+            ->setParameter('modifiedsince', date('Y-m-d\TH:i:s', strtotime('- 1 week')))
+            ->execute();
+
+foreach ($clients as $client) {
+    $name = $client->getName();
+}
+```
+
 ## Webhooks
 
 If you are receiving webhooks from Xero there is `Webhook` class that can help with handling the request and parsing the associated event list.

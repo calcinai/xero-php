@@ -2,7 +2,6 @@
 
 namespace XeroPHP\Models\PracticeManager;
 
-use XeroPHP\Models\Accounting\Organisation\Bill;
 use XeroPHP\Models\PracticeManager\Client\AccountManager;
 use XeroPHP\Models\PracticeManager\Client\BillingClient;
 use XeroPHP\Models\PracticeManager\Client\Contact;
@@ -12,9 +11,6 @@ use XeroPHP\Models\PracticeManager\Client\Note;
 use XeroPHP\Models\PracticeManager\Client\Relationship;
 use XeroPHP\Models\PracticeManager\Client\Type;
 use XeroPHP\Remote;
-use XeroPHP\Traits\HistoryTrait;
-use XeroPHP\Traits\AttachmentTrait;
-use XeroPHP\Models\Accounting\Organisation\PaymentTerm;
 
 class Client extends Remote\Model
 {
@@ -184,7 +180,7 @@ class Client extends Remote\Model
      */
     public static function getResourceURI()
     {
-        return 'client.api';
+        return 'client.api/list';
     }
 
     /**
