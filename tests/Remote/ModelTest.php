@@ -51,14 +51,14 @@ class ModelTest extends \PHPUnit_Framework_TestCase
 
     public function testSetsEmptyCollection()
     {
-        $testXML = '<Response><Models><Model><ModelID>test</ModelID><EarningsLines /></Model></Models></Response>';
-        $mock = new MockHandler([
+        $testXML      = '<Response><Models><Model><ModelID>test</ModelID><EarningsLines /></Model></Models></Response>';
+        $mock         = new MockHandler([
             new Response(200, ['Content-Type' => 'text/xml'], $testXML),
         ]);
         $handlerStack = HandlerStack::create($mock);
 
         $client = new Client(['handler' => $handlerStack]);
-        $app = new Application('', '');
+        $app    = new Application('', '');
         $app->setTransport($client);
 
         $model = $app->loadByGUID(ModelWithCollection::class, 'test');
@@ -151,13 +151,45 @@ class ModelTest extends \PHPUnit_Framework_TestCase
     </Client>
   </Clients>
 </Response>';
-        $mock = new MockHandler([
+
+        $customFieldValueXml = '<Response>
+  <Status>OK</Status>
+  <CustomFields>
+    <CustomField>
+      <ID>1</ID>
+      <Name>Date Field</Name>
+      <Date>2010-10-11T00:00:00</Date>
+    </CustomField>
+    <CustomField>
+      <ID>2</ID>
+      <Name>Number Field</Name>
+      <Number>123</Number>
+    </CustomField>
+    <CustomField>
+      <ID>3</ID>
+      <Name>Decimal Field</Name>
+      <Decimal>123.45</Decimal>
+    </CustomField>
+    <CustomField>
+      <ID>4</ID>
+      <Name>Boolean Field</Name>
+      <Boolean>true</Boolean>
+    </CustomField>
+    <CustomField>
+      <ID>5</ID>
+      <Name>Text Field</Name>
+      <Text>some text</Text>
+    </CustomField>
+  </CustomFields>
+</Response>';
+        $mock                = new MockHandler([
             new Response(200, ['Content-Type' => 'text/xml'], $testXML),
+            new Response(200, ['Content-Type' => 'text/xml'], $customFieldValueXml),
         ]);
-        $handlerStack = HandlerStack::create($mock);
+        $handlerStack        = HandlerStack::create($mock);
 
         $client = new Client(['handler' => $handlerStack]);
-        $app = new Application('', '');
+        $app    = new Application('', '');
         $app->setTransport($client);
 
         $models = $app->load(\XeroPHP\Models\PracticeManager\Client::class)->setParameter('detailed', true)
@@ -174,12 +206,41 @@ class ModelTest extends \PHPUnit_Framework_TestCase
             $this->assertTrue($contact->getIsPrimary());
             $this->assertEquals('Samantha Benecke', $contact->getName());
         }
-    }
 
+        $customFieldValues = $model->getCustomFieldValues();
+
+        $this->assertCount(5, $customFieldValues);
+
+        $dateFieldValue    = $customFieldValues[0];
+        $this->assertEquals(1, $dateFieldValue->getId());
+        $this->assertEquals('Date Field', $dateFieldValue->getName());
+        $this->assertEquals('2010-10-11 00:00:00', $dateFieldValue->getDate()->format('Y-m-d H:i:s'));
+
+        $numberFieldValue  = $customFieldValues[1];
+        $this->assertEquals(2, $numberFieldValue->getId());
+        $this->assertEquals('Number Field', $numberFieldValue->getName());
+        $this->assertEquals(123, $numberFieldValue->getNumber());
+
+        $decimalFieldValue = $customFieldValues[2];
+        $this->assertEquals(3, $decimalFieldValue->getId());
+        $this->assertEquals('Decimal Field', $decimalFieldValue->getName());
+        $this->assertEquals(123.45, $decimalFieldValue->getDecimal());
+
+        $booleanFieldValue = $customFieldValues[3];
+        $this->assertEquals(4, $booleanFieldValue->getId());
+        $this->assertEquals('Boolean Field', $booleanFieldValue->getName());
+        $this->assertEquals(true, $booleanFieldValue->getBoolean());
+
+        $textFieldValue    = $customFieldValues[4];
+        $this->assertEquals(5, $textFieldValue->getId());
+        $this->assertEquals('Text Field', $textFieldValue->getName());
+        $this->assertEquals('some text', $textFieldValue->getText());
+
+    }
 
     public function testPracticeManagerCustomFieldListIsReturned()
     {
-        $testXML = '<Response>
+        $testXML      = '<Response>
   <Status>OK</Status>
   <CustomFieldDefinitions>
     <CustomFieldDefinition>
@@ -203,13 +264,13 @@ class ModelTest extends \PHPUnit_Framework_TestCase
     </CustomFieldDefinition>
   </CustomFieldDefinitions>
 </Response>';
-        $mock = new MockHandler([
+        $mock         = new MockHandler([
             new Response(200, ['Content-Type' => 'text/xml'], $testXML),
         ]);
         $handlerStack = HandlerStack::create($mock);
 
         $client = new Client(['handler' => $handlerStack]);
-        $app = new Application('', '');
+        $app    = new Application('', '');
         $app->setTransport($client);
 
         $models = $app->load(\XeroPHP\Models\PracticeManager\CustomField::class)->execute();
@@ -219,6 +280,92 @@ class ModelTest extends \PHPUnit_Framework_TestCase
 
         $this->assertEquals(123, $model->getID());
         $this->assertEquals('Name of Custom Field', $model->getName());
+    }
+
+    public function testPracticeManagerInvoiceListIsReturned()
+    {
+        $testXML      = '<Response>
+  <Status>OK</Status> 
+  <Invoices>
+  <Invoice>
+    <ID>I000123</ID>
+    <InternalID>123</InternalID>
+    <Type>Progress Invoice</Type> 
+    <Status>Approved</Status>   <!-- Approved, Paid, Draft, Cancelled -->
+    <JobText>J000123</JobText>
+    <Date>2007-09-15T00:00:00</Date> 
+    <DueDate>2007-09-22T00:00:00</DueDate> 
+    <Amount>200.00</Amount> 
+    <AmountTax>25.00</AmountTax> 
+    <AmountIncludingTax>225.00</AmountIncludingTax> 
+    <AmountPaid>100.00</AmountPaid> 
+    <AmountOutstanding>125.00</AmountOutstanding> 
+    <Client>
+      <ID>1</ID>
+      <Name>A C Smith Limited</Name> 
+    </Client>
+    <Contact>
+      <ID>512</ID>
+      <Name>Andy Smith</Name> 
+    </Contact>
+    <Jobs>
+      <Job>
+        <ID>J000345</ID> 
+        <Name>Brochure Design</Name> 
+        <Description></Description> 
+        <ClientOrderNumber />
+        <Tasks>
+          <Task>
+            <ID>15</ID>
+            <Name>Design</Name> 
+            <Description></Description> 
+            <Minutes>60</Minutes> 
+            <BillableRate>150</BillableRate> 
+            <Billable>Yes</Billable> 
+            <Amount>150.00</Amount> 
+            <AmountTax>18.75</AmountTax> 
+            <AmountIncludingTax>168.75</AmountIncludingTax> 
+          </Task>
+        </Tasks>
+        <Costs>
+          <Cost>
+            <Description>Courier</Description>
+            <Note>Note</Note> 
+            <Code>COURIER</Code> 
+            <Billable>Yes</Billable> 
+            <Quantity>1</Quantity> 
+            <UnitCost>50.00</UnitCost> 
+            <UnitPrice>50.00</UnitPrice> 
+            <Amount>50.00</Amount> 
+            <AmountTax>6.25</AmountTax> 
+            <AmountIncludingTax>56.25</AmountIncludingTax> 
+          </Cost>
+        </Costs>
+      </Job>
+    </Jobs>
+  </Invoice>
+  </Invoices>
+</Response>';
+        $mock         = new MockHandler([
+            new Response(200, ['Content-Type' => 'text/xml'], $testXML),
+        ]);
+        $handlerStack = HandlerStack::create($mock);
+
+        $client = new Client(['handler' => $handlerStack]);
+        $app    = new Application('', '');
+        $app->setTransport($client);
+
+        $models = $app->load(\XeroPHP\Models\PracticeManager\Invoice::class)->execute();
+
+        /** @var \XeroPHP\Models\PracticeManager\Invoice $model */
+        $model = $models->first();
+
+        $this->assertEquals('I000123', $model->getID());
+        $this->assertEquals(123, $model->getInternalID());
+        $this->assertEquals('A C Smith Limited', $model->getClient()->getName());
+
+        $this->assertCount(1, $model->getJobs());
+
     }
 }
 

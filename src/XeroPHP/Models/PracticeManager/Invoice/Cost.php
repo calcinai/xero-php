@@ -1,21 +1,26 @@
 <?php
 
-namespace XeroPHP\Models\PracticeManager\Client;
+namespace XeroPHP\Models\PracticeManager\Invoice;
 
 use XeroPHP\Remote;
 
-class Note extends Remote\Model
+class Cost extends Remote\Model
 {
     /**
-     * @property string Title
-     * @property string Text
-     * @property string Folder
-     * @property \DateTimeInterface Date
-     * @property string CreatedBy
+     * @property string Description
+     * @property string Note
+     * @property string Code
+     * @property string Billable
+     * @property float Quantity
+     * @property float UnitCost
+     * @property float UnitPrice
+     * @property float Amount
+     * @property float AmountTax
+     * @property float AmountIncludingTax
      */
 
     /**
-     * Get the resource uri of the class (Notes) etc.
+     * Get the resource uri of the class (Costs) etc.
      *
      * @return string
      */
@@ -31,7 +36,7 @@ class Note extends Remote\Model
      */
     public static function getRootNodeName()
     {
-        return 'Note';
+        return 'Cost';
     }
 
     /**
@@ -76,11 +81,16 @@ class Note extends Remote\Model
     public static function getProperties()
     {
         return [
-            'Title'     => [false, self::PROPERTY_TYPE_STRING, null, false, false],
-            'Text'      => [false, self::PROPERTY_TYPE_STRING, null, false, false],
-            'Folder'    => [false, self::PROPERTY_TYPE_STRING, null, false, false],
-            'Date'      => [false, self::PROPERTY_TYPE_DATE, '\\DateTimeInterface', false, false],
-            'CreatedBy' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'Description'        => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'Note'               => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'Code'               => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'Billable'           => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'Quantity'           => [false, self::PROPERTY_TYPE_FLOAT, null, false, false],
+            'UnitCost'           => [false, self::PROPERTY_TYPE_FLOAT, null, false, false],
+            'UnitPrice'          => [false, self::PROPERTY_TYPE_FLOAT, null, false, false],
+            'Amount'             => [false, self::PROPERTY_TYPE_FLOAT, null, false, false],
+            'AmountTax'          => [false, self::PROPERTY_TYPE_FLOAT, null, false, false],
+            'AmountIncludingTax' => [false, self::PROPERTY_TYPE_FLOAT, null, false, false],
         ];
     }
 
@@ -89,6 +99,7 @@ class Note extends Remote\Model
         return false;
     }
 
+    // TODO: Run Generator
     /**
      * @return string
      */
@@ -100,7 +111,7 @@ class Note extends Remote\Model
     /**
      * @param string $value
      *
-     * @return Note
+     * @return Cost
      */
     public function setTitle($value)
     {
@@ -121,7 +132,7 @@ class Note extends Remote\Model
     /**
      * @param string $value
      *
-     * @return Note
+     * @return Cost
      */
     public function setText($value)
     {
@@ -142,7 +153,7 @@ class Note extends Remote\Model
     /**
      * @param string $value
      *
-     * @return Note
+     * @return Cost
      */
     public function setFolder($value)
     {
@@ -163,7 +174,7 @@ class Note extends Remote\Model
     /**
      * @param \DateTimeInterface $value
      *
-     * @return Note
+     * @return Cost
      */
     public function setDate($value)
     {
@@ -184,7 +195,7 @@ class Note extends Remote\Model
     /**
      * @param string $value
      *
-     * @return Note
+     * @return Cost
      */
     public function setCreatedBy($value)
     {

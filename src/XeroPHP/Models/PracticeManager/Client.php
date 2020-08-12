@@ -11,9 +11,12 @@ use XeroPHP\Models\PracticeManager\Client\Note;
 use XeroPHP\Models\PracticeManager\Client\Relationship;
 use XeroPHP\Models\PracticeManager\Client\Type;
 use XeroPHP\Remote;
+use XeroPHP\Traits\PracticeManager\CustomFieldValueTrait;
 
 class Client extends Remote\Model
 {
+    use CustomFieldValueTrait;
+
     /**
      * Xero identifier.
      *
@@ -223,6 +226,11 @@ class Client extends Remote\Model
             Remote\Request::METHOD_PUT,
             Remote\Request::METHOD_GET,
         ];
+    }
+
+    public function getCustomFieldValueUri()
+    {
+        return 'client.api/get/%s/customfield';
     }
 
     /**

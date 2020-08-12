@@ -1,21 +1,25 @@
 <?php
 
-namespace XeroPHP\Models\PracticeManager\Client;
+namespace XeroPHP\Models\PracticeManager\Invoice;
 
 use XeroPHP\Remote;
 
-class Note extends Remote\Model
+class Task extends Remote\Model
 {
     /**
-     * @property string Title
-     * @property string Text
-     * @property string Folder
-     * @property \DateTimeInterface Date
-     * @property string CreatedBy
+     * @property int ID
+     * @property string Name
+     * @property string Description
+     * @property float Minutes
+     * @property float BillableRate
+     * @property string Billable
+     * @property float Amount
+     * @property float AmountTax
+     * @property float AmountIncludingTax
      */
 
     /**
-     * Get the resource uri of the class (Notes) etc.
+     * Get the resource uri of the class (Tasks) etc.
      *
      * @return string
      */
@@ -31,7 +35,7 @@ class Note extends Remote\Model
      */
     public static function getRootNodeName()
     {
-        return 'Note';
+        return 'Task';
     }
 
     /**
@@ -76,11 +80,15 @@ class Note extends Remote\Model
     public static function getProperties()
     {
         return [
-            'Title'     => [false, self::PROPERTY_TYPE_STRING, null, false, false],
-            'Text'      => [false, self::PROPERTY_TYPE_STRING, null, false, false],
-            'Folder'    => [false, self::PROPERTY_TYPE_STRING, null, false, false],
-            'Date'      => [false, self::PROPERTY_TYPE_DATE, '\\DateTimeInterface', false, false],
-            'CreatedBy' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'ID'                 => [false, self::PROPERTY_TYPE_INT, null, false, false],
+            'Name'               => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'Description'        => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'Minutes'            => [false, self::PROPERTY_TYPE_FLOAT, null, false, false],
+            'BillableRate'       => [false, self::PROPERTY_TYPE_FLOAT, null, false, false],
+            'Billable'           => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'Amount'             => [false, self::PROPERTY_TYPE_FLOAT, null, false, false],
+            'AmountTax'          => [false, self::PROPERTY_TYPE_FLOAT, null, false, false],
+            'AmountIncludingTax' => [false, self::PROPERTY_TYPE_FLOAT, null, false, false],
         ];
     }
 
@@ -89,6 +97,7 @@ class Note extends Remote\Model
         return false;
     }
 
+    // TODO: Run Method builder
     /**
      * @return string
      */
@@ -100,7 +109,7 @@ class Note extends Remote\Model
     /**
      * @param string $value
      *
-     * @return Note
+     * @return Task
      */
     public function setTitle($value)
     {
@@ -121,7 +130,7 @@ class Note extends Remote\Model
     /**
      * @param string $value
      *
-     * @return Note
+     * @return Task
      */
     public function setText($value)
     {
@@ -142,7 +151,7 @@ class Note extends Remote\Model
     /**
      * @param string $value
      *
-     * @return Note
+     * @return Task
      */
     public function setFolder($value)
     {
@@ -163,7 +172,7 @@ class Note extends Remote\Model
     /**
      * @param \DateTimeInterface $value
      *
-     * @return Note
+     * @return Task
      */
     public function setDate($value)
     {
@@ -184,7 +193,7 @@ class Note extends Remote\Model
     /**
      * @param string $value
      *
-     * @return Note
+     * @return Task
      */
     public function setCreatedBy($value)
     {

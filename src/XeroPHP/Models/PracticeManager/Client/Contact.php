@@ -3,11 +3,13 @@
 namespace XeroPHP\Models\PracticeManager\Client;
 
 use XeroPHP\Remote;
+use XeroPHP\Traits\PracticeManager\CustomFieldValueTrait;
 
 class Contact extends Remote\Model
 {
-    // TODO: Make a new top level model that can save - Requires an Additional Parameters
+    use CustomFieldValueTrait;
     /*
+     * // To Save a new Contact you need to add a ClientID
      * <Contact>
           <Client>
             <ID>142</ID>
@@ -62,7 +64,7 @@ class Contact extends Remote\Model
      */
     public static function getGUIDProperty()
     {
-        return '';
+        return 'ID';
     }
 
     /**
@@ -82,6 +84,11 @@ class Contact extends Remote\Model
     {
         return [
         ];
+    }
+
+    public function getCustomFieldValueUri()
+    {
+        return 'client.api/contact/%s/customfield';
     }
 
     /**
