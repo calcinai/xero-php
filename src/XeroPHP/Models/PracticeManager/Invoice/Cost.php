@@ -99,24 +99,23 @@ class Cost extends Remote\Model
         return false;
     }
 
-    // TODO: Run Generator
     /**
      * @return string
      */
-    public function getTitle()
+    public function getDescription()
     {
-        return $this->_data['Title'];
+        return $this->_data['Description'];
     }
 
     /**
      * @param string $value
      *
-     * @return Cost
+     * @return self
      */
-    public function setTitle($value)
+    public function setDescription($value)
     {
-        $this->propertyUpdated('Title', $value);
-        $this->_data['Title'] = $value;
+        $this->propertyUpdated('Description', $value);
+        $this->_data['Description'] = $value;
 
         return $this;
     }
@@ -124,20 +123,20 @@ class Cost extends Remote\Model
     /**
      * @return string
      */
-    public function getText()
+    public function getNote()
     {
-        return $this->_data['Text'];
+        return $this->_data['Note'];
     }
 
     /**
      * @param string $value
      *
-     * @return Cost
+     * @return self
      */
-    public function setText($value)
+    public function setNote($value)
     {
-        $this->propertyUpdated('Text', $value);
-        $this->_data['Text'] = $value;
+        $this->propertyUpdated('Note', $value);
+        $this->_data['Note'] = $value;
 
         return $this;
     }
@@ -145,41 +144,20 @@ class Cost extends Remote\Model
     /**
      * @return string
      */
-    public function getFolder()
+    public function getCode()
     {
-        return $this->_data['Folder'];
+        return $this->_data['Code'];
     }
 
     /**
      * @param string $value
      *
-     * @return Cost
+     * @return self
      */
-    public function setFolder($value)
+    public function setCode($value)
     {
-        $this->propertyUpdated('Folder', $value);
-        $this->_data['Folder'] = $value;
-
-        return $this;
-    }
-
-    /**
-     * @return \DateTimeInterface
-     */
-    public function getDate()
-    {
-        return $this->_data['Date'];
-    }
-
-    /**
-     * @param \DateTimeInterface $value
-     *
-     * @return Cost
-     */
-    public function setDate($value)
-    {
-        $this->propertyUpdated('Date', $value);
-        $this->_data['Date'] = $value;
+        $this->propertyUpdated('Code', $value);
+        $this->_data['Code'] = $value;
 
         return $this;
     }
@@ -187,20 +165,146 @@ class Cost extends Remote\Model
     /**
      * @return string
      */
-    public function getCreatedBy()
+    public function getBillable()
     {
-        return $this->_data['CreatedBy'];
+        return $this->_data['Billable'];
     }
 
     /**
      * @param string $value
      *
-     * @return Cost
+     * @return self
      */
-    public function setCreatedBy($value)
+    public function setBillable($value)
     {
-        $this->propertyUpdated('CreatedBy', $value);
-        $this->_data['CreatedBy'] = $value;
+        $this->propertyUpdated('Billable', $value);
+        $this->_data['Billable'] = $value;
+
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getQuantity()
+    {
+        return $this->_data['Quantity'];
+    }
+
+    /**
+     * @param string $value
+     *
+     * @return self
+     */
+    public function setQuantity($value)
+    {
+        $this->propertyUpdated('Quantity', $value);
+        $this->_data['Quantity'] = $value;
+
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getUnitCost()
+    {
+        return $this->_data['UnitCost'];
+    }
+
+    /**
+     * @param string $value
+     *
+     * @return self
+     */
+    public function setUnitCost($value)
+    {
+        $this->propertyUpdated('UnitCost', $value);
+        $this->_data['UnitCost'] = $value;
+
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getUnitPrice()
+    {
+        return $this->_data['UnitPrice'];
+    }
+
+    /**
+     * @param string $value
+     *
+     * @return self
+     */
+    public function setUnitPrice($value)
+    {
+        $this->propertyUpdated('UnitPrice', $value);
+        $this->_data['UnitPrice'] = $value;
+
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getAmount()
+    {
+        return $this->_data['Amount'];
+    }
+
+    /**
+     * @param string $value
+     *
+     * @return self
+     */
+    public function setAmount($value)
+    {
+        $this->propertyUpdated('Amount', $value);
+        $this->_data['Amount'] = $value;
+
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getAmountTax()
+    {
+        return $this->_data['AmountTax'];
+    }
+
+    /**
+     * @param string $value
+     *
+     * @return self
+     */
+    public function setAmountTax($value)
+    {
+        $this->propertyUpdated('AmountTax', $value);
+        $this->_data['AmountTax'] = $value;
+
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getAmountIncludingTax()
+    {
+        return $this->_data['AmountIncludingTax'];
+    }
+
+    /**
+     * @param string $value
+     *
+     * @return self
+     */
+    public function setAmountIncludingTax($value)
+    {
+        $this->propertyUpdated('AmountIncludingTax', $value);
+        $this->_data['AmountIncludingTax'] = $value;
 
         return $this;
     }

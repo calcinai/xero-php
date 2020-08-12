@@ -77,12 +77,12 @@ class Job extends Remote\Model
     public static function getProperties()
     {
         return [
-            // TODO: UPdate
-            'Title'     => [false, self::PROPERTY_TYPE_STRING, null, false, false],
-            'Text'      => [false, self::PROPERTY_TYPE_STRING, null, false, false],
-            'Folder'    => [false, self::PROPERTY_TYPE_STRING, null, false, false],
-            'Date'      => [false, self::PROPERTY_TYPE_DATE, '\\DateTimeInterface', false, false],
-            'CreatedBy' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'ID'                => [true, self::PROPERTY_TYPE_INT, null, false, false],
+            'Name'              => [true, self::PROPERTY_TYPE_STRING, null, false, false],
+            'Description'       => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'ClientOrderNumber' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'Tasks'             => [false, self::PROPERTY_TYPE_OBJECT, 'PracticeManager\\Invoice\\Task', true, false],
+            'Costs'             => [false, self::PROPERTY_TYPE_OBJECT, 'PracticeManager\\Invoice\\Cost', true, false],
         ];
     }
 
@@ -94,20 +94,20 @@ class Job extends Remote\Model
     /**
      * @return string
      */
-    public function getTitle()
+    public function getID()
     {
-        return $this->_data['Title'];
+        return $this->_data['ID'];
     }
 
     /**
      * @param string $value
      *
-     * @return Job
+     * @return self
      */
-    public function setTitle($value)
+    public function setID($value)
     {
-        $this->propertyUpdated('Title', $value);
-        $this->_data['Title'] = $value;
+        $this->propertyUpdated('ID', $value);
+        $this->_data['ID'] = $value;
 
         return $this;
     }
@@ -115,20 +115,20 @@ class Job extends Remote\Model
     /**
      * @return string
      */
-    public function getText()
+    public function getName()
     {
-        return $this->_data['Text'];
+        return $this->_data['Name'];
     }
 
     /**
      * @param string $value
      *
-     * @return Job
+     * @return self
      */
-    public function setText($value)
+    public function setName($value)
     {
-        $this->propertyUpdated('Text', $value);
-        $this->_data['Text'] = $value;
+        $this->propertyUpdated('Name', $value);
+        $this->_data['Name'] = $value;
 
         return $this;
     }
@@ -136,41 +136,20 @@ class Job extends Remote\Model
     /**
      * @return string
      */
-    public function getFolder()
+    public function getDescription()
     {
-        return $this->_data['Folder'];
+        return $this->_data['Description'];
     }
 
     /**
      * @param string $value
      *
-     * @return Job
+     * @return self
      */
-    public function setFolder($value)
+    public function setDescription($value)
     {
-        $this->propertyUpdated('Folder', $value);
-        $this->_data['Folder'] = $value;
-
-        return $this;
-    }
-
-    /**
-     * @return \DateTimeInterface
-     */
-    public function getDate()
-    {
-        return $this->_data['Date'];
-    }
-
-    /**
-     * @param \DateTimeInterface $value
-     *
-     * @return Job
-     */
-    public function setDate($value)
-    {
-        $this->propertyUpdated('Date', $value);
-        $this->_data['Date'] = $value;
+        $this->propertyUpdated('Description', $value);
+        $this->_data['Description'] = $value;
 
         return $this;
     }
@@ -178,20 +157,68 @@ class Job extends Remote\Model
     /**
      * @return string
      */
-    public function getCreatedBy()
+    public function getClientOrderNumber()
     {
-        return $this->_data['CreatedBy'];
+        return $this->_data['ClientOrderNumber'];
     }
 
     /**
      * @param string $value
      *
-     * @return Job
+     * @return self
      */
-    public function setCreatedBy($value)
+    public function setClientOrderNumber($value)
     {
-        $this->propertyUpdated('CreatedBy', $value);
-        $this->_data['CreatedBy'] = $value;
+        $this->propertyUpdated('ClientOrderNumber', $value);
+        $this->_data['ClientOrderNumber'] = $value;
+
+        return $this;
+    }
+
+    /**
+     * @return Task[]|Remote\Collection
+     */
+    public function getTasks()
+    {
+        return $this->_data['Tasks'];
+    }
+
+    /**
+     * @param Task $value
+     *
+     * @return self
+     */
+    public function addTask(Task $value)
+    {
+        $this->propertyUpdated('Tasks', $value);
+        if (! isset($this->_data['Tasks'])) {
+            $this->_data['Tasks'] = new Remote\Collection();
+        }
+        $this->_data['Tasks'][] = $value;
+
+        return $this;
+    }
+
+    /**
+     * @return Cost[]|Remote\Collection
+     */
+    public function getCosts()
+    {
+        return $this->_data['Costs'];
+    }
+
+    /**
+     * @param Cost $value
+     *
+     * @return self
+     */
+    public function addCost(Cost $value)
+    {
+        $this->propertyUpdated('Costs', $value);
+        if (! isset($this->_data['Costs'])) {
+            $this->_data['Costs'] = new Remote\Collection();
+        }
+        $this->_data['Costs'][] = $value;
 
         return $this;
     }
