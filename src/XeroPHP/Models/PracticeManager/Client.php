@@ -238,7 +238,7 @@ class Client extends Remote\Model
     public static function getProperties()
     {
         return [
-            'ID'                       => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'ID'                       => [false, self::PROPERTY_TYPE_INT, null, false, false],
             'Name'                     => [false, self::PROPERTY_TYPE_STRING, null, false, false],
             'FirstName'                => [false, self::PROPERTY_TYPE_STRING, null, false, false],
             'LastName'                 => [false, self::PROPERTY_TYPE_STRING, null, false, false],
@@ -279,9 +279,9 @@ class Client extends Remote\Model
             'PrepareActivityStatement' => [false, self::PROPERTY_TYPE_ENUM, null, false, false],
             'PrepareTaxReturn'         => [false, self::PROPERTY_TYPE_ENUM, null, false, false],
             'Contacts'                 => [false, self::PROPERTY_TYPE_OBJECT, 'PracticeManager\\Client\\Contact', true, false],
-            'Notes'                     => [false, self::PROPERTY_TYPE_OBJECT, 'PracticeManager\\Client\\Note', true, false],
-            'Groups'                    => [false, self::PROPERTY_TYPE_OBJECT, 'PracticeManager\\Client\\Group', true, false],
-            'Relationships'             => [false, self::PROPERTY_TYPE_OBJECT, 'PracticeManager\\Client\\Relationship', true, false],
+            'Notes'                    => [false, self::PROPERTY_TYPE_OBJECT, 'PracticeManager\\Client\\Note', true, false],
+            'Groups'                   => [false, self::PROPERTY_TYPE_OBJECT, 'PracticeManager\\Client\\Group', true, false],
+            'Relationships'            => [false, self::PROPERTY_TYPE_OBJECT, 'PracticeManager\\Client\\Relationship', true, false],
             'AccountManager'           => [false, self::PROPERTY_TYPE_OBJECT, 'PracticeManager\\Client\\AccountManager', false, false],
             'JobManager'               => [false, self::PROPERTY_TYPE_OBJECT, 'PracticeManager\\Client\\JobManager', false, false],
             'Type'                     => [false, self::PROPERTY_TYPE_OBJECT, 'PracticeManager\\Client\\Type', false, false],
@@ -295,7 +295,7 @@ class Client extends Remote\Model
     }
 
     /**
-     * @return string
+     * @return int
      */
     public function getID()
     {
@@ -303,7 +303,7 @@ class Client extends Remote\Model
     }
 
     /**
-     * @param string $value
+     * @param int $value
      *
      * @return Client
      */
@@ -1150,7 +1150,7 @@ class Client extends Remote\Model
     public function addContact(Contact $value)
     {
         $this->propertyUpdated('Contacts', $value);
-        if (! isset($this->_data['Contacts'])) {
+        if (!isset($this->_data['Contacts'])) {
             $this->_data['Contacts'] = new Remote\Collection();
         }
         $this->_data['Contacts'][] = $value;
@@ -1174,7 +1174,7 @@ class Client extends Remote\Model
     public function addNote(Note $value)
     {
         $this->propertyUpdated('Notes', $value);
-        if (! isset($this->_data['Notes'])) {
+        if (!isset($this->_data['Notes'])) {
             $this->_data['Notes'] = new Remote\Collection();
         }
         $this->_data['Notes'][] = $value;
@@ -1198,7 +1198,7 @@ class Client extends Remote\Model
     public function addGroup(Group $value)
     {
         $this->propertyUpdated('Groups', $value);
-        if (! isset($this->_data['Groups'])) {
+        if (!isset($this->_data['Groups'])) {
             $this->_data['Groups'] = new Remote\Collection();
         }
         $this->_data['Groups'][] = $value;
@@ -1222,7 +1222,7 @@ class Client extends Remote\Model
     public function addRelationship(Relationship $value)
     {
         $this->propertyUpdated('Relationships', $value);
-        if (! isset($this->_data['Relationships'])) {
+        if (!isset($this->_data['Relationships'])) {
             $this->_data['Relationships'] = new Remote\Collection();
         }
         $this->_data['Relationships'][] = $value;

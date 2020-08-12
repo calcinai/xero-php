@@ -66,7 +66,7 @@ class ModelTest extends \PHPUnit_Framework_TestCase
         $this->assertNull($model->getEarningsLines());
     }
 
-    public function testClientIsCreated()
+    public function testPracticeManagerClientListIsReturned()
     {
         $testXML = '<Response>
   <Status>OK</Status> 
@@ -161,7 +161,7 @@ class ModelTest extends \PHPUnit_Framework_TestCase
         $app->setTransport($client);
 
         $models = $app->load(\XeroPHP\Models\PracticeManager\Client::class)->setParameter('detailed', true)
-            ->setParameter('modifiedsince', date('Y-m-d\TH:i:s'))->execute();
+                      ->setParameter('modifiedsince', date('Y-m-d\TH:i:s'))->execute();
 
         /** @var \XeroPHP\Models\PracticeManager\Client $model */
         $model = $models->first();
@@ -174,6 +174,51 @@ class ModelTest extends \PHPUnit_Framework_TestCase
             $this->assertTrue($contact->getIsPrimary());
             $this->assertEquals('Samantha Benecke', $contact->getName());
         }
+    }
+
+
+    public function testPracticeManagerCustomFieldListIsReturned()
+    {
+        $testXML = '<Response>
+  <Status>OK</Status>
+  <CustomFieldDefinitions>
+    <CustomFieldDefinition>
+      <ID>123</ID>
+      <Name>Name of Custom Field</Name>
+      <Type>Dropdown List</Type> <!-- e.g. Text, Decimal, Date, Dropdown List, Value Link, etc -->
+      <LinkUrl />  <!-- Optional - URL for Value Link field types -->
+      <Options />  <!-- Optional - Options for Dropdown lists -->
+
+      <!-- The following elements indicate if the field is used for clients, contacts, suppliers, jobs and/or leads -->
+      <UseClient>false</UseClient>  <!-- true | false -->
+      <UseContact>false</UseContact>  <!-- true | false -->
+      <UseSupplier>false</UseSupplier>  <!-- true | false -->
+      <UseJob>false</UseJob>  <!-- true | false -->
+      <UseLead>false</UseLead>  <!-- true | false -->
+      <UseJobTask>false</UseJobTask>  <!-- true | false -->
+      <UseJobCost>false</UseJobCost>  <!-- true | false -->
+      <UseJobTime>true</UseJobTime>  <!-- true | false -->
+      <!-- Identifies XML element for accessing the field value during GET or PUT - valid values are: Text | Decimal | Number | Boolean | Date -->
+      <ValueElement />
+    </CustomFieldDefinition>
+  </CustomFieldDefinitions>
+</Response>';
+        $mock = new MockHandler([
+            new Response(200, ['Content-Type' => 'text/xml'], $testXML),
+        ]);
+        $handlerStack = HandlerStack::create($mock);
+
+        $client = new Client(['handler' => $handlerStack]);
+        $app = new Application('', '');
+        $app->setTransport($client);
+
+        $models = $app->load(\XeroPHP\Models\PracticeManager\CustomField::class)->execute();
+
+        /** @var \XeroPHP\Models\PracticeManager\CustomField $model */
+        $model = $models->first();
+
+        $this->assertEquals(123, $model->getID());
+        $this->assertEquals('Name of Custom Field', $model->getName());
     }
 }
 
