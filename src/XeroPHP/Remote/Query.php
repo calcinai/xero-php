@@ -33,7 +33,7 @@ class Query
     private $offset;
 
     private $includeArchived;
-    
+
     private $createdByMyApp;
 
     private $params;
@@ -248,11 +248,11 @@ class Query
 
         return $this;
     }
-    
+
     public function createdByMyApp($createdByMyApp = true)
     {
         $this->createdByMyApp = (bool) $createdByMyApp;
-        
+
         return $this;
     }
 
@@ -322,7 +322,7 @@ class Query
         if ($this->includeArchived !== false) {
             $request->setParameter('includeArchived', 'true');
         }
-        
+
         if ($this->createdByMyApp !== false) {
             $request->setParameter('createdByMyApp', 'true');
         }
