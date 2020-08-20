@@ -3,6 +3,7 @@
 namespace XeroPHP\Models\PracticeManager;
 
 use XeroPHP\Models\PracticeManager\Invoice\Contact;
+use XeroPHP\Models\PracticeManager\Invoice\Cost;
 use XeroPHP\Models\PracticeManager\Invoice\Job;
 use XeroPHP\Models\PracticeManager\Invoice\Task;
 use XeroPHP\Remote;
@@ -189,6 +190,7 @@ class Invoice extends Remote\Model
             'Contact'            => [false, self::PROPERTY_TYPE_OBJECT, 'PracticeManager\\Invoice\\Contact', false, false],
             'Jobs'               => [false, self::PROPERTY_TYPE_OBJECT, 'PracticeManager\\Invoice\\Job', true, false],
             'Tasks'              => [false, self::PROPERTY_TYPE_OBJECT, 'PracticeManager\\Invoice\\Task', true, false],
+            'Costs'              => [false, self::PROPERTY_TYPE_OBJECT, 'PracticeManager\\Invoice\\Cost', true, false],
         ];
     }
 
@@ -556,6 +558,30 @@ class Invoice extends Remote\Model
             $this->_data['Tasks'] = new Remote\Collection();
         }
         $this->_data['Tasks'][] = $value;
+
+        return $this;
+    }
+
+    /**
+     * @return Cost[]|Remote\Collection
+     */
+    public function getCosts()
+    {
+        return $this->_data['Costs'];
+    }
+
+    /**
+     * @param Cost $value
+     *
+     * @return self
+     */
+    public function addCost(Cost $value)
+    {
+        $this->propertyUpdated('Costs', $value);
+        if (!isset($this->_data['Costs'])) {
+            $this->_data['Costs'] = new Remote\Collection();
+        }
+        $this->_data['Costs'][] = $value;
 
         return $this;
     }

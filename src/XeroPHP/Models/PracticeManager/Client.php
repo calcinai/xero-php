@@ -1239,7 +1239,7 @@ class Client extends Remote\Model
     }
 
     /**
-     * @return string
+     * @return AccountManager
      */
     public function getAccountManager()
     {
@@ -1260,7 +1260,7 @@ class Client extends Remote\Model
     }
 
     /**
-     * @return string
+     * @return JobManager
      */
     public function getJobManager()
     {

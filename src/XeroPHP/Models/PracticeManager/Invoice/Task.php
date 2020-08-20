@@ -161,7 +161,7 @@ class Task extends Remote\Model
     }
 
     /**
-     * @return string
+     * @return float
      */
     public function getMinutes()
     {
@@ -169,7 +169,7 @@ class Task extends Remote\Model
     }
 
     /**
-     * @param string $value
+     * @param float $value
      *
      * @return self
      */
@@ -182,7 +182,7 @@ class Task extends Remote\Model
     }
 
     /**
-     * @return string
+     * @return float
      */
     public function getBillableRate()
     {
@@ -190,7 +190,7 @@ class Task extends Remote\Model
     }
 
     /**
-     * @param string $value
+     * @param float $value
      *
      * @return self
      */
@@ -224,7 +224,7 @@ class Task extends Remote\Model
     }
 
     /**
-     * @return string
+     * @return float
      */
     public function getAmount()
     {
@@ -232,7 +232,7 @@ class Task extends Remote\Model
     }
 
     /**
-     * @param string $value
+     * @param float $value
      *
      * @return self
      */
@@ -245,7 +245,7 @@ class Task extends Remote\Model
     }
 
     /**
-     * @return string
+     * @return float
      */
     public function getAmountTax()
     {
@@ -253,7 +253,7 @@ class Task extends Remote\Model
     }
 
     /**
-     * @param string $value
+     * @param float $value
      *
      * @return self
      */
@@ -266,7 +266,7 @@ class Task extends Remote\Model
     }
 
     /**
-     * @return string
+     * @return float
      */
     public function getAmountIncludingTax()
     {
@@ -274,7 +274,7 @@ class Task extends Remote\Model
     }
 
     /**
-     * @param string $value
+     * @param float $value
      *
      * @return self
      */
