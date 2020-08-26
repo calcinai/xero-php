@@ -46,7 +46,7 @@ trait CustomFieldValueTrait
             $this->getGUID()
         );
 
-        $url = new URL($this->_application, $uri);
+        $url = new URL($this->_application, $uri, URL::API_PRACTICE_MANAGER);
         $request = new Request($this->_application, $url, Request::METHOD_GET);
         $request->send();
 
