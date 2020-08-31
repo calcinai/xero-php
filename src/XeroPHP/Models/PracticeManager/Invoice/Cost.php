@@ -184,7 +184,7 @@ class Cost extends Remote\Model
     }
 
     /**
-     * @return string
+     * @return float
      */
     public function getQuantity()
     {
@@ -192,7 +192,7 @@ class Cost extends Remote\Model
     }
 
     /**
-     * @param string $value
+     * @param float $value
      *
      * @return self
      */
@@ -205,7 +205,7 @@ class Cost extends Remote\Model
     }
 
     /**
-     * @return string
+     * @return float
      */
     public function getUnitCost()
     {
@@ -213,7 +213,7 @@ class Cost extends Remote\Model
     }
 
     /**
-     * @param string $value
+     * @param float $value
      *
      * @return self
      */
@@ -226,7 +226,7 @@ class Cost extends Remote\Model
     }
 
     /**
-     * @return string
+     * @return float
      */
     public function getUnitPrice()
     {
@@ -234,7 +234,7 @@ class Cost extends Remote\Model
     }
 
     /**
-     * @param string $value
+     * @param float $value
      *
      * @return self
      */
@@ -247,7 +247,7 @@ class Cost extends Remote\Model
     }
 
     /**
-     * @return string
+     * @return float
      */
     public function getAmount()
     {
@@ -255,7 +255,7 @@ class Cost extends Remote\Model
     }
 
     /**
-     * @param string $value
+     * @param float $value
      *
      * @return self
      */
@@ -268,7 +268,7 @@ class Cost extends Remote\Model
     }
 
     /**
-     * @return string
+     * @return float
      */
     public function getAmountTax()
     {
@@ -276,7 +276,7 @@ class Cost extends Remote\Model
     }
 
     /**
-     * @param string $value
+     * @param float $value
      *
      * @return self
      */
@@ -289,7 +289,7 @@ class Cost extends Remote\Model
     }
 
     /**
-     * @return string
+     * @return float
      */
     public function getAmountIncludingTax()
     {
@@ -297,7 +297,7 @@ class Cost extends Remote\Model
     }
 
     /**
-     * @param string $value
+     * @param float $value
      *
      * @return self
      */
