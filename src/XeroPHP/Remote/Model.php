@@ -76,6 +76,7 @@ abstract class Model implements ObjectInterface, \JsonSerializable, \ArrayAccess
         $this->_dirty = [];
         $this->_data = [];
         $this->_associated_objects = [];
+        $this->fromStringArray([]);
     }
 
     /**
