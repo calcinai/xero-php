@@ -77,7 +77,7 @@ class Job extends Remote\Model
     public static function getProperties()
     {
         return [
-            'ID'                => [true, self::PROPERTY_TYPE_INT, null, false, false],
+            'ID'                => [true, self::PROPERTY_TYPE_STRING, null, false, false],
             'Name'              => [true, self::PROPERTY_TYPE_STRING, null, false, false],
             'Description'       => [false, self::PROPERTY_TYPE_STRING, null, false, false],
             'ClientOrderNumber' => [false, self::PROPERTY_TYPE_STRING, null, false, false],

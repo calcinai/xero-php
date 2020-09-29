@@ -211,12 +211,12 @@ class ModelTest extends \PHPUnit_Framework_TestCase
 
         $this->assertCount(5, $customFieldValues);
 
-        $dateFieldValue    = $customFieldValues[0];
+        $dateFieldValue = $customFieldValues[0];
         $this->assertEquals(1, $dateFieldValue->getId());
         $this->assertEquals('Date Field', $dateFieldValue->getName());
         $this->assertEquals('2010-10-11 00:00:00', $dateFieldValue->getDate()->format('Y-m-d H:i:s'));
 
-        $numberFieldValue  = $customFieldValues[1];
+        $numberFieldValue = $customFieldValues[1];
         $this->assertEquals(2, $numberFieldValue->getId());
         $this->assertEquals('Number Field', $numberFieldValue->getName());
         $this->assertEquals(123, $numberFieldValue->getNumber());
@@ -231,7 +231,7 @@ class ModelTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals('Boolean Field', $booleanFieldValue->getName());
         $this->assertEquals(true, $booleanFieldValue->getBoolean());
 
-        $textFieldValue    = $customFieldValues[4];
+        $textFieldValue = $customFieldValues[4];
         $this->assertEquals(5, $textFieldValue->getId());
         $this->assertEquals('Text Field', $textFieldValue->getName());
         $this->assertEquals('some text', $textFieldValue->getText());
@@ -302,7 +302,7 @@ class ModelTest extends \PHPUnit_Framework_TestCase
     <AmountOutstanding>125.00</AmountOutstanding> 
     <Client>
       <ID>1</ID>
-      <Name>A C Smith Limited</Name> 
+      <Name>John Smith Limited</Name> 
     </Client>
     <Contact>
       <ID>512</ID>
@@ -343,6 +343,19 @@ class ModelTest extends \PHPUnit_Framework_TestCase
         </Costs>
       </Job>
     </Jobs>
+    <Tasks>
+        <Task>
+            <ID>495128309</ID>
+            <Name>ASIC Administration</Name>
+            <Description>Attending to requirements in respect of ASIC Annual Company Statement</Description>
+            <Minutes>60</Minutes>
+            <BillableRate>5000.00</BillableRate>
+            <Billable>Yes</Billable>
+            <Amount>5000.00</Amount>
+            <AmountTax>500.00</AmountTax>
+            <AmountIncludingTax>5500.00</AmountIncludingTax>
+        </Task>
+    </Tasks>
   </Invoice>
   </Invoices>
 </Response>';
@@ -362,10 +375,80 @@ class ModelTest extends \PHPUnit_Framework_TestCase
 
         $this->assertEquals('I000123', $model->getID());
         $this->assertEquals(123, $model->getInternalID());
-        $this->assertEquals('A C Smith Limited', $model->getClient()->getName());
+        $this->assertEquals('John Smith Limited', $model->getClient()->getName());
 
         $this->assertCount(1, $model->getJobs());
+        $this->assertCount(1, $model->getTasks());
+    }
 
+    public function testPracticeManagerInvoiceWithNoLineInfo()
+    {
+        $testXML      = '<Response>
+  <Status>OK</Status> 
+  <Invoices>
+    <Invoice>
+            <ID>17940</ID>
+            <InternalID>154912192</InternalID>
+            <Type>Progress Invoice</Type>
+            <JobText>J000316</JobText>
+            <Description></Description>
+            <Date>2017-05-10T00:00:00</Date>
+            <DueDate>2017-05-24T00:00:00</DueDate>
+            <Amount>0.00</Amount>
+            <AmountTax>0.00</AmountTax>
+            <AmountIncludingTax>0.00</AmountIncludingTax>
+            <AmountPaid>0.00</AmountPaid>
+            <AmountOutstanding>0.00</AmountOutstanding>
+            <Status>Paid</Status>
+            <Client>
+                <ID>11111</ID>
+                <Name>Ting, Ting</Name>
+            </Client>
+            <Jobs>
+                <Job>
+                    <ID>J000316</ID>
+                    <Name>Activity Statement - Quarterly</Name>
+                    <Description>Preparation of Business Activity Statement</Description>
+                    <ClientOrderNumber></ClientOrderNumber>
+                    <Tasks>
+                        <Task>
+                            <ID>225771997</ID>
+                            <Name>Prepare Activity Statement - March</Name>
+                            <Description></Description>
+                            <Minutes>0</Minutes>
+                            <BillableRate></BillableRate>
+                            <Billable>Yes</Billable>
+                            <Amount>0.00</Amount>
+                            <AmountTax>0.00</AmountTax>
+                            <AmountIncludingTax>0.00</AmountIncludingTax>
+                        </Task>
+                    </Tasks>
+                    <Costs />
+                </Job>
+            </Jobs>
+        </Invoice>
+  </Invoices>
+</Response>';
+        $mock         = new MockHandler([
+            new Response(200, ['Content-Type' => 'text/xml'], $testXML),
+        ]);
+        $handlerStack = HandlerStack::create($mock);
+
+        $client = new Client(['handler' => $handlerStack]);
+        $app    = new Application('', '');
+        $app->setTransport($client);
+
+        $models = $app->load(\XeroPHP\Models\PracticeManager\Invoice::class)->execute();
+
+        /** @var \XeroPHP\Models\PracticeManager\Invoice $model */
+        $model = $models->first();
+
+        $this->assertEquals('17940', $model->getID());
+        $this->assertEquals(154912192, $model->getInternalID());
+        $this->assertEquals('Ting, Ting', $model->getClient()->getName());
+
+        $this->assertCount(1, $model->getJobs());
+        $this->assertNull($model->getTasks());
     }
 }
 
