@@ -74,7 +74,7 @@ class EarningsLine extends Remote\Model
      */
     public static function getGUIDProperty()
     {
-        return '';
+        return 'EarningsRateID';
     }
 
     /**
@@ -109,7 +109,7 @@ class EarningsLine extends Remote\Model
     public static function getProperties()
     {
         return [
-            'EarningsRateID' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'EarningsRateID' => [false, self::PROPERTY_TYPE_GUID, null, false, false],
             'CalculationType' => [false, self::PROPERTY_TYPE_ENUM, null, false, false],
             'NumberOfUnitsPerWeek' => [false, self::PROPERTY_TYPE_FLOAT, null, false, false],
             'AnnualSalary' => [false, self::PROPERTY_TYPE_FLOAT, null, false, false],
