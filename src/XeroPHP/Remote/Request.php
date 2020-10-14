@@ -78,8 +78,11 @@ class Request
                 throw new Exception("Invalid request method [{$method}]");
         }
 
-        //Default to XML so you get the  xsi:type attribute in the root node.
-        $this->setHeader(self::HEADER_ACCEPT, self::CONTENT_TYPE_XML);
+        if (strpos($url->getFullURL(), 'projects.xro')) {
+            $this->setHeader(self::HEADER_ACCEPT, self::CONTENT_TYPE_JSON);
+        } else {
+            $this->setHeader(self::HEADER_ACCEPT, self::CONTENT_TYPE_XML);
+        }
 
         $xero_config = $this->app->getConfig('xero');
         if (isset($xero_config['unitdp'])) {
@@ -108,10 +111,11 @@ class Request
 
         try {
             $guzzleResponse = $this->app->getTransport()->send($request);
-        }  catch (\GuzzleHttp\Exception\BadResponseException $e) {
+        } catch (\GuzzleHttp\Exception\BadResponseException $e) {
             $guzzleResponse = $e->getResponse();
         }
-        $this->response = new Response($this,
+        $this->response = new Response(
+            $this,
             $guzzleResponse->getBody()->getContents(),
             $guzzleResponse->getStatusCode(),
             $guzzleResponse->getHeaders()

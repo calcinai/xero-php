@@ -75,6 +75,9 @@ class URL
                     $version = $xero_config['core_version'];
 
                     break;
+                case 'projects.xro':
+                    $version = '2.0';
+                    break;
                 case self::API_PAYROLL:
                     $version = $xero_config['payroll_version'];
 
