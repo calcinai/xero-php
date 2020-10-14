@@ -1,28 +1,32 @@
 {
-   "name": "calcinai/xero-php",
-   "type": "library",
-   "description": "A client implementation of the Xero API, with a cleaner OAuth interface and ORM-like abstraction.",
-   "homepage": "https://github.com/calcinai/xero-php",
-   "license": "MIT",
-   "require": {
-      "php": ">=5.6.0",
-      "calcinai/oauth2-xero": "^1.0",
-      "guzzlehttp/guzzle": "^6.5",
-      "guzzlehttp/psr7": "^1.5",
-      "ext-json": "*",
-      "ext-simplexml": "*"
-   },
-   "require-dev": {
-      "phpunit/phpunit": "^5"
-   },
-   "autoload": {
-      "psr-4": {
-         "XeroPHP\\": "src/XeroPHP/"
-      }
+  "name": "calcinai/xero-php",
+  "type": "library",
+  "description": "A client implementation of the Xero API, with a cleaner OAuth interface and ORM-like abstraction.",
+  "homepage": "https://github.com/calcinai/xero-php",
+  "license": "MIT",
+  "require": {
+    "php": ">=5.5.0",
+    "calcinai/oauth2-xero": "^1.0",
+    "guzzlehttp/guzzle": "^6.5|^7.0",
+    "guzzlehttp/psr7": "^1.5|^1.6",
+    "ext-json": "*",
+    "ext-simplexml": "*"
   },
-   "autoload-dev": {
-      "psr-4": {
-         "XeroPHP\\Tests\\": "tests/"
-      }
-   }
+  "require-dev": {
+    "phpunit/phpunit": "^5"
+  },
+  "suggest": {
+    "ext-fileinfo": "*",
+    "ext-mbstring": "*"
+  },
+  "autoload": {
+    "psr-4": {
+      "XeroPHP\\": "src/XeroPHP/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "XeroPHP\\Tests\\": "tests/"
+    }
+  }
 }

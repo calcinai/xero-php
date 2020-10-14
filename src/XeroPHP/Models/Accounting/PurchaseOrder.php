@@ -6,7 +6,7 @@ use XeroPHP\Remote;
 use XeroPHP\Traits\PDFTrait;
 use XeroPHP\Traits\HistoryTrait;
 use XeroPHP\Traits\AttachmentTrait;
-use XeroPHP\Models\Accounting\PurchaseOrder\LineItem;
+use XeroPHP\Models\Accounting\LineItem;
 
 class PurchaseOrder extends Remote\Model
 {
@@ -238,7 +238,7 @@ class PurchaseOrder extends Remote\Model
     {
         return [
             'Contact' => [true, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Contact', false, false],
-            'LineItems' => [true, self::PROPERTY_TYPE_OBJECT, 'Accounting\\PurchaseOrder\\LineItem', true, false],
+            'LineItems' => [true, self::PROPERTY_TYPE_OBJECT, 'Accounting\\LineItem', true, false],
             'Date' => [false, self::PROPERTY_TYPE_DATE, '\\DateTimeInterface', false, false],
             'DeliveryDate' => [false, self::PROPERTY_TYPE_DATE, '\\DateTimeInterface', false, false],
             'LineAmountTypes' => [false, self::PROPERTY_TYPE_ENUM, null, false, false],

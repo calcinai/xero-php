@@ -94,8 +94,8 @@ OAuth scopes, indicating which parts of the Xero organisation you'd like your ap
 found [here](https://developer.xero.com/documentation/oauth2/scopes).
  
  ```php
-$authUrl = $provider->$provider->getAuthorizationUrl([
-'scope' => 'bankfeeds accounting.transactions'
+$authUrl = $provider->getAuthorizationUrl([
+    'scope' => 'bankfeeds accounting.transactions'
 ]);
  ```
  
@@ -207,6 +207,8 @@ Refer to the [examples](examples) for more complex usage and nested/related obje
 If you are receiving webhooks from Xero there is `Webhook` class that can help with handling the request and parsing the associated event list.
 
 ```php
+// Configure the webhook signing key on the application
+$application->setConfig(['webhook' => ['signing_key' => 'xyz123']]);
 $webhook = new Webhook($application, $request->getContent());
 
 /**
@@ -229,7 +231,7 @@ See: [Webhooks documentation](https://developer.xero.com/documentation/webhooks/
 
 ### Validating Webhooks
 
-To ensure the webhooks are coming from Xero you should validate the incoming request header that Xero provides.
+To ensure the webhooks are coming from Xero you must validate the incoming request header that Xero provides.
 
 ```php
 if (! $webhook->validate($request->headers->get('x-xero-signature'))) {

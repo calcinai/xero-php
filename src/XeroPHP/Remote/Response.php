@@ -18,7 +18,7 @@ use XeroPHP\Remote\Exception\UnknownStatusException;
 
 class Response
 {
-    const STATUS_SUCCESS = [
+    static $STATUS_SUCCESS = [
         'OK' => 200,
         'CREATED' => 201,
         'ACCEPTED' => 202,
@@ -126,6 +126,9 @@ class Response
                 }
                 throw new ForbiddenException();
 
+            case self::STATUS_FORBIDDEN:
+                throw new ForbiddenException();
+
             case self::STATUS_NOT_FOUND:
                 throw new NotFoundException();
 
@@ -153,7 +156,7 @@ class Response
                 throw new NotAvailableException();
         }
 
-        if (!in_array($this->status, self::STATUS_SUCCESS)) {
+        if (!in_array($this->status, self::$STATUS_SUCCESS)) {
             throw new UnknownStatusException('The API returned a non-successful status code that is not recognised.', $this->status);
         }
     }
@@ -320,6 +323,7 @@ class Response
                     break;
                 case 'Payslip':
                 case 'PayItems':
+                case 'Settings':
                     // some xero endpoints are 1D so we can parse them straight away
                     $this->elements[] = Helpers::XMLToArray($root_child);
 

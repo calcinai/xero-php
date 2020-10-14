@@ -5,7 +5,7 @@ namespace XeroPHP\Models\Accounting;
 use XeroPHP\Remote;
 use XeroPHP\Traits\HistoryTrait;
 use XeroPHP\Traits\AttachmentTrait;
-use XeroPHP\Models\Accounting\BankTransaction\LineItem;
+use XeroPHP\Models\Accounting\LineItem;
 use XeroPHP\Models\Accounting\BankTransaction\BankAccount;
 
 class BankTransaction extends Remote\Model
@@ -226,7 +226,7 @@ class BankTransaction extends Remote\Model
         return [
             'Type' => [true, self::PROPERTY_TYPE_ENUM, null, false, false],
             'Contact' => [true, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Contact', false, false],
-            'LineItems' => [true, self::PROPERTY_TYPE_OBJECT, 'Accounting\\BankTransaction\\LineItem', true, false],
+            'LineItems' => [true, self::PROPERTY_TYPE_OBJECT, 'Accounting\\LineItem', true, false],
             'BankAccount' => [true, self::PROPERTY_TYPE_OBJECT, 'Accounting\\BankTransaction\\BankAccount', false, false],
             'IsReconciled' => [false, self::PROPERTY_TYPE_BOOLEAN, null, false, false],
             'Date' => [false, self::PROPERTY_TYPE_DATE, '\\DateTimeInterface', false, false],

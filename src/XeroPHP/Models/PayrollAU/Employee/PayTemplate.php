@@ -105,9 +105,9 @@ class PayTemplate extends Remote\Model
         return [
             'EarningsLines' => [false, self::PROPERTY_TYPE_OBJECT, 'PayrollAU\\Employee\\PayTemplate\\EarningsLine', true, false],
             'DeductionLines' => [false, self::PROPERTY_TYPE_OBJECT, 'PayrollAU\\Employee\\PayTemplate\\DeductionLine', true, false],
-            'SuperLines' => [false, self::PROPERTY_TYPE_OBJECT, 'PayrollAU\\Employee\\PayTemplate\\SuperLine', false, false],
+            'SuperLines' => [false, self::PROPERTY_TYPE_OBJECT, 'PayrollAU\\Employee\\PayTemplate\\SuperLine', true, false],
             'ReimbursementLines' => [false, self::PROPERTY_TYPE_OBJECT, 'PayrollAU\\Employee\\PayTemplate\\ReimbursementLine', true, false],
-            'LeaveLines' => [false, self::PROPERTY_TYPE_OBJECT, 'PayrollAU\\Employee\\PayTemplate\\LeaveLine', false, false],
+            'LeaveLines' => [false, self::PROPERTY_TYPE_OBJECT, 'PayrollAU\\Employee\\PayTemplate\\LeaveLine', true, false],
         ];
     }
 
