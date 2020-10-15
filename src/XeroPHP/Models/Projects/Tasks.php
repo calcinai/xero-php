@@ -2,11 +2,11 @@
 
 namespace XeroPHP\Models\Projects;
 
+use Exception;
 use XeroPHP\Remote;
 
 class Tasks extends Remote\Model
 {
-
 
     /**
      * Get the resource uri of the class (Contacts) etc
@@ -111,23 +111,6 @@ class Tasks extends Remote\Model
         return $this;
     }
 
-    /**
-     * @return string
-     */
-    public function getRate()
-    {
-        return $this->_data['rate'];
-    }
-    /**
-     * @param object $value
-     * @return Project
-     */
-    public function setRate($value)
-    {
-        $this->propertyUpdated('rate', $value);
-        $this->_data['rate'] = '$value';
-        return $this;
-    }
 
     /**
      * @return string
@@ -163,5 +146,42 @@ class Tasks extends Remote\Model
         $this->propertyUpdated('estimate_minutes', $value);
         $this->_data['estimate_minutes'] = $value;
         return $this;
+    }
+
+
+    /**
+     * @return string
+     */
+    public function getRate()
+    {
+        return $this->_data['rate'];
+    }
+    /**
+     * @param object $value
+     * @return Project
+     */
+    public function setRate($value)
+    {
+        $value = collect($value);
+        $this->propertyUpdated('rate', $value);
+        $this->_data['rate'] = (string)$value;
+        return $this;
+    }
+
+    /**
+     * Shorthand save an object if it is instantiated with app context.
+     *
+     * @throws Exception
+     *
+     * @return Response|null
+     */
+    public function save()
+    {
+        if ($this->_application === null) {
+            throw new Exception(
+                '->save() is only available on objects that have an injected application context.'
+            );
+        }
+        return $this->_application->saveCustom($this);
     }
 }

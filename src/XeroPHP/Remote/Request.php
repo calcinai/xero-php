@@ -120,10 +120,31 @@ class Request
             $guzzleResponse->getStatusCode(),
             $guzzleResponse->getHeaders()
         );
+
         $this->response->parse();
         return $this->response;
     }
 
+    public function sendCustom()
+    {
+        $uri = Uri::withQueryValues(new Uri($this->getUrl()->getFullURL()), $this->getParameters());
+
+        $request = new PsrRequest($this->getMethod(), $uri, $this->getHeaders(), $this->body);
+
+        try {
+            $guzzleResponse = $this->app->getTransport()->send($request);
+        } catch (\GuzzleHttp\Exception\BadResponseException $e) {
+            $guzzleResponse = $e->getResponse();
+        }
+        $this->response = new Response(
+            $this,
+            $guzzleResponse->getBody()->getContents(),
+            $guzzleResponse->getStatusCode(),
+            $guzzleResponse->getHeaders()
+        );
+
+        return $this->response;
+    }
     public function setParameter($key, $value)
     {
         $this->parameters[$key] = $value;
