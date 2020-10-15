@@ -300,12 +300,19 @@ class Application
             throw new Exception(sprintf('%s doesn\'t support [%s] via the API', get_class($object), $method));
         }
 
-        //Put in an array with the first level containing only the 'root node'.
         $data = [$object::getRootNodeName() => $object->toStringArray(true)];
+
         $url = new URL($this, $uri, $object::getAPIStem());
         $request = new Request($this, $url, $method);
 
-        $request->setBody(Helpers::arrayToXML($data))->send();
+        if (strpos($url->getFullURL(), 'projects.xro')) {
+            $data = collect($data)->toJson();
+
+            $request->setBody($data, 'application/json')->send();
+        } else
+            $request->setBody(Helpers::arrayToXML($data))->send();
+
+
         $response = $request->getResponse();
 
         if (false !== $element = current($response->getElements())) {
