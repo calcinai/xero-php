@@ -15,7 +15,7 @@ class Tasks extends Remote\Model
      */
     public static function getResourceURI()
     {
-        return 'projects/0c173051-5548-4eb6-a779-76c6997a7b1c/tasks';
+        return 'projects/{project_id}/tasks';
     }
 
 
@@ -130,6 +130,24 @@ class Tasks extends Remote\Model
         return $this;
     }
 
+
+    /**
+     * @return string
+     */
+    public function getProjectId()
+    {
+        return $this->_data['project_id'];
+    }
+    /**
+     * @param string $value
+     * @return Project
+     */
+    public function setProjectId($value)
+    {
+        $this->propertyUpdated('project_id', $value);
+        $this->_data['project_id'] = $value;
+        return $this;
+    }
     /**
      * @return string
      */
@@ -177,11 +195,13 @@ class Tasks extends Remote\Model
      */
     public function save()
     {
+
         if ($this->_application === null) {
             throw new Exception(
                 '->save() is only available on objects that have an injected application context.'
             );
         }
+
         return $this->_application->saveCustom($this);
     }
 }

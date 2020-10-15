@@ -125,9 +125,12 @@ class Request
         return $this->response;
     }
 
-    public function sendCustom()
+    public function sendCustom($project_id)
     {
+
         $uri = Uri::withQueryValues(new Uri($this->getUrl()->getFullURL()), $this->getParameters());
+
+        $uri = str_replace('{project_id}', $project_id, $this->getUrl()->getFullURL());
 
         $request = new PsrRequest($this->getMethod(), $uri, $this->getHeaders(), $this->body);
 
