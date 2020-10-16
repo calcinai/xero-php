@@ -15,7 +15,7 @@ class Contact extends Remote\Model
             <ID>142</ID>
           </Client>
           <Name>Wyett E Coyote</Name>
-          <IsPrimary>yes</IsPrimary> <!-- If multiple contacts defined, method will interpret last primary client as Primary -->
+          <IsPrimary>Yes</IsPrimary> <!-- If multiple contacts defined, method will interpret last primary client as Primary -->
           <Salutation />
           <Addressee />
           <Mobile />
@@ -147,7 +147,7 @@ class Contact extends Remote\Model
      */
     public function getIsPrimary()
     {
-        return $this->_data['IsPrimary'] == 'yes';
+        return strtolower($this->_data['IsPrimary']) == 'yes';
     }
 
     /**
@@ -157,9 +157,6 @@ class Contact extends Remote\Model
      */
     public function setIsPrimary($value)
     {
-        // Convert value to ENUM Yes or No
-        $value = $value === true || $value == 'yes' ? 'yes' : 'no';
-
         $this->propertyUpdated('IsPrimary', $value);
         $this->_data['IsPrimary'] = $value;
 
