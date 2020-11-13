@@ -149,6 +149,12 @@ class Invoice extends Remote\Model
      */
 
     /**
+     * See RepeatingInvoices.
+     *
+     * @property string RepeatingInvoiceID
+     */
+
+    /**
      * boolean to indicate if an invoice has an attachment.
      *
      * @property bool HasAttachments
@@ -324,6 +330,7 @@ class Invoice extends Remote\Model
             'Total' => [false, self::PROPERTY_TYPE_FLOAT, null, false, false],
             'TotalDiscount' => [false, self::PROPERTY_TYPE_FLOAT, null, false, false],
             'InvoiceID' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'RepeatingInvoiceID' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
             'HasAttachments' => [false, self::PROPERTY_TYPE_BOOLEAN, null, false, false],
             'Payments' => [false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Payment', true, false],
             'Prepayments' => [false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Prepayment', true, false],
@@ -734,6 +741,27 @@ class Invoice extends Remote\Model
     {
         $this->propertyUpdated('InvoiceID', $value);
         $this->_data['InvoiceID'] = $value;
+
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getRepeatingInvoiceID()
+    {
+        return $this->_data['RepeatingInvoiceID'];
+    }
+
+    /**
+     * @param string $value
+     *
+     * @return Invoice
+     */
+    public function setRepeatingInvoiceID($value)
+    {
+        $this->propertyUpdated('RepeatingInvoiceID', $value);
+        $this->_data['RepeatingInvoiceID'] = $value;
 
         return $this;
     }
