@@ -233,6 +233,7 @@ class CreditNote extends Remote\Model
             'Allocations' => [false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\CreditNote\\Allocation', true, true],
             'BrandingThemeID' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
             'HasAttachments' => [false, self::PROPERTY_TYPE_BOOLEAN, null, false, false],
+            'AppliedAmount' => [false, self::PROPERTY_TYPE_FLOAT, null, false, false]
         ];
     }
 
@@ -652,6 +653,14 @@ class CreditNote extends Remote\Model
         $this->_data['Allocations'][] = $value;
 
         return $this;
+    }
+    
+    /**
+     * @return float
+     */
+    public function getAppliedAmount()
+    {
+        return $this->_data['AppliedAmount'];
     }
 
     /**
