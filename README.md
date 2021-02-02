@@ -142,6 +142,12 @@ Search for objects meeting certain criteria
 $xero->load(Invoice::class)
     ->where('Status', Invoice::INVOICE_STATUS_AUTHORISED)
     ->where('Type', Invoice::INVOICE_TYPE_ACCREC)
+    ->where('Date'), 'DateTime(2020,11,25)'
+    ->execute();
+
+$xero->load(Invoice::class)
+    ->where('Date >= DateTime(2020,11,25)')
+    ->where('Date <= DateTime(2020,12,25)')
     ->execute();
 ```
 
