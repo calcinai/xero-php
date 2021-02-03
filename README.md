@@ -147,7 +147,7 @@ $xero->load(Invoice::class)
 
 $xero->load(Invoice::class)
     ->where('Date >= DateTime(2020,11,25)')
-    ->where('Date <= DateTime(2020,12,25)')
+    ->where('Date < DateTime(2020,12,25)')
     ->execute();
 ```
 
