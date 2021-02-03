@@ -47,28 +47,28 @@ class QueryTest extends \PHPUnit_Framework_TestCase
       $query = new Query($xero_app);
       $query->where('SomeKey', '3');
       $where = $query->getWhere();
-      $this->assertSame("SomeKey==\"3\"", $where, "Integer passed as string, so should have surrounding quotes");
+      $this->assertSame("SomeKey==\"3\"", $where, "Integer passed as string should have surrounding quotes");
 
       // Where: guid with key ending in ID
       $query = new Query($xero_app);
       $guid = "44aa0707-f718-4f1c-8d53-f2da9ca59533";
       $query->where('KeyEndingWithID', $guid);
       $where = $query->getWhere();
-      $this->assertSame("KeyEndingWithID=Guid(\"$guid\")", $where, "Key ends in ID, with guid as string, should have guid format in where string");
+      $this->assertSame("KeyEndingWithID=Guid(\"$guid\")", $where, "Key ends in ID and value is guid string, should have guid format in where string");
 
       // Where: guid with key not ending in ID
       $query = new Query($xero_app);
       $guid = "44aa0707-f718-4f1c-8d53-f2da9ca59533";
       $query->where('SomeKey', $guid);
       $where = $query->getWhere();
-      $this->assertSame("SomeKey==\"$guid\"", $where, "key does not end in ID, with guid should be formatted as a string in where string");
+      $this->assertSame("SomeKey==\"$guid\"", $where, "key does not end in ID and value is guid string, should be formatted as a string in where string");
 
       // Where: key ends in ID with non-guid value
       $query = new Query($xero_app);
       $not_a_guid = "Some-AlphaNu-meric-value9876";
       $query->where('KeyEndingWithID', $not_a_guid);
       $where = $query->getWhere();
-      $this->assertSame("KeyEndingWithID==\"$not_a_guid\"", $where, "Value is not a guid so should be formatted as a string in where string");
+      $this->assertSame("KeyEndingWithID==\"$not_a_guid\"", $where, "Key ends in ID but value is not a guid, should be formatted as a string in where string");
 
       // Where: "true"
       $query = new Query($xero_app);
