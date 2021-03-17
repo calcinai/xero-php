@@ -24,7 +24,7 @@ class Collection extends \ArrayObject
      */
     public function empty()
     {
-        return !sizeof($this);
+        return !count($this);
     }
 
     /**
