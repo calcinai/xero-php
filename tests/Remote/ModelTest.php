@@ -213,6 +213,9 @@ class ModelTest extends \PHPUnit_Framework_TestCase
             $this->assertEquals('Samantha Benecke', $contact->getName());
         }
 
+        $this->assertEquals(2, $model->getAccountManager()->getID());
+        $this->assertEquals('Jo Blogs', $model->getAccountManager()->getName());
+
         $this->assertCount(1, $model->getGroups());
 
         $customFieldValues = $model->getCustomFieldValues();
