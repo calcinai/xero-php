@@ -18,6 +18,16 @@ class Collection extends \ArrayObject
     }
 
     /**
+     * Return whether or not the Collection is 0
+     *
+     * @return bool
+     */
+    public function empty()
+    {
+        return !count($this);
+    }
+
+    /**
      * Remove an item at a specific index.
      *
      * @param $index

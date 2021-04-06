@@ -104,7 +104,7 @@ class LeaveLine extends Remote\Model
     public static function getProperties()
     {
         return [
-            'LeaveTypeID' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'LeaveTypeID' => [false, self::PROPERTY_TYPE_GUID, null, false, false],
             'CalculationType' => [false, self::PROPERTY_TYPE_ENUM, null, false, false],
             'EntitlementFinalPayPayoutType' => [false, self::PROPERTY_TYPE_ENUM, null, false, false],
             'AnnualNumberOfUnits' => [false, self::PROPERTY_TYPE_FLOAT, null, false, false],

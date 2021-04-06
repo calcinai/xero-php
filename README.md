@@ -94,8 +94,8 @@ OAuth scopes, indicating which parts of the Xero organisation you'd like your ap
 found [here](https://developer.xero.com/documentation/oauth2/scopes).
  
  ```php
-$authUrl = $provider->$provider->getAuthorizationUrl([
-'scope' => 'bankfeeds accounting.transactions'
+$authUrl = $provider->getAuthorizationUrl([
+    'scope' => 'bankfeeds accounting.transactions'
 ]);
  ```
  

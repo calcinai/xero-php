@@ -24,7 +24,12 @@ class TrackingCategory extends Remote\Model
      *
      * @property string Status
      */
-
+    const TRACKING_CATEGORY_STATUS_ACTIVE = "ACTIVE";
+    
+    const TRACKING_CATEGORY_STATUS_ARCHIVED = "ARCHIVED";
+    
+    const TRACKING_CATEGORY_STATUS_DELETED = "DELETED";
+    
     /**
      * See Tracking Options.
      *
