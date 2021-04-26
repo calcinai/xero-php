@@ -1,80 +1,78 @@
 <?php
+
 namespace XeroPHP\Models\Accounting;
 
 use XeroPHP\Remote;
+use XeroPHP\Traits\HistoryTrait;
 use XeroPHP\Traits\AttachmentTrait;
-use XeroPHP\Models\Accounting\BankTransfer\FromBankAccount;
 use XeroPHP\Models\Accounting\BankTransfer\ToBankAccount;
+use XeroPHP\Models\Accounting\BankTransfer\FromBankAccount;
 
 class BankTransfer extends Remote\Model
 {
-
     use AttachmentTrait;
+    use HistoryTrait;
 
     /**
-     * See FromBankAccount
+     * See FromBankAccount.
      *
      * @property FromBankAccount FromBankAccount
      */
 
     /**
-     * See ToBankAccount
+     * See ToBankAccount.
      *
      * @property ToBankAccount ToBankAccount
      */
 
     /**
-     * 
-     *
      * @property string Amount
      */
 
     /**
-     * The date of the Transfer YYYY-MM-DD
+     * The date of the Transfer YYYY-MM-DD.
      *
      * @property \DateTimeInterface Date
      */
 
     /**
-     * The identifier of the Bank Transfer
+     * The identifier of the Bank Transfer.
      *
      * @property string BankTransferID
      */
 
     /**
-     * The currency rate
+     * The currency rate.
      *
      * @property float CurrencyRate
      */
 
     /**
-     * The Bank Transaction ID for the source account
+     * The Bank Transaction ID for the source account.
      *
      * @property string FromBankTransactionID
      */
 
     /**
-     * The Bank Transaction ID for the destination account
+     * The Bank Transaction ID for the destination account.
      *
      * @property string ToBankTransactionID
      */
 
     /**
-     * Boolean to indicate if a Bank Transfer has an attachment
+     * Boolean to indicate if a Bank Transfer has an attachment.
      *
      * @property bool HasAttachments
      */
 
     /**
-     * UTC timestamp of creation date of bank transfer
+     * UTC timestamp of creation date of bank transfer.
      *
      * @property \DateTimeInterface CreatedDateUTC
      */
 
-
-
     /**
-     * Get the resource uri of the class (Contacts) etc
+     * Get the resource uri of the class (Contacts) etc.
      *
      * @return string
      */
@@ -83,9 +81,8 @@ class BankTransfer extends Remote\Model
         return 'BankTransfers';
     }
 
-
     /**
-     * Get the root node name.  Just the unqualified classname
+     * Get the root node name.  Just the unqualified classname.
      *
      * @return string
      */
@@ -94,9 +91,8 @@ class BankTransfer extends Remote\Model
         return 'BankTransfer';
     }
 
-
     /**
-     * Get the guid property
+     * Get the guid property.
      *
      * @return string
      */
@@ -105,9 +101,8 @@ class BankTransfer extends Remote\Model
         return 'BankTransferID';
     }
 
-
     /**
-     * Get the stem of the API (core.xro) etc
+     * Get the stem of the API (core.xro) etc.
      *
      * @return string|null
      */
@@ -116,26 +111,24 @@ class BankTransfer extends Remote\Model
         return Remote\URL::API_CORE;
     }
 
-
     /**
-     * Get the supported methods
+     * Get the supported methods.
      */
     public static function getSupportedMethods()
     {
         return [
             Remote\Request::METHOD_GET,
-            Remote\Request::METHOD_PUT
+            Remote\Request::METHOD_PUT,
         ];
     }
 
     /**
-     *
      * Get the properties of the object.  Indexed by constants
      *  [0] - Mandatory
      *  [1] - Type
      *  [2] - PHP type
      *  [3] - Is an Array
-     *  [4] - Saves directly
+     *  [4] - Saves directly.
      *
      * @return array
      */
@@ -151,7 +144,7 @@ class BankTransfer extends Remote\Model
             'FromBankTransactionID' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
             'ToBankTransactionID' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
             'HasAttachments' => [false, self::PROPERTY_TYPE_BOOLEAN, null, false, false],
-            'CreatedDateUTC' => [false, self::PROPERTY_TYPE_TIMESTAMP, '\\DateTimeInterface', false, false]
+            'CreatedDateUTC' => [false, self::PROPERTY_TYPE_TIMESTAMP, '\\DateTimeInterface', false, false],
         ];
     }
 
@@ -170,12 +163,14 @@ class BankTransfer extends Remote\Model
 
     /**
      * @param FromBankAccount $value
+     *
      * @return BankTransfer
      */
     public function setFromBankAccount(FromBankAccount $value)
     {
         $this->propertyUpdated('FromBankAccount', $value);
         $this->_data['FromBankAccount'] = $value;
+
         return $this;
     }
 
@@ -189,12 +184,14 @@ class BankTransfer extends Remote\Model
 
     /**
      * @param ToBankAccount $value
+     *
      * @return BankTransfer
      */
     public function setToBankAccount(ToBankAccount $value)
     {
         $this->propertyUpdated('ToBankAccount', $value);
         $this->_data['ToBankAccount'] = $value;
+
         return $this;
     }
 
@@ -208,12 +205,14 @@ class BankTransfer extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return BankTransfer
      */
     public function setAmount($value)
     {
         $this->propertyUpdated('Amount', $value);
         $this->_data['Amount'] = $value;
+
         return $this;
     }
 
@@ -227,12 +226,14 @@ class BankTransfer extends Remote\Model
 
     /**
      * @param \DateTimeInterface $value
+     *
      * @return BankTransfer
      */
     public function setDate(\DateTimeInterface $value)
     {
         $this->propertyUpdated('Date', $value);
         $this->_data['Date'] = $value;
+
         return $this;
     }
 
@@ -246,12 +247,14 @@ class BankTransfer extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return BankTransfer
      */
     public function setBankTransferID($value)
     {
         $this->propertyUpdated('BankTransferID', $value);
         $this->_data['BankTransferID'] = $value;
+
         return $this;
     }
 
@@ -263,7 +266,6 @@ class BankTransfer extends Remote\Model
         return $this->_data['CurrencyRate'];
     }
 
-
     /**
      * @return string
      */
@@ -271,7 +273,6 @@ class BankTransfer extends Remote\Model
     {
         return $this->_data['FromBankTransactionID'];
     }
-
 
     /**
      * @return string
@@ -281,7 +282,6 @@ class BankTransfer extends Remote\Model
         return $this->_data['ToBankTransactionID'];
     }
 
-
     /**
      * @return bool
      */
@@ -290,7 +290,6 @@ class BankTransfer extends Remote\Model
         return $this->_data['HasAttachments'];
     }
 
-
     /**
      * @return \DateTimeInterface
      */
@@ -298,7 +297,4 @@ class BankTransfer extends Remote\Model
     {
         return $this->_data['CreatedDateUTC'];
     }
-
-
-
 }

@@ -2,8 +2,8 @@
 
 namespace XeroPHP\Remote\Exception;
 
-use XeroPHP\Remote\Exception;
 use XeroPHP\Remote\Response;
+use XeroPHP\Remote\Exception;
 
 class NotImplementedException extends Exception
 {

@@ -2,9 +2,9 @@
 
 namespace XeroPHP\tests;
 
+use XeroPHP\Webhook;
 use XeroPHP\Application;
 use XeroPHP\Application\PrivateApplication;
-use XeroPHP\Webhook;
 
 class EventTest extends \PHPUnit_Framework_TestCase
 {
@@ -13,27 +13,19 @@ class EventTest extends \PHPUnit_Framework_TestCase
      */
     private $application;
 
-    public function setUp()
+    protected function setUp()
     {
-        $config = [
-            'oauth' => [
-                'callback'    => 'oob',
-                'consumer_key'      => 'k',
-                'consumer_secret'   => 's',
-                'rsa_private_key'  => 'file://certs/private.pem',
-                'rsa_public_key'   => 'file://certs/public.pem'
-            ],
+        $this->application = new Application('token', 'tenantId');
+        $this->application->setConfig([
             'webhook' => [
                 'signing_key' => 'test_key',
             ]
-        ];
-
-        $this->application = new PrivateApplication($config);
+        ]);
     }
 
     /**
-    * @expectedException \XeroPHP\Application\Exception
-    */
+     * @expectedException \XeroPHP\Exception
+     */
     public function testMalformedPayload()
     {
         $payload = '{"events":[{"resourceId":"44aa0707-f718-4f1c-8d53-f2da9ca59533","eventDateUtc":"2018-02-09T09:18:28.917Z","eventType":"UPDATE","eventCategory":"INVOICE","tenantId":"e629a03c-7ffe-4913-bd94-ff2fdb36a702","tenantType":"ORGANISATION"}],"firstEventSequence": 2,"lastEventSequence": 3, "entropy": "GATSEZXWIBPBRNQOTMOH"}';

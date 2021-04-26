@@ -1,229 +1,251 @@
 <?php
+
 namespace XeroPHP\Models\Accounting;
 
 use XeroPHP\Remote;
 use XeroPHP\Exception;
 use XeroPHP\Traits\PDFTrait;
-use XeroPHP\Traits\AttachmentTrait;
+use XeroPHP\Traits\HistoryTrait;
 use XeroPHP\Traits\SendEmailTrait;
-use XeroPHP\Models\Accounting\Invoice\LineItem;
+use XeroPHP\Traits\AttachmentTrait;
+use XeroPHP\Models\Accounting\LineItem;
 
 class Invoice extends Remote\Model
 {
-
     use PDFTrait;
     use AttachmentTrait;
     use SendEmailTrait;
+    use HistoryTrait;
 
     /**
-     * See Invoice Types
+     * See Invoice Types.
      *
      * @property string Type
      */
 
     /**
-     * See Contacts
+     * See Contacts.
      *
      * @property Contact Contact
      */
 
     /**
-     * See LineItems
+     * See LineItems.
      *
      * @property LineItem[] LineItems
      */
 
     /**
-     * Date invoice was issued – YYYY-MM-DD. Learn more
+     * Date invoice was issued – YYYY-MM-DD. Learn more.
      *
      * @property \DateTimeInterface Date
      */
 
     /**
-     * Date invoice is due – YYYY-MM-DD
+     * Date invoice is due – YYYY-MM-DD.
      *
      * @property \DateTimeInterface DueDate
      */
 
     /**
      * Line amounts are exclusive of tax by default if you don’t specify this element. See Line Amount
-     * Types
+     * Types.
      *
      * @property string LineAmountTypes
      */
 
     /**
      * ACCREC – Unique alpha numeric code identifying invoice (when missing will auto-generate from your
-     * Organisation Invoice Settings) (max length = 255)
+     * Organisation Invoice Settings) (max length = 255).
      *
      * @property string InvoiceNumber
      */
 
     /**
-     * ACCREC only – additional reference number (max length = 255)
+     * ACCREC only – additional reference number (max length = 255).
      *
      * @property string Reference
      */
 
     /**
-     * See BrandingThemes
+     * See BrandingThemes.
      *
      * @property string BrandingThemeID
      */
 
     /**
-     * URL link to a source document – shown as “Go to [appName]” in the Xero app
+     * URL link to a source document – shown as “Go to [appName]” in the Xero app.
      *
      * @property string Url
      */
 
     /**
-     * The currency that invoice has been raised in (see Currencies)
+     * The currency that invoice has been raised in (see Currencies).
      *
      * @property string CurrencyCode
      */
 
     /**
      * The currency rate for a multicurrency invoice. If no rate is specified, the XE.com day rate is used.
-     * (max length = [18].[6])
+     * (max length = [18].[6]).
      *
      * @property float CurrencyRate
      */
 
     /**
-     * See Invoice Status Codes
+     * See Invoice Status Codes.
      *
      * @property string Status
      */
 
     /**
      * Boolean to set whether the invoice in the Xero app should be marked as “sent”. This can be set
-     * only on invoices that have been approved
+     * only on invoices that have been approved.
      *
      * @property bool SentToContact
      */
 
     /**
-     * Shown on sales invoices (Accounts Receivable) when this has been set
+     * Shown on sales invoices (Accounts Receivable) when this has been set.
      *
-     * @property string ExpectedPaymentDate
+     * @property \DateTimeInterface ExpectedPaymentDate
      */
 
     /**
-     * Shown on bills (Accounts Payable) when this has been set
+     * Shown on bills (Accounts Payable) when this has been set.
      *
-     * @property string PlannedPaymentDate
+     * @property \DateTimeInterface PlannedPaymentDate
      */
 
     /**
-     * Total of invoice excluding taxes
+     * Total of invoice excluding taxes.
      *
      * @property float SubTotal
      */
 
     /**
-     * Total tax on invoice
+     * Total tax on invoice.
      *
      * @property float TotalTax
      */
 
     /**
      * Total of Invoice tax inclusive (i.e. SubTotal + TotalTax). This will be ignored if it doesn’t
-     * equal the sum of the LineAmounts
+     * equal the sum of the LineAmounts.
      *
      * @property float Total
      */
 
     /**
-     * Total of discounts applied on the invoice line items
+     * Total of discounts applied on the invoice line items.
      *
      * @property float TotalDiscount
      */
 
     /**
-     * Xero generated unique identifier for invoice
+     * Xero generated unique identifier for invoice.
      *
      * @property string InvoiceID
      */
 
     /**
-     * boolean to indicate if an invoice has an attachment
+     * See RepeatingInvoices.
+     *
+     * @property string RepeatingInvoiceID
+     */
+
+    /**
+     * boolean to indicate if an invoice has an attachment.
      *
      * @property bool HasAttachments
      */
 
     /**
-     * See Payments
+     * See Payments.
      *
      * @property Payment[] Payments
      */
 
     /**
-     * See Prepayments
+     * See Prepayments.
      *
      * @property Prepayment[] Prepayments
      */
 
     /**
-     * See Overpayments
+     * See Overpayments.
      *
      * @property Overpayment[] Overpayments
      */
 
     /**
-     * Amount remaining to be paid on invoice
+     * Amount remaining to be paid on invoice.
      *
      * @property float AmountDue
      */
 
     /**
-     * Sum of payments received for invoice
+     * Sum of payments received for invoice.
      *
      * @property float AmountPaid
      */
 
     /**
-     * The date the invoice was fully paid. Only returned on fully paid invoices
+     * The date the invoice was fully paid. Only returned on fully paid invoices.
      *
      * @property \DateTimeInterface FullyPaidOnDate
      */
 
     /**
-     * Sum of all credit notes, over-payments and pre-payments applied to invoice
+     * Sum of all credit notes, over-payments and pre-payments applied to invoice.
      *
      * @property float AmountCredited
      */
 
     /**
-     * Last modified date UTC format
+     * Last modified date UTC format.
      *
      * @property \DateTimeInterface UpdatedDateUTC
      */
 
     /**
-     * Details of credit notes that have been applied to an invoice
+     * Details of credit notes that have been applied to an invoice.
      *
      * @property CreditNote[] CreditNotes
      */
-
-
     const INVOICE_TYPE_ACCPAY = 'ACCPAY';
+
     const INVOICE_TYPE_ACCREC = 'ACCREC';
 
-    const INVOICE_STATUS_DRAFT      = 'DRAFT';
-    const INVOICE_STATUS_SUBMITTED  = 'SUBMITTED';
-    const INVOICE_STATUS_DELETED    = 'DELETED';
+    const INVOICE_STATUS_DRAFT = 'DRAFT';
+
+    const INVOICE_STATUS_SUBMITTED = 'SUBMITTED';
+
+    const INVOICE_STATUS_DELETED = 'DELETED';
+
     const INVOICE_STATUS_AUTHORISED = 'AUTHORISED';
-    const INVOICE_STATUS_PAID       = 'PAID';
-    const INVOICE_STATUS_VOIDED     = 'VOIDED';
 
-    const LINEAMOUNT_TYPE_EXCLUSIVE = 'Exclusive';
-    const LINEAMOUNT_TYPE_INCLUSIVE = 'Inclusive';
-    const LINEAMOUNT_TYPE_NOTAX     = 'NoTax';
+    const INVOICE_STATUS_PAID = 'PAID';
 
+    const INVOICE_STATUS_VOIDED = 'VOIDED';
 
     /**
-     * Get the resource uri of the class (Contacts) etc
+     * @deprecated Use \XeroPHP\Models\Accounting\LineItem::LINEAMOUNT_TYPE_EXCLUSIVE instead.
+     */
+    const LINEAMOUNT_TYPE_EXCLUSIVE = 'Exclusive';
+
+    /**
+     * @deprecated Use \XeroPHP\Models\Accounting\LineItem::LINEAMOUNT_TYPE_INCLUSIVE instead.
+     */
+    const LINEAMOUNT_TYPE_INCLUSIVE = 'Inclusive';
+
+    /**
+     * @deprecated Use \XeroPHP\Models\Accounting\LineItem::LINEAMOUNT_TYPE_NOTAX instead.
+     */
+    const LINEAMOUNT_TYPE_NOTAX = 'NoTax';
+
+    /**
+     * Get the resource uri of the class (Contacts) etc.
      *
      * @return string
      */
@@ -232,9 +254,8 @@ class Invoice extends Remote\Model
         return 'Invoices';
     }
 
-
     /**
-     * Get the root node name.  Just the unqualified classname
+     * Get the root node name.  Just the unqualified classname.
      *
      * @return string
      */
@@ -243,9 +264,8 @@ class Invoice extends Remote\Model
         return 'Invoice';
     }
 
-
     /**
-     * Get the guid property
+     * Get the guid property.
      *
      * @return string
      */
@@ -254,9 +274,8 @@ class Invoice extends Remote\Model
         return 'InvoiceID';
     }
 
-
     /**
-     * Get the stem of the API (core.xro) etc
+     * Get the stem of the API (core.xro) etc.
      *
      * @return string|null
      */
@@ -265,27 +284,25 @@ class Invoice extends Remote\Model
         return Remote\URL::API_CORE;
     }
 
-
     /**
-     * Get the supported methods
+     * Get the supported methods.
      */
     public static function getSupportedMethods()
     {
         return [
             Remote\Request::METHOD_GET,
             Remote\Request::METHOD_PUT,
-            Remote\Request::METHOD_POST
+            Remote\Request::METHOD_POST,
         ];
     }
 
     /**
-     *
      * Get the properties of the object.  Indexed by constants
      *  [0] - Mandatory
      *  [1] - Type
      *  [2] - PHP type
      *  [3] - Is an Array
-     *  [4] - Saves directly
+     *  [4] - Saves directly.
      *
      * @return array
      */
@@ -294,7 +311,7 @@ class Invoice extends Remote\Model
         return [
             'Type' => [true, self::PROPERTY_TYPE_ENUM, null, false, false],
             'Contact' => [true, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Contact', false, false],
-            'LineItems' => [true, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Invoice\\LineItem', true, false],
+            'LineItems' => [true, self::PROPERTY_TYPE_OBJECT, 'Accounting\\LineItem', true, false],
             'Date' => [false, self::PROPERTY_TYPE_DATE, '\\DateTimeInterface', false, false],
             'DueDate' => [false, self::PROPERTY_TYPE_DATE, '\\DateTimeInterface', false, false],
             'LineAmountTypes' => [false, self::PROPERTY_TYPE_ENUM, null, false, false],
@@ -306,13 +323,14 @@ class Invoice extends Remote\Model
             'CurrencyRate' => [false, self::PROPERTY_TYPE_FLOAT, null, false, false],
             'Status' => [false, self::PROPERTY_TYPE_ENUM, null, false, false],
             'SentToContact' => [false, self::PROPERTY_TYPE_BOOLEAN, null, false, false],
-            'ExpectedPaymentDate' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
-            'PlannedPaymentDate' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'ExpectedPaymentDate' => [false, self::PROPERTY_TYPE_DATE, '\\DateTimeInterface', false, false],
+            'PlannedPaymentDate' => [false, self::PROPERTY_TYPE_DATE, '\\DateTimeInterface', false, false],
             'SubTotal' => [false, self::PROPERTY_TYPE_FLOAT, null, false, false],
             'TotalTax' => [false, self::PROPERTY_TYPE_FLOAT, null, false, false],
             'Total' => [false, self::PROPERTY_TYPE_FLOAT, null, false, false],
             'TotalDiscount' => [false, self::PROPERTY_TYPE_FLOAT, null, false, false],
             'InvoiceID' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'RepeatingInvoiceID' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
             'HasAttachments' => [false, self::PROPERTY_TYPE_BOOLEAN, null, false, false],
             'Payments' => [false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Payment', true, false],
             'Prepayments' => [false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Prepayment', true, false],
@@ -322,7 +340,7 @@ class Invoice extends Remote\Model
             'FullyPaidOnDate' => [false, self::PROPERTY_TYPE_DATE, '\\DateTimeInterface', false, false],
             'AmountCredited' => [false, self::PROPERTY_TYPE_FLOAT, null, false, false],
             'UpdatedDateUTC' => [false, self::PROPERTY_TYPE_TIMESTAMP, '\\DateTimeInterface', false, false],
-            'CreditNotes' => [false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\CreditNote', true, false]
+            'CreditNotes' => [false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\CreditNote', true, false],
         ];
     }
 
@@ -341,12 +359,14 @@ class Invoice extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return Invoice
      */
     public function setType($value)
     {
         $this->propertyUpdated('Type', $value);
         $this->_data['Type'] = $value;
+
         return $this;
     }
 
@@ -360,39 +380,42 @@ class Invoice extends Remote\Model
 
     /**
      * @param Contact $value
+     *
      * @return Invoice
      */
     public function setContact(Contact $value)
     {
         $this->propertyUpdated('Contact', $value);
         $this->_data['Contact'] = $value;
+
         return $this;
     }
 
     /**
      * @return LineItem[]|Remote\Collection
-     * Always returns a collection, switch is for type hinting
      */
     public function getLineItems()
     {
-	    if (!isset($this->_data['LineItems'])) {
+        if (! isset($this->_data['LineItems'])) {
             $this->_data['LineItems'] = new Remote\Collection();
         }
-        
+
         return $this->_data['LineItems'];
     }
 
     /**
      * @param LineItem $value
+     *
      * @return Invoice
      */
     public function addLineItem(LineItem $value)
     {
         $this->propertyUpdated('LineItems', $value);
-        if (!isset($this->_data['LineItems'])) {
+        if (! isset($this->_data['LineItems'])) {
             $this->_data['LineItems'] = new Remote\Collection();
         }
         $this->_data['LineItems'][] = $value;
+
         return $this;
     }
 
@@ -406,12 +429,14 @@ class Invoice extends Remote\Model
 
     /**
      * @param \DateTimeInterface $value
+     *
      * @return Invoice
      */
     public function setDate(\DateTimeInterface $value)
     {
         $this->propertyUpdated('Date', $value);
         $this->_data['Date'] = $value;
+
         return $this;
     }
 
@@ -425,12 +450,14 @@ class Invoice extends Remote\Model
 
     /**
      * @param \DateTimeInterface $value
+     *
      * @return Invoice
      */
     public function setDueDate(\DateTimeInterface $value)
     {
         $this->propertyUpdated('DueDate', $value);
         $this->_data['DueDate'] = $value;
+
         return $this;
     }
 
@@ -444,12 +471,14 @@ class Invoice extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return Invoice
      */
     public function setLineAmountType($value)
     {
         $this->propertyUpdated('LineAmountTypes', $value);
         $this->_data['LineAmountTypes'] = $value;
+
         return $this;
     }
 
@@ -463,12 +492,14 @@ class Invoice extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return Invoice
      */
     public function setInvoiceNumber($value)
     {
         $this->propertyUpdated('InvoiceNumber', $value);
         $this->_data['InvoiceNumber'] = $value;
+
         return $this;
     }
 
@@ -482,12 +513,14 @@ class Invoice extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return Invoice
      */
     public function setReference($value)
     {
         $this->propertyUpdated('Reference', $value);
         $this->_data['Reference'] = $value;
+
         return $this;
     }
 
@@ -501,12 +534,14 @@ class Invoice extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return Invoice
      */
     public function setBrandingThemeID($value)
     {
         $this->propertyUpdated('BrandingThemeID', $value);
         $this->_data['BrandingThemeID'] = $value;
+
         return $this;
     }
 
@@ -520,12 +555,14 @@ class Invoice extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return Invoice
      */
     public function setUrl($value)
     {
         $this->propertyUpdated('Url', $value);
         $this->_data['Url'] = $value;
+
         return $this;
     }
 
@@ -539,12 +576,14 @@ class Invoice extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return Invoice
      */
     public function setCurrencyCode($value)
     {
         $this->propertyUpdated('CurrencyCode', $value);
         $this->_data['CurrencyCode'] = $value;
+
         return $this;
     }
 
@@ -558,12 +597,14 @@ class Invoice extends Remote\Model
 
     /**
      * @param float $value
+     *
      * @return Invoice
      */
     public function setCurrencyRate($value)
     {
         $this->propertyUpdated('CurrencyRate', $value);
         $this->_data['CurrencyRate'] = $value;
+
         return $this;
     }
 
@@ -577,12 +618,14 @@ class Invoice extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return Invoice
      */
     public function setStatus($value)
     {
         $this->propertyUpdated('Status', $value);
         $this->_data['Status'] = $value;
+
         return $this;
     }
 
@@ -596,17 +639,19 @@ class Invoice extends Remote\Model
 
     /**
      * @param bool $value
+     *
      * @return Invoice
      */
     public function setSentToContact($value)
     {
         $this->propertyUpdated('SentToContact', $value);
         $this->_data['SentToContact'] = $value;
+
         return $this;
     }
 
     /**
-     * @return string
+     * @return \DateTimeInterface
      */
     public function getExpectedPaymentDate()
     {
@@ -614,18 +659,20 @@ class Invoice extends Remote\Model
     }
 
     /**
-     * @param string $value
+     * @param \DateTimeInterface $value
+     *
      * @return Invoice
      */
     public function setExpectedPaymentDate($value)
     {
         $this->propertyUpdated('ExpectedPaymentDate', $value);
         $this->_data['ExpectedPaymentDate'] = $value;
+
         return $this;
     }
 
     /**
-     * @return string
+     * @return \DateTimeInterface
      */
     public function getPlannedPaymentDate()
     {
@@ -633,13 +680,15 @@ class Invoice extends Remote\Model
     }
 
     /**
-     * @param string $value
+     * @param \DateTimeInterface $value
+     *
      * @return Invoice
      */
     public function setPlannedPaymentDate($value)
     {
         $this->propertyUpdated('PlannedPaymentDate', $value);
         $this->_data['PlannedPaymentDate'] = $value;
+
         return $this;
     }
 
@@ -651,7 +700,6 @@ class Invoice extends Remote\Model
         return $this->_data['SubTotal'];
     }
 
-
     /**
      * @return float
      */
@@ -659,7 +707,6 @@ class Invoice extends Remote\Model
     {
         return $this->_data['TotalTax'];
     }
-
 
     /**
      * @return float
@@ -669,7 +716,6 @@ class Invoice extends Remote\Model
         return $this->_data['Total'];
     }
 
-
     /**
      * @return float
      */
@@ -677,7 +723,6 @@ class Invoice extends Remote\Model
     {
         return $this->_data['TotalDiscount'];
     }
-
 
     /**
      * @return string
@@ -689,12 +734,35 @@ class Invoice extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return Invoice
      */
     public function setInvoiceID($value)
     {
         $this->propertyUpdated('InvoiceID', $value);
         $this->_data['InvoiceID'] = $value;
+
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getRepeatingInvoiceID()
+    {
+        return $this->_data['RepeatingInvoiceID'];
+    }
+
+    /**
+     * @param string $value
+     *
+     * @return Invoice
+     */
+    public function setRepeatingInvoiceID($value)
+    {
+        $this->propertyUpdated('RepeatingInvoiceID', $value);
+        $this->_data['RepeatingInvoiceID'] = $value;
+
         return $this;
     }
 
@@ -706,36 +774,29 @@ class Invoice extends Remote\Model
         return $this->_data['HasAttachments'];
     }
 
-
     /**
      * @return Payment[]|Remote\Collection
-     * Always returns a collection, switch is for type hinting
      */
     public function getPayments()
     {
         return $this->_data['Payments'];
     }
 
-
     /**
      * @return Prepayment[]|Remote\Collection
-     * Always returns a collection, switch is for type hinting
      */
     public function getPrepayments()
     {
         return $this->_data['Prepayments'];
     }
 
-
     /**
      * @return Overpayment[]|Remote\Collection
-     * Always returns a collection, switch is for type hinting
      */
     public function getOverpayments()
     {
         return $this->_data['Overpayments'];
     }
-
 
     /**
      * @return float
@@ -745,7 +806,6 @@ class Invoice extends Remote\Model
         return $this->_data['AmountDue'];
     }
 
-
     /**
      * @return float
      */
@@ -753,7 +813,6 @@ class Invoice extends Remote\Model
     {
         return $this->_data['AmountPaid'];
     }
-
 
     /**
      * @return \DateTimeInterface
@@ -763,7 +822,6 @@ class Invoice extends Remote\Model
         return $this->_data['FullyPaidOnDate'];
     }
 
-
     /**
      * @return float
      */
@@ -771,7 +829,6 @@ class Invoice extends Remote\Model
     {
         return $this->_data['AmountCredited'];
     }
-
 
     /**
      * @return \DateTimeInterface
@@ -781,32 +838,30 @@ class Invoice extends Remote\Model
         return $this->_data['UpdatedDateUTC'];
     }
 
-
     /**
      * @return CreditNote[]|Remote\Collection
-     * Always returns a collection, switch is for type hinting
      */
     public function getCreditNotes()
     {
         return $this->_data['CreditNotes'];
     }
 
-
     /**
      * Retrieve the online invoice URL.
      *
-     * @return string
      * @throws \XeroPHP\Exception
+     *
+     * @return string
      */
     public function getOnlineInvoiceUrl()
     {
-        if (!$this->hasGUID()) {
+        if (! $this->hasGUID()) {
             throw new Exception('Unable to retrieve the online invoice URL as the invoice has no GUID');
         }
 
         return $this->onlineInvoiceRequest()
-                    ->send()
-                    ->getElements()[0]['OnlineInvoiceUrl'];
+            ->send()
+            ->getElements()[0]['OnlineInvoiceUrl'];
     }
 
     /**
@@ -817,7 +872,8 @@ class Invoice extends Remote\Model
     protected function onlineInvoiceRequest()
     {
         return new Remote\Request(
-            $this->_application, $this->onlineInvoiceRemoteUrl()
+            $this->_application,
+            $this->onlineInvoiceRemoteUrl()
         );
     }
 
@@ -829,9 +885,8 @@ class Invoice extends Remote\Model
     protected function onlineInvoiceRemoteUrl()
     {
         return new Remote\URL(
-            $this->_application, 'Invoices/'.$this->getGUID().'/OnlineInvoice'
+            $this->_application,
+            'Invoices/'.$this->getGUID().'/OnlineInvoice'
         );
     }
-
-
 }

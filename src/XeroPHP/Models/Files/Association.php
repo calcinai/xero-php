@@ -1,14 +1,14 @@
 <?php
+
 namespace XeroPHP\Models\Files;
 
 use XeroPHP\Remote;
 
 class Association extends Remote\Model
 {
-
     /**
      * The identifier of the object that the file is being associated with (e.g. InvoiceID,
-     * BankTransactionID, ContactID)
+     * BankTransactionID, ContactID).
      *
      * @property string ObjectId
      */
@@ -26,10 +26,8 @@ class Association extends Remote\Model
      * @property string ObjectType
      */
 
-
-
     /**
-     * Get the resource uri of the class (Contacts) etc
+     * Get the resource uri of the class (Contacts) etc.
      *
      * @return string
      */
@@ -38,9 +36,8 @@ class Association extends Remote\Model
         return 'Files/{FileId}/Associations';
     }
 
-
     /**
-     * Get the root node name.  Just the unqualified classname
+     * Get the root node name.  Just the unqualified classname.
      *
      * @return string
      */
@@ -49,9 +46,8 @@ class Association extends Remote\Model
         return 'Association';
     }
 
-
     /**
-     * Get the guid property
+     * Get the guid property.
      *
      * @return string
      */
@@ -60,9 +56,8 @@ class Association extends Remote\Model
         return '';
     }
 
-
     /**
-     * Get the stem of the API (core.xro) etc
+     * Get the stem of the API (core.xro) etc.
      *
      * @return string|null
      */
@@ -71,27 +66,25 @@ class Association extends Remote\Model
         return Remote\URL::API_FILE;
     }
 
-
     /**
-     * Get the supported methods
+     * Get the supported methods.
      */
     public static function getSupportedMethods()
     {
         return [
             Remote\Request::METHOD_POST,
             Remote\Request::METHOD_GET,
-            Remote\Request::METHOD_DELETE
+            Remote\Request::METHOD_DELETE,
         ];
     }
 
     /**
-     *
      * Get the properties of the object.  Indexed by constants
      *  [0] - Mandatory
      *  [1] - Type
      *  [2] - PHP type
      *  [3] - Is an Array
-     *  [4] - Saves directly
+     *  [4] - Saves directly.
      *
      * @return array
      */
@@ -100,7 +93,7 @@ class Association extends Remote\Model
         return [
             'ObjectId' => [true, self::PROPERTY_TYPE_STRING, null, false, false],
             'ObjectGroup' => [true, self::PROPERTY_TYPE_STRING, null, false, false],
-            'ObjectType' => [true, self::PROPERTY_TYPE_ENUM, null, false, false]
+            'ObjectType' => [true, self::PROPERTY_TYPE_ENUM, null, false, false],
         ];
     }
 
@@ -119,12 +112,14 @@ class Association extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return Association
      */
     public function setObjectId($value)
     {
         $this->propertyUpdated('ObjectId', $value);
         $this->_data['ObjectId'] = $value;
+
         return $this;
     }
 
@@ -138,12 +133,14 @@ class Association extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return Association
      */
     public function setObjectGroup($value)
     {
         $this->propertyUpdated('ObjectGroup', $value);
         $this->_data['ObjectGroup'] = $value;
+
         return $this;
     }
 
@@ -157,14 +154,14 @@ class Association extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return Association
      */
     public function setObjectType($value)
     {
         $this->propertyUpdated('ObjectType', $value);
         $this->_data['ObjectType'] = $value;
+
         return $this;
     }
-
-
 }

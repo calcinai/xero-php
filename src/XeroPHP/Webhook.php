@@ -2,39 +2,41 @@
 
 namespace XeroPHP;
 
-/**
- * Represents a webhook and it's associated event list
- */
 class Webhook
 {
     /**
      * @var \XeroPHP\Application
      */
     private $application;
+
     /**
      * @var string
      */
     private $key;
+
     /**
      * @var string
      */
     private $rawPayload;
+
     /**
      * @var array
      */
     private $payload;
+
     /**
      * @var string
      */
     private $webhookEvent;
 
     /**
-     * Parse a webhook payload from Xero
+     * @param \XeroPHP\Application $application
+     * @param string $payload
+     * @param string|null $event
      *
-     * @param \XeroPHP\Application $application the application the webhook was delivered to
-     * @param string $payload raw json payload
-     * @param mixed $event class name used for dependency injection
-     * @throws \XeroPHP\Application\Exception
+     * @throws \XeroPHP\Exception
+     *
+     * @return void
      */
     public function __construct($application, $payload, $event = null)
     {
@@ -49,14 +51,14 @@ class Webhook
 
         // bail if json_decode fails
         if ($this->payload === null) {
-            throw new Application\Exception("The webhook payload could not be decoded: ".json_last_error_msg());
+            throw new Exception('The webhook payload could not be decoded: '.json_last_error_msg());
         }
 
         // bail if we don't have all the fields we are expecting
-        if (!isset($this->payload['events']) or
-            !isset($this->payload['firstEventSequence']) or
-            !isset($this->payload['lastEventSequence'])) {
-                throw new Application\Exception("The webhook payload was malformed");
+        if (! isset($this->payload['events']) ||
+            ! isset($this->payload['firstEventSequence']) ||
+            ! isset($this->payload['lastEventSequence'])) {
+            throw new Exception('The webhook payload was malformed');
         }
     }
 
@@ -69,9 +71,7 @@ class Webhook
     }
 
     /**
-     * Returns the calculated signature of the payload and your signing key
-     *
-     * @return string hashed payload
+     * @return string
      */
     public function getSignature()
     {
@@ -79,18 +79,17 @@ class Webhook
     }
 
     /**
-     * Validates the calculated signature against the given x-xero-signature header
+     * @param string $signature
      *
-     * @param  string $signature value from
-     * @return [type]            [description]
+     * @return bool
      */
     public function validate($signature)
     {
-        return $this->getSignature() === $signature;
+        return Helpers::hashEquals($this->getSignature(), $signature);
     }
 
     /**
-     * @return int first event sequence ID
+     * @return int
      */
     public function getFirstEventSequence()
     {
@@ -98,7 +97,7 @@ class Webhook
     }
 
     /**
-     * @return int last event sequence ID
+     * @return int
      */
     public function getLastEventSequence()
     {
@@ -106,9 +105,7 @@ class Webhook
     }
 
     /**
-     * Parses and returns a list of events for this webhook
-     *
-     * @return \XeroPHP\Webhook\Event[] list of events
+     * @return \XeroPHP\Webhook\Event[]
      */
     public function getEvents()
     {

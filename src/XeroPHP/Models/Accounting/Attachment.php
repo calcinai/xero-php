@@ -1,18 +1,18 @@
 <?php
-//This class is a pseudo-model to represent an attachment.  Can't be directly put ot fetched.
 
+//This class is a pseudo-model to represent an attachment.  Can't be directly put ot fetched.
 
 namespace XeroPHP\Models\Accounting;
 
+use XeroPHP\Remote\URL;
 use XeroPHP\Application;
 use XeroPHP\Remote\Model;
 use XeroPHP\Remote\Request;
-use XeroPHP\Remote\URL;
 
-class Attachment extends Model {
-
+class Attachment extends Model
+{
     /**
-     * Xero Unique Identifier
+     * Xero Unique Identifier.
      *
      * @property string AttachmentID
      */
@@ -34,70 +34,74 @@ class Attachment extends Model {
      */
 
     /**
-     * Actual file content (binary)
+     * Actual file content (binary).
      *
-     * @var string $content
+     * @var string
      */
     private $content;
 
     private $local_handle;
 
     /**
-     * Get the GUID Property if it exists
+     * Get the GUID Property if it exists.
      *
      * @return string
      */
-    static function getGUIDProperty() {
+    public static function getGUIDProperty()
+    {
         return 'AttachmentID';
     }
 
     /**
-     * Get a list of properties
+     * Get a list of properties.
      *
      * @return array
      */
-    static function getProperties() {
-        return array(
-            'AttachmentID' => array(false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'FileName' => array(true, self::PROPERTY_TYPE_STRING, null, false, false),
-            'Url' => array(false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'MimeType' => array(false, self::PROPERTY_TYPE_STRING, null, false, false),
-            'ContentLength' => array(false, self::PROPERTY_TYPE_INT, null, false, false)
-        );
+    public static function getProperties()
+    {
+        return [
+            'AttachmentID' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'FileName' => [true, self::PROPERTY_TYPE_STRING, null, false, false],
+            'Url' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'MimeType' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'ContentLength' => [false, self::PROPERTY_TYPE_INT, null, false, false],
+        ];
     }
 
     /**
-     * Get a list of the supported HTTP Methods
+     * Get a list of the supported HTTP Methods.
      *
      * @return array
      */
-    static function getSupportedMethods() {
-        return array(
+    public static function getSupportedMethods()
+    {
+        return [
             Request::METHOD_GET,
             Request::METHOD_PUT,
-            Request::METHOD_POST
-        );
+            Request::METHOD_POST,
+        ];
     }
 
     /**
-     * return the URI of the resource (if any)
+     * return the URI of the resource (if any).
      *
      * @return string
      */
-    static function getResourceURI() {
+    public static function getResourceURI()
+    {
         return '';
     }
 
-
     //Do this with a file handle please
-    public static function createFromLocalFile($file_name, $mime_type = null){
+    public static function createFromLocalFile($file_name, $mime_type = null)
+    {
 
         //Try to guess.  Might be questionable on non-*nix machines
-        if($mime_type === null){
+        if ($mime_type === null) {
             $finfo = new \finfo(FILEINFO_MIME_TYPE);
             $info = $finfo->file($file_name);
 
-            if($info !== false){
+            if ($info !== false) {
                 $mime_type = $info;
             }
         }
@@ -106,27 +110,26 @@ class Attachment extends Model {
         $path_info = pathinfo($file_name);
 
         $instance = new self();
-        $instance->fromStringArray(array(
+        $instance->fromStringArray([
             'MimeType' => $mime_type,
             'ContentLength' => $content_length,
-            'FileName' => $path_info['basename']
-        ));
-        $instance->setLocalHandle(fopen($file_name, 'r'));
+            'FileName' => $path_info['basename'],
+        ]);
+        $instance->setLocalHandle(fopen($file_name, 'rb'));
 
         return $instance;
     }
 
-
-    public static function createFromBinary($data, $file_name, $mime_type){
-
+    public static function createFromBinary($data, $file_name, $mime_type)
+    {
         $content_length = strlen($data);
 
         $instance = new self();
-        $instance->fromStringArray(array(
+        $instance->fromStringArray([
             'MimeType' => $mime_type,
             'ContentLength' => $content_length,
-            'FileName' => $file_name
-        ));
+            'FileName' => $file_name,
+        ]);
 
         $instance->content = $data;
 
@@ -136,28 +139,26 @@ class Attachment extends Model {
     /**
      * @return string
      */
-    public function getContent() {
-
-        if(!isset($this->content)){
+    public function getContent()
+    {
+        if (! isset($this->content)) {
             //If it's been created locally, you can just read it back.
-            if(isset($this->local_handle)){
+            if (isset($this->local_handle)) {
                 rewind($this->local_handle);
-                while(!feof($this->local_handle)){
+                while (! feof($this->local_handle)) {
                     $this->content .= fread($this->local_handle, 8192);
                 }
-            //Otherwise, if it can be fetched
-            } elseif(isset($this->_data['Url'])){
+                //Otherwise, if it can be fetched
+            } elseif (isset($this->_data['Url'])) {
                 $this->content = self::downloadContent($this->_application, $this->_data['Url']);
             }
         }
 
         return $this->content;
-
     }
 
-
-    private static function downloadContent(Application $app, $url){
-
+    private static function downloadContent(Application $app, $url)
+    {
         $url = new URL($app, $url);
         $request = new Request($app, $url, Request::METHOD_GET);
         $request->setHeader(Request::HEADER_ACCEPT, '*/*');
@@ -167,69 +168,77 @@ class Attachment extends Model {
         return $request->getResponse()->getResponseBody();
     }
 
-
     /**
      * @return string
      */
-    public function getAttachmentID() {
+    public function getAttachmentID()
+    {
         return $this->_data['AttachmentID'];
-
     }
 
     /**
      * @return int
      */
-    public function getContentLength() {
+    public function getContentLength()
+    {
         return $this->_data['ContentLength'];
     }
 
     /**
      * @return string
      */
-    public function getFileName() {
+    public function getFileName()
+    {
         return $this->_data['FileName'];
     }
 
     /**
      * @return string
      */
-    public function getMimeType() {
+    public function getMimeType()
+    {
         return $this->_data['MimeType'];
     }
 
     /**
      * @return string
      */
-    public function getUrl() {
+    public function getUrl()
+    {
         return $this->_data['Url'];
     }
 
     /**
      * @return mixed
      */
-    public function getLocalHandle() {
+    public function getLocalHandle()
+    {
         return $this->local_handle;
     }
 
     /**
      * @param mixed $local_handle
      */
-    public function setLocalHandle($local_handle) {
+    public function setLocalHandle($local_handle)
+    {
         $this->local_handle = $local_handle;
     }
 
     /**
      * @return mixed
      */
-    public static function isPageable() {
+    public static function isPageable()
+    {
         return false;
     }
 
-    static function getAPIStem() {
+    public static function getAPIStem()
+    {
         return '';
     }
 
-    static function getRootNodeName() {
+    public static function getRootNodeName()
+    {
         // TODO: Implement getRootNodeName() method.
     }
 }
