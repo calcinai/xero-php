@@ -24,6 +24,11 @@ class TrackingCategory extends Remote\Model
      *
      * @property string Status
      */
+    const TRACKING_CATEGORY_STATUS_ACTIVE = "ACTIVE";
+
+    const TRACKING_CATEGORY_STATUS_ARCHIVED = "ARCHIVED";
+
+    const TRACKING_CATEGORY_STATUS_DELETED = "DELETED";
 
     /**
      * See Tracking Options
@@ -37,8 +42,6 @@ class TrackingCategory extends Remote\Model
      * @property string Option
      */
 
-
-
     /**
      * Get the resource uri of the class (Contacts) etc
      *
@@ -48,7 +51,6 @@ class TrackingCategory extends Remote\Model
     {
         return 'TrackingCategories';
     }
-
 
     /**
      * Get the root node name.  Just the unqualified classname
@@ -60,7 +62,6 @@ class TrackingCategory extends Remote\Model
         return 'TrackingCategory';
     }
 
-
     /**
      * Get the guid property
      *
@@ -71,7 +72,6 @@ class TrackingCategory extends Remote\Model
         return 'TrackingCategoryID';
     }
 
-
     /**
      * Get the stem of the API (core.xro) etc
      *
@@ -81,7 +81,6 @@ class TrackingCategory extends Remote\Model
     {
         return Remote\URL::API_CORE;
     }
-
 
     /**
      * Get the supported methods
@@ -97,7 +96,6 @@ class TrackingCategory extends Remote\Model
     }
 
     /**
-     *
      * Get the properties of the object.  Indexed by constants
      *  [0] - Mandatory
      *  [1] - Type
@@ -116,7 +114,7 @@ class TrackingCategory extends Remote\Model
             'TrackingOptionName' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
             'Status' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
             'Options' => [false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\TrackingCategory\\TrackingOption', true, true],
-            'Option' => [false, self::PROPERTY_TYPE_STRING, null, false, true]
+            'Option' => [false, self::PROPERTY_TYPE_STRING, null, false, true],
         ];
     }
 

@@ -8,10 +8,9 @@ class Collection extends \ArrayObject
      * Holds a list of objects that hold child references to the collection.
      * todo - 2.x make this more elegant.
      *
-     * @var Object[]
+     * @var Model[]
      */
     protected $_associated_objects;
-
 
     public function addAssociatedObject($parent_property, Model $object)
     {
@@ -19,7 +18,17 @@ class Collection extends \ArrayObject
     }
 
     /**
-     * Remove an item at a specific index
+     * Return whether or not the Collection is 0
+     *
+     * @return bool
+     */
+    public function empty()
+    {
+        return !count($this);
+    }
+
+    /**
+     * Remove an item at a specific index.
      *
      * @param $index
      */
@@ -28,7 +37,7 @@ class Collection extends \ArrayObject
         if (isset($this[$index])) {
             foreach ($this->_associated_objects as $parent_property => $object) {
                 /**
-                 * @var Object $object
+                 * @var Model
                  */
                 $object->setDirty($parent_property);
             }
@@ -37,9 +46,9 @@ class Collection extends \ArrayObject
     }
 
     /**
-     * Remove a specific object from the collection
+     * Remove a specific object from the collection.
      *
-     * @param Object $object
+     * @param Model $object
      */
     public function remove(Model $object)
     {
@@ -51,13 +60,13 @@ class Collection extends \ArrayObject
     }
 
     /**
-     *  Remove all of the values int he collection
+     *  Remove all of the values int he collection.
      */
     public function removeAll()
     {
         foreach ($this->_associated_objects as $parent_property => $object) {
             /**
-             * @var Object $object
+             * @var Model
              */
             $object->setDirty($parent_property);
         }

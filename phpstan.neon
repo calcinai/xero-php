@@ -1,0 +1,6 @@
+parameters:
+    paths:
+        - src
+    level: max
+    excludes_analyse:
+        - %rootDir%/../../../src/XeroPHP/Models/*

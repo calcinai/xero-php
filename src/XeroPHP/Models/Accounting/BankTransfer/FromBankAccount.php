@@ -1,33 +1,31 @@
 <?php
+
 namespace XeroPHP\Models\Accounting\BankTransfer;
 
 use XeroPHP\Remote;
 
 class FromBankAccount extends Remote\Model
 {
-
     /**
-     * The Account Code of the Bank Account
+     * The Account Code of the Bank Account.
      *
      * @property string Code
      */
 
     /**
-     * The ID of the Bank Account
+     * The ID of the Bank Account.
      *
      * @property string AccountID
      */
 
     /**
-     * The Name Bank Account
+     * The Name Bank Account.
      *
      * @property string Name
      */
 
-
-
     /**
-     * Get the resource uri of the class (Contacts) etc
+     * Get the resource uri of the class (Contacts) etc.
      *
      * @return string
      */
@@ -36,9 +34,8 @@ class FromBankAccount extends Remote\Model
         return 'FromBankAccount';
     }
 
-
     /**
-     * Get the root node name.  Just the unqualified classname
+     * Get the root node name.  Just the unqualified classname.
      *
      * @return string
      */
@@ -47,9 +44,8 @@ class FromBankAccount extends Remote\Model
         return 'FromBankAccount';
     }
 
-
     /**
-     * Get the guid property
+     * Get the guid property.
      *
      * @return string
      */
@@ -58,9 +54,8 @@ class FromBankAccount extends Remote\Model
         return '';
     }
 
-
     /**
-     * Get the stem of the API (core.xro) etc
+     * Get the stem of the API (core.xro) etc.
      *
      * @return string|null
      */
@@ -69,9 +64,8 @@ class FromBankAccount extends Remote\Model
         return Remote\URL::API_CORE;
     }
 
-
     /**
-     * Get the supported methods
+     * Get the supported methods.
      */
     public static function getSupportedMethods()
     {
@@ -80,13 +74,12 @@ class FromBankAccount extends Remote\Model
     }
 
     /**
-     *
      * Get the properties of the object.  Indexed by constants
      *  [0] - Mandatory
      *  [1] - Type
      *  [2] - PHP type
      *  [3] - Is an Array
-     *  [4] - Saves directly
+     *  [4] - Saves directly.
      *
      * @return array
      */
@@ -95,7 +88,7 @@ class FromBankAccount extends Remote\Model
         return [
             'Code' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
             'AccountID' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
-            'Name' => [false, self::PROPERTY_TYPE_STRING, null, false, false]
+            'Name' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
         ];
     }
 
@@ -114,12 +107,14 @@ class FromBankAccount extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return FromBankAccount
      */
     public function setCode($value)
     {
         $this->propertyUpdated('Code', $value);
         $this->_data['Code'] = $value;
+
         return $this;
     }
 
@@ -133,12 +128,14 @@ class FromBankAccount extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return FromBankAccount
      */
     public function setAccountID($value)
     {
         $this->propertyUpdated('AccountID', $value);
         $this->_data['AccountID'] = $value;
+
         return $this;
     }
 
@@ -149,7 +146,4 @@ class FromBankAccount extends Remote\Model
     {
         return $this->_data['Name'];
     }
-
-
-
 }

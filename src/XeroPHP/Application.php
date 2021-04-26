@@ -2,42 +2,24 @@
 
 namespace XeroPHP;
 
-use XeroPHP\Remote;
+use GuzzleHttp\Client;
+use GuzzleHttp\ClientInterface;
 use XeroPHP\Remote\Collection;
-use XeroPHP\Remote\OAuth\Client;
 use XeroPHP\Remote\Query;
 use XeroPHP\Remote\Request;
 use XeroPHP\Remote\URL;
 
-abstract class Application
+class Application
 {
+    const USER_AGENT_STRING = 'XeroPHP/%s (+https://github.com/calcinai/xero-php)';
+
     protected static $_config_defaults = [
-        'xero'  => [
-            'site'            => 'https://api.xero.com',
-            'base_url'        => 'https://api.xero.com',
-            'core_version'    => '2.0',
-            'payroll_version' => '2.0',
-            'file_version'    => '1.0',
-            'model_namespace' => '\\XeroPHP\\Models'
-        ],
-        //OAuth config
-        'oauth' => [
-            'signature_method'   => Client::SIGNATURE_RSA_SHA1,
-            'signature_location' => Client::SIGN_LOCATION_HEADER,
-            'authorize_url'      => 'https://api.xero.com/oauth/Authorize',
-            'request_token_path' => 'oauth/RequestToken',
-            'access_token_path'  => 'oauth/AccessToken'
-        ],
-        'curl'  => [
-            CURLOPT_USERAGENT      => 'XeroPHP',
-            CURLOPT_CONNECTTIMEOUT => 30,
-            CURLOPT_TIMEOUT        => 20,
-            CURLOPT_SSL_VERIFYPEER => 2,
-            CURLOPT_SSL_VERIFYHOST => 2,
-            CURLOPT_FOLLOWLOCATION => false,
-            CURLOPT_PROXY          => false,
-            CURLOPT_PROXYUSERPWD   => false,
-            CURLOPT_ENCODING       => '',
+        'xero' => [
+            'base_url' => 'https://api.xero.com/',
+
+            'core_version' => '2.0',
+            'payroll_version' => '1.0',
+            'file_version' => '1.0',
         ]
     ];
 
@@ -47,80 +29,71 @@ abstract class Application
     protected $config;
 
     /**
-     * @var Client
+     * @var ClientInterface
      */
-    protected $oauth_client;
+    private $transport;
 
     /**
-     * @var array
+     * @param $token
+     * @param $tenantId
      */
-    protected static $_type_config_defaults = [];
-
-    /**
-     * @param array $user_config
-     */
-    public function __construct(array $user_config)
+    public function __construct($token, $tenantId)
     {
-        //better here for overriding
-        $this->setConfig($user_config);
+        $this->config = static::$_config_defaults;
 
-        $this->oauth_client = new Client($this->config[ 'oauth' ]);
+        //Not sure if this is necessary, but it's one less thing to have to create outside the instance.
+        $transport = new Client([
+            'headers' => [
+                'User-Agent' => sprintf(static::USER_AGENT_STRING, Helpers::getPackageVersion()),
+                'Authorization' => sprintf('Bearer %s', $token),
+                'Xero-tenant-id' => $tenantId,
+            ]
+        ]);
+
+        $this->transport = $transport;
     }
 
-    /**
-     * @return Client
-     */
-    public function getOAuthClient()
-    {
-        return $this->oauth_client;
-    }
-
-    /**
-     * @param string|null $oauth_token
-     * @return string
-     */
-    public function getAuthorizeURL($oauth_token = null)
-    {
-        return $this->oauth_client->getAuthorizeURL($oauth_token);
-    }
 
     /**
      * @param mixed $key
-     * @return mixed
+     *
      * @throws Exception
+     *
+     * @return mixed
      */
     public function getConfig($key)
     {
-        if (!isset($this->config[ $key ])) {
-            throw new Exception("Invalid configuration key [$key]");
+        if (!isset($this->config[$key])) {
+            throw new Exception("Invalid configuration key [{$key}]");
         }
-        return $this->config[ $key ];
+
+        return $this->config[$key];
     }
 
     /**
      * @param string $config
      * @param mixed $option
-     * @param mixed $value
      * @return mixed
      * @throws Exception
      */
     public function getConfigOption($config, $option)
     {
-        if (!isset($this->getConfig($config)[ $option ])) {
-            throw new Exception("Invalid configuration option [$option]");
+        if (!isset($this->getConfig($config)[$option])) {
+            throw new Exception("Invalid configuration option [{$option}]");
         }
-        return $this->getConfig($config)[ $option ];
+
+        return $this->getConfig($config)[$option];
     }
 
     /**
      * @param array $config
+     *
      * @return array
      */
     public function setConfig($config)
     {
         $this->config = array_replace_recursive(
             self::$_config_defaults,
-            static::$_type_config_defaults,
             $config
         );
 
@@ -131,24 +104,46 @@ abstract class Application
      * @param string $config
      * @param mixed $option
      * @param mixed $value
-     * @return array
+     *
      * @throws Exception
+     *
+     * @return array
      */
     public function setConfigOption($config, $option, $value)
     {
-        if (!isset($this->config[ $config ])) {
-            throw new Exception("Invalid configuration key [$config]");
+        if (!isset($this->config[$config])) {
+            throw new Exception("Invalid configuration key [{$config}]");
         }
-        $this->config[ $config ][ $option ] = $value;
+        $this->config[$config][$option] = $value;
+
         return $this->config;
     }
 
     /**
-     * Validates and expands the provided model class to a full PHP class
+     * @return ClientInterface
+     */
+    public function getTransport()
+    {
+        return $this->transport;
+    }
+
+    /**
+     * @param ClientInterface $client
+     * @return ClientInterface
+     */
+    public function setTransport(ClientInterface $client)
+    {
+        return $this->transport = $client;
+    }
+
+    /**
+     * Validates and expands the provided model class to a full PHP class.
      *
      * @param string $class
-     * @return string
+     *
      * @throws Exception
+     *
+     * @return string
      */
     public function validateModelClass($class)
     {
@@ -159,38 +154,43 @@ abstract class Application
         $class = $this->prependConfigNamespace($class);
 
         if (!class_exists($class)) {
-            throw new Exception("Class does not exist [$class]");
+            throw new Exception("Class does not exist [{$class}]");
         }
 
         return $class;
     }
 
-
     /**
      * Prepend the configuration namespace to the class.
      *
-     * @param  string $class
+     * @param string $class
+     *
      * @return string
      */
     protected function prependConfigNamespace($class)
     {
-        return $this->getConfig('xero')[ 'model_namespace' ] . '\\' . $class;
+        return '\\XeroPHP\\Models\\' . $class;
     }
 
-
     /**
-     * As you should never have a GUID for a non-existent object, will throw a NotFoundExceptioon
+     * As you should never have a GUID for a non-existent object, will throw a NotFoundExceptioon.
      *
      * @param $model
      * @param $guid
-     * @return Remote\Model|null
+     *
      * @throws Exception
      * @throws Remote\Exception\NotFoundException
+     *
+     * @return Remote\Model|null
      */
     public function loadByGUID($model, $guid)
     {
         /** @var Remote\Model $class */
         $class = $this->validateModelClass($model);
+
+        if(!$guid){
+            throw new Remote\Exception\NotFoundException;
+        }
 
         $uri = sprintf('%s/%s', $class::getResourceURI(), $guid);
         $api = $class::getAPIStem();
@@ -199,57 +199,52 @@ abstract class Application
         $request = new Request($this, $url, Request::METHOD_GET);
         $request->send();
 
-        $elements = $request->getResponse()->getElements();
+        //Return the first (if any) element from the response.
+        foreach ($request->getResponse()->getElements() as $element) {
 
-        if (empty($class::getRootNodeName())) {
-
-            /** @var Remote\Model $object */
-            $object = new $class($this);
-            $object->fromStringArray($elements);
-
-            return $object;
-        }
-
-        foreach ($elements as $element) {
-
-            /** @var Remote\Model $object */
+            /** @var $object Remote\Model */
             $object = new $class($this);
             $object->fromStringArray($element);
 
             return $object;
         }
 
+        //This will never happen; if not found an exception will be thrown
         return null;
     }
 
     /**
-     * Filter by comma separated string of guid's
+     * Filter by comma separated string of guid's.
      *
      * @param $model
      * @param string $guids
-     * @return Collection
+     *
      * @throws Exception
      * @throws Remote\Exception\NotFoundException
+     *
+     * @return Collection
      */
     public function loadByGUIDs($model, $guids)
     {
-        /**
-         * @var Remote\Model $class
-         */
+        /** @var $class Remote\Model */
         $class = $this->validateModelClass($model);
+
+        if(empty($guids)){
+            return [];
+        }
 
         $uri = sprintf('%s', $class::getResourceURI());
         $api = $class::getAPIStem();
 
         $url = new URL($this, $uri, $api);
         $request = new Request($this, $url, Request::METHOD_GET);
-        $request->setParameter("IDs", $guids);
+        $request->setParameter('IDs', $guids);
         $request->send();
         $elements = new Collection();
+
         foreach ($request->getResponse()->getElements() as $element) {
-            /**
-             * @var Remote\Model $object
-             */
+
+            /** @var $object Remote\Model */
             $object = new $class($this);
             $object->fromStringArray($element);
             $elements->append($object);
@@ -260,22 +255,25 @@ abstract class Application
 
     /**
      * @param string $model
+     *
      * @return Query
-     * @throws Remote\Exception
      */
     public function load($model)
     {
         $query = new Query($this);
+
         return $query->from($model);
     }
 
     /**
      * @param Remote\Model $object
      * @param bool $replace_data
-     * @return Remote\Response|null
+     *
      * @throws Exception
+     *
+     * @return Remote\Response|null
      */
-    public function save(Remote\Model $object, $replace_data = false, $base_uri = null)
+    public function save(Remote\Model $object, $replace_data = false)
     {
         //Saves any properties that don't want to be included in the normal loop
         //(special saving endpoints)
@@ -287,34 +285,13 @@ abstract class Application
 
         $object->validate();
 
-        if (!empty($base_uri) && $base_uri instanceof URL) {
-            $base_uri = $base_uri->getFullURL();
-        }
-
         if ($object->hasGUID()) {
             $method = $object::supportsMethod(Request::METHOD_POST) ? Request::METHOD_POST : Request::METHOD_PUT;
-            $uri = sprintf(
-                '%s/%s',
-                (!empty($base_uri) ? $base_uri.'/' : '')
-                .$object::getResourceURI(),
-                $object->getGUID()
-            );
+            $uri = sprintf('%s/%s', $object::getResourceURI(), $object->getGUID());
         } else {
-
             //In this case it's new
-            $method = $object::getCreateMethod();
-
-            if (is_null($method)) {
-                $method =
-                    $object::supportsMethod(Request::METHOD_PUT)
-                        ? Request::METHOD_PUT
-                        : Request::METHOD_POST;
-            }
-
-            $uri =
-                (!empty($base_uri) ? $base_uri.'/' : '')
-                .$object::getResourceURI();
-
+            $method = $object::supportsMethod(Request::METHOD_PUT) ? Request::METHOD_PUT : Request::METHOD_POST;
+            $uri = $object::getResourceURI();
             //@todo, bump version so you must create objects with app context.
             $object->setApplication($this);
         }
@@ -323,33 +300,17 @@ abstract class Application
             throw new Exception(sprintf('%s doesn\'t support [%s] via the API', get_class($object), $method));
         }
 
+        //Put in an array with the first level containing only the 'root node'.
+        $data = [$object::getRootNodeName() => $object->toStringArray(true)];
         $url = new URL($this, $uri, $object::getAPIStem());
-
         $request = new Request($this, $url, $method);
 
-        if (!empty($object::getRootNodeName())) {
-
-            //Put in an array with the first level containing only the 'root node'.
-            $data = [$object::getRootNodeName() => $object->toStringArray(false)];
-
-            $request->setBody(Helpers::arrayToXML($data))->send();
-        } else {
-            $data = $object->toStringArray(false);
-
-            $request->setBody(json_encode($data), Request::CONTENT_TYPE_JSON)->send();
-        }
-
+        $request->setBody(Helpers::arrayToXML($data))->send();
         $response = $request->getResponse();
-        $current = current($response->getElements());
 
-        if ($current !== false) {
-            if (!is_array($current)) {
-                $object->fromStringArray($response->getElements(), $replace_data);
-            } else {
-                $object->fromStringArray($current, $replace_data);
-            }
+        if (false !== $element = current($response->getElements())) {
+            $object->fromStringArray($element, $replace_data);
         }
-
         //Mark the object as clean since no exception was thrown
         $object->setClean();
 
@@ -357,28 +318,22 @@ abstract class Application
     }
 
     /**
-     * @param Remote\Model $object
+     * @param array|Collection $objects
+     * @param mixed $checkGuid
+     * @param mixed $replace_data
+     *
      * @throws Exception
-     */
-    public function saveRelationships(Remote\Model $object)
-    {
-        return $this->savePropertiesDirectly($object);
-    }
-
-    /**
-     * @param Collection|array $objects
+     *
      * @return Remote\Response
-     * @throws Exception
      */
-    public function saveAll($objects, $checkGuid = true)
+    public function saveAll($objects, $checkGuid = true, $replace_data = false)
     {
         $objects = array_values($objects);
 
         //Just get one type to compare with, doesn't matter which.
-        $current_object = $objects[ 0 ];
-        /**
-         * @var Object $type
-         */
+        $current_object = $objects[0];
+
+        /** @var $type Remote\Model */
         $type = get_class($current_object);
         $has_guid = $checkGuid ? $current_object->hasGUID() : true;
         $object_arrays = [];
@@ -413,8 +368,8 @@ abstract class Application
 
         foreach ($response->getElements() as $element_index => $element) {
             if ($response->getErrorsForElement($element_index) === null) {
-                $objects[ $element_index ]->fromStringArray($element);
-                $objects[ $element_index ]->setClean();
+                $objects[$element_index]->fromStringArray($element, $replace_data);
+                $objects[$element_index]->setClean();
             }
         }
 
@@ -428,138 +383,37 @@ abstract class Application
      * adding contacts to ContactGroups
      *
      * @param Remote\Model $object
+     *
      * @throws Exception
      */
     private function savePropertiesDirectly(Remote\Model $object)
     {
         foreach ($object::getProperties() as $property_name => $meta) {
-            if ($meta[ Remote\Model::KEY_SAVE_DIRECTLY ] && $object->isDirty($property_name)) {
-                $property_objects = $object->{$property_name};
+            if ($meta[Remote\Model::KEY_SAVE_DIRECTLY] && $object->isDirty($property_name)) {
+                //Then actually save
+                $property_objects = $object->$property_name;
+                /** @var Remote\Model $property_type */
+                $property_type = get_class(current($property_objects->getArrayCopy()));
 
-                if ($property_objects instanceof Remote\Model) {
-
-                    /** @var Remote\Model $model */
-                    $model = $property_objects;
-
-                    $url = new URL(
-                        $this,
-                        sprintf(
-                            '%s/%s/%s',
-                            $object::getResourceURI(),
-                            $object->getGUID(),
-                            $model::getResourceURI()
-                        ),
-                        $model::getAPIStem()
-                    );
-
-                    $method = $model::getCreateMethod();
-                    $data = $model->toStringArray(true);
-
-                    $request = new Request($this, $url, $method);
-                    $request->setBody(json_encode($data), Request::CONTENT_TYPE_JSON);
-                    $request->send();
-
-                    $response = $request->getResponse();
-
-                    foreach ($response->getElements() as $key => $element) {
-                        if ($response->getErrorsForElement($key) === null) {
-                            $method = 'set' . ucfirst($key);
-
-                            if (method_exists($model, $method)) {
-                                $model->{$method}($element);
-                                $model->setClean($key);
-                            }
-                        }
-                    }
-
-                    continue;
-                }
-
-                if ($property_objects instanceof Remote\Collection) {
-                    $property_objects = (array)$property_objects;
-                }
-
-                if (!is_array($property_objects)) {
-                    continue;
-                }
-
-                /** @var Remote\Model[] $property_type */
-                $property_type = get_class(current($property_objects));
-
-                $url = new URL(
-                    $this,
-                    sprintf(
-                        '%s/%s/%s',
-                        $object::getResourceURI(),
-                        $object->getGUID(),
-                        $property_type::getResourceURI()
-                    ),
-                    $object::getAPIStem()
-                );
-
-                $method = $property_type::getCreateMethod();
-                $request = new Request($this, $url, $method);
+                $url = new URL($this, sprintf('%s/%s/%s', $object::getResourceURI(), $object->getGUID(), $property_type::getResourceURI()));
+                $request = new Request($this, $url, Request::METHOD_PUT);
 
                 $property_array = [];
-
-                /** @var Object[] $property_objects */
+                /** @var Remote\Model[] $property_objects */
                 foreach ($property_objects as $property_object) {
-                    if ($property_object->hasGUID()) {
-                        $property_object->setApplication($this);
-
-                        $this->save(
-                            $property_object,
-                            false,
-                            sprintf(
-                                '%s/%s',
-                                $object::getResourceURI(),
-                                $object->getGUID()
-                            )
-                        );
-
-                        return;
-                    }
-
                     $property_array[] = $property_object->toStringArray(false);
                 }
 
-                if (!empty($property_type::getRootNodeName())) {
-                    $root_node_name = Helpers::pluralize($property_type::getRootNodeName());
-
-                    $request->setBody(Helpers::arrayToXML([$root_node_name => $property_array]));
-                } else {
-                    if (count($property_array) > 1) {
-                        foreach ($property_array as $relation) {
-                            $request = new Request($this, $url, $method);
-                            $request->setBody(json_encode($relation), Request::CONTENT_TYPE_JSON);
-                            $request->send();
-
-                            $response = $request->getResponse();
-
-                            foreach ($response->getElements() as $element_index => $element) {
-                                if ($response->getErrorsForElement($element_index) === null && isset($property_objects[ $element_index ])) {
-                                    $property_objects[ $element_index ]->fromStringArray($element);
-                                    $property_objects[ $element_index ]->setClean();
-                                }
-                            }
-                        }
-
-                        $object->setClean($property_name);
-
-                        return;
-                    }
-
-                    $request->setBody(json_encode($property_array[ 0 ]), Request::CONTENT_TYPE_JSON);
-                }
+                $root_node_name = Helpers::pluralize($property_type::getRootNodeName());
+                $request->setBody(Helpers::arrayToXML([$root_node_name => $property_array]));
 
                 $request->send();
 
                 $response = $request->getResponse();
-
                 foreach ($response->getElements() as $element_index => $element) {
-                    if ($response->getErrorsForElement($element_index) === null && isset($property_objects[ $element_index ])) {
-                        $property_objects[ $element_index ]->fromStringArray($element);
-                        $property_objects[ $element_index ]->setClean();
+                    if ($response->getErrorsForElement($element_index) === null) {
+                        $property_objects[$element_index]->fromStringArray($element);
+                        $property_objects[$element_index]->setClean();
                     }
                 }
 
@@ -571,8 +425,10 @@ abstract class Application
 
     /**
      * @param Remote\Model $object
-     * @return Remote\Response
+     *
      * @throws Exception
+     *
+     * @return Remote\Model
      */
     public function delete(Remote\Model $object)
     {

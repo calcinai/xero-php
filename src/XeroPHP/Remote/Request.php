@@ -2,32 +2,48 @@
 
 namespace XeroPHP\Remote;
 
+use GuzzleHttp\Psr7\Request as PsrRequest;
+use GuzzleHttp\Psr7\Uri;
 use XeroPHP\Application;
-use XeroPHP\Helpers;
 
 class Request
 {
-    const METHOD_GET    = 'GET';
-    const METHOD_PUT    = 'PUT';
-    const METHOD_POST   = 'POST';
+    const METHOD_GET = 'GET';
+
+    const METHOD_PUT = 'PUT';
+
+    const METHOD_POST = 'POST';
+
     const METHOD_DELETE = 'DELETE';
 
     const CONTENT_TYPE_HTML = 'text/html';
-    const CONTENT_TYPE_XML  = 'text/xml';
-    const CONTENT_TYPE_JSON = 'application/json';
-    const CONTENT_TYPE_PDF  = 'application/pdf';
 
-    const HEADER_ACCEPT            = 'Accept';
-    const HEADER_CONTENT_TYPE      = 'Content-Type';
-    const HEADER_CONTENT_LENGTH    = 'Content-Length';
-    const HEADER_AUTHORIZATION     = 'Authorization';
+    const CONTENT_TYPE_XML = 'text/xml';
+
+    const CONTENT_TYPE_JSON = 'application/json';
+
+    const CONTENT_TYPE_PDF = 'application/pdf';
+
+    const HEADER_ACCEPT = 'Accept';
+
+    const HEADER_CONTENT_TYPE = 'Content-Type';
+
+    const HEADER_CONTENT_LENGTH = 'Content-Length';
+
+    const HEADER_AUTHORIZATION = 'Authorization';
+
     const HEADER_IF_MODIFIED_SINCE = 'If-Modified-Since';
 
     private $app;
+
     private $url;
+
     private $method;
+
     private $headers;
+
     private $parameters;
+
     private $body;
 
     /**
@@ -35,6 +51,14 @@ class Request
      */
     private $response;
 
+    /**
+     * Request constructor.
+     * @param Application $app
+     * @param URL $url
+     * @param string $method
+     * @throws Exception
+     * @throws \XeroPHP\Exception
+     */
     public function __construct(Application $app, URL $url, $method = self::METHOD_GET)
     {
         $this->app = $app;
@@ -48,9 +72,10 @@ class Request
             case self::METHOD_POST:
             case self::METHOD_DELETE:
                 $this->method = $method;
+
                 break;
             default:
-                throw new Exception("Invalid request method [$method]");
+                throw new Exception("Invalid request method [{$method}]");
         }
 
         //Default to XML so you get the  xsi:type attribute in the root node.
@@ -62,76 +87,43 @@ class Request
         }
     }
 
+    /**
+     * @throws Exception
+     * @throws Exception\BadRequestException
+     * @throws Exception\ForbiddenException
+     * @throws Exception\InternalErrorException
+     * @throws Exception\NotAvailableException
+     * @throws Exception\NotFoundException
+     * @throws Exception\NotImplementedException
+     * @throws Exception\OrganisationOfflineException
+     * @throws Exception\RateLimitExceededException
+     * @throws Exception\ReportPermissionMissingException
+     * @throws Exception\UnauthorizedException
+     */
     public function send()
     {
-        //Sign the request - this just sets the Authorization header
-        $this->app->getOAuthClient()->sign($this);
+        $uri = Uri::withQueryValues(new Uri($this->getUrl()->getFullURL()), $this->getParameters());
 
-        // configure curl
-        $ch = curl_init();
-        curl_setopt_array($ch, $this->app->getConfig('curl'));
+        $request = new PsrRequest($this->getMethod(), $uri, $this->getHeaders(), $this->body);
 
-        curl_setopt($ch, CURLINFO_HEADER_OUT, true);
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-        curl_setopt($ch, CURLOPT_CUSTOMREQUEST, $this->getMethod());
-
-        if (isset($this->body)) {
-            curl_setopt($ch, CURLOPT_POSTFIELDS, $this->body);
+        try {
+            $guzzleResponse = $this->app->getTransport()->send($request);
+        }  catch (\GuzzleHttp\Exception\BadResponseException $e) {
+            $guzzleResponse = $e->getResponse();
         }
-
-        //build header array.  Don't provide glue so it'll return the array itself.
-        //Maybe could be a but cleaner but nice to reuse code.
-        $header_array = Helpers::flattenAssocArray($this->getHeaders(), '%s: %s');
-        curl_setopt($ch, CURLOPT_HTTPHEADER, $header_array);
-
-        $full_uri = $this->getUrl()->getFullURL();
-        //build parameter array - the only time there's a post body is with the XML,
-        //only escape at this point
-        $query_string = Helpers::flattenAssocArray($this->getParameters(), '%s=%s', '&', true);
-
-        if (strlen($query_string) > 0) {
-            $full_uri .= "?$query_string";
-        }
-        curl_setopt($ch, CURLOPT_URL, $full_uri);
-
-        if ($this->method === self::METHOD_POST || $this->method === self::METHOD_PUT) {
-            curl_setopt($ch, CURLOPT_POST, true);
-        }
-
-        $headers = [];
-        curl_setopt($ch, CURLOPT_HEADERFUNCTION, function ($curl, $header) use (&$headers) {
-            $len = strlen($header);
-            if (strpos($header, ':') === false) {
-                return $len;
-            }
-
-            list($name, $value) = explode(':', $header, 2);
-            $name = strtolower(trim($name));
-            $value = trim($value);
-            if (!array_key_exists($name, $headers)) {
-                $headers[$name] = [];
-            }
-            $headers[$name][] = $value;
-
-            return $len;
-        });
-
-        $response = curl_exec($ch);
-        $info = curl_getinfo($ch);
-
-        if ($response === false) {
-            throw new Exception('Curl error: ' . curl_error($ch));
-        }
-
-        $this->response = new Response($this, $response, $info, $headers);
+        $this->response = new Response($this,
+            $guzzleResponse->getBody()->getContents(),
+            $guzzleResponse->getStatusCode(),
+            $guzzleResponse->getHeaders()
+        );
         $this->response->parse();
-
         return $this->response;
     }
 
     public function setParameter($key, $value)
     {
         $this->parameters[$key] = $value;
+
         return $this;
     }
 
@@ -142,13 +134,15 @@ class Request
 
     /**
      * @param $key string Name of the header
-     * @return null|string Header or null if not defined
+     *
+     * @return string|null Header or null if not defined
      */
     public function getHeader($key)
     {
         if (!isset($this->headers[$key])) {
             return null;
         }
+
         return $this->headers[$key];
     }
 
@@ -165,6 +159,7 @@ class Request
         if (isset($this->response)) {
             return $this->response;
         }
+
         return null;
     }
 
@@ -177,6 +172,7 @@ class Request
     public function setHeader($key, $val)
     {
         $this->headers[$key] = $val;
+
         return $this;
     }
 

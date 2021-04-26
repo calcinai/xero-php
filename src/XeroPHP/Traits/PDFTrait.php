@@ -11,12 +11,13 @@ trait PDFTrait
     /**
      * Get the raw content of the resource's PDF file.
      *
-     * @return string
      * @throws \XeroPHP\Exception
+     *
+     * @return string
      */
     public function getPDF()
     {
-        if (!$this->hasGUID()) {
+        if (! $this->hasGUID()) {
             throw new Exception('PDF files are only available to objects that exist remotely.');
         }
 

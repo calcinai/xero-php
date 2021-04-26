@@ -1,11 +1,11 @@
 <?php
+
 namespace XeroPHP\Models\PayrollAU\Payslip;
 
 use XeroPHP\Remote;
 
 class TimesheetEarningsLine extends Remote\Model
 {
-
     /**
      * Xero identifier for payroll earnings rate.
      *
@@ -13,21 +13,19 @@ class TimesheetEarningsLine extends Remote\Model
      */
 
     /**
-     * Rate per unit for earnings rate
+     * Rate per unit for earnings rate.
      *
      * @property float RatePerUnit
      */
 
     /**
-     * The Amount of the Timesheet Earnings Line.
+     * The Number of Units of the Timesheet Earnings Line.
      *
-     * @property float Amount
+     * @property float NumberOfUnits
      */
 
-
-
     /**
-     * Get the resource uri of the class (Contacts) etc
+     * Get the resource uri of the class (Contacts) etc.
      *
      * @return string
      */
@@ -36,9 +34,8 @@ class TimesheetEarningsLine extends Remote\Model
         return 'TimesheetEarningsLine';
     }
 
-
     /**
-     * Get the root node name.  Just the unqualified classname
+     * Get the root node name.  Just the unqualified classname.
      *
      * @return string
      */
@@ -47,9 +44,8 @@ class TimesheetEarningsLine extends Remote\Model
         return 'TimesheetEarningsLine';
     }
 
-
     /**
-     * Get the guid property
+     * Get the guid property.
      *
      * @return string
      */
@@ -58,9 +54,8 @@ class TimesheetEarningsLine extends Remote\Model
         return '';
     }
 
-
     /**
-     * Get the stem of the API (core.xro) etc
+     * Get the stem of the API (core.xro) etc.
      *
      * @return string|null
      */
@@ -69,9 +64,8 @@ class TimesheetEarningsLine extends Remote\Model
         return Remote\URL::API_PAYROLL;
     }
 
-
     /**
-     * Get the supported methods
+     * Get the supported methods.
      */
     public static function getSupportedMethods()
     {
@@ -80,13 +74,12 @@ class TimesheetEarningsLine extends Remote\Model
     }
 
     /**
-     *
      * Get the properties of the object.  Indexed by constants
      *  [0] - Mandatory
      *  [1] - Type
      *  [2] - PHP type
      *  [3] - Is an Array
-     *  [4] - Saves directly
+     *  [4] - Saves directly.
      *
      * @return array
      */
@@ -95,6 +88,7 @@ class TimesheetEarningsLine extends Remote\Model
         return [
             'EarningsRateID' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
             'RatePerUnit' => [false, self::PROPERTY_TYPE_FLOAT, null, false, false],
+            'NumberOfUnits' => [false, self::PROPERTY_TYPE_FLOAT, null, false, false],
             'Amount' => [false, self::PROPERTY_TYPE_FLOAT, null, false, false]
         ];
     }
@@ -114,12 +108,14 @@ class TimesheetEarningsLine extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return TimesheetEarningsLine
      */
     public function setEarningsRateID($value)
     {
         $this->propertyUpdated('EarningsRateID', $value);
         $this->_data['EarningsRateID'] = $value;
+
         return $this;
     }
 
@@ -133,33 +129,60 @@ class TimesheetEarningsLine extends Remote\Model
 
     /**
      * @param float $value
+     *
      * @return TimesheetEarningsLine
      */
     public function setRatePerUnit($value)
     {
         $this->propertyUpdated('RatePerUnit', $value);
         $this->_data['RatePerUnit'] = $value;
+
         return $this;
     }
 
     /**
-     * @return float
+     * @return Amount
+     * 
+     * @deprecated
      */
     public function getAmount()
     {
         return $this->_data['Amount'];
     }
-
+    
     /**
      * @param float $value
+     * 
      * @return TimesheetEarningsLine
+     *
+     * @deprecated
      */
     public function setAmount($value)
     {
         $this->propertyUpdated('Amount', $value);
         $this->_data['Amount'] = $value;
+
         return $this;
     }
+    
+    /**
+     * @return float
+     */
+    public function getNumberOfUnits()
+    {
+        return $this->_data['NumberOfUnits'];
+    }
 
+    /**
+     * @param float $value
+     *
+     * @return TimesheetEarningsLine
+     */
+    public function setNumberOfUnits($value)
+    {
+        $this->propertyUpdated('NumberOfUnits', $value);
+        $this->_data['NumberOfUnits'] = $value;
 
+        return $this;
+    }
 }

@@ -5,7 +5,6 @@ use XeroPHP\Remote;
 
 class TrackingOption extends Remote\Model
 {
-
     /**
      * The Xero identifier for a tracking optione.g. ae777a87-5ef3-4fa0-a4f0-d10e1f13073a
      *
@@ -24,8 +23,6 @@ class TrackingOption extends Remote\Model
      * @property string Status
      */
 
-
-
     /**
      * Get the resource uri of the class (Contacts) etc
      *
@@ -35,7 +32,6 @@ class TrackingOption extends Remote\Model
     {
         return 'Options';
     }
-
 
     /**
      * Get the root node name.  Just the unqualified classname
@@ -47,7 +43,6 @@ class TrackingOption extends Remote\Model
         return '';
     }
 
-
     /**
      * Get the guid property
      *
@@ -58,7 +53,6 @@ class TrackingOption extends Remote\Model
         return 'TrackingOptionID';
     }
 
-
     /**
      * Get the stem of the API (core.xro) etc
      *
@@ -68,7 +62,6 @@ class TrackingOption extends Remote\Model
     {
         return Remote\URL::API_CORE;
     }
-
 
     /**
      * Get the supported methods
@@ -82,7 +75,6 @@ class TrackingOption extends Remote\Model
     }
 
     /**
-     *
      * Get the properties of the object.  Indexed by constants
      *  [0] - Mandatory
      *  [1] - Type

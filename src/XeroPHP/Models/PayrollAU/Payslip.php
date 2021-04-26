@@ -1,147 +1,147 @@
 <?php
+
 namespace XeroPHP\Models\PayrollAU;
 
-use XeroPHP\Models\PayrollAU\Payslip\DeductionLine;
+use XeroPHP\Remote;
+use XeroPHP\Models\PayrollAU\Payslip\TaxLine;
 use XeroPHP\Models\PayrollAU\Payslip\EarningsLine;
+use XeroPHP\Models\PayrollAU\Payslip\DeductionLine;
 use XeroPHP\Models\PayrollAU\Payslip\LeaveAccrualLine;
 use XeroPHP\Models\PayrollAU\Payslip\LeaveEarningsLine;
 use XeroPHP\Models\PayrollAU\Payslip\ReimbursementLine;
 use XeroPHP\Models\PayrollAU\Payslip\SuperannuationLine;
-use XeroPHP\Models\PayrollAU\Payslip\TaxLine;
 use XeroPHP\Models\PayrollAU\Payslip\TimesheetEarningsLine;
-use XeroPHP\Remote;
 
 class Payslip extends Remote\Model
 {
-
     /**
-     * Xero identifier for payroll employee
+     * Xero identifier for payroll employee.
      *
      * @property string EmployeeID
      */
 
     /**
-     * Xero identifier for payroll payrun
+     * Xero identifier for payroll payrun.
      *
      * @property string PayRunID
      */
 
     /**
-     * Xero identifier for payroll payslip
+     * Xero identifier for payroll payslip.
      *
      * @property string PayslipID
      */
 
     /**
-     * See EarningsLine
+     * See EarningsLine.
      *
      * @property EarningsLine[] EarningsLines
      */
 
     /**
-     * See TimesheetEarningsLine
+     * See TimesheetEarningsLine.
      *
      * @property TimesheetEarningsLine[] TimesheetEarningsLines
      */
 
     /**
-     * See DeductionLine
+     * See DeductionLine.
      *
      * @property DeductionLine[] DeductionLines
      */
 
     /**
-     * See LeaveAccrualLine
+     * See LeaveAccrualLine.
      *
      * @property LeaveAccrualLine[] LeaveAccrualLines
      */
 
     /**
-     * See ReimbursementLine – see PayItems
+     * See ReimbursementLine – see PayItems.
      *
      * @property ReimbursementLine[] ReimbursementLines
      */
 
     /**
-     * See SuperannuationLine
+     * See SuperannuationLine.
      *
      * @property SuperannuationLine[] SuperannuationLines
      */
 
     /**
-     * See TaxLine
+     * See TaxLine.
      *
      * @property TaxLine[] TaxLines
      */
 
     /**
-     * Employee first name
+     * Employee first name.
      *
      * @property string FirstName
      */
 
     /**
-     * Employee last name
+     * Employee last name.
      *
      * @property string LastName
      */
 
     /**
-     * Employee Group name
+     * Employee Group name.
      *
      * @property string EmployeeGroup
      */
 
     /**
-     * Last edited
+     * Last edited.
      *
-     * @property string LastEdited
+     * @property \DateTimeInterface LastEdited
      */
 
     /**
-     * The Total Wages for the PayRun
+     * The Total Wages for the PayRun.
      *
-     * @property float[] Wages
+     * @property float Wages
      */
 
     /**
-     * The Total Deductions for the PayRun
+     * The Total Deductions for the PayRun.
      *
-     * @property float[] Deductions
+     * @property float Deductions
      */
 
     /**
-     * The Total NetPay for the PayRun
+     * The Total NetPay for the PayRun.
      *
      * @property float NetPay
      */
 
     /**
-     * The Total Tax for the PayRun
+     * The Total Tax for the PayRun.
      *
      * @property float Tax
      */
 
     /**
-     * The Total Super for the PayRun
+     * The Total Super for the PayRun.
      *
      * @property float Super
      */
 
     /**
-     * The Total Reimbursement for the PayRun
+     * The Total Reimbursement for the PayRun.
      *
-     * @property float[] Reimbursements
+     * @property float Reimbursements
      */
 
     /**
-     * See LeaveEarningsLine
+     * See LeaveEarningsLine.
      *
      * @property LeaveEarningsLine[] LeaveEarningsLines
      */
 
     /**
-     * Get the resource uri of the class (Contacts) etc
+     * Get the resource uri of the class (Contacts) etc.
      *
      * @return string
      */
@@ -151,7 +151,7 @@ class Payslip extends Remote\Model
     }
 
     /**
-     * Get the root node name.  Just the unqualified classname
+     * Get the root node name.  Just the unqualified classname.
      *
      * @return string
      */
@@ -161,7 +161,7 @@ class Payslip extends Remote\Model
     }
 
     /**
-     * Get the guid property
+     * Get the guid property.
      *
      * @return string
      */
@@ -171,7 +171,7 @@ class Payslip extends Remote\Model
     }
 
     /**
-     * Get the stem of the API (core.xro) etc
+     * Get the stem of the API (core.xro) etc.
      *
      * @return string|null
      */
@@ -181,7 +181,7 @@ class Payslip extends Remote\Model
     }
 
     /**
-     * Get the supported methods
+     * Get the supported methods.
      */
     public static function getSupportedMethods()
     {
@@ -192,13 +192,12 @@ class Payslip extends Remote\Model
     }
 
     /**
-     *
      * Get the properties of the object.  Indexed by constants
      *  [0] - Mandatory
      *  [1] - Type
      *  [2] - PHP type
      *  [3] - Is an Array
-     *  [4] - Saves directly
+     *  [4] - Saves directly.
      *
      * @return array
      */
@@ -218,13 +217,13 @@ class Payslip extends Remote\Model
             'FirstName' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
             'LastName' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
             'EmployeeGroup' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
-            'LastEdited' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
-            'Wages' => [false, self::PROPERTY_TYPE_FLOAT, null, true, false],
-            'Deductions' => [false, self::PROPERTY_TYPE_FLOAT, null, true, false],
+            'LastEdited' => [false, self::PROPERTY_TYPE_DATE, '\\DateTimeInterface', false, false],
+            'Wages' => [false, self::PROPERTY_TYPE_FLOAT, null, false, false],
+            'Deductions' => [false, self::PROPERTY_TYPE_FLOAT, null, false, false],
             'NetPay' => [false, self::PROPERTY_TYPE_FLOAT, null, false, false],
             'Tax' => [false, self::PROPERTY_TYPE_FLOAT, null, false, false],
             'Super' => [false, self::PROPERTY_TYPE_FLOAT, null, false, false],
-            'Reimbursements' => [false, self::PROPERTY_TYPE_FLOAT, null, true, false],
+            'Reimbursements' => [false, self::PROPERTY_TYPE_FLOAT, null, false, false],
             'LeaveEarningsLines' => [false, self::PROPERTY_TYPE_OBJECT, 'PayrollAU\\Payslip\\LeaveEarningsLine', true, false],
         ];
     }
@@ -244,12 +243,14 @@ class Payslip extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return Payslip
      */
     public function setEmployeeID($value)
     {
         $this->propertyUpdated('EmployeeID', $value);
         $this->_data['EmployeeID'] = $value;
+
         return $this;
     }
 
@@ -263,12 +264,14 @@ class Payslip extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return Payslip
      */
     public function setPayRunID($value)
     {
         $this->propertyUpdated('PayRunID', $value);
         $this->_data['PayRunID'] = $value;
+
         return $this;
     }
 
@@ -282,18 +285,19 @@ class Payslip extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return Payslip
      */
     public function setPayslipID($value)
     {
         $this->propertyUpdated('PayslipID', $value);
         $this->_data['PayslipID'] = $value;
+
         return $this;
     }
 
     /**
      * @return EarningsLine[]|Remote\Collection
-     * Always returns a collection, switch is for type hinting
      */
     public function getEarningsLines()
     {
@@ -302,21 +306,22 @@ class Payslip extends Remote\Model
 
     /**
      * @param EarningsLine $value
+     *
      * @return Payslip
      */
     public function addEarningsLine(EarningsLine $value)
     {
         $this->propertyUpdated('EarningsLines', $value);
-        if (!isset($this->_data['EarningsLines'])) {
+        if (! isset($this->_data['EarningsLines'])) {
             $this->_data['EarningsLines'] = new Remote\Collection();
         }
         $this->_data['EarningsLines'][] = $value;
+
         return $this;
     }
 
     /**
-     * @return TimesheetEarningsLine[]|Remote\Collection
-     * Always returns a collection, switch is for type hinting
+     * @return Remote\Collection|TimesheetEarningsLine[]
      */
     public function getTimesheetEarningsLines()
     {
@@ -325,21 +330,22 @@ class Payslip extends Remote\Model
 
     /**
      * @param TimesheetEarningsLine $value
+     *
      * @return Payslip
      */
     public function addTimesheetEarningsLine(TimesheetEarningsLine $value)
     {
         $this->propertyUpdated('TimesheetEarningsLines', $value);
-        if (!isset($this->_data['TimesheetEarningsLines'])) {
+        if (! isset($this->_data['TimesheetEarningsLines'])) {
             $this->_data['TimesheetEarningsLines'] = new Remote\Collection();
         }
         $this->_data['TimesheetEarningsLines'][] = $value;
+
         return $this;
     }
 
     /**
      * @return DeductionLine[]|Remote\Collection
-     * Always returns a collection, switch is for type hinting
      */
     public function getDeductionLines()
     {
@@ -348,21 +354,22 @@ class Payslip extends Remote\Model
 
     /**
      * @param DeductionLine $value
+     *
      * @return Payslip
      */
     public function addDeductionLine(DeductionLine $value)
     {
         $this->propertyUpdated('DeductionLines', $value);
-        if (!isset($this->_data['DeductionLines'])) {
+        if (! isset($this->_data['DeductionLines'])) {
             $this->_data['DeductionLines'] = new Remote\Collection();
         }
         $this->_data['DeductionLines'][] = $value;
+
         return $this;
     }
 
     /**
      * @return LeaveAccrualLine[]|Remote\Collection
-     * Always returns a collection, switch is for type hinting
      */
     public function getLeaveAccrualLines()
     {
@@ -371,21 +378,22 @@ class Payslip extends Remote\Model
 
     /**
      * @param LeaveAccrualLine $value
+     *
      * @return Payslip
      */
     public function addLeaveAccrualLine(LeaveAccrualLine $value)
     {
         $this->propertyUpdated('LeaveAccrualLines', $value);
-        if (!isset($this->_data['LeaveAccrualLines'])) {
+        if (! isset($this->_data['LeaveAccrualLines'])) {
             $this->_data['LeaveAccrualLines'] = new Remote\Collection();
         }
         $this->_data['LeaveAccrualLines'][] = $value;
+
         return $this;
     }
 
     /**
      * @return ReimbursementLine[]|Remote\Collection
-     * Always returns a collection, switch is for type hinting
      */
     public function getReimbursementLines()
     {
@@ -394,21 +402,22 @@ class Payslip extends Remote\Model
 
     /**
      * @param ReimbursementLine $value
+     *
      * @return Payslip
      */
     public function addReimbursementLine(ReimbursementLine $value)
     {
         $this->propertyUpdated('ReimbursementLines', $value);
-        if (!isset($this->_data['ReimbursementLines'])) {
+        if (! isset($this->_data['ReimbursementLines'])) {
             $this->_data['ReimbursementLines'] = new Remote\Collection();
         }
         $this->_data['ReimbursementLines'][] = $value;
+
         return $this;
     }
 
     /**
-     * @return SuperannuationLine[]|Remote\Collection
-     * Always returns a collection, switch is for type hinting
+     * @return Remote\Collection|SuperannuationLine[]
      */
     public function getSuperannuationLines()
     {
@@ -417,21 +426,22 @@ class Payslip extends Remote\Model
 
     /**
      * @param SuperannuationLine $value
+     *
      * @return Payslip
      */
     public function addSuperannuationLine(SuperannuationLine $value)
     {
         $this->propertyUpdated('SuperannuationLines', $value);
-        if (!isset($this->_data['SuperannuationLines'])) {
+        if (! isset($this->_data['SuperannuationLines'])) {
             $this->_data['SuperannuationLines'] = new Remote\Collection();
         }
         $this->_data['SuperannuationLines'][] = $value;
+
         return $this;
     }
 
     /**
-     * @return TaxLine[]|Remote\Collection
-     * Always returns a collection, switch is for type hinting
+     * @return Remote\Collection|TaxLine[]
      */
     public function getTaxLines()
     {
@@ -440,15 +450,17 @@ class Payslip extends Remote\Model
 
     /**
      * @param TaxLine $value
+     *
      * @return Payslip
      */
     public function addTaxLine(TaxLine $value)
     {
         $this->propertyUpdated('TaxLines', $value);
-        if (!isset($this->_data['TaxLines'])) {
+        if (! isset($this->_data['TaxLines'])) {
             $this->_data['TaxLines'] = new Remote\Collection();
         }
         $this->_data['TaxLines'][] = $value;
+
         return $this;
     }
 
@@ -477,7 +489,7 @@ class Payslip extends Remote\Model
     }
 
     /**
-     * @return string
+     * @return \DateTimeInterface
      */
     public function getLastEdited()
     {
@@ -485,8 +497,7 @@ class Payslip extends Remote\Model
     }
 
     /**
-     * @return float[]|Remote\Collection
-     * Always returns a collection, switch is for type hinting
+     * @return float
      */
     public function getWages()
     {
@@ -494,8 +505,7 @@ class Payslip extends Remote\Model
     }
 
     /**
-     * @return float[]|Remote\Collection
-     * Always returns a collection, switch is for type hinting
+     * @return float
      */
     public function getDeductions()
     {
@@ -527,8 +537,7 @@ class Payslip extends Remote\Model
     }
 
     /**
-     * @return float[]|Remote\Collection
-     * Always returns a collection, switch is for type hinting
+     * @return float
      */
     public function getReimbursements()
     {
@@ -537,11 +546,9 @@ class Payslip extends Remote\Model
 
     /**
      * @return LeaveEarningsLine[]|Remote\Collection
-     * Always returns a collection, switch is for type hinting
      */
     public function getLeaveEarningsLines()
     {
         return $this->_data['LeaveEarningsLines'];
     }
-
 }
