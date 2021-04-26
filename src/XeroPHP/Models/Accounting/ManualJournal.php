@@ -1,4 +1,5 @@
 <?php
+
 namespace XeroPHP\Models\Accounting;
 
 use XeroPHP\Remote;
@@ -7,78 +8,77 @@ use XeroPHP\Models\Accounting\ManualJournal\JournalLine;
 
 class ManualJournal extends Remote\Model
 {
-
     use AttachmentTrait;
 
     /**
-     * Xero identifier
+     * Xero identifier.
      *
      * @property string ManualJournalID
      */
 
     /**
-     * Description of journal being posted
+     * Description of journal being posted.
      *
      * @property string Narration
      */
 
     /**
-     * See JournalLines
+     * See JournalLines.
      *
      * @property JournalLine[] JournalLines
      */
 
     /**
-     * Date journal was posted – YYYY-MM-DD
+     * Date journal was posted – YYYY-MM-DD.
      *
      * @property \DateTimeInterface Date
      */
 
     /**
-     * NoTax by default if you don’t specify this element. See Line Amount Types
+     * NoTax by default if you don’t specify this element. See Line Amount Types.
      *
      * @property string LineAmountTypes
      */
 
     /**
-     * See Manual Journal Status Codes
+     * See Manual Journal Status Codes.
      *
      * @property string Status
      */
 
     /**
-     * Url link to a source document – shown as “Go to [appName]” in the Xero app
+     * Url link to a source document – shown as “Go to [appName]” in the Xero app.
      *
      * @property string Url
      */
 
     /**
-     * Boolean – default is true if not specified
+     * Boolean – default is true if not specified.
      *
      * @property bool ShowOnCashBasisReports
      */
 
     /**
-     * Boolean to indicate if a manual journal has an attachment
+     * Boolean to indicate if a manual journal has an attachment.
      *
      * @property bool HasAttachments
      */
 
     /**
-     * Last modified date UTC format
+     * Last modified date UTC format.
      *
      * @property \DateTimeInterface UpdatedDateUTC
      */
+    const MANUAL_JOURNAL_STATUS_DRAFT = 'DRAFT';
 
+    const MANUAL_JOURNAL_STATUS_POSTED = 'POSTED';
 
-    const MANUAL_JOURNAL_STATUS_DRAFT   = 'DRAFT';
-    const MANUAL_JOURNAL_STATUS_POSTED  = 'POSTED';
     const MANUAL_JOURNAL_STATUS_DELETED = 'DELETED';
-    const MANUAL_JOURNAL_STATUS_VOIDED  = 'VOIDED';
 
+    const MANUAL_JOURNAL_STATUS_VOIDED = 'VOIDED';
 
     /**
-     * Get the resource uri of the class (Contacts) etc
+     * Get the resource uri of the class (Contacts) etc.
      *
      * @return string
      */
@@ -87,9 +87,8 @@ class ManualJournal extends Remote\Model
         return 'ManualJournals';
     }
 
-
     /**
-     * Get the root node name.  Just the unqualified classname
+     * Get the root node name.  Just the unqualified classname.
      *
      * @return string
      */
@@ -98,9 +97,8 @@ class ManualJournal extends Remote\Model
         return 'ManualJournal';
     }
 
-
     /**
-     * Get the guid property
+     * Get the guid property.
      *
      * @return string
      */
@@ -109,9 +107,8 @@ class ManualJournal extends Remote\Model
         return 'ManualJournalID';
     }
 
-
     /**
-     * Get the stem of the API (core.xro) etc
+     * Get the stem of the API (core.xro) etc.
      *
      * @return string|null
      */
@@ -120,27 +117,25 @@ class ManualJournal extends Remote\Model
         return Remote\URL::API_CORE;
     }
 
-
     /**
-     * Get the supported methods
+     * Get the supported methods.
      */
     public static function getSupportedMethods()
     {
         return [
             Remote\Request::METHOD_GET,
             Remote\Request::METHOD_PUT,
-            Remote\Request::METHOD_POST
+            Remote\Request::METHOD_POST,
         ];
     }
 
     /**
-     *
      * Get the properties of the object.  Indexed by constants
      *  [0] - Mandatory
      *  [1] - Type
      *  [2] - PHP type
      *  [3] - Is an Array
-     *  [4] - Saves directly
+     *  [4] - Saves directly.
      *
      * @return array
      */
@@ -156,7 +151,7 @@ class ManualJournal extends Remote\Model
             'Url' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
             'ShowOnCashBasisReports' => [false, self::PROPERTY_TYPE_BOOLEAN, null, false, false],
             'HasAttachments' => [false, self::PROPERTY_TYPE_BOOLEAN, null, false, false],
-            'UpdatedDateUTC' => [false, self::PROPERTY_TYPE_TIMESTAMP, '\\DateTimeInterface', false, false]
+            'UpdatedDateUTC' => [false, self::PROPERTY_TYPE_TIMESTAMP, '\\DateTimeInterface', false, false],
         ];
     }
 
@@ -175,12 +170,14 @@ class ManualJournal extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return ManualJournal
      */
     public function setManualJournalID($value)
     {
         $this->propertyUpdated('ManualJournalID', $value);
         $this->_data['ManualJournalID'] = $value;
+
         return $this;
     }
 
@@ -194,18 +191,19 @@ class ManualJournal extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return ManualJournal
      */
     public function setNarration($value)
     {
         $this->propertyUpdated('Narration', $value);
         $this->_data['Narration'] = $value;
+
         return $this;
     }
 
     /**
      * @return JournalLine[]|Remote\Collection
-     * Always returns a collection, switch is for type hinting
      */
     public function getJournalLines()
     {
@@ -214,15 +212,17 @@ class ManualJournal extends Remote\Model
 
     /**
      * @param JournalLine $value
+     *
      * @return ManualJournal
      */
     public function addJournalLine(JournalLine $value)
     {
         $this->propertyUpdated('JournalLines', $value);
-        if (!isset($this->_data['JournalLines'])) {
+        if (! isset($this->_data['JournalLines'])) {
             $this->_data['JournalLines'] = new Remote\Collection();
         }
         $this->_data['JournalLines'][] = $value;
+
         return $this;
     }
 
@@ -236,12 +236,14 @@ class ManualJournal extends Remote\Model
 
     /**
      * @param \DateTimeInterface $value
+     *
      * @return ManualJournal
      */
     public function setDate(\DateTimeInterface $value)
     {
         $this->propertyUpdated('Date', $value);
         $this->_data['Date'] = $value;
+
         return $this;
     }
 
@@ -255,12 +257,14 @@ class ManualJournal extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return ManualJournal
      */
     public function setLineAmountType($value)
     {
         $this->propertyUpdated('LineAmountTypes', $value);
         $this->_data['LineAmountTypes'] = $value;
+
         return $this;
     }
 
@@ -274,12 +278,14 @@ class ManualJournal extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return ManualJournal
      */
     public function setStatus($value)
     {
         $this->propertyUpdated('Status', $value);
         $this->_data['Status'] = $value;
+
         return $this;
     }
 
@@ -293,12 +299,14 @@ class ManualJournal extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return ManualJournal
      */
     public function setUrl($value)
     {
         $this->propertyUpdated('Url', $value);
         $this->_data['Url'] = $value;
+
         return $this;
     }
 
@@ -312,12 +320,14 @@ class ManualJournal extends Remote\Model
 
     /**
      * @param bool $value
+     *
      * @return ManualJournal
      */
     public function setShowOnCashBasisReport($value)
     {
         $this->propertyUpdated('ShowOnCashBasisReports', $value);
         $this->_data['ShowOnCashBasisReports'] = $value;
+
         return $this;
     }
 
@@ -329,7 +339,6 @@ class ManualJournal extends Remote\Model
         return $this->_data['HasAttachments'];
     }
 
-
     /**
      * @return \DateTimeInterface
      */
@@ -337,7 +346,4 @@ class ManualJournal extends Remote\Model
     {
         return $this->_data['UpdatedDateUTC'];
     }
-
-
-
 }

@@ -1,39 +1,48 @@
 <?php
+
 namespace XeroPHP\Models\Accounting;
 
 use XeroPHP\Remote;
 
 class BrandingTheme extends Remote\Model
 {
-
     /**
-     * Xero identifier
+     * Xero identifier.
      *
      * @property string BrandingThemeID
      */
 
     /**
-     * Name of branding theme
+     * Name of branding theme.
      *
      * @property string Name
      */
 
     /**
-     * Integer – ranked order of branding theme. The default branding theme has a value of 0
+     * The URL of the logo used on the branding theme
+     *
+     * @property string LogoUrl
+     */
+
+    /**
+     * The type of document that the branding theme can be appplied to
+     * @property string Type
+     */
+
+    /**
+     * Integer – ranked order of branding theme. The default branding theme has a value of 0.
      *
      * @property int SortOrder
      */
 
     /**
-     * UTC timestamp of creation date of branding theme
+     * UTC timestamp of creation date of branding theme.
      *
      * @property \DateTimeInterface CreatedDateUTC
      */
 
-
-
     /**
-     * Get the resource uri of the class (Contacts) etc
+     * Get the resource uri of the class (Contacts) etc.
      *
      * @return string
      */
@@ -42,9 +51,8 @@ class BrandingTheme extends Remote\Model
         return 'BrandingThemes';
     }
 
-
     /**
-     * Get the root node name.  Just the unqualified classname
+     * Get the root node name.  Just the unqualified classname.
      *
      * @return string
      */
@@ -53,9 +61,8 @@ class BrandingTheme extends Remote\Model
         return 'BrandingTheme';
     }
 
-
     /**
-     * Get the guid property
+     * Get the guid property.
      *
      * @return string
      */
@@ -64,9 +71,8 @@ class BrandingTheme extends Remote\Model
         return 'BrandingThemeID';
     }
 
-
     /**
-     * Get the stem of the API (core.xro) etc
+     * Get the stem of the API (core.xro) etc.
      *
      * @return string|null
      */
@@ -75,25 +81,23 @@ class BrandingTheme extends Remote\Model
         return Remote\URL::API_CORE;
     }
 
-
     /**
-     * Get the supported methods
+     * Get the supported methods.
      */
     public static function getSupportedMethods()
     {
         return [
-            Remote\Request::METHOD_GET
+            Remote\Request::METHOD_GET,
         ];
     }
 
     /**
-     *
      * Get the properties of the object.  Indexed by constants
      *  [0] - Mandatory
      *  [1] - Type
      *  [2] - PHP type
      *  [3] - Is an Array
-     *  [4] - Saves directly
+     *  [4] - Saves directly.
      *
      * @return array
      */
@@ -102,6 +106,8 @@ class BrandingTheme extends Remote\Model
         return [
             'BrandingThemeID' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
             'Name' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'LogoUrl' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'Type' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
             'SortOrder' => [false, self::PROPERTY_TYPE_INT, null, false, false],
             'CreatedDateUTC' => [false, self::PROPERTY_TYPE_TIMESTAMP, '\\DateTimeInterface', false, false]
         ];
@@ -122,12 +128,14 @@ class BrandingTheme extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return BrandingTheme
      */
     public function setBrandingThemeID($value)
     {
         $this->propertyUpdated('BrandingThemeID', $value);
         $this->_data['BrandingThemeID'] = $value;
+
         return $this;
     }
 
@@ -141,12 +149,56 @@ class BrandingTheme extends Remote\Model
 
     /**
      * @param string $value
+     *
      * @return BrandingTheme
      */
     public function setName($value)
     {
         $this->propertyUpdated('Name', $value);
         $this->_data['Name'] = $value;
+
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getLogoUrl()
+    {
+        return $this->_data['LogoUrl'];
+    }
+
+    /**
+     * @param string $value
+     *
+     * @return BrandingTheme
+     */
+    public function setLogoUrl($value)
+    {
+        $this->propertyUpdated('LogoUrl', $value);
+        $this->_data['LogoUrl'] = $value;
+
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getType()
+    {
+        return $this->_data['Type'];
+    }
+
+    /**
+     * @param string $value
+     *
+     * @return BrandingTheme
+     */
+    public function setType($value)
+    {
+        $this->propertyUpdated('Type', $value);
+        $this->_data['Type'] = $value;
+
         return $this;
     }
 
@@ -160,12 +212,14 @@ class BrandingTheme extends Remote\Model
 
     /**
      * @param int $value
+     *
      * @return BrandingTheme
      */
     public function setSortOrder($value)
     {
         $this->propertyUpdated('SortOrder', $value);
         $this->_data['SortOrder'] = $value;
+
         return $this;
     }
 
@@ -179,14 +233,14 @@ class BrandingTheme extends Remote\Model
 
     /**
      * @param \DateTimeInterface $value
+     *
      * @return BrandingTheme
      */
     public function setCreatedDateUTC(\DateTimeInterface $value)
     {
         $this->propertyUpdated('CreatedDateUTC', $value);
         $this->_data['CreatedDateUTC'] = $value;
+
         return $this;
     }
-
-
 }

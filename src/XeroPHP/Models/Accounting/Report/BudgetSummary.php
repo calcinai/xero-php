@@ -1,10 +1,11 @@
 <?php
+
 namespace XeroPHP\Models\Accounting\Report;
 
 class BudgetSummary extends Report
 {
     /**
-     * Get the resource uri of the class (Contacts) etc
+     * Get the resource uri of the class (Contacts) etc.
      *
      * @return string
      */
@@ -12,5 +13,4 @@ class BudgetSummary extends Report
     {
         return 'Reports/BudgetSummary';
     }
-
 }
