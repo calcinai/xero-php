@@ -111,10 +111,11 @@ $newAccessToken = $provider->getAccessToken('refresh_token', [
 ## Interacting with the API
 
 Once you've got a valid access token and tenantId, you can instantiate a `XeroPHP\Application`.  All the examples below refer to models 
-in the `XeroPHP\Models\Accounting` namespace. Additionally, there are models for `PayrollAU`, `PayrollUS`, `Files`, and `Assets`
+in the `XeroPHP\Models\Accounting` namespace. Additionally, there are models for `PayrollAU`, `PayrollUS`, `Files`, and `Assets`.
+
+Refer to the [examples](examples) for more complex usage and nested/related objects.
 
 Create a XeroPHP instance (sample config included):
-
 ```php
 $xero = new \XeroPHP\Application($accessToken, $tenantId);
 ```
@@ -205,8 +206,6 @@ The [unit price decimal place precision](https://developer.xero.com/documentatio
 ```php
 $xero->setConfigOption('xero', 'unitdp', 3);
 ```
-
-Refer to the [examples](examples) for more complex usage and nested/related objects.  There's also [a sample PHP app](https://github.com/XeroAPI/xero-php-sample-app) using this library.
 
 ## Webhooks
 
