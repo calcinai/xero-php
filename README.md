@@ -111,15 +111,17 @@ $newAccessToken = $provider->getAccessToken('refresh_token', [
 ## Interacting with the API
 
 Once you've got a valid access token and tenantId, you can instantiate a `XeroPHP\Application`.  All the examples below refer to models 
-in the `XeroPHP\Models\Accounting` namespace. Additionally, there are models for `PayrollAU`, `PayrollUS`, `Files`, and `Assets`
+in the `XeroPHP\Models\Accounting` namespace. Additionally, there are models for `PayrollAU`, `PayrollUS`, `Files`, and `Assets`.
 
+Refer to the [examples](examples) for more complex usage and nested/related objects.
+
+### Instantiate an Application
 Create a XeroPHP instance (sample config included):
-
 ```php
 $xero = new \XeroPHP\Application($accessToken, $tenantId);
 ```
 
-Load a collection of objects and loop through them
+### Load a collection
 ```php
 $contacts = $xero->load(Contact::class)->execute();
 
@@ -128,6 +130,7 @@ foreach ($contacts as $contact) {
 }
 ```
 
+### Load a collection with pagination
 Load collection of objects, for a single page, and loop through them [(Why?)](<https://developer.xero.com/documentation/auth-and-limits/xero-api-limits#Systemlimits>)
 ```php
 $contacts = $xero->load(Contact::class)->page(1)->execute();
@@ -137,7 +140,8 @@ foreach ($contacts as $contact) {
 }
 ```
 
-Search for objects meeting certain criteria
+### Load a collection with WHERE filtering
+Search for objects meeting [certain criteria](https://developer.xero.com/documentation/api/invoices#optimised-parameters)
 ```php
 $xero->load(Invoice::class)
     ->where('Status', Invoice::INVOICE_STATUS_AUTHORISED)
@@ -145,12 +149,14 @@ $xero->load(Invoice::class)
     ->execute();
 ```
 
-Load something by its GUID
+### Load a specific resource
+Load resources by their GUID
 ```php
 $contact = $xero->loadByGUID(Contact::class, $guid);
 ```
 
-Or create & populate it
+### Create a new resource
+Populate resource parameters with their setters
 ```php
 $contact = new Contact($xero);
 
@@ -160,7 +166,7 @@ $contact->setName('Test Contact')
     ->setEmailAddress('test@example.com');
 ```
 
-Save it
+### Saving resources
 ```php
 $contact->save();
 ```
@@ -169,21 +175,17 @@ If you have created a number of objects of the same type, you can save them all 
 
 From v1.2.0+, Xero context can be injected directly when creating the objects themselves, which then exposes the ```->save()``` method.  This is necessary for the objects to maintain state with their relations.
 
-Saving related models
+### Saving related models
 
 If you are saving several models at once, by default additional model attributes are not updated. This means if you are saving an invoice with a new contact, the contacts `ContactID` is not updated. If you want the related models attributes to be updated you can pass a boolean flag with `true` to the save method.
 
 ```php
+$invoice = $xero->loadByGUID(Invoice::class, '[GUID]');
+$invoice->setContact($contact);
 $xero->save($invoice, true);
 ```
 
-Nested objects
-```php
-$invoice = $xero->loadByGUID(Invoice::class, '[GUID]');
-$invoice->setContact($contact);
-```
-
-Attachments
+### Attachments
 ```php
 $attachments = $invoice->getAttachments();
 foreach ($attachment as $attachment) {
@@ -198,9 +200,14 @@ $invoice->addAttachment($attachment);
 
 To set the `IncludeOnline` flag on the attachment, pass `true` as the second parameter for `->addAttachment()`.
 
-PDF - Models that support PDF export will inherit a ```->getPDF()``` method, which returns the raw content of the PDF.  Currently this is limited to Invoices and CreditNotes.
+### PDFs
+Models that support PDF export will inherit a ```->getPDF()``` method, which returns the raw content of the PDF.  Currently this is limited to Invoices and CreditNotes.
 
-Refer to the [examples](examples) for more complex usage and nested/related objects.  There's also [a sample PHP app](https://github.com/XeroAPI/xero-php-sample-app) using this library.
+### Unit price precision
+The [unit price decimal place precision](https://developer.xero.com/documentation/api-guides/rounding-in-xero) (the `unitdp` parameter) is set via a config option:
+```php
+$xero->setConfigOption('xero', 'unitdp', 3);
+```
 
 ## Webhooks
 
