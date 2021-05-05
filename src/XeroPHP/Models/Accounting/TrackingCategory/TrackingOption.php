@@ -1,5 +1,4 @@
 <?php
-
 namespace XeroPHP\Models\Accounting\TrackingCategory;
 
 use XeroPHP\Remote;
@@ -7,25 +6,25 @@ use XeroPHP\Remote;
 class TrackingOption extends Remote\Model
 {
     /**
-     * The Xero identifier for a tracking optione.g. ae777a87-5ef3-4fa0-a4f0-d10e1f13073a.
+     * The Xero identifier for a tracking optione.g. ae777a87-5ef3-4fa0-a4f0-d10e1f13073a
      *
      * @property string TrackingOptionID
      */
 
     /**
-     * The name of the tracking option e.g. Marketing, East (max length = 50).
+     * The name of the tracking option e.g. Marketing, East (max length = 50)
      *
      * @property string Name
      */
 
     /**
-     * The status of a tracking option.
+     * The status of a tracking option
      *
      * @property string Status
      */
 
     /**
-     * Get the resource uri of the class (Contacts) etc.
+     * Get the resource uri of the class (Contacts) etc
      *
      * @return string
      */
@@ -35,17 +34,17 @@ class TrackingOption extends Remote\Model
     }
 
     /**
-     * Get the root node name.  Just the unqualified classname.
+     * Get the root node name.  Just the unqualified classname
      *
      * @return string
      */
     public static function getRootNodeName()
     {
-        return 'Option';
+        return '';
     }
 
     /**
-     * Get the guid property.
+     * Get the guid property
      *
      * @return string
      */
@@ -55,7 +54,7 @@ class TrackingOption extends Remote\Model
     }
 
     /**
-     * Get the stem of the API (core.xro) etc.
+     * Get the stem of the API (core.xro) etc
      *
      * @return string|null
      */
@@ -65,11 +64,13 @@ class TrackingOption extends Remote\Model
     }
 
     /**
-     * Get the supported methods.
+     * Get the supported methods
      */
     public static function getSupportedMethods()
     {
         return [
+            Remote\Request::METHOD_POST,
+            Remote\Request::METHOD_DELETE
         ];
     }
 
@@ -79,7 +80,7 @@ class TrackingOption extends Remote\Model
      *  [1] - Type
      *  [2] - PHP type
      *  [3] - Is an Array
-     *  [4] - Saves directly.
+     *  [4] - Saves directly
      *
      * @return array
      */
@@ -88,7 +89,7 @@ class TrackingOption extends Remote\Model
         return [
             'TrackingOptionID' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
             'Name' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
-            'Status' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'Status' => [false, self::PROPERTY_TYPE_STRING, null, false, false]
         ];
     }
 
@@ -107,14 +108,12 @@ class TrackingOption extends Remote\Model
 
     /**
      * @param string $value
-     *
      * @return TrackingOption
      */
     public function setTrackingOptionID($value)
     {
         $this->propertyUpdated('TrackingOptionID', $value);
         $this->_data['TrackingOptionID'] = $value;
-
         return $this;
     }
 
@@ -128,14 +127,12 @@ class TrackingOption extends Remote\Model
 
     /**
      * @param string $value
-     *
      * @return TrackingOption
      */
     public function setName($value)
     {
         $this->propertyUpdated('Name', $value);
         $this->_data['Name'] = $value;
-
         return $this;
     }
 
@@ -149,14 +146,12 @@ class TrackingOption extends Remote\Model
 
     /**
      * @param string $value
-     *
      * @return TrackingOption
      */
     public function setStatus($value)
     {
         $this->propertyUpdated('Status', $value);
         $this->_data['Status'] = $value;
-
         return $this;
     }
 }
