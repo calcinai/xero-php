@@ -16,7 +16,6 @@ class Application
     protected static $_config_defaults = [
         'xero' => [
             'base_url' => 'https://api.xero.com/',
-
             'core_version' => '2.0',
             'payroll_version' => '1.0',
             'file_version' => '1.0',
@@ -188,7 +187,7 @@ class Application
         /** @var Remote\Model $class */
         $class = $this->validateModelClass($model);
 
-        if(!$guid){
+        if (!$guid) {
             throw new Remote\Exception\NotFoundException;
         }
 
@@ -229,7 +228,7 @@ class Application
         /** @var $class Remote\Model */
         $class = $this->validateModelClass($model);
 
-        if(empty($guids)){
+        if (empty($guids)) {
             return [];
         }
 
@@ -300,12 +299,19 @@ class Application
             throw new Exception(sprintf('%s doesn\'t support [%s] via the API', get_class($object), $method));
         }
 
-        //Put in an array with the first level containing only the 'root node'.
         $data = [$object::getRootNodeName() => $object->toStringArray(true)];
+
         $url = new URL($this, $uri, $object::getAPIStem());
         $request = new Request($this, $url, $method);
 
-        $request->setBody(Helpers::arrayToXML($data))->send();
+        if (strpos($url->getFullURL(), 'projects.xro')) {
+            $data = collect($data)->toJson();
+
+            $request->setBody($data, 'application/json')->send();
+        } else
+            $request->setBody(Helpers::arrayToXML($data))->send();
+
+
         $response = $request->getResponse();
 
         if (false !== $element = current($response->getElements())) {
@@ -317,6 +323,67 @@ class Application
         return $response;
     }
 
+    /**
+     * @param Remote\Model $object
+     * @param bool $replace_data
+     *
+     * @throws Exception
+     *
+     * @return Remote\Response|null
+     */
+    public function saveCustom(Remote\Model $object, $replace_data = false)
+    {
+
+        //Saves any properties that don't want to be included in the normal loop
+        //(special saving endpoints)
+        $this->savePropertiesDirectly($object);
+
+        if (!$object->isDirty()) {
+            return null;
+        }
+
+        $object->validate();
+
+        if ($object->hasGUID()) {
+            $method = $object::supportsMethod(Request::METHOD_POST) ? Request::METHOD_POST : Request::METHOD_PUT;
+            $uri = sprintf('%s/%s', $object::getResourceURI(), $object->getGUID());
+        } else {
+            //In this case it's new
+            $method = $object::supportsMethod(Request::METHOD_PUT) ? Request::METHOD_PUT : Request::METHOD_POST;
+            $uri = $object::getResourceURI();
+            //@todo, bump version so you must create objects with app context.
+            $object->setApplication($this);
+        }
+
+        if (!$object::supportsMethod($method)) {
+            throw new Exception(sprintf('%s doesn\'t support [%s] via the API', get_class($object), $method));
+        }
+
+        $standard = $object->toStringArray();
+
+        $nested = json_decode($standard['rate']);
+
+        $standard = collect([
+            "name" => $standard['name'],
+            "rate" => [
+                "currency" =>  $nested->currency,
+                "value" => $nested->value,
+            ],
+            "chargeType" => $standard['charge_type'],
+        ]);
+
+        $data = $standard->toJson();
+        $url = new URL($this, $uri, $object::getAPIStem());
+        $request = new Request($this, $url, $method);
+        $request->setBody($data, 'application/json')->sendCustom($object->getProjectId());
+        $response = $request->getResponse();
+
+
+        //Mark the object as clean since no exception was thrown
+        $object->setClean();
+
+        return $response;
+    }
     /**
      * @param array|Collection $objects
      * @param mixed $checkGuid

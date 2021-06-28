@@ -22,6 +22,8 @@ class URL
 
     const API_ASSET = 'assets.xro';
 
+    const API_PROJECTS = 'projects.xro';
+
     const OAUTH_REQUEST_TOKEN = 'RequestToken';
 
     const OAUTH_ACCESS_TOKEN = 'AccessToken';
@@ -48,6 +50,8 @@ class URL
      */
     public function __construct(Application $app, $endpoint, $api = null)
     {
+
+
         //Handle full URLs and pull them back apart.
         //Annoying internal references are http??? and absolute.
         if (strpos($endpoint, 'http') === 0) {
@@ -73,15 +77,15 @@ class URL
             switch ($api) {
                 case self::API_CORE:
                     $version = $xero_config['core_version'];
-
                     break;
                 case self::API_PAYROLL:
                     $version = $xero_config['payroll_version'];
-
                     break;
                 case self::API_FILE:
                     $version = $xero_config['file_version'];
-
+                    break;
+                case self::API_PROJECTS:
+                    $version = '2.0';
                     break;
                 default:
                     throw new Exception('Invalid API passed to XeroPHP\\URL::__construct(). Must be XeroPHP\\URL::API_*');
@@ -96,6 +100,7 @@ class URL
      */
     public function getFullURL()
     {
+
         return sprintf('%s/%s', $this->base_url, $this->path);
     }
 }

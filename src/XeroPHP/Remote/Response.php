@@ -111,8 +111,8 @@ class Response
                 throw new BadRequestException();
 
 
-            /** @noinspection PhpMissingBreakStatementInspection */
-            // no break
+                /** @noinspection PhpMissingBreakStatementInspection */
+                // no break
             case self::STATUS_UNAUTHORISED:
                 //This is where OAuth errors end up, this could maybe change to an OAuth exception
                 if (isset($this->oauth_response['oauth_problem_advice'])) {
@@ -120,8 +120,10 @@ class Response
                 }
 
                 $response = urldecode($this->response_body);
-                if (false !== stripos($response,
-                        'You are not permitted to access this resource without the reporting role or higher privileges')) {
+                if (false !== stripos(
+                    $response,
+                    'You are not permitted to access this resource without the reporting role or higher privileges'
+                )) {
                     throw new ReportPermissionMissingException();
                 }
                 throw new ForbiddenException();
@@ -259,7 +261,6 @@ class Response
                 default:
                     //Try the next content type
                     continue 2;
-
             }
 
             foreach ($this->elements as $index => $element) {
@@ -359,6 +360,9 @@ class Response
 
                     break;
                 case 'Payslip':
+                case 'items':
+                    $this->elements = $root_child;
+                    break;
                 case 'PayItems':
                     // some xero endpoints are 1D so we can parse them straight away
                     $this->elements[] = $root_child;
@@ -368,7 +372,7 @@ class Response
                 default:
                     //Happy to make the assumption that there will only be one
                     //root node with > than 2D children.
-                    if (is_array($root_child)) {
+                    if (($child_index != 'pagination') && (is_array($root_child))) {
                         foreach ($root_child as $element) {
                             $this->elements[] = $element;
                         }
