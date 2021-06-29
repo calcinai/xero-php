@@ -123,6 +123,8 @@ class Query
                 )
             ) {
                 $this->where[] = sprintf('%s=Guid("%s")', $args[0], $args[1]);
+            } elseif (preg_match('/^DateTime\(.+\)$/', $args[1])) {
+                $this->where[] = sprintf('%s==%s', $args[0], $args[1]);
             } else {
                 $this->where[] = sprintf('%s=="%s"', $args[0], $args[1]);
             }
