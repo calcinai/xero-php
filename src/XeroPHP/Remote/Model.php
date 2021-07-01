@@ -233,6 +233,7 @@ abstract class Model implements ObjectInterface, \JsonSerializable, \ArrayAccess
                 if ($cast instanceof self) {
                     $cast->addAssociatedObject($property, $this);
                 }
+                $this->propertyUpdated($property, $cast);
                 $this->_data[$property] = $cast;
             }
         }
