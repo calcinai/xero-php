@@ -54,6 +54,12 @@ class Payment extends Remote\Model
      *
      * @property string Reference
      */
+    
+    /**
+     * An optional description for the payment used only when Payment is a child of BatchPayment.
+     *
+     * @property string Details
+     */
 
     /**
      * An optional parameter for the payment. A boolean indicating whether you would like the payment to be
@@ -187,6 +193,7 @@ class Payment extends Remote\Model
             'CurrencyRate' => [false, self::PROPERTY_TYPE_FLOAT, null, false, false],
             'Amount' => [false, self::PROPERTY_TYPE_FLOAT, null, false, false],
             'Reference' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'Details' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
             'IsReconciled' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
             'Status' => [false, self::PROPERTY_TYPE_ENUM, null, false, false],
             'PaymentType' => [false, self::PROPERTY_TYPE_ENUM, null, false, false],
@@ -389,6 +396,27 @@ class Payment extends Remote\Model
         return $this;
     }
 
+    /**
+     * @return string
+     */
+    public function getDetails()
+    {
+        return $this->_data['Details'];
+    }
+
+    /**
+     * @param string $value
+     *
+     * @return Payment
+     */
+    public function setDetails($value)
+    {
+        $this->propertyUpdated('Details', $value);
+        $this->_data['Details'] = $value;
+
+        return $this;
+    }
+    
     /**
      * @return string
      */
