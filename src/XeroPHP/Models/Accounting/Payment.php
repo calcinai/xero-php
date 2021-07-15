@@ -56,7 +56,7 @@ class Payment extends Remote\Model
      */
     
     /**
-     * An optional description for the payment used only when Payment is a child of BatchPayment.
+     * An optional description to appear on a payee bank statement when Payment is a child of BatchPayment.
      *
      * @property string Details
      */
