@@ -565,16 +565,28 @@ class Contact extends Remote\Model
     {
         return $this->_data['BankAccountDetails'];
     }
-
+    
     /**
      * @param string $value
      *
      * @return Contact
      */
-    public function setBankAccountDetail($value)
+    public function setBankAccountDetails($value)
     {
         $this->propertyUpdated('BankAccountDetails', $value);
         $this->_data['BankAccountDetails'] = $value;
+
+        return $this;
+    }
+
+    /**
+     * @param string $value
+     * @deprecated Use setBankAccountDetails
+     * @return Contact
+     */
+    public function setBankAccountDetail($value)
+    {
+        $this->setBankAccountDetails($value);
 
         return $this;
     }
