@@ -14,8 +14,7 @@ use XeroPHP\Models\PayrollAU\Payslip\TimesheetEarningsLine;
 class Helpers
 {
     const PACKAGE_NAME         = 'calcinai/xero-php';
-    const PACKAGE_VERSION_FILE = '/VERSION';
-    const DEFAULT_VERSION      = 'v2.2.1';
+    const DEFAULT_VERSION      = 'v2.2.4';
 
     /**
      * Convert a multi-d assoc array into an xml representation.
@@ -267,16 +266,14 @@ class Helpers
 
 
     /**
-     * TODO drop PHP5 and use packageVersions package
-     *
-     * @return bool|false|string
+     * @return string
      */
     public static function getPackageVersion()
     {
-        if (!file_exists(self::PACKAGE_VERSION_FILE)) {
+        if (!is_callable('\\Composer\\InstalledVersions::getPrettyVersion')) {
             return self::DEFAULT_VERSION;
         }
 
-        return file_get_contents(self::PACKAGE_VERSION_FILE);
+        return \Composer\InstalledVersions::getPrettyVersion(self::PACKAGE_NAME);
     }
 }
