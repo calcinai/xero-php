@@ -230,17 +230,17 @@ class Invoice extends Remote\Model
     const INVOICE_STATUS_VOIDED = 'VOIDED';
 
     /**
-     * @deprecated Use \XeroPHP\Models\Accounting\LineItem::LINEAMOUNT_TYPE_EXCLUSIVE instead.
+     * @deprecated Use \XeroPHP\Models\Accounting\LineItem::TYPE_EXCLUSIVE instead.
      */
     const LINEAMOUNT_TYPE_EXCLUSIVE = 'Exclusive';
 
     /**
-     * @deprecated Use \XeroPHP\Models\Accounting\LineItem::LINEAMOUNT_TYPE_INCLUSIVE instead.
+     * @deprecated Use \XeroPHP\Models\Accounting\LineItem::TYPE_INCLUSIVE instead.
      */
     const LINEAMOUNT_TYPE_INCLUSIVE = 'Inclusive';
 
     /**
-     * @deprecated Use \XeroPHP\Models\Accounting\LineItem::LINEAMOUNT_TYPE_NOTAX instead.
+     * @deprecated Use \XeroPHP\Models\Accounting\LineItem::TYPE_NOTAX instead.
      */
     const LINEAMOUNT_TYPE_NOTAX = 'NoTax';
 
