@@ -125,7 +125,7 @@ class History extends Model
     }
 
     /**
-     * @return mixed
+     * @return bool
      */
     public static function isPageable()
     {

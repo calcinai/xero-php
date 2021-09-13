@@ -41,7 +41,7 @@ class URL
     /**
      * @param Application $app
      * @param $endpoint
-     * @param null $api
+     * @param string|null $api
      *
      * @throws Exception
      * @throws \XeroPHP\Exception

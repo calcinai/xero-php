@@ -183,7 +183,7 @@ class DeductionLine extends Remote\Model
     /**
      * @param float $value
      *
-     * @return PayTemplate
+     * @return DeductionLine
      */
     public function setAmount($value)
     {

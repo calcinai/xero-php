@@ -101,7 +101,7 @@ class EmployeeGroup extends Remote\Model
     /**
      * @param string $value
      *
-     * @return TrackingCategory
+     * @return EmployeeGroup
      */
     public function setTrackingCategoryID($value)
     {
@@ -122,7 +122,7 @@ class EmployeeGroup extends Remote\Model
     /**
      * @param string $value
      *
-     * @return TrackingCategory
+     * @return EmployeeGroup
      */
     public function setTrackingCategoryName($value)
     {

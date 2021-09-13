@@ -184,7 +184,7 @@ class PaymentService extends Remote\Model
 
     /**
      * @param string $value
-     * @return Contact
+     * @return PaymentService
      */
     public function setPaymentServiceUrl($value)
     {
@@ -203,7 +203,7 @@ class PaymentService extends Remote\Model
 
     /**
      * @param string $value
-     * @return Contact
+     * @return PaymentService
      */
     public function setPayNowText($value)
     {

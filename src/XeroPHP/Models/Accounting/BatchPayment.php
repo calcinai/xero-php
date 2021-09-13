@@ -147,7 +147,7 @@ class BatchPayment extends Remote\Model
 
     /**
      * @param Account $value
-     * @return Payment
+     * @return BatchPayment
      */
     public function setAccount(Account $value)
     {
