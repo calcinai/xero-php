@@ -310,7 +310,7 @@ class Employee extends Remote\Model
     }
 
     /**
-     * @return string
+     * @return Employee
      */
     public function setEmployeeID($value)
     {

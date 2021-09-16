@@ -68,7 +68,7 @@ class DeductionLine extends Remote\Model
     /**
      * Get the stem of the API (core.xro) etc.
      *
-     * @return string|null
+     * @return string
      */
     public static function getAPIStem()
     {
@@ -183,7 +183,7 @@ class DeductionLine extends Remote\Model
     /**
      * @param float $value
      *
-     * @return PayTemplate
+     * @return DeductionLine
      */
     public function setAmount($value)
     {

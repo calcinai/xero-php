@@ -223,7 +223,7 @@ class Application
      * @throws Exception
      * @throws Remote\Exception\NotFoundException
      *
-     * @return Collection
+     * @return Collection|array
      */
     public function loadByGUIDs($model, $guids)
     {
