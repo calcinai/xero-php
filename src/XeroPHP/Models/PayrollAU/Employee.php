@@ -170,6 +170,12 @@ class Employee extends Remote\Model
      */
 
     /**
+     * Employee Termination Reason
+     *
+     * @property string TerminationReason
+     */
+
+    /**
      * Xero unique identifier for an Employee.
      *
      * @property string EmployeeID
@@ -296,6 +302,7 @@ class Employee extends Remote\Model
             'LeaveBalances' => [false, self::PROPERTY_TYPE_OBJECT, 'PayrollAU\\Employee\\LeaveBalance', true, false],
             'SuperMemberships' => [false, self::PROPERTY_TYPE_OBJECT, 'PayrollAU\\Employee\\SuperMembership', true, false],
             'TerminationDate' => [false, self::PROPERTY_TYPE_DATE, '\\DateTimeInterface', false, false],
+            'TerminationReason' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
             'EmployeeID' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
             'Status' => [false, self::PROPERTY_TYPE_ENUM, null, false, false],
             'UpdatedDateUTC' => [false, self::PROPERTY_TYPE_TIMESTAMP, '\\DateTimeInterface', false, false],
@@ -845,6 +852,27 @@ class Employee extends Remote\Model
     {
         $this->propertyUpdated('TerminationDate', $value);
         $this->_data['TerminationDate'] = $value;
+
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getTerminationReason()
+    {
+        return $this->_data['TerminationReason'];
+    }
+
+    /**
+     * @param string $value
+     *
+     * @return Employee
+     */
+    public function setTerminationReason($value)
+    {
+        $this->propertyUpdated('TerminationReason', $value);
+        $this->_data['TerminationReason'] = $value;
 
         return $this;
     }
