@@ -11,3 +11,6 @@ composer.lock
 composer.phar
 build
 .php_cs.cache
+invoice_log.txt
+privatekey.pem
+public_privatekey.pfx
