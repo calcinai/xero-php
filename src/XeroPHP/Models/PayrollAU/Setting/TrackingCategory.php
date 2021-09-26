@@ -7,15 +7,15 @@ use XeroPHP\Remote;
 class TrackingCategory extends Remote\Model
 {
     /**
-     * Xero tracking category identifier. e.g c56b19ef-75bf-45e8-98a4-e699a96609f7.
+     * Employee Groups tracking category
      *
-     * @property string TrackingCategoryID
+     * @property EmployeeGroup employeeGroups
      */
 
     /**
-     * Name of tracking category.
+     * Timesheet Categories tracking category
      *
-     * @property string TrackingCategoryName
+     * @property TimesheetCategory timesheetCategories
      */
 
     /**
@@ -39,19 +39,18 @@ class TrackingCategory extends Remote\Model
     }
 
     /**
-     * Get the guid property.
+     * Get the guid property. This model doesn't have one.
      *
      * @return string
      */
-    public static function getGUIDProperty()
-    {
-        return 'TrackingCategoryID';
+    public static function getGUIDProperty() {
+        return '';
     }
 
     /**
      * Get the stem of the API (core.xro) etc.
      *
-     * @return string|null
+     * @return string
      */
     public static function getAPIStem()
     {
@@ -64,6 +63,7 @@ class TrackingCategory extends Remote\Model
     public static function getSupportedMethods()
     {
         return [
+            Remote\Request::METHOD_GET
         ];
     }
 
@@ -80,8 +80,8 @@ class TrackingCategory extends Remote\Model
     public static function getProperties()
     {
         return [
-            'TrackingCategoryID' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
-            'TrackingCategoryName' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'EmployeeGroups' => [false, self::PROPERTY_TYPE_OBJECT, 'PayrollAU\\Setting\\EmployeeGroup', false, false],
+            'TimesheetCategories' => [false, self::PROPERTY_TYPE_OBJECT, 'PayrollAU\\Setting\\TimesheetCategory', false, false],
         ];
     }
 
@@ -93,42 +93,17 @@ class TrackingCategory extends Remote\Model
     /**
      * @return string
      */
-    public function getTrackingCategoryID()
+    public function getEmployeeGroups()
     {
-        return $this->_data['TrackingCategoryID'];
-    }
-
-    /**
-     * @param string $value
-     *
-     * @return TrackingCategory
-     */
-    public function setTrackingCategoryID($value)
-    {
-        $this->propertyUpdated('TrackingCategoryID', $value);
-        $this->_data['TrackingCategoryID'] = $value;
-
-        return $this;
+        return $this->_data['EmployeeGroups'];
     }
 
     /**
      * @return string
      */
-    public function getTrackingCategoryName()
+    public function getTimesheetCategories()
     {
-        return $this->_data['TrackingCategoryName'];
+        return $this->_data['TimesheetCategories'];
     }
 
-    /**
-     * @param string $value
-     *
-     * @return TrackingCategory
-     */
-    public function setTrackingCategoryName($value)
-    {
-        $this->propertyUpdated('TrackingCategoryName', $value);
-        $this->_data['TrackingCategoryName'] = $value;
-
-        return $this;
-    }
 }

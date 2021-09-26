@@ -66,7 +66,7 @@ abstract class Model implements ObjectInterface, \JsonSerializable, \ArrayAccess
      * Holds a ref to the application that was used to load the object,
      * enables shorthand $object->save();.
      *
-     * @var Application
+     * @var Application|null
      */
     protected $_application;
 
@@ -442,7 +442,7 @@ abstract class Model implements ObjectInterface, \JsonSerializable, \ArrayAccess
      *
      * @throws Exception
      *
-     * @return Response|null
+     * @return Response
      */
     public function delete()
     {
@@ -544,7 +544,7 @@ abstract class Model implements ObjectInterface, \JsonSerializable, \ArrayAccess
     /**
      * JSON Encode overload to pull out hidden properties.
      *
-     * @return string
+     * @return array
      */
     public function jsonSerialize()
     {

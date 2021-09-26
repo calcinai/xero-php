@@ -15,8 +15,13 @@ class DeductionLine extends Remote\Model
     /**
      * See Deduction Type Calculation Type.
      *
-     * @property float CalculationType
+     * @property string CalculationType
      */
+    const DEDUCTION_TYPE_FIXEDAMOUNT = "FIXEDAMOUNT";
+
+    const DEDUCTION_TYPE_PRETAX = "PRETAX";
+
+    const DEDUCTION_TYPE_POSTTAX = "POSTTAX";
 
     /**
      * The percentage of deduction line.
@@ -57,13 +62,13 @@ class DeductionLine extends Remote\Model
      */
     public static function getGUIDProperty()
     {
-        return '';
+        return 'DeductionTypeID';
     }
 
     /**
      * Get the stem of the API (core.xro) etc.
      *
-     * @return string|null
+     * @return string
      */
     public static function getAPIStem()
     {
@@ -92,8 +97,8 @@ class DeductionLine extends Remote\Model
     public static function getProperties()
     {
         return [
-            'DeductionTypeID' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
-            'CalculationType' => [false, self::PROPERTY_TYPE_FLOAT, null, false, false],
+            'DeductionTypeID' => [false, self::PROPERTY_TYPE_GUID, null, false, false],
+            'CalculationType' => [false, self::PROPERTY_TYPE_ENUM, null, false, false],
             'Percentage' => [false, self::PROPERTY_TYPE_FLOAT, null, false, false],
             'Amount' => [false, self::PROPERTY_TYPE_FLOAT, null, true, false],
         ];
@@ -178,7 +183,7 @@ class DeductionLine extends Remote\Model
     /**
      * @param float $value
      *
-     * @return PayTemplate
+     * @return DeductionLine
      */
     public function setAmount($value)
     {
