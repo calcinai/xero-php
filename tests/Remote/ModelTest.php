@@ -5,9 +5,9 @@ namespace XeroPHP\Tests\Remote;
 use GuzzleHttp\Client;
 use GuzzleHttp\Handler\MockHandler;
 use GuzzleHttp\HandlerStack;
-use GuzzleHttp\Psr7\Request as GuzzleRequest;
 use GuzzleHttp\Psr7\Response;
 use XeroPHP\Application;
+use XeroPHP\Remote\Collection;
 use XeroPHP\Remote\Model;
 use XeroPHP\Tests\Remote\Model\ModelWithCollection;
 
@@ -64,7 +64,8 @@ class ModelTest extends \PHPUnit_Framework_TestCase
 
         $model = $app->loadByGUID(ModelWithCollection::class, 'test');
         $this->assertSame('test', $model->getModelID());
-        $this->assertNull($model->getEarningsLines());
+        $this->assertInstanceOf(Collection::class, $model->getEarningsLines());
+        $this->assertEquals(0, count($model->getEarningsLines()));
     }
 }
 
@@ -77,7 +78,9 @@ class SimpleModel extends Model
 
     public static function getProperties()
     {
-        return ['test'];
+        return [
+            'test' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+        ];
     }
 
     public static function getSupportedMethods()
@@ -105,7 +108,7 @@ class SimpleModel extends Model
      */
     public function getTest()
     {
-        return isset($this->_data['test']) ? $this->_data['test'] : null;
+        return $this->_data['test'];
     }
 
     /**
