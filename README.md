@@ -59,7 +59,7 @@ if (!isset($_GET['code'])) {
     // Add/edit contacts: accounting.contacts
     // Add/edit attachments accounting.attachments
     // Refresh tokens for non-interactive re-authorisation: offline_access
-    // See all [Xero Scopes](<https://developer.xero.com/documentation/guides/oauth2/scopes/>)
+    // See all Xero Scopes https://developer.xero.com/documentation/guides/oauth2/scopes/
     $authUrl = $provider->getAuthorizationUrl([
         'scope' => 'openid email profile accounting.transactions'
     ]);
@@ -106,8 +106,8 @@ $authUrl = $provider->getAuthorizationUrl([
  ```
  
 ### Refreshing a token
-// Requires scope offline_access
 ```php
+// Requires scope offline_access
 $newAccessToken = $provider->getAccessToken('refresh_token', [
     'refresh_token' => $existingAccessToken->getRefreshToken()
 ]);
@@ -179,8 +179,8 @@ $contact->setName('Test Contact')
 ```
 
 ### Saving resources
-// Requires scope accounting.contacts to add/edit contacts
 ```php
+// Requires scope accounting.contacts to add/edit contacts
 $contact->save();
 ```
 
