@@ -54,6 +54,12 @@ $provider = new \Calcinai\OAuth2\Client\Provider\Xero([
 if (!isset($_GET['code'])) {
 
     // If we don't have an authorization code then get one
+    // Additional scopes may be required depending on your application
+    // additional common scopes are:
+    // Add/edit contacts: accounting.contacts
+    // Add/edit attachments accounting.attachments
+    // Refresh tokens for non-interactive re-authorisation: offline_access
+    // See all [Xero Scopes](<https://developer.xero.com/documentation/guides/oauth2/scopes/>)
     $authUrl = $provider->getAuthorizationUrl([
         'scope' => 'openid email profile accounting.transactions'
     ]);
@@ -100,7 +106,7 @@ $authUrl = $provider->getAuthorizationUrl([
  ```
  
 ### Refreshing a token
-
+// Requires scope offline_access
 ```php
 $newAccessToken = $provider->getAccessToken('refresh_token', [
     'refresh_token' => $existingAccessToken->getRefreshToken()
@@ -173,6 +179,7 @@ $contact->setName('Test Contact')
 ```
 
 ### Saving resources
+// Requires scope accounting.contacts to add/edit contacts
 ```php
 $contact->save();
 ```
@@ -200,6 +207,7 @@ foreach ($attachment as $attachment) {
 }
 
 //You can also upload attachemnts
+// Requires scope accounting.attachments
 $attachment = Attachment::createFromLocalFile('/path/to/image.jpg');
 $invoice->addAttachment($attachment);
 ```
