@@ -123,7 +123,8 @@ class PayrollCalendar extends Remote\Model
             'CalendarType' => [true, self::PROPERTY_TYPE_ENUM, null, false, false],
             'StartDate' => [true, self::PROPERTY_TYPE_DATE, '\\DateTimeInterface', false, false],
             'PaymentDate' => [true, self::PROPERTY_TYPE_DATE, '\\DateTimeInterface', false, false],
-            'UpdatedDateUTC' => [false, self::PROPERTY_TYPE_DATE, '\\DateTimeInterface', false, false]
+            'UpdatedDateUTC' => [false, self::PROPERTY_TYPE_DATE, '\\DateTimeInterface', false, false],
+            'ReferenceDate' => [false, self::PROPERTY_TYPE_DATE, '\\DateTimeInterface', false, false]
         ];
     }
 
@@ -243,5 +244,13 @@ class PayrollCalendar extends Remote\Model
     public function getUpdatedDateUTC()
     {
         return $this->_data['UpdatedDateUTC'];
+    }
+    
+    /**
+     * return \DateTimeInterface
+     */
+    public function getReferenceDate()
+    {
+        return $this->_data['ReferenceDate'];
     }
 }
