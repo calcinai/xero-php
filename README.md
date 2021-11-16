@@ -122,6 +122,7 @@ $provider = new \Calcinai\OAuth2\Client\Provider\Xero([
     'clientSecret'      => '{xero-client-secret}',
 ]);
 $token = $provider->getAccessToken('client_credentials');
+$tenants = $provider->getTenants($token);
 ```
 
 ## Interacting with the API
