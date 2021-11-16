@@ -113,6 +113,16 @@ $newAccessToken = $provider->getAccessToken('refresh_token', [
 ]);
 ```
 
+### Client credentials flow (custom connections)
+You can utilise the client credentials grant type by creating a ["Custom Connection"](https://developer.xero.com/documentation/guides/oauth2/custom-connections/). Once you have your client credentials, usage is the same as The League's OAuth client. You can select your scopes when configuring your Custom Connection.
+
+```php
+$provider = new \Calcinai\OAuth2\Client\Provider\Xero([
+    'clientId'          => '{xero-client-id}',
+    'clientSecret'      => '{xero-client-secret}',
+]);
+$token = $provider->getAccessToken('client_credentials');
+```
 
 ## Interacting with the API
 
