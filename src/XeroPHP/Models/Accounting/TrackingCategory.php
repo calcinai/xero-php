@@ -203,6 +203,26 @@ class TrackingCategory extends Remote\Model
     /**
      * @return string
      */
+    public function getTrackingOptionID()
+    {
+        return $this->_data['TrackingOptionID'];
+    }
+ 
+    /**
+     * @param string $value
+     *
+     * @return TrackingCategory
+     */
+    public function setTrackingOptionID($value)
+    {
+        $this->propertyUpdated('TrackingOptionID', $value);
+        $this->_data['TrackingOptionID'] = $value;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
     public function getStatus()
     {
         return $this->_data['Status'];
