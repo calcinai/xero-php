@@ -112,6 +112,7 @@ class TrackingCategory extends Remote\Model
             'Name' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
             'TrackingCategoryName' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
             'TrackingOptionName' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'TrackingOptionID' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
             'Status' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
             'Options' => [false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\TrackingCategory\\TrackingOption', true, true],
             'Option' => [false, self::PROPERTY_TYPE_STRING, null, false, true],
