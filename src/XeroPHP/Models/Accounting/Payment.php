@@ -495,4 +495,28 @@ class Payment extends Remote\Model
 
         return $this;
     }
+
+    /**
+    * @return string
+    */
+    public function getBankAccountNumber()
+    {
+        return $this->_data['BankAccountNumber'];
+    }
+
+    /**
+    * @return string
+    */
+    public function getParticulars()
+    {
+        return $this->_data['Particulars'];
+    }
+
+    /**
+    * @return string
+    */
+    public function getCode()
+    {
+        return $this->_data['Code'];
+    }
 }
