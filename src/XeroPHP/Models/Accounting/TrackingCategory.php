@@ -112,6 +112,7 @@ class TrackingCategory extends Remote\Model
             'Name' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
             'TrackingCategoryName' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
             'TrackingOptionName' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'TrackingOptionID' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
             'Status' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
             'Options' => [false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\TrackingCategory\\TrackingOption', true, true],
             'Option' => [false, self::PROPERTY_TYPE_STRING, null, false, true],
@@ -196,6 +197,26 @@ class TrackingCategory extends Remote\Model
     {
         $this->propertyUpdated('TrackingOptionName', $value);
         $this->_data['TrackingOptionName'] = $value;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getTrackingOptionID()
+    {
+        return $this->_data['TrackingOptionID'];
+    }
+ 
+    /**
+     * @param string $value
+     *
+     * @return TrackingCategory
+     */
+    public function setTrackingOptionID($value)
+    {
+        $this->propertyUpdated('TrackingOptionID', $value);
+        $this->_data['TrackingOptionID'] = $value;
         return $this;
     }
 
