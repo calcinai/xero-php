@@ -234,6 +234,21 @@ The [unit price decimal place precision](https://developer.xero.com/documentatio
 $xero->setConfigOption('xero', 'unitdp', 3);
 ```
 
+## Practice Manager
+
+If requiring the "practicemanager" scope please query models using the following syntax
+
+```php
+$clients = $xero->load(\XeroPHP\Models\PracticeManager\Client::class)
+            ->setParameter('detailed', true)
+            ->setParameter('modifiedsince', date('Y-m-d\TH:i:s', strtotime('- 1 week')))
+            ->execute();
+
+foreach ($clients as $client) {
+    $name = $client->getName();
+}
+```
+
 ## Webhooks
 
 If you are receiving webhooks from Xero there is `Webhook` class that can help with handling the request and parsing the associated event list.
