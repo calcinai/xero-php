@@ -149,8 +149,9 @@ class Event
         if ($this->getEventCategory() === 'CONTACT') {
             return \XeroPHP\Models\Accounting\Contact::class;
         }
-
-
+        if ($this->getEventCategory() === 'SUBSCRIPTION') {
+            return \XeroPHP\Models\Subscription::class;
+        }
     }
 
     /**
