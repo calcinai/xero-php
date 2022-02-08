@@ -3,6 +3,7 @@
 namespace XeroPHP\Models\Accounting;
 
 use XeroPHP\Remote;
+use XeroPHP\Traits\AttachmentTrait;
 use XeroPHP\Traits\PDFTrait;
 use XeroPHP\Traits\HistoryTrait;
 use XeroPHP\Models\Accounting\LineItem;
@@ -10,6 +11,7 @@ use XeroPHP\Models\Accounting\LineItem;
 class Quote extends Remote\Model
 {
     use PDFTrait;
+    use AttachmentTrait;
     use HistoryTrait;
 
     /**
