@@ -541,51 +541,28 @@ abstract class Model implements ObjectInterface, \JsonSerializable, \ArrayAccess
         return in_array($method, static::getSupportedMethods(), true);
     }
 
-    /**
-     * JSON Encode overload to pull out hidden properties.
-     *
-     * @return array
-     */
-    public function jsonSerialize()
+    /** JSON Encode overload to pull out hidden properties. */
+    public function jsonSerialize(): mixed
     {
         return $this->toStringArray();
     }
 
-    /**
-     * @param mixed $offset
-     *
-     * @return bool
-     */
-    public function offsetExists($offset)
+    public function offsetExists(mixed $offset): bool
     {
         return $this->__isset($offset);
     }
 
-    /**
-     * @param mixed $offset
-     *
-     * @return mixed
-     */
-    public function offsetGet($offset)
+    public function offsetGet(mixed $offset): mixed
     {
         return $this->__get($offset);
     }
 
-    /**
-     * @param mixed $offset
-     * @param mixed $value
-     *
-     * @return mixed
-     */
-    public function offsetSet($offset, $value)
+    public function offsetSet(mixed $offset, mixed $value): void
     {
-        return $this->__set($offset, $value);
+        $this->__set($offset, $value);
     }
 
-    /**
-     * @param mixed $offset
-     */
-    public function offsetUnset($offset)
+    public function offsetUnset(mixed $offset): void
     {
         unset($this->_data[$offset]);
     }
