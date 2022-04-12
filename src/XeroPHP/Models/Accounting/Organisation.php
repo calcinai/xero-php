@@ -950,4 +950,12 @@ class Organisation extends Remote\Model
     {
         return $this->_data['OrganisationID'];
     }
+
+    /**
+     * @return string
+     */
+    public function getClass()
+    {
+        return $this->_data['Class'];
+    }
 }
