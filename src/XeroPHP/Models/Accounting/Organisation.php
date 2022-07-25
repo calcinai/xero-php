@@ -15,6 +15,12 @@ class Organisation extends Remote\Model
      */
 
     /**
+     * OrganisationClass
+     *
+     * @property string Class
+     */
+
+    /**
      * Display name of organisation shown in Xero.
      *
      * @property string Name
@@ -284,6 +290,7 @@ class Organisation extends Remote\Model
     {
         return [
             'APIKey' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'Class' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
             'Name' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
             'LegalName' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
             'PaysTax' => [false, self::PROPERTY_TYPE_BOOLEAN, null, false, false],
@@ -339,6 +346,25 @@ class Organisation extends Remote\Model
         $this->propertyUpdated('APIKey', $value);
         $this->_data['APIKey'] = $value;
 
+        return $this;
+    }
+
+     /**
+      * @return string
+      */
+    public function getClass()
+    {
+        return $this->_data['Class'];
+    }
+
+    /**
+     * @param string $value
+     * @return Organisation
+     */
+    public function setClass($value)
+    {
+        $this->propertyUpdated('Class', $value);
+        $this->_data['Class'] = $value;
         return $this;
     }
 
