@@ -77,6 +77,11 @@ abstract class Model implements ObjectInterface, \JsonSerializable, \ArrayAccess
         $this->_data = [];
         $this->_associated_objects = [];
     }
+    
+    public static function make(Application $application = null)
+    {
+        return new static($application);
+    }
 
     /**
      * This should be compulsory in the constructor in the future,
