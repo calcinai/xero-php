@@ -132,6 +132,7 @@ class TaxRate extends Remote\Model
         return [
             Remote\Request::METHOD_GET,
             Remote\Request::METHOD_POST,
+            Remote\Request::METHOD_PUT,
         ];
     }
 
