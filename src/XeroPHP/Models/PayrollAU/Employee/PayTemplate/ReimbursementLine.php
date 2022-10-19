@@ -57,7 +57,7 @@ class ReimbursementLine extends Remote\Model
     /**
      * Get the stem of the API (core.xro) etc.
      *
-     * @return string|null
+     * @return string
      */
     public static function getAPIStem()
     {
@@ -88,7 +88,7 @@ class ReimbursementLine extends Remote\Model
         return [
             'ReimbursementTypeID' => [false, self::PROPERTY_TYPE_GUID, null, false, false],
             'Description' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
-            'Amount' => [false, self::PROPERTY_TYPE_FLOAT, null, true, false],
+            'Amount' => [false, self::PROPERTY_TYPE_FLOAT, null, false, false],
         ];
     }
 

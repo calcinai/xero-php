@@ -54,6 +54,12 @@ class Payment extends Remote\Model
      *
      * @property string Reference
      */
+    
+    /**
+     * An optional description to appear on a payee bank statement when Payment is a child of BatchPayment.
+     *
+     * @property string Details
+     */
 
     /**
      * An optional parameter for the payment. A boolean indicating whether you would like the payment to be
@@ -146,7 +152,7 @@ class Payment extends Remote\Model
     /**
      * Get the stem of the API (core.xro) etc.
      *
-     * @return string|null
+     * @return string
      */
     public static function getAPIStem()
     {
@@ -187,6 +193,7 @@ class Payment extends Remote\Model
             'CurrencyRate' => [false, self::PROPERTY_TYPE_FLOAT, null, false, false],
             'Amount' => [false, self::PROPERTY_TYPE_FLOAT, null, false, false],
             'Reference' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'Details' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
             'IsReconciled' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
             'Status' => [false, self::PROPERTY_TYPE_ENUM, null, false, false],
             'PaymentType' => [false, self::PROPERTY_TYPE_ENUM, null, false, false],
@@ -392,6 +399,27 @@ class Payment extends Remote\Model
     /**
      * @return string
      */
+    public function getDetails()
+    {
+        return $this->_data['Details'];
+    }
+
+    /**
+     * @param string $value
+     *
+     * @return Payment
+     */
+    public function setDetails($value)
+    {
+        $this->propertyUpdated('Details', $value);
+        $this->_data['Details'] = $value;
+
+        return $this;
+    }
+    
+    /**
+     * @return string
+     */
     public function getIsReconciled()
     {
         return $this->_data['IsReconciled'];
@@ -466,5 +494,29 @@ class Payment extends Remote\Model
         $this->_data['PaymentID'] = $value;
 
         return $this;
+    }
+
+    /**
+    * @return string
+    */
+    public function getBankAccountNumber()
+    {
+        return $this->_data['BankAccountNumber'];
+    }
+
+    /**
+    * @return string
+    */
+    public function getParticulars()
+    {
+        return $this->_data['Particulars'];
+    }
+
+    /**
+    * @return string
+    */
+    public function getCode()
+    {
+        return $this->_data['Code'];
     }
 }

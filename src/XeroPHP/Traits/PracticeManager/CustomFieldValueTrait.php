@@ -37,7 +37,7 @@ trait CustomFieldValueTrait
          */
         if ($this->hasGUID() === false) {
             throw new Exception(
-                'Attachments are only available to objects that exist remotely.'
+                'Custom Field Values are only available to objects that exist remotely.'
             );
         }
 

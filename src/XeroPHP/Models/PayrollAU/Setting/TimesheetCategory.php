@@ -51,7 +51,7 @@ class TimesheetCategory extends Remote\Model
     /**
      * Get the stem of the API (core.xro) etc.
      *
-     * @return string|null
+     * @return string
      */
     public static function getAPIStem()
     {
@@ -101,7 +101,7 @@ class TimesheetCategory extends Remote\Model
     /**
      * @param string $value
      *
-     * @return TrackingCategory
+     * @return TimesheetCategory
      */
     public function setTrackingCategoryID($value)
     {
@@ -122,7 +122,7 @@ class TimesheetCategory extends Remote\Model
     /**
      * @param string $value
      *
-     * @return TrackingCategory
+     * @return TimesheetCategory
      */
     public function setTrackingCategoryName($value)
     {

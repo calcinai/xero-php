@@ -79,7 +79,7 @@ class Request
         }
 
         //Default to XML so you get the  xsi:type attribute in the root node.
-        $this->setHeader(self::HEADER_ACCEPT, self::CONTENT_TYPE_XML);
+        $this->setHeader(self::HEADER_ACCEPT, $app->getConfigOption('xero', 'default_content_type'));
 
         $xero_config = $this->app->getConfig('xero');
         if (isset($xero_config['unitdp'])) {
@@ -152,7 +152,7 @@ class Request
     }
 
     /**
-     * @return \XeroPHP\Remote\Response
+     * @return \XeroPHP\Remote\Response|null
      */
     public function getResponse()
     {

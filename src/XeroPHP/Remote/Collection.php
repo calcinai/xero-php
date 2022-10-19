@@ -22,7 +22,7 @@ class Collection extends \ArrayObject
      *
      * @return bool
      */
-    public function empty()
+    public function isEmpty()
     {
         return !count($this);
     }

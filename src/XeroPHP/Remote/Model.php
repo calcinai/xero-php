@@ -66,7 +66,7 @@ abstract class Model implements ObjectInterface, \JsonSerializable, \ArrayAccess
      * Holds a ref to the application that was used to load the object,
      * enables shorthand $object->save();.
      *
-     * @var Application
+     * @var Application|null
      */
     protected $_application;
 
@@ -76,6 +76,11 @@ abstract class Model implements ObjectInterface, \JsonSerializable, \ArrayAccess
         $this->_dirty = [];
         $this->_data = [];
         $this->_associated_objects = [];
+    }
+    
+    public static function make(Application $application = null)
+    {
+        return new static($application);
     }
 
     /**
@@ -442,7 +447,7 @@ abstract class Model implements ObjectInterface, \JsonSerializable, \ArrayAccess
      *
      * @throws Exception
      *
-     * @return Response|null
+     * @return Response
      */
     public function delete()
     {
@@ -544,8 +549,9 @@ abstract class Model implements ObjectInterface, \JsonSerializable, \ArrayAccess
     /**
      * JSON Encode overload to pull out hidden properties.
      *
-     * @return string
+     * @return array
      */
+    #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
         return $this->toStringArray();
@@ -556,6 +562,7 @@ abstract class Model implements ObjectInterface, \JsonSerializable, \ArrayAccess
      *
      * @return bool
      */
+    #[\ReturnTypeWillChange]
     public function offsetExists($offset)
     {
         return $this->__isset($offset);
@@ -566,6 +573,7 @@ abstract class Model implements ObjectInterface, \JsonSerializable, \ArrayAccess
      *
      * @return mixed
      */
+    #[\ReturnTypeWillChange]
     public function offsetGet($offset)
     {
         return $this->__get($offset);
@@ -577,6 +585,7 @@ abstract class Model implements ObjectInterface, \JsonSerializable, \ArrayAccess
      *
      * @return mixed
      */
+    #[\ReturnTypeWillChange]
     public function offsetSet($offset, $value)
     {
         return $this->__set($offset, $value);
@@ -585,6 +594,7 @@ abstract class Model implements ObjectInterface, \JsonSerializable, \ArrayAccess
     /**
      * @param mixed $offset
      */
+    #[\ReturnTypeWillChange]
     public function offsetUnset($offset)
     {
         unset($this->_data[$offset]);

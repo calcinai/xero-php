@@ -32,9 +32,24 @@ interface ObjectInterface
      */
     public static function getResourceURI();
 
+    /**
+     * Get the root node element
+     *
+     * @return string
+     */
     public static function getRootNodeName();
 
+    /**
+     * Get the API stem
+     *
+     * @return string
+     */
     public static function getAPIStem();
 
+    /**
+     * Is pageable
+     *
+     * @return boolean
+     */
     public static function isPageable();
 }

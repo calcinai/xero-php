@@ -68,7 +68,7 @@ class DeductionLine extends Remote\Model
     /**
      * Get the stem of the API (core.xro) etc.
      *
-     * @return string|null
+     * @return string
      */
     public static function getAPIStem()
     {
@@ -100,7 +100,7 @@ class DeductionLine extends Remote\Model
             'DeductionTypeID' => [false, self::PROPERTY_TYPE_GUID, null, false, false],
             'CalculationType' => [false, self::PROPERTY_TYPE_ENUM, null, false, false],
             'Percentage' => [false, self::PROPERTY_TYPE_FLOAT, null, false, false],
-            'Amount' => [false, self::PROPERTY_TYPE_FLOAT, null, true, false],
+            'Amount' => [false, self::PROPERTY_TYPE_FLOAT, null, false, false],
         ];
     }
 
@@ -183,7 +183,7 @@ class DeductionLine extends Remote\Model
     /**
      * @param float $value
      *
-     * @return PayTemplate
+     * @return DeductionLine
      */
     public function setAmount($value)
     {

@@ -16,6 +16,7 @@ class Application
     protected static $_config_defaults = [
         'xero' => [
             'base_url' => 'https://api.xero.com/',
+            'default_content_type' => Request::CONTENT_TYPE_XML,
 
             'core_version' => '2.0',
             'payroll_version' => '1.0',
@@ -223,7 +224,7 @@ class Application
      * @throws Exception
      * @throws Remote\Exception\NotFoundException
      *
-     * @return Collection
+     * @return Collection|array
      */
     public function loadByGUIDs($model, $guids)
     {

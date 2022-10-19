@@ -8,7 +8,7 @@
     "php": ">=5.5.0",
     "calcinai/oauth2-xero": "^1.0",
     "guzzlehttp/guzzle": "^6.5|^7.0",
-    "guzzlehttp/psr7": "^1.5|^1.6",
+    "guzzlehttp/psr7": "^1.5|^1.6|^2.1.1",
     "ext-json": "*",
     "ext-simplexml": "*"
   },

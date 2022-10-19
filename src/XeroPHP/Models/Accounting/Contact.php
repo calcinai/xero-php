@@ -90,6 +90,11 @@ class Contact extends Remote\Model
      */
 
     /**
+     * Company registration number. Max 50 char.
+     * @property string CompanyNumber
+     */
+
+    /**
      * Default tax type used for contact on AR invoices.
      *
      * @property string AccountsReceivableTaxType
@@ -270,7 +275,7 @@ class Contact extends Remote\Model
     /**
      * Get the stem of the API (core.xro) etc.
      *
-     * @return string|null
+     * @return string
      */
     public static function getAPIStem()
     {
@@ -314,6 +319,7 @@ class Contact extends Remote\Model
             'ContactPersons' => [false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Contact\\ContactPerson', true, false],
             'BankAccountDetails' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
             'TaxNumber' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'CompanyNumber' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
             'AccountsReceivableTaxType' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
             'AccountsPayableTaxType' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
             'Addresses' => [false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Address', true, false],
@@ -565,16 +571,28 @@ class Contact extends Remote\Model
     {
         return $this->_data['BankAccountDetails'];
     }
-
+    
     /**
      * @param string $value
      *
      * @return Contact
      */
-    public function setBankAccountDetail($value)
+    public function setBankAccountDetails($value)
     {
         $this->propertyUpdated('BankAccountDetails', $value);
         $this->_data['BankAccountDetails'] = $value;
+
+        return $this;
+    }
+
+    /**
+     * @param string $value
+     * @deprecated Use setBankAccountDetails
+     * @return Contact
+     */
+    public function setBankAccountDetail($value)
+    {
+        $this->setBankAccountDetails($value);
 
         return $this;
     }
@@ -596,6 +614,27 @@ class Contact extends Remote\Model
     {
         $this->propertyUpdated('TaxNumber', $value);
         $this->_data['TaxNumber'] = $value;
+
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getCompanyNumber()
+    {
+        return $this->_data['CompanyNumber'];
+    }
+
+    /**
+     * @param string $value
+     *
+     * @return Contact
+     */
+    public function setCompanyNumber($value)
+    {
+        $this->propertyUpdated('CompanyNumber', $value);
+        $this->_data['CompanyNumber'] = $value;
 
         return $this;
     }
