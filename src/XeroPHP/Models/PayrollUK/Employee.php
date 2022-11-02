@@ -93,15 +93,18 @@ class Employee extends Remote\Model
             'gender'     => [false, self::PROPERTY_TYPE_STRING, null, false, false],
             'address'    => [false, self::PROPERTY_TYPE_OBJECT, 'PayrollUK\\Employee\\Address', false, false],
 
-            'firstName'         => [true, self::PROPERTY_TYPE_STRING, null, false, false],
-            'lastName'          => [true, self::PROPERTY_TYPE_STRING, null, false, false],
-            'dateOfBirth'       => [true, self::PROPERTY_TYPE_DATE, '\\DateTimeInterface', false, false],
-            'email'             => [false, self::PROPERTY_TYPE_STRING, null, false, false],
-            'phoneNumber'       => [false, self::PROPERTY_TYPE_STRING, null, false, false],
-            'updatedDateUTC'    => [false, self::PROPERTY_TYPE_TIMESTAMP, '\\DateTimeInterface', false, false],
-            'createdDateUTC'    => [false, self::PROPERTY_TYPE_TIMESTAMP, '\\DateTimeInterface', false, false],
-            'employment'        => [false, self::PROPERTY_TYPE_OBJECT, 'PayrollUK\\Employee\\Employment', false, true],
-            'payrollCalendarID' => [false, self::PROPERTY_TYPE_GUID, null, false, false]
+            'firstName'          => [true, self::PROPERTY_TYPE_STRING, null, false, false],
+            'lastName'           => [true, self::PROPERTY_TYPE_STRING, null, false, false],
+            'dateOfBirth'        => [true, self::PROPERTY_TYPE_DATE, '\\DateTimeInterface', false, false],
+            'email'              => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'phoneNumber'        => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'updatedDateUTC'     => [false, self::PROPERTY_TYPE_TIMESTAMP, '\\DateTimeInterface', false, false],
+            'createdDateUTC'     => [false, self::PROPERTY_TYPE_TIMESTAMP, '\\DateTimeInterface', false, false],
+            'employment'         => [false, self::PROPERTY_TYPE_OBJECT, 'PayrollUK\\Employee\\Employment', false, true],
+            'payrollCalendarID'  => [false, self::PROPERTY_TYPE_GUID, null, false, false],
+            'startDate'          => [true, self::PROPERTY_TYPE_DATE, '\\DateTimeInterface', false, false],
+            'endDate'            => [true, self::PROPERTY_TYPE_DATE, '\\DateTimeInterface', false, false],
+            'isOffPayrollWorker' => [true, self::PROPERTY_TYPE_BOOLEAN, null, false, false]
         ];
     }
 
@@ -342,5 +345,29 @@ class Employee extends Remote\Model
     public function getCreatedDateUTC()
     {
         return $this->_data[ 'createdDateUTC' ];
+    }
+
+    /**
+     * @return \DateTimeInterface
+     */
+    public function getStartDate()
+    {
+        return $this->_data[ 'startDate' ];
+    }
+
+    /**
+     * @return \DateTimeInterface
+     */
+    public function getEndDate()
+    {
+        return $this->_data[ 'endDate' ];
+    }
+
+    /**
+     * @return bool
+     */
+    public function getIsOffPayrollWorker()
+    {
+        return $this->_data[ 'isOffPayrollWorker' ];
     }
 }
