@@ -63,7 +63,7 @@ class Leave extends Remote\Model
      */
     public static function getRootNodeName()
     {
-        return 'Leave';
+        return 'Employee/{EmployeeID}/Leave';
     }
 
     /**
