@@ -1,9 +1,9 @@
 <?php
 
-namespace XeroPHP\Models\PayrollUK;
+namespace XeroPHP\Models\PayrollUK\Employee;
 
+use XeroPHP\Models\PayrollUK\Employee\Leave\Period;
 use XeroPHP\Remote;
-use XeroPHP\Models\PayrollUK\Leave\Period;
 
 class Leave extends Remote\Model
 {

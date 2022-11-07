@@ -1,6 +1,6 @@
 <?php
 
-namespace XeroPHP\Models\PayrollUK\Leave;
+namespace XeroPHP\Models\PayrollUK\Employee\Leave;
 
 use XeroPHP\Remote;
 
