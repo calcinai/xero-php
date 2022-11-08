@@ -120,7 +120,7 @@ class Leave extends Remote\Model
             'description' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
             'startDate' => [true, self::PROPERTY_TYPE_DATE, '\\DateTimeInterface', false, false],
             'endDate' => [true, self::PROPERTY_TYPE_DATE, '\\DateTimeInterface', false, false],
-            'periods' => [false, self::PROPERTY_TYPE_OBJECT, 'PayrollUK\\Leave\\Period', true, false],
+            'periods' => [false, self::PROPERTY_TYPE_OBJECT, 'PayrollUK\\Employee\\Leave\\Period', true, false],
         ];
     }
 
