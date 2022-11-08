@@ -134,7 +134,7 @@ class Leave extends Remote\Model
      */
     public function getLeaveID()
     {
-        return $this->_data['LeaveID'];
+        return $this->_data['leaveID'];
     }
 
     /**
@@ -144,8 +144,8 @@ class Leave extends Remote\Model
      */
     public function setLeaveID($value)
     {
-        $this->propertyUpdated('LeaveID', $value);
-        $this->_data['LeaveID'] = $value;
+        $this->propertyUpdated('leaveID', $value);
+        $this->_data['leaveID'] = $value;
 
         return $this;
     }
@@ -155,7 +155,7 @@ class Leave extends Remote\Model
      */
     public function getLeaveTypeID()
     {
-        return $this->_data['LeaveTypeID'];
+        return $this->_data['leaveTypeID'];
     }
 
     /**
@@ -165,8 +165,8 @@ class Leave extends Remote\Model
      */
     public function setLeaveTypeID($value)
     {
-        $this->propertyUpdated('LeaveTypeID', $value);
-        $this->_data['LeaveTypeID'] = $value;
+        $this->propertyUpdated('leaveTypeID', $value);
+        $this->_data['leaveTypeID'] = $value;
 
         return $this;
     }
@@ -176,7 +176,7 @@ class Leave extends Remote\Model
      */
     public function getStartDate()
     {
-        return $this->_data['StartDate'];
+        return $this->_data['startDate'];
     }
 
     /**
@@ -186,8 +186,8 @@ class Leave extends Remote\Model
      */
     public function setStartDate(\DateTimeInterface $value)
     {
-        $this->propertyUpdated('StartDate', $value);
-        $this->_data['StartDate'] = $value;
+        $this->propertyUpdated('startDate', $value);
+        $this->_data['startDate'] = $value;
 
         return $this;
     }
@@ -197,7 +197,7 @@ class Leave extends Remote\Model
      */
     public function getEndDate()
     {
-        return $this->_data['EndDate'];
+        return $this->_data['endDate'];
     }
 
     /**
@@ -207,8 +207,8 @@ class Leave extends Remote\Model
      */
     public function setEndDate(\DateTimeInterface $value)
     {
-        $this->propertyUpdated('EndDate', $value);
-        $this->_data['EndDate'] = $value;
+        $this->propertyUpdated('endDate', $value);
+        $this->_data['endDate'] = $value;
 
         return $this;
     }
@@ -218,7 +218,7 @@ class Leave extends Remote\Model
      */
     public function getDescription()
     {
-        return $this->_data['Description'];
+        return $this->_data['description'];
     }
 
     /**
@@ -228,8 +228,8 @@ class Leave extends Remote\Model
      */
     public function setDescription($value)
     {
-        $this->propertyUpdated('Description', $value);
-        $this->_data['Description'] = $value;
+        $this->propertyUpdated('description', $value);
+        $this->_data['description'] = $value;
 
         return $this;
     }
@@ -239,7 +239,7 @@ class Leave extends Remote\Model
      */
     public function getPeriods()
     {
-        return $this->_data['Periods'];
+        return $this->_data['periods'];
     }
 
     /**
@@ -249,11 +249,11 @@ class Leave extends Remote\Model
      */
     public function addPeriod(Period $value)
     {
-        $this->propertyUpdated('Periods', $value);
-        if (! isset($this->_data['Periods'])) {
-            $this->_data['Periods'] = new Remote\Collection();
+        $this->propertyUpdated('periods', $value);
+        if (! isset($this->_data['periods'])) {
+            $this->_data['periods'] = new Remote\Collection();
         }
-        $this->_data['Periods'][] = $value;
+        $this->_data['periods'][] = $value;
 
         return $this;
     }
