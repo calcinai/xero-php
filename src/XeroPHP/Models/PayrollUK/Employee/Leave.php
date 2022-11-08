@@ -53,7 +53,7 @@ class Leave extends Remote\Model
      */
     public static function getResourceURI()
     {
-        return 'Leave';
+        return 'Employees/{EmployeeID}/Leave';
     }
 
     /**
@@ -63,7 +63,7 @@ class Leave extends Remote\Model
      */
     public static function getRootNodeName()
     {
-        return 'Employee/{EmployeeID}/Leave';
+        return 'Leave';
     }
 
     /**

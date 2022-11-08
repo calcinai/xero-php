@@ -4,7 +4,6 @@ namespace XeroPHP\Models\PayrollUK;
 use XeroPHP\Exception;
 use XeroPHP\Models\PayrollUK\Employee\Address;
 use XeroPHP\Models\PayrollUK\Employee\Employment;
-use XeroPHP\Models\PayrollUk\Employee\Leave;
 use XeroPHP\Remote;
 use XeroPHP\Traits\TitleCaseKeysBeforeSave;
 
@@ -387,19 +386,16 @@ class Employee extends Remote\Model
             );
         }
 
-        $uri = sprintf(
-            '%s/%s/Leave',
-            $this::getResourceURI(),
-            $this->getGUID()
-        );
+        $uri = sprintf('%s/%s/leave', $this->getResourceURI(), $this->getGUID());
+        $api = $this->getAPIStem();
 
-        $url = new Remote\URL($this->_application, $uri);
+        $url = new Remote\URL($this->_application, $uri, $api);
         $request = new Remote\Request($this->_application, $url, Remote\Request::METHOD_GET);
         $request->send();
 
         $leavePeriods = [];
         foreach ($request->getResponse()->getElements() as $element) {
-            $leave = new Leave($this->_application);
+            $leave = new Employee\Leave($this->_application);
             $leave->fromStringArray($element);
             $leavePeriods[] = $leave;
         }
