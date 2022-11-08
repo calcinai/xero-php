@@ -3,9 +3,12 @@
 namespace XeroPHP\Models\PayrollUK\Employee\Leave;
 
 use XeroPHP\Remote;
+use XeroPHP\Traits\TitleCaseKeysBeforeSave;
 
 class Period extends Remote\Model
 {
+    use TitleCaseKeysBeforeSave;
+
     /**
      * The Number of Units for the leave.
      *
@@ -92,10 +95,10 @@ class Period extends Remote\Model
     public static function getProperties()
     {
         return [
-            'NumberOfUnits' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
-            'PeriodEndDate' => [false, self::PROPERTY_TYPE_DATE, '\\DateTimeInterface', false, false],
-            'PeriodStartDate' => [false, self::PROPERTY_TYPE_DATE, '\\DateTimeInterface', false, false],
-            'PeriodStatus' => [false, self::PROPERTY_TYPE_ENUM, null, false, false],
+            'numberOfUnits' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'periodEndDate' => [false, self::PROPERTY_TYPE_DATE, '\\DateTimeInterface', false, false],
+            'periodStartDate' => [false, self::PROPERTY_TYPE_DATE, '\\DateTimeInterface', false, false],
+            'periodStatus' => [false, self::PROPERTY_TYPE_ENUM, null, false, false],
         ];
     }
 

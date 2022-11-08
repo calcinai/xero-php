@@ -4,9 +4,12 @@ namespace XeroPHP\Models\PayrollUK\Employee;
 
 use XeroPHP\Models\PayrollUK\Employee\Leave\Period;
 use XeroPHP\Remote;
+use XeroPHP\Traits\TitleCaseKeysBeforeSave;
 
 class Leave extends Remote\Model
 {
+    use TitleCaseKeysBeforeSave;
+
     /**
      * Xero identifier.
      *
@@ -112,12 +115,12 @@ class Leave extends Remote\Model
     public static function getProperties()
     {
         return [
-            'LeaveID' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
-            'LeaveTypeID' => [true, self::PROPERTY_TYPE_STRING, null, false, false],
-            'Description' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
-            'StartDate' => [true, self::PROPERTY_TYPE_DATE, '\\DateTimeInterface', false, false],
-            'EndDate' => [true, self::PROPERTY_TYPE_DATE, '\\DateTimeInterface', false, false],
-            'Periods' => [false, self::PROPERTY_TYPE_OBJECT, 'PayrollUK\\Leave\\Period', true, false],
+            'leaveID' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'leaveTypeID' => [true, self::PROPERTY_TYPE_STRING, null, false, false],
+            'description' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'startDate' => [true, self::PROPERTY_TYPE_DATE, '\\DateTimeInterface', false, false],
+            'endDate' => [true, self::PROPERTY_TYPE_DATE, '\\DateTimeInterface', false, false],
+            'periods' => [false, self::PROPERTY_TYPE_OBJECT, 'PayrollUK\\Leave\\Period', true, false],
         ];
     }
 
