@@ -15,6 +15,12 @@ class Organisation extends Remote\Model
      */
 
     /**
+     * OrganisationClass
+     *
+     * @property string Class
+     */
+
+    /**
      * Display name of organisation shown in Xero.
      *
      * @property string Name
@@ -219,7 +225,29 @@ class Organisation extends Remote\Model
     const ORGANISATION_TYPE_SOLETRADER = 'SOLETRADER';
 
     const ORGANISATION_TYPE_TRUST = 'TRUST';
-
+    
+    const ORGANISATION_CLASS_DEMO = 'DEMO';
+    
+    const ORGANISATION_CLASS_TRIAL = 'TRIAL';
+        
+    const ORGANISATION_CLASS_STARTER = 'STARTER';
+    
+    const ORGANISATION_CLASS_STANDARD = 'STANDARD';
+    
+    const ORGANISATION_CLASS_PREMIUM = 'PREMIUM';
+        
+    const ORGANISATION_CLASS_PREMIUM_20 = 'PREMIUM_20';
+           
+    const ORGANISATION_CLASS_PREMIUM_50 = 'PREMIUM_50';
+               
+    const ORGANISATION_CLASS_PREMIUM_100 = 'PREMIUM_100';
+    
+    const ORGANISATION_CLASS_GST_CASHBOOK = 'GST_CASHBOOK';
+    
+    const ORGANISATION_CLASS_NON_GST_CASHBOOK = 'NON_GST_CASHBOOK';
+    
+    const ORGANISATION_CLASS_ULTIMATE = 'ULTIMATE';
+    
     /**
      * Get the resource uri of the class (Contacts) etc.
      *
@@ -284,6 +312,7 @@ class Organisation extends Remote\Model
     {
         return [
             'APIKey' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'Class' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
             'Name' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
             'LegalName' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
             'PaysTax' => [false, self::PROPERTY_TYPE_BOOLEAN, null, false, false],
@@ -339,6 +368,25 @@ class Organisation extends Remote\Model
         $this->propertyUpdated('APIKey', $value);
         $this->_data['APIKey'] = $value;
 
+        return $this;
+    }
+
+     /**
+      * @return string
+      */
+    public function getClass()
+    {
+        return $this->_data['Class'];
+    }
+
+    /**
+     * @param string $value
+     * @return Organisation
+     */
+    public function setClass($value)
+    {
+        $this->propertyUpdated('Class', $value);
+        $this->_data['Class'] = $value;
         return $this;
     }
 

@@ -42,6 +42,12 @@ class BankTransfer extends Remote\Model
      */
 
     /**
+     * additional reference number (max length = 255).
+     *
+     * @property string Reference
+     */
+
+    /**
      * The currency rate.
      *
      * @property float CurrencyRate
@@ -140,6 +146,7 @@ class BankTransfer extends Remote\Model
             'Amount' => [true, self::PROPERTY_TYPE_STRING, null, false, false],
             'Date' => [false, self::PROPERTY_TYPE_DATE, '\\DateTimeInterface', false, false],
             'BankTransferID' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'Reference' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
             'CurrencyRate' => [false, self::PROPERTY_TYPE_FLOAT, null, false, false],
             'FromBankTransactionID' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
             'ToBankTransactionID' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
@@ -254,6 +261,27 @@ class BankTransfer extends Remote\Model
     {
         $this->propertyUpdated('BankTransferID', $value);
         $this->_data['BankTransferID'] = $value;
+
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getReference()
+    {
+        return $this->_data['Reference'];
+    }
+
+    /**
+     * @param string $value
+     *
+     * @return Invoice
+     */
+    public function setReference($value)
+    {
+        $this->propertyUpdated('Reference', $value);
+        $this->_data['Reference'] = $value;
 
         return $this;
     }
