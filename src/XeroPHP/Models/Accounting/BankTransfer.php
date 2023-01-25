@@ -66,6 +66,18 @@ class BankTransfer extends Remote\Model
      */
 
     /**
+     * Boolean to show if the from transaction is reconciled.
+     *
+     * @property bool FromIsReconciled
+     */
+
+    /**
+     * Boolean to show if the to transaction is reconciled.
+     *
+     * @property bool ToIsReconciled
+     */
+
+    /**
      * Boolean to indicate if a Bank Transfer has an attachment.
      *
      * @property bool HasAttachments
@@ -150,6 +162,8 @@ class BankTransfer extends Remote\Model
             'CurrencyRate' => [false, self::PROPERTY_TYPE_FLOAT, null, false, false],
             'FromBankTransactionID' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
             'ToBankTransactionID' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'FromIsReconciled' => [false, self::PROPERTY_TYPE_BOOLEAN, null, false, false],
+            'ToIsReconciled' => [false, self::PROPERTY_TYPE_BOOLEAN, null, false, false],
             'HasAttachments' => [false, self::PROPERTY_TYPE_BOOLEAN, null, false, false],
             'CreatedDateUTC' => [false, self::PROPERTY_TYPE_TIMESTAMP, '\\DateTimeInterface', false, false],
         ];
@@ -308,6 +322,48 @@ class BankTransfer extends Remote\Model
     public function getToBankTransactionID()
     {
         return $this->_data['ToBankTransactionID'];
+    }
+
+    /**
+     * @return bool
+     */
+    public function getFromIsReconciled()
+    {
+        return $this->_data['FromIsReconciled'];
+    }
+
+    /**
+     * @param bool $value
+     *
+     * @return BankTransaction
+     */
+    public function setFromIsReconciled($value)
+    {
+        $this->propertyUpdated('FromIsReconciled', $value);
+        $this->_data['FromIsReconciled'] = $value;
+
+        return $this;
+    }
+
+    /**
+     * @return bool
+     */
+    public function getToIsReconciled()
+    {
+        return $this->_data['ToIsReconciled'];
+    }
+
+    /**
+     * @param bool $value
+     *
+     * @return BankTransaction
+     */
+    public function setToIsReconciled($value)
+    {
+        $this->propertyUpdated('ToIsReconciled', $value);
+        $this->_data['ToIsReconciled'] = $value;
+
+        return $this;
     }
 
     /**
