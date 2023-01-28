@@ -2,6 +2,9 @@
 
 namespace XeroPHP\Models\Accounting;
 
+/**
+ * @deprecated
+ */
 class SalesTaxBasis
 {
     const NEW_ZEALAND_PAYMENTS = 'PAYMENTS';

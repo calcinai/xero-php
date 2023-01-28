@@ -91,7 +91,7 @@ class TrackingCategory extends Remote\Model
     }
 
     /**
-     * @return string
+     * @return EmployeeGroup
      */
     public function getEmployeeGroups()
     {
@@ -99,7 +99,7 @@ class TrackingCategory extends Remote\Model
     }
 
     /**
-     * @return string
+     * @return TimesheetCategory
      */
     public function getTimesheetCategories()
     {

@@ -90,23 +90,32 @@ class Organisation extends Remote\Model
     /**
      * Calendar day e.g. 0-31.
      *
-     * @property string FinancialYearEndDay
+     * @property int FinancialYearEndDay
      */
 
     /**
      * Calendar Month e.g. 1-12.
      *
-     * @property string FinancialYearEndMonth
+     * @property int  FinancialYearEndMonth
      */
 
     /**
-     * The accounting basis used for tax returns. See Sales Tax Basis.
+     * The accounting basis used for tax returns.
+     *
+     * @see \XeroPHP\Enums\Accounting\SalesTaxBasis\NewZealand
+     * @see \XeroPHP\Enums\Accounting\SalesTaxBasis\UnitedKingdom
+     * @see \XeroPHP\Enums\Accounting\SalesTaxBasis\AustraliaUsGlobal
      *
      * @property string SalesTaxBasis
      */
 
     /**
-     * The frequency with which tax returns are processed. See Sales Tax Period.
+     * The frequency with which tax returns are processed.
+     *
+     * @see \XeroPHP\Enums\Accounting\SalesTaxPeriods\Australia
+     * @see \XeroPHP\Enums\Accounting\SalesTaxPeriods\NewZealand
+     * @see \XeroPHP\Enums\Accounting\SalesTaxPeriods\UnitedKingdom
+     * @see \XeroPHP\Enums\Accounting\SalesTaxPeriods\UsGlobal
      *
      * @property string SalesTaxPeriod
      */
@@ -188,7 +197,7 @@ class Organisation extends Remote\Model
     /**
      * Default payment terms for the organisation if set – See Payment Terms below.
      *
-     * @property PaymentTerm[] PaymentTerms
+     * @property PaymentTerm
      */
     const VERSION_TYPE_AU = 'AU';
 
@@ -225,29 +234,7 @@ class Organisation extends Remote\Model
     const ORGANISATION_TYPE_SOLETRADER = 'SOLETRADER';
 
     const ORGANISATION_TYPE_TRUST = 'TRUST';
-    
-    const ORGANISATION_CLASS_DEMO = 'DEMO';
-    
-    const ORGANISATION_CLASS_TRIAL = 'TRIAL';
-        
-    const ORGANISATION_CLASS_STARTER = 'STARTER';
-    
-    const ORGANISATION_CLASS_STANDARD = 'STANDARD';
-    
-    const ORGANISATION_CLASS_PREMIUM = 'PREMIUM';
-        
-    const ORGANISATION_CLASS_PREMIUM_20 = 'PREMIUM_20';
-           
-    const ORGANISATION_CLASS_PREMIUM_50 = 'PREMIUM_50';
-               
-    const ORGANISATION_CLASS_PREMIUM_100 = 'PREMIUM_100';
-    
-    const ORGANISATION_CLASS_GST_CASHBOOK = 'GST_CASHBOOK';
-    
-    const ORGANISATION_CLASS_NON_GST_CASHBOOK = 'NON_GST_CASHBOOK';
-    
-    const ORGANISATION_CLASS_ULTIMATE = 'ULTIMATE';
-    
+
     /**
      * Get the resource uri of the class (Contacts) etc.
      *
@@ -324,8 +311,8 @@ class Organisation extends Remote\Model
             'OrganisationStatus' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
             'RegistrationNumber' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
             'TaxNumber' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
-            'FinancialYearEndDay' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
-            'FinancialYearEndMonth' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'FinancialYearEndDay' => [false, self::PROPERTY_TYPE_INT, null, false, false],
+            'FinancialYearEndMonth' => [false, self::PROPERTY_TYPE_INT, null, false, false],
             'SalesTaxBasis' => [false, self::PROPERTY_TYPE_ENUM, null, false, false],
             'SalesTaxPeriod' => [false, self::PROPERTY_TYPE_ENUM, null, false, false],
             'DefaultSalesTax' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
@@ -340,7 +327,7 @@ class Organisation extends Remote\Model
             'Addresses' => [false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Address', true, false],
             'Phones' => [false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Phone', true, false],
             'ExternalLinks' => [false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Organisation\\ExternalLink', true, false],
-            'PaymentTerms' => [false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Organisation\\PaymentTerm', true, false],
+            'PaymentTerms' => [false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Organisation\\PaymentTerm', false, false],
             'OrganisationID' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
         ];
     }
@@ -371,9 +358,9 @@ class Organisation extends Remote\Model
         return $this;
     }
 
-     /**
-      * @return string
-      */
+    /**
+     * @return string
+     */
     public function getClass()
     {
         return $this->_data['Class'];
@@ -622,7 +609,7 @@ class Organisation extends Remote\Model
     }
 
     /**
-     * @return string
+     * @return int
      */
     public function getFinancialYearEndDay()
     {
@@ -630,7 +617,7 @@ class Organisation extends Remote\Model
     }
 
     /**
-     * @param string $value
+     * @param int $value
      *
      * @return Organisation
      */
@@ -643,7 +630,7 @@ class Organisation extends Remote\Model
     }
 
     /**
-     * @return string
+     * @return int
      */
     public function getFinancialYearEndMonth()
     {
@@ -651,7 +638,7 @@ class Organisation extends Remote\Model
     }
 
     /**
-     * @param string $value
+     * @param int $value
      *
      * @return Organisation
      */
@@ -967,7 +954,7 @@ class Organisation extends Remote\Model
     }
 
     /**
-     * @return PaymentTerm[]|Remote\Collection
+     * @return PaymentTerm
      */
     public function getPaymentTerms()
     {
@@ -978,6 +965,22 @@ class Organisation extends Remote\Model
      * @param PaymentTerm $value
      *
      * @return Organisation
+     */
+    public function setPaymentTerms(PaymentTerm $value)
+    {
+        $this->propertyUpdated('PaymentTerms', $value);
+
+        $this->_data['PaymentTerms'] = $value;
+
+        return $this;
+    }
+
+    /**
+     * @param PaymentTerm $value
+     *
+     * @return Organisation
+     *
+     * @deprecated Use setPaymentTerms
      */
     public function addPaymentTerm(PaymentTerm $value)
     {

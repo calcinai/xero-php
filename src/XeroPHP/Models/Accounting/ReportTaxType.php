@@ -2,6 +2,13 @@
 
 namespace XeroPHP\Models\Accounting;
 
+/**
+ * @deprecated
+ *
+ * @see \XeroPHP\Enums\Accounting\ReportTaxTypes\Australia
+ * @see \XeroPHP\Enums\Accounting\ReportTaxTypes\NewZealand
+ * @see \XeroPHP\Enums\Accounting\ReportTaxTypes\UK
+ */
 class ReportTaxType
 {
     const AUSTRALIAN_OUTPUT = 'OUTPUT';

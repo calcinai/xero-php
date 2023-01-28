@@ -2,6 +2,9 @@
 
 namespace XeroPHP\Models\Accounting;
 
+/**
+ * @deprecated
+ */
 class SalesTaxPeriod
 {
     const AUSTRALIAN_MONTHLY = 'MONTHLY';

@@ -18,13 +18,13 @@ class Setting extends Remote\Model
     /**
      * Tracking categories for Employee’s and Timesheet’s.  See Tracking Categories.
      *
-     * @property TrackingCategory[] TrackingCategories
+     * @property TrackingCategory TrackingCategories
      */
 
     /**
      * Number of days in the Payroll year.
      *
-     * @property string DaysInPayrollYear
+     * @property int DaysInPayrollYear
      */
 
     /**
@@ -91,8 +91,8 @@ class Setting extends Remote\Model
     {
         return [
             'Accounts' => [false, self::PROPERTY_TYPE_OBJECT, 'PayrollAU\\Setting\\Account', true, false],
-            'TrackingCategories' => [false, self::PROPERTY_TYPE_OBJECT, 'PayrollAU\\Setting\\TrackingCategory', true, false],
-            'DaysInPayrollYear' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'TrackingCategories' => [false, self::PROPERTY_TYPE_OBJECT, 'PayrollAU\\Setting\\TrackingCategory', false, false],
+            'DaysInPayrollYear' => [false, self::PROPERTY_TYPE_INT, null, false, false],
         ];
     }
 
@@ -110,23 +110,7 @@ class Setting extends Remote\Model
     }
 
     /**
-     * @param Account $value
-     *
-     * @return Setting
-     */
-    public function addAccount(Account $value)
-    {
-        $this->propertyUpdated('Accounts', $value);
-        if (! isset($this->_data['Accounts'])) {
-            $this->_data['Accounts'] = new Remote\Collection();
-        }
-        $this->_data['Accounts'][] = $value;
-
-        return $this;
-    }
-
-    /**
-     * @return Remote\Collection|TrackingCategory[]
+     * @return TrackingCategory
      */
     public function getTrackingCategories()
     {
@@ -134,39 +118,10 @@ class Setting extends Remote\Model
     }
 
     /**
-     * @param TrackingCategory $value
-     *
-     * @return Setting
-     */
-    public function addTrackingCategory(TrackingCategory $value)
-    {
-        $this->propertyUpdated('TrackingCategories', $value);
-        if (! isset($this->_data['TrackingCategories'])) {
-            $this->_data['TrackingCategories'] = new Remote\Collection();
-        }
-        $this->_data['TrackingCategories'][] = $value;
-
-        return $this;
-    }
-
-    /**
-     * @return string
+     * @return int
      */
     public function getDaysInPayrollYear()
     {
         return $this->_data['DaysInPayrollYear'];
-    }
-
-    /**
-     * @param string $value
-     *
-     * @return Setting
-     */
-    public function setDaysInPayrollYear($value)
-    {
-        $this->propertyUpdated('DaysInPayrollYear', $value);
-        $this->_data['DaysInPayrollYear'] = $value;
-
-        return $this;
     }
 }

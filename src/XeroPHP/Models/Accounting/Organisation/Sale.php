@@ -9,11 +9,13 @@ class Sale extends Remote\Model
     /**
      * Day of Month (0-31).
      *
-     * @property string Day
+     * @property int Day
      */
 
     /**
-     * One of the following values OFFOLLOWINGMONTH/DAYSAFTERBILLDATE/OFCURRENTMONTH.
+     * A payment term
+     *
+     * @see \XeroPHP\Enums\Accounting\Payments\PaymentTerms
      *
      * @property string Type
      */
@@ -80,7 +82,7 @@ class Sale extends Remote\Model
     public static function getProperties()
     {
         return [
-            'Day' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'Day' => [false, self::PROPERTY_TYPE_INT, null, false, false],
             'Type' => [false, self::PROPERTY_TYPE_ENUM, null, false, false],
         ];
     }
