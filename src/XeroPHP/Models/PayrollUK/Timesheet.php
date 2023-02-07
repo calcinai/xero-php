@@ -99,7 +99,7 @@ class Timesheet extends Remote\Model
             'status'            => [false, self::PROPERTY_TYPE_STRING, null, false, false],
             'totalHours'        => [false, self::PROPERTY_TYPE_FLOAT, null, false, false],
             'updatedDateUTC'    => [false, self::PROPERTY_TYPE_DATE, '\\DateTimeInterface', false, false],
-            'lines'             => [false, self::PROPERTY_TYPE_OBJECT, Line::class, true, true]
+            'timesheetLines'    => [false, self::PROPERTY_TYPE_OBJECT, Line::class, true, true]
         ];
     }
 
@@ -115,7 +115,7 @@ class Timesheet extends Remote\Model
      * @param string $value
      * @return $this
      */
-    public function setPayrollCalendarID(string $value)
+    public function setPayrollCalendarID($value)
     {
         $this->propertyUpdated('payrollCalendarID', $value);
         $this->_data[ 'payrollCalendarID' ] = $value;
@@ -135,7 +135,7 @@ class Timesheet extends Remote\Model
      * @param string $value
      * @return $this
      */
-    public function setEmployeeID(string $value)
+    public function setEmployeeID($value)
     {
         $this->propertyUpdated('employeeID', $value);
         $this->_data[ 'employeeID' ] = $value;
@@ -188,7 +188,7 @@ class Timesheet extends Remote\Model
      */
     public function getLines()
     {
-        return $this->_data[ 'lines' ];
+        return $this->_data[ 'timesheetLines' ];
     }
 
     /**
@@ -197,25 +197,25 @@ class Timesheet extends Remote\Model
      */
     public function addLine(Line $value)
     {
-        $this->propertyUpdated('lines', $value);
+        $this->propertyUpdated('timesheetLines', $value);
 
-        if (!isset($this->_data[ 'lines' ])) {
-            $this->_data[ 'lines' ] = new Remote\Collection;
+        if (!isset($this->_data[ 'timesheetLines' ])) {
+            $this->_data[ 'timesheetLines' ] = new Remote\Collection;
         }
 
-        $this->_data[ 'lines' ][] = $value;
+        $this->_data[ 'timesheetLines' ][] = $value;
 
         return $this;
     }
 
     /**
-     * @param Remote\Collection $value
+     * @param Remote\Collection $collectionOfLines
      * @return $this
      */
-    public function setLines(Remote\Collection $value)
+    public function setLines(Remote\Collection $collectionOfLines)
     {
-        $this->propertyUpdated('lines', $value);
-        $this->_data[ 'lines' ] = $collectionOfLines;
+        $this->propertyUpdated('timesheetLines', $collectionOfLines);
+        $this->_data[ 'timesheetLines' ] = $collectionOfLines;
 
         return $this;
     }
