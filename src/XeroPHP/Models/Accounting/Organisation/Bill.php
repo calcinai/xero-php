@@ -101,7 +101,7 @@ class Bill extends Remote\Model
     }
 
     /**
-     * @param string $value
+     * @param int $value
      *
      * @return Bill
      */

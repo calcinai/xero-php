@@ -110,7 +110,23 @@ class Setting extends Remote\Model
     }
 
     /**
-     * @return TrackingCategory
+     * @param Account $value
+     * @deprecated endpoint is GET only
+     * @return Setting
+     */
+    public function addAccount(Account $value)
+    {
+        $this->propertyUpdated('Accounts', $value);
+        if (! isset($this->_data['Accounts'])) {
+            $this->_data['Accounts'] = new Remote\Collection();
+        }
+        $this->_data['Accounts'][] = $value;
+
+        return $this;
+    }
+
+    /**
+     * @return Remote\Collection|TrackingCategory[]
      */
     public function getTrackingCategories()
     {
@@ -118,10 +134,39 @@ class Setting extends Remote\Model
     }
 
     /**
-     * @return int
+     * @param TrackingCategory $value
+     * @deprecated endpoint is GET only
+     * @return Setting
+     */
+    public function addTrackingCategory(TrackingCategory $value)
+    {
+        $this->propertyUpdated('TrackingCategories', $value);
+        if (! isset($this->_data['TrackingCategories'])) {
+            $this->_data['TrackingCategories'] = new Remote\Collection();
+        }
+        $this->_data['TrackingCategories'][] = $value;
+
+        return $this;
+    }
+
+    /**
+     * @return string
      */
     public function getDaysInPayrollYear()
     {
         return $this->_data['DaysInPayrollYear'];
+    }
+
+    /**
+     * @param string $value
+     * @deprecated endpoint is GET only
+     * @return Setting
+     */
+    public function setDaysInPayrollYear($value)
+    {
+        $this->propertyUpdated('DaysInPayrollYear', $value);
+        $this->_data['DaysInPayrollYear'] = $value;
+
+        return $this;
     }
 }

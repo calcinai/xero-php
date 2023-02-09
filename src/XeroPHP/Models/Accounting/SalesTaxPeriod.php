@@ -4,6 +4,10 @@ namespace XeroPHP\Models\Accounting;
 
 /**
  * @deprecated
+ * @see \XeroPHP\Enums\Accounting\SalesTaxPeriods\NewZealand
+ * @see \XeroPHP\Enums\Accounting\SalesTaxPeriods\UnitedKingdom
+ * @see \XeroPHP\Enums\Accounting\SalesTaxPeriods\UsGlobal
+ * @see \XeroPHP\Enums\Accounting\SalesTaxPeriods\Australia
  */
 class SalesTaxPeriod
 {
@@ -40,7 +44,7 @@ class SalesTaxPeriod
     const UNITED_KINGDOM_YEARLY = 'YEARLY';
 
     /**
-     * These have incorrect spelling and will be remove in a future release.
+     * These have incorrect spelling and will be removed in a future release.
      * Please see "AUSTRALIAN" constants at the top of this file.
      *
      * @deprecated

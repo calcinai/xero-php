@@ -21,12 +21,29 @@ class PaymentTerm extends Remote\Model
      *
      * @property Sale Sales
      */
+
+    /**
+     * @deprecated
+     * @see \XeroPHP\Enums\Accounting\Payments\PaymentTerms
+     */
     const DAYSAFTERBILLDATE = 'DAYSAFTERBILLDATE';
 
+    /**
+     * @deprecated
+     * @see \XeroPHP\Enums\Accounting\Payments\PaymentTerms
+     */
     const DAYSAFTERBILLMONTH = 'DAYSAFTERBILLMONTH';
 
+    /**
+     * @deprecated
+     * @see \XeroPHP\Enums\Accounting\Payments\PaymentTerms
+     */
     const OFCURRENTMONTH = 'OFCURRENTMONTH';
 
+    /**
+     * @deprecated
+     * @see \XeroPHP\Enums\Accounting\Payments\PaymentTerms
+     */
     const OFFOLLOWINGMONTH = 'OFFOLLOWINGMONTH';
 
     /**

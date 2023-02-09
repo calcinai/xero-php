@@ -93,7 +93,7 @@ class Sale extends Remote\Model
     }
 
     /**
-     * @return string
+     * @return int
      */
     public function getDay()
     {
@@ -101,7 +101,7 @@ class Sale extends Remote\Model
     }
 
     /**
-     * @param string $value
+     * @param int $value
      *
      * @return Sale
      */
