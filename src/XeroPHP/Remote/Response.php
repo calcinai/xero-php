@@ -290,6 +290,8 @@ class Response
                         }
                     }
 
+                    unset($this->elements[$element_index]);
+
                     break;
 
                 default:
@@ -329,7 +331,15 @@ class Response
                     $this->elements[] = Helpers::XMLToArray($root_child);
 
                     break;
+                case 'Warnings':
+                    $warnings = [];
+                    foreach ($root_child->children() as $element_index => $element) {
+                        $warnings[] = Helpers::XMLToArray($element);
+                    }
 
+                    $this->elements[] = ['Warnings' => $warnings];
+
+                    break;
                 default:
                     //Happy to make the assumption that there will only be one
                     //root node with > than 2D children.
@@ -364,7 +374,15 @@ class Response
                     $this->elements[] = $root_child;
 
                     break;
+                case 'Warnings':
+                    $warnings = [];
+                    foreach ($root_child->children() as $element) {
+                        $warnings[] = $element;
+                    }
 
+                    $this->elements[] = ['Warnings' => $warnings];
+
+                    break;
                 default:
                     //Happy to make the assumption that there will only be one
                     //root node with > than 2D children.
