@@ -188,6 +188,24 @@ class Employee extends Remote\Model
      */
 
     /**
+     * See Employee IncomeType.
+     *
+     * @property string IncomeType
+     */
+
+    /**
+     * See Employee EmploymentType.
+     *
+     * @property string EmploymentType
+     */
+
+    /**
+     * See Employee CountryOfResidence.
+     *
+     * @property string CountryOfResidence
+     */
+
+    /**
      * Last modified timestamp.
      *
      * @property \DateTimeInterface UpdatedDateUTC
@@ -307,6 +325,9 @@ class Employee extends Remote\Model
             'Status' => [false, self::PROPERTY_TYPE_ENUM, null, false, false],
             'UpdatedDateUTC' => [false, self::PROPERTY_TYPE_TIMESTAMP, '\\DateTimeInterface', false, false],
             'TaxDeclaration' => [false, self::PROPERTY_TYPE_OBJECT, 'PayrollAU\\Employee\\TaxDeclaration', false, false],
+            'IncomeType' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'EmploymentType' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'CountryOfResidence' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
         ];
     }
 
@@ -957,6 +978,90 @@ class Employee extends Remote\Model
     {
         $this->propertyUpdated('TaxDeclaration', $value);
         $this->_data['TaxDeclaration'] = $value;
+
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getIncomeType()
+    {
+        return $this->_data['IncomeType'];
+    }
+
+    /**
+     * @param string $value
+     *
+     * @return Employee
+     */
+    public function setIncomeType($value)
+    {
+        $this->propertyUpdated('IncomeType', $value);
+        $this->_data['IncomeType'] = $value;
+
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getIncomeType()
+    {
+        return $this->_data['IncomeType'];
+    }
+
+    /**
+     * @param string $value
+     *
+     * @return Employee
+     */
+    public function setIncomeType($value)
+    {
+        $this->propertyUpdated('IncomeType', $value);
+        $this->_data['IncomeType'] = $value;
+
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getEmploymentType()
+    {
+        return $this->_data['EmploymentType'];
+    }
+
+    /**
+     * @param string $value
+     *
+     * @return Employee
+     */
+    public function setEmploymentType($value)
+    {
+        $this->propertyUpdated('EmploymentType', $value);
+        $this->_data['EmploymentType'] = $value;
+
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getCountryOfResidence()
+    {
+        return $this->_data['CountryOfResidence'];
+    }
+
+    /**
+     * @param string $value
+     *
+     * @return Employee
+     */
+    public function setCountryOfResidence($value)
+    {
+        $this->propertyUpdated('CountryOfResidence', $value);
+        $this->_data['CountryOfResidence'] = $value;
 
         return $this;
     }
