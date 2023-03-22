@@ -1006,27 +1006,6 @@ class Employee extends Remote\Model
     /**
      * @return string
      */
-    public function getIncomeType()
-    {
-        return $this->_data['IncomeType'];
-    }
-
-    /**
-     * @param string $value
-     *
-     * @return Employee
-     */
-    public function setIncomeType($value)
-    {
-        $this->propertyUpdated('IncomeType', $value);
-        $this->_data['IncomeType'] = $value;
-
-        return $this;
-    }
-
-    /**
-     * @return string
-     */
     public function getEmploymentType()
     {
         return $this->_data['EmploymentType'];
