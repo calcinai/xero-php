@@ -9,14 +9,15 @@ use GuzzleHttp\Handler\MockHandler;
 use GuzzleHttp\HandlerStack;
 use GuzzleHttp\Psr7\Request as GuzzleRequest;
 use GuzzleHttp\Psr7\Response;
+use PHPUnit\Framework\TestCase;
 use XeroPHP\Application;
+use XeroPHP\Remote\Exception\BadRequestException;
+use XeroPHP\Remote\Exception\RateLimitExceededException;
 use XeroPHP\Remote\Exception\UnknownStatusException;
 use XeroPHP\Remote\Request as XeroRequest;
 use XeroPHP\Remote\URL;
-use XeroPHP\Remote\Exception\BadRequestException;
-use XeroPHP\Remote\Exception\RateLimitExceededException;
 
-class RequestTest extends \PHPUnit_Framework_TestCase
+class RequestTest extends TestCase
 {
     private function getMockedApplication($mockedResponses)
     {
@@ -33,7 +34,7 @@ class RequestTest extends \PHPUnit_Framework_TestCase
     public function testBadRequestException()
     {
         $app = $this->getMockedApplication([
-            new BadResponseException('Bad response', new GuzzleRequest('GET', 'test'), new Response(400))
+            new BadResponseException('Bad response', new GuzzleRequest('GET', 'test'), new Response(400)),
         ]);
         $request = new XeroRequest($app, new URL($app, 'test'));
 
@@ -44,7 +45,7 @@ class RequestTest extends \PHPUnit_Framework_TestCase
     public function testGuzzleExceptionsAreThrown()
     {
         $app = $this->getMockedApplication([
-            new ConnectException('Failed to connect', new GuzzleRequest('GET', 'test'))
+            new ConnectException('Failed to connect', new GuzzleRequest('GET', 'test')),
         ]);
         $request = new XeroRequest($app, new URL($app, 'test'));
 
@@ -57,9 +58,9 @@ class RequestTest extends \PHPUnit_Framework_TestCase
         $app = $this->getMockedApplication([
             new Response(
                 503,
-                [ 'X-Rate-Limit-Problem' => 'daily' ],
+                ['X-Rate-Limit-Problem' => 'daily'],
                 'oauth_problem=rate limit exceeded&oauth_problem_advice=please wait before retrying the xero api'
-            )
+            ),
         ]);
         $request = new XeroRequest($app, new URL($app, 'test'));
 
@@ -79,9 +80,9 @@ class RequestTest extends \PHPUnit_Framework_TestCase
         $app = $this->getMockedApplication([
             new Response(
                 429,
-                [ 'X-Rate-Limit-Problem' => 'minute', 'Retry-After' => '8' ],
+                ['X-Rate-Limit-Problem' => 'minute', 'Retry-After' => '8'],
                 ''
-            )
+            ),
         ]);
         $request = new XeroRequest($app, new URL($app, 'test'));
 
@@ -100,7 +101,7 @@ class RequestTest extends \PHPUnit_Framework_TestCase
     public function testUnknownStatusExceptionIsThrown()
     {
         $app = $this->getMockedApplication([
-            new Response(599)
+            new Response(599),
         ]);
         $request = new XeroRequest($app, new URL($app, 'test'));
 

@@ -6,11 +6,12 @@ use GuzzleHttp\Client;
 use GuzzleHttp\Handler\MockHandler;
 use GuzzleHttp\HandlerStack;
 use GuzzleHttp\Psr7\Response;
+use PHPUnit\Framework\TestCase;
 use XeroPHP\Application;
 use XeroPHP\Remote\Model;
 use XeroPHP\Tests\Remote\Model\ModelWithCollection;
 
-class ModelTest extends \PHPUnit_Framework_TestCase
+class ModelTest extends TestCase
 {
     public function testAccessorMethods()
     {
@@ -116,7 +117,7 @@ class ModelTest extends \PHPUnit_Framework_TestCase
       <Contacts>
         <Contact>
           <ID>220</ID>
-          <IsPrimary>yes</IsPrimary>
+          <IsPrimary>Yes</IsPrimary>
           <Name>Samantha Benecke</Name> 
           <Salutation>Sam</Salutation> 
           <Addressee>Mrs S Benecke</Addressee> 
@@ -206,10 +207,11 @@ class ModelTest extends \PHPUnit_Framework_TestCase
 
         $this->assertEquals(255, $model->getID());
         $this->assertEquals('XYZ Australia, NZ Business Unit', $model->getName());
+        $this->assertEquals('No', $model->getIsProspect());
 
         foreach ($model->getContacts() as $contact) {
             $this->assertEquals(220, $contact->getID());
-            $this->assertTrue($contact->getIsPrimary());
+            $this->assertEquals('Yes', $contact->getIsPrimary());
             $this->assertEquals('Samantha Benecke', $contact->getName());
         }
 
