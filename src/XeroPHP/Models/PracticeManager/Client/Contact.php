@@ -8,6 +8,7 @@ use XeroPHP\Traits\PracticeManager\CustomFieldValueTrait;
 class Contact extends Remote\Model
 {
     use CustomFieldValueTrait;
+
     /*
      * // To Save a new Contact you need to add a ClientID
      * <Contact>
@@ -143,15 +144,15 @@ class Contact extends Remote\Model
     }
 
     /**
-     * @return bool
+     * @return string
      */
     public function getIsPrimary()
     {
-        return strtolower($this->_data['IsPrimary']) == 'yes';
+        return $this->_data['IsPrimary'];
     }
 
     /**
-     * @param string|bool $value
+     * @param string $value
      *
      * @return Contact
      */
