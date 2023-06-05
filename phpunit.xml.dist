@@ -8,6 +8,7 @@
          convertWarningsToExceptions="true"
          processIsolation="false"
          stopOnFailure="false"
+         syntaxCheck="false"
          bootstrap="vendor/autoload.php"
         >
 
@@ -23,7 +24,7 @@
         </whitelist>
     </filter>
     <logging>
-        <log type="junit" target="build/logs/junit/phpunit.xml"/>
+        <log type="junit" target="build/logs/junit/phpunit.xml" logIncompleteSkipped="false"/>
         <log type="coverage-html" target="build/coverage" />
     </logging>
 </phpunit>

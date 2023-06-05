@@ -2,40 +2,42 @@
 
 namespace XeroPHP\Tests;
 
-use PHPUnit\Framework\TestCase;
 use XeroPHP\Application;
+use XeroPHP\Application\PrivateApplication;
 use XeroPHP\Webhook;
 use XeroPHP\Webhook\Event;
 
-class WebhookTest extends TestCase
+class WebhookTest extends \PHPUnit_Framework_TestCase
 {
     /**
      * @var Application
      */
     private $application;
 
-    protected function setUp(): void
+    protected function setUp()
     {
         $this->application = new Application('token', 'tenantId');
         $this->application->setConfig([
             'webhook' => [
                 'signing_key' => 'test_key',
-            ],
+            ]
         ]);
     }
 
+    /**
+     * @expectedException \XeroPHP\Exception
+     */
     public function testMalformedPayload()
     {
-        $this->expectException(\XeroPHP\Exception::class);
-
         $payload = 'not valid json';
         $webhook = new Webhook($this->application, $payload);
     }
 
+    /**
+     * @expectedException \XeroPHP\Exception
+     */
     public function testPayloadMissingKeys()
     {
-        $this->expectException(\XeroPHP\Exception::class);
-
         $payload = '{}';
         $webhook = new Webhook($this->application, $payload);
     }

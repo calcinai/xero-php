@@ -2,10 +2,9 @@
 
 namespace XeroPHP\Tests\Application;
 
-use PHPUnit\Framework\TestCase;
 use XeroPHP\Application;
 
-class ApplicationTest extends TestCase
+class ApplicationTest extends \PHPUnit_Framework_TestCase
 {
     public function testAllowsFQNWhenValidatingModelClass()
     {
@@ -29,7 +28,7 @@ class ApplicationTest extends TestCase
 
     public function testThrowsExceptionWhenUnableToValidateClass()
     {
-        $this->expectException(\Exception::class);
+        $this->setExpectedException(\Exception::class);
 
         $this->instance()->validateModelClass('Unknown\\Namespaced\\Class');
 
@@ -37,7 +36,7 @@ class ApplicationTest extends TestCase
 
     public function testSettingMissingConfigOptionThrowsException()
     {
-        $this->expectException(\Exception::class);
+        $this->setExpectedException(\Exception::class);
 
         $this->instance()->setConfigOption('non_exitant_key', 'sub_key', 'value');
     }
@@ -81,14 +80,14 @@ class ApplicationTest extends TestCase
 
     public function testAccessingMissingConfigOptionThrowsException()
     {
-        $this->expectException(\Exception::class);
+        $this->setExpectedException(\Exception::class);
 
         $this->instance()->getConfigOption('xero', 'non_existent_key');
     }
 
     public function testAccessingMissingConfigThrowsException()
     {
-        $this->expectException(\Exception::class);
+        $this->setExpectedException(\Exception::class);
 
         $this->instance()->getConfig('non_existent_key');
     }

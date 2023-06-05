@@ -2,10 +2,9 @@
 
 namespace XeroPHP\Tests;
 
-use PHPUnit\Framework\TestCase;
 use XeroPHP\Helpers;
 
-class HelpersTest extends TestCase
+class HelpersTest extends \PHPUnit_Framework_TestCase
 {
     public function testXMLToArrayWithEmptyNodes()
     {
