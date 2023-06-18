@@ -2,6 +2,7 @@
 
 namespace XeroPHP\Webhook;
 
+use XeroPHP\Remote\Exception\RequiredFieldException;
 use XeroPHP\Remote\Request;
 use XeroPHP\Remote\URL;
 
@@ -73,7 +74,11 @@ class Event
 
         foreach ($fields as $required) {
             if (!isset($event[$required])) {
-                throw new \XeroPHP\Exception("The event payload was malformed; missing required field {$required}");
+                throw new RequiredFieldException(
+                    get_class($this), 
+                    $required, 
+                    "The event payload was malformed; missing required field {$required}"
+                );
             }
 
             $this->{$required} = $event[$required];

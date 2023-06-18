@@ -4,6 +4,7 @@ namespace XeroPHP\Remote;
 
 use XeroPHP\Helpers;
 use XeroPHP\Application;
+use XeroPHP\Remote\Exception\RequiredFieldException;
 
 /**
  * Class Model.
@@ -395,10 +396,13 @@ abstract class Model implements ObjectInterface, \JsonSerializable, \ArrayAccess
             //If it's got a GUID, it's already going to be valid almost all cases
             if (! $this->hasGUID() && $mandatory) {
                 if (! isset($this->_data[$property]) || empty($this->_data[$property])) {
-                    throw new Exception(
+                    $class = get_class($this);
+                    throw new RequiredFieldException(
+                        $class,
+                        $property,
                         sprintf(
                             '%s::$%s is mandatory and is either missing or empty.',
-                            get_class($this),
+                            $class,
                             $property
                         )
                     );
