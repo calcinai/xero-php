@@ -31,6 +31,11 @@ class Application
      */
     protected $config;
 
+    private ?int $lastApiCall = null;
+    private ?int $appMinLimitRemining = null;
+    private ?int $tenantDayLimitRemining = null;
+    private ?int $tenantMinLimitRemining = null;
+
     /**
      * @var ClientInterface
      */
@@ -454,5 +459,24 @@ class Application
         }
 
         return $object;
+    }
+
+    public function updateAppRateLimits(int $appMinLimitRemining,  int $tenantDayLimitRemining, int $tenantMinLimitRemining)
+    {
+        $this->lastApiCall = time();
+        $this->appMinLimitRemining = $appMinLimitRemining;
+        $this->tenantDayLimitRemining = $tenantDayLimitRemining;
+        $this->tenantMinLimitRemining = $tenantMinLimitRemining;
+        return $this;
+    }
+
+    public function getAppRateLimits(): array
+    {
+        return [
+            'last-api-call' => $this->lastApiCall,
+            'app-min-limit-remaining' => $this->appMinLimitRemining,
+            'tenant-day-limit-remaining' => $this->tenantDayLimitRemining,
+            'tenant-min-limit-remaining' => $this->tenantMinLimitRemining,
+        ];
     }
 }
