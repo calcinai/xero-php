@@ -123,6 +123,12 @@ class Request
                     sleep($retryAfter);
                 }
             }
+
+            $this->app->updateAppRateLimits(
+                $guzzleResponse->getHeader('X-AppMinLimit-Remaining')[0],
+                $guzzleResponse->getHeader('X-DayLimit-Remaining')[0],
+                $guzzleResponse->getHeader('X-MinLimit-Remaining')[0],
+            );
         } while ($retry);
 
         $this->response = new Response($this,
