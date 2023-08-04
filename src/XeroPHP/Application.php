@@ -22,6 +22,7 @@ class Application
             'payroll_version' => '1.0',
             'file_version' => '1.0',
             'practice_manager_version' => '3.0',
+            'api_limit_max_wait_seconds' => 3,
         ]
     ];
 
