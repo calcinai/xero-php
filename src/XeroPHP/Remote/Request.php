@@ -120,6 +120,7 @@ class Request
                 }
                 if($retryAfter < (int) $configuredMaxWaitTime){
                     $retry = true;
+                    sleep($retryAfter);
                 }
             }
         } while ($retry);
