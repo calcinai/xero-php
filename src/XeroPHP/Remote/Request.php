@@ -124,11 +124,13 @@ class Request
                 }
             }
 
-            $this->app->updateAppRateLimits(
-                $guzzleResponse->getHeader('X-AppMinLimit-Remaining')[0],
-                $guzzleResponse->getHeader('X-DayLimit-Remaining')[0],
-                $guzzleResponse->getHeader('X-MinLimit-Remaining')[0],
-            );
+            if($guzzleResponse->hasHeader('X-AppMinLimit-Remaining')){
+                $this->app->updateAppRateLimits(
+                    $guzzleResponse->getHeader('X-AppMinLimit-Remaining')[0],
+                    $guzzleResponse->getHeader('X-DayLimit-Remaining')[0],
+                    $guzzleResponse->getHeader('X-MinLimit-Remaining')[0],
+                );
+            }
         } while ($retry);
 
         $this->response = new Response($this,
