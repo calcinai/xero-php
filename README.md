@@ -301,43 +301,41 @@ These are just a couple of examples and you should read the official documentati
 
 ### Rate Limit Exceptions
 
-Xero returns headers indicating the number for calls remaining befpre reaching their API lmits.
+Xero returns header values indicating the number of calls remaining before reaching their API lmits.
 https://developer.xero.com/documentation/guides/oauth2/limits/
 
-The Application is updated following every request, so that you can track the number of requests remaining until hitting the Xero limit using the Application::getAppRateLimits() method. It returns an array with the following keys and associated integer values.
+The Application is updated following every request and you can track the number of requests remaining using the Application::getAppRateLimits() method. It returns an array with the following keys and associated integer values.
 
     'last-api-call' // The int timestamp of the last request made to the Xero API
-    'app-min-limit-remaining' // The number of requests remaining for the application as a whole in the current minute, limit is 10,000.
-    'tenant-day-limit-remaining' // The number of requests remaining for the individual tenant the minute, limit is 5,000.
-    'tenant-min-limit-remaining' // The number of requests remaining for the individual tenant the day, limit is 60.
+    'app-min-limit-remaining' // The number of requests remaining for the application as a whole in the current minute. The normal limit is 10,000.
+    'tenant-day-limit-remaining' // The number of requests remaining for the individual tenant by the day, limit is 5,000.
+    'tenant-min-limit-remaining' // The number of requests remaining for the individual tenant by the minute, limit is 60.
 
-This can be used to decide if additional requests will throttled or sent to some message queue. For example:
+These values can be used to decide if additional requests will throttled or sent to some message queue. For example:
 
 ``` php
     // If you know the number of API calls that you intend to make. 
     $myExpectedApiCalls = 50;
 
-    // Before executing a statement, you could call the rate limits.
+    // Before executing a statement, you could check the the rate limits.
     $apiCallsRemaining = $xero->getAppRateLimits();
 
-    // If the expected number of API calls is higher than the number remaining for the tenant.
+    // If the expected number of API calls is higher than the number remaining for the tenant then do something.
     if($myExpectedApiCalls > $apiCallsRemaining['tenant-day-limit-remaining']){
        // Send the calls to a queue for processing at another time
        // Or throttle the calls to suit your needs.
     }
 ```
 
-If the Application exceeds the rate limits, then Xero return an HTTP 429 Too Many Requests response. By default, this response is caught and thrown as a RateLimitException.
+If the Application exceeds the rate limits Xero will return an HTTP 429 Too Many Requests response. By default, this response is caught and thrown as a RateLimitException.
 
-You can provide a more graceful method of dealing with HTTP 429 responses from Xero by using GuzzleHttp\RetryMiddleware.
-
-For this you need to replace the transport client created when instantiating the Application. For example:
+You can provide a more graceful method of dealing with HTTP 429 responses by using the Guzzle RetryMiddleware. You need to replace the transport client created when instantiating the Application. For example:
 
 ```php
 
 public function yourApplicationCreationMethod($accessToken, tenantId): Application {
 
-   // By default the contructor creates a Guzzle Client without any handlers. Pass a third argument false to skip that general client constructor.
+   // By default the contructor creates a Guzzle Client without any handlers. Pass a third argument 'false' to skip the general client constructor.
    $xero = new Application($accessToken, $tenantId, false);
 
    // Create a new handler stack
@@ -346,7 +344,7 @@ public function yourApplicationCreationMethod($accessToken, tenantId): Applicati
    // Create the MiddleWare callable, in this case with a maximum limit of 5 retries.
    $stack->push($this->getRetryMiddleware(5));
 
-   // Create a new Guzzle Client.
+   // Create a new Guzzle Client
    $transport = new Client([
        'headers' => [
            'User-Agent' => sprintf(Application::USER_AGENT_STRING, Helpers::getPackageVersion()),
@@ -356,7 +354,7 @@ public function yourApplicationCreationMethod($accessToken, tenantId): Applicati
        'handler' => $stack
    ]);
 
-   // Replace the default Client from the application constructor with our new Client using the RetryMiddleware.
+   // Replace the default Client from the application constructor with our new Client using the RetryMiddleware
    $xero->setTransport($transport);
 
    return $xero
@@ -364,7 +362,7 @@ public function yourApplicationCreationMethod($accessToken, tenantId): Applicati
 }
 
 /**
- * Customise the Middeware to suit your needs. Perhaps creating log messages, or making decisions about when to retry or not.
+ * Customise the RetryMiddeware to suit your needs. Perhaps creating log messages, or making decisions about when to retry or not.
  */
 protected function getRetryMiddleware(int $maxRetries): callable
     {
