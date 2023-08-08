@@ -17,12 +17,10 @@ class Application
         'xero' => [
             'base_url' => 'https://api.xero.com/',
             'default_content_type' => Request::CONTENT_TYPE_XML,
-
             'core_version' => '2.0',
             'payroll_version' => '1.0',
             'file_version' => '1.0',
-            'practice_manager_version' => '3.0',
-            'api_limit_max_wait_seconds' => 3,
+            'practice_manager_version' => '3.0'
         ]
     ];
 
@@ -44,21 +42,24 @@ class Application
     /**
      * @param $token
      * @param $tenantId
+     * $param $constructClient
      */
-    public function __construct($token, $tenantId)
+    public function __construct($token, $tenantId, ?bool $constructClient = true)
     {
         $this->config = static::$_config_defaults;
 
-        //Not sure if this is necessary, but it's one less thing to have to create outside the instance.
-        $transport = new Client([
-            'headers' => [
-                'User-Agent' => sprintf(static::USER_AGENT_STRING, Helpers::getPackageVersion()),
-                'Authorization' => sprintf('Bearer %s', $token),
-                'Xero-tenant-id' => $tenantId,
-            ]
-        ]);
-
-        $this->transport = $transport;
+        if($constructClient){
+            //Not sure if this is necessary, but it's one less thing to have to create outside the instance.
+            $transport = new Client([
+                'headers' => [
+                    'User-Agent' => sprintf(static::USER_AGENT_STRING, Helpers::getPackageVersion()),
+                    'Authorization' => sprintf('Bearer %s', $token),
+                    'Xero-tenant-id' => $tenantId,
+                ]
+            ]);
+    
+            $this->transport = $transport;
+        }
     }
 
 
@@ -461,7 +462,14 @@ class Application
         return $object;
     }
 
-    public function updateAppRateLimits(int $appMinLimitRemining,  int $tenantDayLimitRemining, int $tenantMinLimitRemining)
+    public function updateAppRateLimit(int $appMinLimitRemining)
+    {
+        $this->lastApiCall = time();
+        $this->appMinLimitRemining = $appMinLimitRemining;
+        return $this;
+    }
+
+    public function updateTenantRateLimits(int $tenantDayLimitRemining, int $tenantMinLimitRemining)
     {
         $this->lastApiCall = time();
         $this->appMinLimitRemining = $appMinLimitRemining;
