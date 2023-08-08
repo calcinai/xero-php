@@ -337,8 +337,8 @@ For this you need to replace the transport client created when instantiating the
 
 public function yourApplicationCreationMethod($accessToken, tenantId): Application {
 
-   // The contructor creates a Guzzle Client without any handlers.
-   $xero = new Application($accessToken, $tenantId);
+   // By default the contructor creates a Guzzle Client without any handlers. Pass a third argument false to skip that general client constructor.
+   $xero = new Application($accessToken, $tenantId, false);
 
    // Create a new handler stack
    $stack = HandlerStack::create();
