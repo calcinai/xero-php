@@ -472,7 +472,6 @@ class Application
     public function updateTenantRateLimits(int $tenantDayLimitRemining, int $tenantMinLimitRemining)
     {
         $this->lastApiCall = time();
-        $this->appMinLimitRemining = $appMinLimitRemining;
         $this->tenantDayLimitRemining = $tenantDayLimitRemining;
         $this->tenantMinLimitRemining = $tenantMinLimitRemining;
         return $this;
