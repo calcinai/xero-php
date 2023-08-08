@@ -58,7 +58,7 @@ class Payment extends Remote\Model
     /**
      * An optional description to appear on a payee bank statement when Payment is a child of BatchPayment.
      *
-     * @property string Details
+     * @property string BatchPayment
      */
 
     /**
@@ -193,12 +193,13 @@ class Payment extends Remote\Model
             'CurrencyRate' => [false, self::PROPERTY_TYPE_FLOAT, null, false, false],
             'Amount' => [false, self::PROPERTY_TYPE_FLOAT, null, false, false],
             'Reference' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
-            'Details' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'BatchPayment' => [false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\BatchPayment', true, false],
             'IsReconciled' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
             'Status' => [false, self::PROPERTY_TYPE_ENUM, null, false, false],
             'PaymentType' => [false, self::PROPERTY_TYPE_ENUM, null, false, false],
             'UpdatedDateUTC' => [false, self::PROPERTY_TYPE_TIMESTAMP, '\\DateTimeInterface', false, false],
             'PaymentID' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'BatchPaymentID' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
         ];
     }
 
@@ -494,6 +495,14 @@ class Payment extends Remote\Model
         $this->_data['PaymentID'] = $value;
 
         return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getBatchPaymentID()
+    {
+        return $this->_data['BatchPaymentID'];
     }
 
     /**
