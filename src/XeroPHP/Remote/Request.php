@@ -107,31 +107,24 @@ class Request
 
         $request = new PsrRequest($this->getMethod(), $uri, $this->getHeaders(), $this->body);
 
-        $retry = false;
-
-        do {
-            $guzzleResponse = $this->sendRequest($request);
-
-            if(Response::STATUS_TOO_MANY_REQUESTS === $guzzleResponse->getStatusCode()){
-                $retryAfter = $guzzleResponse->getHeader('Retry-After')[0];
-                $configuredMaxWaitTime = $this->app->getConfig('xero')['api_limit_max_wait_seconds'];
-                if(false === $configuredMaxWaitTime){
-                    break;
-                }
-                if($retryAfter < (int) $configuredMaxWaitTime){
-                    $retry = true;
-                    sleep($retryAfter);
-                }
-            }
-
-            if($guzzleResponse->hasHeader('X-AppMinLimit-Remaining')){
-                $this->app->updateAppRateLimits(
-                    $guzzleResponse->getHeader('X-AppMinLimit-Remaining')[0],
-                    $guzzleResponse->getHeader('X-DayLimit-Remaining')[0],
-                    $guzzleResponse->getHeader('X-MinLimit-Remaining')[0],
-                );
-            }
-        } while ($retry);
+        try {
+            $guzzleResponse = $this->app->getTransport()->send($request);
+        } catch (\GuzzleHttp\Exception\BadResponseException $e) {
+            $guzzleResponse = $e->getResponse();
+        }
+        
+        if($guzzleResponse->hasHeader('X-AppMinLimit-Remaining')){
+            $this->app->updateAppRateLimit(
+                $guzzleResponse->getHeader('X-AppMinLimit-Remaining')[0]
+            );
+        }
+        
+        if($guzzleResponse->hasHeader('X-DayLimit-Remaining')){
+            $this->app->updateTenantRateLimits(
+                $guzzleResponse->getHeader('X-DayLimit-Remaining')[0],
+                $guzzleResponse->getHeader('X-MinLimit-Remaining')[0],
+            );
+        }
 
         $this->response = new Response($this,
             $guzzleResponse->getBody()->getContents(),
@@ -140,17 +133,6 @@ class Request
         );
         $this->response->parse();
         return $this->response;
-    }
-
-    private function sendRequest(PsrRequest $request): \GuzzleHttp\Psr7\Response
-    {
-        try {
-            $guzzleResponse = $this->app->getTransport()->send($request);
-        } catch (\GuzzleHttp\Exception\BadResponseException $e) {
-            $guzzleResponse = $e->getResponse();
-        }
-
-        return $guzzleResponse;
     }
 
     public function setParameter($key, $value)
