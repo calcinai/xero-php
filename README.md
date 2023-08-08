@@ -368,8 +368,8 @@ protected function getRetryMiddleware(int $maxRetries): callable
     {
         $decider = function (
             int $retries,
-            \GuzzleHttp\Psr7\Request $request,
-            Response $response = null
+            RequestInterface $request,
+            ResponseInterface $response = null
         ) use (
             $maxRetries
         ): bool {
@@ -379,7 +379,7 @@ protected function getRetryMiddleware(int $maxRetries): callable
                 && \XeroPHP\Remote\Response::STATUS_TOO_MANY_REQUESTS === $response->getStatusCode();
         };
 
-        $delay = function (int $retries, Response $response): int {
+        $delay = function (int $retries, ResponseInterface $response): int {
             if (!$response->hasHeader('Retry-After')) {
                 return RetryMiddleware::exponentialDelay($retries);
             }
