@@ -333,7 +333,7 @@ You can provide a more graceful method of dealing with HTTP 429 responses by usi
 
 ```php
 
-public function yourApplicationCreationMethod($accessToken, tenantId): Application {
+public function yourApplicationCreationMethod($accessToken, $tenantId): Application {
 
    // By default the contructor creates a Guzzle Client without any handlers. Pass a third argument 'false' to skip the general client constructor.
    $xero = new Application($accessToken, $tenantId, false);
@@ -365,36 +365,36 @@ public function yourApplicationCreationMethod($accessToken, tenantId): Applicati
  * Customise the RetryMiddeware to suit your needs. Perhaps creating log messages, or making decisions about when to retry or not.
  */
 protected function getRetryMiddleware(int $maxRetries): callable
-    {
-        $decider = function (
-            int $retries,
-            RequestInterface $request,
-            ResponseInterface $response = null
-        ) use (
-            $maxRetries
-        ): bool {
-            return
-                $retries < $maxRetries
-                && null !== $response
-                && \XeroPHP\Remote\Response::STATUS_TOO_MANY_REQUESTS === $response->getStatusCode();
-        };
+{
+    $decider = function (
+        int $retries,
+        RequestInterface $request,
+        ResponseInterface $response = null
+    ) use (
+        $maxRetries
+    ): bool {
+        return
+            $retries < $maxRetries
+            && null !== $response
+            && \XeroPHP\Remote\Response::STATUS_TOO_MANY_REQUESTS === $response->getStatusCode();
+    };
 
-        $delay = function (int $retries, ResponseInterface $response): int {
-            if (!$response->hasHeader('Retry-After')) {
-                return RetryMiddleware::exponentialDelay($retries);
-            }
+    $delay = function (int $retries, ResponseInterface $response): int {
+        if (!$response->hasHeader('Retry-After')) {
+            return RetryMiddleware::exponentialDelay($retries);
+        }
 
-            $retryAfter = $response->getHeaderLine('Retry-After');
+        $retryAfter = $response->getHeaderLine('Retry-After');
 
-            if (!is_numeric($retryAfter)) {
-                $retryAfter = (new \DateTime($retryAfter))->getTimestamp() - time();
-            }
+        if (!is_numeric($retryAfter)) {
+            $retryAfter = (new \DateTime($retryAfter))->getTimestamp() - time();
+        }
 
-            return (int)$retryAfter * 1000;
-        };
+        return (int)$retryAfter * 1000;
+    };
 
-        return Middleware::retry($decider, $delay);
-    }
+    return Middleware::retry($decider, $delay);
+}
 
 ```
 
@@ -409,7 +409,7 @@ This library will parse the response Xero returns and throw an exception when it
 | 403 Forbidden | `\XeroPHP\Remote\Exception\ForbiddenException` |
 | 403 ReportPermissionMissingException | `\XeroPHP\Remote\Exception\ReportPermissionMissingException` |
 | 404 Not Found | `\XeroPHP\Remote\Exception\NotFoundException` |
-| 429 Too Many Requests | `\XeroPHP\Remote\Exception\RateLimitException` |
+| 429 Too Many Requests | `\XeroPHP\Remote\Exception\RateLimitExceededException` |
 | 500 Internal Error | `\XeroPHP\Remote\Exception\InternalErrorException` |
 | 501 Not Implemented | `\XeroPHP\Remote\Exception\NotImplementedException` |
 | 503 Rate Limit Exceeded | `\XeroPHP\Remote\Exception\RateLimitExceededException` |
