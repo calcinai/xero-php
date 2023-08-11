@@ -565,6 +565,18 @@ class Contact extends Remote\Model
     }
 
     /**
+     * 
+     * @return Contact
+     */
+    public function resetContactPersons()
+    {
+        $this->propertyUpdated('ContactPersons', $value);
+        $this->_data['ContactPersons'] = new Remote\Collection();
+        return $this;
+    }
+        
+
+    /**
      * @return string
      */
     public function getBankAccountDetails()
