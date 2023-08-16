@@ -328,6 +328,7 @@ class Contact extends Remote\Model
             'IsCustomer' => [false, self::PROPERTY_TYPE_BOOLEAN, null, false, false],
             'DefaultCurrency' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
             'XeroNetworkKey' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'MergedToContactID' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
             'SalesDefaultAccountCode' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
             'PurchasesDefaultAccountCode' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
             'SalesTrackingCategories' => [false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\TrackingCategory', true, false],
