@@ -809,6 +809,27 @@ class Contact extends Remote\Model
     /**
      * @return string
      */
+    public function getMergedToContactID()
+    {
+        return $this->_data['MergedToContactID'];
+    }
+
+    /**
+     * @param string $value
+     *
+     * @return Contact
+     */
+    public function setMergedToContactID($value)
+    {
+        $this->propertyUpdated('MergedToContactID', $value);
+        $this->_data['MergedToContactID'] = $value;
+
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
     public function getSalesDefaultAccountCode()
     {
         return $this->_data['SalesDefaultAccountCode'];
