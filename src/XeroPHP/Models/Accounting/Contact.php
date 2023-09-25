@@ -328,6 +328,7 @@ class Contact extends Remote\Model
             'IsCustomer' => [false, self::PROPERTY_TYPE_BOOLEAN, null, false, false],
             'DefaultCurrency' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
             'XeroNetworkKey' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'MergedToContactID' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
             'SalesDefaultAccountCode' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
             'PurchasesDefaultAccountCode' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
             'SalesTrackingCategories' => [false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\TrackingCategory', true, false],
@@ -801,6 +802,27 @@ class Contact extends Remote\Model
     {
         $this->propertyUpdated('XeroNetworkKey', $value);
         $this->_data['XeroNetworkKey'] = $value;
+
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getMergedToContactID()
+    {
+        return $this->_data['MergedToContactID'];
+    }
+
+    /**
+     * @param string $value
+     *
+     * @return Contact
+     */
+    public function setMergedToContactID($value)
+    {
+        $this->propertyUpdated('MergedToContactID', $value);
+        $this->_data['MergedToContactID'] = $value;
 
         return $this;
     }
