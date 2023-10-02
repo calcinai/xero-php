@@ -1,0 +1,11 @@
+<?php
+
+namespace XeroPHP\Enums\Accounting\Payments;
+
+class PaymentTerms
+{
+    const DAYSAFTERBILLDATE = 'DAYSAFTERBILLDATE';
+    const DAYSAFTERBILLMONTH = 'DAYSAFTERBILLMONTH';
+    const OFCURRENTMONTH = 'OFCURRENTMONTH';
+    const OFFOLLOWINGMONTH = 'OFFOLLOWINGMONTH';
+}

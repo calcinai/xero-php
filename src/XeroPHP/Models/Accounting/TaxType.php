@@ -2,6 +2,17 @@
 
 namespace XeroPHP\Models\Accounting;
 
+/**
+ * @deprecated
+ *
+ * @see \XeroPHP\Enums\Accounting\TaxRates\TaxTypes\Australia
+ * @see \XeroPHP\Enums\Accounting\TaxRates\TaxTypes\GlobalTaxType
+ * @see \XeroPHP\Enums\Accounting\TaxRates\TaxTypes\NewZealand
+ * @see \XeroPHP\Enums\Accounting\TaxRates\TaxTypes\Singapore
+ * @see \XeroPHP\Enums\Accounting\TaxRates\TaxTypes\SouthAfrica
+ * @see \XeroPHP\Enums\Accounting\TaxRates\TaxTypes\UnitedKingdom
+ * @see \XeroPHP\Enums\Accounting\TaxRates\TaxTypes\UnitedStates
+ */
 class TaxType
 {
     const AUSTRALIAN_TAX_TYPE = 'TAX TYPE';
@@ -181,7 +192,7 @@ class TaxType
     const SOUTH_AFRICA_ZERORATEDOUTPUT = 'ZERORATEDOUTPUT';
 
     /**
-     * These have incorrect spelling and will be remove in a future release.
+     * These have incorrect spelling and will be removed in a future release.
      * Please see "AUSTRALIAN" constants at the top of this file.
      *
      * @deprecated

@@ -18,13 +18,13 @@ class Setting extends Remote\Model
     /**
      * Tracking categories for Employee’s and Timesheet’s.  See Tracking Categories.
      *
-     * @property TrackingCategory[] TrackingCategories
+     * @property TrackingCategory TrackingCategories
      */
 
     /**
      * Number of days in the Payroll year.
      *
-     * @property string DaysInPayrollYear
+     * @property int DaysInPayrollYear
      */
 
     /**
@@ -91,8 +91,8 @@ class Setting extends Remote\Model
     {
         return [
             'Accounts' => [false, self::PROPERTY_TYPE_OBJECT, 'PayrollAU\\Setting\\Account', true, false],
-            'TrackingCategories' => [false, self::PROPERTY_TYPE_OBJECT, 'PayrollAU\\Setting\\TrackingCategory', true, false],
-            'DaysInPayrollYear' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'TrackingCategories' => [false, self::PROPERTY_TYPE_OBJECT, 'PayrollAU\\Setting\\TrackingCategory', false, false],
+            'DaysInPayrollYear' => [false, self::PROPERTY_TYPE_INT, null, false, false],
         ];
     }
 
@@ -111,7 +111,7 @@ class Setting extends Remote\Model
 
     /**
      * @param Account $value
-     *
+     * @deprecated endpoint is GET only
      * @return Setting
      */
     public function addAccount(Account $value)
@@ -135,7 +135,7 @@ class Setting extends Remote\Model
 
     /**
      * @param TrackingCategory $value
-     *
+     * @deprecated endpoint is GET only
      * @return Setting
      */
     public function addTrackingCategory(TrackingCategory $value)
@@ -159,7 +159,7 @@ class Setting extends Remote\Model
 
     /**
      * @param string $value
-     *
+     * @deprecated endpoint is GET only
      * @return Setting
      */
     public function setDaysInPayrollYear($value)

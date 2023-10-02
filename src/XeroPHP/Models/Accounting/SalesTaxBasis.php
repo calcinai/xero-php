@@ -2,6 +2,12 @@
 
 namespace XeroPHP\Models\Accounting;
 
+/**
+ * @deprecated
+ * @see \XeroPHP\Enums\Accounting\SalesTaxBasis\UnitedKingdom
+ * @see \XeroPHP\Enums\Accounting\SalesTaxBasis\AustraliaUsGlobal
+ * @see \XeroPHP\Enums\Accounting\SalesTaxBasis\NewZealand
+ */
 class SalesTaxBasis
 {
     const NEW_ZEALAND_PAYMENTS = 'PAYMENTS';

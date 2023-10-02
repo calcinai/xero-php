@@ -2,6 +2,10 @@
 
 namespace XeroPHP\Models\Accounting;
 
+/**
+ * @deprecated
+ * @see \XeroPHP\Enums\Accounting\ExternalLinks\ExternalLinkType
+ */
 class ExternalLink
 {
     const EXTERNAL_LINK_TYPE_FACEBOOK = 'Facebook';

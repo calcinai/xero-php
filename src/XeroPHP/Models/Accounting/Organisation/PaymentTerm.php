@@ -6,24 +6,45 @@ use XeroPHP\Remote;
 
 class PaymentTerm extends Remote\Model
 {
-     /**
-      * Default payment terms for bills (accounts payable) – see Payment Terms.
-      *
-      * @property Bill[] Bills
-      */
+    /**
+     * Default payment terms for bills (accounts payable) – see Payment Terms.
+     *
+     * @see \XeroPHP\Enums\Accounting\Payments\PaymentTerms
+     *
+     * @property Bill Bills
+     */
 
-     /**
-      * Default payment terms for sales invoices(accounts receivable) – see Payment Terms.
-      *
-      * @property Sale[] Sales
-      */
-     const DAYSAFTERBILLDATE = 'DAYSAFTERBILLDATE';
+    /**
+     * Default payment terms for sales invoices(accounts receivable) – see Payment Terms.
+     *
+     * @see \XeroPHP\Enums\Accounting\Payments\PaymentTerms
+     *
+     * @property Sale Sales
+     */
 
-     const DAYSAFTERBILLMONTH = 'DAYSAFTERBILLMONTH';
+    /**
+     * @deprecated
+     * @see \XeroPHP\Enums\Accounting\Payments\PaymentTerms
+     */
+    const DAYSAFTERBILLDATE = 'DAYSAFTERBILLDATE';
 
-     const OFCURRENTMONTH = 'OFCURRENTMONTH';
+    /**
+     * @deprecated
+     * @see \XeroPHP\Enums\Accounting\Payments\PaymentTerms
+     */
+    const DAYSAFTERBILLMONTH = 'DAYSAFTERBILLMONTH';
 
-     const OFFOLLOWINGMONTH = 'OFFOLLOWINGMONTH';
+    /**
+     * @deprecated
+     * @see \XeroPHP\Enums\Accounting\Payments\PaymentTerms
+     */
+    const OFCURRENTMONTH = 'OFCURRENTMONTH';
+
+    /**
+     * @deprecated
+     * @see \XeroPHP\Enums\Accounting\Payments\PaymentTerms
+     */
+    const OFFOLLOWINGMONTH = 'OFFOLLOWINGMONTH';
 
     /**
      * Get the resource uri of the class (Contacts) etc.
@@ -87,8 +108,8 @@ class PaymentTerm extends Remote\Model
     public static function getProperties()
     {
         return [
-            'Bills' => [false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Organisation\\Bill', true, false],
-            'Sales' => [false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Organisation\\Sale', true, false],
+            'Bills' => [false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Organisation\\Bill', false, false],
+            'Sales' => [false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Organisation\\Sale', false, false],
         ];
     }
 
@@ -98,7 +119,7 @@ class PaymentTerm extends Remote\Model
     }
 
     /**
-     * @return Bill[]|Remote\Collection
+     * @return Bill
      */
     public function getBills()
     {
@@ -113,7 +134,7 @@ class PaymentTerm extends Remote\Model
     public function addBill(Bill $value)
     {
         $this->propertyUpdated('Bills', $value);
-        if (! isset($this->_data['Bills'])) {
+        if (!isset($this->_data['Bills'])) {
             $this->_data['Bills'] = new Remote\Collection();
         }
         $this->_data['Bills'][] = $value;
@@ -122,7 +143,7 @@ class PaymentTerm extends Remote\Model
     }
 
     /**
-     * @return Remote\Collection|Sale[]
+     * @return Sale
      */
     public function getSales()
     {
@@ -137,7 +158,7 @@ class PaymentTerm extends Remote\Model
     public function addSale(Sale $value)
     {
         $this->propertyUpdated('Sales', $value);
-        if (! isset($this->_data['Sales'])) {
+        if (!isset($this->_data['Sales'])) {
             $this->_data['Sales'] = new Remote\Collection();
         }
         $this->_data['Sales'][] = $value;

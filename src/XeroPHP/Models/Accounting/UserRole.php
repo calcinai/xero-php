@@ -2,6 +2,11 @@
 
 namespace XeroPHP\Models\Accounting;
 
+/**
+ * @deprecated
+ *
+ * @see \XeroPHP\Enums\Accounting\UserRoles\UserRole
+ */
 class UserRole
 {
     const XERO_USER_ROLE_READONLY = 'READONLY';

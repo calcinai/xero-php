@@ -1,0 +1,17 @@
+<?php
+
+namespace XeroPHP\Enums\PayrollAU\Employees;
+
+class IncomeType
+{
+    const SALARYANDWAGES = 'SALARYANDWAGES';
+
+    const WORKINGHOLIDAYMAKER = 'WORKINGHOLIDAYMAKER';
+
+    const NONEMPLOYEE = 'NONEMPLOYEE';
+
+    const CLOSELYHELDPAYEES = 'CLOSELYHELDPAYEES';
+
+    const LABOURHIRE = 'LABOURHIRE';
+
+}
