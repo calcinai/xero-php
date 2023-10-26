@@ -318,10 +318,10 @@ These values can be used to decide if additional requests will throttled or sent
     $myExpectedApiCalls = 50;
 
     // Before executing a statement, you could check the the rate limits.
-    $apiCallsRemaining = $xero->getAppRateLimits();
+    $tenantDailyLimitRemaining = $xero->getTenantDayLimitRemining();
 
     // If the expected number of API calls is higher than the number remaining for the tenant then do something.
-    if($myExpectedApiCalls > $apiCallsRemaining['tenant-day-limit-remaining']){
+    if($myExpectedApiCalls > tenantDailyLimitRemaining){
        // Send the calls to a queue for processing at another time
        // Or throttle the calls to suit your needs.
     }
