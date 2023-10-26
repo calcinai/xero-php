@@ -477,13 +477,35 @@ class Application
         return $this;
     }
 
-    public function getAppRateLimits(): array
+    /**
+     * @return int|null Timestamp of last API call.
+     */
+    public function getLastApiCall(): ?int
     {
-        return [
-            'last-api-call' => $this->lastApiCall,
-            'app-min-limit-remaining' => $this->appMinLimitRemining,
-            'tenant-day-limit-remaining' => $this->tenantDayLimitRemining,
-            'tenant-min-limit-remaining' => $this->tenantMinLimitRemining,
-        ];
+        return $this->lastApiCall;
+    }
+
+    /**
+     * @return int|null Application call limit remaining across all tenants.
+     */
+    public function getAppMinLimitRemining(): ?int
+    {
+        return $this->appMinLimitRemining;
+    }
+
+    /**
+     * @return int|null Tenant daily call limit remaining
+     */
+    public function getTenantDayLimitRemining(): ?int
+    {
+        return $this->tenantDayLimitRemining;
+    }
+
+    /**
+     * @return int|null Tenant minute call limit remaining
+     */
+    public function getTenantMinLimitRemining(): ?int
+    {
+        return $this->tenantMinLimitRemining;
     }
 }
