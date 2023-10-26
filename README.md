@@ -333,6 +333,13 @@ You can provide a more graceful method of dealing with HTTP 429 responses by usi
 
 ```php
 
+// use GuzzleHttp\Client;
+// use GuzzleHttp\HandlerStack;
+// use GuzzleHttp\Middleware;
+// use GuzzleHttp\RetryMiddleware;
+// use Psr\Http\Message\RequestInterface;
+// use Psr\Http\Message\ResponseInterface;
+
 public function yourApplicationCreationMethod($accessToken, $tenantId): Application {
 
    // By default the contructor creates a Guzzle Client without any handlers. Pass a third argument 'false' to skip the general client constructor.
