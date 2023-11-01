@@ -187,7 +187,7 @@ class Contact extends Remote\Model
     /**
      * The default payment terms for the contact – see Payment Terms.
      *
-     * @property PaymentTerm[] PaymentTerms
+     * @property PaymentTerm PaymentTerms
      */
 
     /**
@@ -960,7 +960,7 @@ class Contact extends Remote\Model
     }
 
     /**
-     * @return PaymentTerm[]|Remote\Collection
+     * @return PaymentTerm|Remote\Collection
      */
     public function getPaymentTerms()
     {
@@ -978,7 +978,23 @@ class Contact extends Remote\Model
         if (! isset($this->_data['PaymentTerms'])) {
             $this->_data['PaymentTerms'] = new Remote\Collection();
         }
-        $this->_data['PaymentTerms'][] = $value;
+        $this->_data['PaymentTerms'] = $value;
+
+        return $this;
+    }
+
+    /**
+     * @param PaymentTerm $value
+     *
+     * @return Contact
+     */
+    public function setPaymentTerm(PaymentTerm $value)
+    {
+        $this->propertyUpdated('PaymentTerms', $value);
+        if (! isset($this->_data['PaymentTerms'])) {
+            $this->_data['PaymentTerms'] = new Remote\Collection();
+        }
+        $this->_data['PaymentTerms'] = $value;
 
         return $this;
     }

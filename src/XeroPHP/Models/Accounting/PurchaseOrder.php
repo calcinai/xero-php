@@ -245,7 +245,6 @@ class PurchaseOrder extends Remote\Model
             'PurchaseOrderNumber' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
             'Reference' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
             'BrandingThemeID' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
-            'CurrencyCode' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
             'Status' => [false, self::PROPERTY_TYPE_ENUM, null, false, false],
             'SentToContact' => [false, self::PROPERTY_TYPE_BOOLEAN, null, false, false],
             'DeliveryAddress' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
@@ -254,6 +253,7 @@ class PurchaseOrder extends Remote\Model
             'DeliveryInstructions' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
             'ExpectedArrivalDate' => [false, self::PROPERTY_TYPE_DATE, '\\DateTimeInterface', false, false],
             'PurchaseOrderID' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'CurrencyCode' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
             'CurrencyRate' => [false, self::PROPERTY_TYPE_FLOAT, null, false, false],
             'SubTotal' => [false, self::PROPERTY_TYPE_FLOAT, null, false, false],
             'TotalTax' => [false, self::PROPERTY_TYPE_FLOAT, null, false, false],
@@ -635,6 +635,19 @@ class PurchaseOrder extends Remote\Model
     public function getCurrencyRate()
     {
         return $this->_data['CurrencyRate'];
+    }
+
+    /**
+     * @param string $value
+     *
+     * @return PurchaseOrder
+     */
+    public function setCurrencyRate($value)
+    {
+        $this->propertyUpdated('CurrencyRate', $value);
+        $this->_data['CurrencyRate'] = $value;
+
+        return $this;
     }
 
     /**
