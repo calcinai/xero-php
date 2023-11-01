@@ -9,13 +9,13 @@ class PaymentTerm extends Remote\Model
      /**
       * Default payment terms for bills (accounts payable) – see Payment Terms.
       *
-      * @property Bill[] Bills
+      * @property Bill Bills
       */
 
      /**
       * Default payment terms for sales invoices(accounts receivable) – see Payment Terms.
       *
-      * @property Sale[] Sales
+      * @property Sale Sales
       */
      const DAYSAFTERBILLDATE = 'DAYSAFTERBILLDATE';
 
@@ -42,7 +42,7 @@ class PaymentTerm extends Remote\Model
      */
     public static function getRootNodeName()
     {
-        return 'PaymentTerm';
+        return 'PaymentTerms';
     }
 
     /**
@@ -116,7 +116,23 @@ class PaymentTerm extends Remote\Model
         if (! isset($this->_data['Bills'])) {
             $this->_data['Bills'] = new Remote\Collection();
         }
-        $this->_data['Bills'][] = $value;
+        $this->_data['Bills'] = $value;
+
+        return $this;
+    }
+
+    /**
+     * @param Bill $value
+     *
+     * @return PaymentTerm
+     */
+    public function setBill(Bill $value)
+    {
+        $this->propertyUpdated('Bills', $value);
+        if (!isset($this->_data['Bills'])) {
+            $this->_data['Bills'] = new Remote\Collection();
+        }
+        $this->_data['Bills'] = $value;
 
         return $this;
     }
@@ -140,7 +156,23 @@ class PaymentTerm extends Remote\Model
         if (! isset($this->_data['Sales'])) {
             $this->_data['Sales'] = new Remote\Collection();
         }
-        $this->_data['Sales'][] = $value;
+        $this->_data['Sales'] = $value;
+
+        return $this;
+    }
+
+    /**
+     * @param Sale $value
+     *
+     * @return PaymentTerm
+     */
+    public function setSale(Sale $value)
+    {
+        $this->propertyUpdated('Sales', $value);
+        if (!isset($this->_data['Sales'])) {
+            $this->_data['Sales'] = new Remote\Collection();
+        }
+        $this->_data['Sales'] = $value;
 
         return $this;
     }
