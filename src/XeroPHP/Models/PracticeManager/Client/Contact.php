@@ -8,7 +8,6 @@ use XeroPHP\Traits\PracticeManager\CustomFieldValueTrait;
 class Contact extends Remote\Model
 {
     use CustomFieldValueTrait;
-
     /*
      * // To Save a new Contact you need to add a ClientID
      * <Contact>
@@ -16,7 +15,7 @@ class Contact extends Remote\Model
             <ID>142</ID>
           </Client>
           <Name>Wyett E Coyote</Name>
-          <IsPrimary>Yes</IsPrimary> <!-- If multiple contacts defined, method will interpret last primary client as Primary -->
+          <IsPrimary>yes</IsPrimary> <!-- If multiple contacts defined, method will interpret last primary client as Primary -->
           <Salutation />
           <Addressee />
           <Mobile />
@@ -144,20 +143,23 @@ class Contact extends Remote\Model
     }
 
     /**
-     * @return string
+     * @return bool
      */
     public function getIsPrimary()
     {
-        return $this->_data['IsPrimary'];
+        return $this->_data['IsPrimary'] == 'yes';
     }
 
     /**
-     * @param string $value
+     * @param string|bool $value
      *
      * @return Contact
      */
     public function setIsPrimary($value)
     {
+        // Convert value to ENUM Yes or No
+        $value = $value === true || $value == 'yes' ? 'yes' : 'no';
+
         $this->propertyUpdated('IsPrimary', $value);
         $this->_data['IsPrimary'] = $value;
 

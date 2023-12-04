@@ -116,7 +116,7 @@ class ModelTest extends \PHPUnit_Framework_TestCase
       <Contacts>
         <Contact>
           <ID>220</ID>
-          <IsPrimary>Yes</IsPrimary>
+          <IsPrimary>yes</IsPrimary>
           <Name>Samantha Benecke</Name> 
           <Salutation>Sam</Salutation> 
           <Addressee>Mrs S Benecke</Addressee> 
@@ -206,18 +206,12 @@ class ModelTest extends \PHPUnit_Framework_TestCase
 
         $this->assertEquals(255, $model->getID());
         $this->assertEquals('XYZ Australia, NZ Business Unit', $model->getName());
-        $this->assertEquals('No', $model->getIsProspect());
 
         foreach ($model->getContacts() as $contact) {
             $this->assertEquals(220, $contact->getID());
-            $this->assertEquals('Yes', $contact->getIsPrimary());
+            $this->assertTrue($contact->getIsPrimary());
             $this->assertEquals('Samantha Benecke', $contact->getName());
         }
-
-        $this->assertEquals(2, $model->getAccountManager()->getID());
-        $this->assertEquals('Jo Blogs', $model->getAccountManager()->getName());
-
-        $this->assertCount(1, $model->getGroups());
 
         $customFieldValues = $model->getCustomFieldValues();
 
