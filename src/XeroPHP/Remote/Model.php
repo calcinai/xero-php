@@ -78,7 +78,7 @@ abstract class Model implements ObjectInterface, \JsonSerializable, \ArrayAccess
         $this->_data = [];
         $this->_associated_objects = [];
     }
-    
+
     public static function make(Application $application = null)
     {
         return new static($application);
@@ -202,17 +202,17 @@ abstract class Model implements ObjectInterface, \JsonSerializable, \ArrayAccess
             $isArray = $meta[self::KEY_IS_ARRAY];
 
             //If set and NOT replace data, continue
-            if (! $replace_data && isset($this->_data[$property])) {
+            if (!$replace_data && isset($this->_data[$property])) {
                 continue;
             }
 
-            if (! isset($input_array[$property])) {
+            if (!isset($input_array[$property])) {
                 $this->_data[$property] = null;
 
                 continue;
             }
 
-            if ($isArray && ! is_array($input_array[$property])) {
+            if ($isArray && !is_array($input_array[$property])) {
                 $this->_data[$property] = null;
 
                 continue;
@@ -255,12 +255,12 @@ abstract class Model implements ObjectInterface, \JsonSerializable, \ArrayAccess
     {
         $out = [];
         foreach (static::getProperties() as $property => $meta) {
-            if (! isset($this->_data[$property])) {
+            if (!isset($this->_data[$property])) {
                 continue;
             }
 
             //if we only want the dirty props, stop here
-            if ($dirty_only && ! isset($this->_dirty[$property]) && $property !== static::getGUIDProperty()) {
+            if ($dirty_only && !isset($this->_dirty[$property]) && $property !== static::getGUIDProperty()) {
                 continue;
             }
 
@@ -349,7 +349,7 @@ abstract class Model implements ObjectInterface, \JsonSerializable, \ArrayAccess
             case self::PROPERTY_TYPE_BOOLEAN:
                 return in_array(strtolower($value), ['true', '1', 'yes'], true);
 
-            /** @noinspection PhpMissingBreakStatementInspection */
+                /** @noinspection PhpMissingBreakStatementInspection */
             case self::PROPERTY_TYPE_TIMESTAMP:
                 $timezone = new \DateTimeZone('UTC');
 
@@ -394,8 +394,8 @@ abstract class Model implements ObjectInterface, \JsonSerializable, \ArrayAccess
             $mandatory = $meta[self::KEY_MANDATORY];
 
             //If it's got a GUID, it's already going to be valid almost all cases
-            if (! $this->hasGUID() && $mandatory) {
-                if (! isset($this->_data[$property]) || empty($this->_data[$property])) {
+            if (!$this->hasGUID() && $mandatory) {
+                if (!isset($this->_data[$property]) || empty($this->_data[$property])) {
                     $class = get_class($this);
                     throw new RequiredFieldException(
                         $class,
@@ -426,6 +426,24 @@ abstract class Model implements ObjectInterface, \JsonSerializable, \ArrayAccess
         }
 
         return true;
+    }
+
+    /**
+     * Shorthand update an object if it is instantiated with app context.
+     *
+     * @throws Exception
+     *
+     * @return Response|null
+     */
+    public function update()
+    {
+        if ($this->_application === null) {
+            throw new Exception(
+                '->update() is only available on objects that have an injected application context.'
+            );
+        }
+
+        return $this->_application->update($this);
     }
 
     /**
@@ -494,6 +512,10 @@ abstract class Model implements ObjectInterface, \JsonSerializable, \ArrayAccess
      */
     public function __get($property)
     {
+        if (empty($property)) {
+            return false;
+        }
+
         $getter = sprintf('get%s', $property);
 
         if (method_exists($this, $getter)) {
@@ -513,6 +535,10 @@ abstract class Model implements ObjectInterface, \JsonSerializable, \ArrayAccess
      */
     public function __set($property, $value)
     {
+        if (empty($property)) {
+            return false;
+        }
+
         $setter = sprintf('set%s', $property);
 
         if (method_exists($this, $setter)) {
@@ -524,7 +550,7 @@ abstract class Model implements ObjectInterface, \JsonSerializable, \ArrayAccess
 
     protected function propertyUpdated($property, $value)
     {
-        if (! isset($this->_data[$property]) || $this->_data[$property] !== $value) {
+        if (!isset($this->_data[$property]) || $this->_data[$property] !== $value) {
             //If this object can update itself, set its own dirty flag, otherwise, set its parent's.
             if (count(array_intersect($this::getSupportedMethods(), [Request::METHOD_PUT, Request::METHOD_POST])) > 0) {
                 //Object can update itself
