@@ -202,11 +202,11 @@ abstract class Model implements ObjectInterface, \JsonSerializable, \ArrayAccess
             $isArray = $meta[self::KEY_IS_ARRAY];
 
             //If set and NOT replace data, continue
-            if (!$replace_data && isset($this->_data[$property])) {
+            if (! $replace_data && isset($this->_data[$property])) {
                 continue;
             }
 
-            if (!isset($input_array[$property])) {
+            if (! isset($input_array[$property])) {
                 $this->_data[$property] = null;
 
                 continue;
@@ -255,12 +255,12 @@ abstract class Model implements ObjectInterface, \JsonSerializable, \ArrayAccess
     {
         $out = [];
         foreach (static::getProperties() as $property => $meta) {
-            if (!isset($this->_data[$property])) {
+            if (! isset($this->_data[$property])) {
                 continue;
             }
 
             //if we only want the dirty props, stop here
-            if ($dirty_only && !isset($this->_dirty[$property]) && $property !== static::getGUIDProperty()) {
+            if ($dirty_only && ! isset($this->_dirty[$property]) && $property !== static::getGUIDProperty()) {
                 continue;
             }
 
@@ -394,8 +394,8 @@ abstract class Model implements ObjectInterface, \JsonSerializable, \ArrayAccess
             $mandatory = $meta[self::KEY_MANDATORY];
 
             //If it's got a GUID, it's already going to be valid almost all cases
-            if (!$this->hasGUID() && $mandatory) {
-                if (!isset($this->_data[$property]) || empty($this->_data[$property])) {
+            if (! $this->hasGUID() && $mandatory) {
+                if (! isset($this->_data[$property]) || empty($this->_data[$property])) {
                     $class = get_class($this);
                     throw new RequiredFieldException(
                         $class,
@@ -550,7 +550,7 @@ abstract class Model implements ObjectInterface, \JsonSerializable, \ArrayAccess
 
     protected function propertyUpdated($property, $value)
     {
-        if (!isset($this->_data[$property]) || $this->_data[$property] !== $value) {
+        if (! isset($this->_data[$property]) || $this->_data[$property] !== $value) {
             //If this object can update itself, set its own dirty flag, otherwise, set its parent's.
             if (count(array_intersect($this::getSupportedMethods(), [Request::METHOD_PUT, Request::METHOD_POST])) > 0) {
                 //Object can update itself

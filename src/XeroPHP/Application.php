@@ -190,7 +190,7 @@ class Application
         /** @var Remote\Model $class */
         $class = $this->validateModelClass($model);
 
-        if (!$guid) {
+        if (! $guid) {
             throw new Remote\Exception\NotFoundException;
         }
 
@@ -281,7 +281,7 @@ class Application
         //(special saving endpoints)
         $this->savePropertiesDirectly($object);
 
-        if (!$object->isDirty()) {
+        if (! $object->isDirty()) {
             return null;
         }
 
@@ -298,7 +298,7 @@ class Application
             $object->setApplication($this);
         }
 
-        if (!$object::supportsMethod($method)) {
+        if (! $object::supportsMethod($method)) {
             throw new Exception(sprintf('%s doesn\'t support [%s] via the API', get_class($object), $method));
         }
 
@@ -333,7 +333,7 @@ class Application
         //(special saving endpoints)
         $this->savePropertiesDirectly($object);
 
-        if (!$object->isDirty()) {
+        if (! $object->isDirty()) {
             return null;
         }
 
@@ -342,7 +342,7 @@ class Application
         $method = $object::supportsMethod(Request::METHOD_POST) ? Request::METHOD_POST : Request::METHOD_PUT;
         $uri = sprintf('%s/%s', $object::getResourceURI(), $object->getGUID());
 
-        if (!$object::supportsMethod($method)) {
+        if (! $object::supportsMethod($method)) {
             throw new Exception(sprintf('%s doesn\'t support [%s] via the API', get_class($object), $method));
         }
 
@@ -478,7 +478,7 @@ class Application
      */
     public function delete(Remote\Model $object)
     {
-        if (!$object::supportsMethod(Request::METHOD_DELETE)) {
+        if (! $object::supportsMethod(Request::METHOD_DELETE)) {
             throw new Exception(
                 sprintf(
                     '%s doesn\'t support [DELETE] via the API',
