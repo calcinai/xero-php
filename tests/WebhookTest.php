@@ -1,6 +1,6 @@
 <?php
 
-namespace XeroPHP\tests;
+namespace XeroPHP\Tests;
 
 use XeroPHP\Application;
 use XeroPHP\Application\PrivateApplication;

@@ -126,6 +126,12 @@ class ModelTest extends \PHPUnit_Framework_TestCase
           <Position /> 
         </Contact>
       </Contacts>
+      <Groups>
+        <Group>
+          <ID>783949</ID>
+          <Name>1 Geotechnical Limited</Name>
+        </Group>
+      </Groups>
     </Client>
     <Client>
       <ID>697</ID>

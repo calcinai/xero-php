@@ -1,6 +1,6 @@
 <?php
 
-namespace XeroPHP\tests;
+namespace XeroPHP\Tests\Webhook;
 
 use XeroPHP\Webhook;
 use XeroPHP\Application;

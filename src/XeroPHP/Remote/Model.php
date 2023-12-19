@@ -78,7 +78,7 @@ abstract class Model implements ObjectInterface, \JsonSerializable, \ArrayAccess
         $this->_data = [];
         $this->_associated_objects = [];
     }
-    
+
     public static function make(Application $application = null)
     {
         return new static($application);
@@ -524,7 +524,9 @@ abstract class Model implements ObjectInterface, \JsonSerializable, \ArrayAccess
 
     protected function propertyUpdated($property, $value)
     {
-        if (! isset($this->_data[$property]) || $this->_data[$property] !== $value) {
+        $currentValue = isset($this->_data[$property]) ? $this->_data[$property] : null;
+
+        if ($currentValue !== $value) {
             //If this object can update itself, set its own dirty flag, otherwise, set its parent's.
             if (count(array_intersect($this::getSupportedMethods(), [Request::METHOD_PUT, Request::METHOD_POST])) > 0) {
                 //Object can update itself
