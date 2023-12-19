@@ -17,11 +17,10 @@ class Application
         'xero' => [
             'base_url' => 'https://api.xero.com/',
             'default_content_type' => Request::CONTENT_TYPE_XML,
-
             'core_version' => '2.0',
             'payroll_version' => '1.0',
             'file_version' => '1.0',
-            'practice_manager_version' => '3.0',
+            'practice_manager_version' => '3.0'
         ]
     ];
 
@@ -29,6 +28,11 @@ class Application
      * @var array
      */
     protected $config;
+
+    private ?int $lastApiCall = null;
+    private ?int $appMinLimitRemining = null;
+    private ?int $tenantDayLimitRemining = null;
+    private ?int $tenantMinLimitRemining = null;
 
     /**
      * @var ClientInterface
@@ -38,21 +42,24 @@ class Application
     /**
      * @param $token
      * @param $tenantId
+     * $param $constructClient
      */
-    public function __construct($token, $tenantId)
+    public function __construct($token, $tenantId, ?bool $constructClient = true)
     {
         $this->config = static::$_config_defaults;
 
-        //Not sure if this is necessary, but it's one less thing to have to create outside the instance.
-        $transport = new Client([
-            'headers' => [
-                'User-Agent' => sprintf(static::USER_AGENT_STRING, Helpers::getPackageVersion()),
-                'Authorization' => sprintf('Bearer %s', $token),
-                'Xero-tenant-id' => $tenantId,
-            ]
-        ]);
-
-        $this->transport = $transport;
+        if($constructClient){
+            //Not sure if this is necessary, but it's one less thing to have to create outside the instance.
+            $transport = new Client([
+                'headers' => [
+                    'User-Agent' => sprintf(static::USER_AGENT_STRING, Helpers::getPackageVersion()),
+                    'Authorization' => sprintf('Bearer %s', $token),
+                    'Xero-tenant-id' => $tenantId,
+                ]
+            ]);
+    
+            $this->transport = $transport;
+        }
     }
 
 
@@ -453,5 +460,52 @@ class Application
         }
 
         return $object;
+    }
+
+    public function updateAppRateLimit(int $appMinLimitRemining)
+    {
+        $this->lastApiCall = time();
+        $this->appMinLimitRemining = $appMinLimitRemining;
+        return $this;
+    }
+
+    public function updateTenantRateLimits(int $tenantDayLimitRemining, int $tenantMinLimitRemining)
+    {
+        $this->lastApiCall = time();
+        $this->tenantDayLimitRemining = $tenantDayLimitRemining;
+        $this->tenantMinLimitRemining = $tenantMinLimitRemining;
+        return $this;
+    }
+
+    /**
+     * @return int|null Timestamp of last API call.
+     */
+    public function getLastApiCall(): ?int
+    {
+        return $this->lastApiCall;
+    }
+
+    /**
+     * @return int|null Application call limit remaining across all tenants.
+     */
+    public function getAppMinLimitRemining(): ?int
+    {
+        return $this->appMinLimitRemining;
+    }
+
+    /**
+     * @return int|null Tenant daily call limit remaining
+     */
+    public function getTenantDayLimitRemining(): ?int
+    {
+        return $this->tenantDayLimitRemining;
+    }
+
+    /**
+     * @return int|null Tenant minute call limit remaining
+     */
+    public function getTenantMinLimitRemining(): ?int
+    {
+        return $this->tenantMinLimitRemining;
     }
 }
