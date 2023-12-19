@@ -3,6 +3,7 @@
 namespace XeroPHP\Remote;
 
 use DateTime;
+use DateTimeInterface;
 use XeroPHP\Application;
 
 class Query
@@ -209,6 +210,17 @@ class Query
         $this->date = $date->format('Y-m-d');
 
         return $this;
+    }
+
+    /**
+     * @param DateTimeInterface $date
+     * @param string $operator the date comparison operator, e.g. >, >=, etc
+     * @param string $parameter
+     * @return $this
+     */
+    public function whereDate(DateTimeInterface $date, $operator = '==', $parameter = 'Date')
+    {
+        return $this->addWhere('AND', [sprintf("$parameter $operator DateTime(%s)", $date->format('Y, m, d'))]);
     }
 
     /**
