@@ -49,6 +49,12 @@ class LineItem extends Remote\Model
      */
 
     /**
+     * See Accounts.
+     * 
+     * @property string AccountId
+     */
+
+    /**
      * Used as an override if the default Tax Code for the selected <AccountCode> is not correct – see
      * TaxTypes.
      *
@@ -169,6 +175,7 @@ class LineItem extends Remote\Model
             'UnitAmount' => [false, self::PROPERTY_TYPE_FLOAT, null, false, false],
             'ItemCode' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
             'AccountCode' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'AccountId' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
             'TaxType' => [false, self::PROPERTY_TYPE_ENUM, null, false, false],
             'TaxAmount' => [false, self::PROPERTY_TYPE_FLOAT, null, false, false],
             'LineAmount' => [false, self::PROPERTY_TYPE_FLOAT, null, false, false],
@@ -285,6 +292,27 @@ class LineItem extends Remote\Model
     {
         $this->propertyUpdated('AccountCode', $value);
         $this->_data['AccountCode'] = $value;
+
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getAccountId()
+    {
+        return $this->_data['AccountId'];
+    }
+
+    /**
+     * @param string $value
+     *
+     * @return LineItem
+     */
+    public function setAccountId($value)
+    {
+        $this->propertyUpdated('AccountId', $value);
+        $this->_data['AccountId'] = $value;
 
         return $this;
     }
