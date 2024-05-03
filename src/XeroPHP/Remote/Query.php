@@ -38,6 +38,9 @@ class Query
 
     private $params;
 
+    /** @var Response|null $response  */
+    private $response;
+
     public function __construct(Application $app)
     {
         $this->app = $app;
@@ -49,6 +52,7 @@ class Query
         $this->includeArchived = false;
         $this->createdByMyApp = false;
         $this->params = [];
+        $this->response = null;
     }
 
     /**
@@ -332,7 +336,8 @@ class Query
         $request->send();
 
         $elements = new Collection();
-        foreach ($request->getResponse()->getElements() as $element) {
+        $this->response = $request->getResponse();
+        foreach ($this->response->getElements() as $element) {
             /**
              * @var Model
              */
@@ -360,5 +365,13 @@ class Query
     public function getFrom()
     {
         return $this->from_class;
+    }
+
+    /**
+     * @return Response|null
+     */
+    public function getResponse()
+    {
+        return $this->response;
     }
 }

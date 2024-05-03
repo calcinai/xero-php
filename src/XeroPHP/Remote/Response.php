@@ -72,6 +72,8 @@ class Response
 
     private $root_error;
 
+    private $root_warnings;
+
     public function __construct(Request $request, $response_body, $status, $headers)
     {
         $this->request = $request;
@@ -222,6 +224,11 @@ class Response
         return $this->root_error;
     }
 
+    public function getRootWarnings()
+    {
+        return $this->root_warnings;
+    }
+
     public function getOAuthResponse()
     {
         return $this->oauth_response;
@@ -233,6 +240,7 @@ class Response
         $this->element_errors = [];
         $this->element_warnings = [];
         $this->root_error = [];
+        $this->root_warnings = [];
 
         if (!isset($this->headers[Request::HEADER_CONTENT_TYPE])) {
             //Nothing to parse
@@ -321,6 +329,13 @@ class Response
                     $this->root_error['message'] = (string)$root_child;
 
                     break;
+                case 'Warnings':
+                    $this->root_warnings = [];
+                    foreach ($root_child->children() as $element_index => $element) {
+                        $this->root_warnings[] = Helpers::XMLToArray($element);
+                    }
+
+                    break;
                 case 'Payslip':
                 case 'PayItems':
                 case 'Settings':
@@ -356,6 +371,14 @@ class Response
                     break;
                 case 'Message':
                     $this->root_error['message'] = $root_child;
+
+                    break;
+                case 'Warnings':
+                    if (is_array($root_child)) {
+                        foreach ($root_child as $warning) {
+                            $this->root_warnings[] = $warning;
+                        }
+                    }
 
                     break;
                 case 'Payslip':
