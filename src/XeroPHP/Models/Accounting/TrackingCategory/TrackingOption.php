@@ -40,7 +40,7 @@ class TrackingOption extends Remote\Model
      */
     public static function getRootNodeName()
     {
-        return '';
+        return 'Option';
     }
 
     /**
