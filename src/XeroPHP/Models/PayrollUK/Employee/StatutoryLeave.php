@@ -2,24 +2,29 @@
 
 namespace XeroPHP\Models\PayrollUK\Employee;
 
-use XeroPHP\Models\PayrollUK\Employee\Leave\Period;
 use XeroPHP\Remote;
 use XeroPHP\Traits\TitleCaseKeysBeforeSave;
 
-class Leave extends Remote\Model
+class StatutoryLeave extends Remote\Model
 {
     use TitleCaseKeysBeforeSave;
 
     /**
      * Xero identifier.
      *
-     * @property string LeaveID
+     * @property string StatutoryLeaveID
+     */
+
+    /**
+     * Xero Employee identifier.
+     *
+     * @property string EmployeeID
      */
 
     /**
      * The Xero identifier for Leave Type.
      *
-     * @property string LeaveTypeID
+     * @property string Type
      */
 
     /**
@@ -35,19 +40,20 @@ class Leave extends Remote\Model
      */
 
     /**
-     * The Description of the Leave (max length = 200).
+     * Whether the leave was entitled to receive payment.
      *
-     * @property string Description
+     * @property bool isEntitled
      */
 
     /**
-     * The leave period information.
+     * The Status of the Statutory Leave.
      *
-     * @property Period[] Periods
+     * @property string Status
      */
-    const LEAVE_PERIOD_STATUS_SCHEDULED = 'Scheduled';
 
-    const LEAVE_PERIOD_STATUS_PROCESSED = 'Processed';
+    const STATUTORY_LEAVE_STATUS_PENDING = 'Pending';
+    const STATUTORY_LEAVE_STATUS_IN_PROGRESS = 'In-Progress';
+    const STATUTORY_LEAVE_STATUS_IN_COMPLETED = 'Completed';
 
     /**
      * Get the resource uri of the class (Contacts) etc.
@@ -56,7 +62,7 @@ class Leave extends Remote\Model
      */
     public static function getResourceURI()
     {
-        return 'Employees/{EmployeeID}/Leave';
+        return 'StatutoryLeaves/Summary';
     }
 
     /**
@@ -66,7 +72,7 @@ class Leave extends Remote\Model
      */
     public static function getRootNodeName()
     {
-        return 'Leave';
+        return 'StatutoryLeave';
     }
 
     /**
@@ -76,7 +82,7 @@ class Leave extends Remote\Model
      */
     public static function getGUIDProperty()
     {
-        return 'LeaveID';
+        return 'StatutoryLeaveID';
     }
 
     /**
@@ -95,10 +101,7 @@ class Leave extends Remote\Model
     public static function getSupportedMethods()
     {
         return [
-            Remote\Request::METHOD_GET,
-            Remote\Request::METHOD_POST,
-            Remote\Request::METHOD_PUT,
-            Remote\Request::METHOD_DELETE
+            Remote\Request::METHOD_GET
         ];
     }
 
@@ -115,37 +118,38 @@ class Leave extends Remote\Model
     public static function getProperties()
     {
         return [
-            'leaveID' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
-            'leaveTypeID' => [true, self::PROPERTY_TYPE_STRING, null, false, false],
-            'description' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'statutoryLeaveID' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'employeeID' => [true, self::PROPERTY_TYPE_GUID, null, false, false],
+            'type' => [true, self::PROPERTY_TYPE_STRING, null, false, false],
             'startDate' => [true, self::PROPERTY_TYPE_DATE, '\\DateTimeInterface', false, false],
             'endDate' => [true, self::PROPERTY_TYPE_DATE, '\\DateTimeInterface', false, false],
-            'periods' => [false, self::PROPERTY_TYPE_OBJECT, 'PayrollUK\\Employee\\Leave\\Period', true, false],
+            'isEntitled' => [false, self::PROPERTY_TYPE_BOOLEAN, null, false, false],
+            'status' => [false, self::PROPERTY_TYPE_STRING, null, false, false]
         ];
     }
 
     public static function isPageable()
     {
-        return true;
+        return false;
     }
 
     /**
      * @return string
      */
-    public function getLeaveID()
+    public function getStatutoryLeaveID()
     {
-        return $this->_data['leaveID'];
+        return $this->_data['statutoryLeaveID'];
     }
 
     /**
      * @param string $value
      *
-     * @return Leave
+     * @return StatutoryLeave
      */
-    public function setLeaveID($value)
+    public function setStatutoryLeaveID($value)
     {
-        $this->propertyUpdated('leaveID', $value);
-        $this->_data['leaveID'] = $value;
+        $this->propertyUpdated('statutoryLeaveID', $value);
+        $this->_data['statutoryLeaveID'] = $value;
 
         return $this;
     }
@@ -153,20 +157,41 @@ class Leave extends Remote\Model
     /**
      * @return string
      */
-    public function getLeaveTypeID()
+    public function getEmployeeID()
     {
-        return $this->_data['leaveTypeID'];
+        return $this->_data['employeeID'];
     }
 
     /**
      * @param string $value
      *
-     * @return Leave
+     * @return StatutoryLeave
      */
-    public function setLeaveTypeID($value)
+    public function setEmployeeID($value)
     {
-        $this->propertyUpdated('leaveTypeID', $value);
-        $this->_data['leaveTypeID'] = $value;
+        $this->propertyUpdated('employeeID', $value);
+        $this->_data['employeeID'] = $value;
+
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getType()
+    {
+        return $this->_data['type'];
+    }
+
+    /**
+     * @param string $value
+     *
+     * @return StatutoryLeave
+     */
+    public function setType($value)
+    {
+        $this->propertyUpdated('type', $value);
+        $this->_data['type'] = $value;
 
         return $this;
     }
@@ -182,7 +207,7 @@ class Leave extends Remote\Model
     /**
      * @param \DateTimeInterface $value
      *
-     * @return Leave
+     * @return StatutoryLeave
      */
     public function setStartDate(\DateTimeInterface $value)
     {
@@ -203,7 +228,7 @@ class Leave extends Remote\Model
     /**
      * @param \DateTimeInterface $value
      *
-     * @return Leave
+     * @return StatutoryLeave
      */
     public function setEndDate(\DateTimeInterface $value)
     {
@@ -214,46 +239,43 @@ class Leave extends Remote\Model
     }
 
     /**
-     * @return string
+     * @return bool
      */
-    public function getDescription()
+    public function getIsEntitled()
     {
-        return $this->_data['description'];
+        return $this->_data['isEntitled'];
     }
 
     /**
-     * @param string $value
+     * @param \DateTimeInterface $value
      *
-     * @return Leave
+     * @return StatutoryLeave
      */
-    public function setDescription($value)
+    public function setIsEntitled($value)
     {
-        $this->propertyUpdated('description', $value);
-        $this->_data['description'] = $value;
+        $this->propertyUpdated('isEntitled', $value);
+        $this->_data['isEntitled'] = $value;
 
         return $this;
     }
 
     /**
-     * @return Period[]|Remote\Collection
+     * @return string
      */
-    public function getPeriods()
+    public function getStatus()
     {
-        return $this->_data['periods'];
+        return $this->_data['status'];
     }
 
     /**
-     * @param Period $value
+     * @param string $value
      *
-     * @return Leave
+     * @return StatutoryLeave
      */
-    public function addPeriod(Period $value)
+    public function setStatus(string $value)
     {
-        $this->propertyUpdated('periods', $value);
-        if (! isset($this->_data['periods'])) {
-            $this->_data['periods'] = new Remote\Collection();
-        }
-        $this->_data['periods'][] = $value;
+        $this->propertyUpdated('status', $value);
+        $this->_data['status'] = $value;
 
         return $this;
     }
