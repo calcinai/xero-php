@@ -74,6 +74,8 @@ class Response
 
     private $root_warnings;
 
+    private $pageInfo;
+
     public function __construct(Request $request, $response_body, $status, $headers)
     {
         $this->request = $request;
@@ -318,7 +320,12 @@ class Response
         foreach ($sxml as $child_index => $root_child) {
             switch ($child_index) {
                 case 'PageInfo':
-                    // TODO: We can potentially handle the page info and make it a value on the response object
+                    $this->pageInfo = (new PageInfo())
+                        ->setPage((int)$root_child->Page)
+                        ->setPageSize((int)$root_child->PageSize)
+                        ->setTotalPages((int)$root_child->TotalPages)
+                        ->setTotalRows((int)$root_child->TotalRows);
+
                     break;
                 case 'ErrorNumber':
                     $this->root_error['code'] = (string)$root_child;
@@ -365,7 +372,12 @@ class Response
         foreach ($json as $child_index => $root_child) {
             switch ($child_index) {
                 case 'PageInfo':
-                    // TODO: We can potentially handle the page info and make it a value on the response object
+                    $this->pageInfo = (new PageInfo())
+                        ->setPage($root_child['Page'])
+                        ->setPageSize($root_child['PageSize'])
+                        ->setTotalPages($root_child['TotalPages'])
+                        ->setTotalRows($root_child['TotalRows']);
+
                     break;
                 case 'ErrorNumber':
                     $this->root_error['code'] = $root_child;
@@ -410,5 +422,10 @@ class Response
     public function parseHTML()
     {
         parse_str($this->response_body, $this->oauth_response);
+    }
+
+    public function getPageInfo(): PageInfo
+    {
+        return $this->pageInfo;
     }
 }
