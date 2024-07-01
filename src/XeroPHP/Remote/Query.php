@@ -24,6 +24,8 @@ class Query
 
     private $page;
 
+    private $pageSize;
+
     private $fromDate;
 
     private $toDate;
@@ -48,6 +50,7 @@ class Query
         $this->order = null;
         $this->modifiedAfter = null;
         $this->page = null;
+        $this->pageSize = null;
         $this->offset = null;
         $this->includeArchived = false;
         $this->createdByMyApp = false;
@@ -236,6 +239,28 @@ class Query
         return $this;
     }
 
+
+    /**
+     * @param int $pageSize
+     *
+     * @throws Exception
+     *
+     * @return $this
+     */
+    public function pageSize($pageSize = 100)
+    {
+        /**
+         * @var ObjectInterface
+         */
+        $from_class = $this->from_class;
+        if (! $from_class::isPageable()) {
+            throw new Exception(sprintf('%s does not support paging.', $from_class));
+        }
+        $this->pageSize = (int) $pageSize;
+
+        return $this;
+    }
+
     /**
      * @param int $offset
      *
@@ -319,6 +344,10 @@ class Query
 
         if ($this->page !== null) {
             $request->setParameter('page', $this->page);
+        }
+
+        if ($this->pageSize !== null) {
+            $request->setParameter('pageSize', $this->pageSize);
         }
 
         if ($this->offset !== null) {
