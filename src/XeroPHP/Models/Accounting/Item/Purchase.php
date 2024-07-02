@@ -27,14 +27,6 @@ class Purchase extends Remote\Model
      */
 
     /**
-     * This property has been removed from the Xero API.
-     *
-     * @property \DateTimeInterface UpdatedDateUTC
-     *
-     * @deprecated
-     */
-
-    /**
      * Used as an override if the default Tax Code for the selected <AccountCode> is not correct – see
      * TaxTypes.
      *
@@ -175,31 +167,6 @@ class Purchase extends Remote\Model
     {
         $this->propertyUpdated('COGSAccountCode', $value);
         $this->_data['COGSAccountCode'] = $value;
-
-        return $this;
-    }
-
-    /**
-     * @return \DateTimeInterface
-     *
-     * @deprecated
-     */
-    public function getUpdatedDateUTC()
-    {
-        return $this->_data['UpdatedDateUTC'];
-    }
-
-    /**
-     * @param \DateTimeInterface $value
-     *
-     * @return Purchase
-     *
-     * @deprecated
-     */
-    public function setUpdatedDateUTC(\DateTimeInterface $value)
-    {
-        $this->propertyUpdated('UpdatedDateUTC', $value);
-        $this->_data['UpdatedDateUTC'] = $value;
 
         return $this;
     }

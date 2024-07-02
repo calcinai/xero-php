@@ -93,9 +93,9 @@ class Account extends Remote\Model
     {
         return [
             'AccountID' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
-            'Type' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
-            'Code' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
-            'Name' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'Type'      => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'Code'      => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'Name'      => [false, self::PROPERTY_TYPE_STRING, null, false, false],
         ];
     }
 
@@ -112,12 +112,7 @@ class Account extends Remote\Model
         return $this->_data['AccountID'];
     }
 
-    /**
-     * @param string $value
-     *
-     * @return Account
-     */
-    public function setAccountID($value)
+    public function setAccountID(string $value): static
     {
         $this->propertyUpdated('AccountID', $value);
         $this->_data['AccountID'] = $value;
@@ -125,20 +120,12 @@ class Account extends Remote\Model
         return $this;
     }
 
-    /**
-     * @return string
-     */
-    public function getType()
+    public function getType(): string
     {
         return $this->_data['Type'];
     }
 
-    /**
-     * @param string $value
-     *
-     * @return Account
-     */
-    public function setType($value)
+    public function setType(string $value): static
     {
         $this->propertyUpdated('Type', $value);
         $this->_data['Type'] = $value;
@@ -146,20 +133,12 @@ class Account extends Remote\Model
         return $this;
     }
 
-    /**
-     * @return string
-     */
-    public function getCode()
+    public function getCode(): string
     {
         return $this->_data['Code'];
     }
 
-    /**
-     * @param string $value
-     *
-     * @return Account
-     */
-    public function setCode($value)
+    public function setCode(string $value): static
     {
         $this->propertyUpdated('Code', $value);
         $this->_data['Code'] = $value;
@@ -167,20 +146,12 @@ class Account extends Remote\Model
         return $this;
     }
 
-    /**
-     * @return string
-     */
-    public function getName()
+    public function getName(): string
     {
         return $this->_data['Name'];
     }
 
-    /**
-     * @param string $value
-     *
-     * @return Account
-     */
-    public function setName($value)
+    public function setName(string $value): static
     {
         $this->propertyUpdated('Name', $value);
         $this->_data['Name'] = $value;

@@ -2,67 +2,42 @@
 
 namespace XeroPHP\Webhook;
 
+use XeroPHP\Exception;
 use XeroPHP\Remote\Exception\RequiredFieldException;
 use XeroPHP\Remote\Request;
 use XeroPHP\Remote\URL;
+use XeroPHP\Webhook;
 
 /**
  * Represents a single event within a webhook.
  */
 class Event
 {
-    /**
-     * @var \XeroPHP\Webhook
-     */
-    private $webhook;
+    private \XeroPHP\Webhook $webhook;
 
-    /**
-     * @var string
-     */
-    private $resourceUrl;
+    private string $resourceUrl;
 
-    /**
-     * @var string
-     */
-    private $resourceId;
+    private string $resourceId;
 
-    /**
-     * @var string
-     */
-    private $eventDateUtc;
+    private string $eventDateUtc;
 
-    /**
-     * @var string
-     */
-    private $eventType;
+    private string $eventType;
 
-    /**
-     * @var string
-     */
-    private $eventCategory;
+    private string $eventCategory;
 
-    /**
-     * @var string
-     */
-    private $tenantId;
+    private string $tenantId;
 
-    /**
-     * @var string
-     */
-    private $tenantType;
+    private string $tenantType;
 
     /**
      * Validates the event payload is correctly formatted.
      *
-     * @param \XeroPHP\Webhook $webhook
-     * @param array $event event details
-     *
      * @throws \XeroPHP\Exception if the provided payload is malformed
      */
-    public function __construct($webhook, $event)
+    public function __construct(Webhook $webhook, array $event)
     {
         $this->webhook = $webhook;
-        $fields = [
+        $fields        = [
             'resourceUrl',
             'resourceId',
             'eventDateUtc',
@@ -75,9 +50,9 @@ class Event
         foreach ($fields as $required) {
             if (!isset($event[$required])) {
                 throw new RequiredFieldException(
-                    get_class($this), 
-                    $required, 
-                    "The event payload was malformed; missing required field {$required}"
+                    get_class($this),
+                    $required,
+                    "The event payload was malformed; missing required field $required"
                 );
             }
 
@@ -85,68 +60,57 @@ class Event
         }
     }
 
-    /**
-     * @return \XeroPHP\Webhook
-     */
-    public function getWebhook()
+    public function getWebhook(): \XeroPHP\Webhook
     {
         return $this->webhook;
     }
 
     /**
-     * @return string direct Xero URL to fetch the resource
+     * Direct Xero URL to fetch the resource
      */
-    public function getResourceUrl()
+    public function getResourceUrl(): string
     {
         return $this->resourceUrl;
     }
 
     /**
-     * @return string the GUID of the resource
+     * The GUID of the resource
      */
-    public function getResourceId()
+    public function getResourceId(): string
     {
         return $this->resourceId;
     }
 
     /**
-     * @return string date and time of the event in UTC format
+     * date and time of the event in UTC format
      */
-    public function getEventDateUtc()
+    public function getEventDateUtc(): string
     {
         return $this->eventDateUtc;
     }
 
     /**
      * Returns the event date.
-     *
-     * @return \DateTime
      */
-    public function getEventDate()
+    public function getEventDate(): \DateTime
     {
         return new \DateTime($this->eventDateUtc);
     }
 
-    /**
-     * @return string event type
-     */
-    public function getEventType()
+    public function getEventType(): string
     {
         return $this->eventType;
     }
 
-    /**
-     * @return string event category
-     */
-    public function getEventCategory()
+    public function getEventCategory(): string
     {
         return $this->eventCategory;
     }
 
     /**
-     * @return string the library class to use when fetching the referenced resource
+     * return the library class to use when fetching the referenced resource
      */
-    public function getEventClass()
+    public function getEventClass(): string
     {
         if ($this->getEventCategory() === 'INVOICE') {
             return \XeroPHP\Models\Accounting\Invoice::class;
@@ -157,20 +121,16 @@ class Event
         if ($this->getEventCategory() === 'SUBSCRIPTION') {
             return \XeroPHP\Models\Subscription::class;
         }
+
+        throw new Exception('Webhook Event Category Not Recognized: ' . $this->getEventCategory());
     }
 
-    /**
-     * @return string
-     */
-    public function getTenantId()
+    public function getTenantId(): string
     {
         return $this->tenantId;
     }
 
-    /**
-     * @return string
-     */
-    public function getTenantType()
+    public function getTenantType(): string
     {
         return $this->tenantType;
     }
@@ -178,7 +138,7 @@ class Event
     /**
      * Fetches the resource and, if possible, loads it into it's respective model class.
      *
-     * @param \XeroPHP\Application $application an optional application instance to use to retrieve the remote resource.
+     * @param  \XeroPHP\Application  $application  an optional application instance to use to retrieve the remote resource.
      *                                          Useful if you have separate instances with different oauth tokens based on the tenant
      *
      * @return array|\XeroPHP\Remote\Model If the event category is known, returns the model, otherwise, returns the resource as an array
@@ -190,7 +150,7 @@ class Event
             $application = $this->getWebhook()->getApplication();
         }
 
-        $url = new URL($application, $this->getResourceUrl());
+        $url     = new URL($application, $this->getResourceUrl());
         $request = new Request($application, $url, Request::METHOD_GET);
         $request->send();
 

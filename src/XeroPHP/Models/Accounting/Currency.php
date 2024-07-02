@@ -7,14 +7,6 @@ use XeroPHP\Remote;
 class Currency extends Remote\Model
 {
     /**
-     * This property has been removed from the Xero API.
-     *
-     * @property string ModifiedAfter
-     *
-     * @deprecated
-     */
-
-    /**
      * 3 letter alpha code for the currency – see list of currency codes.
      *
      * @property string Code
@@ -99,31 +91,6 @@ class Currency extends Remote\Model
     public static function isPageable()
     {
         return false;
-    }
-
-    /**
-     * @return string
-     *
-     * @deprecated
-     */
-    public function getModifiedAfter()
-    {
-        return $this->_data['ModifiedAfter'];
-    }
-
-    /**
-     * @param string $value
-     *
-     * @return Currency
-     *
-     * @deprecated
-     */
-    public function setModifiedAfter($value)
-    {
-        $this->propertyUpdated('ModifiedAfter', $value);
-        $this->_data['ModifiedAfter'] = $value;
-
-        return $this;
     }
 
     /**

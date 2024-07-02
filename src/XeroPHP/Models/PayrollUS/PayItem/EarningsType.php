@@ -13,14 +13,6 @@ class EarningsType extends Remote\Model
      */
 
     /**
-     * This property has been removed from the Xero API.
-     *
-     * @property string DisplayName
-     *
-     * @deprecated
-     */
-
-    /**
      * See Accounts.
      *
      * @property string ExpenseAccountCode
@@ -42,14 +34,6 @@ class EarningsType extends Remote\Model
      * Only when EarningsCategory is ADDITIONALEARNINGS, ALLOWANCE and RateType is RATEPERUNIT.
      *
      * @property string TypeOfUnits
-     */
-
-    /**
-     * This property has been removed from the Xero API.
-     *
-     * @property string EarningsRateID
-     *
-     * @deprecated
      */
 
     /**
@@ -220,31 +204,6 @@ class EarningsType extends Remote\Model
 
     /**
      * @return string
-     *
-     * @deprecated
-     */
-    public function getDisplayName()
-    {
-        return $this->_data['DisplayName'];
-    }
-
-    /**
-     * @param string $value
-     *
-     * @return EarningsType
-     *
-     * @deprecated
-     */
-    public function setDisplayName($value)
-    {
-        $this->propertyUpdated('DisplayName', $value);
-        $this->_data['DisplayName'] = $value;
-
-        return $this;
-    }
-
-    /**
-     * @return string
      */
     public function getExpenseAccountCode()
     {
@@ -323,31 +282,6 @@ class EarningsType extends Remote\Model
     {
         $this->propertyUpdated('TypeOfUnits', $value);
         $this->_data['TypeOfUnits'] = $value;
-
-        return $this;
-    }
-
-    /**
-     * @return string
-     *
-     * @deprecated
-     */
-    public function getEarningsRateID()
-    {
-        return $this->_data['EarningsRateID'];
-    }
-
-    /**
-     * @param string $value
-     *
-     * @return EarningsType
-     *
-     * @deprecated
-     */
-    public function setEarningsRateID($value)
-    {
-        $this->propertyUpdated('EarningsRateID', $value);
-        $this->_data['EarningsRateID'] = $value;
 
         return $this;
     }

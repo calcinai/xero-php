@@ -306,31 +306,6 @@ class SuperFund extends Remote\Model
 
     /**
      * @return string
-     *
-     * @deprecated
-     */
-    public function getSPIN()
-    {
-        return $this->_data['SPIN'];
-    }
-
-    /**
-     * @param string $value
-     *
-     * @return SuperFund
-     *
-     * @deprecated
-     */
-    public function setSPIN($value)
-    {
-        $this->propertyUpdated('SPIN', $value);
-        $this->_data['SPIN'] = $value;
-
-        return $this;
-    }
-
-    /**
-     * @return string
      */
     public function getName()
     {

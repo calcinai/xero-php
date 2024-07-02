@@ -20,40 +20,32 @@ class BankAccount extends Remote\Model
 
     /**
      * Get the resource uri of the class (Contacts) etc.
-     *
-     * @return string
      */
-    public static function getResourceURI()
+    public static function getResourceURI(): string
     {
         return 'BankAccount';
     }
 
     /**
      * Get the root node name.  Just the unqualified classname.
-     *
-     * @return string
      */
-    public static function getRootNodeName()
+    public static function getRootNodeName(): string
     {
         return 'BankAccount';
     }
 
     /**
      * Get the guid property.
-     *
-     * @return string
      */
-    public static function getGUIDProperty()
+    public static function getGUIDProperty(): string
     {
         return '';
     }
 
     /**
      * Get the stem of the API (core.xro) etc.
-     *
-     * @return string
      */
-    public static function getAPIStem()
+    public static function getAPIStem(): string
     {
         return Remote\URL::API_CORE;
     }
@@ -61,10 +53,9 @@ class BankAccount extends Remote\Model
     /**
      * Get the supported methods.
      */
-    public static function getSupportedMethods()
+    public static function getSupportedMethods(): array
     {
-        return [
-        ];
+        return [];
     }
 
     /**
@@ -74,36 +65,26 @@ class BankAccount extends Remote\Model
      *  [2] - PHP type
      *  [3] - Is an Array
      *  [4] - Saves directly.
-     *
-     * @return array
      */
-    public static function getProperties()
+    public static function getProperties(): array
     {
         return [
-            'Code' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'Code'      => [false, self::PROPERTY_TYPE_STRING, null, false, false],
             'AccountID' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
         ];
     }
 
-    public static function isPageable()
+    public static function isPageable(): bool
     {
         return false;
     }
 
-    /**
-     * @return string
-     */
-    public function getCode()
+    public function getCode(): string
     {
         return $this->_data['Code'];
     }
 
-    /**
-     * @param string $value
-     *
-     * @return BankAccount
-     */
-    public function setCode($value)
+    public function setCode(string $value): static
     {
         $this->propertyUpdated('Code', $value);
         $this->_data['Code'] = $value;
@@ -111,20 +92,12 @@ class BankAccount extends Remote\Model
         return $this;
     }
 
-    /**
-     * @return string
-     */
-    public function getAccountID()
+    public function getAccountID(): string
     {
         return $this->_data['AccountID'];
     }
 
-    /**
-     * @param string $value
-     *
-     * @return BankAccount
-     */
-    public function setAccountID($value)
+    public function setAccountID(string $value): static
     {
         $this->propertyUpdated('AccountID', $value);
         $this->_data['AccountID'] = $value;

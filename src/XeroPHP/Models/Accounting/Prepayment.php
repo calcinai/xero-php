@@ -14,14 +14,6 @@ class Prepayment extends Remote\Model
     use HistoryTrait;
 
     /**
-     * This property has been removed from the Xero API.
-     *
-     * @property string Reference
-     *
-     * @deprecated
-     */
-
-    /**
      * See Prepayment Types.
      *
      * @property string Type
@@ -85,14 +77,6 @@ class Prepayment extends Remote\Model
      * Currency used for the prepayment.
      *
      * @property string CurrencyCode
-     */
-
-    /**
-     * This property has been removed from the Xero API.
-     *
-     * @property string FullyPaidOnDate
-     *
-     * @deprecated
      */
 
     /**
@@ -224,31 +208,6 @@ class Prepayment extends Remote\Model
     public static function isPageable()
     {
         return true;
-    }
-
-    /**
-     * @return string
-     *
-     * @deprecated
-     */
-    public function getReference()
-    {
-        return $this->_data['Reference'];
-    }
-
-    /**
-     * @param string $value
-     *
-     * @return Prepayment
-     *
-     * @deprecated
-     */
-    public function setReference($value)
-    {
-        $this->propertyUpdated('Reference', $value);
-        $this->_data['Reference'] = $value;
-
-        return $this;
     }
 
     /**
@@ -487,31 +446,6 @@ class Prepayment extends Remote\Model
 
     /**
      * @return string
-     *
-     * @deprecated
-     */
-    public function getFullyPaidOnDate()
-    {
-        return $this->_data['FullyPaidOnDate'];
-    }
-
-    /**
-     * @param string $value
-     *
-     * @return Prepayment
-     *
-     * @deprecated
-     */
-    public function setFullyPaidOnDate($value)
-    {
-        $this->propertyUpdated('FullyPaidOnDate', $value);
-        $this->_data['FullyPaidOnDate'] = $value;
-
-        return $this;
-    }
-
-    /**
-     * @return string
      */
     public function getPrepaymentID()
     {
@@ -611,14 +545,5 @@ class Prepayment extends Remote\Model
     public function getHasAttachments()
     {
         return $this->_data['HasAttachments'];
-    }
-
-    /**
-     * @deprecated - this is a read only property and this method will be removed in future versions
-     *
-     * @param $value
-     */
-    public function setHasAttachment($value)
-    {
     }
 }
