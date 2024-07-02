@@ -3,12 +3,13 @@
 namespace XeroPHP\Tests\Remote;
 
 
+use PHPUnit\Framework\TestCase;
 use XeroPHP\Application;
 use XeroPHP\Remote\Request;
 use XeroPHP\Remote\Response;
 use XeroPHP\Remote\URL;
 
-class ResponseTest extends \PHPUnit_Framework_TestCase
+class ResponseTest extends TestCase
 {
 
     public function testRootWarningsAreParsedJson()
@@ -57,6 +58,34 @@ class ResponseTest extends \PHPUnit_Framework_TestCase
         $this->assertCount(1, $rootWarnings);
         $this->assertArrayHasKey("Message", $rootWarnings[0]);
         $this->assertEquals("This is a Warning Message.", $rootWarnings[0]["Message"]);
+    }
+
+    public function testPaginatedValuesAreParsedXML()
+    {
+        $app = $this->getApplication();
+        $response = new Response(new Request($app, new URL($app, 'test')),
+            '<Response xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <Id>2</Id>
+    <Status>OK</Status>
+    <ProviderName></ProviderName>
+    <DateTimeUTC>2024-05-02T14:52:55.8388472Z</DateTimeUTC>
+    <PageInfo>
+        <Page>1</Page>
+        <PageSize>1000</PageSize>
+        <TotalPages>2</TotalPages>
+        <TotalRows>1275</TotalRows>
+    </PageInfo>
+    <Invoices></Invoices>
+</Response>', Response::STATUS_OK, [Request::HEADER_CONTENT_TYPE => [Request::CONTENT_TYPE_XML.";"]]);
+
+        $response->parse();
+
+        $pageInfo = $response->getPageInfo();
+
+        $this->assertEquals(1, $pageInfo->getPage());
+        $this->assertEquals(1000, $pageInfo->getPageSize());
+        $this->assertEquals(2, $pageInfo->getTotalPages());
+        $this->assertEquals(1275, $pageInfo->getTotalRows());
     }
 
     protected function getApplication($config = [])

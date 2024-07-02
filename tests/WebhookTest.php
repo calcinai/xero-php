@@ -2,19 +2,20 @@
 
 namespace XeroPHP\Tests;
 
+use PHPUnit\Framework\TestCase;
 use XeroPHP\Application;
 use XeroPHP\Application\PrivateApplication;
 use XeroPHP\Webhook;
 use XeroPHP\Webhook\Event;
 
-class WebhookTest extends \PHPUnit_Framework_TestCase
+class WebhookTest extends TestCase
 {
     /**
      * @var Application
      */
     private $application;
 
-    protected function setUp()
+    public function setUp(): void
     {
         $this->application = new Application('token', 'tenantId');
         $this->application->setConfig([
