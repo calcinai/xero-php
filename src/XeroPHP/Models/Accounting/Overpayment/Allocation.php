@@ -2,8 +2,8 @@
 
 namespace XeroPHP\Models\Accounting\Overpayment;
 
-use XeroPHP\Remote;
 use XeroPHP\Models\Accounting\Invoice;
+use XeroPHP\Remote;
 
 class Allocation extends Remote\Model
 {
@@ -28,40 +28,32 @@ class Allocation extends Remote\Model
 
     /**
      * Get the resource uri of the class (Contacts) etc.
-     *
-     * @return string
      */
-    public static function getResourceURI()
+    public static function getResourceURI(): string
     {
         return 'Allocations';
     }
 
     /**
      * Get the root node name.  Just the unqualified classname.
-     *
-     * @return string
      */
-    public static function getRootNodeName()
+    public static function getRootNodeName(): string
     {
         return 'Allocation';
     }
 
     /**
      * Get the guid property.
-     *
-     * @return string
      */
-    public static function getGUIDProperty()
+    public static function getGUIDProperty(): string
     {
         return '';
     }
 
     /**
      * Get the stem of the API (core.xro) etc.
-     *
-     * @return string
      */
-    public static function getAPIStem()
+    public static function getAPIStem(): string
     {
         return Remote\URL::API_CORE;
     }
@@ -69,10 +61,9 @@ class Allocation extends Remote\Model
     /**
      * Get the supported methods.
      */
-    public static function getSupportedMethods()
+    public static function getSupportedMethods(): array
     {
-        return [
-        ];
+        return [];
     }
 
     /**
@@ -82,37 +73,27 @@ class Allocation extends Remote\Model
      *  [2] - PHP type
      *  [3] - Is an Array
      *  [4] - Saves directly.
-     *
-     * @return array
      */
-    public static function getProperties()
+    public static function getProperties(): array
     {
         return [
-            'Invoice' => [false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Invoice', false, false],
+            'Invoice'       => [false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Invoice', false, false],
             'AppliedAmount' => [false, self::PROPERTY_TYPE_FLOAT, null, false, false],
-            'Date' => [false, self::PROPERTY_TYPE_DATE, '\\DateTimeInterface', false, false],
+            'Date'          => [false, self::PROPERTY_TYPE_DATE, '\\DateTimeInterface', false, false],
         ];
     }
 
-    public static function isPageable()
+    public static function isPageable(): bool
     {
         return false;
     }
 
-    /**
-     * @return Invoice
-     */
-    public function getInvoice()
+    public function getInvoice(): Invoice
     {
         return $this->_data['Invoice'];
     }
 
-    /**
-     * @param Invoice $value
-     *
-     * @return Allocation
-     */
-    public function setInvoice(Invoice $value)
+    public function setInvoice(Invoice $value): static
     {
         $this->propertyUpdated('Invoice', $value);
         $this->_data['Invoice'] = $value;
@@ -120,20 +101,12 @@ class Allocation extends Remote\Model
         return $this;
     }
 
-    /**
-     * @return float
-     */
-    public function getAppliedAmount()
+    public function getAppliedAmount(): float
     {
         return $this->_data['AppliedAmount'];
     }
 
-    /**
-     * @param float $value
-     *
-     * @return Allocation
-     */
-    public function setAppliedAmount($value)
+    public function setAppliedAmount(float $value): static
     {
         $this->propertyUpdated('AppliedAmount', $value);
         $this->_data['AppliedAmount'] = $value;
@@ -141,20 +114,12 @@ class Allocation extends Remote\Model
         return $this;
     }
 
-    /**
-     * @return \DateTimeInterface
-     */
-    public function getDate()
+    public function getDate(): \DateTimeInterface
     {
         return $this->_data['Date'];
     }
 
-    /**
-     * @param \DateTimeInterface $value
-     *
-     * @return Allocation
-     */
-    public function setDate(\DateTimeInterface $value)
+    public function setDate(\DateTimeInterface $value): static
     {
         $this->propertyUpdated('Date', $value);
         $this->_data['Date'] = $value;

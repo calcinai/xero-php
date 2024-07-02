@@ -52,7 +52,7 @@ class URL
     {
         //Handle full URLs and pull them back apart.
         //Annoying internal references are http??? and absolute.
-        if (strpos($endpoint, 'http') === 0) {
+        if (str_starts_with($endpoint, 'http')) {
             if (preg_match('@^http(s)?://[^/]+/(?<api>[^/]+)/(?<version>[^/]+)/(?<endpoint>.+)$@i', $endpoint, $matches)) {
                 $endpoint = $matches['endpoint'];
                 $api = $matches['api'];
@@ -72,26 +72,13 @@ class URL
 
         //Check here that the URI hasn't been set by one of the OAuth methods and handle as normal
         if (!isset($this->path)) {
-            switch ($api) {
-                case self::API_CORE:
-                    $version = $xero_config['core_version'];
-
-                    break;
-                case self::API_PAYROLL:
-                    $version = $xero_config['payroll_version'];
-
-                    break;
-                case self::API_FILE:
-                    $version = $xero_config['file_version'];
-
-                    break;
-                case self::API_PRACTICE_MANAGER:
-                    $version = $xero_config['practice_manager_version'];
-
-                    break;
-                default:
-                    throw new Exception('Invalid API passed to XeroPHP\\URL::__construct(). Must be XeroPHP\\URL::API_*');
-            }
+            $version = match ($api) {
+                self::API_CORE             => $xero_config['core_version'],
+                self::API_PAYROLL          => $xero_config['payroll_version'],
+                self::API_FILE             => $xero_config['file_version'],
+                self::API_PRACTICE_MANAGER => $xero_config['practice_manager_version'],
+                default                    => throw new Exception('Invalid API passed to XeroPHP\\URL::__construct(). Must be XeroPHP\\URL::API_*'),
+            };
 
             $this->path = sprintf('%s/%s/%s', $api, $version, $this->endpoint);
         }

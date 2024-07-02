@@ -65,32 +65,4 @@ class ReportTaxType
     const UK_NONE = 'NONE';
 
     const UK_GSTONIMPORTS = 'GSTONIMPORTS';
-
-    /**
-     * These have incorrect spelling and will be remove in a future release.
-     * Please see "AUSTRALIAN" constants at the top of this file.
-     *
-     * @deprecated
-     */
-    const AUSTRALIUM_OUTPUT = self::AUSTRALIAN_OUTPUT;
-
-    const AUSTRALIUM_INPUT = self::AUSTRALIAN_INPUT;
-
-    const AUSTRALIUM_EXEMPTOUTPUT = self::AUSTRALIAN_EXEMPTOUTPUT;
-
-    const AUSTRALIUM_INPUTTAXED = self::AUSTRALIAN_INPUTTAXED;
-
-    const AUSTRALIUM_BASEXCLUDED = self::AUSTRALIAN_BASEXCLUDED;
-
-    const AUSTRALIUM_EXEMPTEXPENSES = self::AUSTRALIAN_EXEMPTEXPENSES;
-
-    const AUSTRALIUM_EXEMPTCAPITAL = self::AUSTRALIAN_EXEMPTCAPITAL;
-
-    const AUSTRALIUM_EXEMPTEXPORT = self::AUSTRALIAN_EXEMPTEXPORT;
-
-    const AUSTRALIUM_CAPITALEXINPUT = self::AUSTRALIAN_CAPITALEXINPUT;
-
-    const AUSTRALIUM_GSTONCAPIMPORTS = self::AUSTRALIAN_GSTONCAPIMPORTS;
-
-    const AUSTRALIUM_GSTONIMPORTS = self::AUSTRALIAN_GSTONIMPORTS;
 }

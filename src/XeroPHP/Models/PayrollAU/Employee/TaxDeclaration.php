@@ -61,14 +61,6 @@ class TaxDeclaration extends Remote\Model
      */
 
     /**
-     * This property has been removed from the Xero API.
-     *
-     * @property bool HasTSLDebt
-     *
-     * @deprecated
-     */
-
-    /**
      * If employee has trade support loan. e.g true or false.
      *
      * @property bool HasTradeSupportLoanDebt
@@ -399,31 +391,6 @@ class TaxDeclaration extends Remote\Model
     {
         $this->propertyUpdated('HasSFSSDebt', $value);
         $this->_data['HasSFSSDebt'] = $value;
-
-        return $this;
-    }
-
-    /**
-     * @return bool
-     *
-     * @deprecated
-     */
-    public function getHasTSLDebt()
-    {
-        return $this->_data['HasTSLDebt'];
-    }
-
-    /**
-     * @param bool $value
-     *
-     * @return TaxDeclaration
-     *
-     * @deprecated
-     */
-    public function setHasTSLDebt($value)
-    {
-        $this->propertyUpdated('HasTSLDebt', $value);
-        $this->_data['HasTSLDebt'] = $value;
 
         return $this;
     }

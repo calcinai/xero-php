@@ -141,31 +141,6 @@ class TimesheetEarningsLine extends Remote\Model
     }
 
     /**
-     * @return Amount
-     * 
-     * @deprecated
-     */
-    public function getAmount()
-    {
-        return $this->_data['Amount'];
-    }
-    
-    /**
-     * @param float $value
-     * 
-     * @return TimesheetEarningsLine
-     *
-     * @deprecated
-     */
-    public function setAmount($value)
-    {
-        $this->propertyUpdated('Amount', $value);
-        $this->_data['Amount'] = $value;
-
-        return $this;
-    }
-    
-    /**
      * @return float
      */
     public function getNumberOfUnits()
