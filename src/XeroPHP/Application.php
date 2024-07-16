@@ -29,10 +29,10 @@ class Application
      */
     protected $config;
 
-    private ?int $lastApiCall = null;
-    private ?int $appMinLimitRemining = null;
-    private ?int $tenantDayLimitRemining = null;
-    private ?int $tenantMinLimitRemining = null;
+    private $lastApiCall = null;
+    private $appMinLimitRemining = null;
+    private $tenantDayLimitRemining = null;
+    private $tenantMinLimitRemining = null;
 
     /**
      * @var ClientInterface
