@@ -122,7 +122,7 @@ class Request
         if($guzzleResponse->hasHeader('X-DayLimit-Remaining')){
             $this->app->updateTenantRateLimits(
                 $guzzleResponse->getHeader('X-DayLimit-Remaining')[0],
-                $guzzleResponse->getHeader('X-MinLimit-Remaining')[0],
+                $guzzleResponse->getHeader('X-MinLimit-Remaining')[0]
             );
         }
 
