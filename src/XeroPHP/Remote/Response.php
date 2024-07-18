@@ -320,6 +320,9 @@ class Response
                 case 'PageInfo':
                     // TODO: We can potentially handle the page info and make it a value on the response object
                     break;
+                case 'pagination':
+                    // introduced in https://github.com/XeroAPI/xero-node/releases/tag/9.0.0 but not supported here yet
+                    break;
                 case 'ErrorNumber':
                     $this->root_error['code'] = (string)$root_child;
 
@@ -367,6 +370,9 @@ class Response
                 case 'PageInfo':
                     // TODO: We can potentially handle the page info and make it a value on the response object
                     break;
+                case 'pagination':
+                    // introduced in https://github.com/XeroAPI/xero-node/releases/tag/9.0.0 but not supported here yet
+                    break;                
                 case 'ErrorNumber':
                     $this->root_error['code'] = $root_child;
 
