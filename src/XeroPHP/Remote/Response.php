@@ -318,6 +318,7 @@ class Response
         foreach ($sxml as $child_index => $root_child) {
             switch ($child_index) {
                 case 'PageInfo':
+                case 'pagination':
                     // TODO: We can potentially handle the page info and make it a value on the response object
                     break;
                 case 'pagination':
@@ -368,6 +369,7 @@ class Response
         foreach ($json as $child_index => $root_child) {
             switch ($child_index) {
                 case 'PageInfo':
+                case 'pagination':
                     // TODO: We can potentially handle the page info and make it a value on the response object
                     break;
                 case 'pagination':

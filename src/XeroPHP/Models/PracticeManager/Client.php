@@ -3,6 +3,7 @@
 namespace XeroPHP\Models\PracticeManager;
 
 use XeroPHP\Models\PracticeManager\Client\AccountManager;
+use XeroPHP\Models\PracticeManager\Client\AutoBasOptInCriteria;
 use XeroPHP\Models\PracticeManager\Client\BillingClient;
 use XeroPHP\Models\PracticeManager\Client\Contact;
 use XeroPHP\Models\PracticeManager\Client\Group;
@@ -18,76 +19,37 @@ class Client extends Remote\Model
     use CustomFieldValueTrait;
 
     /**
-     * Xero identifier.
-     *
      * @property string ID
-     */
-
-    /**
-     * Full name of Client/organisation (max length = 255).
-     *
      * @property string Name
-     */
-
-    /**
-     * First name of Client person (max length = 255).
-     *
+     * @property string Title
      * @property string FirstName
-     */
-
-    /**
-     * Last name of Client person (max length = 255).
-     *
      * @property string LastName
-     */
-
-    /**
-     * Other name of Client person (max length = 255).
-     *
      * @property string OtherName
-     */
-
-    /**
-     * Date of birth of Client person (max length = 255).
-     *
      * @property string DateOfBirth
-     */
-
-    /**
-     * Email address of Client person (umlauts not supported) (max length = 255).
-     *
      * @property string Email
-     */
-
-    /**
-     * Physical Address
      * @property string Address
      * @property string City
      * @property string Region
      * @property string PostCode
      * @property string Country
-     */
-
-    /**
-     * Postal Address
      * @property string PostalAddress
      * @property string PostalCity
      * @property string PostalRegion
      * @property string PostalPostCode
      * @property string PostalCountry
-     */
-
-    /**
      * @property string Phone
      * @property string Fax
      * @property string Website
      * @property string ReferralSource
      * @property string ExportCode
      * @property string IsProspect
+     * @property string IsDeleted
+     * @property string IsArchived
      * where the tax number is masked with *** except last 3 digits
      * @property string TaxNumber
      * @property string CompanyNumber
      * @property string BusinessNumber
+     * @property string BranchNumber
      * e.g. Individual, Company, Trust, etc
      * @property string BusinessStructure
      * @property string BalanceMonth
@@ -109,71 +71,26 @@ class Client extends Remote\Model
      * @property string AgencyStatus
      * IR3, IR3NR, IR4, IR6, IR7, IR9, PTS
      * @property string ReturnType
-     *
      * The following fields apply to AU clients only
      * Yes or No
      * @property string PrepareActivityStatement
      * Yes or No
      * @property string PrepareTaxReturn
-     *
-     *
+     * @property string ActiveAtoClient
+     * @property string ClientCode
      * @property string AgencyStatus
      * @property string AgencyStatus
-     */
-
-    /**
-     * See Client contacts.
      *
+     * Related Objects
      * @property Contact[] Contacts
-     */
-
-    /**
-     * See Account Manager.
-     *
      * @property AccountManager AccountManager
-     *
-     */
-
-    /**
-     * See Job Manager.
-     *
      * @property JobManager JobManager
-     *
-     */
-
-    /**
-     * See Type
-     *
+     * @property AutoBasOptInCriteria AutoBasOptInCriteria
      * @property Type Type
-     *
-     */
-
-    /**
-     * See BillingClient
-     *
      * @property BillingClient BillingClient
-     *
-     */
-
-    /**
-     * See Note
-     *
-     * @property Note[] Note
-     *
-     */
-
-    /**
-     * See Group
-     *
-     * @property Group[] Group
-     *
-     */
-
-    /**
-     * See Relationship
-     *
+     * @property Note[] Notes
+     * @property Group[] Groups
      * @property Relationship[] Relationship
-     *
      */
 
     /**
@@ -248,6 +165,7 @@ class Client extends Remote\Model
         return [
             'ID'                       => [false, self::PROPERTY_TYPE_INT, null, false, false],
             'Name'                     => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'Title'                    => [false, self::PROPERTY_TYPE_STRING, null, false, false],
             'FirstName'                => [false, self::PROPERTY_TYPE_STRING, null, false, false],
             'LastName'                 => [false, self::PROPERTY_TYPE_STRING, null, false, false],
             'OtherName'                => [false, self::PROPERTY_TYPE_STRING, null, false, false],
@@ -269,9 +187,12 @@ class Client extends Remote\Model
             'ReferralSource'           => [false, self::PROPERTY_TYPE_STRING, null, false, false],
             'ExportCode'               => [false, self::PROPERTY_TYPE_STRING, null, false, false],
             'IsProspect'               => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'IsArchived'               => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'IsDeleted'                => [false, self::PROPERTY_TYPE_STRING, null, false, false],
             'TaxNumber'                => [false, self::PROPERTY_TYPE_STRING, null, false, false],
             'CompanyNumber'            => [false, self::PROPERTY_TYPE_STRING, null, false, false],
             'BusinessNumber'           => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'BranchNumber'             => [false, self::PROPERTY_TYPE_STRING, null, false, false],
             'BusinessStructure'        => [false, self::PROPERTY_TYPE_ENUM, null, false, false],
             'BalanceMonth'             => [false, self::PROPERTY_TYPE_STRING, null, false, false],
             'PrepareGST'               => [false, self::PROPERTY_TYPE_ENUM, null, false, false],
@@ -286,12 +207,15 @@ class Client extends Remote\Model
             'ReturnType'               => [false, self::PROPERTY_TYPE_ENUM, null, false, false],
             'PrepareActivityStatement' => [false, self::PROPERTY_TYPE_ENUM, null, false, false],
             'PrepareTaxReturn'         => [false, self::PROPERTY_TYPE_ENUM, null, false, false],
+            'ActiveAtoClient'          => [false, self::PROPERTY_TYPE_ENUM, null, false, false],
+            'ClientCode'               => [false, self::PROPERTY_TYPE_STRING, null, false, false],
             'Contacts'                 => [false, self::PROPERTY_TYPE_OBJECT, 'PracticeManager\\Client\\Contact', true, false],
             'Notes'                    => [false, self::PROPERTY_TYPE_OBJECT, 'PracticeManager\\Client\\Note', true, false],
             'Groups'                   => [false, self::PROPERTY_TYPE_OBJECT, 'PracticeManager\\Client\\Group', true, false],
             'Relationships'            => [false, self::PROPERTY_TYPE_OBJECT, 'PracticeManager\\Client\\Relationship', true, false],
             'AccountManager'           => [false, self::PROPERTY_TYPE_OBJECT, 'PracticeManager\\Client\\AccountManager', false, false],
             'JobManager'               => [false, self::PROPERTY_TYPE_OBJECT, 'PracticeManager\\Client\\JobManager', false, false],
+            'AutoBasOptInCriteria'     => [false, self::PROPERTY_TYPE_OBJECT, 'PracticeManager\\Client\\AutoBasOptInCriteria', false, false],
             'Type'                     => [false, self::PROPERTY_TYPE_OBJECT, 'PracticeManager\\Client\\Type', false, false],
             'BillingClient'            => [false, self::PROPERTY_TYPE_OBJECT, 'PracticeManager\\Client\\BillingClient', false, false],
         ];
@@ -311,7 +235,7 @@ class Client extends Remote\Model
     }
 
     /**
-     * @param int $value
+     * @param  int  $value
      *
      * @return Client
      */
@@ -332,7 +256,7 @@ class Client extends Remote\Model
     }
 
     /**
-     * @param string $value
+     * @param  string  $value
      *
      * @return Client
      */
@@ -347,13 +271,34 @@ class Client extends Remote\Model
     /**
      * @return string
      */
+    public function getTitle()
+    {
+        return $this->_data['Title'];
+    }
+
+    /**
+     * @param  string  $value
+     *
+     * @return Client
+     */
+    public function setTitle($value)
+    {
+        $this->propertyUpdated('Title', $value);
+        $this->_data['Title'] = $value;
+
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
     public function getFirstName()
     {
         return $this->_data['FirstName'];
     }
 
     /**
-     * @param string $value
+     * @param  string  $value
      *
      * @return Client
      */
@@ -374,7 +319,7 @@ class Client extends Remote\Model
     }
 
     /**
-     * @param string $value
+     * @param  string  $value
      *
      * @return Client
      */
@@ -395,7 +340,7 @@ class Client extends Remote\Model
     }
 
     /**
-     * @param string $value
+     * @param  string  $value
      *
      * @return Client
      */
@@ -416,7 +361,7 @@ class Client extends Remote\Model
     }
 
     /**
-     * @param string $value
+     * @param  string  $value
      *
      * @return Client
      */
@@ -437,7 +382,7 @@ class Client extends Remote\Model
     }
 
     /**
-     * @param string $value
+     * @param  string  $value
      *
      * @return Client
      */
@@ -458,7 +403,7 @@ class Client extends Remote\Model
     }
 
     /**
-     * @param string $value
+     * @param  string  $value
      *
      * @return Client
      */
@@ -479,7 +424,7 @@ class Client extends Remote\Model
     }
 
     /**
-     * @param string $value
+     * @param  string  $value
      *
      * @return Client
      */
@@ -500,7 +445,7 @@ class Client extends Remote\Model
     }
 
     /**
-     * @param string $value
+     * @param  string  $value
      *
      * @return Client
      */
@@ -521,7 +466,7 @@ class Client extends Remote\Model
     }
 
     /**
-     * @param string $value
+     * @param  string  $value
      *
      * @return Client
      */
@@ -542,7 +487,7 @@ class Client extends Remote\Model
     }
 
     /**
-     * @param string $value
+     * @param  string  $value
      *
      * @return Client
      */
@@ -563,7 +508,7 @@ class Client extends Remote\Model
     }
 
     /**
-     * @param string $value
+     * @param  string  $value
      *
      * @return Client
      */
@@ -584,7 +529,7 @@ class Client extends Remote\Model
     }
 
     /**
-     * @param string $value
+     * @param  string  $value
      *
      * @return Client
      */
@@ -605,7 +550,7 @@ class Client extends Remote\Model
     }
 
     /**
-     * @param string $value
+     * @param  string  $value
      *
      * @return Client
      */
@@ -626,7 +571,7 @@ class Client extends Remote\Model
     }
 
     /**
-     * @param string $value
+     * @param  string  $value
      *
      * @return Client
      */
@@ -647,7 +592,7 @@ class Client extends Remote\Model
     }
 
     /**
-     * @param string $value
+     * @param  string  $value
      *
      * @return Client
      */
@@ -668,7 +613,7 @@ class Client extends Remote\Model
     }
 
     /**
-     * @param string $value
+     * @param  string  $value
      *
      * @return Client
      */
@@ -689,7 +634,7 @@ class Client extends Remote\Model
     }
 
     /**
-     * @param string $value
+     * @param  string  $value
      *
      * @return Client
      */
@@ -710,7 +655,7 @@ class Client extends Remote\Model
     }
 
     /**
-     * @param string $value
+     * @param  string  $value
      *
      * @return Client
      */
@@ -731,7 +676,7 @@ class Client extends Remote\Model
     }
 
     /**
-     * @param string $value
+     * @param  string  $value
      *
      * @return Client
      */
@@ -752,7 +697,7 @@ class Client extends Remote\Model
     }
 
     /**
-     * @param string $value
+     * @param  string  $value
      *
      * @return Client
      */
@@ -773,7 +718,7 @@ class Client extends Remote\Model
     }
 
     /**
-     * @param string $value
+     * @param  string  $value
      *
      * @return Client
      */
@@ -781,6 +726,50 @@ class Client extends Remote\Model
     {
         $this->propertyUpdated('IsProspect', $value);
         $this->_data['IsProspect'] = $value;
+
+        return $this;
+    }
+
+
+    /**
+     * @return string
+     */
+    public function getIsArchived()
+    {
+        return $this->_data['IsArchived'];
+    }
+
+    /**
+     * @param  string  $value
+     *
+     * @return Client
+     */
+    public function setIsArchived($value)
+    {
+        $this->propertyUpdated('IsArchived', $value);
+        $this->_data['IsArchived'] = $value;
+
+        return $this;
+    }
+
+
+    /**
+     * @return string
+     */
+    public function getIsDeleted()
+    {
+        return $this->_data['IsDeleted'];
+    }
+
+    /**
+     * @param  string  $value
+     *
+     * @return Client
+     */
+    public function setIsDeleted($value)
+    {
+        $this->propertyUpdated('IsDeleted', $value);
+        $this->_data['IsDeleted'] = $value;
 
         return $this;
     }
@@ -794,7 +783,7 @@ class Client extends Remote\Model
     }
 
     /**
-     * @param string $value
+     * @param  string  $value
      *
      * @return Client
      */
@@ -815,7 +804,7 @@ class Client extends Remote\Model
     }
 
     /**
-     * @param string $value
+     * @param  string  $value
      *
      * @return Client
      */
@@ -836,7 +825,7 @@ class Client extends Remote\Model
     }
 
     /**
-     * @param string $value
+     * @param  string  $value
      *
      * @return Client
      */
@@ -851,13 +840,34 @@ class Client extends Remote\Model
     /**
      * @return string
      */
+    public function getBranchNumber()
+    {
+        return $this->_data['BranchNumber'];
+    }
+
+    /**
+     * @param  string  $value
+     *
+     * @return Client
+     */
+    public function setBranchNumber($value)
+    {
+        $this->propertyUpdated('BranchNumber', $value);
+        $this->_data['BranchNumber'] = $value;
+
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
     public function getBusinessStructure()
     {
         return $this->_data['BusinessStructure'];
     }
 
     /**
-     * @param string $value
+     * @param  string  $value
      *
      * @return Client
      */
@@ -878,7 +888,7 @@ class Client extends Remote\Model
     }
 
     /**
-     * @param string $value
+     * @param  string  $value
      *
      * @return Client
      */
@@ -899,7 +909,7 @@ class Client extends Remote\Model
     }
 
     /**
-     * @param string $value
+     * @param  string  $value
      *
      * @return Client
      */
@@ -920,7 +930,7 @@ class Client extends Remote\Model
     }
 
     /**
-     * @param string $value
+     * @param  string  $value
      *
      * @return Client
      */
@@ -941,7 +951,7 @@ class Client extends Remote\Model
     }
 
     /**
-     * @param string $value
+     * @param  string  $value
      *
      * @return Client
      */
@@ -962,7 +972,7 @@ class Client extends Remote\Model
     }
 
     /**
-     * @param string $value
+     * @param  string  $value
      *
      * @return Client
      */
@@ -983,7 +993,7 @@ class Client extends Remote\Model
     }
 
     /**
-     * @param string $value
+     * @param  string  $value
      *
      * @return Client
      */
@@ -1004,7 +1014,7 @@ class Client extends Remote\Model
     }
 
     /**
-     * @param string $value
+     * @param  string  $value
      *
      * @return Client
      */
@@ -1025,7 +1035,7 @@ class Client extends Remote\Model
     }
 
     /**
-     * @param string $value
+     * @param  string  $value
      *
      * @return Client
      */
@@ -1046,7 +1056,7 @@ class Client extends Remote\Model
     }
 
     /**
-     * @param string $value
+     * @param  string  $value
      *
      * @return Client
      */
@@ -1067,7 +1077,7 @@ class Client extends Remote\Model
     }
 
     /**
-     * @param string $value
+     * @param  string  $value
      *
      * @return Client
      */
@@ -1088,7 +1098,7 @@ class Client extends Remote\Model
     }
 
     /**
-     * @param string $value
+     * @param  string  $value
      *
      * @return Client
      */
@@ -1109,7 +1119,7 @@ class Client extends Remote\Model
     }
 
     /**
-     * @param string $value
+     * @param  string  $value
      *
      * @return Client
      */
@@ -1130,7 +1140,7 @@ class Client extends Remote\Model
     }
 
     /**
-     * @param string $value
+     * @param  string  $value
      *
      * @return Client
      */
@@ -1138,6 +1148,48 @@ class Client extends Remote\Model
     {
         $this->propertyUpdated('PrepareTaxReturn', $value);
         $this->_data['PrepareTaxReturn'] = $value;
+
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getActiveAtoClient()
+    {
+        return $this->_data['ActiveAtoClient'];
+    }
+
+    /**
+     * @param  string  $value
+     *
+     * @return Client
+     */
+    public function setActiveAtoClient($value)
+    {
+        $this->propertyUpdated('ActiveAtoClient', $value);
+        $this->_data['ActiveAtoClient'] = $value;
+
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getClientCode()
+    {
+        return $this->_data['ClientCode'];
+    }
+
+    /**
+     * @param  string  $value
+     *
+     * @return Client
+     */
+    public function setClientCode($value)
+    {
+        $this->propertyUpdated('ClientCode', $value);
+        $this->_data['ClientCode'] = $value;
 
         return $this;
     }
@@ -1151,7 +1203,7 @@ class Client extends Remote\Model
     }
 
     /**
-     * @param Contact $value
+     * @param  Contact  $value
      *
      * @return Client
      */
@@ -1175,7 +1227,7 @@ class Client extends Remote\Model
     }
 
     /**
-     * @param Note $value
+     * @param  Note  $value
      *
      * @return Client
      */
@@ -1199,7 +1251,7 @@ class Client extends Remote\Model
     }
 
     /**
-     * @param Group $value
+     * @param  Group  $value
      *
      * @return Client
      */
@@ -1223,7 +1275,7 @@ class Client extends Remote\Model
     }
 
     /**
-     * @param Relationship $value
+     * @param  Relationship  $value
      *
      * @return Client
      */
@@ -1247,7 +1299,7 @@ class Client extends Remote\Model
     }
 
     /**
-     * @param string $value
+     * @param  string  $value
      *
      * @return Client
      */
@@ -1268,7 +1320,7 @@ class Client extends Remote\Model
     }
 
     /**
-     * @param string $value
+     * @param  string  $value
      *
      * @return Client
      */
@@ -1276,6 +1328,27 @@ class Client extends Remote\Model
     {
         $this->propertyUpdated('JobManager', $value);
         $this->_data['JobManager'] = $value;
+
+        return $this;
+    }
+
+    /**
+     * @return AutoBasOptInCriteria
+     */
+    public function getAutoBasOptInCriteria()
+    {
+        return $this->_data['AutoBasOptInCriteria'];
+    }
+
+    /**
+     * @param  string  $value
+     *
+     * @return Client
+     */
+    public function setAutoBasOptInCriteria($value)
+    {
+        $this->propertyUpdated('AutoBasOptInCriteria', $value);
+        $this->_data['AutoBasOptInCriteria'] = $value;
 
         return $this;
     }
@@ -1289,7 +1362,7 @@ class Client extends Remote\Model
     }
 
     /**
-     * @param string $value
+     * @param  string  $value
      *
      * @return Client
      */
@@ -1310,7 +1383,7 @@ class Client extends Remote\Model
     }
 
     /**
-     * @param string $value
+     * @param  string  $value
      *
      * @return Client
      */
