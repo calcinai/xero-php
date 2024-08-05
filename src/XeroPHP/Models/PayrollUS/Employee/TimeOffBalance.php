@@ -5,38 +5,15 @@ namespace XeroPHP\Models\PayrollUS\Employee;
 use XeroPHP\Remote;
 use XeroPHP\Models\PayrollUS\PayItem;
 
+/**
+ * @property string $TimeOffName The name of the leave type.
+ * @property PayItem $TimeOffTypeId Identifier of the leave type (see PayItems).
+ * @property string $NumberOfUnits The balance of the leave available.
+ * @property PayItem[] $TypeOfUnits The type of units as specified by the LeaveType (see PayItems).
+ * @property string $EmployeeID The Xero identifier for an employee e.g. 297c2dc5-cc47-4afd-8ec8-74990b8761e9.
+ */
 class TimeOffBalance extends Remote\Model
 {
-    /**
-     * The name of the leave type.
-     *
-     * @property string TimeOffName
-     */
-
-    /**
-     * Identifier of the leave type (see PayItems).
-     *
-     * @property PayItem TimeOffTypeId
-     */
-
-    /**
-     * The balance of the leave available.
-     *
-     * @property string NumberOfUnits
-     */
-
-    /**
-     * The type of units as specified by the LeaveType (see PayItems).
-     *
-     * @property PayItem[] TypeOfUnits
-     */
-
-    /**
-     * The Xero identifier for an employee e.g. 297c2dc5-cc47-4afd-8ec8-74990b8761e9.
-     *
-     * @property string EmployeeID
-     */
-
     /**
      * Get the resource uri of the class (Contacts) etc.
      *

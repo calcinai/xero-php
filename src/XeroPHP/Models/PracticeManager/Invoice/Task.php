@@ -4,20 +4,19 @@ namespace XeroPHP\Models\PracticeManager\Invoice;
 
 use XeroPHP\Remote;
 
+/**
+ * @property int $ID
+ * @property string $Name
+ * @property string $Description
+ * @property float $Minutes
+ * @property float $BillableRate
+ * @property string $Billable
+ * @property float $Amount
+ * @property float $AmountTax
+ * @property float $AmountIncludingTax
+ */
 class Task extends Remote\Model
 {
-    /**
-     * @property int ID
-     * @property string Name
-     * @property string Description
-     * @property float Minutes
-     * @property float BillableRate
-     * @property string Billable
-     * @property float Amount
-     * @property float AmountTax
-     * @property float AmountIncludingTax
-     */
-
     /**
      * Get the resource uri of the class (Tasks) etc.
      *

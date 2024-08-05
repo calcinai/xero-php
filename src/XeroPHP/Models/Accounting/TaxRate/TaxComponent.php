@@ -4,26 +4,13 @@ namespace XeroPHP\Models\Accounting\TaxRate;
 
 use XeroPHP\Remote;
 
+/**
+ * @property string $Name Name of Tax Component.
+ * @property float $Rate Tax Rate (up to 4dp).
+ * @property bool $IsCompound Boolean to describe if Tax rate is compounded.Learn more.
+ */
 class TaxComponent extends Remote\Model
 {
-    /**
-     * Name of Tax Component.
-     *
-     * @property string Name
-     */
-
-    /**
-     * Tax Rate (up to 4dp).
-     *
-     * @property float Rate
-     */
-
-    /**
-     * Boolean to describe if Tax rate is compounded.Learn more.
-     *
-     * @property bool IsCompound
-     */
-
     /**
      * Get the resource uri of the class (Contacts) etc.
      *

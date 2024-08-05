@@ -4,43 +4,20 @@ namespace XeroPHP\Models\Accounting;
 use XeroPHP\Remote;
 use XeroPHP\Models\Accounting\TrackingCategory\TrackingOption;
 
+/**
+ * @property string $TrackingCategoryID The Xero identifier for a tracking categorye.g. 297c2dc5-cc47-4afd-8ec8-74990b8761e9
+ * @property string $Name The name of the tracking category e.g. Department, Region (max length = 100)
+ * @property string $Status The status of a tracking category
+ * @property TrackingOption[] $Options See Tracking Options
+ * @property string $Option Selected Option name
+ */
 class TrackingCategory extends Remote\Model
 {
-
-    /**
-     * The Xero identifier for a tracking categorye.g. 297c2dc5-cc47-4afd-8ec8-74990b8761e9
-     *
-     * @property string TrackingCategoryID
-     */
-
-    /**
-     * The name of the tracking category e.g. Department, Region (max length = 100)
-     *
-     * @property string Name
-     */
-
-    /**
-     * The status of a tracking category
-     *
-     * @property string Status
-     */
     const TRACKING_CATEGORY_STATUS_ACTIVE = "ACTIVE";
 
     const TRACKING_CATEGORY_STATUS_ARCHIVED = "ARCHIVED";
 
     const TRACKING_CATEGORY_STATUS_DELETED = "DELETED";
-
-    /**
-     * See Tracking Options
-     *
-     * @property TrackingOption[] Options
-     */
-
-    /**
-     * Selected Option name
-     *
-     * @property string Option
-     */
 
     /**
      * Get the resource uri of the class (Contacts) etc

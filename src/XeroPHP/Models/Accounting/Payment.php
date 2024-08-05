@@ -5,92 +5,27 @@ namespace XeroPHP\Models\Accounting;
 use XeroPHP\Remote;
 use XeroPHP\Traits\HistoryTrait;
 
+/**
+ * @property Invoice $Invoice
+ * @property CreditNote $CreditNote
+ * @property Prepayment $Prepayment
+ * @property Overpayment $Overpayment
+ * @property Account $Account
+ * @property \DateTimeInterface $Date Date the payment is being made (YYYY-MM-DD) e.g. 2009-09-06.
+ * @property float $CurrencyRate Exchange rate when payment is received. Only used for non base currency invoices and credit notes e.g. 0.7500.
+ * @property float $Amount The amount of the payment. Must be less than or equal to the outstanding amount owing on the invoice e.g. 200.00.
+ * @property string $Reference An optional description for the payment e.g. Direct Debit.
+ * @property string $BatchPayment An optional description to appear on a payee bank statement when Payment is a child of BatchPayment.
+ * @property string $IsReconciled An optional parameter for the payment. A boolean indicating whether you would like the payment to be created as reconciled when using PUT, or whether a payment has been reconciled when using GET.
+ * @property string $Status The status of the payment.
+ * @property string $PaymentType See Payment Types.
+ * @property \DateTimeInterface $UpdatedDateUTC UTC timestamp of last update to the payment.
+ * @property string $PaymentID The Xero identifier for an Payment e.g. 297c2dc5-cc47-4afd-8ec8-74990b8761e9.
+ */
 class Payment extends Remote\Model
 {
     use HistoryTrait;
 
-    /**
-     * @property Invoice Invoice
-     */
-
-    /**
-     * @property CreditNote CreditNote
-     */
-
-    /**
-     * @property Prepayment Prepayment
-     */
-
-    /**
-     * @property Overpayment Overpayment
-     */
-
-    /**
-     * @property Account Account
-     */
-
-    /**
-     * Date the payment is being made (YYYY-MM-DD) e.g. 2009-09-06.
-     *
-     * @property \DateTimeInterface Date
-     */
-
-    /**
-     * Exchange rate when payment is received. Only used for non base currency invoices and credit notes
-     * e.g. 0.7500.
-     *
-     * @property float CurrencyRate
-     */
-
-    /**
-     * The amount of the payment. Must be less than or equal to the outstanding amount owing on the invoice
-     * e.g. 200.00.
-     *
-     * @property float Amount
-     */
-
-    /**
-     * An optional description for the payment e.g. Direct Debit.
-     *
-     * @property string Reference
-     */
-    
-    /**
-     * An optional description to appear on a payee bank statement when Payment is a child of BatchPayment.
-     *
-     * @property string BatchPayment
-     */
-
-    /**
-     * An optional parameter for the payment. A boolean indicating whether you would like the payment to be
-     * created as reconciled when using PUT, or whether a payment has been reconciled when using GET.
-     *
-     * @property string IsReconciled
-     */
-
-    /**
-     * The status of the payment.
-     *
-     * @property string Status
-     */
-
-    /**
-     * See Payment Types.
-     *
-     * @property string PaymentType
-     */
-
-    /**
-     * UTC timestamp of last update to the payment.
-     *
-     * @property \DateTimeInterface UpdatedDateUTC
-     */
-
-    /**
-     * The Xero identifier for an Payment e.g. 297c2dc5-cc47-4afd-8ec8-74990b8761e9.
-     *
-     * @property string PaymentID
-     */
     const PAYMENT_STATUS_AUTHORISED = 'AUTHORISED';
 
     const PAYMENT_STATUS_DELETED = 'DELETED';

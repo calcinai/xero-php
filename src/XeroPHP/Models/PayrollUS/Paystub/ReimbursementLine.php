@@ -4,32 +4,14 @@ namespace XeroPHP\Models\PayrollUS\Paystub;
 
 use XeroPHP\Remote;
 
+/**
+ * @property string $ReimbursementTypeID Xero identifier for payroll reimbursement type.
+ * @property string $Description Reimbursement lines description (max length 50).
+ * @property string $ExpenseAccount Reimbursement expense account. For posted pay run you should be able to see expense account code.
+ * @property float $Amount Reimbursement amount.
+ */
 class ReimbursementLine extends Remote\Model
 {
-    /**
-     * Xero identifier for payroll reimbursement type.
-     *
-     * @property string ReimbursementTypeID
-     */
-
-    /**
-     * Reimbursement lines description (max length 50).
-     *
-     * @property string Description
-     */
-
-    /**
-     * Reimbursement expense account. For posted pay run you should be able to see expense account code.
-     *
-     * @property string ExpenseAccount
-     */
-
-    /**
-     * Reimbursement amount.
-     *
-     * @property float Amount
-     */
-
     /**
      * Get the resource uri of the class (Contacts) etc.
      *

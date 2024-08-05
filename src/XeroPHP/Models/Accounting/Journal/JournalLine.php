@@ -6,80 +6,22 @@ use XeroPHP\Remote;
 use XeroPHP\Models\Accounting\TaxRate;
 use XeroPHP\Models\Accounting\TrackingCategory;
 
+/**
+ * @property string $JournalLineID Xero identifier.
+ * @property string $AccountID See Accounts.
+ * @property string $AccountCode See Accounts.
+ * @property string $AccountType See Account Types.
+ * @property string $AccountName See AccountCodes.
+ * @property string $Description The description from the source transaction line item. Only returned if populated.
+ * @property float $NetAmount Net amount of journal line. This will be a positive value for a debit and negative for a credit.
+ * @property float $GrossAmount Gross amount of journal line (NetAmount + TaxAmount).
+ * @property float $TaxAmount Total tax on a journal line.
+ * @property string $TaxType see TaxTypes.
+ * @property TaxRate $TaxName see TaxRates.
+ * @property TrackingCategory[] $TrackingCategories see Tracking.
+ */
 class JournalLine extends Remote\Model
 {
-    /**
-     * Xero identifier.
-     *
-     * @property string JournalLineID
-     */
-
-    /**
-     * See Accounts.
-     *
-     * @property string AccountID
-     */
-
-    /**
-     * See Accounts.
-     *
-     * @property string AccountCode
-     */
-
-    /**
-     * See Account Types.
-     *
-     * @property string AccountType
-     */
-
-    /**
-     * See AccountCodes.
-     *
-     * @property string AccountName
-     */
-
-    /**
-     * The description from the source transaction line item. Only returned if populated.
-     *
-     * @property string Description
-     */
-
-    /**
-     * Net amount of journal line. This will be a positive value for a debit and negative for a credit.
-     *
-     * @property float NetAmount
-     */
-
-    /**
-     * Gross amount of journal line (NetAmount + TaxAmount).
-     *
-     * @property float GrossAmount
-     */
-
-    /**
-     * Total tax on a journal line.
-     *
-     * @property float TaxAmount
-     */
-
-    /**
-     * see TaxTypes.
-     *
-     * @property string TaxType
-     */
-
-    /**
-     * see TaxRates.
-     *
-     * @property TaxRate TaxName
-     */
-
-    /**
-     * see Tracking.
-     *
-     * @property TrackingCategory[] TrackingCategories
-     */
-
     /**
      * Get the resource uri of the class (Contacts) etc.
      *

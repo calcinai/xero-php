@@ -7,97 +7,25 @@ use XeroPHP\Models\PayrollUS\Paystub\BenefitLine;
 use XeroPHP\Models\PayrollUS\Paystub\DeductionLine;
 use XeroPHP\Models\PayrollUS\Paystub\ReimbursementLine;
 
+/**
+ * @property float[] $EarningsLines The earnings rate lines.
+ * @property DeductionLine[] $DeductionLines The deduction type lines.
+ * @property ReimbursementLine[] $ReimbursementLines The reimbursement type lines.
+ * @property BenefitLine[] $BenefitLines The benefit type lines.
+ * @property string $EarningsTypeID Xero earnings rate identifier.
+ * @property string $UnitsOrHours The Units or Hours for the earnings line.
+ * @property float $RatePerUnit Rate per unit for the EarningsLine.
+ * @property float $Amount The amount of the reimbursement type.
+ * @property string $DeductionTypeID Xero deduction type identifier.
+ * @property string $CalculationType See Benefit Line Calculation Type.
+ * @property float $EmployeeMax Maximum amount an employee can receive.
+ * @property string $Percentage The percentage of deduction line.
+ * @property string $ReimbursementTypeID Xero identifier for reimbursement type.
+ * @property string $Description The description of the reimbursement line.
+ * @property string $BenefitTypeID Xero identifier for benefit type.
+ */
 class PayTemplate extends Remote\Model
 {
-    /**
-     * The earnings rate lines.
-     *
-     * @property float[] EarningsLines
-     */
-
-    /**
-     * The deduction type lines.
-     *
-     * @property DeductionLine[] DeductionLines
-     */
-
-    /**
-     * The reimbursement type lines.
-     *
-     * @property ReimbursementLine[] ReimbursementLines
-     */
-
-    /**
-     * The benefit type lines.
-     *
-     * @property BenefitLine[] BenefitLines
-     */
-
-    /**
-     * Xero earnings rate identifier.
-     *
-     * @property string EarningsTypeID
-     */
-
-    /**
-     * The Units or Hours for the earnings line.
-     *
-     * @property string UnitsOrHours
-     */
-
-    /**
-     * Rate per unit for the EarningsLine.
-     *
-     * @property float RatePerUnit
-     */
-
-    /**
-     * The amount of the reimbursement type.
-     *
-     * @property float Amount
-     */
-
-    /**
-     * Xero deduction type identifier.
-     *
-     * @property string DeductionTypeID
-     */
-
-    /**
-     * See Benefit Line Calculation Type.
-     *
-     * @property string CalculationType
-     */
-
-    /**
-     * Maximum amount an employee can receive.
-     *
-     * @property float EmployeeMax
-     */
-
-    /**
-     * The percentage of deduction line.
-     *
-     * @property string Percentage
-     */
-
-    /**
-     * Xero identifier for reimbursement type.
-     *
-     * @property string ReimbursementTypeID
-     */
-
-    /**
-     * The description of the reimbursement line.
-     *
-     * @property string Description
-     */
-
-    /**
-     * Xero identifier for benefit type.
-     *
-     * @property string BenefitTypeID
-     */
     const DEDUCTION_LINE_CALCULATION_TYPE_FIXEDAMOUNT = 'FIXEDAMOUNT';
 
     const DEDUCTION_LINE_CALCULATION_TYPE_STANDARDAMOUNT = 'STANDARDAMOUNT';

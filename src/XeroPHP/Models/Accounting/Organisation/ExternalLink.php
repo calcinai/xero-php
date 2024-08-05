@@ -4,19 +4,12 @@ namespace XeroPHP\Models\Accounting\Organisation;
 
 use XeroPHP\Remote;
 
+/**
+ * @property string $LinkType See External link types.
+ * @property string $Url URL for service e.g. http://twitter.com/xeroapi.
+ */
 class ExternalLink extends Remote\Model
 {
-    /**
-     * See External link types.
-     *
-     * @property string LinkType
-     */
-
-    /**
-     * URL for service e.g. http://twitter.com/xeroapi.
-     *
-     * @property string Url
-     */
     const EXTERNAL_LINK_TYPE_FACEBOOK = 'Facebook';
 
     const EXTERNAL_LINK_TYPE_GOOGLEPLUS = 'GooglePlus';

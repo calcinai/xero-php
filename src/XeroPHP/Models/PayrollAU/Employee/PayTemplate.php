@@ -9,38 +9,15 @@ use XeroPHP\Models\PayrollAU\Employee\PayTemplate\EarningsLine;
 use XeroPHP\Models\PayrollAU\Employee\PayTemplate\DeductionLine;
 use XeroPHP\Models\PayrollAU\Employee\PayTemplate\ReimbursementLine;
 
+/**
+ * @property EarningsLine[] $EarningsLines The earnings rate lines.
+ * @property DeductionLine[] $DeductionLines The deduction type lines.
+ * @property SuperLine[] $SuperLines The superannuation fund lines.
+ * @property ReimbursementLine[] $ReimbursementLines The reimbursement type lines.
+ * @property LeaveLine[] $LeaveLines The leave type lines.
+ */
 class PayTemplate extends Remote\Model
 {
-    /**
-     * The earnings rate lines.
-     *
-     * @property EarningsLine[] EarningsLines
-     */
-
-    /**
-     * The deduction type lines.
-     *
-     * @property DeductionLine[] DeductionLines
-     */
-
-    /**
-     * The superannuation fund lines.
-     *
-     * @property SuperLine[] SuperLines
-     */
-
-    /**
-     * The reimbursement type lines.
-     *
-     * @property ReimbursementLine[] ReimbursementLines
-     */
-
-    /**
-     * The leave type lines.
-     *
-     * @property LeaveLine[] LeaveLines
-     */
-
     /**
      * Get the resource uri of the class (Contacts) etc.
      *

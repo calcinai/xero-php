@@ -9,30 +9,15 @@ use XeroPHP\Application;
 use XeroPHP\Remote\Model;
 use XeroPHP\Remote\Request;
 
+/**
+ * @property string $AttachmentID Xero Unique Identifier.
+ * @property string $FileName
+ * @property string $Url
+ * @property string $MimeType
+ * @property int $ContentLength
+ */
 class Attachment extends Model
 {
-    /**
-     * Xero Unique Identifier.
-     *
-     * @property string AttachmentID
-     */
-
-    /**
-     * @property string FileName
-     */
-
-    /**
-     * @property string Url
-     */
-
-    /**
-     * @property string MimeType
-     */
-
-    /**
-     * @property int ContentLength
-     */
-
     /**
      * Actual file content (binary).
      *

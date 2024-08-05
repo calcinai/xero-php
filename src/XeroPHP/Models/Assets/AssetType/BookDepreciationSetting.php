@@ -4,38 +4,15 @@ namespace XeroPHP\Models\Assets\AssetType;
 
 use XeroPHP\Remote;
 
+/**
+ * @property string $depreciationMethod The method of depreciation applied to this asset. See Depreciation Methods.
+ * @property string $averagingMethod The method of averaging applied to this asset. See Averaging Methods.
+ * @property float $depreciationRate The rate of depreciation (e.g. 0.05).
+ * @property float[] $effectiveLifeYears The effective life of the assets of this type in years. Not required if using depreciationRate.
+ * @property string $depreciationCalculationMethod See Depreciation Calculation Methods.
+ */
 class BookDepreciationSetting extends Remote\Model
 {
-    /**
-     * The method of depreciation applied to this asset. See Depreciation Methods.
-     *
-     * @property string depreciationMethod
-     */
-
-    /**
-     * The method of averaging applied to this asset. See Averaging Methods.
-     *
-     * @property string averagingMethod
-     */
-
-    /**
-     * The rate of depreciation (e.g. 0.05).
-     *
-     * @property float depreciationRate
-     */
-
-    /**
-     * The effective life of the assets of this type in years. Not required if using depreciationRate.
-     *
-     * @property float[] effectiveLifeYears
-     */
-
-    /**
-     * See Depreciation Calculation Methods.
-     *
-     * @property string depreciationCalculationMethod
-     */
-
     /**
      * Get the resource uri of the class (Contacts) etc.
      *

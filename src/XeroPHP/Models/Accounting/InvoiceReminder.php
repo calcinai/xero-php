@@ -4,14 +4,11 @@ namespace XeroPHP\Models\Accounting;
 
 use XeroPHP\Remote;
 
+/**
+ * @property bool $Enabled Boolean to set when InvocieReminders are turned on in Xero.
+ */
 class InvoiceReminder extends Remote\Model
 {
-    /**
-     * Boolean to set when InvocieReminders are turned on in Xero.
-     *
-     * @property bool Enabled
-     */
-
     /**
      * Get the resource uri of the class (Contacts) etc.
      *

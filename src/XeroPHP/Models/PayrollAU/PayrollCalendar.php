@@ -4,44 +4,16 @@ namespace XeroPHP\Models\PayrollAU;
 
 use XeroPHP\Remote;
 
+/**
+ * @property string $PayrollCalendarID Xero identifier.
+ * @property string $Name Name of the Payroll Calendar (max length = 100).
+ * @property string $CalendarType See Payroll Calendar types.
+ * @property \DateTimeInterface $StartDate The start date of the upcoming pay period. The end date will be calculated based upon this date, and the calendar type selected (YYYY-MM-DD), more details.
+ * @property \DateTimeInterface $UpdatedDateUTC The date the calendar was last updated
+ * @property \DateTimeInterface $PaymentDate The date on which employees will be paid for the upcoming pay period (YYYY-MM-DD), more details.
+ */
 class PayrollCalendar extends Remote\Model
 {
-    /**
-     * Xero identifier.
-     *
-     * @property string PayrollCalendarID
-     */
-
-    /**
-     * Name of the Payroll Calendar (max length = 100).
-     *
-     * @property string Name
-     */
-
-    /**
-     * See Payroll Calendar types.
-     *
-     * @property string CalendarType
-     */
-
-    /**
-     * The start date of the upcoming pay period. The end date will be calculated based upon this date, and
-     * the calendar type selected (YYYY-MM-DD), more details.
-     *
-     * @property \DateTimeInterface StartDate
-     */
-    
-    /**
-     * The date the calendar was last updated
-     *
-     * @property \DateTimeInterface UpdatedDateUTC
-     */
-
-    /**
-     * The date on which employees will be paid for the upcoming pay period (YYYY-MM-DD), more details.
-     *
-     * @property \DateTimeInterface PaymentDate
-     */
     const CALENDARTYPE_WEEKLY = 'WEEKLY';
 
     const CALENDARTYPE_FORTNIGHTLY = 'FORTNIGHTLY';

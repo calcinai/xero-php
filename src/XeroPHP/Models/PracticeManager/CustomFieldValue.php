@@ -4,50 +4,17 @@ namespace XeroPHP\Models\PracticeManager;
 
 use XeroPHP\Remote;
 
+/**
+ * @property string $ID ID of Custom Field
+ * @property string $Name Name of Custom Field
+ * @property string $Date Date Value - Only present when the Custom Field is this Type
+ * @property string $Number Number Value - Only present when the Custom Field is this Type Url
+ * @property string $Decimal Decimal Value - Only present when the Custom Field is this Type
+ * @property bool $Boolean Boolean Value - Only present when the Custom Field is this Type
+ * @property bool $Text Text Value - Only present when the Custom Field is this Type
+ */
 class CustomFieldValue extends Remote\Model
 {
-    /**
-     * ID of Custom Field
-     *
-     * @property string ID
-     */
-
-    /**
-     * Name of Custom Field
-     *
-     * @property string Name
-     */
-
-    /**
-     * Date Value - Only present when the Custom Field is this Type
-     *
-     * @property string Date
-     */
-
-    /**
-     * Number Value - Only present when the Custom Field is this Type Url
-     *
-     * @property string Number
-     */
-
-    /**
-     * Decimal Value - Only present when the Custom Field is this Type
-     *
-     * @property string Decimal
-     */
-
-    /**
-     * Boolean Value - Only present when the Custom Field is this Type
-     *
-     * @property bool Boolean
-     */
-
-    /**
-     * Text Value - Only present when the Custom Field is this Type
-     *
-     * @property bool Text
-     */
-
     /**
      * @var mixed
      */

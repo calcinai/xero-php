@@ -4,54 +4,18 @@ namespace XeroPHP\Models\Assets;
 
 use XeroPHP\Remote;
 
+/**
+ * @property string $assetNumberPrefix The prefix used for fixed asset numbers (“FA-” by default).
+ * @property string $assetNumberSequence The next available sequence number.
+ * @property \DateTimeInterface $assetStartDate The date depreciation calculations started on registered fixed assets in Xero.
+ * @property \DateTimeInterface $lastDepreciationDate The last depreciation date.
+ * @property string $defaultGainOnDisposalAccountId Default account that gains are posted to.
+ * @property string $defaultLossOnDisposalAccountId Default account that losses are posted to.
+ * @property string $defaultCapitalGainOnDisposalAccount Default account that capital gains are posted to.
+ * @property string $optInForTax
+ */
 class Setting extends Remote\Model
 {
-    /**
-     * The prefix used for fixed asset numbers (“FA-” by default).
-     *
-     * @property string assetNumberPrefix
-     */
-
-    /**
-     * The next available sequence number.
-     *
-     * @property string assetNumberSequence
-     */
-
-    /**
-     * The date depreciation calculations started on registered fixed assets in Xero.
-     *
-     * @property \DateTimeInterface assetStartDate
-     */
-
-    /**
-     * The last depreciation date.
-     *
-     * @property \DateTimeInterface lastDepreciationDate
-     */
-
-    /**
-     * Default account that gains are posted to.
-     *
-     * @property string defaultGainOnDisposalAccountId
-     */
-
-    /**
-     * Default account that losses are posted to.
-     *
-     * @property string defaultLossOnDisposalAccountId
-     */
-
-    /**
-     * Default account that capital gains are posted to.
-     *
-     * @property string defaultCapitalGainOnDisposalAccount
-     */
-
-    /**
-     * @property string optInForTax
-     */
-
     /**
      * Get the resource uri of the class (Contacts) etc.
      *

@@ -4,17 +4,16 @@ namespace XeroPHP\Models\PracticeManager\Invoice;
 
 use XeroPHP\Remote;
 
+/**
+ * @property int $ID
+ * @property string $Name
+ * @property string $Description
+ * @property string $ClientOrderNumber
+ * @property Task[] $Tasks
+ * @property Cost[] $Costs
+ */
 class Job extends Remote\Model
 {
-    /**
-     * @property int ID
-     * @property string Name
-     * @property string Description
-     * @property string ClientOrderNumber
-     * @property Task[] Tasks
-     * @property Cost[] Costs
-     */
-
     /**
      * Get the resource uri of the class (Jobs) etc.
      *

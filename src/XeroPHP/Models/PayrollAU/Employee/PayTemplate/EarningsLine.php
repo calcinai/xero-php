@@ -4,43 +4,16 @@ namespace XeroPHP\Models\PayrollAU\Employee\PayTemplate;
 
 use XeroPHP\Remote;
 
+/**
+ * @property string $EarningsRateID Xero earnings rate identifier.
+ * @property string $CalculationType See Earnings Rate Calculation Type.
+ * @property string $NumberOfUnitsPerWeek Hours per week for the EarningsLine. Applicable for ANNUALSALARY CalculationType.
+ * @property string $AnnualSalary Annual Salary of employee.
+ * @property float $RatePerUnit Rate per unit of the EarningsLine.
+ * @property string $NormalNumberOfUnits Normal number of units for EarningsLine.  Applicable when RateType is “MULTIPLE”.
+ */
 class EarningsLine extends Remote\Model
 {
-    /**
-     * Xero earnings rate identifier.
-     *
-     * @property string EarningsRateID
-     */
-
-    /**
-     * See Earnings Rate Calculation Type.
-     *
-     * @property string CalculationType
-     */
-
-    /**
-     * Hours per week for the EarningsLine. Applicable for ANNUALSALARY CalculationType.
-     *
-     * @property string NumberOfUnitsPerWeek
-     */
-
-    /**
-     * Annual Salary of employee.
-     *
-     * @property string AnnualSalary
-     */
-
-    /**
-     * Rate per unit of the EarningsLine.
-     *
-     * @property float RatePerUnit
-     */
-
-    /**
-     * Normal number of units for EarningsLine.  Applicable when RateType is “MULTIPLE”.
-     *
-     * @property string NormalNumberOfUnits
-     */
     const EARNINGSRATECALCULATIONTYPE_USEEARNINGSRATE = 'USEEARNINGSRATE';
 
     const EARNINGSRATECALCULATIONTYPE_ENTEREARNINGSRATE = 'ENTEREARNINGSRATE';

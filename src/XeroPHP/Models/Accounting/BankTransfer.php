@@ -8,86 +8,25 @@ use XeroPHP\Traits\AttachmentTrait;
 use XeroPHP\Models\Accounting\BankTransfer\ToBankAccount;
 use XeroPHP\Models\Accounting\BankTransfer\FromBankAccount;
 
+/**
+ * @property FromBankAccount $FromBankAccount See FromBankAccount.
+ * @property ToBankAccount $ToBankAccount See ToBankAccount.
+ * @property string $Amount
+ * @property \DateTimeInterface $Date The date of the Transfer YYYY-MM-DD.
+ * @property string $BankTransferID The identifier of the Bank Transfer.
+ * @property string $Reference additional reference number (max length = 255).
+ * @property float $CurrencyRate The currency rate.
+ * @property string $FromBankTransactionID The Bank Transaction ID for the source account.
+ * @property string $ToBankTransactionID The Bank Transaction ID for the destination account.
+ * @property bool $FromIsReconciled Boolean to show if the from transaction is reconciled.
+ * @property bool $ToIsReconciled Boolean to show if the to transaction is reconciled.
+ * @property bool $HasAttachments Boolean to indicate if a Bank Transfer has an attachment.
+ * @property \DateTimeInterface $CreatedDateUTC UTC timestamp of creation date of bank transfer.
+ */
 class BankTransfer extends Remote\Model
 {
     use AttachmentTrait;
     use HistoryTrait;
-
-    /**
-     * See FromBankAccount.
-     *
-     * @property FromBankAccount FromBankAccount
-     */
-
-    /**
-     * See ToBankAccount.
-     *
-     * @property ToBankAccount ToBankAccount
-     */
-
-    /**
-     * @property string Amount
-     */
-
-    /**
-     * The date of the Transfer YYYY-MM-DD.
-     *
-     * @property \DateTimeInterface Date
-     */
-
-    /**
-     * The identifier of the Bank Transfer.
-     *
-     * @property string BankTransferID
-     */
-
-    /**
-     * additional reference number (max length = 255).
-     *
-     * @property string Reference
-     */
-
-    /**
-     * The currency rate.
-     *
-     * @property float CurrencyRate
-     */
-
-    /**
-     * The Bank Transaction ID for the source account.
-     *
-     * @property string FromBankTransactionID
-     */
-
-    /**
-     * The Bank Transaction ID for the destination account.
-     *
-     * @property string ToBankTransactionID
-     */
-
-    /**
-     * Boolean to show if the from transaction is reconciled.
-     *
-     * @property bool FromIsReconciled
-     */
-
-    /**
-     * Boolean to show if the to transaction is reconciled.
-     *
-     * @property bool ToIsReconciled
-     */
-
-    /**
-     * Boolean to indicate if a Bank Transfer has an attachment.
-     *
-     * @property bool HasAttachments
-     */
-
-    /**
-     * UTC timestamp of creation date of bank transfer.
-     *
-     * @property \DateTimeInterface CreatedDateUTC
-     */
 
     /**
      * Get the resource uri of the class (Contacts) etc.

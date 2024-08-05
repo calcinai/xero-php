@@ -4,26 +4,13 @@ namespace XeroPHP\Models\PayrollAU\Employee\PayTemplate;
 
 use XeroPHP\Remote;
 
+/**
+ * @property string $ReimbursementTypeID Xero reimbursement type identifier.
+ * @property string $Description The description of the reimbursement type.
+ * @property float $Amount The amount of the reimbursement type.
+ */
 class ReimbursementLine extends Remote\Model
 {
-    /**
-     * Xero reimbursement type identifier.
-     *
-     * @property string ReimbursementTypeID
-     */
-
-    /**
-     * The description of the reimbursement type.
-     *
-     * @property string Description
-     */
-
-    /**
-     * The amount of the reimbursement type.
-     *
-     * @property float Amount
-     */
-
     /**
      * Get the resource uri of the class (Contacts) etc.
      *

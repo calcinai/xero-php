@@ -6,33 +6,14 @@ use XeroPHP\Remote\Model;
 use XeroPHP\Remote\Request;
 use XeroPHP\Remote\URL;
 
+/**
+ * @property string $id The unique identifier for the plan
+ * @property string $name The name of the plan, this will display as the plan name in the plan selection UI
+ * @property string $status Status of the plan the user is subscribed to
+ * @property SubscriptionItem[] $subscriptionItems List of the subscription items belongin got the plan. This will return all relevant items for the current billing period
+ */
 class Plan extends Model
 {
-
-    /**
-     * The unique identifier for the plan
-     *
-     * @property string id
-     */
-
-    /**
-     * The name of the plan, this will display as the plan name in the plan selection UI
-     *
-     * @property string $name
-     */
-
-    /**
-     * Status of the plan the user is subscribed to
-     *
-     * @property string $status
-     */
-
-    /**
-     * List of the subscription items belongin got the plan. This will return all relevant items for the current billing period
-     *
-     * @property SubscriptionItem[] $subscriptionItems
-     */
-
     public static function getSupportedMethods()
     {
         return [

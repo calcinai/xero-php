@@ -4,44 +4,16 @@ namespace XeroPHP\Models\PayrollAU\Employee;
 
 use XeroPHP\Remote;
 
+/**
+ * @property string $AddressLine1 Address line 1 for employee home address (max length = 50).
+ * @property string $AddressLine2 Address line 2 for employee home address (max length = 50).
+ * @property string $City Suburb for employee home address (max length = 50).
+ * @property string $Region State abbreviation for employee home address.
+ * @property string $PostalCode PostCode for employee home address (max length = 4).
+ * @property string $Country Country of HomeAddress.
+ */
 class HomeAddress extends Remote\Model
 {
-    /**
-     * Address line 1 for employee home address (max length = 50).
-     *
-     * @property string AddressLine1
-     */
-
-    /**
-     * Address line 2 for employee home address (max length = 50).
-     *
-     * @property string AddressLine2
-     */
-
-    /**
-     * Suburb for employee home address (max length = 50).
-     *
-     * @property string City
-     */
-
-    /**
-     * State abbreviation for employee home address.
-     *
-     * @property string Region
-     */
-
-    /**
-     * PostCode for employee home address (max length = 4).
-     *
-     * @property string PostalCode
-     */
-
-    /**
-     * Country of HomeAddress.
-     *
-     * @property string Country
-     */
-
     /**
      * Get the resource uri of the class (Contacts) etc.
      *

@@ -5,120 +5,30 @@ namespace XeroPHP\Models\Accounting;
 use XeroPHP\Remote;
 use XeroPHP\Traits\AttachmentTrait;
 
+/**
+ * @property string $Code Customer defined alpha numeric account code e.g 200 or SALES (max length = 10).
+ * @property string $Name Name of account (max length = 150).
+ * @property string $Type See Account Types.
+ * @property string $BankAccountNumber For bank accounts only (Account Type BANK).
+ * @property string $Status Accounts with a status of ACTIVE can be updated to ARCHIVED. See Account Status Codes.
+ * @property string $Description Description of the Account. Valid for all types of accounts except bank accounts (max length = 4000).
+ * @property string $BankAccountType For bank accounts only. See Bank Account types.
+ * @property string $CurrencyCode For bank accounts only.
+ * @property string $TaxType See Tax Types.
+ * @property bool $EnablePaymentsToAccount Boolean – describes whether account can have payments applied to it.
+ * @property bool $ShowInExpenseClaims Boolean – describes whether account code is available for use with expense claims.
+ * @property string $AccountID The Xero identifier for an account – specified as a string following the endpoint name e.g. /297c2dc5-cc47-4afd-8ec8-74990b8761e9.
+ * @property string $Class See Account Class Types.
+ * @property string $SystemAccount If this is a system account then this element is returned. See System Account types. Note that non-system accounts may have this element set as either “” or null.
+ * @property string $ReportingCode Shown if set.
+ * @property string $ReportingCodeName Shown if set.
+ * @property bool $HasAttachments boolean to indicate if an account has an attachment (read only).
+ * @property \DateTimeInterface $UpdatedDateUTC Last modified date UTC format.
+ */
 class Account extends Remote\Model
 {
     use AttachmentTrait;
 
-    /**
-     * Customer defined alpha numeric account code e.g 200 or SALES (max length = 10).
-     *
-     * @property string Code
-     */
-
-    /**
-     * Name of account (max length = 150).
-     *
-     * @property string Name
-     */
-
-    /**
-     * See Account Types.
-     *
-     * @property string Type
-     */
-
-    /**
-     * For bank accounts only (Account Type BANK).
-     *
-     * @property string BankAccountNumber
-     */
-
-    /**
-     * Accounts with a status of ACTIVE can be updated to ARCHIVED. See Account Status Codes.
-     *
-     * @property string Status
-     */
-
-    /**
-     * Description of the Account. Valid for all types of accounts except bank accounts (max length = 4000).
-     *
-     * @property string Description
-     */
-
-    /**
-     * For bank accounts only. See Bank Account types.
-     *
-     * @property string BankAccountType
-     */
-
-    /**
-     * For bank accounts only.
-     *
-     * @property string CurrencyCode
-     */
-
-    /**
-     * See Tax Types.
-     *
-     * @property string TaxType
-     */
-
-    /**
-     * Boolean – describes whether account can have payments applied to it.
-     *
-     * @property bool EnablePaymentsToAccount
-     */
-
-    /**
-     * Boolean – describes whether account code is available for use with expense claims.
-     *
-     * @property bool ShowInExpenseClaims
-     */
-
-    /**
-     * The Xero identifier for an account – specified as a string following the endpoint name
-     * e.g.
-     * /297c2dc5-cc47-4afd-8ec8-74990b8761e9.
-     *
-     * @property string AccountID
-     */
-
-    /**
-     * See Account Class Types.
-     *
-     * @property string Class
-     */
-
-    /**
-     * If this is a system account then this element is returned. See System Account types. Note that
-     * non-system accounts may have this element set as either “” or null.
-     *
-     * @property string SystemAccount
-     */
-
-    /**
-     * Shown if set.
-     *
-     * @property string ReportingCode
-     */
-
-    /**
-     * Shown if set.
-     *
-     * @property string ReportingCodeName
-     */
-
-    /**
-     * boolean to indicate if an account has an attachment (read only).
-     *
-     * @property bool HasAttachments
-     */
-
-    /**
-     * Last modified date UTC format.
-     *
-     * @property \DateTimeInterface UpdatedDateUTC
-     */
     const ACCOUNT_CLASS_TYPE_ASSET = 'ASSET';
 
     const ACCOUNT_CLASS_TYPE_EQUITY = 'EQUITY';

@@ -4,52 +4,17 @@ namespace XeroPHP\Models\PayrollAU\PayItem;
 
 use XeroPHP\Remote;
 
+/**
+ * @property string $Name Name of the leave type (max length = 50).
+ * @property string $TypeOfUnits The type of units by which leave entitlements are normally tracked. These are typically the same as the type of units used for the employee’s ordinary earnings rate.
+ * @property string $IsPaidLeave Set this to indicate that an employee will be paid when taking this type of leave.
+ * @property string $ShowOnPayslip Set this if you want a balance for this leave type to be shown on your employee’s payslips.
+ * @property string $LeaveTypeID Xero identifier.
+ * @property string $NormalEntitlement The number of units the employee is entitled to each year.
+ * @property float $LeaveLoadingRate Enter an amount here if your organisation pays an additional percentage on top of ordinary earnings when your employees take leave (typically 17.5%).
+ */
 class LeaveType extends Remote\Model
 {
-    /**
-     * Name of the leave type (max length = 50).
-     *
-     * @property string Name
-     */
-
-    /**
-     * The type of units by which leave entitlements are normally tracked. These are typically the same as
-     * the type of units used for the employee’s ordinary earnings rate.
-     *
-     * @property string TypeOfUnits
-     */
-
-    /**
-     * Set this to indicate that an employee will be paid when taking this type of leave.
-     *
-     * @property string IsPaidLeave
-     */
-
-    /**
-     * Set this if you want a balance for this leave type to be shown on your employee’s payslips.
-     *
-     * @property string ShowOnPayslip
-     */
-
-    /**
-     * Xero identifier.
-     *
-     * @property string LeaveTypeID
-     */
-
-    /**
-     * The number of units the employee is entitled to each year.
-     *
-     * @property string NormalEntitlement
-     */
-
-    /**
-     * Enter an amount here if your organisation pays an additional percentage on top of ordinary earnings
-     * when your employees take leave (typically 17.5%).
-     *
-     * @property float LeaveLoadingRate
-     */
-
     /**
      * Get the resource uri of the class (Contacts) etc.
      *

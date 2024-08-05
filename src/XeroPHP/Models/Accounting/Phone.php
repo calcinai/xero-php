@@ -4,29 +4,14 @@ namespace XeroPHP\Models\Accounting;
 
 use XeroPHP\Remote;
 
+/**
+ * @property string $PhoneType
+ * @property string $PhoneNumber  max length = 50.
+ * @property string $PhoneAreaCode  max length = 10.
+ * @property string $PhoneCountryCode  max length = 20.
+ */
 class Phone extends Remote\Model
 {
-    /**
-     * @property string PhoneType
-     */
-
-    /**
-     *  max length = 50.
-     *
-     * @property string PhoneNumber
-     */
-
-    /**
-     *  max length = 10.
-     *
-     * @property string PhoneAreaCode
-     */
-
-    /**
-     *  max length = 20.
-     *
-     * @property string PhoneCountryCode
-     */
     const PHONE_TYPE_DEFAULT = 'DEFAULT';
 
     const PHONE_TYPE_DDI = 'DDI';

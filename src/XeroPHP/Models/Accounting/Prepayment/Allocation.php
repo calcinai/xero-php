@@ -5,27 +5,13 @@ namespace XeroPHP\Models\Accounting\Prepayment;
 use XeroPHP\Remote;
 use XeroPHP\Models\Accounting\Invoice;
 
+/**
+ * @property Invoice $Invoice the invoice the prepayment is being allocated against.
+ * @property float $AppliedAmount the amount being applied to the invoice.
+ * @property \DateTimeInterface $Date the date the prepayment is applied YYYY-MM-DD (read-only). This will be the latter of the invoice date and the prepayment date.
+ */
 class Allocation extends Remote\Model
 {
-    /**
-     * the invoice the prepayment is being allocated against.
-     *
-     * @property Invoice Invoice
-     */
-
-    /**
-     * the amount being applied to the invoice.
-     *
-     * @property float AppliedAmount
-     */
-
-    /**
-     * the date the prepayment is applied YYYY-MM-DD (read-only). This will be the latter of the invoice
-     * date and the prepayment date.
-     *
-     * @property \DateTimeInterface Date
-     */
-
     /**
      * Get the resource uri of the class (Contacts) etc.
      *

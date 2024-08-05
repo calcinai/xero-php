@@ -5,41 +5,15 @@ namespace XeroPHP\Models\Accounting;
 use XeroPHP\Remote;
 use XeroPHP\Models\Accounting\Organisation\ExternalLink;
 
+/**
+ * @property string $EmployeeID Xero identifier.
+ * @property string $Status Current status of an employee – see contact status types.
+ * @property string $FirstName First name of an employee (max length = 255).
+ * @property string $LastName Last name of an employee (max length = 255).
+ * @property ExternalLink $ExternalLink Link to an external resource, for example, an employee record in an external system. You can specify the URL element. The description of the link is auto-generated in the form “Go to <App name>”. <App name> refers to the Xero application name that is making the API call.
+ */
 class Employee extends Remote\Model
 {
-    /**
-     * Xero identifier.
-     *
-     * @property string EmployeeID
-     */
-
-    /**
-     * Current status of an employee – see contact status types.
-     *
-     * @property string Status
-     */
-
-    /**
-     * First name of an employee (max length = 255).
-     *
-     * @property string FirstName
-     */
-
-    /**
-     * Last name of an employee (max length = 255).
-     *
-     * @property string LastName
-     */
-
-    /**
-     * Link to an external resource, for example, an employee record in an external system. You can specify
-     * the URL element.
-     * The description of the link is auto-generated in the form “Go to <App name>”.
-     * <App name> refers to the Xero application name that is making the API call.
-     *
-     * @property ExternalLink ExternalLink
-     */
-
     /**
      * Get the resource uri of the class (Contacts) etc.
      *

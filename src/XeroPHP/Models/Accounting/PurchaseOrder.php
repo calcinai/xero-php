@@ -8,160 +8,38 @@ use XeroPHP\Traits\HistoryTrait;
 use XeroPHP\Traits\AttachmentTrait;
 use XeroPHP\Models\Accounting\LineItem;
 
+/**
+ * @property Contact $Contact The PurchaseOrders endpoint does not create new contacts. You need to provide the ContactID or ContactNumber of an existing contact. For more information on creating contacts see Contacts.
+ * @property LineItem[] $LineItems See LineItems.
+ * @property \DateTimeInterface $Date Date purchase order was issued – YYYY-MM-DD. Learn more.
+ * @property \DateTimeInterface $DeliveryDate Date the goods are to be delivered – YYYY-MM-DD.
+ * @property string $LineAmountTypes Line amounts are exclusive of tax by default if you don’t specify this element. See Line Amount Types.
+ * @property string $PurchaseOrderNumber Unique alpha numeric code identifying purchase order (when missing will auto-generate from your Organisation Invoice Settings).
+ * @property string $Reference Additional reference number.
+ * @property string $BrandingThemeID See BrandingThemes.
+ * @property string $CurrencyCode The currency that purchase order has been raised in (see Currencies).
+ * @property string $Status See Purchase Order Status Codes.
+ * @property bool $SentToContact Boolean to set whether the purchase order should be marked as “sent”. This can be set only on purchase orders that have been approved or billed.
+ * @property string $DeliveryAddress The address the goods are to be delivered to.
+ * @property string $AttentionTo The person that the delivery is going to.
+ * @property string $Telephone The phone number for the person accepting the delivery.
+ * @property string $DeliveryInstructions A free text feild for instructions (500 characters max).
+ * @property \DateTimeInterface $ExpectedArrivalDate The date the goods are expected to arrive.
+ * @property string $PurchaseOrderID Xero generated unique identifier for purchase order.
+ * @property float $CurrencyRate The currency rate for a multicurrency purchase order. As no rate can be specified, the XE.com day rate is used.
+ * @property float $SubTotal Total of purchase order excluding taxes.
+ * @property float $TotalTax Total tax on purchase order.
+ * @property float $Total Total of Purchase Order tax inclusive (i.e. SubTotal + TotalTax).
+ * @property float $TotalDiscount Total of discounts applied on the purchase order line items.
+ * @property bool $HasAttachments boolean to indicate if a purchase order has an attachment.
+ * @property \DateTimeInterface $UpdatedDateUTC Last modified date UTC format.
+ */
 class PurchaseOrder extends Remote\Model
 {
     use PDFTrait;
     use AttachmentTrait;
     use HistoryTrait;
 
-    /**
-     * The PurchaseOrders endpoint does not create new contacts. You need to provide the ContactID or
-     * ContactNumber of an existing contact. For more information on creating contacts see Contacts.
-     *
-     * @property Contact Contact
-     */
-
-    /**
-     * See LineItems.
-     *
-     * @property LineItem[] LineItems
-     */
-
-    /**
-     * Date purchase order was issued – YYYY-MM-DD. Learn more.
-     *
-     * @property \DateTimeInterface Date
-     */
-
-    /**
-     * Date the goods are to be delivered – YYYY-MM-DD.
-     *
-     * @property \DateTimeInterface DeliveryDate
-     */
-
-    /**
-     * Line amounts are exclusive of tax by default if you don’t specify this element. See Line Amount
-     * Types.
-     *
-     * @property string LineAmountTypes
-     */
-
-    /**
-     * Unique alpha numeric code identifying purchase order (when missing will auto-generate from your
-     * Organisation Invoice Settings).
-     *
-     * @property string PurchaseOrderNumber
-     */
-
-    /**
-     * Additional reference number.
-     *
-     * @property string Reference
-     */
-
-    /**
-     * See BrandingThemes.
-     *
-     * @property string BrandingThemeID
-     */
-
-    /**
-     * The currency that purchase order has been raised in (see Currencies).
-     *
-     * @property string CurrencyCode
-     */
-
-    /**
-     * See Purchase Order Status Codes.
-     *
-     * @property string Status
-     */
-
-    /**
-     * Boolean to set whether the purchase order should be marked as “sent”. This can be set only on
-     * purchase orders that have been approved or billed.
-     *
-     * @property bool SentToContact
-     */
-
-    /**
-     * The address the goods are to be delivered to.
-     *
-     * @property string DeliveryAddress
-     */
-
-    /**
-     * The person that the delivery is going to.
-     *
-     * @property string AttentionTo
-     */
-
-    /**
-     * The phone number for the person accepting the delivery.
-     *
-     * @property string Telephone
-     */
-
-    /**
-     * A free text feild for instructions (500 characters max).
-     *
-     * @property string DeliveryInstructions
-     */
-
-    /**
-     * The date the goods are expected to arrive.
-     *
-     * @property \DateTimeInterface ExpectedArrivalDate
-     */
-
-    /**
-     * Xero generated unique identifier for purchase order.
-     *
-     * @property string PurchaseOrderID
-     */
-
-    /**
-     * The currency rate for a multicurrency purchase order. As no rate can be specified, the XE.com day
-     * rate is used.
-     *
-     * @property float CurrencyRate
-     */
-
-    /**
-     * Total of purchase order excluding taxes.
-     *
-     * @property float SubTotal
-     */
-
-    /**
-     * Total tax on purchase order.
-     *
-     * @property float TotalTax
-     */
-
-    /**
-     * Total of Purchase Order tax inclusive (i.e. SubTotal + TotalTax).
-     *
-     * @property float Total
-     */
-
-    /**
-     * Total of discounts applied on the purchase order line items.
-     *
-     * @property float TotalDiscount
-     */
-
-    /**
-     * boolean to indicate if a purchase order has an attachment.
-     *
-     * @property bool HasAttachments
-     */
-
-    /**
-     * Last modified date UTC format.
-     *
-     * @property \DateTimeInterface UpdatedDateUTC
-     */
     const PURCHASE_ORDER_STATUS_DRAFT = 'DRAFT';
 
     const PURCHASE_ORDER_STATUS_SUBMITTED = 'SUBMITTED';

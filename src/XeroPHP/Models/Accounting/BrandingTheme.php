@@ -4,43 +4,16 @@ namespace XeroPHP\Models\Accounting;
 
 use XeroPHP\Remote;
 
+/**
+ * @property string $BrandingThemeID Xero identifier.
+ * @property string $Name Name of branding theme.
+ * @property string $LogoUrl The URL of the logo used on the branding theme
+ * @property string $Type The type of document that the branding theme can be appplied to
+ * @property int $SortOrder Integer – ranked order of branding theme. The default branding theme has a value of 0.
+ * @property \DateTimeInterface $CreatedDateUTC UTC timestamp of creation date of branding theme.
+ */
 class BrandingTheme extends Remote\Model
 {
-    /**
-     * Xero identifier.
-     *
-     * @property string BrandingThemeID
-     */
-
-    /**
-     * Name of branding theme.
-     *
-     * @property string Name
-     */
-
-    /**
-     * The URL of the logo used on the branding theme
-     *
-     * @property string LogoUrl
-     */
-
-    /**
-     * The type of document that the branding theme can be appplied to
-     * @property string Type
-     */
-
-    /**
-     * Integer – ranked order of branding theme. The default branding theme has a value of 0.
-     *
-     * @property int SortOrder
-     */
-
-    /**
-     * UTC timestamp of creation date of branding theme.
-     *
-     * @property \DateTimeInterface CreatedDateUTC
-     */
-
     /**
      * Get the resource uri of the class (Contacts) etc.
      *

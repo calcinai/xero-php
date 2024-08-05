@@ -6,190 +6,40 @@ use XeroPHP\Remote;
 use XeroPHP\Models\Accounting\Organisation\PaymentTerm;
 use XeroPHP\Models\Accounting\Organisation\ExternalLink;
 
+/**
+ * @property string $APIKey Display a unique key used for Xero-to-Xero transactions.
+ * @property string $Class OrganisationClass
+ * @property string $Name Display name of organisation shown in Xero.
+ * @property string $LegalName Organisation name shown on Reports.
+ * @property bool $PaysTax Boolean to describe if organisation is registered with a local tax authority i.e. true, false.
+ * @property string $Version See Version Types.
+ * @property string $OrganisationType Organisation Type.
+ * @property string $BaseCurrency Default currency for organisation. See ISO 4217 Currency Codes.
+ * @property string $CountryCode Country code for organisation. See ISO 3166-2 Country Codes.
+ * @property bool $IsDemoCompany Boolean to describe if organisation is a demo company.
+ * @property string $OrganisationStatus Will be set to ACTIVE if you can connect to organisation via the Xero API.
+ * @property string $RegistrationNumber Shows for New Zealand, Australian and UK organisations.
+ * @property string $TaxNumber Shown if set. Displays in the Xero UI as Tax File Number (AU), GST Number (NZ), VAT Number (UK) and Tax ID Number (US & Global).
+ * @property string $FinancialYearEndDay Calendar day e.g. 0-31.
+ * @property string $FinancialYearEndMonth Calendar Month e.g. 1-12.
+ * @property string $SalesTaxBasis The accounting basis used for tax returns. See Sales Tax Basis.
+ * @property string $SalesTaxPeriod The frequency with which tax returns are processed. See Sales Tax Period.
+ * @property string $DefaultSalesTax The default for LineAmountTypes on sales transactions.
+ * @property string $DefaultPurchasesTax The default for LineAmountTypes on purchase transactions.
+ * @property string $PeriodLockDate Shown if set. See lock dates.
+ * @property string $EndOfYearLockDate Shown if set. See lock dates.
+ * @property \DateTimeInterface $CreatedDateUTC Timestamp when the organisation was created in Xero.
+ * @property string $Timezone Timezone specifications.
+ * @property string $OrganisationEntityType Organisation Type.
+ * @property string $ShortCode A unique identifier for the organisation. Potential uses.
+ * @property string $LineOfBusiness Description of business type as defined in Organisation settings.
+ * @property Address[] $Addresses Address details for organisation – see Addresses.
+ * @property Phone[] $Phones Phones details for organisation – see Phones.
+ * @property ExternalLink[] $ExternalLinks Organisation profile links for popular services such as Facebook, Twitter, GooglePlus and LinkedIn. You can also add link to your website here. Shown if Organisation settings  is updated in Xero. See ExternalLinks below.
+ * @property PaymentTerm[] $PaymentTerms Default payment terms for the organisation if set – See Payment Terms below.
+ */
 class Organisation extends Remote\Model
 {
-    /**
-     * Display a unique key used for Xero-to-Xero transactions.
-     *
-     * @property string APIKey
-     */
-
-    /**
-     * OrganisationClass
-     *
-     * @property string Class
-     */
-
-    /**
-     * Display name of organisation shown in Xero.
-     *
-     * @property string Name
-     */
-
-    /**
-     * Organisation name shown on Reports.
-     *
-     * @property string LegalName
-     */
-
-    /**
-     * Boolean to describe if organisation is registered with a local tax authority i.e. true, false.
-     *
-     * @property bool PaysTax
-     */
-
-    /**
-     * See Version Types.
-     *
-     * @property string Version
-     */
-
-    /**
-     * Organisation Type.
-     *
-     * @property string OrganisationType
-     */
-
-    /**
-     * Default currency for organisation. See ISO 4217 Currency Codes.
-     *
-     * @property string BaseCurrency
-     */
-
-    /**
-     * Country code for organisation. See ISO 3166-2 Country Codes.
-     *
-     * @property string CountryCode
-     */
-
-    /**
-     * Boolean to describe if organisation is a demo company.
-     *
-     * @property bool IsDemoCompany
-     */
-
-    /**
-     * Will be set to ACTIVE if you can connect to organisation via the Xero API.
-     *
-     * @property string OrganisationStatus
-     */
-
-    /**
-     * Shows for New Zealand, Australian and UK organisations.
-     *
-     * @property string RegistrationNumber
-     */
-
-    /**
-     * Shown if set. Displays in the Xero UI as Tax File Number (AU), GST Number (NZ), VAT Number (UK) and
-     * Tax ID Number (US & Global).
-     *
-     * @property string TaxNumber
-     */
-
-    /**
-     * Calendar day e.g. 0-31.
-     *
-     * @property string FinancialYearEndDay
-     */
-
-    /**
-     * Calendar Month e.g. 1-12.
-     *
-     * @property string FinancialYearEndMonth
-     */
-
-    /**
-     * The accounting basis used for tax returns. See Sales Tax Basis.
-     *
-     * @property string SalesTaxBasis
-     */
-
-    /**
-     * The frequency with which tax returns are processed. See Sales Tax Period.
-     *
-     * @property string SalesTaxPeriod
-     */
-
-    /**
-     * The default for LineAmountTypes on sales transactions.
-     *
-     * @property string DefaultSalesTax
-     */
-
-    /**
-     * The default for LineAmountTypes on purchase transactions.
-     *
-     * @property string DefaultPurchasesTax
-     */
-
-    /**
-     * Shown if set. See lock dates.
-     *
-     * @property string PeriodLockDate
-     */
-
-    /**
-     * Shown if set. See lock dates.
-     *
-     * @property string EndOfYearLockDate
-     */
-
-    /**
-     * Timestamp when the organisation was created in Xero.
-     *
-     * @property \DateTimeInterface CreatedDateUTC
-     */
-
-    /**
-     * Timezone specifications.
-     *
-     * @property string Timezone
-     */
-
-    /**
-     * Organisation Type.
-     *
-     * @property string OrganisationEntityType
-     */
-
-    /**
-     * A unique identifier for the organisation. Potential uses.
-     *
-     * @property string ShortCode
-     */
-
-    /**
-     * Description of business type as defined in Organisation settings.
-     *
-     * @property string LineOfBusiness
-     */
-
-    /**
-     * Address details for organisation – see Addresses.
-     *
-     * @property Address[] Addresses
-     */
-
-    /**
-     * Phones details for organisation – see Phones.
-     *
-     * @property Phone[] Phones
-     */
-
-    /**
-     * Organisation profile links for popular services such as Facebook, Twitter, GooglePlus and LinkedIn.
-     * You can also add link to your website here. Shown if Organisation settings  is updated in Xero. See
-     * ExternalLinks below.
-     *
-     * @property ExternalLink[] ExternalLinks
-     */
-
-    /**
-     * Default payment terms for the organisation if set – See Payment Terms below.
-     *
-     * @property PaymentTerm[] PaymentTerms
-     */
     const VERSION_TYPE_AU = 'AU';
 
     const VERSION_TYPE_NZ = 'NZ';

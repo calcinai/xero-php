@@ -4,53 +4,23 @@ namespace XeroPHP\Models\Accounting;
 
 use XeroPHP\Remote;
 
+/**
+ * @property \DateTimeInterface $Date Date the payment is being made (YYYY-MM-DD) e.g. 2009-09-06
+ * @property string $BatchPaymentID The Xero identifier for an Batch Payment e.g. 297c2dc5-cc47-4afd-8ec8-74990b8761e9
+ * @property string $Narrative (UK Only) Only shows on the statement line in Xero. Max length =18
+ * @property string $PaymentType See Types.
+ * @property string $Particulars (NZ Only) Optional references for the batch payment transaction.
+ * @property string $Code (NZ Only) Optional references for the batch payment transaction.
+ * @property string $Reference (NZ Only) Optional references for the batch payment transaction.
+ * @property Account $Account
+ */
 class BatchPayment extends Remote\Model
 {
-
-    /**
-     * Date the payment is being made (YYYY-MM-DD) e.g. 2009-09-06
-     *
-     * @property \DateTimeInterface Date
-     */
-
-    /**
-     * Particulars, Code, Reference (NZ Only) Optional references for the batch payment transaction.
-     *
-     * @property string Particulars
-     * @property string Code
-     * @property string Reference
-     */
-
-    /**
-     *
-     *
-     * @property Account Account
-     */
-
     /**
      * Get the resource uri of the class (Contacts) etc
      *
      * @return string
      */
-
-    /**
-     * The Xero identifier for an Batch Payment e.g. 297c2dc5-cc47-4afd-8ec8-74990b8761e9
-     *
-     * @property string BatchPaymentID
-     */
-
-    /**
-     * (UK Only) Only shows on the statement line in Xero. Max length =18
-     *
-     * @property string Narrative
-     */ 
-
-    /**
-     * See Types.
-     *
-     * @property string PaymentType
-     */        
-
     public static function getResourceURI()
     {
         return 'BatchPayments';

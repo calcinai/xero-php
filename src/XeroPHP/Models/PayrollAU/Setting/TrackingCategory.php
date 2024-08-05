@@ -4,20 +4,12 @@ namespace XeroPHP\Models\PayrollAU\Setting;
 
 use XeroPHP\Remote;
 
+/**
+ * @property EmployeeGroup $employeeGroups Employee Groups tracking category
+ * @property TimesheetCategory $timesheetCategories Timesheet Categories tracking category
+ */
 class TrackingCategory extends Remote\Model
 {
-    /**
-     * Employee Groups tracking category
-     *
-     * @property EmployeeGroup employeeGroups
-     */
-
-    /**
-     * Timesheet Categories tracking category
-     *
-     * @property TimesheetCategory timesheetCategories
-     */
-
     /**
      * Get the resource uri of the class (Contacts) etc.
      *

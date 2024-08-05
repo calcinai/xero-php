@@ -4,50 +4,17 @@ namespace XeroPHP\Models\PayrollUS\Employee;
 
 use XeroPHP\Remote;
 
+/**
+ * @property string $StreetAddress Street Address for employee home address.
+ * @property string $SuiteOrAptOrUnit Suite, Apartment or Unit information for employee home address.
+ * @property string $City City for employee home address.
+ * @property string $State State abbreviation for employee home address.
+ * @property string $Zip Zip (Post code) for employee home address.
+ * @property string $Lattitude The Latitude of employee home address.
+ * @property string $Longitude The Longitude of employee home address.
+ */
 class MailingAddress extends Remote\Model
 {
-    /**
-     * Street Address for employee home address.
-     *
-     * @property string StreetAddress
-     */
-
-    /**
-     * Suite, Apartment or Unit information for employee home address.
-     *
-     * @property string SuiteOrAptOrUnit
-     */
-
-    /**
-     * City for employee home address.
-     *
-     * @property string City
-     */
-
-    /**
-     * State abbreviation for employee home address.
-     *
-     * @property string State
-     */
-
-    /**
-     * Zip (Post code) for employee home address.
-     *
-     * @property string Zip
-     */
-
-    /**
-     * The Latitude of employee home address.
-     *
-     * @property string Lattitude
-     */
-
-    /**
-     * The Longitude of employee home address.
-     *
-     * @property string Longitude
-     */
-
     /**
      * Get the resource uri of the class (Contacts) etc.
      *

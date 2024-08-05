@@ -5,49 +5,17 @@ namespace XeroPHP\Models\PayrollAU;
 use XeroPHP\Remote;
 use XeroPHP\Models\PayrollAU\Timesheet\TimesheetLine;
 
+/**
+ * @property string $EmployeeID The Xero identifier for an employee.
+ * @property \DateTimeInterface $StartDate Period start date (YYYY-MM-DD).
+ * @property \DateTimeInterface $EndDate Period end date (YYYY-MM-DD).
+ * @property TimesheetLine[] $TimesheetLines See TimesheetLines.
+ * @property string $Status See Timesheet Status Codes.
+ * @property string $Hours Timesheet total hours.
+ * @property string $TimesheetID The Xero identifier for a Payroll Timesheet.
+ */
 class Timesheet extends Remote\Model
 {
-    /**
-     * The Xero identifier for an employee.
-     *
-     * @property string EmployeeID
-     */
-
-    /**
-     * Period start date (YYYY-MM-DD).
-     *
-     * @property \DateTimeInterface StartDate
-     */
-
-    /**
-     * Period end date (YYYY-MM-DD).
-     *
-     * @property \DateTimeInterface EndDate
-     */
-
-    /**
-     * See TimesheetLines.
-     *
-     * @property TimesheetLine[] TimesheetLines
-     */
-
-    /**
-     * See Timesheet Status Codes.
-     *
-     * @property string Status
-     */
-
-    /**
-     * Timesheet total hours.
-     *
-     * @property string Hours
-     */
-
-    /**
-     * The Xero identifier for a Payroll Timesheet.
-     *
-     * @property string TimesheetID
-     */
     const STATUS_DRAFT = 'DRAFT';
 
     const STATUS_PROCESSED = 'PROCESSED';

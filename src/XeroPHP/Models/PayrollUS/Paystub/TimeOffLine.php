@@ -4,26 +4,13 @@ namespace XeroPHP\Models\PayrollUS\Paystub;
 
 use XeroPHP\Remote;
 
+/**
+ * @property string $TimeOffTypeID Xero identifier for payroll time off type.
+ * @property string $Hours Hours of time off.
+ * @property string $Balance Balance for the time off type.
+ */
 class TimeOffLine extends Remote\Model
 {
-    /**
-     * Xero identifier for payroll time off type.
-     *
-     * @property string TimeOffTypeID
-     */
-
-    /**
-     * Hours of time off.
-     *
-     * @property string Hours
-     */
-
-    /**
-     * Balance for the time off type.
-     *
-     * @property string Balance
-     */
-
     /**
      * Get the resource uri of the class (Contacts) etc.
      *

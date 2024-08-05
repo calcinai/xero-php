@@ -4,58 +4,18 @@ namespace XeroPHP\Models\PayrollUS\Employee;
 
 use XeroPHP\Remote;
 
+/**
+ * @property string $SalaryAndWagesID Xero unique identifier for SalaryAndWage item. e.g c56b19ef-75bf-45e8-98a4-e699a96609f7.
+ * @property string $EarningsTypeID Xero unique identifier for EarningsType item. e.g c56b19ef-75bf-45e8-98a4-e699a96609f7.
+ * @property string $SalaryWagesType See Salary and Wages Types.
+ * @property float $HourlyRate The Hourly rate of the Salary and Wages Type. Applies only when SalaryWagesType is HOURLY.
+ * @property string $AnnualSalary The annual salary for the Salary and wages. Applies only when SalaryWagesType is SALARY.
+ * @property string $StandardHoursPerWeek Number of hours per week.
+ * @property \DateTimeInterface $EffectiveDate The effective date of the Salary and Wages.
+ * @property string $SalaryAndWageID Deprecated: this property has been removed from the Xero API.
+ */
 class SalaryAndWage extends Remote\Model
 {
-    /**
-     * This property has been removed from the Xero API.
-     *
-     * @property string SalaryAndWageID
-     *
-     * @deprecated
-     */
-
-    /**
-     * Xero unique identifier for SalaryAndWage item. e.g c56b19ef-75bf-45e8-98a4-e699a96609f7.
-     *
-     * @property string SalaryAndWagesID
-     */
-
-    /**
-     * Xero unique identifier for EarningsType item. e.g c56b19ef-75bf-45e8-98a4-e699a96609f7.
-     *
-     * @property string EarningsTypeID
-     */
-
-    /**
-     * See Salary and Wages Types.
-     *
-     * @property string SalaryWagesType
-     */
-
-    /**
-     * The Hourly rate of the Salary and Wages Type. Applies only when SalaryWagesType is HOURLY.
-     *
-     * @property float HourlyRate
-     */
-
-    /**
-     * The annual salary for the Salary and wages. Applies only when SalaryWagesType is SALARY.
-     *
-     * @property string AnnualSalary
-     */
-
-    /**
-     * Number of hours per week.
-     *
-     * @property string StandardHoursPerWeek
-     */
-
-    /**
-     * The effective date of the Salary and Wages.
-     *
-     * @property \DateTimeInterface EffectiveDate
-     */
-
     /**
      * Get the resource uri of the class (Contacts) etc.
      *

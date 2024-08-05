@@ -11,187 +11,39 @@ use XeroPHP\Models\PayrollAU\Employee\OpeningBalance;
 use XeroPHP\Models\PayrollAU\Employee\TaxDeclaration;
 use XeroPHP\Models\PayrollAU\Employee\SuperMembership;
 
+/**
+ * @property string $FirstName First name of employee (max length = 35).
+ * @property string $LastName Last name of employee (max length = 35).
+ * @property \DateTimeInterface $DateOfBirth Date of birth of the employee (YYYY-MM-DD).
+ * @property HomeAddress $HomeAddress Employee home address. See HomeAddress.
+ * @property \DateTimeInterface $StartDate If you aren’t sure of the exact start date for an employee, you can just enter the start of the current financial year (YYYY-MM-DD).
+ * @property string $Title Title of the employee (max length = 10).
+ * @property string $MiddleNames Middle name(s) of the employee (max length = 35).
+ * @property string $Email The email address for the employee (max length = 100).
+ * @property string $Gender The employee’s gender (M or F).
+ * @property string $Mobile Employee mobile number (max length = 50).
+ * @property bool $IsAuthorisedToApproveLeave Boolean (true / false) – set this to true if the employee is authorised to approve other employees’ leave requests.
+ * @property bool $IsAuthorisedToApproveTimesheets Booelan – set this to true if the employee is authorised to approve timesheets.
+ * @property string $JobTitle JobTitle of the employee (max length = 50).
+ * @property string $Classification Employees under an award scheme will be covered by a modern award classification. If you record a classification, it will be included on your payslips (max length = 100).
+ * @property string $OrdinaryEarningsRateID Xero unique identifier for earnings rate.
+ * @property string $PayrollCalendarID Xero unique identifier for payroll calendar for the employee.
+ * @property string $EmployeeGroupName The Employee Group allows you to report on payroll expenses and liabilities for each group of employees.
+ * @property BankAccount[] $BankAccounts See BankAccount.
+ * @property PayTemplate $PayTemplate See PayTemplate.
+ * @property OpeningBalance[] $OpeningBalances See OpeningBalances.
+ * @property LeaveBalance[] $LeaveBalances See LeaveBalances.
+ * @property SuperMembership[] $SuperMemberships See SuperMemberships.
+ * @property \DateTimeInterface $TerminationDate Employee Termination Date (YYYY-MM-DD).
+ * @property string $TerminationReason Employee Termination Reason
+ * @property string $EmployeeID Xero unique identifier for an Employee.
+ * @property string $Status See Employee Status Types.
+ * @property \DateTimeInterface $UpdatedDateUTC Last modified timestamp.
+ * @property string $TwitterUserName Employee’s twitter name, entered as @twittername (max length = 50).
+ * @property string $Occupation Deprecated: this property has been removed from the Xero API.
+ */
 class Employee extends Remote\Model
 {
-    /**
-     * First name of employee (max length = 35).
-     *
-     * @property string FirstName
-     */
-
-    /**
-     * Last name of employee (max length = 35).
-     *
-     * @property string LastName
-     */
-
-    /**
-     * Date of birth of the employee (YYYY-MM-DD).
-     *
-     * @property \DateTimeInterface DateOfBirth
-     */
-
-    /**
-     * Employee home address. See HomeAddress.
-     *
-     * @property HomeAddress HomeAddress
-     */
-
-    /**
-     * If you aren’t sure of the exact start date for an employee, you can just enter the start of the
-     * current financial year (YYYY-MM-DD).
-     *
-     * @property \DateTimeInterface StartDate
-     */
-
-    /**
-     * Title of the employee (max length = 10).
-     *
-     * @property string Title
-     */
-
-    /**
-     * Middle name(s) of the employee (max length = 35).
-     *
-     * @property string MiddleNames
-     */
-
-    /**
-     * The email address for the employee (max length = 100).
-     *
-     * @property string Email
-     */
-
-    /**
-     * The employee’s gender (M or F).
-     *
-     * @property string Gender
-     */
-
-    /**
-     * Employee mobile number (max length = 50).
-     *
-     * @property string Mobile
-     */
-
-    /**
-     * Employee’s twitter name, entered as @twittername (max length = 50).
-     *
-     * @property string TwitterUserName
-     */
-
-    /**
-     * Boolean (true / false) – set this to true if the employee is authorised to approve other
-     * employees’ leave requests.
-     *
-     * @property bool IsAuthorisedToApproveLeave
-     */
-
-    /**
-     * Booelan – set this to true if the employee is authorised to approve timesheets.
-     *
-     * @property bool IsAuthorisedToApproveTimesheets
-     */
-
-    /**
-     * This property has been removed from the Xero API.
-     *
-     * @property string Occupation
-     *
-     * @deprecated
-     */
-
-    /**
-     * JobTitle of the employee (max length = 50).
-     *
-     * @property string JobTitle
-     */
-
-    /**
-     * Employees under an award scheme will be covered by a modern award classification. If you record a
-     * classification, it will be included on your payslips (max length = 100).
-     *
-     * @property string Classification
-     */
-
-    /**
-     * Xero unique identifier for earnings rate.
-     *
-     * @property string OrdinaryEarningsRateID
-     */
-
-    /**
-     * Xero unique identifier for payroll calendar for the employee.
-     *
-     * @property string PayrollCalendarID
-     */
-
-    /**
-     * The Employee Group allows you to report on payroll expenses and liabilities for each group of
-     * employees.
-     *
-     * @property string EmployeeGroupName
-     */
-
-    /**
-     * See BankAccount.
-     *
-     * @property BankAccount[] BankAccounts
-     */
-
-    /**
-     * See PayTemplate.
-     *
-     * @property PayTemplate PayTemplate
-     */
-
-    /**
-     * See OpeningBalances.
-     *
-     * @property OpeningBalance[] OpeningBalances
-     */
-
-    /**
-     * See LeaveBalances.
-     *
-     * @property LeaveBalance[] LeaveBalances
-     */
-
-    /**
-     * See SuperMemberships.
-     *
-     * @property SuperMembership[] SuperMemberships
-     */
-
-    /**
-     * Employee Termination Date (YYYY-MM-DD).
-     *
-     * @property \DateTimeInterface TerminationDate
-     */
-
-    /**
-     * Employee Termination Reason
-     *
-     * @property string TerminationReason
-     */
-
-    /**
-     * Xero unique identifier for an Employee.
-     *
-     * @property string EmployeeID
-     */
-
-    /**
-     * See Employee Status Types.
-     *
-     * @property string Status
-     */
-
-    /**
-     * Last modified timestamp.
-     *
-     * @property \DateTimeInterface UpdatedDateUTC
-     */
     const STATEABBREVIATION_ACT = 'ACT';
 
     const STATEABBREVIATION_NSW = 'NSW';

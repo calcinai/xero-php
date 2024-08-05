@@ -4,50 +4,17 @@ namespace XeroPHP\Models\Accounting;
 
 use XeroPHP\Remote;
 
+/**
+ * @property string $UserID Xero identifier.
+ * @property string $EmailAddress Email address of user.
+ * @property string $FirstName First name of user.
+ * @property string $LastName Last name of user.
+ * @property \DateTimeInterface $UpdatedDateUTC Timestamp of last change to user.
+ * @property bool $IsSubscriber Boolean to indicate if user is the subscriber.
+ * @property string $OrganisationRole User role (see Types).
+ */
 class User extends Remote\Model
 {
-    /**
-     * Xero identifier.
-     *
-     * @property string UserID
-     */
-
-    /**
-     * Email address of user.
-     *
-     * @property string EmailAddress
-     */
-
-    /**
-     * First name of user.
-     *
-     * @property string FirstName
-     */
-
-    /**
-     * Last name of user.
-     *
-     * @property string LastName
-     */
-
-    /**
-     * Timestamp of last change to user.
-     *
-     * @property \DateTimeInterface UpdatedDateUTC
-     */
-
-    /**
-     * Boolean to indicate if user is the subscriber.
-     *
-     * @property bool IsSubscriber
-     */
-
-    /**
-     * User role (see Types).
-     *
-     * @property string OrganisationRole
-     */
-
     /**
      * Get the resource uri of the class (Contacts) etc.
      *

@@ -4,43 +4,15 @@ namespace XeroPHP\Models\Accounting\Item;
 
 use XeroPHP\Remote;
 
+/**
+ * @property float $UnitPrice Unit Price of the item. By default UnitPrice is rounded to two decimal places. You can use 4 decimal places by adding the unitdp=4 querystring parameter to your request.
+ * @property string $AccountCode Default account code to be used for purchased/sale. Not applicable to the purchase details of tracked items.
+ * @property string $COGSAccountCode Cost of goods sold account. Only applicable to the purchase details of tracked items.
+ * @property string $TaxType Used as an override if the default Tax Code for the selected <AccountCode> is not correct – see TaxTypes.
+ * @property \DateTimeInterface $UpdatedDateUTC Deprecated: this property has been removed from the Xero API.
+ */
 class Sale extends Remote\Model
 {
-    /**
-     * Unit Price of the item. By default UnitPrice is rounded to two decimal places. You can use 4 decimal
-     * places by adding the unitdp=4 querystring parameter to your request.
-     *
-     * @property float UnitPrice
-     */
-
-    /**
-     * Default account code to be used for purchased/sale. Not applicable to the purchase details of
-     * tracked items.
-     *
-     * @property string AccountCode
-     */
-
-    /**
-     * Cost of goods sold account. Only applicable to the purchase details of tracked items.
-     *
-     * @property string COGSAccountCode
-     */
-
-    /**
-     * This property has been removed from the Xero API.
-     *
-     * @property \DateTimeInterface UpdatedDateUTC
-     *
-     * @deprecated
-     */
-
-    /**
-     * Used as an override if the default Tax Code for the selected <AccountCode> is not correct – see
-     * TaxTypes.
-     *
-     * @property string TaxType
-     */
-
     /**
      * Get the resource uri of the class (Contacts) etc.
      *

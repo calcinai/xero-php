@@ -4,49 +4,16 @@ namespace XeroPHP\Models\PayrollUS\PayItem;
 
 use XeroPHP\Remote;
 
+/**
+ * @property TimeOffType $TimeOffType Name of the time off type (max length = 50).
+ * @property string $TimeOffCategory Select Unpaid Time Off to indicate that an employee will not get paid when taking this time off type. If Paid Time Off is selected the employee will get paid when taking this time off type and you can accrue the liability on the Balance Sheet.
+ * @property string $ExpenseAccountCode The account to which the amount of the time off is to be debited. Only applies for TimeOffCategory of PAIDTIMEOFF.
+ * @property string $LiabilityAccountCode The computed amount of the time off is credited to this account.
+ * @property string $TimeOffTypeID Xero identifier.
+ * @property string $ShowBalanceToEmployee Set it to true if you want the balance for this time off type to show on the employee’s paystub and in the employee’s My Payroll account.
+ */
 class TimeOffType extends Remote\Model
 {
-    /**
-     * Name of the time off type (max length = 50).
-     *
-     * @property TimeOffType TimeOffType
-     */
-
-    /**
-     * Select Unpaid Time Off to indicate that an employee will not get paid when taking this time off
-     * type.
-     * If Paid Time Off is selected the employee will get paid when taking this time off type and you
-     * can accrue the liability on the Balance Sheet.
-     *
-     * @property string TimeOffCategory
-     */
-
-    /**
-     * The account to which the amount of the time off is to be debited. Only applies for TimeOffCategory
-     * of PAIDTIMEOFF.
-     *
-     * @property string ExpenseAccountCode
-     */
-
-    /**
-     * The computed amount of the time off is credited to this account.
-     *
-     * @property string LiabilityAccountCode
-     */
-
-    /**
-     * Xero identifier.
-     *
-     * @property string TimeOffTypeID
-     */
-
-    /**
-     * Set it to true if you want the balance for this time off type to show on the employee’s paystub
-     * and in the employee’s My Payroll account.
-     *
-     * @property string ShowBalanceToEmployee
-     */
-
     /**
      * Get the resource uri of the class (Contacts) etc.
      *

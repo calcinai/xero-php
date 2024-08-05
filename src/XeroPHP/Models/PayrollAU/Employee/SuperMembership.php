@@ -4,32 +4,14 @@ namespace XeroPHP\Models\PayrollAU\Employee;
 
 use XeroPHP\Remote;
 
+/**
+ * @property string $SuperFundID Xero identifier for super fund.
+ * @property string $EmployeeNumber The memberhsip number assigned to the employee by the super fund.
+ * @property string $SuperMembershipID Xero unique identifier for Super membership.
+ * @property string $EmployeeID The Xero identifier for an employee e.g. 297c2dc5-cc47-4afd-8ec8-74990b8761e9.
+ */
 class SuperMembership extends Remote\Model
 {
-    /**
-     * Xero identifier for super fund.
-     *
-     * @property string SuperFundID
-     */
-
-    /**
-     * The memberhsip number assigned to the employee by the super fund.
-     *
-     * @property string EmployeeNumber
-     */
-
-    /**
-     * Xero unique identifier for Super membership.
-     *
-     * @property string SuperMembershipID
-     */
-
-    /**
-     * The Xero identifier for an employee e.g. 297c2dc5-cc47-4afd-8ec8-74990b8761e9.
-     *
-     * @property string EmployeeID
-     */
-
     /**
      * Get the resource uri of the class (Contacts) etc.
      *

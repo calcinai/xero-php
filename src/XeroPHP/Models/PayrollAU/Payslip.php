@@ -12,134 +12,31 @@ use XeroPHP\Models\PayrollAU\Payslip\ReimbursementLine;
 use XeroPHP\Models\PayrollAU\Payslip\SuperannuationLine;
 use XeroPHP\Models\PayrollAU\Payslip\TimesheetEarningsLine;
 
+/**
+ * @property string $EmployeeID Xero identifier for payroll employee.
+ * @property string $PayRunID Xero identifier for payroll payrun.
+ * @property string $PayslipID Xero identifier for payroll payslip.
+ * @property EarningsLine[] $EarningsLines See EarningsLine.
+ * @property TimesheetEarningsLine[] $TimesheetEarningsLines See TimesheetEarningsLine.
+ * @property DeductionLine[] $DeductionLines See DeductionLine.
+ * @property LeaveAccrualLine[] $LeaveAccrualLines See LeaveAccrualLine.
+ * @property ReimbursementLine[] $ReimbursementLines See ReimbursementLine – see PayItems.
+ * @property SuperannuationLine[] $SuperannuationLines See SuperannuationLine.
+ * @property TaxLine[] $TaxLines See TaxLine.
+ * @property string $FirstName Employee first name.
+ * @property string $LastName Employee last name.
+ * @property string $EmployeeGroup Employee Group name.
+ * @property \DateTimeInterface $LastEdited Last edited.
+ * @property float $Wages The Total Wages for the PayRun.
+ * @property float $Deductions The Total Deductions for the PayRun.
+ * @property float $NetPay The Total NetPay for the PayRun.
+ * @property float $Tax The Total Tax for the PayRun.
+ * @property float $Super The Total Super for the PayRun.
+ * @property float $Reimbursements The Total Reimbursement for the PayRun.
+ * @property LeaveEarningsLine[] $LeaveEarningsLines See LeaveEarningsLine.
+ */
 class Payslip extends Remote\Model
 {
-    /**
-     * Xero identifier for payroll employee.
-     *
-     * @property string EmployeeID
-     */
-
-    /**
-     * Xero identifier for payroll payrun.
-     *
-     * @property string PayRunID
-     */
-
-    /**
-     * Xero identifier for payroll payslip.
-     *
-     * @property string PayslipID
-     */
-
-    /**
-     * See EarningsLine.
-     *
-     * @property EarningsLine[] EarningsLines
-     */
-
-    /**
-     * See TimesheetEarningsLine.
-     *
-     * @property TimesheetEarningsLine[] TimesheetEarningsLines
-     */
-
-    /**
-     * See DeductionLine.
-     *
-     * @property DeductionLine[] DeductionLines
-     */
-
-    /**
-     * See LeaveAccrualLine.
-     *
-     * @property LeaveAccrualLine[] LeaveAccrualLines
-     */
-
-    /**
-     * See ReimbursementLine – see PayItems.
-     *
-     * @property ReimbursementLine[] ReimbursementLines
-     */
-
-    /**
-     * See SuperannuationLine.
-     *
-     * @property SuperannuationLine[] SuperannuationLines
-     */
-
-    /**
-     * See TaxLine.
-     *
-     * @property TaxLine[] TaxLines
-     */
-
-    /**
-     * Employee first name.
-     *
-     * @property string FirstName
-     */
-
-    /**
-     * Employee last name.
-     *
-     * @property string LastName
-     */
-
-    /**
-     * Employee Group name.
-     *
-     * @property string EmployeeGroup
-     */
-
-    /**
-     * Last edited.
-     *
-     * @property \DateTimeInterface LastEdited
-     */
-
-    /**
-     * The Total Wages for the PayRun.
-     *
-     * @property float Wages
-     */
-
-    /**
-     * The Total Deductions for the PayRun.
-     *
-     * @property float Deductions
-     */
-
-    /**
-     * The Total NetPay for the PayRun.
-     *
-     * @property float NetPay
-     */
-
-    /**
-     * The Total Tax for the PayRun.
-     *
-     * @property float Tax
-     */
-
-    /**
-     * The Total Super for the PayRun.
-     *
-     * @property float Super
-     */
-
-    /**
-     * The Total Reimbursement for the PayRun.
-     *
-     * @property float Reimbursements
-     */
-
-    /**
-     * See LeaveEarningsLine.
-     *
-     * @property LeaveEarningsLine[] LeaveEarningsLines
-     */
-
     /**
      * Get the resource uri of the class (Contacts) etc.
      *

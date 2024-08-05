@@ -8,123 +8,31 @@ use XeroPHP\Traits\AttachmentTrait;
 use XeroPHP\Models\Accounting\LineItem;
 use XeroPHP\Models\Accounting\Prepayment\Allocation;
 
+/**
+ * @property string $Type See Prepayment Types.
+ * @property Contact $Contact See Contacts.
+ * @property \DateTimeInterface $Date The date the prepayment is created YYYY-MM-DD.
+ * @property string $Status See Prepayment Status Codes.
+ * @property string $LineAmountTypes See Prepayment Line Amount Types.
+ * @property LineItem[] $LineItems See Prepayment Line Items.
+ * @property float $SubTotal The subtotal of the prepayment excluding taxes.
+ * @property float $TotalTax The total tax on the prepayment.
+ * @property float $Total The total of the prepayment(subtotal + total tax).
+ * @property \DateTimeInterface $UpdatedDateUTC UTC timestamp of last update to the prepayment.
+ * @property string $CurrencyCode Currency used for the prepayment.
+ * @property string $PrepaymentID Xero generated unique identifier.
+ * @property float $CurrencyRate The currency rate for a multicurrency prepayment. If no rate is specified, the XE.com day rate is used.
+ * @property string $RemainingCredit The remaining credit balance on the prepayment.
+ * @property Allocation[] $Allocations See Allocations.
+ * @property bool $HasAttachments boolean to indicate if a prepayment has an attachment.
+ * @property string $Reference Deprecated: this property has been removed from the Xero API.
+ * @property string $FullyPaidOnDate Deprecated: this property has been removed from the Xero API.
+ */
 class Prepayment extends Remote\Model
 {
     use AttachmentTrait;
     use HistoryTrait;
 
-    /**
-     * This property has been removed from the Xero API.
-     *
-     * @property string Reference
-     *
-     * @deprecated
-     */
-
-    /**
-     * See Prepayment Types.
-     *
-     * @property string Type
-     */
-
-    /**
-     * See Contacts.
-     *
-     * @property Contact Contact
-     */
-
-    /**
-     * The date the prepayment is created YYYY-MM-DD.
-     *
-     * @property \DateTimeInterface Date
-     */
-
-    /**
-     * See Prepayment Status Codes.
-     *
-     * @property string Status
-     */
-
-    /**
-     * See Prepayment Line Amount Types.
-     *
-     * @property string LineAmountTypes
-     */
-
-    /**
-     * See Prepayment Line Items.
-     *
-     * @property LineItem[] LineItems
-     */
-
-    /**
-     * The subtotal of the prepayment excluding taxes.
-     *
-     * @property float SubTotal
-     */
-
-    /**
-     * The total tax on the prepayment.
-     *
-     * @property float TotalTax
-     */
-
-    /**
-     * The total of the prepayment(subtotal + total tax).
-     *
-     * @property float Total
-     */
-
-    /**
-     * UTC timestamp of last update to the prepayment.
-     *
-     * @property \DateTimeInterface UpdatedDateUTC
-     */
-
-    /**
-     * Currency used for the prepayment.
-     *
-     * @property string CurrencyCode
-     */
-
-    /**
-     * This property has been removed from the Xero API.
-     *
-     * @property string FullyPaidOnDate
-     *
-     * @deprecated
-     */
-
-    /**
-     * Xero generated unique identifier.
-     *
-     * @property string PrepaymentID
-     */
-
-    /**
-     * The currency rate for a multicurrency prepayment. If no rate is specified, the XE.com day rate is
-     * used.
-     *
-     * @property float CurrencyRate
-     */
-
-    /**
-     * The remaining credit balance on the prepayment.
-     *
-     * @property string RemainingCredit
-     */
-
-    /**
-     * See Allocations.
-     *
-     * @property Allocation[] Allocations
-     */
-
-    /**
-     * boolean to indicate if a prepayment has an attachment.
-     *
-     * @property bool HasAttachments
-     */
     const TYPE_RECEIVE_PREPAYMENT = 'RECEIVE-PREPAYMENT';
 
     const TYPE_SPEND_PREPAYMENT = 'SPEND-PREPAYMENT';

@@ -4,26 +4,13 @@ namespace XeroPHP\Models\PayrollAU\Payslip;
 
 use XeroPHP\Remote;
 
+/**
+ * @property string $LeaveTypeID Xero identifier for the Leave type.
+ * @property string $NumberOfUnits Number of units for the Leave line.
+ * @property string $AutoCalculate If you want to auto calculate leave.
+ */
 class LeaveAccrualLine extends Remote\Model
 {
-    /**
-     * Xero identifier for the Leave type.
-     *
-     * @property string LeaveTypeID
-     */
-
-    /**
-     * Number of units for the Leave line.
-     *
-     * @property string NumberOfUnits
-     */
-
-    /**
-     * If you want to auto calculate leave.
-     *
-     * @property string AutoCalculate
-     */
-
     /**
      * Get the resource uri of the class (Contacts) etc.
      *

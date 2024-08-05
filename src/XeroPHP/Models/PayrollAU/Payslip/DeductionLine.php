@@ -4,32 +4,14 @@ namespace XeroPHP\Models\PayrollAU\Payslip;
 
 use XeroPHP\Remote;
 
+/**
+ * @property string $DeductionTypeID Xero identifier for payroll earnings rate.
+ * @property float $CalculationType Rate per unit for earnings rate.
+ * @property string $Percentage The Percentage of the Deduction Line.
+ * @property float[] $NumberOfUnits Earnings rate number of units.
+ */
 class DeductionLine extends Remote\Model
 {
-    /**
-     * Xero identifier for payroll earnings rate.
-     *
-     * @property string DeductionTypeID
-     */
-
-    /**
-     * Rate per unit for earnings rate.
-     *
-     * @property float CalculationType
-     */
-
-    /**
-     * The Percentage of the Deduction Line.
-     *
-     * @property string Percentage
-     */
-
-    /**
-     * Earnings rate number of units.
-     *
-     * @property float[] NumberOfUnits
-     */
-
     /**
      * Get the resource uri of the class (Contacts) etc.
      *

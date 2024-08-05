@@ -6,26 +6,12 @@ use XeroPHP\Remote\Model;
 use XeroPHP\Remote\Request;
 use XeroPHP\Remote\URL;
 
+/**
+ * @property int $id The unique identifier for the price
+ * @property string $name The name of the product
+ * @property string $type The currency of the pricing model of the product. FIXED, PER_SEAT
+ */
 class Product extends Model {
-
-    /**
-     * The unique identifier for the price
-     * 
-     * @property int $id
-     */
-
-    /**
-     * The name of the product
-     * 
-     * @property string $name
-     */
-
-    /**
-     * The currency of the pricing model of the product. FIXED, PER_SEAT
-     * 
-     * @property string $type
-     */
-
     public static function getProperties()
     {
         return [

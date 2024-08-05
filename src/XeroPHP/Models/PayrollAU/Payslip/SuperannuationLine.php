@@ -4,62 +4,19 @@ namespace XeroPHP\Models\PayrollAU\Payslip;
 
 use XeroPHP\Remote;
 
+/**
+ * @property string $SuperMembershipID Xero identifier for payroll super fund membership ID.
+ * @property string $ContributionType Superannuation contribution type.
+ * @property string $CalculationType Superannuation calculation type.
+ * @property string $MinimumMonthlyEarnings Superannuation minimum monthly earnings.
+ * @property string $ExpenseAccountCode Superannuation expense account code.
+ * @property string $LiabilityAccountCode Superannuation liability account code.
+ * @property \DateTimeInterface $PaymentDateForThisPeriod Superannuation payment date for the current period (YYYY-MM-DD).
+ * @property string $Percentage Superannuation percentage.
+ * @property float $Amount Superannuation amount.
+ */
 class SuperannuationLine extends Remote\Model
 {
-    /**
-     * Xero identifier for payroll super fund membership ID.
-     *
-     * @property string SuperMembershipID
-     */
-
-    /**
-     * Superannuation contribution type.
-     *
-     * @property string ContributionType
-     */
-
-    /**
-     * Superannuation calculation type.
-     *
-     * @property string CalculationType
-     */
-
-    /**
-     * Superannuation minimum monthly earnings.
-     *
-     * @property string MinimumMonthlyEarnings
-     */
-
-    /**
-     * Superannuation expense account code.
-     *
-     * @property string ExpenseAccountCode
-     */
-
-    /**
-     * Superannuation liability account code.
-     *
-     * @property string LiabilityAccountCode
-     */
-
-    /**
-     * Superannuation payment date for the current period (YYYY-MM-DD).
-     *
-     * @property \DateTimeInterface PaymentDateForThisPeriod
-     */
-
-    /**
-     * Superannuation percentage.
-     *
-     * @property string Percentage
-     */
-
-    /**
-     * Superannuation amount.
-     *
-     * @property float Amount
-     */
-
     /**
      * Get the resource uri of the class (Contacts) etc.
      *

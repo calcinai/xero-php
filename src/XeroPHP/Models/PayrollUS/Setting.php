@@ -6,20 +6,12 @@ use XeroPHP\Remote;
 use XeroPHP\Models\PayrollUS\Setting\Account;
 use XeroPHP\Models\PayrollUS\Setting\TrackingCategory;
 
+/**
+ * @property Account[] $Accounts Payroll Account details for Bank, WagesPayable and WagesExpense. See Accounts.
+ * @property TrackingCategory[] $TrackingCategories Tracking categories for Employees and Timesheets. See Tracking Categories.
+ */
 class Setting extends Remote\Model
 {
-    /**
-     * Payroll Account details for Bank, WagesPayable and WagesExpense. See Accounts.
-     *
-     * @property Account[] Accounts
-     */
-
-    /**
-     * Tracking categories for Employees and Timesheets. See Tracking Categories.
-     *
-     * @property TrackingCategory[] TrackingCategories
-     */
-
     /**
      * Get the resource uri of the class (Contacts) etc.
      *

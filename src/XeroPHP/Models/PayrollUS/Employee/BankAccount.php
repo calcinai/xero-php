@@ -4,51 +4,17 @@ namespace XeroPHP\Models\PayrollUS\Employee;
 
 use XeroPHP\Remote;
 
+/**
+ * @property string $AccountHolderName The name of bank account holder exactly how the bank has it.
+ * @property string $StatementText The text that will appear on your employee’s bank statement when they receive payment.
+ * @property string $AccountType See Account Types.
+ * @property string $RoutingNumber Bank routing number is the nine digit number used to identify a financial institution.
+ * @property string $AccountNumber The account number for the bank account.
+ * @property float $Amount Fixed amounts (for example, if an employee wants to have $100 of their salary transferred to one account, and the remaining amount to another).
+ * @property string $Remainder Set it to true if this bank account should be the Remainder bank account.
+ */
 class BankAccount extends Remote\Model
 {
-    /**
-     * The name of bank account holder exactly how the bank has it.
-     *
-     * @property string AccountHolderName
-     */
-
-    /**
-     * The text that will appear on your employee’s bank statement when they receive payment.
-     *
-     * @property string StatementText
-     */
-
-    /**
-     * See Account Types.
-     *
-     * @property string AccountType
-     */
-
-    /**
-     * Bank routing number is the nine digit number used to identify a financial institution.
-     *
-     * @property string RoutingNumber
-     */
-
-    /**
-     * The account number for the bank account.
-     *
-     * @property string AccountNumber
-     */
-
-    /**
-     * Fixed amounts (for example, if an employee wants to have $100 of their salary transferred to one
-     * account, and the remaining amount to another).
-     *
-     * @property float Amount
-     */
-
-    /**
-     * Set it to true if this bank account should be the Remainder bank account.
-     *
-     * @property string Remainder
-     */
-
     /**
      * Get the resource uri of the class (Contacts) etc.
      *

@@ -4,82 +4,26 @@ namespace XeroPHP\Models\PayrollAU\PayItem;
 
 use XeroPHP\Remote;
 
+/**
+ * @property string $Name Name of the earnings rate (max length = 100).
+ * @property string $AccountCode See Accounts.
+ * @property string $TypeOfUnits Type of units used to record earnings (max length = 50). Only When RateType is RATEPERUNIT.
+ * @property bool $IsExemptFromTax Most payments are subject to tax, so you should only set this value if you are sure that a payment is exempt from PAYG withholding.
+ * @property bool $IsExemptFromSuper See the ATO website for details of which payments are exempt from SGC.
+ * @property string $EarningsType See EarningsTypes.
+ * @property string $EarningsRateID Xero identifier.
+ * @property string $RateType See RateTypes.
+ * @property float $RatePerUnit Default rate per unit (optional). Only applicable if RateType is RATEPERUNIT.
+ * @property float $Multiplier This is the multiplier used to calculate the rate per unit, based on the employee’s ordinary earnings rate. For example, for time and a half enter 1.5. Only applicable if RateType is MULTIPLE.
+ * @property bool $AccrueLeave Indicates that this earnings rate should accrue leave. Only applicable if RateType is MULTIPLE.
+ * @property string $AllowanceType Option AllowanceType for ALLOWANCE EarningsType EarningsRate. Used to group allowances for reporting to the ATO. Undocumented. Only applicable if EarningsType is ALLOWANCE.
+ * @property string $AllowanceCategory An optional category that can be added when AllowanceType is OTHER
+ * @property string $EarningsType The rate's Earnings Type
+ * @property string $RateType The rate's Rate Type
+ * @property string $EmploymentTerminationPaymentType A required Payment Type when RateType is EMPLOYMENTTERMINATIONPAYMENT
+ */
 class EarningsRate extends Remote\Model
 {
-    /**
-     * Name of the earnings rate (max length = 100).
-     *
-     * @property string Name
-     */
-
-    /**
-     * See Accounts.
-     *
-     * @property string AccountCode
-     */
-
-    /**
-     * Type of units used to record earnings (max length = 50). Only When RateType is RATEPERUNIT.
-     *
-     * @property string TypeOfUnits
-     */
-
-    /**
-     * Most payments are subject to tax, so you should only set this value if you are sure that a payment
-     * is exempt from PAYG withholding.
-     *
-     * @property bool IsExemptFromTax
-     */
-
-    /**
-     * See the ATO website for details of which payments are exempt from SGC.
-     *
-     * @property bool IsExemptFromSuper
-     */
-
-    /**
-     * See EarningsTypes.
-     *
-     * @property string EarningsType
-     */
-
-    /**
-     * Xero identifier.
-     *
-     * @property string EarningsRateID
-     */
-
-    /**
-     * See RateTypes.
-     *
-     * @property string RateType
-     */
-
-    /**
-     * Default rate per unit (optional). Only applicable if RateType is RATEPERUNIT.
-     *
-     * @property float RatePerUnit
-     */
-
-    /**
-     * This is the multiplier used to calculate the rate per unit, based on the employee’s ordinary
-     * earnings rate. For example, for time and a half enter 1.5. Only applicable if RateType is MULTIPLE.
-     *
-     * @property float Multiplier
-     */
-
-    /**
-     * Indicates that this earnings rate should accrue leave. Only applicable if RateType is MULTIPLE.
-     *
-     * @property bool AccrueLeave
-     */
-
-    /**
-     * Option AllowanceType for ALLOWANCE EarningsType EarningsRate.
-     * Used to group allowances for reporting to the ATO. Undocumented. Only applicable if EarningsType is ALLOWANCE.
-     *
-     * @property string AllowanceType
-     */
     const ALLOWANCETYPE_CAR = 'CAR';
 
     const ALLOWANCETYPE_TRANSPORT = 'TRANSPORT';
@@ -99,12 +43,6 @@ class EarningsRate extends Remote\Model
     const ALLOWANCETYPE_QUALIFICATIONS = 'QUALIFICATIONS';
 
     const ALLOWANCETYPE_OTHER = 'OTHER';
-
-    /**
-     * An optional category that can be added when AllowanceType is OTHER
-     *
-     * @property string AllowanceCategory
-     */
     const ALLOWANCECATEGORY_NONDEDUCTIBLE = 'NONDEDUCTIBLE';
 
     const ALLOWANCECATEGORY_UNIFORM = 'UNIFORM';
@@ -118,12 +56,6 @@ class EarningsRate extends Remote\Model
     const ALLOWANCECATEGORY_GENERAL = 'GENERAL';
 
     const ALLOWANCECATEGORY_OTHER = 'OTHER';
-
-    /**
-     * The rate's Earnings Type
-     *
-     * @property string EarningsType
-     */
     const EARNINGSTYPE_ORDINARYTIMEEARNINGS = 'ORDINARYTIMEEARNINGS';
 
     const EARNINGSTYPE_OVERTIMEEARNINGS = 'OVERTIMEEARNINGS';
@@ -154,23 +86,11 @@ class EarningsRate extends Remote\Model
      * @deprecated this Earning Type is no longer used
      */
     const EARNINGSTYPE_FIXED = 'FIXED';
-
-    /**
-     * The rate's Rate Type
-     *
-     * @property string RateType
-     */
     const RATETYPE_FIXEDAMOUNT = 'FIXEDAMOUNT';
 
     const RATETYPE_MULTIPLE = 'MULTIPLE';
 
     const RATETYPE_RATEPERUNIT = 'RATEPERUNIT';
-
-    /**
-     * A required Payment Type when RateType is EMPLOYMENTTERMINATIONPAYMENT
-     *
-     * @property string EmploymentTerminationPaymentType
-     */
     const EMPLOYMENTTERMINATIONPAYMENTTYPE_O = 'O';
 
     const EMPLOYMENTTERMINATIONPAYMENTTYPE_R = 'R';

@@ -9,139 +9,35 @@ use XeroPHP\Traits\AttachmentTrait;
 use XeroPHP\Models\Accounting\LineItem;
 use XeroPHP\Models\Accounting\CreditNote\Allocation;
 
+/**
+ * @property string $Type See Credit Note Types.
+ * @property Contact $Contact See Contacts.
+ * @property \DateTimeInterface $Date The date the credit note is issued YYYY-MM-DD.
+ * @property string $Status See Credit Note Status Codes.
+ * @property string $LineAmountTypes See Invoice Line Amount Types.
+ * @property LineItem[] $LineItems See Invoice Line Items.
+ * @property float $SubTotal The subtotal of the credit note excluding taxes.
+ * @property float $TotalTax The total tax on the credit note.
+ * @property float $Total The total of the Credit Note(subtotal + total tax).
+ * @property \DateTimeInterface $UpdatedDateUTC UTC timestamp of last update to the credit note.
+ * @property string $CurrencyCode Currency used for the Credit Note.
+ * @property \DateTimeInterface $FullyPaidOnDate Date when credit note was fully paid(UTC format).
+ * @property string $CreditNoteID Xero generated unique identifier.
+ * @property string $CreditNoteNumber ACCRECCREDIT – Unique alpha numeric code identifying credit note (when missing will auto-generate from your Organisation Invoice Settings).
+ * @property string $Reference ACCRECCREDIT only – additional reference number.
+ * @property bool $SentToContact boolean to indicate if a credit note has been sent to a contact via the Xero app (currently read only).
+ * @property float $CurrencyRate The currency rate for a multicurrency invoice. If no rate is specified, the XE.com day rate is used.
+ * @property string $RemainingCredit The remaining credit balance on the Credit Note.
+ * @property Allocation[] $Allocations See Allocations.
+ * @property string $BrandingThemeID See BrandingThemes.
+ * @property bool $HasAttachments boolean to indicate if a credit note has an attachment.
+ */
 class CreditNote extends Remote\Model
 {
     use PDFTrait;
     use AttachmentTrait;
     use HistoryTrait;
 
-    /**
-     * See Credit Note Types.
-     *
-     * @property string Type
-     */
-
-    /**
-     * See Contacts.
-     *
-     * @property Contact Contact
-     */
-
-    /**
-     * The date the credit note is issued YYYY-MM-DD.
-     *
-     * @property \DateTimeInterface Date
-     */
-
-    /**
-     * See Credit Note Status Codes.
-     *
-     * @property string Status
-     */
-
-    /**
-     * See Invoice Line Amount Types.
-     *
-     * @property string LineAmountTypes
-     */
-
-    /**
-     * See Invoice Line Items.
-     *
-     * @property LineItem[] LineItems
-     */
-
-    /**
-     * The subtotal of the credit note excluding taxes.
-     *
-     * @property float SubTotal
-     */
-
-    /**
-     * The total tax on the credit note.
-     *
-     * @property float TotalTax
-     */
-
-    /**
-     * The total of the Credit Note(subtotal + total tax).
-     *
-     * @property float Total
-     */
-
-    /**
-     * UTC timestamp of last update to the credit note.
-     *
-     * @property \DateTimeInterface UpdatedDateUTC
-     */
-
-    /**
-     * Currency used for the Credit Note.
-     *
-     * @property string CurrencyCode
-     */
-
-    /**
-     * Date when credit note was fully paid(UTC format).
-     *
-     * @property \DateTimeInterface FullyPaidOnDate
-     */
-
-    /**
-     * Xero generated unique identifier.
-     *
-     * @property string CreditNoteID
-     */
-
-    /**
-     * ACCRECCREDIT – Unique alpha numeric code identifying credit note (when missing will auto-generate
-     * from your Organisation Invoice Settings).
-     *
-     * @property string CreditNoteNumber
-     */
-
-    /**
-     * ACCRECCREDIT only – additional reference number.
-     *
-     * @property string Reference
-     */
-
-    /**
-     * boolean to indicate if a credit note has been sent to a contact via the Xero app (currently read
-     * only).
-     *
-     * @property bool SentToContact
-     */
-
-    /**
-     * The currency rate for a multicurrency invoice. If no rate is specified, the XE.com day rate is used.
-     *
-     * @property float CurrencyRate
-     */
-
-    /**
-     * The remaining credit balance on the Credit Note.
-     *
-     * @property string RemainingCredit
-     */
-
-    /**
-     * See Allocations.
-     *
-     * @property Allocation[] Allocations
-     */
-
-    /**
-     * See BrandingThemes.
-     *
-     * @property string BrandingThemeID
-     */
-
-    /**
-     * boolean to indicate if a credit note has an attachment.
-     *
-     * @property bool HasAttachments
-     */
     const CREDIT_NOTE_TYPE_ACCPAYCREDIT = 'ACCPAYCREDIT';
 
     const CREDIT_NOTE_TYPE_ACCRECCREDIT = 'ACCRECCREDIT';

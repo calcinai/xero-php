@@ -4,64 +4,19 @@ namespace XeroPHP\Models\PayrollUS\PayItem;
 
 use XeroPHP\Remote;
 
+/**
+ * @property BenefitType $BenefitType Name of the benefit type (max length = 100).
+ * @property string $BenefitCategory The category defines the tax implications of the benefit type so it is taxed properly. See BenefitCategory.
+ * @property string $LiabilityAccountCode The account to which the amount of the benefit is to be credited.
+ * @property string $ExpenseAccountCode The account to which the amount of the benefit is to be debited.
+ * @property string $BenefitTypeID Xero identifier.
+ * @property float $StandardAmount This is a default amount you can set for all employees assigned to this benefit type.
+ * @property float $CompanyMax The company max is the maximum amount set as a default amount for that particular benefit type for all employees assigned this benefit type in a single year.
+ * @property string $Percentage This is a default percentage you can set for all employees assigned to this benefit type.
+ * @property float $ShowBalanceOnPaystub Set this to true if you want this benefit item amount and YTD balance will show on the employee’s paystubs.
+ */
 class BenefitType extends Remote\Model
 {
-    /**
-     * Name of the benefit type (max length = 100).
-     *
-     * @property BenefitType BenefitType
-     */
-
-    /**
-     * The category defines the tax implications of the benefit type so it is taxed properly. See
-     * BenefitCategory.
-     *
-     * @property string BenefitCategory
-     */
-
-    /**
-     * The account to which the amount of the benefit is to be credited.
-     *
-     * @property string LiabilityAccountCode
-     */
-
-    /**
-     * The account to which the amount of the benefit is to be debited.
-     *
-     * @property string ExpenseAccountCode
-     */
-
-    /**
-     * Xero identifier.
-     *
-     * @property string BenefitTypeID
-     */
-
-    /**
-     * This is a default amount you can set for all employees assigned to this benefit type.
-     *
-     * @property float StandardAmount
-     */
-
-    /**
-     * The company max is the maximum amount set as a default amount for that particular benefit type for
-     * all employees assigned this benefit type in a single year.
-     *
-     * @property float CompanyMax
-     */
-
-    /**
-     * This is a default percentage you can set for all employees assigned to this benefit type.
-     *
-     * @property string Percentage
-     */
-
-    /**
-     * Set this to true if you want this benefit item amount and YTD balance will show on the employee’s
-     * paystubs.
-     *
-     * @property float ShowBalanceOnPaystub
-     */
     const BENEFITCATEGORY_AFTERTAXBENEFIT = 'AFTERTAXBENEFIT';
 
     const BENEFITCATEGORY_DEPENDENTCARE = 'DEPENDENTCARE';

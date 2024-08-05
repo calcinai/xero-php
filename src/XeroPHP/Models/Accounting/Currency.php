@@ -4,28 +4,13 @@ namespace XeroPHP\Models\Accounting;
 
 use XeroPHP\Remote;
 
+/**
+ * @property string $Code 3 letter alpha code for the currency – see list of currency codes.
+ * @property string $Description Name of Currency.
+ * @property string $ModifiedAfter Deprecated: this property has been removed from the Xero API.
+ */
 class Currency extends Remote\Model
 {
-    /**
-     * This property has been removed from the Xero API.
-     *
-     * @property string ModifiedAfter
-     *
-     * @deprecated
-     */
-
-    /**
-     * 3 letter alpha code for the currency – see list of currency codes.
-     *
-     * @property string Code
-     */
-
-    /**
-     * Name of Currency.
-     *
-     * @property string Description
-     */
-
     /**
      * Get the resource uri of the class (Contacts) etc.
      *

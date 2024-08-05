@@ -4,94 +4,27 @@ namespace XeroPHP\Models\PayrollAU;
 
 use XeroPHP\Remote;
 
+/**
+ * @property string $PayrollCalendarID See PayrollCalendars.
+ * @property string $PayRunID Xero identifier for pay run.
+ * @property \DateTimeInterface $PayRunPeriodStartDate Period Start Date for the PayRun (YYYY-MM-DD).
+ * @property \DateTimeInterface $PayRunPeriodEndDate Period End Date for the PayRun (YYYY-MM-DD).
+ * @property string $PayRunStatus See PayRun Status types.
+ * @property \DateTimeInterface $PaymentDate Payment Date for the PayRun (YYYY-MM-DD).
+ * @property string $PayslipMessage Payslip message for the PayRun.
+ * @property Payslip[] $Payslips See Payslip.
+ * @property float $Wages Total Wages for the PayRun.
+ * @property float $Deductions Total Deduction for the PayRun.
+ * @property float $Tax Total Tax for the PayRun.
+ * @property float $Super Total Super for the PayRun.
+ * @property float $Reimbursement Total Reimbursement for the PayRun.
+ * @property float $NetPay Total NetPay for the PayRun.
+ */
 class PayRun extends Remote\Model
 {
-    /**
-     * See PayrollCalendars.
-     *
-     * @property string PayrollCalendarID
-     */
-
-    /**
-     * Xero identifier for pay run.
-     *
-     * @property string PayRunID
-     */
-
-    /**
-     * Period Start Date for the PayRun (YYYY-MM-DD).
-     *
-     * @property \DateTimeInterface PayRunPeriodStartDate
-     */
-
-    /**
-     * Period End Date for the PayRun (YYYY-MM-DD).
-     *
-     * @property \DateTimeInterface PayRunPeriodEndDate
-     */
-
-    /**
-     * See PayRun Status types.
-     *
-     * @property string PayRunStatus
-     */
     const STATUS_POSTED = 'POSTED';
     
     const STATUS_DRAFT = 'DRAFT';
-
-    /**
-     * Payment Date for the PayRun (YYYY-MM-DD).
-     *
-     * @property \DateTimeInterface PaymentDate
-     */
-
-    /**
-     * Payslip message for the PayRun.
-     *
-     * @property string PayslipMessage
-     */
-
-    /**
-     * See Payslip.
-     *
-     * @property Payslip[] Payslips
-     */
-
-    /**
-     * Total Wages for the PayRun.
-     *
-     * @property float Wages
-     */
-
-    /**
-     * Total Deduction for the PayRun.
-     *
-     * @property float Deductions
-     */
-
-    /**
-     * Total Tax for the PayRun.
-     *
-     * @property float Tax
-     */
-
-    /**
-     * Total Super for the PayRun.
-     *
-     * @property float Super
-     */
-
-    /**
-     * Total Reimbursement for the PayRun.
-     *
-     * @property float Reimbursement
-     */
-
-    /**
-     * Total NetPay for the PayRun.
-     *
-     * @property float NetPay
-     */
 
     /**
      * Get the resource uri of the class (Contacts) etc.

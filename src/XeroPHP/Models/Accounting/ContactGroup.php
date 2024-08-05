@@ -4,36 +4,14 @@ namespace XeroPHP\Models\Accounting;
 
 use XeroPHP\Remote;
 
+/**
+ * @property string $Name The Name of the contact group. Required when creating a new contact group.
+ * @property string $Status The Status of a contact group. To delete a contact group update the status to DELETED. Only contact groups with a status of ACTIVE are returned on GETs.
+ * @property string $ContactGroupID The Xero identifier for an contact group – specified as a string following the endpoint name. e.g. /297c2dc5-cc47-4afd-8ec8-74990b8761e9.
+ * @property Contact[] $Contacts The ContactID and Name of Contacts in a contact group. Returned on GETs when the ContactGroupID is supplied in the URL.
+ */
 class ContactGroup extends Remote\Model
 {
-    /**
-     * The Name of the contact group. Required when creating a new contact group.
-     *
-     * @property string Name
-     */
-
-    /**
-     * The Status of a contact group. To delete a contact group update the status to DELETED. Only contact
-     * groups with a status of ACTIVE are returned on GETs.
-     *
-     * @property string Status
-     */
-
-    /**
-     * The Xero identifier for an contact group – specified as a string following the endpoint name.
-     * e.g.
-     * /297c2dc5-cc47-4afd-8ec8-74990b8761e9.
-     *
-     * @property string ContactGroupID
-     */
-
-    /**
-     * The ContactID and Name of Contacts in a contact group. Returned on GETs when the ContactGroupID is
-     * supplied in the URL.
-     *
-     * @property Contact[] Contacts
-     */
-
     /**
      * Get the resource uri of the class (Contacts) etc.
      *

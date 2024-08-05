@@ -7,100 +7,28 @@ use XeroPHP\Traits\HistoryTrait;
 use XeroPHP\Traits\AttachmentTrait;
 use XeroPHP\Models\Accounting\LineItem;
 
+/**
+ * @property \DateTimeInterface $Date Date of receipt – YYYY-MM-DD.
+ * @property Contact $Contact See Contacts.
+ * @property LineItem[] $LineItems See LineItems.
+ * @property User $User The user in the organisation that the expense claim receipt is for. See Users.
+ * @property string $Reference Additional reference number.
+ * @property string $LineAmountTypes See Line Amount Types.
+ * @property float $SubTotal Total of receipt excluding taxes.
+ * @property float $TotalTax Total tax on receipt.
+ * @property float $Total Total of receipt tax inclusive (i.e. SubTotal + TotalTax).
+ * @property string $ReceiptID Xero generated unique identifier for receipt.
+ * @property string $Status Current status of receipt – see status types.
+ * @property string $ReceiptNumber Xero generated sequence number for receipt in current claim for a given user.
+ * @property \DateTimeInterface $UpdatedDateUTC Last modified date UTC format.
+ * @property bool $HasAttachments boolean to indicate if a receipt has an attachment.
+ * @property string $Url URL link to a source document – shown as “Go to [appName]” in the Xero app.
+ */
 class Receipt extends Remote\Model
 {
     use AttachmentTrait;
     use HistoryTrait;
 
-    /**
-     * Date of receipt – YYYY-MM-DD.
-     *
-     * @property \DateTimeInterface Date
-     */
-
-    /**
-     * See Contacts.
-     *
-     * @property Contact Contact
-     */
-
-    /**
-     * See LineItems.
-     *
-     * @property LineItem[] LineItems
-     */
-
-    /**
-     * The user in the organisation that the expense claim receipt is for. See Users.
-     *
-     * @property User User
-     */
-
-    /**
-     * Additional reference number.
-     *
-     * @property string Reference
-     */
-
-    /**
-     * See Line Amount Types.
-     *
-     * @property string LineAmountTypes
-     */
-
-    /**
-     * Total of receipt excluding taxes.
-     *
-     * @property float SubTotal
-     */
-
-    /**
-     * Total tax on receipt.
-     *
-     * @property float TotalTax
-     */
-
-    /**
-     * Total of receipt tax inclusive (i.e. SubTotal + TotalTax).
-     *
-     * @property float Total
-     */
-
-    /**
-     * Xero generated unique identifier for receipt.
-     *
-     * @property string ReceiptID
-     */
-
-    /**
-     * Current status of receipt – see status types.
-     *
-     * @property string Status
-     */
-
-    /**
-     * Xero generated sequence number for receipt in current claim for a given user.
-     *
-     * @property string ReceiptNumber
-     */
-
-    /**
-     * Last modified date UTC format.
-     *
-     * @property \DateTimeInterface UpdatedDateUTC
-     */
-
-    /**
-     * boolean to indicate if a receipt has an attachment.
-     *
-     * @property bool HasAttachments
-     */
-
-    /**
-     * URL link to a source document – shown as “Go to [appName]” in the Xero app.
-     *
-     * @property string Url
-     */
     const RECEIPT_STATUS_DRAFT = 'DRAFT';
 
     const RECEIPT_STATUS_SUBMITTED = 'SUBMITTED';

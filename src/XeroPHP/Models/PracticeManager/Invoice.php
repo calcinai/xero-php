@@ -8,105 +8,26 @@ use XeroPHP\Models\PracticeManager\Invoice\Job;
 use XeroPHP\Models\PracticeManager\Invoice\Task;
 use XeroPHP\Remote;
 
+/**
+ * @property string $InternalID Xero identifier.
+ * @property string $ID Invoice Number.
+ * @property string $Type Type of Invoice
+ * @property string $Status Status of Invoice - Approved, Paid, Draft, Cancelled
+ * @property string $JobText JobText of Invoice
+ * @property \DateTimeInterface $Date Date of Invoice
+ * @property \DateTimeInterface $DueDate DueDate of Invoice
+ * @property float $Amount Amount of Invoice
+ * @property float $AmountTax AmountTax of Invoice
+ * @property float $AmountIncludingTax AmountIncludingTax of Invoice
+ * @property float $AmountPaid AmountPaid of Invoice
+ * @property float $AmountOutstanding AmountOutstanding of Invoice
+ * @property \XeroPHP\Models\PracticeManager\Invoice\Client $Client Client of Invoice
+ * @property \XeroPHP\Models\PracticeManager\Invoice\Contact $Contact Contact of Invoice
+ * @property \XeroPHP\Models\PracticeManager\Invoice\Job[] $Jobs Jobs of Invoice
+ * @property \XeroPHP\Models\PracticeManager\Invoice\Task[] $Tasks Tasks of Invoice
+ */
 class Invoice extends Remote\Model
 {
-    /**
-     * Xero identifier.
-     *
-     * @property string InternalID
-     */
-
-    /**
-     * Invoice Number.
-     *
-     * @property string ID
-     */
-
-    /**
-     * Type of Invoice
-     *
-     * @property string Type
-     */
-
-    /**
-     * Status of Invoice - Approved, Paid, Draft, Cancelled
-     *
-     * @property string Status
-     */
-
-    /**
-     * JobText of Invoice
-     *
-     * @property string JobText
-     */
-
-    /**
-     * Date of Invoice
-     *
-     * @property \DateTimeInterface Date
-     */
-
-    /**
-     * DueDate of Invoice
-     *
-     * @property \DateTimeInterface DueDate
-     */
-
-    /**
-     * Amount of Invoice
-     *
-     * @property float Amount
-     */
-
-    /**
-     * AmountTax of Invoice
-     *
-     * @property float AmountTax
-     */
-
-    /**
-     * AmountIncludingTax of Invoice
-     *
-     * @property float AmountIncludingTax
-     */
-
-    /**
-     * AmountPaid of Invoice
-     *
-     * @property float AmountPaid
-     */
-
-    /**
-     * AmountOutstanding of Invoice
-     *
-     * @property float AmountOutstanding
-     */
-
-    /**
-     * Client of Invoice
-     *
-     * @property \XeroPHP\Models\PracticeManager\Invoice\Client Client
-     */
-
-    /**
-     * Contact of Invoice
-     *
-     * @property \XeroPHP\Models\PracticeManager\Invoice\Contact Contact
-     */
-
-    /**
-     * Jobs of Invoice
-     *
-     * @property \XeroPHP\Models\PracticeManager\Invoice\Job[] Jobs
-     */
-
-    /**
-     * Tasks of Invoice
-     *
-     * @property \XeroPHP\Models\PracticeManager\Invoice\Task[] Tasks
-     */
-
-
     /**
      * Get the resource uri of the class (Clients) etc.
      *

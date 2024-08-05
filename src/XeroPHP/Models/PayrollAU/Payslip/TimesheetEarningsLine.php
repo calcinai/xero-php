@@ -4,26 +4,13 @@ namespace XeroPHP\Models\PayrollAU\Payslip;
 
 use XeroPHP\Remote;
 
+/**
+ * @property string $EarningsRateID Xero identifier for payroll earnings rate.
+ * @property float $RatePerUnit Rate per unit for earnings rate.
+ * @property float $NumberOfUnits The Number of Units of the Timesheet Earnings Line.
+ */
 class TimesheetEarningsLine extends Remote\Model
 {
-    /**
-     * Xero identifier for payroll earnings rate.
-     *
-     * @property string EarningsRateID
-     */
-
-    /**
-     * Rate per unit for earnings rate.
-     *
-     * @property float RatePerUnit
-     */
-
-    /**
-     * The Number of Units of the Timesheet Earnings Line.
-     *
-     * @property float NumberOfUnits
-     */
-
     /**
      * Get the resource uri of the class (Contacts) etc.
      *

@@ -4,80 +4,22 @@ namespace XeroPHP\Models\PayrollUS;
 
 use XeroPHP\Remote;
 
+/**
+ * @property string $PayScheduleID Xero Identifier for the Pay Schedule.
+ * @property \DateTimeInterface $PayRunPeriodEndDate Pay run period end date. Needed if it is an unscheduled pay run.
+ * @property string $PayRunStatus See Pay run status types.
+ * @property string $PayRunID Xero identifier for pay run.
+ * @property \DateTimeInterface $PayRunPeriodStartDate Period Start Date for the PayRun.
+ * @property \DateTimeInterface $PaymentDate Payment Date for the PayRun.
+ * @property string $Earnings Total Earnings for the PayRun.
+ * @property string $Deductions Total Deduction for the PayRun.
+ * @property string $Reimbursement Total Reimbursement for the PayRun.
+ * @property string $NetPay Total NetPay for the PayRun.
+ * @property \DateTimeInterface $UpdateDateUTC The update date for the PayRun.
+ * @property string $PayStubs See PayStubs.
+ */
 class PayRun extends Remote\Model
 {
-    /**
-     * Xero Identifier for the Pay Schedule.
-     *
-     * @property string PayScheduleID
-     */
-
-    /**
-     * Pay run period end date. Needed if it is an unscheduled pay run.
-     *
-     * @property \DateTimeInterface PayRunPeriodEndDate
-     */
-
-    /**
-     * See Pay run status types.
-     *
-     * @property string PayRunStatus
-     */
-
-    /**
-     * Xero identifier for pay run.
-     *
-     * @property string PayRunID
-     */
-
-    /**
-     * Period Start Date for the PayRun.
-     *
-     * @property \DateTimeInterface PayRunPeriodStartDate
-     */
-
-    /**
-     * Payment Date for the PayRun.
-     *
-     * @property \DateTimeInterface PaymentDate
-     */
-
-    /**
-     * Total Earnings for the PayRun.
-     *
-     * @property string Earnings
-     */
-
-    /**
-     * Total Deduction for the PayRun.
-     *
-     * @property string Deductions
-     */
-
-    /**
-     * Total Reimbursement for the PayRun.
-     *
-     * @property string Reimbursement
-     */
-
-    /**
-     * Total NetPay for the PayRun.
-     *
-     * @property string NetPay
-     */
-
-    /**
-     * The update date for the PayRun.
-     *
-     * @property \DateTimeInterface UpdateDateUTC
-     */
-
-    /**
-     * See PayStubs.
-     *
-     * @property string PayStubs
-     */
-
     /**
      * Get the resource uri of the class (Contacts) etc.
      *

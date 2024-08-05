@@ -4,46 +4,16 @@ namespace XeroPHP\Models\PayrollAU\Employee;
 
 use XeroPHP\Remote;
 
+/**
+ * @property string $StatementText The text that will appear on your employee’s bank statement when they receive payment (max length = 18).
+ * @property string $AccountName The name of the account (max length = 32).
+ * @property string $BSB The BSB number of the account (length = 6).
+ * @property string $AccountNumber The account number (max length = 9).
+ * @property string $Remainder If this account is the Remaining bank account.
+ * @property float $Amount Fixed amounts (for example, if an employee wants to have $100 of their salary transferred to one account, and the remaining amount to another).
+ */
 class BankAccount extends Remote\Model
 {
-    /**
-     * The text that will appear on your employee’s bank statement when they receive payment (max length
-     * = 18).
-     *
-     * @property string StatementText
-     */
-
-    /**
-     * The name of the account (max length = 32).
-     *
-     * @property string AccountName
-     */
-
-    /**
-     * The BSB number of the account (length = 6).
-     *
-     * @property string BSB
-     */
-
-    /**
-     * The account number (max length = 9).
-     *
-     * @property string AccountNumber
-     */
-
-    /**
-     * If this account is the Remaining bank account.
-     *
-     * @property string Remainder
-     */
-
-    /**
-     * Fixed amounts (for example, if an employee wants to have $100 of their salary transferred to one
-     * account, and the remaining amount to another).
-     *
-     * @property float Amount
-     */
-
     /**
      * Get the resource uri of the class (Contacts) etc.
      *
