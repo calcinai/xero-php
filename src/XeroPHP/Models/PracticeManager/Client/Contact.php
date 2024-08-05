@@ -5,6 +5,17 @@ namespace XeroPHP\Models\PracticeManager\Client;
 use XeroPHP\Remote;
 use XeroPHP\Traits\PracticeManager\CustomFieldValueTrait;
 
+/**
+ * @property string $ID
+ * @property string $IsPrimary
+ * @property string $Name
+ * @property string $Salutation
+ * @property string $Addressee
+ * @property string $Mobile
+ * @property string $Email
+ * @property string $Phone
+ * @property string $Position
+ */
 class Contact extends Remote\Model
 {
     use CustomFieldValueTrait;
@@ -24,17 +35,6 @@ class Contact extends Remote\Model
           <Position />
         </Contact>
      *
-     */
-    /**
-     * @property string ID
-     * @property string IsPrimary
-     * @property string Name
-     * @property string Salutation
-     * @property string Addressee
-     * @property string Mobile
-     * @property string Email
-     * @property string Phone
-     * @property string Position
      */
 
     /**

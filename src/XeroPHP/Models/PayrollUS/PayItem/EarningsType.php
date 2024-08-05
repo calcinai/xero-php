@@ -4,89 +4,22 @@ namespace XeroPHP\Models\PayrollUS\PayItem;
 
 use XeroPHP\Remote;
 
+/**
+ * @property EarningsType $EarningsType Name of the earnings type (max length = 100).
+ * @property string $ExpenseAccountCode See Accounts.
+ * @property string $EarningsCategory See EarningsCategory.
+ * @property string $RateType Only when EarningsCategory is OVERTIMEEARNINGS, ALLOWANCE, ADDITIONALEARNINGS.
+ * @property string $TypeOfUnits Only when EarningsCategory is ADDITIONALEARNINGS, ALLOWANCE and RateType is RATEPERUNIT.
+ * @property string $EarningsTypeID Xero identifier.
+ * @property float $Multiple This is the multiplier used to calculate the rate per unit, based on the employee’s ordinary earnings type. For example, for time and a half enter 1.5. Only applicable if RateType is MULTIPLE.
+ * @property string $DoNotAccrueTimeOff Set it to true if time off is NOT to be accumulated based on the hours reported to this earnings type.
+ * @property string $IsSupplemental Set it to true if this earnings type qualifies as a supplemental earnings according to the IRS regulations, e.g bonus or commission.
+ * @property float $Amount Optional for EarningsCategory COMMISSION, BONUS, CASHTIPS, NONCASHTIPS, RETROACTIVEPAY, CLERGYHOUSINGALLOWANCE, CLERGYHOUSINGINKIND (this will be the amount that will be added to the employee’s earnings on a per pay period basis). The ALLOWANCE & ADDITIONALEARNINGS EarningsCategory will also have the Amount field when the Rate Type is selected as FIXEDAMOUNT.
+ * @property string $DisplayName Deprecated: this property has been removed from the Xero API.
+ * @property string $EarningsRateID Deprecated: this property has been removed from the Xero API.
+ */
 class EarningsType extends Remote\Model
 {
-    /**
-     * Name of the earnings type (max length = 100).
-     *
-     * @property EarningsType EarningsType
-     */
-
-    /**
-     * This property has been removed from the Xero API.
-     *
-     * @property string DisplayName
-     *
-     * @deprecated
-     */
-
-    /**
-     * See Accounts.
-     *
-     * @property string ExpenseAccountCode
-     */
-
-    /**
-     * See EarningsCategory.
-     *
-     * @property string EarningsCategory
-     */
-
-    /**
-     * Only when EarningsCategory is OVERTIMEEARNINGS, ALLOWANCE, ADDITIONALEARNINGS.
-     *
-     * @property string RateType
-     */
-
-    /**
-     * Only when EarningsCategory is ADDITIONALEARNINGS, ALLOWANCE and RateType is RATEPERUNIT.
-     *
-     * @property string TypeOfUnits
-     */
-
-    /**
-     * This property has been removed from the Xero API.
-     *
-     * @property string EarningsRateID
-     *
-     * @deprecated
-     */
-
-    /**
-     * Xero identifier.
-     *
-     * @property string EarningsTypeID
-     */
-
-    /**
-     * This is the multiplier used to calculate the rate per unit, based on the employee’s ordinary
-     * earnings type. For example, for time and a half enter 1.5. Only applicable if RateType is MULTIPLE.
-     *
-     * @property float Multiple
-     */
-
-    /**
-     * Set it to true if time off is NOT to be accumulated based on the hours reported to this earnings
-     * type.
-     *
-     * @property string DoNotAccrueTimeOff
-     */
-
-    /**
-     * Set it to true if this earnings type qualifies as a supplemental earnings according to the IRS
-     * regulations, e.g bonus or commission.
-     *
-     * @property string IsSupplemental
-     */
-
-    /**
-     * Optional for EarningsCategory COMMISSION, BONUS, CASHTIPS, NONCASHTIPS, RETROACTIVEPAY,
-     * CLERGYHOUSINGALLOWANCE, CLERGYHOUSINGINKIND (this will be the amount that will be added to the
-     * employee’s earnings on a per pay period basis). The ALLOWANCE & ADDITIONALEARNINGS
-     * EarningsCategory will also have the Amount field when the Rate Type is selected as FIXEDAMOUNT.
-     *
-     * @property float Amount
-     */
     const RATETYPE_FIXEDAMOUNT = 'FIXEDAMOUNT';
 
     const RATETYPE_MULTIPLE = 'MULTIPLE';

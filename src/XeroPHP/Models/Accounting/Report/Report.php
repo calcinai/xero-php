@@ -4,44 +4,16 @@ namespace XeroPHP\Models\Accounting\Report;
 
 use XeroPHP\Remote;
 
+/**
+ * @property string $ReportID Xero identifier.
+ * @property string $ReportName Report Name.
+ * @property string $ReportType Report Type.
+ * @property array $ReportTitles Array of the title of this report (one title will be on multiple lines).
+ * @property \DateTimeInterface $UpdatedDateUTC Last modified date in UTC format.
+ * @property string $Rows All the rows of data contained in the report.
+ */
 abstract class Report extends Remote\Model
 {
-    /**
-     * Xero identifier.
-     *
-     * @property string ReportID
-     */
-
-    /**
-     * Report Name.
-     *
-     * @property string ReportName
-     */
-
-    /**
-     * Report Type.
-     *
-     * @property string ReportType
-     */
-
-    /**
-     * Array of the title of this report (one title will be on multiple lines).
-     *
-     * @property array ReportTitles
-     */
-
-    /**
-     * Last modified date in UTC format.
-     *
-     * @property \DateTimeInterface UpdatedDateUTC
-     */
-
-    /**
-     * All the rows of data contained in the report.
-     *
-     * @property string Rows
-     */
-
     /**
      * Get the root node name.  Just the unqualified classname.
      *

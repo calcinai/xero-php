@@ -4,50 +4,17 @@ namespace XeroPHP\Models\PayrollAU\Employee\PayTemplate;
 
 use XeroPHP\Remote;
 
+/**
+ * @property string $SuperMembershipID Xero superannuation fund membership identifier.
+ * @property string $ContributionType See Superannuation Contribution Type.
+ * @property string $CalculationType See Superannuation Calculation Types.
+ * @property string $ExpenseAccountCode  Account code for the Expense Account. i.e 478.
+ * @property string $LiabilityAccountCode  Account code for the Liability Account. i.e 826.
+ * @property string $MinimumMonthlyEarnings Minimum monthly earnings. Applies for Percentage of Earnings calculation type only.
+ * @property string $Percentage The percentage of the SuperLine. Applies on Percentage of Earnings CalculationType.
+ */
 class SuperLine extends Remote\Model
 {
-    /**
-     * Xero superannuation fund membership identifier.
-     *
-     * @property string SuperMembershipID
-     */
-
-    /**
-     * See Superannuation Contribution Type.
-     *
-     * @property string ContributionType
-     */
-
-    /**
-     * See Superannuation Calculation Types.
-     *
-     * @property string CalculationType
-     */
-
-    /**
-     *  Account code for the Expense Account. i.e 478.
-     *
-     * @property string ExpenseAccountCode
-     */
-
-    /**
-     *  Account code for the Liability Account. i.e 826.
-     *
-     * @property string LiabilityAccountCode
-     */
-
-    /**
-     * Minimum monthly earnings. Applies for Percentage of Earnings calculation type only.
-     *
-     * @property string MinimumMonthlyEarnings
-     */
-
-    /**
-     * The percentage of the SuperLine. Applies on Percentage of Earnings CalculationType.
-     *
-     * @property string Percentage
-     */
-
     /**
      * Get the resource uri of the class (Contacts) etc.
      *

@@ -4,52 +4,17 @@ namespace XeroPHP\Models\Files;
 
 use XeroPHP\Remote;
 
+/**
+ * @property string $Name The name of the folder.
+ * @property string $FileCount The number of files in the folder.
+ * @property string $Email The email address used to email files to the inbox. Only the inbox will have this element.
+ * @property bool $IsInbox Boolean to indicate if the folder is the Inbox. The Inbox cannot be renamed or deleted.
+ * @property string $Id Xero unique identifier for a folder.
+ * @property File[] $Files The Files that are contained in the Folder. Note: The Files element is only returned when using the /Folders/{FolderId}/Files endpoint.
+ * @property string $FolderId You can specify an individual record by appending the FolderId to the endpoint, i.e. GET https://…/Folders/{FolderId}.
+ */
 class Folder extends Remote\Model
 {
-    /**
-     * The name of the folder.
-     *
-     * @property string Name
-     */
-
-    /**
-     * The number of files in the folder.
-     *
-     * @property string FileCount
-     */
-
-    /**
-     * The email address used to email files to the inbox. Only the inbox will have this element.
-     *
-     * @property string Email
-     */
-
-    /**
-     * Boolean to indicate if the folder is the Inbox. The Inbox cannot be renamed or deleted.
-     *
-     * @property bool IsInbox
-     */
-
-    /**
-     * Xero unique identifier for a folder.
-     *
-     * @property string Id
-     */
-
-    /**
-     * The Files that are contained in the Folder. Note: The Files element is only returned when using the
-     * /Folders/{FolderId}/Files endpoint.
-     *
-     * @property File[] Files
-     */
-
-    /**
-     * You can specify an individual record by appending the FolderId to the endpoint, i.e. GET
-     * https://…/Folders/{FolderId}.
-     *
-     * @property string FolderId
-     */
-
     /**
      * Get the resource uri of the class (Contacts) etc.
      *

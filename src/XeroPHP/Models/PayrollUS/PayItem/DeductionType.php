@@ -4,64 +4,17 @@ namespace XeroPHP\Models\PayrollUS\PayItem;
 
 use XeroPHP\Remote;
 
+/**
+ * @property DeductionType $DeductionType Name of the deduction type (max length = 50).
+ * @property string $DeductionCategory The category defines the tax implications of the deduction type so it is taxed properly.
+ * @property float $CalculationType Deductions can be a fixed amount, or they can be calculated as a percentage of the employee’s total earnings. Standard Plan, Catch-up Plan. Only needed DeductionCategory is not AFTERTAXDEDUCTION, DEPENDEDNTCARE, FLEXIBLESPENDINGACCOUNT,HSASINGLEPLAN, HSAFAMILYPLAN, SECTION125PLAN.
+ * @property string $LiabilityAccountCode The computed amount of the deduction is credited to this account. See See Accounts.
+ * @property string $DeductionTypeID Xero identifier.
+ * @property float $StandardAmount This is a default amount you can set for all employees assigned to this deduction type. If you have more than one employee that pays the same amount for health insurance, setting this amount will save you time when setting up the employee deductions. If you choose not to set an amount here, you can enter the amounts to be deducted on a per employee basis. Only applicable when DeductionCategory is AFTERTAXDEDUCTION, DEPENDENTCARE, FLEXIBLESPENDINGACCOUNT, SECTION125PLAN.
+ * @property float $CompanyMax The company max is the maximum amount set as a default amount to be deducted for that particular deduction type for all employees assigned this deduction type in a single year. For example, the IRS publishes limits for certain deduction types each year. You can set a company maximum that is lower than the IRS limit, depending on your plan requirements. If you don’t set a maximum, the deduction will stop automatically when the IRS limit is reached. Only applicable when DeductionCategory is AFTERTAXDEDUCTION, DEPENDENTCARE, FLEXIBLESPENDINGACCOUNT, SECTION125PLAN.
+ */
 class DeductionType extends Remote\Model
 {
-    /**
-     * Name of the deduction type (max length = 50).
-     *
-     * @property DeductionType DeductionType
-     */
-
-    /**
-     * The category defines the tax implications of the deduction type so it is taxed properly.
-     *
-     * @property string DeductionCategory
-     */
-
-    /**
-     * Deductions can be a fixed amount, or they can be calculated as a percentage of the employee’s
-     * total earnings. Standard Plan, Catch-up Plan. Only needed DeductionCategory is not
-     * AFTERTAXDEDUCTION, DEPENDEDNTCARE, FLEXIBLESPENDINGACCOUNT,HSASINGLEPLAN, HSAFAMILYPLAN,
-     * SECTION125PLAN.
-     *
-     * @property float CalculationType
-     */
-
-    /**
-     * The computed amount of the deduction is credited to this account. See See Accounts.
-     *
-     * @property string LiabilityAccountCode
-     */
-
-    /**
-     * Xero identifier.
-     *
-     * @property string DeductionTypeID
-     */
-
-    /**
-     * This is a default amount you can set for all employees assigned to this deduction type. If you have
-     * more than one employee that pays the same amount for health insurance, setting this amount will save
-     * you time when setting up the employee deductions. If you choose not to set an amount here, you can
-     * enter the amounts to be deducted on a per employee basis. Only applicable when DeductionCategory is
-     * AFTERTAXDEDUCTION, DEPENDENTCARE, FLEXIBLESPENDINGACCOUNT,
-     * SECTION125PLAN.
-     *
-     * @property float StandardAmount
-     */
-
-    /**
-     * The company max is the maximum amount set as a default amount to be deducted for that particular
-     * deduction type for all employees assigned this deduction type in a single year. For example, the IRS
-     * publishes limits for certain deduction types each year. You can set a company maximum that is lower
-     * than the IRS limit, depending on your plan requirements. If you don’t set a maximum, the deduction
-     * will stop automatically when the IRS limit is reached.
-     * Only applicable when DeductionCategory is
-     * AFTERTAXDEDUCTION, DEPENDENTCARE, FLEXIBLESPENDINGACCOUNT,
-     * SECTION125PLAN.
-     *
-     * @property float CompanyMax
-     */
     const CALCULATION_TYPE_CATCHUPPLAN = 'CATCHUPPLAN';
 
     const CALCULATION_TYPE_STANDARDPLAN = 'STANDARDPLAN';

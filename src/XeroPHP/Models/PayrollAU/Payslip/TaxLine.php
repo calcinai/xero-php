@@ -4,33 +4,14 @@ namespace XeroPHP\Models\PayrollAU\Payslip;
 
 use XeroPHP\Remote;
 
+/**
+ * @property string $TaxTypeName Name of the tax type.
+ * @property string $Description Description of the tax line.
+ * @property float $Amount The tax line amount.
+ * @property string $LiabilityAccount The tax line liability account code. For posted pay run you should be able to see liability account code.
+ */
 class TaxLine extends Remote\Model
 {
-    /**
-     * Name of the tax type.
-     *
-     * @property string TaxTypeName
-     */
-
-    /**
-     * Description of the tax line.
-     *
-     * @property string Description
-     */
-
-    /**
-     * The tax line amount.
-     *
-     * @property float Amount
-     */
-
-    /**
-     * The tax line liability account code. For posted pay run you should be able to see liability account
-     * code.
-     *
-     * @property string LiabilityAccount
-     */
-
     /**
      * Get the resource uri of the class (Contacts) etc.
      *

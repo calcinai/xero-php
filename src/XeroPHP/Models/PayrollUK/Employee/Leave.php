@@ -5,43 +5,16 @@ namespace XeroPHP\Models\PayrollUK\Employee;
 use XeroPHP\Models\PayrollUK\Employee\Leave\Period;
 use XeroPHP\Remote;
 
+/**
+ * @property string $LeaveID Xero identifier.
+ * @property string $LeaveTypeID The Xero identifier for Leave Type.
+ * @property \DateTimeInterface $StartDate Start date of the leave (YYYY-MM-DD).
+ * @property \DateTimeInterface $EndDate End date of the leave (YYYY-MM-DD).
+ * @property string $Description The Description of the Leave (max length = 200).
+ * @property Period[] $Periods The leave period information.
+ */
 class Leave extends Remote\Model
 {
-    /**
-     * Xero identifier.
-     *
-     * @property string LeaveID
-     */
-
-    /**
-     * The Xero identifier for Leave Type.
-     *
-     * @property string LeaveTypeID
-     */
-
-    /**
-     * Start date of the leave (YYYY-MM-DD).
-     *
-     * @property \DateTimeInterface StartDate
-     */
-
-    /**
-     * End date of the leave (YYYY-MM-DD).
-     *
-     * @property \DateTimeInterface EndDate
-     */
-
-    /**
-     * The Description of the Leave (max length = 200).
-     *
-     * @property string Description
-     */
-
-    /**
-     * The leave period information.
-     *
-     * @property Period[] Periods
-     */
     const LEAVE_PERIOD_STATUS_SCHEDULED = 'Scheduled';
 
     const LEAVE_PERIOD_STATUS_PROCESSED = 'Processed';

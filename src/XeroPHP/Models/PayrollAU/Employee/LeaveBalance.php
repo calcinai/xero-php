@@ -5,32 +5,14 @@ namespace XeroPHP\Models\PayrollAU\Employee;
 use XeroPHP\Remote;
 use XeroPHP\Models\PayrollAU\PayItem;
 
+/**
+ * @property string $LeaveName The name of the leave type.
+ * @property string $LeaveTypeID Identifier of the leave type (see PayItems).
+ * @property string $NumberOfUnits The balance of the leave available.
+ * @property PayItem[] $TypeOfUnits The type of units as specified by the LeaveType (see PayItems).
+ */
 class LeaveBalance extends Remote\Model
 {
-    /**
-     * The name of the leave type.
-     *
-     * @property string LeaveName
-     */
-
-    /**
-     * Identifier of the leave type (see PayItems).
-     *
-     * @property string LeaveTypeID
-     */
-
-    /**
-     * The balance of the leave available.
-     *
-     * @property string NumberOfUnits
-     */
-
-    /**
-     * The type of units as specified by the LeaveType (see PayItems).
-     *
-     * @property PayItem[] TypeOfUnits
-     */
-
     /**
      * Get the resource uri of the class (Contacts) etc.
      *

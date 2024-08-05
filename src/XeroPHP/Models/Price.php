@@ -6,26 +6,12 @@ use XeroPHP\Remote\Model;
 use XeroPHP\Remote\Request;
 use XeroPHP\Remote\URL;
 
+/**
+ * @property int $id The unique identifier for the price
+ * @property int $amount The net (before tax) amount of the price
+ * @property string $currency The currency of the price
+ */
 class Price extends Model {
-
-    /**
-     * The unique identifier for the price
-     * 
-     * @property int $id
-     */
-
-    /**
-     * The net (before tax) amount of the price
-     * 
-     * @property int $amount
-     */
-
-    /**
-     * The currency of the price
-     * 
-     * @property string $currency
-     */
-
     public static function getProperties()
     {
         return [

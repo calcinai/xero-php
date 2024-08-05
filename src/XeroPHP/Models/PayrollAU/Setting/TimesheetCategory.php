@@ -4,20 +4,12 @@ namespace XeroPHP\Models\PayrollAU\Setting;
 
 use XeroPHP\Remote;
 
+/**
+ * @property string $TrackingCategoryID Xero tracking category identifier. e.g c56b19ef-75bf-45e8-98a4-e699a96609f7.
+ * @property string $TrackingCategoryName Name of tracking category.
+ */
 class TimesheetCategory extends Remote\Model
 {
-    /**
-     * Xero tracking category identifier. e.g c56b19ef-75bf-45e8-98a4-e699a96609f7.
-     *
-     * @property string TrackingCategoryID
-     */
-
-    /**
-     * Name of tracking category.
-     *
-     * @property string TrackingCategoryName
-     */
-
     /**
      * Get the resource uri of the class (Contacts) etc.
      *

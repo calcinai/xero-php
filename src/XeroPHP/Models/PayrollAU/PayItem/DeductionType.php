@@ -4,40 +4,15 @@ namespace XeroPHP\Models\PayrollAU\PayItem;
 
 use XeroPHP\Remote;
 
+/**
+ * @property string $Name Name of the deduction type (max length = 50).
+ * @property string $AccountCode See Accounts.
+ * @property float $ReducesTax Indicates that this is a pre-tax deduction that will reduce the amount of tax you withhold from an employee.
+ * @property string $ReducesSuper Most deductions don’t reduce your superannuation guarantee contribution liability, so typically you will not set any value for this.
+ * @property string $DeductionTypeID Xero identifier.
+ */
 class DeductionType extends Remote\Model
 {
-    /**
-     * Name of the deduction type (max length = 50).
-     *
-     * @property string Name
-     */
-
-    /**
-     * See Accounts.
-     *
-     * @property string AccountCode
-     */
-
-    /**
-     * Indicates that this is a pre-tax deduction that will reduce the amount of tax you withhold from an
-     * employee.
-     *
-     * @property float ReducesTax
-     */
-
-    /**
-     * Most deductions don’t reduce your superannuation guarantee contribution liability, so typically
-     * you will not set any value for this.
-     *
-     * @property string ReducesSuper
-     */
-
-    /**
-     * Xero identifier.
-     *
-     * @property string DeductionTypeID
-     */
-
     /**
      * Get the resource uri of the class (Contacts) etc.
      *

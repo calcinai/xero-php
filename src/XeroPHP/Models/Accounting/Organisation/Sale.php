@@ -4,20 +4,12 @@ namespace XeroPHP\Models\Accounting\Organisation;
 
 use XeroPHP\Remote;
 
+/**
+ * @property string $Day Day of Month (0-31).
+ * @property string $Type One of the following values OFFOLLOWINGMONTH/DAYSAFTERBILLDATE/OFCURRENTMONTH.
+ */
 class Sale extends Remote\Model
 {
-    /**
-     * Day of Month (0-31).
-     *
-     * @property string Day
-     */
-
-    /**
-     * One of the following values OFFOLLOWINGMONTH/DAYSAFTERBILLDATE/OFCURRENTMONTH.
-     *
-     * @property string Type
-     */
-
     /**
      * Get the resource uri of the class (Contacts) etc.
      *

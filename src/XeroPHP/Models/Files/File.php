@@ -4,57 +4,18 @@ namespace XeroPHP\Models\Files;
 
 use XeroPHP\Remote;
 
+/**
+ * @property string $Name The name of the file.
+ * @property Folder $FolderId The ID of the Folder that contains the File.
+ * @property string $MimeType The Mime type of the file.
+ * @property string $Size The file size in bytes.
+ * @property \DateTimeInterface $CreatedDateUTC UTC timestamp of the file creation.
+ * @property \DateTimeInterface $UpdatedDateUTC UTC timestamp of the last modified date.
+ * @property string $User The Xero User that created the file. Note: For Files uploaded via the API this will always be “System Generated”.
+ * @property string $Id Xero unique identifier for a file.
+ */
 class File extends Remote\Model
 {
-    /**
-     * The name of the file.
-     *
-     * @property string Name
-     */
-
-    /**
-     * The ID of the Folder that contains the File.
-     *
-     * @property Folder FolderId
-     */
-
-    /**
-     * The Mime type of the file.
-     *
-     * @property string MimeType
-     */
-
-    /**
-     * The file size in bytes.
-     *
-     * @property string Size
-     */
-
-    /**
-     * UTC timestamp of the file creation.
-     *
-     * @property \DateTimeInterface CreatedDateUTC
-     */
-
-    /**
-     * UTC timestamp of the last modified date.
-     *
-     * @property \DateTimeInterface UpdatedDateUTC
-     */
-
-    /**
-     * The Xero User that created the file. Note: For Files uploaded via the API this will always be
-     * “System Generated”.
-     *
-     * @property string User
-     */
-
-    /**
-     * Xero unique identifier for a file.
-     *
-     * @property string Id
-     */
-
     /**
      * Get the resource uri of the class (Contacts) etc.
      *

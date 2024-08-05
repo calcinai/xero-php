@@ -4,16 +4,15 @@ namespace XeroPHP\Models\PracticeManager\Client;
 
 use XeroPHP\Remote;
 
+/**
+ * @property string $Title
+ * @property string $Text
+ * @property string $Folder
+ * @property \DateTimeInterface $Date
+ * @property string $CreatedBy
+ */
 class Note extends Remote\Model
 {
-    /**
-     * @property string Title
-     * @property string Text
-     * @property string Folder
-     * @property \DateTimeInterface Date
-     * @property string CreatedBy
-     */
-
     /**
      * Get the resource uri of the class (Notes) etc.
      *

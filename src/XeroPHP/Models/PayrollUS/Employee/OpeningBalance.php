@@ -8,62 +8,20 @@ use XeroPHP\Models\PayrollUS\Paystub\EarningsLine;
 use XeroPHP\Models\PayrollUS\Paystub\DeductionLine;
 use XeroPHP\Models\PayrollUS\Paystub\ReimbursementLine;
 
+/**
+ * @property EarningsLine[] $EarningsLines The EarningsLines of the OpeningBalance.
+ * @property BenefitLine[] $BenefitLines The BenefitLines of the OpeningBalance.
+ * @property DeductionLine[] $DeductionLines The DeductionLines of the OpeningBalance.
+ * @property ReimbursementLine[] $ReimbursementLines The ReimbursementLines of the OpeningBalance.
+ * @property string $EarningsTypeID Xero earnings rate identifier.
+ * @property float $Amount Reimbursement type amount.
+ * @property string $BenefitTypeID Xero benefit type identifier.
+ * @property string $DeductionTypeID Xero deduction type identifier.
+ * @property string $ReimbursementTypeID Xero reimbursement type identifier.
+ * @property string $EmployeeID
+ */
 class OpeningBalance extends Remote\Model
 {
-    /**
-     * The EarningsLines of the OpeningBalance.
-     *
-     * @property EarningsLine[] EarningsLines
-     */
-
-    /**
-     * The BenefitLines of the OpeningBalance.
-     *
-     * @property BenefitLine[] BenefitLines
-     */
-
-    /**
-     * The DeductionLines of the OpeningBalance.
-     *
-     * @property DeductionLine[] DeductionLines
-     */
-
-    /**
-     * The ReimbursementLines of the OpeningBalance.
-     *
-     * @property ReimbursementLine[] ReimbursementLines
-     */
-
-    /**
-     * Xero earnings rate identifier.
-     *
-     * @property string EarningsTypeID
-     */
-
-    /**
-     * Reimbursement type amount.
-     *
-     * @property float Amount
-     */
-
-    /**
-     * Xero benefit type identifier.
-     *
-     * @property string BenefitTypeID
-     */
-
-    /**
-     * Xero deduction type identifier.
-     *
-     * @property string DeductionTypeID
-     */
-
-    /**
-     * Xero reimbursement type identifier.
-     *
-     * @property string ReimbursementTypeID
-     */
-
     /**
      * This property has been removed from the Xero API.
      *

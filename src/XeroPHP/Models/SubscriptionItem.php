@@ -8,45 +8,14 @@ use XeroPHP\Remote\URL;
 
 /**
  * Property ref: https://developer.xero.com/documentation/api/xero-app-store/subscriptions/#get-subscription
+ * @property int $id The unique identifier for the subscription
+ * @property Price $price The price of the product subscribed to
+ * @property string $endDate Date when the subscription to this product will end
+ * @property string $startDate Start date for the subscription to this item. Note: this may be in the future for downgrades or reduced number of seats that haven't taken effect yet
+ * @property string $status Status of the subscription items the user is subscribed to
+ * @property Product $product The product subscribed to
  */
 class SubscriptionItem extends Model {
-
-    /**
-     * The unique identifier for the subscription
-     * 
-     * @property int $id
-     */
-
-    /**
-     * The price of the product subscribed to
-     *
-     * @property Price $price
-     */
-
-    /** 
-     * Date when the subscription to this product will end
-     *
-     * @property string $endDate
-     */    
-
-    /**
-     * Start date for the subscription to this item. Note: this may be in the future for downgrades or reduced number of seats that haven't taken effect yet
-     * 
-     * @property string $startDate
-     */
-
-    /**
-     * Status of the subscription items the user is subscribed to
-     * 
-     * @property string $status
-     */
-
-    /**
-     * The product subscribed to
-     * 
-     * @property Product $product
-     */
-
     public static function getProperties()
     {
         return [

@@ -4,32 +4,14 @@ namespace XeroPHP\Models\PayrollAU\LeaveApplication;
 
 use XeroPHP\Remote;
 
+/**
+ * @property string $NumberOfUnits The Number of Units for the leave.
+ * @property \DateTimeInterface $PayPeriodEndDate The Pay Period End Date (YYYY-MM-DD).
+ * @property \DateTimeInterface $PayPeriodStartDate The Pay Period Start Date (YYYY-MM-DD).
+ * @property string $LeavePeriodStatus See LeavePeriodStatus.
+ */
 class LeavePeriod extends Remote\Model
 {
-    /**
-     * The Number of Units for the leave.
-     *
-     * @property string NumberOfUnits
-     */
-
-    /**
-     * The Pay Period End Date (YYYY-MM-DD).
-     *
-     * @property \DateTimeInterface PayPeriodEndDate
-     */
-
-    /**
-     * The Pay Period Start Date (YYYY-MM-DD).
-     *
-     * @property \DateTimeInterface PayPeriodStartDate
-     */
-
-    /**
-     * See LeavePeriodStatus.
-     *
-     * @property string LeavePeriodStatus
-     */
-
     /**
      * Get the resource uri of the class (Contacts) etc.
      *

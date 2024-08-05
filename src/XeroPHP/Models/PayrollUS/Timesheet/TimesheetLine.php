@@ -4,34 +4,14 @@ namespace XeroPHP\Models\PayrollUS\Timesheet;
 
 use XeroPHP\Remote;
 
+/**
+ * @property string $EarningsTypeID The Xero identifier for an Earnings Type.
+ * @property string $TrackingItemID The Xero identifier for a Tracking Category <TrackingOptionID>. The <TrackingOptionID> must belong to the TrackingCategory selected as <TimesheetCategories> under Payroll Settings.
+ * @property float[] $NumberOfUnits Number of units of a Timesheet line.
+ * @property string $WorkLocationID The Xero identifier for a Work Location, which must have been added for this employee under Payroll -> Employees -> Employment.
+ */
 class TimesheetLine extends Remote\Model
 {
-    /**
-     * The Xero identifier for an Earnings Type.
-     *
-     * @property string EarningsTypeID
-     */
-
-    /**
-     * The Xero identifier for a Tracking Category <TrackingOptionID>. The <TrackingOptionID> must belong
-     * to the TrackingCategory selected as <TimesheetCategories> under Payroll Settings.
-     *
-     * @property string TrackingItemID
-     */
-
-    /**
-     * Number of units of a Timesheet line.
-     *
-     * @property float[] NumberOfUnits
-     */
-
-    /**
-     * The Xero identifier for a Work Location, which must have been added for this employee under Payroll
-     * -> Employees -> Employment.
-     *
-     * @property string WorkLocationID
-     */
-
     /**
      * Get the resource uri of the class (Contacts) etc.
      *

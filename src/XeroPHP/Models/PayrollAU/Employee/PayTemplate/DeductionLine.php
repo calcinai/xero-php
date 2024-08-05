@@ -4,36 +4,19 @@ namespace XeroPHP\Models\PayrollAU\Employee\PayTemplate;
 
 use XeroPHP\Remote;
 
+/**
+ * @property string $DeductionTypeID Xero deduction type identifier.
+ * @property string $CalculationType See Deduction Type Calculation Type.
+ * @property string $Percentage The percentage of deduction line.
+ * @property float $Amount The deduction amount.
+ */
 class DeductionLine extends Remote\Model
 {
-    /**
-     * Xero deduction type identifier.
-     *
-     * @property string DeductionTypeID
-     */
-
-    /**
-     * See Deduction Type Calculation Type.
-     *
-     * @property string CalculationType
-     */
     const DEDUCTION_TYPE_FIXEDAMOUNT = "FIXEDAMOUNT";
 
     const DEDUCTION_TYPE_PRETAX = "PRETAX";
 
     const DEDUCTION_TYPE_POSTTAX = "POSTTAX";
-
-    /**
-     * The percentage of deduction line.
-     *
-     * @property string Percentage
-     */
-
-    /**
-     * The deduction amount.
-     *
-     * @property float Amount
-     */
 
     /**
      * Get the resource uri of the class (Contacts) etc.

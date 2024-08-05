@@ -4,32 +4,14 @@ namespace XeroPHP\Models\PayrollAU;
 
 use XeroPHP\Remote;
 
+/**
+ * @property string $SuperFundID Xero identifier.
+ * @property string $Type REGULATED see Super Fund Types.
+ * @property string $ABN The ABN of the Regulated SuperFund.
+ * @property string $USI The USI of the Regulated SuperFund.
+ */
 class SuperFund extends Remote\Model
 {
-    /**
-     * Xero identifier.
-     *
-     * @property string SuperFundID
-     */
-
-    /**
-     * REGULATED see Super Fund Types.
-     *
-     * @property string Type
-     */
-
-    /**
-     * The ABN of the Regulated SuperFund.
-     *
-     * @property string ABN
-     */
-
-    /**
-     * The USI of the Regulated SuperFund.
-     *
-     * @property string USI
-     */
-
     /**
      * Get the resource uri of the class (Contacts) etc.
      *

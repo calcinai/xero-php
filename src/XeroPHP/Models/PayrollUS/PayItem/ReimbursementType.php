@@ -4,26 +4,13 @@ namespace XeroPHP\Models\PayrollUS\PayItem;
 
 use XeroPHP\Remote;
 
+/**
+ * @property ReimbursementType $ReimbursementType Name of the reimbursement type (max length = 50).
+ * @property string $ExpenseOrLiabilityAccountCode See Accounts.
+ * @property string $ReimbursementTypeID Xero identifier.
+ */
 class ReimbursementType extends Remote\Model
 {
-    /**
-     * Name of the reimbursement type (max length = 50).
-     *
-     * @property ReimbursementType ReimbursementType
-     */
-
-    /**
-     * See Accounts.
-     *
-     * @property string ExpenseOrLiabilityAccountCode
-     */
-
-    /**
-     * Xero identifier.
-     *
-     * @property string ReimbursementTypeID
-     */
-
     /**
      * Get the resource uri of the class (Contacts) etc.
      *

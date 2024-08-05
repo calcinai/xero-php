@@ -12,92 +12,24 @@ use XeroPHP\Models\PracticeManager\Client\Relationship;
 use XeroPHP\Models\PracticeManager\Client\Type;
 use XeroPHP\Remote;
 
+/**
+ * @property string $ID Xero identifier.
+ * @property string $Name Name of Custom Field
+ * @property string $Type Type of Custom Field
+ * @property string $LinkUrl Link Url
+ * @property string $Options Custom Field Options for Dropdown lists
+ * @property bool $UseClient In Use for Clients
+ * @property bool $UseContact In Use for Client Contacts
+ * @property bool $UseSupplier In Use for Suppliers
+ * @property bool $UseJob In Use for Jobs
+ * @property bool $UseLead In Use for Leads
+ * @property bool $UseJobTask In Use for Job Tasks
+ * @property bool $UseJobCost In Use for Job Costing
+ * @property bool $UseJobTime In Use for Job Time
+ * @property string $ValueElement Identifies XML element for accessing the field value during GET or PUT - valid values are: Text | Decimal | Number | Boolean | Date
+ */
 class CustomField extends Remote\Model
 {
-    /**
-     * Xero identifier.
-     *
-     * @property string ID
-     */
-
-    /**
-     * Name of Custom Field
-     *
-     * @property string Name
-     */
-
-    /**
-     * Type of Custom Field
-     *
-     * @property string Type
-     */
-
-    /**
-     * Link Url
-     *
-     * @property string LinkUrl
-     */
-
-    /**
-     * Custom Field Options for Dropdown lists
-     *
-     * @property string Options
-     */
-
-    /**
-     * In Use for Clients
-     *
-     * @property bool UseClient
-     */
-
-    /**
-     * In Use for Client Contacts
-     *
-     * @property bool UseContact
-     */
-
-    /**
-     * In Use for Suppliers
-     *
-     * @property bool UseSupplier
-     */
-
-    /**
-     * In Use for Jobs
-     *
-     * @property bool UseJob
-     */
-
-    /**
-     * In Use for Leads
-     *
-     * @property bool UseLead
-     */
-
-    /**
-     * In Use for Job Tasks
-     *
-     * @property bool UseJobTask
-     */
-
-    /**
-     * In Use for Job Costing
-     *
-     * @property bool UseJobCost
-     */
-
-    /**
-     * In Use for Job Time
-     *
-     * @property bool UseJobTime
-     */
-
-    /**
-     * Identifies XML element for accessing the field value during GET or PUT - valid values are: Text | Decimal | Number | Boolean | Date
-     *
-     * @property string ValueElement
-     */
-
     /**
      * Get the resource uri of the class (Clients) etc.
      *

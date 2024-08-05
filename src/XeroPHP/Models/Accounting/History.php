@@ -5,32 +5,14 @@ namespace XeroPHP\Models\Accounting;
 use XeroPHP\Remote\Model;
 use XeroPHP\Remote\Request;
 
+/**
+ * @property string $Changes The type of change recorded against the document.
+ * @property \DateTimeInterface $DateUTC UTC date that the history record was created.
+ * @property string $User The user responsible for the change ("System Generated" when the change happens via API).
+ * @property string $Details Description of the change event or transaction.
+ */
 class History extends Model
 {
-    /**
-     * The type of change recorded against the document.
-     *
-     * @property string Changes
-     */
-
-    /**
-     * UTC date that the history record was created.
-     *
-     * @property \DateTimeInterface DateUTC
-     */
-
-    /**
-     * The user responsible for the change ("System Generated" when the change happens via API).
-     *
-     * @property string User
-     */
-
-    /**
-     * Description of the change event or transaction.
-     *
-     * @property string Details
-     */
-
     /**
      * Get the GUID Property if it exists.
      *

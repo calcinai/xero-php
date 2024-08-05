@@ -11,118 +11,29 @@ use XeroPHP\Models\PayrollUS\Paystub\LeaveEarningsLine;
 use XeroPHP\Models\PayrollUS\Paystub\ReimbursementLine;
 use XeroPHP\Models\PayrollUS\Paystub\TimesheetEarningsLine;
 
+/**
+ * @property string $EmployeeID Xero identifier for payroll employee.
+ * @property string $PaystubID Xero identifier for payroll paystub.
+ * @property string $PayRunID
+ * @property string $FirstName Employee first name.
+ * @property string $LastName Employee last name.
+ * @property string $LastEdited Last edited.
+ * @property float[] $Earnings The Total Earnings for the PayRun.
+ * @property float[] $Deductions The Total Deductions for the PayRun.
+ * @property float $Tax The Total Tax for the PayRun.
+ * @property float[] $Reimbursements The Total Reimbursement for the PayRun.
+ * @property float $NetPay The Total NetPay for the PayRun.
+ * @property \DateTimeInterface $UpdatedDateUTC
+ * @property EarningsLine[] $EarningsLines See EarningsLine.
+ * @property LeaveEarningsLine[] $LeaveEarningsLines See LeaveEarningsLine.
+ * @property TimesheetEarningsLine[] $TimesheetEarningsLines See TimesheetEarningsLine.
+ * @property DeductionLine[] $DeductionLines See DeductionLine.
+ * @property ReimbursementLine[] $ReimbursementLines See ReimbursementLine.
+ * @property BenefitLine[] $BenefitLines See BenefitLine.
+ * @property TimeOffLine[] $TimeOffLines See TimeOffLine.
+ */
 class Paystub extends Remote\Model
 {
-    /**
-     * Xero identifier for payroll employee.
-     *
-     * @property string EmployeeID
-     */
-
-    /**
-     * Xero identifier for payroll paystub.
-     *
-     * @property string PaystubID
-     */
-
-    /**
-     * @property string PayRunID
-     */
-
-    /**
-     * Employee first name.
-     *
-     * @property string FirstName
-     */
-
-    /**
-     * Employee last name.
-     *
-     * @property string LastName
-     */
-
-    /**
-     * Last edited.
-     *
-     * @property string LastEdited
-     */
-
-    /**
-     * The Total Earnings for the PayRun.
-     *
-     * @property float[] Earnings
-     */
-
-    /**
-     * The Total Deductions for the PayRun.
-     *
-     * @property float[] Deductions
-     */
-
-    /**
-     * The Total Tax for the PayRun.
-     *
-     * @property float Tax
-     */
-
-    /**
-     * The Total Reimbursement for the PayRun.
-     *
-     * @property float[] Reimbursements
-     */
-
-    /**
-     * The Total NetPay for the PayRun.
-     *
-     * @property float NetPay
-     */
-
-    /**
-     * @property \DateTimeInterface UpdatedDateUTC
-     */
-
-    /**
-     * See EarningsLine.
-     *
-     * @property EarningsLine[] EarningsLines
-     */
-
-    /**
-     * See LeaveEarningsLine.
-     *
-     * @property LeaveEarningsLine[] LeaveEarningsLines
-     */
-
-    /**
-     * See TimesheetEarningsLine.
-     *
-     * @property TimesheetEarningsLine[] TimesheetEarningsLines
-     */
-
-    /**
-     * See DeductionLine.
-     *
-     * @property DeductionLine[] DeductionLines
-     */
-
-    /**
-     * See ReimbursementLine.
-     *
-     * @property ReimbursementLine[] ReimbursementLines
-     */
-
-    /**
-     * See BenefitLine.
-     *
-     * @property BenefitLine[] BenefitLines
-     */
-
-    /**
-     * See TimeOffLine.
-     *
-     * @property TimeOffLine[] TimeOffLines
-     */
-
     /**
      * Get the resource uri of the class (Contacts) etc.
      *

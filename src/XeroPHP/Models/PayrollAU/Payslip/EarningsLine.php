@@ -4,32 +4,14 @@ namespace XeroPHP\Models\PayrollAU\Payslip;
 
 use XeroPHP\Remote;
 
+/**
+ * @property string $EarningsRateID Xero identifier for payroll earnings rate.
+ * @property float $RatePerUnit Rate per unit for earnings rate.
+ * @property float[] $NumberOfUnits Earnings rate number of units.
+ * @property float $FixedAmount Earnings rate amount.  Only applicable if the EarningsRate RateType is Fixed.
+ */
 class EarningsLine extends Remote\Model
 {
-    /**
-     * Xero identifier for payroll earnings rate.
-     *
-     * @property string EarningsRateID
-     */
-
-    /**
-     * Rate per unit for earnings rate.
-     *
-     * @property float RatePerUnit
-     */
-
-    /**
-     * Earnings rate number of units.
-     *
-     * @property float[] NumberOfUnits
-     */
-
-    /**
-     * Earnings rate amount.  Only applicable if the EarningsRate RateType is Fixed.
-     *
-     * @property float FixedAmount
-     */
-
     /**
      * Get the resource uri of the class (Contacts) etc.
      *

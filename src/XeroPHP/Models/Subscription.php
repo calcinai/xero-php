@@ -8,57 +8,16 @@ use XeroPHP\Remote\URL;
 
 /**
  * Property ref: https://developer.xero.com/documentation/api/xero-app-store/subscriptions/#get-subscription
+ * @property int $id The unique identifier for the subscription
+ * @property string $currentPeriodEnd Date when the current subscription period ends
+ * @property string $endDate If the subscription has been canceled, this is the date when the subscription ends. If null, the subscription is active and has not been cancelled
+ * @property bool $testMode Boolean used to indicate if the subscription is in test mode
+ * @property string $organisationId The Xero generated unique identifier for the organisation
+ * @property Plan[] $plans THe plan which has been subscribed to. See Plan
+ * @property string $startDate Date when the subscription was first created
+ * @property string $status Status of the subscription. ACTIVE, CANCELLED, PAST_DUE
  */
 class Subscription extends Model {
-
-    /**
-     * The unique identifier for the subscription
-     * 
-     * @property int $id
-     */
-
-    /**
-     * Date when the current subscription period ends
-     *
-     * @property string $currentPeriodEnd
-     */
-
-    /** 
-     * If the subscription has been canceled, this is the date when the subscription ends. If null, the subscription is active and has not been cancelled
-     *
-     * @property string $endDate
-     */    
-
-    /**
-     * Boolean used to indicate if the subscription is in test mode
-     * 
-     * @property bool $testMode
-     */
-
-    /**
-     * The Xero generated unique identifier for the organisation
-     * 
-     * @property string $organisationId
-     */
-
-    /**
-     * THe plan which has been subscribed to. See Plan
-     * 
-     * @property Plan[] $plans
-     */
-
-    /**
-     * Date when the subscription was first created
-     * 
-     * @property string $startDate
-     */
-
-    /**
-     * Status of the subscription. ACTIVE, CANCELLED, PAST_DUE
-     * 
-     * @property string $status
-     */
-
     const SUBSCRIPTION_STATUS_ACTIVE = 'ACTIVE';
 
     const SUBSCRIPTION_STATUS_CANCELLED = 'CANCELLED';

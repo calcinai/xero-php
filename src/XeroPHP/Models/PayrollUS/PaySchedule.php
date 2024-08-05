@@ -4,38 +4,15 @@ namespace XeroPHP\Models\PayrollUS;
 
 use XeroPHP\Remote;
 
+/**
+ * @property string $PayScheduleName Name of the Pay Schedule.
+ * @property \DateTimeInterface $PaymentDate The Payment Date of the Pay Schedule.
+ * @property \DateTimeInterface $StartDate The Start Date of the Pay Schedule.
+ * @property string $ScheduleType The ScheduleType defines the frequency in which an employee gets paid.
+ * @property string $PayScheduleId Xero Identifier.
+ */
 class PaySchedule extends Remote\Model
 {
-    /**
-     * Name of the Pay Schedule.
-     *
-     * @property string PayScheduleName
-     */
-
-    /**
-     * The Payment Date of the Pay Schedule.
-     *
-     * @property \DateTimeInterface PaymentDate
-     */
-
-    /**
-     * The Start Date of the Pay Schedule.
-     *
-     * @property \DateTimeInterface StartDate
-     */
-
-    /**
-     * The ScheduleType defines the frequency in which an employee gets paid.
-     *
-     * @property string ScheduleType
-     */
-
-    /**
-     * Xero Identifier.
-     *
-     * @property string PayScheduleId
-     */
-
     /**
      * Get the resource uri of the class (Contacts) etc.
      *

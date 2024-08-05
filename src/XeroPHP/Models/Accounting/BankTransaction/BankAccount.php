@@ -4,20 +4,12 @@ namespace XeroPHP\Models\Accounting\BankTransaction;
 
 use XeroPHP\Remote;
 
+/**
+ * @property string $Code BankAccount code (this value may not always be present for a bank account).
+ * @property string $AccountID BankAccount identifier.
+ */
 class BankAccount extends Remote\Model
 {
-    /**
-     * BankAccount code (this value may not always be present for a bank account).
-     *
-     * @property string Code
-     */
-
-    /**
-     * BankAccount identifier.
-     *
-     * @property string AccountID
-     */
-
     /**
      * Get the resource uri of the class (Contacts) etc.
      *

@@ -5,51 +5,17 @@ namespace XeroPHP\Models\Assets;
 use XeroPHP\Remote;
 use XeroPHP\Models\Assets\AssetType\BookDepreciationSetting;
 
+/**
+ * @property string $assetTypeName The name of the asset type.
+ * @property string $fixedAssetAccountId The asset account for fixed assets of this type.
+ * @property string $depreciationExpenseAccountId The expense account for the depreciation of fixed assets of this type.
+ * @property string $accumulatedDepreciationAccountId The account for accumulated depreciation of fixed assets of this type.
+ * @property BookDepreciationSetting $BookDepreciationSetting See bookDepreciationSetting.
+ * @property string $assetTypeId Xero generated unique identifier for asset types.
+ * @property string $Locks All asset types that have accumulated  depreciation for any assets that use them are deemed ‘locked’ and cannot be removed.
+ */
 class AssetType extends Remote\Model
 {
-    /**
-     * The name of the asset type.
-     *
-     * @property string assetTypeName
-     */
-
-    /**
-     * The asset account for fixed assets of this type.
-     *
-     * @property string fixedAssetAccountId
-     */
-
-    /**
-     * The expense account for the depreciation of fixed assets of this type.
-     *
-     * @property string depreciationExpenseAccountId
-     */
-
-    /**
-     * The account for accumulated depreciation of fixed assets of this type.
-     *
-     * @property string accumulatedDepreciationAccountId
-     */
-
-    /**
-     * See bookDepreciationSetting.
-     *
-     * @property BookDepreciationSetting BookDepreciationSetting
-     */
-
-    /**
-     * Xero generated unique identifier for asset types.
-     *
-     * @property string assetTypeId
-     */
-
-    /**
-     * All asset types that have accumulated  depreciation for any assets that use them are deemed
-     * ‘locked’ and cannot be removed.
-     *
-     * @property string Locks
-     */
-
     /**
      * Get the resource uri of the class (Contacts) etc.
      *

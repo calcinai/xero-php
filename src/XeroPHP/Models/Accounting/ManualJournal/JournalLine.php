@@ -5,46 +5,16 @@ namespace XeroPHP\Models\Accounting\ManualJournal;
 use XeroPHP\Remote;
 use XeroPHP\Models\Accounting\TrackingCategory;
 
+/**
+ * @property string $LineAmount total for line. Debits are positive, credits are negative value.
+ * @property string $AccountCode See Accounts.
+ * @property string $Description Description for journal line.
+ * @property string $TaxType Used as an override if the default Tax Code for the selected <AccountCode> is not correct – see TaxTypes.
+ * @property TrackingCategory[] $Tracking Optional Tracking Category – see Tracking. Any JournalLine can have a maximum of 2 <TrackingCategory> elements.
+ * @property float $TaxAmount The calculated tax amount based on the TaxType and LineAmount.
+ */
 class JournalLine extends Remote\Model
 {
-    /**
-     * total for line. Debits are positive, credits are negative value.
-     *
-     * @property string LineAmount
-     */
-
-    /**
-     * See Accounts.
-     *
-     * @property string AccountCode
-     */
-
-    /**
-     * Description for journal line.
-     *
-     * @property string Description
-     */
-
-    /**
-     * Used as an override if the default Tax Code for the selected <AccountCode> is not correct – see
-     * TaxTypes.
-     *
-     * @property string TaxType
-     */
-
-    /**
-     * Optional Tracking Category – see Tracking. Any JournalLine can have a maximum of 2
-     * <TrackingCategory> elements.
-     *
-     * @property TrackingCategory[] Tracking
-     */
-
-    /**
-     * The calculated tax amount based on the TaxType and LineAmount.
-     *
-     * @property float TaxAmount
-     */
-
     /**
      * Get the resource uri of the class (Contacts) etc.
      *

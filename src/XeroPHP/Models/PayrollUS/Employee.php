@@ -12,183 +12,39 @@ use XeroPHP\Models\PayrollUS\Employee\MailingAddress;
 use XeroPHP\Models\PayrollUS\Employee\OpeningBalance;
 use XeroPHP\Models\PayrollUS\Employee\TimeOffBalance;
 
+/**
+ * @property string $FirstName First name of employee (max length = 35).
+ * @property string $LastName Last name of employee (max length = 35).
+ * @property \DateTimeInterface $DateOfBirth Date of birth of employee (YYYY-MM-DD).
+ * @property HomeAddress $HomeAddress Employee home address. See HomeAddress.
+ * @property string $MiddleNames Middle name(s) of the employee (max length = 35).
+ * @property string $JobTitle Job Title of the employee.
+ * @property string $Email Employee email address.
+ * @property string $Gender Gender of employee (M or F).
+ * @property MailingAddress $MailingAddress See MailingAddress.
+ * @property string $Phone Phone number of employee.
+ * @property string $EmployeeNumber Employee Number.
+ * @property string $SocialSecurityNumber Social Security Number of the employee (xxx-xx-xxxx).
+ * @property \DateTimeInterface $StartDate Start date of employee (YYYY-MM-DD).
+ * @property \DateTimeInterface $TerminationDate Termination date of employee (YYYY-MM-DD). Note this is only returned when retrieving an individual Employee with a Status of TERMINATED.
+ * @property string $PayScheduleID Xero unique identifier – PayScheduleID for the employee.
+ * @property string $EmployeeGroupName Employee group name.
+ * @property string $EmploymentBasis See Employment Basis Types.
+ * @property string $HolidayGroupID HolidayGroupID of the employee.
+ * @property bool $IsAuthorisedToApproveTimeOff Boolean to specify if employee is authorised to approve time off.
+ * @property bool $IsAuthorisedToApproveTimesheets Boolean to specify if employee is authorised to approve timesheets.
+ * @property SalaryAndWage[] $SalaryAndWages See SalaryAndWages.
+ * @property WorkLocation[] $WorkLocations See WorkLocations.
+ * @property PaymentMethod $PaymentMethod See PaymentMethods.
+ * @property PayTemplate $PayTemplate See PayTemplate.
+ * @property OpeningBalance[] $OpeningBalances See OpeningBalances.
+ * @property TimeOffBalance[] $TimeOffBalances See TimeOffBalances.
+ * @property string $EmployeeID Xero unique identifier for an Employee.
+ * @property string $Status See Employee Status Types.
+ * @property \DateTimeInterface $UpdatedDateUTC Last modified timestamp.
+ */
 class Employee extends Remote\Model
 {
-    /**
-     * First name of employee (max length = 35).
-     *
-     * @property string FirstName
-     */
-
-    /**
-     * Last name of employee (max length = 35).
-     *
-     * @property string LastName
-     */
-
-    /**
-     * Date of birth of employee (YYYY-MM-DD).
-     *
-     * @property \DateTimeInterface DateOfBirth
-     */
-
-    /**
-     * Employee home address. See HomeAddress.
-     *
-     * @property HomeAddress HomeAddress
-     */
-
-    /**
-     * Middle name(s) of the employee (max length = 35).
-     *
-     * @property string MiddleNames
-     */
-
-    /**
-     * Job Title of the employee.
-     *
-     * @property string JobTitle
-     */
-
-    /**
-     * Employee email address.
-     *
-     * @property string Email
-     */
-
-    /**
-     * Gender of employee (M or F).
-     *
-     * @property string Gender
-     */
-
-    /**
-     * See MailingAddress.
-     *
-     * @property MailingAddress MailingAddress
-     */
-
-    /**
-     * Phone number of employee.
-     *
-     * @property string Phone
-     */
-
-    /**
-     * Employee Number.
-     *
-     * @property string EmployeeNumber
-     */
-
-    /**
-     * Social Security Number of the employee (xxx-xx-xxxx).
-     *
-     * @property string SocialSecurityNumber
-     */
-
-    /**
-     * Start date of employee (YYYY-MM-DD).
-     *
-     * @property \DateTimeInterface StartDate
-     */
-
-    /**
-     * Termination date of employee (YYYY-MM-DD). Note this is only returned when retrieving an individual
-     * Employee with a Status of TERMINATED.
-     *
-     * @property \DateTimeInterface TerminationDate
-     */
-
-    /**
-     * Xero unique identifier – PayScheduleID for the employee.
-     *
-     * @property string PayScheduleID
-     */
-
-    /**
-     * Employee group name.
-     *
-     * @property string EmployeeGroupName
-     */
-
-    /**
-     * See Employment Basis Types.
-     *
-     * @property string EmploymentBasis
-     */
-
-    /**
-     * HolidayGroupID of the employee.
-     *
-     * @property string HolidayGroupID
-     */
-
-    /**
-     * Boolean to specify if employee is authorised to approve time off.
-     *
-     * @property bool IsAuthorisedToApproveTimeOff
-     */
-
-    /**
-     * Boolean to specify if employee is authorised to approve timesheets.
-     *
-     * @property bool IsAuthorisedToApproveTimesheets
-     */
-
-    /**
-     * See SalaryAndWages.
-     *
-     * @property SalaryAndWage[] SalaryAndWages
-     */
-
-    /**
-     * See WorkLocations.
-     *
-     * @property WorkLocation[] WorkLocations
-     */
-
-    /**
-     * See PaymentMethods.
-     *
-     * @property PaymentMethod PaymentMethod
-     */
-
-    /**
-     * See PayTemplate.
-     *
-     * @property PayTemplate PayTemplate
-     */
-
-    /**
-     * See OpeningBalances.
-     *
-     * @property OpeningBalance[] OpeningBalances
-     */
-
-    /**
-     * See TimeOffBalances.
-     *
-     * @property TimeOffBalance[] TimeOffBalances
-     */
-
-    /**
-     * Xero unique identifier for an Employee.
-     *
-     * @property string EmployeeID
-     */
-
-    /**
-     * See Employee Status Types.
-     *
-     * @property string Status
-     */
-
-    /**
-     * Last modified timestamp.
-     *
-     * @property \DateTimeInterface UpdatedDateUTC
-     */
-
     /**
      * Get the resource uri of the class (Contacts) etc.
      *

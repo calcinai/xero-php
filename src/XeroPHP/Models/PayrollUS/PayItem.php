@@ -9,38 +9,15 @@ use XeroPHP\Models\PayrollUS\PayItem\EarningsType;
 use XeroPHP\Models\PayrollUS\PayItem\DeductionType;
 use XeroPHP\Models\PayrollUS\PayItem\ReimbursementType;
 
+/**
+ * @property EarningsType[] $EarningsTypes See EarningsTypes.
+ * @property BenefitType[] $BenefitTypes See BenefitTypes.
+ * @property DeductionType[] $DeductionTypes See DeductionTypes.
+ * @property ReimbursementType[] $ReimbursementTypes See ReimbursementTypes.
+ * @property TimeOffType[] $TimeOffTypes See TimeOffTypes.
+ */
 class PayItem extends Remote\Model
 {
-    /**
-     * See EarningsTypes.
-     *
-     * @property EarningsType[] EarningsTypes
-     */
-
-    /**
-     * See BenefitTypes.
-     *
-     * @property BenefitType[] BenefitTypes
-     */
-
-    /**
-     * See DeductionTypes.
-     *
-     * @property DeductionType[] DeductionTypes
-     */
-
-    /**
-     * See ReimbursementTypes.
-     *
-     * @property ReimbursementType[] ReimbursementTypes
-     */
-
-    /**
-     * See TimeOffTypes.
-     *
-     * @property TimeOffType[] TimeOffTypes
-     */
-
     /**
      * Get the resource uri of the class (Contacts) etc.
      *

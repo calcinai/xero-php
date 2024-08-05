@@ -8,95 +8,26 @@ use XeroPHP\Traits\AttachmentTrait;
 use XeroPHP\Models\Accounting\LineItem;
 use XeroPHP\Models\Accounting\RepeatingInvoice\Schedule;
 
+/**
+ * @property string $Type See Invoice Types.
+ * @property Contact $Contact See Contacts.
+ * @property Schedule $Schedule See Schedule.
+ * @property LineItem[] $LineItems See LineItems.
+ * @property string $LineAmountTypes Line amounts are exclusive of tax by default if you don’t specify this element. See Line Amount Types.
+ * @property string $Reference ACCREC only – additional reference number.
+ * @property string $BrandingThemeID See BrandingThemes.
+ * @property string $CurrencyCode The currency that invoice has been raised in (see Currencies).
+ * @property string $Status One of the following : DRAFT or AUTHORISED – See Invoice Status Codes.
+ * @property float $SubTotal Total of invoice excluding taxes.
+ * @property float $TotalTax Total tax on invoice.
+ * @property float $Total Total of Invoice tax inclusive (i.e. SubTotal + TotalTax).
+ * @property string $RepeatingInvoiceID Xero generated unique identifier for repeating invoice template.
+ * @property bool $HasAttachments boolean to indicate if an invoice has an attachment.
+ */
 class RepeatingInvoice extends Remote\Model
 {
     use AttachmentTrait;
     use HistoryTrait;
-
-    /**
-     * See Invoice Types.
-     *
-     * @property string Type
-     */
-
-    /**
-     * See Contacts.
-     *
-     * @property Contact Contact
-     */
-
-    /**
-     * See Schedule.
-     *
-     * @property Schedule Schedule
-     */
-
-    /**
-     * See LineItems.
-     *
-     * @property LineItem[] LineItems
-     */
-
-    /**
-     * Line amounts are exclusive of tax by default if you don’t specify this element. See Line Amount
-     * Types.
-     *
-     * @property string LineAmountTypes
-     */
-
-    /**
-     * ACCREC only – additional reference number.
-     *
-     * @property string Reference
-     */
-
-    /**
-     * See BrandingThemes.
-     *
-     * @property string BrandingThemeID
-     */
-
-    /**
-     * The currency that invoice has been raised in (see Currencies).
-     *
-     * @property string CurrencyCode
-     */
-
-    /**
-     * One of the following : DRAFT or AUTHORISED – See Invoice Status Codes.
-     *
-     * @property string Status
-     */
-
-    /**
-     * Total of invoice excluding taxes.
-     *
-     * @property float SubTotal
-     */
-
-    /**
-     * Total tax on invoice.
-     *
-     * @property float TotalTax
-     */
-
-    /**
-     * Total of Invoice tax inclusive (i.e. SubTotal + TotalTax).
-     *
-     * @property float Total
-     */
-
-    /**
-     * Xero generated unique identifier for repeating invoice template.
-     *
-     * @property string RepeatingInvoiceID
-     */
-
-    /**
-     * boolean to indicate if an invoice has an attachment.
-     *
-     * @property bool HasAttachments
-     */
 
     /**
      * Get the resource uri of the class (Contacts) etc.

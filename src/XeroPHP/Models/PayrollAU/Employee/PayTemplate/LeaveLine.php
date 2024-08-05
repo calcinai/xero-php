@@ -4,44 +4,16 @@ namespace XeroPHP\Models\PayrollAU\Employee\PayTemplate;
 
 use XeroPHP\Remote;
 
+/**
+ * @property string $LeaveTypeID Xero leave type identifier.
+ * @property string $CalculationType See Superannuation Calculation Types.
+ * @property string $AnnualNumberOfUnits Hours of leave accrued each year.
+ * @property string $FullTimeNumberOfUnitsPerPeriod Normal ordinary earnings number of units for leave line.
+ * @property string $NumberOfUnits Number of units for leave line.
+ * @property string $EntitlementFinalPayPayoutType See Final Pay Payout Types If you do not provide any value then by Default it will be NOTPAIDOUT.
+ */
 class LeaveLine extends Remote\Model
 {
-    /**
-     * Xero leave type identifier.
-     *
-     * @property string LeaveTypeID
-     */
-
-    /**
-     * See Superannuation Calculation Types.
-     *
-     * @property string CalculationType
-     */
-
-    /**
-     * Hours of leave accrued each year.
-     *
-     * @property string AnnualNumberOfUnits
-     */
-
-    /**
-     * Normal ordinary earnings number of units for leave line.
-     *
-     * @property string FullTimeNumberOfUnitsPerPeriod
-     */
-
-    /**
-     * Number of units for leave line.
-     *
-     * @property string NumberOfUnits
-     */
-
-    /**
-     * See Final Pay Payout Types If you do not provide any value then by Default it will be NOTPAIDOUT.
-     *
-     * @property string EntitlementFinalPayPayoutType
-     */
-
     /**
      * Get the resource uri of the class (Contacts) etc.
      *

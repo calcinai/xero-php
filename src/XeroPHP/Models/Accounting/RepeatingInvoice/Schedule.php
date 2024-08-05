@@ -4,51 +4,17 @@ namespace XeroPHP\Models\Accounting\RepeatingInvoice;
 
 use XeroPHP\Remote;
 
+/**
+ * @property int $Period Integer used with the unit e.g. 1 (every 1 week), 2 (every 2 months).
+ * @property string $Unit One of the following : WEEKLY or MONTHLY.
+ * @property int $DueDate Integer used with due date type e.g 20 (of following month), 31 (of current month).
+ * @property string $DueDateType Get the due date type.
+ * @property \DateTimeInterface $StartDate Date the first invoice of the current version of the repeating schedule was generated (changes when repeating invoice is edited).
+ * @property \DateTimeInterface $NextScheduledDate The calendar date of the next invoice in the schedule to be generated.
+ * @property \DateTimeInterface $EndDate Invoice end date – only returned if the template has an end date set.
+ */
 class Schedule extends Remote\Model
 {
-    /**
-     * Integer used with the unit e.g. 1 (every 1 week), 2 (every 2 months).
-     *
-     * @property int Period
-     */
-
-    /**
-     * One of the following : WEEKLY or MONTHLY.
-     *
-     * @property string Unit
-     */
-
-    /**
-     * Integer used with due date type e.g 20 (of following month), 31 (of current month).
-     *
-     * @property int DueDate
-     */
-
-    /**
-     * Get the due date type.
-     *
-     * @property string DueDateType
-     */
-
-    /**
-     * Date the first invoice of the current version of the repeating schedule was generated (changes when
-     * repeating invoice is edited).
-     *
-     * @property \DateTimeInterface StartDate
-     */
-
-    /**
-     * The calendar date of the next invoice in the schedule to be generated.
-     *
-     * @property \DateTimeInterface NextScheduledDate
-     */
-
-    /**
-     * Invoice end date – only returned if the template has an end date set.
-     *
-     * @property \DateTimeInterface EndDate
-     */
-
     /**
      * Get the resource uri of the class (Contacts) etc.
      *

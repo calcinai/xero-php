@@ -4,13 +4,12 @@ namespace XeroPHP\Models\PracticeManager\Model;
 
 use XeroPHP\Remote;
 
+/**
+ * @property string $ID
+ * @property string $Name
+ */
 abstract class IdAndNameModel extends Remote\Model
 {
-    /**
-     * @property string ID
-     * @property string Name
-     */
-
     /**
      * Get the resource uri of the class (AccountManagers) etc.
      *

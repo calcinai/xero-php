@@ -5,79 +5,22 @@ namespace XeroPHP\Models\Accounting;
 use XeroPHP\Remote;
 use XeroPHP\Models\Accounting\TaxRate\TaxComponent;
 
+/**
+ * @property string $Name Name of tax rate.
+ * @property string $TaxType See Tax Types – can only be used on update calls.
+ * @property TaxComponent[] $TaxComponents See TaxComponents.
+ * @property string $Status See Status Codes.
+ * @property string $ReportTaxType See ReportTaxTypes.
+ * @property bool $CanApplyToAssets Boolean to describe if tax rate can be used for asset accounts i.e. true,false.
+ * @property bool $CanApplyToEquity Boolean to describe if tax rate can be used for equity accounts i.e. true,false.
+ * @property bool $CanApplyToExpenses Boolean to describe if tax rate can be used for expense accounts i.e. true,false.
+ * @property bool $CanApplyToLiabilities Boolean to describe if tax rate can be used for liability accounts i.e. true,false.
+ * @property bool $CanApplyToRevenue Boolean to describe if tax rate can be used for revenue accounts i.e. true,false.
+ * @property float $DisplayTaxRate Tax Rate (decimal to 4dp) e.g 12.5000.
+ * @property float $EffectiveRate Effective Tax Rate (decimal to 4dp) e.g 12.5000.
+ */
 class TaxRate extends Remote\Model
 {
-    /**
-     * Name of tax rate.
-     *
-     * @property string Name
-     */
-
-    /**
-     * See Tax Types – can only be used on update calls.
-     *
-     * @property string TaxType
-     */
-
-    /**
-     * See TaxComponents.
-     *
-     * @property TaxComponent[] TaxComponents
-     */
-
-    /**
-     * See Status Codes.
-     *
-     * @property string Status
-     */
-
-    /**
-     * See ReportTaxTypes.
-     *
-     * @property string ReportTaxType
-     */
-
-    /**
-     * Boolean to describe if tax rate can be used for asset accounts i.e. true,false.
-     *
-     * @property bool CanApplyToAssets
-     */
-
-    /**
-     * Boolean to describe if tax rate can be used for equity accounts i.e. true,false.
-     *
-     * @property bool CanApplyToEquity
-     */
-
-    /**
-     * Boolean to describe if tax rate can be used for expense accounts i.e. true,false.
-     *
-     * @property bool CanApplyToExpenses
-     */
-
-    /**
-     * Boolean to describe if tax rate can be used for liability accounts i.e. true,false.
-     *
-     * @property bool CanApplyToLiabilities
-     */
-
-    /**
-     * Boolean to describe if tax rate can be used for revenue accounts i.e. true,false.
-     *
-     * @property bool CanApplyToRevenue
-     */
-
-    /**
-     * Tax Rate (decimal to 4dp) e.g 12.5000.
-     *
-     * @property float DisplayTaxRate
-     */
-
-    /**
-     * Effective Tax Rate (decimal to 4dp) e.g 12.5000.
-     *
-     * @property float EffectiveRate
-     */
     const TAX_STATUS_ACTIVE = 'ACTIVE';
 
     const TAX_STATUS_DELETED = 'DELETED';

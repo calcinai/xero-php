@@ -4,56 +4,18 @@ namespace XeroPHP\Models\PayrollUS;
 
 use XeroPHP\Remote;
 
+/**
+ * @property string $StreetAddress Street address of the work location (max length = 400).
+ * @property string $City The city name of the address (max length = 50).
+ * @property string $State The state name of the address.
+ * @property string $Latitude The latitude of the address.
+ * @property string $Longitude The longitude of the address.
+ * @property string $WorkLocationID Xero identifier for a work location.
+ * @property string $SuitOrAptOrUnit Suite or apartment or unit information (max length = 50).
+ * @property string $IsPrimary Set to true to make this the primary work location.
+ */
 class WorkLocation extends Remote\Model
 {
-    /**
-     * Street address of the work location (max length = 400).
-     *
-     * @property string StreetAddress
-     */
-
-    /**
-     * The city name of the address (max length = 50).
-     *
-     * @property string City
-     */
-
-    /**
-     * The state name of the address.
-     *
-     * @property string State
-     */
-
-    /**
-     * The latitude of the address.
-     *
-     * @property string Latitude
-     */
-
-    /**
-     * The longitude of the address.
-     *
-     * @property string Longitude
-     */
-
-    /**
-     * Xero identifier for a work location.
-     *
-     * @property string WorkLocationID
-     */
-
-    /**
-     * Suite or apartment or unit information (max length = 50).
-     *
-     * @property string SuitOrAptOrUnit
-     */
-
-    /**
-     * Set to true to make this the primary work location.
-     *
-     * @property string IsPrimary
-     */
-
     /**
      * Get the resource uri of the class (Contacts) etc.
      *

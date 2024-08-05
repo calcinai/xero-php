@@ -7,98 +7,25 @@ use XeroPHP\Models\PayrollAU\Payslip\EarningsLine;
 use XeroPHP\Models\PayrollAU\Payslip\DeductionLine;
 use XeroPHP\Models\PayrollAU\Payslip\ReimbursementLine;
 
+/**
+ * @property \DateTimeInterface $OpeningBalanceDate Opening Balance Date. (YYYY-MM-DD).
+ * @property string $Tax Opening Balance tax.
+ * @property EarningsLine[] $EarningsLines The EarningsLines of the OpeningBalance.
+ * @property DeductionLine[] $DeductionLines The DeductionLines of the OpeningBalance.
+ * @property string $SuperLines The SuperLines of the OpeningBalance.
+ * @property ReimbursementLine[] $ReimbursementLines The ReimbursementLines of the OpeningBalance.
+ * @property string $LeaveLines The LeaveLines of the OpeningBalance.
+ * @property string $EarningsRateID Xero earnings rate identifier.
+ * @property float $Amount Reimbursement type amount.
+ * @property string $DeductionTypeID Xero deduction type identifier.
+ * @property string $SuperMembershipID Xero super membership ID.
+ * @property string $CalculationType Calculation type for Super line.
+ * @property string $ReimbursementTypeID Xero reimbursement type identifier.
+ * @property string $LeaveTypeID Xero leave type identifier.
+ * @property string $NumberOfUnits Leave number of units.
+ */
 class OpeningBalance extends Remote\Model
 {
-    /**
-     * Opening Balance Date. (YYYY-MM-DD).
-     *
-     * @property \DateTimeInterface OpeningBalanceDate
-     */
-
-    /**
-     * Opening Balance tax.
-     *
-     * @property string Tax
-     */
-
-    /**
-     * The EarningsLines of the OpeningBalance.
-     *
-     * @property EarningsLine[] EarningsLines
-     */
-
-    /**
-     * The DeductionLines of the OpeningBalance.
-     *
-     * @property DeductionLine[] DeductionLines
-     */
-
-    /**
-     * The SuperLines of the OpeningBalance.
-     *
-     * @property string SuperLines
-     */
-
-    /**
-     * The ReimbursementLines of the OpeningBalance.
-     *
-     * @property ReimbursementLine[] ReimbursementLines
-     */
-
-    /**
-     * The LeaveLines of the OpeningBalance.
-     *
-     * @property string LeaveLines
-     */
-
-    /**
-     * Xero earnings rate identifier.
-     *
-     * @property string EarningsRateID
-     */
-
-    /**
-     * Reimbursement type amount.
-     *
-     * @property float Amount
-     */
-
-    /**
-     * Xero deduction type identifier.
-     *
-     * @property string DeductionTypeID
-     */
-
-    /**
-     * Xero super membership ID.
-     *
-     * @property string SuperMembershipID
-     */
-
-    /**
-     * Calculation type for Super line.
-     *
-     * @property string CalculationType
-     */
-
-    /**
-     * Xero reimbursement type identifier.
-     *
-     * @property string ReimbursementTypeID
-     */
-
-    /**
-     * Xero leave type identifier.
-     *
-     * @property string LeaveTypeID
-     */
-
-    /**
-     * Leave number of units.
-     *
-     * @property string NumberOfUnits
-     */
-
     /**
      * Get the resource uri of the class (Contacts) etc.
      *

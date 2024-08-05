@@ -4,22 +4,12 @@ namespace XeroPHP\Models\Accounting;
 
 use XeroPHP\Remote;
 
+/**
+ * @property string $PaymentServiceID Xero identifier
+ * @property string $Name Name of Payment Service
+ */
 class PaymentService extends Remote\Model
 {
-
-    /**
-     * Xero identifier
-     *
-     * @property string PaymentServiceID
-     */
-
-    /**
-     * Name of Payment Service
-     *
-     * @property string Name
-     */
-
-
     /**
      * Get the resource uri of the class (Contacts) etc
      *

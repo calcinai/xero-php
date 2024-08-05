@@ -5,102 +5,24 @@ namespace XeroPHP\Models\Accounting;
 use XeroPHP\Remote;
 use XeroPHP\Models\Accounting\TrackingCategory;
 
+/**
+ * @property string $LineItemID The Xero generated identifier for a LineItem. If LineItemIDs are not included with line items in an update request then the line items are deleted and recreated.
+ * @property string $Description Description needs to be at least 1 char long. A line item with just a description (i.e no unit amount or quantity) can be created by specifying just a <Description> element that contains at least 1 character.
+ * @property string $Quantity LineItem Quantity (max length = 13).
+ * @property float $UnitAmount Lineitem unit amount. By default, unit amount will be rounded to two decimal places. You can opt in to use four decimal places by adding the querystring parameter unitdp=4 to your query. See the Rounding in Xero guide for more information.
+ * @property string $ItemCode See Items.
+ * @property string $AccountCode See Accounts.
+ * @property string $AccountId See Accounts.
+ * @property string $TaxType Used as an override if the default Tax Code for the selected <AccountCode> is not correct – see TaxTypes.
+ * @property float $TaxAmount The tax amount is auto calculated as a percentage of the LineAmount based on the tax rate. This value can be overriden if the calculated <TaxAmount> is not correct.
+ * @property float $LineAmount The line amount reflects the discounted price if a DiscountRate has been used i.e LineAmount = Quantity Unit Amount ((100 – DiscountRate)/100)  (can’t exceed 9,999,999,999.99).
+ * @property TrackingCategory[] $Tracking Optional Tracking Category – see Tracking. Any LineItem can have a maximum of 2 <TrackingCategory> elements.
+ * @property string $DiscountRate Percentage discount being applied to a line item (only supported on ACCREC invoices – ACC PAY invoices and credit notes in Xero do not support discounts.
+ * @property float $DiscountAmount Discount amount being applied to a line item.
+ * @property string $RepeatingInvoiceID The Xero identifier for a Repeating Invoice.
+ */
 class LineItem extends Remote\Model
 {
-    /**
-     * The Xero generated identifier for a LineItem. If LineItemIDs are not included with line items in an
-     * update request then the line items are deleted and recreated.
-     *
-     * @property string LineItemID
-     */
-
-    /**
-     * Description needs to be at least 1 char long. A line item with just a description (i.e no unit
-     * amount or quantity) can be created by specifying just a <Description> element that
-     * contains at least 1 character.
-     *
-     * @property string Description
-     */
-
-    /**
-     * LineItem Quantity (max length = 13).
-     *
-     * @property string Quantity
-     */
-
-    /**
-     * Lineitem unit amount. By default, unit amount will be rounded to two decimal places. You can opt in
-     * to use four decimal places by adding the querystring parameter unitdp=4 to your query. See the
-     * Rounding in Xero guide for more information.
-     *
-     * @property float UnitAmount
-     */
-
-    /**
-     * See Items.
-     *
-     * @property string ItemCode
-     */
-
-    /**
-     * See Accounts.
-     *
-     * @property string AccountCode
-     */
-
-    /**
-     * See Accounts.
-     * 
-     * @property string AccountId
-     */
-
-    /**
-     * Used as an override if the default Tax Code for the selected <AccountCode> is not correct – see
-     * TaxTypes.
-     *
-     * @property string TaxType
-     */
-
-    /**
-     * The tax amount is auto calculated as a percentage of the LineAmount based on the tax
-     * rate. This value can be overriden if the calculated <TaxAmount> is not correct.
-     *
-     * @property float TaxAmount
-     */
-
-    /**
-     * The line amount reflects the discounted price if a DiscountRate has been used i.e LineAmount =
-     * Quantity * Unit Amount * ((100 – DiscountRate)/100)  (can’t exceed 9,999,999,999.99).
-     *
-     * @property float LineAmount
-     */
-
-    /**
-     * Optional Tracking Category – see Tracking. Any LineItem can have a maximum of 2 <TrackingCategory>
-     * elements.
-     *
-     * @property TrackingCategory[] Tracking
-     */
-
-    /**
-     * Percentage discount being applied to a line item (only supported on ACCREC invoices – ACC PAY
-     * invoices and credit notes in Xero do not support discounts.
-     *
-     * @property string DiscountRate
-     */
-
-    /**
-     * Discount amount being applied to a line item.
-     *
-     * @property float DiscountAmount
-     */
-
-    /**
-     * The Xero identifier for a Repeating Invoice.
-     *
-     * @property string RepeatingInvoiceID
-     */
-
     const TYPE_EXCLUSIVE = 'Exclusive';
 
     const TYPE_INCLUSIVE = 'Inclusive';

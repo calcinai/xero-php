@@ -6,69 +6,22 @@ use XeroPHP\Remote;
 use XeroPHP\Traits\AttachmentTrait;
 use XeroPHP\Models\Accounting\ManualJournal\JournalLine;
 
+/**
+ * @property string $ManualJournalID Xero identifier.
+ * @property string $Narration Description of journal being posted.
+ * @property JournalLine[] $JournalLines See JournalLines.
+ * @property \DateTimeInterface $Date Date journal was posted – YYYY-MM-DD.
+ * @property string $LineAmountTypes NoTax by default if you don’t specify this element. See Line Amount Types.
+ * @property string $Status See Manual Journal Status Codes.
+ * @property string $Url Url link to a source document – shown as “Go to [appName]” in the Xero app.
+ * @property bool $ShowOnCashBasisReports Boolean – default is true if not specified.
+ * @property bool $HasAttachments Boolean to indicate if a manual journal has an attachment.
+ * @property \DateTimeInterface $UpdatedDateUTC Last modified date UTC format.
+ */
 class ManualJournal extends Remote\Model
 {
     use AttachmentTrait;
 
-    /**
-     * Xero identifier.
-     *
-     * @property string ManualJournalID
-     */
-
-    /**
-     * Description of journal being posted.
-     *
-     * @property string Narration
-     */
-
-    /**
-     * See JournalLines.
-     *
-     * @property JournalLine[] JournalLines
-     */
-
-    /**
-     * Date journal was posted – YYYY-MM-DD.
-     *
-     * @property \DateTimeInterface Date
-     */
-
-    /**
-     * NoTax by default if you don’t specify this element. See Line Amount Types.
-     *
-     * @property string LineAmountTypes
-     */
-
-    /**
-     * See Manual Journal Status Codes.
-     *
-     * @property string Status
-     */
-
-    /**
-     * Url link to a source document – shown as “Go to [appName]” in the Xero app.
-     *
-     * @property string Url
-     */
-
-    /**
-     * Boolean – default is true if not specified.
-     *
-     * @property bool ShowOnCashBasisReports
-     */
-
-    /**
-     * Boolean to indicate if a manual journal has an attachment.
-     *
-     * @property bool HasAttachments
-     */
-
-    /**
-     * Last modified date UTC format.
-     *
-     * @property \DateTimeInterface UpdatedDateUTC
-     */
     const MANUAL_JOURNAL_STATUS_DRAFT = 'DRAFT';
 
     const MANUAL_JOURNAL_STATUS_POSTED = 'POSTED';

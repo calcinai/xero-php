@@ -4,28 +4,13 @@ namespace XeroPHP\Models\Files;
 
 use XeroPHP\Remote;
 
+/**
+ * @property string $ObjectId The identifier of the object that the file is being associated with (e.g. InvoiceID, BankTransactionID, ContactID).
+ * @property string $ObjectGroup The Object Group that the object is in. These roughly correlate to the endpoints that can be used to retrieve the object via the core accounting API.
+ * @property string $ObjectType The Object Type.
+ */
 class Association extends Remote\Model
 {
-    /**
-     * The identifier of the object that the file is being associated with (e.g. InvoiceID,
-     * BankTransactionID, ContactID).
-     *
-     * @property string ObjectId
-     */
-
-    /**
-     * The Object Group that the object is in. These roughly correlate to the endpoints that can be used to
-     * retrieve the object via the core accounting API.
-     *
-     * @property string ObjectGroup
-     */
-
-    /**
-     * The Object Type.
-     *
-     * @property string ObjectType
-     */
-
     /**
      * Get the resource uri of the class (Contacts) etc.
      *

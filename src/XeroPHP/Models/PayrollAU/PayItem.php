@@ -8,32 +8,14 @@ use XeroPHP\Models\PayrollAU\PayItem\EarningsRate;
 use XeroPHP\Models\PayrollAU\PayItem\DeductionType;
 use XeroPHP\Models\PayrollAU\PayItem\ReimbursementType;
 
+/**
+ * @property EarningsRate[] $EarningsRates See EarningsRates.
+ * @property DeductionType[] $DeductionTypes See DeductionTypes.
+ * @property LeaveType[] $LeaveTypes See LeaveTypes.
+ * @property ReimbursementType[] $ReimbursementTypes See ReimbursementTypes.
+ */
 class PayItem extends Remote\Model
 {
-    /**
-     * See EarningsRates.
-     *
-     * @property EarningsRate[] EarningsRates
-     */
-
-    /**
-     * See DeductionTypes.
-     *
-     * @property DeductionType[] DeductionTypes
-     */
-
-    /**
-     * See LeaveTypes.
-     *
-     * @property LeaveType[] LeaveTypes
-     */
-
-    /**
-     * See ReimbursementTypes.
-     *
-     * @property ReimbursementType[] ReimbursementTypes
-     */
-
     /**
      * Get the resource uri of the class (Contacts) etc.
      *

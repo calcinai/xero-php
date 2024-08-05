@@ -8,129 +8,32 @@ use XeroPHP\Traits\AttachmentTrait;
 use XeroPHP\Models\Accounting\LineItem;
 use XeroPHP\Models\Accounting\Overpayment\Allocation;
 
+/**
+ * @property string $Type See Overpayment Types.
+ * @property Contact $Contact See Contacts.
+ * @property \DateTimeInterface $Date The date the overpayment is created YYYY-MM-DD.
+ * @property string $Status See Overpayment Status Codes.
+ * @property string $LineAmountTypes See Overpayment Line Amount Types.
+ * @property LineItem[] $LineItems See Overpayment Line Items.
+ * @property float $SubTotal The subtotal of the overpayment excluding taxes.
+ * @property float $TotalTax The total tax on the overpayment.
+ * @property float $Total The total of the overpayment (subtotal + total tax).
+ * @property \DateTimeInterface $UpdatedDateUTC UTC timestamp of last update to the overpayment.
+ * @property string $CurrencyCode Currency used for the overpayment.
+ * @property string $OverpaymentID Xero generated unique identifier.
+ * @property float $CurrencyRate The currency rate for a multicurrency overpayment. If no rate is specified, the XE.com day rate is used.
+ * @property string $RemainingCredit The remaining credit balance on the overpayment.
+ * @property Allocation[] $Allocations See Allocations.
+ * @property Payment[] $Payments See Payments.
+ * @property bool $HasAttachments boolean to indicate if a overpayment has an attachment.
+ * @property string $Reference Deprecated: this property has been removed from the Xero API.
+ * @property string $FullyPaidOnDate Deprecated: this property has been removed from the Xero API.
+ */
 class Overpayment extends Remote\Model
 {
     use AttachmentTrait;
     use HistoryTrait;
 
-    /**
-     * This property has been removed from the Xero API.
-     *
-     * @property string Reference
-     *
-     * @deprecated
-     */
-
-    /**
-     * See Overpayment Types.
-     *
-     * @property string Type
-     */
-
-    /**
-     * See Contacts.
-     *
-     * @property Contact Contact
-     */
-
-    /**
-     * The date the overpayment is created YYYY-MM-DD.
-     *
-     * @property \DateTimeInterface Date
-     */
-
-    /**
-     * See Overpayment Status Codes.
-     *
-     * @property string Status
-     */
-
-    /**
-     * See Overpayment Line Amount Types.
-     *
-     * @property string LineAmountTypes
-     */
-
-    /**
-     * See Overpayment Line Items.
-     *
-     * @property LineItem[] LineItems
-     */
-
-    /**
-     * The subtotal of the overpayment excluding taxes.
-     *
-     * @property float SubTotal
-     */
-
-    /**
-     * The total tax on the overpayment.
-     *
-     * @property float TotalTax
-     */
-
-    /**
-     * The total of the overpayment (subtotal + total tax).
-     *
-     * @property float Total
-     */
-
-    /**
-     * UTC timestamp of last update to the overpayment.
-     *
-     * @property \DateTimeInterface UpdatedDateUTC
-     */
-
-    /**
-     * Currency used for the overpayment.
-     *
-     * @property string CurrencyCode
-     */
-
-    /**
-     * This property has been removed from the Xero API.
-     *
-     * @property string FullyPaidOnDate
-     *
-     * @deprecated
-     */
-
-    /**
-     * Xero generated unique identifier.
-     *
-     * @property string OverpaymentID
-     */
-
-    /**
-     * The currency rate for a multicurrency overpayment. If no rate is specified, the XE.com day rate is
-     * used.
-     *
-     * @property float CurrencyRate
-     */
-
-    /**
-     * The remaining credit balance on the overpayment.
-     *
-     * @property string RemainingCredit
-     */
-
-    /**
-     * See Allocations.
-     *
-     * @property Allocation[] Allocations
-     */
-
-    /**
-     * See Payments.
-     *
-     * @property Payment[] Payments
-     */
-
-    /**
-     * boolean to indicate if a overpayment has an attachment.
-     *
-     * @property bool HasAttachments
-     */
     const TYPE_RECEIVE_OVERPAYMENT = 'RECEIVE-OVERPAYMENT';
 
     const TYPE_SPEND_OVERPAYMENT = 'SPEND-OVERPAYMENT';

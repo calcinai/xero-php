@@ -14,84 +14,70 @@ use XeroPHP\Models\PracticeManager\Client\Type;
 use XeroPHP\Remote;
 use XeroPHP\Traits\PracticeManager\CustomFieldValueTrait;
 
+/**
+ * @property string $ID
+ * @property string $Name
+ * @property string $Title
+ * @property string $FirstName
+ * @property string $LastName
+ * @property string $OtherName
+ * @property string $DateOfBirth
+ * @property string $Email
+ * @property string $Address
+ * @property string $City
+ * @property string $Region
+ * @property string $PostCode
+ * @property string $Country
+ * @property string $PostalAddress
+ * @property string $PostalCity
+ * @property string $PostalRegion
+ * @property string $PostalPostCode
+ * @property string $PostalCountry
+ * @property string $Phone
+ * @property string $Fax
+ * @property string $Website
+ * @property string $ReferralSource
+ * @property string $ExportCode
+ * @property string $IsProspect
+ * @property string $IsDeleted
+ * @property string $IsArchived
+ * @property string $TaxNumber where the tax number is masked with *** except last 3 digits
+ * @property string $CompanyNumber
+ * @property string $BusinessNumber
+ * @property string $BranchNumber
+ * @property string $BusinessStructure e.g. Individual, Company, Trust, etc
+ * @property string $BalanceMonth
+ * @property string $PrepareGST Yes or No
+ * @property string $GSTRegistered Yes or No
+ * @property string $GSTPeriod Monthly, 2 Monthly, 6 Monthly
+ * @property string $GSTBasis Standard Option, Estimate Option, Ratio Option
+ * @property string $ProvisionalTaxBasis
+ * @property string $ProvisionalTaxRatio
+ * @property string $SignedTaxAuthority Yes or No
+ * @property string $TaxAgent
+ * @property string $AgencyStatus With EOT, Without EOT, Unlinked
+ * @property string $ReturnType IR3, IR3NR, IR4, IR6, IR7, IR9, PTS
+ *
+ * The following fields apply to AU clients only.
+ * @property string $PrepareActivityStatement Yes or No
+ * @property string $PrepareTaxReturn Yes or No
+ * @property string $ActiveAtoClient
+ * @property string $ClientCode
+ * @property string $AgencyStatus
+ *
+ * @property Contact[] $Contacts
+ * @property AccountManager $AccountManager
+ * @property JobManager $JobManager
+ * @property AutoBasOptInCriteria $AutoBasOptInCriteria
+ * @property Type $Type
+ * @property BillingClient $BillingClient
+ * @property Note[] $Notes
+ * @property Group[] $Groups
+ * @property Relationship[] $Relationship
+ */
 class Client extends Remote\Model
 {
     use CustomFieldValueTrait;
-
-    /**
-     * @property string ID
-     * @property string Name
-     * @property string Title
-     * @property string FirstName
-     * @property string LastName
-     * @property string OtherName
-     * @property string DateOfBirth
-     * @property string Email
-     * @property string Address
-     * @property string City
-     * @property string Region
-     * @property string PostCode
-     * @property string Country
-     * @property string PostalAddress
-     * @property string PostalCity
-     * @property string PostalRegion
-     * @property string PostalPostCode
-     * @property string PostalCountry
-     * @property string Phone
-     * @property string Fax
-     * @property string Website
-     * @property string ReferralSource
-     * @property string ExportCode
-     * @property string IsProspect
-     * @property string IsDeleted
-     * @property string IsArchived
-     * where the tax number is masked with *** except last 3 digits
-     * @property string TaxNumber
-     * @property string CompanyNumber
-     * @property string BusinessNumber
-     * @property string BranchNumber
-     * e.g. Individual, Company, Trust, etc
-     * @property string BusinessStructure
-     * @property string BalanceMonth
-     * Yes or No
-     * @property string PrepareGST
-     * Yes or No
-     * @property string GSTRegistered
-     * Monthly, 2 Monthly, 6 Monthly
-     * @property string GSTPeriod
-     * Invoice, Payment, Hybrid
-     * @property string GSTBasis
-     * Standard Option, Estimate Option, Ratio Option
-     * @property string ProvisionalTaxBasis
-     * @property string ProvisionalTaxRatio
-     * Yes or No
-     * @property string SignedTaxAuthority
-     * @property string TaxAgent
-     * With EOT, Without EOT, Unlinked
-     * @property string AgencyStatus
-     * IR3, IR3NR, IR4, IR6, IR7, IR9, PTS
-     * @property string ReturnType
-     * The following fields apply to AU clients only
-     * Yes or No
-     * @property string PrepareActivityStatement
-     * Yes or No
-     * @property string PrepareTaxReturn
-     * @property string ActiveAtoClient
-     * @property string ClientCode
-     * @property string AgencyStatus
-     * @property string AgencyStatus
-     *
-     * Related Objects
-     * @property Contact[] Contacts
-     * @property AccountManager AccountManager
-     * @property JobManager JobManager
-     * @property AutoBasOptInCriteria AutoBasOptInCriteria
-     * @property Type Type
-     * @property BillingClient BillingClient
-     * @property Note[] Notes
-     * @property Group[] Groups
-     * @property Relationship[] Relationship
-     */
 
     /**
      * Get the resource uri of the class (Clients) etc.

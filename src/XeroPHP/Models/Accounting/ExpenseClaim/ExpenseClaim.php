@@ -5,68 +5,20 @@ namespace XeroPHP\Models\Accounting\ExpenseClaim;
 use XeroPHP\Remote;
 use XeroPHP\Models\Accounting\Payment;
 
+/**
+ * @property string $ExpenseClaimID Xero generated unique identifier for an expense claim.
+ * @property Payment[] $Payments See Payments.
+ * @property string $Status Current status of an expense claim – see status types.
+ * @property \DateTimeInterface $UpdatedDateUTC Last modified date UTC format.
+ * @property float $Total The total of an expense claim being paid.
+ * @property float $AmountDue The amount due to be paid for an expense claim.
+ * @property float $AmountPaid The amount still to pay for an expense claim.
+ * @property \DateTimeInterface $PaymentDueDate The date when the expense claim is due to be paid YYYY-MM-DD.
+ * @property \DateTimeInterface $ReportingDate The date the expense claim will be reported in Xero YYYY-MM-DD.
+ * @property string $ReceiptID The Xero identifier for the Receipt e.g. e59a2c7f-1306-4078-a0f3-73537afcbba9.
+ */
 class ExpenseClaim extends Remote\Model
 {
-    /**
-     * Xero generated unique identifier for an expense claim.
-     *
-     * @property string ExpenseClaimID
-     */
-
-    /**
-     * See Payments.
-     *
-     * @property Payment[] Payments
-     */
-
-    /**
-     * Current status of an expense claim – see status types.
-     *
-     * @property string Status
-     */
-
-    /**
-     * Last modified date UTC format.
-     *
-     * @property \DateTimeInterface UpdatedDateUTC
-     */
-
-    /**
-     * The total of an expense claim being paid.
-     *
-     * @property float Total
-     */
-
-    /**
-     * The amount due to be paid for an expense claim.
-     *
-     * @property float AmountDue
-     */
-
-    /**
-     * The amount still to pay for an expense claim.
-     *
-     * @property float AmountPaid
-     */
-
-    /**
-     * The date when the expense claim is due to be paid YYYY-MM-DD.
-     *
-     * @property \DateTimeInterface PaymentDueDate
-     */
-
-    /**
-     * The date the expense claim will be reported in Xero YYYY-MM-DD.
-     *
-     * @property \DateTimeInterface ReportingDate
-     */
-
-    /**
-     * The Xero identifier for the Receipt e.g. e59a2c7f-1306-4078-a0f3-73537afcbba9.
-     *
-     * @property string ReceiptID
-     */
-
     /**
      * Get the resource uri of the class (Contacts) etc.
      *

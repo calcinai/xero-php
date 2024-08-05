@@ -4,35 +4,14 @@ namespace XeroPHP\Models\PayrollAU;
 
 use XeroPHP\Remote;
 
+/**
+ * @property string $ABN The ABN of the Regulated SuperFund (e.g 40022701955).
+ * @property string $USI The USI of the Regulated SuperFund (e.g 40022701955001).
+ * @property string $ProductName The name of the Regulated SuperFund.
+ * @property string $SPIN The SPIN of the Regulated SuperFund. (e.g NML0117AU) This field has been deprecated. New superfunds will not have a SPIN value. The USI field should be used instead of SPIN.
+ */
 class SuperFundProduct extends Remote\Model
 {
-    /**
-     * The ABN of the Regulated SuperFund (e.g 40022701955).
-     *
-     * @property string ABN
-     */
-
-    /**
-     * The USI of the Regulated SuperFund (e.g 40022701955001).
-     *
-     * @property string USI
-     */
-
-    /**
-     * The SPIN of the Regulated SuperFund. (e.g NML0117AU) This field has been deprecated.  New superfunds
-     * will not have a SPIN value.  The USI field should be used instead of SPIN.
-     *
-     * @property string SPIN
-     *
-     * @deprecated
-     */
-
-    /**
-     * The name of the Regulated SuperFund.
-     *
-     * @property string ProductName
-     */
-
     /**
      * Get the resource uri of the class (Contacts) etc.
      *

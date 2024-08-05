@@ -8,137 +8,33 @@ use XeroPHP\Traits\AttachmentTrait;
 use XeroPHP\Models\Accounting\LineItem;
 use XeroPHP\Models\Accounting\BankTransaction\BankAccount;
 
+/**
+ * @property string $Type See Bank Transaction Types.
+ * @property Contact $Contact See Contacts.
+ * @property LineItem[] $LineItems See LineItems.
+ * @property BankAccount $BankAccount Bank account for transaction. See BankAccount.
+ * @property bool $IsReconciled Boolean to show if transaction is reconciled.
+ * @property \DateTimeInterface $Date Date of transaction – YYYY-MM-DD.
+ * @property string $Reference Reference for the transaction. Only supported for SPEND and RECEIVE transactions.
+ * @property string $CurrencyCode The currency that bank transaction has been raised in (see Currencies). Setting currency is only supported on overpayments.
+ * @property float $CurrencyRate Exchange rate to base currency when money is spent or received. e.g. 0.7500 Only used for bank transactions in non base currency. If this isn’t specified for non base currency accounts then either the user-defined rate (preference) or the XE.com day rate will be used. Setting currency is only supported on overpayments.
+ * @property string $Url URL link to a source document – shown as “Go to App Name”.
+ * @property string $Status See Bank Transaction Status Codes.
+ * @property string $LineAmountTypes Line amounts are exclusive of tax by default if you don’t specify this element. See Line Amount Types.
+ * @property float $SubTotal Total of bank transaction excluding taxes.
+ * @property float $TotalTax Total tax on bank transaction.
+ * @property float $Total Total of bank transaction tax inclusive.
+ * @property string $BankTransactionID Xero generated unique identifier for bank transaction.
+ * @property string $PrepaymentID Xero generated unique identifier for a Prepayment. This will be returned on BankTransactions with a Type of SPEND-PREPAYMENT or RECEIVE-PREPAYMENT.
+ * @property string $OverpaymentID Xero generated unique identifier for an Overpayment. This will be returned on BankTransactions with a Type of SPEND-OVERPAYMENT or RECEIVE-OVERPAYMENT.
+ * @property \DateTimeInterface $UpdatedDateUTC Last modified date UTC format.
+ * @property bool $HasAttachments Boolean to indicate if a bank transaction has an attachment.
+ */
 class BankTransaction extends Remote\Model
 {
     use AttachmentTrait;
     use HistoryTrait;
 
-    /**
-     * See Bank Transaction Types.
-     *
-     * @property string Type
-     */
-
-    /**
-     * See Contacts.
-     *
-     * @property Contact Contact
-     */
-
-    /**
-     * See LineItems.
-     *
-     * @property LineItem[] LineItems
-     */
-
-    /**
-     * Bank account for transaction. See BankAccount.
-     *
-     * @property BankAccount BankAccount
-     */
-
-    /**
-     * Boolean to show if transaction is reconciled.
-     *
-     * @property bool IsReconciled
-     */
-
-    /**
-     * Date of transaction – YYYY-MM-DD.
-     *
-     * @property \DateTimeInterface Date
-     */
-
-    /**
-     * Reference for the transaction. Only supported for SPEND and RECEIVE transactions.
-     *
-     * @property string Reference
-     */
-
-    /**
-     * The currency that bank transaction has been raised in (see Currencies). Setting currency is only
-     * supported on overpayments.
-     *
-     * @property string CurrencyCode
-     */
-
-    /**
-     * Exchange rate to base currency when money is spent or received. e.g. 0.7500 Only used for bank
-     * transactions in non base currency. If this isn’t specified for non base currency accounts then
-     * either the user-defined rate (preference) or the XE.com day rate will be used. Setting currency is
-     * only supported on overpayments.
-     *
-     * @property float CurrencyRate
-     */
-
-    /**
-     * URL link to a source document – shown as “Go to App Name”.
-     *
-     * @property string Url
-     */
-
-    /**
-     * See Bank Transaction Status Codes.
-     *
-     * @property string Status
-     */
-
-    /**
-     * Line amounts are exclusive of tax by default if you don’t specify this element. See Line Amount
-     * Types.
-     *
-     * @property string LineAmountTypes
-     */
-
-    /**
-     * Total of bank transaction excluding taxes.
-     *
-     * @property float SubTotal
-     */
-
-    /**
-     * Total tax on bank transaction.
-     *
-     * @property float TotalTax
-     */
-
-    /**
-     * Total of bank transaction tax inclusive.
-     *
-     * @property float Total
-     */
-
-    /**
-     * Xero generated unique identifier for bank transaction.
-     *
-     * @property string BankTransactionID
-     */
-
-    /**
-     * Xero generated unique identifier for a Prepayment. This will be returned on BankTransactions with a
-     * Type of SPEND-PREPAYMENT or RECEIVE-PREPAYMENT.
-     *
-     * @property string PrepaymentID
-     */
-
-    /**
-     * Xero generated unique identifier for an Overpayment. This will be returned on BankTransactions with
-     * a Type of SPEND-OVERPAYMENT or RECEIVE-OVERPAYMENT.
-     *
-     * @property string OverpaymentID
-     */
-
-    /**
-     * Last modified date UTC format.
-     *
-     * @property \DateTimeInterface UpdatedDateUTC
-     */
-
-    /**
-     * Boolean to indicate if a bank transaction has an attachment.
-     *
-     * @property bool HasAttachments
-     */
     const TYPE_RECEIVE = 'RECEIVE';
 
     const TYPE_RECEIVE_OVERPAYMENT = 'RECEIVE-OVERPAYMENT';

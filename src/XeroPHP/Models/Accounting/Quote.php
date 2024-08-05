@@ -8,131 +8,33 @@ use XeroPHP\Traits\PDFTrait;
 use XeroPHP\Traits\HistoryTrait;
 use XeroPHP\Models\Accounting\LineItem;
 
+/**
+ * @property Contact $Contact See Contacts
+ * @property \DateTimeInterface $Date Date quote was issued – YYYY-MM-DD
+ * @property \DateTimeInterface $ExpiryDate Date quote expires – YYYY-MM-DD
+ * @property string $Status 	See Quote Status Codes
+ * @property string $LineAmountTypes See Line Amount Types
+ * @property LineItem[] $LineItems See LineItems. The LineItems collection can contain any number of individual LineItem sub-elements.
+ * @property float $SubTotal Total of quote excluding taxes
+ * @property float $TotalTax Total tax on quote
+ * @property float $Total Total of Quote tax inclusive (i.e. SubTotal + TotalTax)
+ * @property float $TotalDiscount Total of discounts applied on the quote line items
+ * @property \DateTimeInterface $UpdatedDateUTC Last modified date UTC format.
+ * @property string $CurrencyCode The currency that quote has been raised in (see Currencies).
+ * @property float $CurrencyRate The currency rate for a multicurrency quote
+ * @property string $QuoteID Xero generated unique identifier for a quote
+ * @property string $QuoteNumber Unique alpha numeric code identifying a quote
+ * @property string $Reference Additional reference number
+ * @property string $BrandingThemeID See BrandingThemes
+ * @property string $Title The title of the quote
+ * @property string $Summary The summary of the quote
+ * @property string $Terms The terms of the quote
+ */
 class Quote extends Remote\Model
 {
     use PDFTrait;
     use AttachmentTrait;
     use HistoryTrait;
-
-    /**
-     * See Contacts
-     *
-     * @property Contact Contact
-     */
-
-    /**
-     * Date quote was issued – YYYY-MM-DD
-     *
-     * @property \DateTimeInterface Date
-     */
-
-    /**
-     * Date quote expires – YYYY-MM-DD
-     *
-     * @property \DateTimeInterface ExpiryDate
-     */
-
-    /**
-     * 	See Quote Status Codes
-     *
-     * @property string Status
-     */
-
-    /**
-     * See Line Amount Types
-     *
-     * @property string LineAmountTypes
-     */
-
-    /**
-     * See LineItems. The LineItems collection can contain any number of individual LineItem sub-elements.
-     *
-     * @property LineItem[] LineItems
-     */
-
-    /**
-     * Total of quote excluding taxes
-     *
-     * @property float SubTotal
-     */
-
-    /**
-     * Total tax on quote
-     *
-     * @property float TotalTax
-     */
-
-    /**
-     * Total of Quote tax inclusive (i.e. SubTotal + TotalTax)
-     *
-     * @property float Total
-     */
-
-    /**
-     * Total of discounts applied on the quote line items
-     *
-     * @property float TotalDiscount
-     */
-
-    /**
-     * Last modified date UTC format.
-     *
-     * @property \DateTimeInterface UpdatedDateUTC
-     */
-
-    /**
-     * The currency that quote has been raised in (see Currencies).
-     *
-     * @property string CurrencyCode
-     */
-
-    /**
-     * The currency rate for a multicurrency quote
-     *
-     * @property float CurrencyRate
-     */
-
-    /**
-     * Xero generated unique identifier for a quote
-     *
-     * @property string QuoteID
-     */
-
-    /**
-     * Unique alpha numeric code identifying a quote
-     *
-     * @property string QuoteNumber
-     */
-
-    /**
-     * Additional reference number
-     *
-     * @property string Reference
-     */
-
-    /**
-     * See BrandingThemes
-     *
-     * @property string BrandingThemeID
-     */
-
-    /**
-     * The title of the quote
-     *
-     * @property string Title
-     */
-
-    /**
-     * The summary of the quote
-     *
-     * @property string Summary
-     */
-
-    /**
-     * The terms of the quote
-     *
-     * @property string Terms
-     */
 
     const QUOTE_STATUS_DRAFT = 'DRAFT';
 

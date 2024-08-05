@@ -4,19 +4,12 @@ namespace XeroPHP\Models\PayrollUS\Employee;
 
 use XeroPHP\Remote;
 
+/**
+ * @property string $PaymentMethodType See PaymentMethodTypes.
+ * @property BankAccount[] $BankAccounts The Bank accounts for the employee. Only Applies when PaymentMethodType is DIRECTDEPOSIT.
+ */
 class PaymentMethod extends Remote\Model
 {
-    /**
-     * See PaymentMethodTypes.
-     *
-     * @property string PaymentMethodType
-     */
-
-    /**
-     * The Bank accounts for the employee. Only Applies when PaymentMethodType is DIRECTDEPOSIT.
-     *
-     * @property BankAccount[] BankAccounts
-     */
     const PAYMENT_METHOD_TYPE_CHECK = 'CHECK';
 
     const PAYMENT_METHOD_TYPE_MANUAL = 'MANUAL';

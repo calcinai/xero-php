@@ -4,63 +4,20 @@ namespace XeroPHP\Models\PayrollAU\SuperFund;
 
 use XeroPHP\Remote;
 
+/**
+ * @property string $Type SMSF see Super Fund Types.
+ * @property string $Name Name of the super fund (max length = 76) e.g Clive Monk Superannuation Fund.
+ * @property string $ABN ABN of the self managed super fund. (max length = 11) e.g 839182848805.
+ * @property string $BSB BSB of the self managed super fund. (max length = 6) e.g 123123.
+ * @property string $AccountNumber The account number for the self managed super fund. (max length = 9) e.g 234324324.
+ * @property string $AccountName The account name for the self managed super fund (max length = 32) e.g Clive Monk Superannuation Fund.
+ * @property string $ElectronicServiceAddress The electronic service address for the self managed super fund (max length = 16).
+ * @property string $SuperFundID Xero identifier e.g c56b19ef-75bf-45e8-98a4-e699a96609f7.
+ * @property string $EmployerNumber Some funds assign a unique number to each employer (max length = 20).
+ * @property string $SPIN
+ */
 class SuperFund extends Remote\Model
 {
-    /**
-     * SMSF see Super Fund Types.
-     *
-     * @property string Type
-     */
-
-    /**
-     * Name of the super fund (max length = 76) e.g Clive Monk Superannuation Fund.
-     *
-     * @property string Name
-     */
-
-    /**
-     * ABN of the self managed super fund. (max length = 11) e.g 839182848805.
-     *
-     * @property string ABN
-     */
-
-    /**
-     * BSB of the self managed super fund. (max length = 6) e.g 123123.
-     *
-     * @property string BSB
-     */
-
-    /**
-     * The account number for the self managed super fund. (max length = 9) e.g 234324324.
-     *
-     * @property string AccountNumber
-     */
-
-    /**
-     * The account name for the self managed super fund (max length = 32) e.g Clive Monk Superannuation
-     * Fund.
-     *
-     * @property string AccountName
-     */
-
-    /**
-     * The electronic service address for the self managed super fund (max length = 16).
-     *
-     * @property string ElectronicServiceAddress
-     */
-
-    /**
-     * Xero identifier e.g c56b19ef-75bf-45e8-98a4-e699a96609f7.
-     *
-     * @property string SuperFundID
-     */
-
-    /**
-     * Some funds assign a unique number to each employer (max length = 20).
-     *
-     * @property string EmployerNumber
-     */
-
     /**
      * The SPIN of the Regulated SuperFund. This field has been deprecated.  It will only be present for
      * legacy superfunds.  New superfunds will not have a SPIN value.  The USI field should be used instead

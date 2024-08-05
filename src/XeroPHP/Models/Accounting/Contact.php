@@ -8,236 +8,49 @@ use XeroPHP\Traits\AttachmentTrait;
 use XeroPHP\Models\Accounting\Contact\ContactPerson;
 use XeroPHP\Models\Accounting\Organisation\PaymentTerm;
 
+/**
+ * @property string $ContactID Xero identifier.
+ * @property string $ContactNumber This can be updated via the API only i.e. This field is read only on the Xero contact screen, used to identify contacts in external systems (max length = 50). If the Contact Number is used, this is displayed as Contact Code in the Contacts UI in Xero.
+ * @property string $AccountNumber A user defined account number. This can be updated via the API and the Xero UI (max length = 50).
+ * @property string $ContactStatus Current status of a contact – see contact status types.
+ * @property string $Name Full name of contact/organisation (max length = 255).
+ * @property string $FirstName First name of contact person (max length = 255).
+ * @property string $LastName Last name of contact person (max length = 255).
+ * @property string $EmailAddress Email address of contact person (umlauts not supported) (max length = 255).
+ * @property string $SkypeUserName Skype user name of contact.
+ * @property ContactPerson[] $ContactPersons See contact persons.
+ * @property string $BankAccountDetails Bank account number of contact.
+ * @property string $TaxNumber Tax number of contact – this is also known as the ABN (Australia), GST Number (New Zealand), VAT Number (UK) or Tax ID Number (US and global) in the Xero UI depending on which regionalized version of Xero you are using (max length = 50).
+ * @property string $CompanyNumber Company registration number. Max 50 char.
+ * @property string $AccountsReceivableTaxType Default tax type used for contact on AR invoices.
+ * @property string $AccountsPayableTaxType Default tax type used for contact on AP invoices.
+ * @property Address[] $Addresses Store certain address types for a contact – see address types.
+ * @property Phone[] $Phones Store certain phone types for a contact – see phone types.
+ * @property bool $IsSupplier true or false – Boolean that describes if a contact that has any AP invoices entered against them. Cannot be set via PUT or POST – it is automatically set when an accounts payable invoice is generated against this contact.
+ * @property bool $IsCustomer true or false – Boolean that describes if a contact has any AR invoices entered against them. Cannot be set via PUT or POST – it is automatically set when an accounts receivable invoice is generated against this contact.
+ * @property string $DefaultCurrency Default currency for raising invoices against contact.
+ * @property string $XeroNetworkKey Store XeroNetworkKey for contacts.
+ * @property string $SalesDefaultAccountCode The default sales account code for contacts.
+ * @property string $PurchasesDefaultAccountCode The default purchases account code for contacts.
+ * @property TrackingCategory[] $SalesTrackingCategories The default sales tracking categories for contacts.
+ * @property TrackingCategory[] $PurchasesTrackingCategories The default purchases tracking categories for contacts.
+ * @property string $TrackingCategoryName The name of the Tracking Category assigned to the contact under SalesTrackingCategories and PurchasesTrackingCategories.
+ * @property string $TrackingCategoryOption The name of the Tracking Option assigned to the contact under SalesTrackingCategories and PurchasesTrackingCategories.
+ * @property PaymentTerm $PaymentTerms The default payment terms for the contact – see Payment Terms.
+ * @property \DateTimeInterface $UpdatedDateUTC UTC timestamp of last update to contact.
+ * @property ContactGroup[] $ContactGroups Displays which contact groups a contact is included in.
+ * @property string $Website Website address for contact (read only).
+ * @property BrandingTheme $BrandingTheme Default branding theme for contact (read only) – see Branding Themes.
+ * @property string $BatchPayments batch payment details for contact (read only).
+ * @property float $Discount The default discount rate for the contact (read only).
+ * @property string $Balances The raw AccountsReceivable(sales invoices) and AccountsPayable(bills) outstanding and overdue amounts, not converted to base currency (read only).
+ * @property bool $HasAttachments A boolean to indicate if a contact has an attachment.
+ */
 class Contact extends Remote\Model
 {
     use AttachmentTrait;
     use HistoryTrait;
 
-    /**
-     * Xero identifier.
-     *
-     * @property string ContactID
-     */
-
-    /**
-     * This can be updated via the API only i.e. This field is read only on the Xero contact screen, used
-     * to identify contacts in external systems (max length = 50). If the Contact Number is used, this is
-     * displayed as Contact Code in the Contacts UI in Xero.
-     *
-     * @property string ContactNumber
-     */
-
-    /**
-     * A user defined account number. This can be updated via the API and the Xero UI (max length = 50).
-     *
-     * @property string AccountNumber
-     */
-
-    /**
-     * Current status of a contact – see contact status types.
-     *
-     * @property string ContactStatus
-     */
-
-    /**
-     * Full name of contact/organisation (max length = 255).
-     *
-     * @property string Name
-     */
-
-    /**
-     * First name of contact person (max length = 255).
-     *
-     * @property string FirstName
-     */
-
-    /**
-     * Last name of contact person (max length = 255).
-     *
-     * @property string LastName
-     */
-
-    /**
-     * Email address of contact person (umlauts not supported) (max length = 255).
-     *
-     * @property string EmailAddress
-     */
-
-    /**
-     * Skype user name of contact.
-     *
-     * @property string SkypeUserName
-     */
-
-    /**
-     * See contact persons.
-     *
-     * @property ContactPerson[] ContactPersons
-     */
-
-    /**
-     * Bank account number of contact.
-     *
-     * @property string BankAccountDetails
-     */
-
-    /**
-     * Tax number of contact – this is also known as the ABN (Australia), GST Number (New Zealand), VAT
-     * Number (UK) or Tax ID Number (US and global) in the Xero UI depending on which regionalized version
-     * of Xero you are using (max length = 50).
-     *
-     * @property string TaxNumber
-     */
-
-    /**
-     * Company registration number. Max 50 char.
-     * @property string CompanyNumber
-     */
-
-    /**
-     * Default tax type used for contact on AR invoices.
-     *
-     * @property string AccountsReceivableTaxType
-     */
-
-    /**
-     * Default tax type used for contact on AP invoices.
-     *
-     * @property string AccountsPayableTaxType
-     */
-
-    /**
-     * Store certain address types for a contact – see address types.
-     *
-     * @property Address[] Addresses
-     */
-
-    /**
-     * Store certain phone types for a contact – see phone types.
-     *
-     * @property Phone[] Phones
-     */
-
-    /**
-     * true or false – Boolean that describes if a contact that has any AP invoices entered against them.
-     * Cannot be set via PUT or POST – it is automatically set when an accounts payable invoice is
-     * generated against this contact.
-     *
-     * @property bool IsSupplier
-     */
-
-    /**
-     * true or false – Boolean that describes if a contact has any AR invoices entered against them.
-     * Cannot be set via PUT or POST – it is automatically set when an accounts receivable invoice is
-     * generated against this contact.
-     *
-     * @property bool IsCustomer
-     */
-
-    /**
-     * Default currency for raising invoices against contact.
-     *
-     * @property string DefaultCurrency
-     */
-
-    /**
-     * Store XeroNetworkKey for contacts.
-     *
-     * @property string XeroNetworkKey
-     */
-
-    /**
-     * The default sales account code for contacts.
-     *
-     * @property string SalesDefaultAccountCode
-     */
-
-    /**
-     * The default purchases account code for contacts.
-     *
-     * @property string PurchasesDefaultAccountCode
-     */
-
-    /**
-     * The default sales tracking categories for contacts.
-     *
-     * @property TrackingCategory[] SalesTrackingCategories
-     */
-
-    /**
-     * The default purchases tracking categories for contacts.
-     *
-     * @property TrackingCategory[] PurchasesTrackingCategories
-     */
-
-    /**
-     * The name of the Tracking Category assigned to the contact under SalesTrackingCategories and
-     * PurchasesTrackingCategories.
-     *
-     * @property string TrackingCategoryName
-     */
-
-    /**
-     * The name of the Tracking Option assigned to the contact under SalesTrackingCategories and
-     * PurchasesTrackingCategories.
-     *
-     * @property string TrackingCategoryOption
-     */
-
-    /**
-     * The default payment terms for the contact – see Payment Terms.
-     *
-     * @property PaymentTerm PaymentTerms
-     */
-
-    /**
-     * UTC timestamp of last update to contact.
-     *
-     * @property \DateTimeInterface UpdatedDateUTC
-     */
-
-    /**
-     * Displays which contact groups a contact is included in.
-     *
-     * @property ContactGroup[] ContactGroups
-     */
-
-    /**
-     * Website address for contact (read only).
-     *
-     * @property string Website
-     */
-
-    /**
-     * Default branding theme for contact (read only) – see Branding Themes.
-     *
-     * @property BrandingTheme BrandingTheme
-     */
-
-    /**
-     * batch payment details for contact (read only).
-     *
-     * @property string BatchPayments
-     */
-
-    /**
-     * The default discount rate for the contact (read only).
-     *
-     * @property float Discount
-     */
-
-    /**
-     * The raw AccountsReceivable(sales invoices) and AccountsPayable(bills) outstanding and overdue
-     * amounts, not converted to base currency (read only).
-     *
-     * @property string Balances
-     */
-
-    /**
-     * A boolean to indicate if a contact has an attachment.
-     *
-     * @property bool HasAttachments
-     */
     const CONTACT_STATUS_ACTIVE = 'ACTIVE';
 
     const CONTACT_STATUS_ARCHIVED = 'ARCHIVED';

@@ -4,32 +4,14 @@ namespace XeroPHP\Models\PayrollUS\Paystub;
 
 use XeroPHP\Remote;
 
+/**
+ * @property string $DeductionTypeID Xero identifier for payroll earnings type.
+ * @property string $CalculationType Calculation Type code.
+ * @property string $Percentage The Percentage of the Deduction Line.
+ * @property float $Amount Deduction amount.
+ */
 class DeductionLine extends Remote\Model
 {
-    /**
-     * Xero identifier for payroll earnings type.
-     *
-     * @property string DeductionTypeID
-     */
-
-    /**
-     * Calculation Type code.
-     *
-     * @property string CalculationType
-     */
-
-    /**
-     * The Percentage of the Deduction Line.
-     *
-     * @property string Percentage
-     */
-
-    /**
-     * Deduction amount.
-     *
-     * @property float Amount
-     */
-
     /**
      * Get the resource uri of the class (Contacts) etc.
      *

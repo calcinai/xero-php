@@ -4,32 +4,14 @@ namespace XeroPHP\Models\Accounting\Contact;
 
 use XeroPHP\Remote;
 
+/**
+ * @property string $FirstName First name of person.
+ * @property string $LastName Last name of person.
+ * @property string $EmailAddress Email address of person.
+ * @property bool $IncludeInEmails boolean to indicate whether contact should be included on emails with invoices etc.
+ */
 class ContactPerson extends Remote\Model
 {
-    /**
-     * First name of person.
-     *
-     * @property string FirstName
-     */
-
-    /**
-     * Last name of person.
-     *
-     * @property string LastName
-     */
-
-    /**
-     * Email address of person.
-     *
-     * @property string EmailAddress
-     */
-
-    /**
-     * boolean to indicate whether contact should be included on emails with invoices etc.
-     *
-     * @property bool IncludeInEmails
-     */
-
     /**
      * Get the resource uri of the class (Contacts) etc.
      *

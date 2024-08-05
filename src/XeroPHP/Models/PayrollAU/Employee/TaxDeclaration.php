@@ -4,94 +4,24 @@ namespace XeroPHP\Models\PayrollAU\Employee;
 
 use XeroPHP\Remote;
 
+/**
+ * @property string $EmployeeID Xero employee identifier. e.g c56b19ef-75bf-45e8-98a4-e699a96609f7.
+ * @property string $EmploymentBasis See Employment Basis Types.
+ * @property string $TFNExemptionType See TFN Exemption Types.
+ * @property string $TaxFileNumber The tax file number e.g 123123123.
+ * @property string $AustralianResidentForTaxPurposes If the employee is Australian resident for tax purposes. e.g true or false.
+ * @property string $TaxFreeThresholdClaimed If tax free threshold claimed. e.g true or false.
+ * @property float $TaxOffsetEstimatedAmount If has tax offset estimated then the tax offset estimated amount. e.g 100.
+ * @property bool $HasHELPDebt If employee has HECS or HELP dept. e.g true or false.
+ * @property bool $HasSFSSDebt If employee has financial supplement dept. e.g true or false.
+ * @property bool $HasTradeSupportLoanDebt If employee has trade support loan. e.g true or false.
+ * @property string $UpwardVariationTaxWithholdingAmount If the employee has requested that additional tax be withheld each pay run. e.g 50.
+ * @property string $EligibleToReceiveLeaveLoading If the employee is eligible to receive an additional percentage on top of ordinary earnings when they take leave (typically 17.5%). e.g true or false.
+ * @property string $ApprovedWithholdingVariationPercentage If the employee has approved withholding variation. e.g (0 – 100).
+ * @property bool $HasTSLDebt Deprecated: this property has been removed from the Xero API.
+ */
 class TaxDeclaration extends Remote\Model
 {
-    /**
-     * Xero employee identifier. e.g c56b19ef-75bf-45e8-98a4-e699a96609f7.
-     *
-     * @property string EmployeeID
-     */
-
-    /**
-     * See Employment Basis Types.
-     *
-     * @property string EmploymentBasis
-     */
-
-    /**
-     * See TFN Exemption Types.
-     *
-     * @property string TFNExemptionType
-     */
-
-    /**
-     * The tax file number e.g 123123123.
-     *
-     * @property string TaxFileNumber
-     */
-
-    /**
-     * If the employee is Australian resident for tax purposes. e.g true or false.
-     *
-     * @property string AustralianResidentForTaxPurposes
-     */
-
-    /**
-     * If tax free threshold claimed. e.g true or false.
-     *
-     * @property string TaxFreeThresholdClaimed
-     */
-
-    /**
-     * If has tax offset estimated then the tax offset estimated amount. e.g 100.
-     *
-     * @property float TaxOffsetEstimatedAmount
-     */
-
-    /**
-     * If employee has HECS or HELP dept. e.g true or false.
-     *
-     * @property bool HasHELPDebt
-     */
-
-    /**
-     * If employee has financial supplement dept. e.g true or false.
-     *
-     * @property bool HasSFSSDebt
-     */
-
-    /**
-     * This property has been removed from the Xero API.
-     *
-     * @property bool HasTSLDebt
-     *
-     * @deprecated
-     */
-
-    /**
-     * If employee has trade support loan. e.g true or false.
-     *
-     * @property bool HasTradeSupportLoanDebt
-     */
-
-    /**
-     * If the employee has requested that additional tax be withheld each pay run. e.g 50.
-     *
-     * @property string UpwardVariationTaxWithholdingAmount
-     */
-
-    /**
-     * If the employee is eligible to receive an additional percentage on top of ordinary earnings when
-     * they take leave (typically 17.5%). e.g true or false.
-     *
-     * @property string EligibleToReceiveLeaveLoading
-     */
-
-    /**
-     * If the employee has approved withholding variation. e.g (0 – 100).
-     *
-     * @property string ApprovedWithholdingVariationPercentage
-     */
     const EMPLOYMENTBASIS_FULLTIME = 'FULLTIME';
 
     const EMPLOYMENTBASIS_PARTTIME = 'PARTTIME';

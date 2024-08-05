@@ -4,20 +4,16 @@ namespace XeroPHP\Models\PracticeManager\Client;
 
 use XeroPHP\Remote;
 
+/**
+ * @property string $Type
+ * @property RelatedClient $RelatedClient Only set for Shareholder and Owner relationships
+ * @property string $NumberOfShares Only set for Shareholder and Owner relationships
+ * @property string $Percentage
+ * @property string $StartDate
+ * @property string $EndDate
+ */
 class Relationship extends Remote\Model
 {
-    /**
-     * @property string Type
-     * @property RelatedClient RelatedClient
-     * Only set for Shareholder and Owner relationships
-     * @property string NumberOfShares
-     * Only set for Shareholder and Owner relationships
-     * @property string Percentage
-     *
-     * @property string StartDate
-     * @property string EndDate
-     */
-
     /**
      * Get the resource uri of the class (Relationships) etc.
      *

@@ -4,20 +4,12 @@ namespace XeroPHP\Models\PayrollUS\Paystub;
 
 use XeroPHP\Remote;
 
+/**
+ * @property string $BenefitTypeID Xero identifier for payroll benefit type.
+ * @property float $Amount Reimbursement amount.
+ */
 class BenefitLine extends Remote\Model
 {
-    /**
-     * Xero identifier for payroll benefit type.
-     *
-     * @property string BenefitTypeID
-     */
-
-    /**
-     * Reimbursement amount.
-     *
-     * @property float Amount
-     */
-
     /**
      * Get the resource uri of the class (Contacts) etc.
      *

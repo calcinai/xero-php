@@ -6,27 +6,13 @@ use XeroPHP\Remote;
 use XeroPHP\Models\PayrollAU\Setting\Account;
 use XeroPHP\Models\PayrollAU\Setting\TrackingCategory;
 
+/**
+ * @property Account[] $Accounts Payroll Account details for SuperExpense, SuperLiabilty, WagesExpense, PAYGLiability & WagesPayable. See Accounts.
+ * @property TrackingCategory[] $TrackingCategories Tracking categories for Employee’s and Timesheet’s.  See Tracking Categories.
+ * @property string $DaysInPayrollYear Number of days in the Payroll year.
+ */
 class Setting extends Remote\Model
 {
-    /**
-     * Payroll Account details for SuperExpense, SuperLiabilty, WagesExpense, PAYGLiability & WagesPayable.
-     *  See Accounts.
-     *
-     * @property Account[] Accounts
-     */
-
-    /**
-     * Tracking categories for Employee’s and Timesheet’s.  See Tracking Categories.
-     *
-     * @property TrackingCategory[] TrackingCategories
-     */
-
-    /**
-     * Number of days in the Payroll year.
-     *
-     * @property string DaysInPayrollYear
-     */
-
     /**
      * Get the resource uri of the class (Contacts) etc.
      *

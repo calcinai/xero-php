@@ -6,28 +6,16 @@ use XeroPHP\Remote;
 use XeroPHP\Traits\HistoryTrait;
 use XeroPHP\Traits\AttachmentTrait;
 
+/**
+ * @property string $ExpenseClaimID Xero identifier.
+ * @property User $User See Users.
+ * @property Receipt[] $Receipts See Receipts.
+ */
 class ExpenseClaim extends Remote\Model
 {
     use AttachmentTrait;
     use HistoryTrait;
 
-    /**
-     * Xero identifier.
-     *
-     * @property string ExpenseClaimID
-     */
-
-    /**
-     * See Users.
-     *
-     * @property User User
-     */
-
-    /**
-     * See Receipts.
-     *
-     * @property Receipt[] Receipts
-     */
     const EXPENSE_CLAIM_STATUS_SUBMITTED = 'SUBMITTED';
 
     const EXPENSE_CLAIM_STATUS_AUTHORISED = 'AUTHORISED';

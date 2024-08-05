@@ -4,32 +4,14 @@ namespace XeroPHP\Models\PayrollUS\Setting;
 
 use XeroPHP\Remote;
 
+/**
+ * @property string $AccountID Xero account identifier. e.g c56b19ef-75bf-45e8-98a4-e699a96609f7.
+ * @property string $Type See Account Types.
+ * @property string $Code Customer defined account code eg. 200.
+ * @property string $Name Name of account.
+ */
 class Account extends Remote\Model
 {
-    /**
-     * Xero account identifier. e.g c56b19ef-75bf-45e8-98a4-e699a96609f7.
-     *
-     * @property string AccountID
-     */
-
-    /**
-     * See Account Types.
-     *
-     * @property string Type
-     */
-
-    /**
-     * Customer defined account code eg. 200.
-     *
-     * @property string Code
-     */
-
-    /**
-     * Name of account.
-     *
-     * @property string Name
-     */
-
     /**
      * Get the resource uri of the class (Contacts) etc.
      *

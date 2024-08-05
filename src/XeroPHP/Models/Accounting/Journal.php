@@ -5,53 +5,18 @@ namespace XeroPHP\Models\Accounting;
 use XeroPHP\Remote;
 use XeroPHP\Models\Accounting\Journal\JournalLine;
 
+/**
+ * @property string $JournalID Xero identifier.
+ * @property \DateTimeInterface $JournalDate Date the journal was posted.
+ * @property string $JournalNumber Xero generated journal number.
+ * @property \DateTimeInterface $CreatedDateUTC Created date UTC format.
+ * @property string $Reference
+ * @property string $SourceID The identifier for the source transaction (e.g. InvoiceID).
+ * @property string $SourceType The journal source type. The type of transaction that created the journal.
+ * @property JournalLine[] $JournalLines See JournalLines.
+ */
 class Journal extends Remote\Model
 {
-    /**
-     * Xero identifier.
-     *
-     * @property string JournalID
-     */
-
-    /**
-     * Date the journal was posted.
-     *
-     * @property \DateTimeInterface JournalDate
-     */
-
-    /**
-     * Xero generated journal number.
-     *
-     * @property string JournalNumber
-     */
-
-    /**
-     * Created date UTC format.
-     *
-     * @property \DateTimeInterface CreatedDateUTC
-     */
-
-    /**
-     * @property string Reference
-     */
-
-    /**
-     * The identifier for the source transaction (e.g. InvoiceID).
-     *
-     * @property string SourceID
-     */
-
-    /**
-     * The journal source type. The type of transaction that created the journal.
-     *
-     * @property string SourceType
-     */
-
-    /**
-     * See JournalLines.
-     *
-     * @property JournalLine[] JournalLines
-     */
     const JOURNAL_SOURCE_TYPE_ACCREC = 'ACCREC';
 
     const JOURNAL_SOURCE_TYPE_ACCPAY = 'ACCPAY';

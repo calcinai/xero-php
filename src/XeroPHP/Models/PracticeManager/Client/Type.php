@@ -4,16 +4,14 @@ namespace XeroPHP\Models\PracticeManager\Client;
 
 use XeroPHP\Remote;
 
+/**
+ * @property string $Name
+ * @property string $CostMarkup
+ * @property string $PaymentTerm EG DayOfMonth or WithinDays
+ * @property string $PaymentDay
+ */
 class Type extends Remote\Model
 {
-    /**
-     * @property string Name
-     * @property string CostMarkup
-     * EG DayOfMonth or WithinDays
-     * @property string PaymentTerm
-     * @property string PaymentDay
-     */
-
     /**
      * Get the resource uri of the class (Types) etc.
      *

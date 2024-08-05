@@ -7,99 +7,25 @@ use XeroPHP\Traits\HistoryTrait;
 use XeroPHP\Models\Accounting\Item\Sale;
 use XeroPHP\Models\Accounting\Item\Purchase;
 
+/**
+ * @property string $ItemID Xero identifier.
+ * @property string $Code User defined item code (max length = 30).
+ * @property string $InventoryAssetAccountCode The inventory asset account for the item. The account must be of type INVENTORY. The COGSAccountCode in PurchaseDetails is also required to create a tracked item.
+ * @property string $Name The name of the item (max length = 50).
+ * @property bool $IsSold Boolean value, defaults to true. When IsSold is true the item will be available on sales transactions in the Xero UI. If IsSold is updated to false then Description and SalesDetails values will be nulled.
+ * @property bool $IsPurchased Boolean value, defaults to true. When IsPurchased is true the item is available for purchase transactions in the Xero UI. If IsPurchased is updated to false then PurchaseDescription and PurchaseDetails values will be nulled.
+ * @property string $Description The sales description of the item (max length = 4000).
+ * @property string $PurchaseDescription The purchase description of the item (max length = 4000).
+ * @property Purchase $PurchaseDetails See Purchases & Sales.
+ * @property Sale $SalesDetails See Purchases & Sales.
+ * @property bool $IsTrackedAsInventory True for items that are tracked as inventory. An item will be tracked as inventory if the InventoryAssetAccountCode and COGSAccountCode are set.
+ * @property string $TotalCostPool The value of the item on hand. Calculated using average cost accounting.
+ * @property string $QuantityOnHand The quantity of the item on hand.
+ * @property \DateTimeInterface $UpdatedDateUTC Last modified date in UTC format.
+ */
 class Item extends Remote\Model
 {
     use HistoryTrait;
-
-    /**
-     * Xero identifier.
-     *
-     * @property string ItemID
-     */
-
-    /**
-     * User defined item code (max length = 30).
-     *
-     * @property string Code
-     */
-
-    /**
-     * The inventory asset account for the item. The account must be of type INVENTORY. The
-     * COGSAccountCode in PurchaseDetails is also required to create a tracked item.
-     *
-     * @property string InventoryAssetAccountCode
-     */
-
-    /**
-     * The name of the item (max length = 50).
-     *
-     * @property string Name
-     */
-
-    /**
-     * Boolean value, defaults to true. When IsSold is true the item will be available on sales
-     * transactions in the Xero UI. If IsSold is updated to false then Description and SalesDetails values
-     * will be nulled.
-     *
-     * @property bool IsSold
-     */
-
-    /**
-     * Boolean value, defaults to true. When IsPurchased is true the item is available for purchase
-     * transactions in the Xero UI. If IsPurchased is updated to false then PurchaseDescription and
-     * PurchaseDetails values will be nulled.
-     *
-     * @property bool IsPurchased
-     */
-
-    /**
-     * The sales description of the item (max length = 4000).
-     *
-     * @property string Description
-     */
-
-    /**
-     * The purchase description of the item (max length = 4000).
-     *
-     * @property string PurchaseDescription
-     */
-
-    /**
-     * See Purchases & Sales.
-     *
-     * @property Purchase PurchaseDetails
-     */
-
-    /**
-     * See Purchases & Sales.
-     *
-     * @property Sale SalesDetails
-     */
-
-    /**
-     * True for items that are tracked as inventory. An item will be tracked as inventory if the
-     * InventoryAssetAccountCode and COGSAccountCode are set.
-     *
-     * @property bool IsTrackedAsInventory
-     */
-
-    /**
-     * The value of the item on hand. Calculated using average cost accounting.
-     *
-     * @property string TotalCostPool
-     */
-
-    /**
-     * The quantity of the item on hand.
-     *
-     * @property string QuantityOnHand
-     */
-
-    /**
-     * Last modified date in UTC format.
-     *
-     * @property \DateTimeInterface UpdatedDateUTC
-     */
 
     /**
      * Get the resource uri of the class (Contacts) etc.
