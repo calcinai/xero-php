@@ -142,24 +142,18 @@ class Contact extends Remote\Model
         return $this;
     }
 
-    /**
-     * @return bool
-     */
     public function getIsPrimary()
     {
-        return $this->_data['IsPrimary'] == 'yes';
+        return $this->_data['IsPrimary'];
     }
 
     /**
-     * @param string|bool $value
+     * @param string $value
      *
      * @return Contact
      */
     public function setIsPrimary($value)
     {
-        // Convert value to ENUM Yes or No
-        $value = $value === true || $value == 'yes' ? 'yes' : 'no';
-
         $this->propertyUpdated('IsPrimary', $value);
         $this->_data['IsPrimary'] = $value;
 
