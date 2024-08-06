@@ -15,7 +15,7 @@ class Contact extends Remote\Model
             <ID>142</ID>
           </Client>
           <Name>Wyett E Coyote</Name>
-          <IsPrimary>yes</IsPrimary> <!-- If multiple contacts defined, method will interpret last primary client as Primary -->
+          <IsPrimary>Yes</IsPrimary> <!-- If multiple contacts defined, method will interpret last primary client as Primary -->
           <Salutation />
           <Addressee />
           <Mobile />
