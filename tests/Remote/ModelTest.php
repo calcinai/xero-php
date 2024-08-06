@@ -116,7 +116,7 @@ class ModelTest extends \PHPUnit_Framework_TestCase
       <Contacts>
         <Contact>
           <ID>220</ID>
-          <IsPrimary>yes</IsPrimary>
+          <IsPrimary>Yes</IsPrimary>
           <Name>Samantha Benecke</Name> 
           <Salutation>Sam</Salutation> 
           <Addressee>Mrs S Benecke</Addressee> 
