@@ -5,10 +5,12 @@ namespace XeroPHP\Models\Accounting;
 use XeroPHP\Remote;
 use XeroPHP\Traits\AttachmentTrait;
 use XeroPHP\Models\Accounting\ManualJournal\JournalLine;
+use XeroPHP\Traits\HistoryTrait;
 
 class ManualJournal extends Remote\Model
 {
     use AttachmentTrait;
+    use HistoryTrait;
 
     /**
      * Xero identifier.
