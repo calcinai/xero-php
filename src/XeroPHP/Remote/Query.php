@@ -24,6 +24,8 @@ class Query
 
     private $page;
 
+    private $pageSize;
+
     private $fromDate;
 
     private $toDate;
@@ -38,6 +40,9 @@ class Query
 
     private $params;
 
+    /** @var Response|null $response  */
+    private $response;
+
     public function __construct(Application $app)
     {
         $this->app = $app;
@@ -45,10 +50,12 @@ class Query
         $this->order = null;
         $this->modifiedAfter = null;
         $this->page = null;
+        $this->pageSize = null;
         $this->offset = null;
         $this->includeArchived = false;
         $this->createdByMyApp = false;
         $this->params = [];
+        $this->response = null;
     }
 
     /**
@@ -232,6 +239,28 @@ class Query
         return $this;
     }
 
+
+    /**
+     * @param int $pageSize
+     *
+     * @throws Exception
+     *
+     * @return $this
+     */
+    public function pageSize($pageSize = 100)
+    {
+        /**
+         * @var ObjectInterface
+         */
+        $from_class = $this->from_class;
+        if (! $from_class::isPageable()) {
+            throw new Exception(sprintf('%s does not support paging.', $from_class));
+        }
+        $this->pageSize = (int) $pageSize;
+
+        return $this;
+    }
+
     /**
      * @param int $offset
      *
@@ -317,6 +346,10 @@ class Query
             $request->setParameter('page', $this->page);
         }
 
+        if ($this->pageSize !== null) {
+            $request->setParameter('pageSize', $this->pageSize);
+        }
+
         if ($this->offset !== null) {
             $request->setParameter('offset', $this->offset);
         }
@@ -332,7 +365,8 @@ class Query
         $request->send();
 
         $elements = new Collection();
-        foreach ($request->getResponse()->getElements() as $element) {
+        $this->response = $request->getResponse();
+        foreach ($this->response->getElements() as $element) {
             /**
              * @var Model
              */
@@ -360,5 +394,13 @@ class Query
     public function getFrom()
     {
         return $this->from_class;
+    }
+
+    /**
+     * @return Response|null
+     */
+    public function getResponse()
+    {
+        return $this->response;
     }
 }

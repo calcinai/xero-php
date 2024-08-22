@@ -72,6 +72,8 @@ class Response
 
     private $root_error;
 
+    private $root_warnings;
+
     public function __construct(Request $request, $response_body, $status, $headers)
     {
         $this->request = $request;
@@ -222,6 +224,11 @@ class Response
         return $this->root_error;
     }
 
+    public function getRootWarnings()
+    {
+        return $this->root_warnings;
+    }
+
     public function getOAuthResponse()
     {
         return $this->oauth_response;
@@ -233,6 +240,7 @@ class Response
         $this->element_errors = [];
         $this->element_warnings = [];
         $this->root_error = [];
+        $this->root_warnings = [];
 
         if (!isset($this->headers[Request::HEADER_CONTENT_TYPE])) {
             //Nothing to parse
@@ -309,6 +317,13 @@ class Response
         /** @var SimpleXMLElement $root_child */
         foreach ($sxml as $child_index => $root_child) {
             switch ($child_index) {
+                case 'PageInfo':
+                case 'pagination':
+                    // TODO: We can potentially handle the page info and make it a value on the response object
+                    break;
+                case 'pagination':
+                    // introduced in https://github.com/XeroAPI/xero-node/releases/tag/9.0.0 but not supported here yet
+                    break;
                 case 'ErrorNumber':
                     $this->root_error['code'] = (string)$root_child;
 
@@ -319,6 +334,13 @@ class Response
                     break;
                 case 'Message':
                     $this->root_error['message'] = (string)$root_child;
+
+                    break;
+                case 'Warnings':
+                    $this->root_warnings = [];
+                    foreach ($root_child->children() as $element_index => $element) {
+                        $this->root_warnings[] = Helpers::XMLToArray($element);
+                    }
 
                     break;
                 case 'Payslip':
@@ -346,6 +368,13 @@ class Response
 
         foreach ($json as $child_index => $root_child) {
             switch ($child_index) {
+                case 'PageInfo':
+                case 'pagination':
+                    // TODO: We can potentially handle the page info and make it a value on the response object
+                    break;
+                case 'pagination':
+                    // introduced in https://github.com/XeroAPI/xero-node/releases/tag/9.0.0 but not supported here yet
+                    break;                
                 case 'ErrorNumber':
                     $this->root_error['code'] = $root_child;
 
@@ -356,6 +385,14 @@ class Response
                     break;
                 case 'Message':
                     $this->root_error['message'] = $root_child;
+
+                    break;
+                case 'Warnings':
+                    if (is_array($root_child)) {
+                        foreach ($root_child as $warning) {
+                            $this->root_warnings[] = $warning;
+                        }
+                    }
 
                     break;
                 case 'Payslip':

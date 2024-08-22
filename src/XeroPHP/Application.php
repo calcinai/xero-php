@@ -15,7 +15,7 @@ class Application
 
     protected static $_config_defaults = [
         'xero' => [
-            'base_url' => 'https://api.xero.com/',
+            'base_url' => 'https://api.xero.com',
             'default_content_type' => Request::CONTENT_TYPE_XML,
             'core_version' => '2.0',
             'payroll_version' => '1.0',
@@ -29,10 +29,10 @@ class Application
      */
     protected $config;
 
-    private ?int $lastApiCall = null;
-    private ?int $appMinLimitRemining = null;
-    private ?int $tenantDayLimitRemining = null;
-    private ?int $tenantMinLimitRemining = null;
+    private $lastApiCall = null;
+    private $appMinLimitRemining = null;
+    private $tenantDayLimitRemining = null;
+    private $tenantMinLimitRemining = null;
 
     /**
      * @var ClientInterface
