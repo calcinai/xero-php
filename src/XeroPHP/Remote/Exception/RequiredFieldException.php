@@ -2,7 +2,6 @@
 
 namespace XeroPHP\Remote\Exception;
 
-use Throwable;
 use XeroPHP\Remote\Exception;
 
 class RequiredFieldException extends Exception
@@ -10,7 +9,7 @@ class RequiredFieldException extends Exception
     protected $class;
     protected $field;
 
-    public function __construct($class, $field, $message = "", $code = 0, Throwable $previous = null)
+    public function __construct($class, $field, $message = "", $code = 0, $previous = null)
     {
         $this->class = $class;
         $this->field = $field;

@@ -44,7 +44,7 @@ class Application
      * @param $tenantId
      * $param $constructClient
      */
-    public function __construct($token, $tenantId, ?bool $constructClient = true)
+    public function __construct($token, $tenantId, $constructClient = true)
     {
         $this->config = static::$_config_defaults;
 
@@ -462,14 +462,14 @@ class Application
         return $object;
     }
 
-    public function updateAppRateLimit(int $appMinLimitRemining)
+    public function updateAppRateLimit($appMinLimitRemining)
     {
         $this->lastApiCall = time();
         $this->appMinLimitRemining = $appMinLimitRemining;
         return $this;
     }
 
-    public function updateTenantRateLimits(int $tenantDayLimitRemining, int $tenantMinLimitRemining)
+    public function updateTenantRateLimits($tenantDayLimitRemining, $tenantMinLimitRemining)
     {
         $this->lastApiCall = time();
         $this->tenantDayLimitRemining = $tenantDayLimitRemining;
@@ -480,7 +480,7 @@ class Application
     /**
      * @return int|null Timestamp of last API call.
      */
-    public function getLastApiCall(): ?int
+    public function getLastApiCall()
     {
         return $this->lastApiCall;
     }
@@ -488,7 +488,7 @@ class Application
     /**
      * @return int|null Application call limit remaining across all tenants.
      */
-    public function getAppMinLimitRemining(): ?int
+    public function getAppMinLimitRemining()
     {
         return $this->appMinLimitRemining;
     }
@@ -496,7 +496,7 @@ class Application
     /**
      * @return int|null Tenant daily call limit remaining
      */
-    public function getTenantDayLimitRemining(): ?int
+    public function getTenantDayLimitRemining()
     {
         return $this->tenantDayLimitRemining;
     }
@@ -504,7 +504,7 @@ class Application
     /**
      * @return int|null Tenant minute call limit remaining
      */
-    public function getTenantMinLimitRemining(): ?int
+    public function getTenantMinLimitRemining()
     {
         return $this->tenantMinLimitRemining;
     }
