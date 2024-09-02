@@ -6,14 +6,14 @@
   "license": "MIT",
   "require": {
     "php": ">=5.5.0",
-    "calcinai/oauth2-xero": "^1.0",
-    "guzzlehttp/guzzle": "^6.5|^7.0",
-    "guzzlehttp/psr7": "^1.5|^1.6",
+    "calcinai/oauth2-xero": "*",
+    "guzzlehttp/guzzle": "*",
+    "guzzlehttp/psr7": "*",
     "ext-json": "*",
     "ext-simplexml": "*"
   },
   "require-dev": {
-    "phpunit/phpunit": "^5"
+    "phpunit/phpunit": "*"
   },
   "suggest": {
     "ext-fileinfo": "*",
