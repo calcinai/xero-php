@@ -3,9 +3,12 @@
 namespace XeroPHP\Models\PayrollUK\Employee\Leave;
 
 use XeroPHP\Remote;
+use XeroPHP\Traits\TitleCaseKeysBeforeSave;
 
 class Period extends Remote\Model
 {
+    use TitleCaseKeysBeforeSave;
+
     /**
      * The Number of Units for the leave.
      *
@@ -92,10 +95,10 @@ class Period extends Remote\Model
     public static function getProperties()
     {
         return [
-            'NumberOfUnits' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
-            'PeriodEndDate' => [false, self::PROPERTY_TYPE_DATE, '\\DateTimeInterface', false, false],
-            'PeriodStartDate' => [false, self::PROPERTY_TYPE_DATE, '\\DateTimeInterface', false, false],
-            'PeriodStatus' => [false, self::PROPERTY_TYPE_ENUM, null, false, false],
+            'numberOfUnits' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'periodEndDate' => [false, self::PROPERTY_TYPE_DATE, '\\DateTimeInterface', false, false],
+            'periodStartDate' => [false, self::PROPERTY_TYPE_DATE, '\\DateTimeInterface', false, false],
+            'periodStatus' => [false, self::PROPERTY_TYPE_ENUM, null, false, false],
         ];
     }
 
@@ -109,7 +112,7 @@ class Period extends Remote\Model
      */
     public function getNumberOfUnits()
     {
-        return $this->_data['NumberOfUnits'];
+        return $this->_data['numberOfUnits'];
     }
 
     /**
@@ -119,8 +122,8 @@ class Period extends Remote\Model
      */
     public function setNumberOfUnit($value)
     {
-        $this->propertyUpdated('NumberOfUnits', $value);
-        $this->_data['NumberOfUnits'] = $value;
+        $this->propertyUpdated('numberOfUnits', $value);
+        $this->_data['numberOfUnits'] = $value;
 
         return $this;
     }
@@ -130,7 +133,7 @@ class Period extends Remote\Model
      */
     public function getPeriodEndDate()
     {
-        return $this->_data['PeriodEndDate'];
+        return $this->_data['periodEndDate'];
     }
 
     /**
@@ -140,8 +143,8 @@ class Period extends Remote\Model
      */
     public function setPeriodEndDate(\DateTimeInterface $value)
     {
-        $this->propertyUpdated('PeriodEndDate', $value);
-        $this->_data['PeriodEndDate'] = $value;
+        $this->propertyUpdated('periodEndDate', $value);
+        $this->_data['periodEndDate'] = $value;
 
         return $this;
     }
@@ -151,7 +154,7 @@ class Period extends Remote\Model
      */
     public function getPeriodStartDate()
     {
-        return $this->_data['PeriodStartDate'];
+        return $this->_data['periodStartDate'];
     }
 
     /**
@@ -161,8 +164,8 @@ class Period extends Remote\Model
      */
     public function setPeriodStartDate(\DateTimeInterface $value)
     {
-        $this->propertyUpdated('PeriodStartDate', $value);
-        $this->_data['PeriodStartDate'] = $value;
+        $this->propertyUpdated('periodStartDate', $value);
+        $this->_data['periodStartDate'] = $value;
 
         return $this;
     }
@@ -172,7 +175,7 @@ class Period extends Remote\Model
      */
     public function getPeriodStatus()
     {
-        return $this->_data['PeriodStatus'];
+        return $this->_data['periodStatus'];
     }
 
     /**
@@ -182,8 +185,8 @@ class Period extends Remote\Model
      */
     public function setPeriodStatus($value)
     {
-        $this->propertyUpdated('PeriodStatus', $value);
-        $this->_data['PeriodStatus'] = $value;
+        $this->propertyUpdated('periodStatus', $value);
+        $this->_data['periodStatus'] = $value;
 
         return $this;
     }
