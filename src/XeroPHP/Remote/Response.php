@@ -107,10 +107,10 @@ class Response
                     $message = sprintf('%s (%s)', $this->root_error['message'], implode(', ', $this->element_errors));
                     $message .= $this->parseBadRequest();
 
-                    throw new BadRequestException($message, $this->root_error['code']);
+                    throw (new BadRequestException($message, $this->root_error['code']))->setResponse($this);
                 }
 
-                throw new BadRequestException();
+                throw (new BadRequestException())->setResponse($this);
 
 
             /** @noinspection PhpMissingBreakStatementInspection */
