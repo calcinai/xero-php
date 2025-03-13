@@ -342,6 +342,7 @@ class Organisation extends Remote\Model
             'ExternalLinks' => [false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Organisation\\ExternalLink', true, false],
             'PaymentTerms' => [false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\Organisation\\PaymentTerm', true, false],
             'OrganisationID' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'Class' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
         ];
     }
 
@@ -996,5 +997,13 @@ class Organisation extends Remote\Model
     public function getOrganisationID()
     {
         return $this->_data['OrganisationID'];
+    }
+
+    /**
+     * @return string
+     */
+    public function getClass()
+    {
+        return $this->_data['Class'];
     }
 }
