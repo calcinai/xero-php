@@ -1,6 +1,7 @@
 <?php
 namespace XeroPHP\Models\PayrollUK;
 
+use XeroPHP\Exception;
 use XeroPHP\Models\PayrollUK\Employee\Address;
 use XeroPHP\Models\PayrollUK\Employee\Employment;
 use XeroPHP\Remote;
@@ -369,5 +370,67 @@ class Employee extends Remote\Model
     public function getIsOffPayrollWorker()
     {
         return $this->_data[ 'isOffPayrollWorker' ];
+    }
+
+    /**
+     * @return Employee\Leave[]
+     */
+    public function getLeaves()
+    {
+        /**
+         * @var \XeroPHP\Remote\Model
+         */
+        if ($this->hasGUID() === false) {
+            throw new Exception(
+                'Employee Leaves are only available to objects that exist remotely.'
+            );
+        }
+
+        $uri = sprintf('%s/%s/leave', $this->getResourceURI(), $this->getGUID());
+        $api = $this->getAPIStem();
+
+        $url = new Remote\URL($this->_application, $uri, $api);
+        $request = new Remote\Request($this->_application, $url, Remote\Request::METHOD_GET);
+        $request->send();
+
+        $leavePeriods = [];
+        foreach ($request->getResponse()->getElements() as $element) {
+            $leave = new Employee\Leave($this->_application);
+            $leave->fromStringArray($element);
+            $leavePeriods[] = $leave;
+        }
+
+        return $leavePeriods;
+    }
+
+    /**
+     * @return Employee\StatutoryLeave[]
+     */
+    public function getStatutoryLeavesSummary()
+    {
+        /**
+         * @var \XeroPHP\Remote\Model
+         */
+        if ($this->hasGUID() === false) {
+            throw new Exception(
+                'Employee Leaves are only available to objects that exist remotely.'
+            );
+        }
+
+        $uri = sprintf('StatutoryLeaves/Summary/%s', $this->getGUID());
+        $api = $this->getAPIStem();
+
+        $url = new Remote\URL($this->_application, $uri, $api);
+        $request = new Remote\Request($this->_application, $url, Remote\Request::METHOD_GET);
+        $request->send();
+
+        $leavePeriods = [];
+        foreach ($request->getResponse()->getElements() as $element) {
+            $leave = new Employee\StatutoryLeave($this->_application);
+            $leave->fromStringArray($element);
+            $leavePeriods[] = $leave;
+        }
+
+        return $leavePeriods;
     }
 }
