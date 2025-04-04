@@ -77,6 +77,14 @@ abstract class Model implements ObjectInterface, \JsonSerializable, \ArrayAccess
         $this->_dirty = [];
         $this->_data = [];
         $this->_associated_objects = [];
+
+        foreach (static::getProperties() as $property => $meta) {
+            if ($meta[self::KEY_IS_ARRAY]) {
+                $this->_data[$property] = new Collection();
+            } else {
+                $this->_data[$property] = null;
+            }
+        }
     }
 
     public static function make(Application $application = null)
