@@ -21,6 +21,8 @@ class Request
 
     const CONTENT_TYPE_XML = 'text/xml';
 
+    const CONTENT_TYPE_APPLICATION_XML = 'application/xml';
+
     const CONTENT_TYPE_JSON = 'application/json';
 
     const CONTENT_TYPE_PDF = 'application/pdf';

@@ -132,7 +132,7 @@ class Response
                 throw new ForbiddenException();
 
             case self::STATUS_NOT_FOUND:
-                throw new NotFoundException();
+                throw (new NotFoundException())->setResponse($this);
 
             case self::STATUS_INTERNAL_ERROR:
                 throw new InternalErrorException();
@@ -253,6 +253,7 @@ class Response
 
             switch ($content_type) {
                 case Request::CONTENT_TYPE_XML:
+                case Request::CONTENT_TYPE_APPLICATION_XML:
                     $this->parseXML();
                     break;
 
