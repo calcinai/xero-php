@@ -3,6 +3,7 @@
 namespace XeroPHP\Traits;
 
 use XeroPHP\Exception;
+use XeroPHP\Remote\Response;
 use XeroPHP\Remote\URL;
 use XeroPHP\Remote\Request;
 
@@ -21,7 +22,13 @@ trait PDFTrait
             throw new Exception('PDF files are only available to objects that exist remotely.');
         }
 
-        return $this->buildPDFRequest()->send()->getResponseBody();
+        $response = $this->buildPDFRequest()->send();
+
+        if ($response->getStatus() !== Response::STATUS_OK) {
+            throw new Exception('Failed to retrieve PDF file.');
+        }
+
+        return $response->getResponseBody();
     }
 
     /**
