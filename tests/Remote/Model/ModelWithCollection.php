@@ -47,11 +47,11 @@ class ModelWithCollection extends Model
 
     public function getEarningsLines()
     {
-        return isset($this->_data['EarningsLines']) ? $this->_data['EarningsLines'] : null;
+        return $this->_data['EarningsLines'];
     }
 
     public function getModelID()
     {
-        return isset($this->_data['ModelID']) ? $this->_data['ModelID'] : null;
+        return $this->_data['ModelID'];
     }
 }
