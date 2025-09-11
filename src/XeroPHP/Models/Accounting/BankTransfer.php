@@ -290,7 +290,7 @@ class BankTransfer extends Remote\Model
     /**
      * @param string $value
      *
-     * @return Invoice
+     * @return self
      */
     public function setReference($value)
     {
@@ -335,7 +335,7 @@ class BankTransfer extends Remote\Model
     /**
      * @param bool $value
      *
-     * @return BankTransaction
+     * @return self
      */
     public function setFromIsReconciled($value)
     {
@@ -356,7 +356,7 @@ class BankTransfer extends Remote\Model
     /**
      * @param bool $value
      *
-     * @return BankTransaction
+     * @return self
      */
     public function setToIsReconciled($value)
     {

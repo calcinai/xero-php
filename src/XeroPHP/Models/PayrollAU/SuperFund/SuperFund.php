@@ -61,15 +61,6 @@ class SuperFund extends Remote\Model
      * @property string EmployerNumber
      */
 
-    /**
-     * The SPIN of the Regulated SuperFund. This field has been deprecated.  It will only be present for
-     * legacy superfunds.  New superfunds will not have a SPIN value.  The USI field should be used instead
-     * of SPIN.
-     *
-     * @property string SPIN
-     *
-     * @deprecated
-     */
     const TYPE_REGULATED = 'REGULATED';
 
     const TYPE_SMSF = 'SMSF';
@@ -339,31 +330,6 @@ class SuperFund extends Remote\Model
     {
         $this->propertyUpdated('EmployerNumber', $value);
         $this->_data['EmployerNumber'] = $value;
-
-        return $this;
-    }
-
-    /**
-     * @return string
-     *
-     * @deprecated
-     */
-    public function getSPIN()
-    {
-        return $this->_data['SPIN'];
-    }
-
-    /**
-     * @param string $value
-     *
-     * @return SuperFund
-     *
-     * @deprecated
-     */
-    public function setSPIN($value)
-    {
-        $this->propertyUpdated('SPIN', $value);
-        $this->_data['SPIN'] = $value;
 
         return $this;
     }

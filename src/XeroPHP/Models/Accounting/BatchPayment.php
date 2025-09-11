@@ -274,15 +274,6 @@ class BatchPayment extends Remote\Model
     }
 
     /**
-     * @return Payment[]|Remote\Collection
-     * @deprecated Use `getPayments()` instead. This is a typo
-     */
-    public function getPayment()
-    {
-        return $this->getPayments();
-    }
-
-    /**
      * @param Payment $value
      * @return BatchPayment
      */

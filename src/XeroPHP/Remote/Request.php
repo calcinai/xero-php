@@ -5,7 +5,6 @@ namespace XeroPHP\Remote;
 use GuzzleHttp\Psr7\Request as PsrRequest;
 use GuzzleHttp\Psr7\Uri;
 use XeroPHP\Application;
-use XeroPHP\Remote\Exception\RateLimitExceededException;
 
 class Request
 {
@@ -56,30 +55,23 @@ class Request
 
     /**
      * Request constructor.
-     * @param Application $app
-     * @param URL $url
-     * @param string $method
+     * @param  Application  $app
+     * @param  URL  $url
+     * @param  string  $method
      * @throws Exception
      * @throws \XeroPHP\Exception
      */
     public function __construct(Application $app, URL $url, $method = self::METHOD_GET)
     {
-        $this->app = $app;
-        $this->url = $url;
-        $this->headers = [];
+        $this->app        = $app;
+        $this->url        = $url;
+        $this->headers    = [];
         $this->parameters = [];
 
-        switch ($method) {
-            case self::METHOD_GET:
-            case self::METHOD_PUT:
-            case self::METHOD_POST:
-            case self::METHOD_DELETE:
-                $this->method = $method;
-
-                break;
-            default:
-                throw new Exception("Invalid request method [{$method}]");
-        }
+        $this->method = match ($method) {
+            self::METHOD_GET, self::METHOD_PUT, self::METHOD_POST, self::METHOD_DELETE => $method,
+            default                                                                    => throw new Exception("Invalid request method [{$method}]"),
+        };
 
         //Default to XML so you get the  xsi:type attribute in the root node.
         $this->setHeader(self::HEADER_ACCEPT, $app->getConfigOption('xero', 'default_content_type'));
@@ -114,14 +106,14 @@ class Request
         } catch (\GuzzleHttp\Exception\BadResponseException $e) {
             $guzzleResponse = $e->getResponse();
         }
-        
-        if($guzzleResponse->hasHeader('X-AppMinLimit-Remaining')){
+
+        if ($guzzleResponse->hasHeader('X-AppMinLimit-Remaining')) {
             $this->app->updateAppRateLimit(
                 $guzzleResponse->getHeader('X-AppMinLimit-Remaining')[0]
             );
         }
-        
-        if($guzzleResponse->hasHeader('X-DayLimit-Remaining')){
+
+        if ($guzzleResponse->hasHeader('X-DayLimit-Remaining')) {
             $this->app->updateTenantRateLimits(
                 $guzzleResponse->getHeader('X-DayLimit-Remaining')[0],
                 $guzzleResponse->getHeader('X-MinLimit-Remaining')[0]

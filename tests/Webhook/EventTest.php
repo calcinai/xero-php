@@ -2,18 +2,20 @@
 
 namespace XeroPHP\Tests\Webhook;
 
+use PHPUnit\Framework\TestCase;
+use XeroPHP\Exception;
+use XeroPHP\Remote\Exception\RequiredFieldException;
 use XeroPHP\Webhook;
 use XeroPHP\Application;
-use XeroPHP\Application\PrivateApplication;
 
-class EventTest extends \PHPUnit_Framework_TestCase
+class EventTest extends TestCase
 {
     /**
      * @var Application
      */
     private $application;
 
-    protected function setUp()
+    public function setUp(): void
     {
         $this->application = new Application('token', 'tenantId');
         $this->application->setConfig([
@@ -23,15 +25,13 @@ class EventTest extends \PHPUnit_Framework_TestCase
         ]);
     }
 
-    /**
-     * @expectedException \XeroPHP\Exception
-     */
     public function testMalformedPayload()
     {
+        $this->expectException(RequiredFieldException::class);
+
         $payload = '{"events":[{"resourceId":"44aa0707-f718-4f1c-8d53-f2da9ca59533","eventDateUtc":"2018-02-09T09:18:28.917Z","eventType":"UPDATE","eventCategory":"INVOICE","tenantId":"e629a03c-7ffe-4913-bd94-ff2fdb36a702","tenantType":"ORGANISATION"}],"firstEventSequence": 2,"lastEventSequence": 3, "entropy": "GATSEZXWIBPBRNQOTMOH"}';
         $webhook = new Webhook($this->application, $payload);
-        foreach ($webhook->getEvents() as $evt) {
-        }
+        $webhook->getEvents();
     }
 
     public function testGetWebhook()
@@ -106,22 +106,24 @@ class EventTest extends \PHPUnit_Framework_TestCase
 
     public function testGetEventClass()
     {
-        $payload = '{"events":[{"resourceUrl":"https://api.xero.com/api.xro/2.0/Invoices/44aa0707-f718-4f1c-8d53-f2da9ca59533","resourceId":"44aa0707-f718-4f1c-8d53-f2da9ca59533","eventDateUtc":"2018-02-09T09:18:28.917Z","eventType":"UPDATE","eventCategory":"INVOICE","tenantId":"e629a03c-7ffe-4913-bd94-ff2fdb36a702","tenantType":"ORGANISATION"},{"resourceUrl":"https://api.xero.com/api.xro/2.0/Invoices/44aa0707-f718-4f1c-8d53-f2da9ca59533","resourceId":"44aa0707-f718-4f1c-8d53-f2da9ca59533","eventDateUtc":"2018-02-09T09:18:28.917Z","eventType":"UPDATE","eventCategory":"CONTACT","tenantId":"e629a03c-7ffe-4913-bd94-ff2fdb36a702","tenantType":"ORGANISATION"},{"resourceUrl":"https://api.xero.com/api.xro/2.0/Subscriptions/44aa0707-f718-4f1c-8d53-f2da9ca59534","resourceId":"44aa0707-f718-4f1c-8d53-f2da9ca59534","eventDateUtc":"2018-02-09T09:18:28.917Z","eventType":"CREATE","eventCategory":"SUBSCRIPTION","tenantId":"e629a03c-7ffe-4913-bd94-ff2fdb36a702","tenantType":"ORGANISATION"},{"resourceUrl":"https://api.xero.com/api.xro/2.0/Invoices/44aa0707-f718-4f1c-8d53-f2da9ca59533","resourceId":"44aa0707-f718-4f1c-8d53-f2da9ca59533","eventDateUtc":"2018-02-09T09:18:28.917Z","eventType":"UPDATE","eventCategory":"INVOICE","tenantId":"e629a03c-7ffe-4913-bd94-ff2fdb36a702","tenantType":"ORGANISATION"}],"firstEventSequence": 2,"lastEventSequence": 3, "entropy": "GATSEZXWIBPBRNQOTMOH"}';
+        $payload = '{"events":[{"resourceUrl":"https://api.xero.com/api.xro/2.0/Invoices/44aa0707-f718-4f1c-8d53-f2da9ca59533","resourceId":"44aa0707-f718-4f1c-8d53-f2da9ca59533","eventDateUtc":"2018-02-09T09:18:28.917Z","eventType":"UPDATE","eventCategory":"INVALID","tenantId":"e629a03c-7ffe-4913-bd94-ff2fdb36a702","tenantType":"ORGANISATION"},{"resourceUrl":"https://api.xero.com/api.xro/2.0/Invoices/44aa0707-f718-4f1c-8d53-f2da9ca59533","resourceId":"44aa0707-f718-4f1c-8d53-f2da9ca59533","eventDateUtc":"2018-02-09T09:18:28.917Z","eventType":"UPDATE","eventCategory":"CONTACT","tenantId":"e629a03c-7ffe-4913-bd94-ff2fdb36a702","tenantType":"ORGANISATION"},{"resourceUrl":"https://api.xero.com/api.xro/2.0/Subscriptions/44aa0707-f718-4f1c-8d53-f2da9ca59534","resourceId":"44aa0707-f718-4f1c-8d53-f2da9ca59534","eventDateUtc":"2018-02-09T09:18:28.917Z","eventType":"CREATE","eventCategory":"SUBSCRIPTION","tenantId":"e629a03c-7ffe-4913-bd94-ff2fdb36a702","tenantType":"ORGANISATION"},{"resourceUrl":"https://api.xero.com/api.xro/2.0/Invoices/44aa0707-f718-4f1c-8d53-f2da9ca59533","resourceId":"44aa0707-f718-4f1c-8d53-f2da9ca59533","eventDateUtc":"2018-02-09T09:18:28.917Z","eventType":"UPDATE","eventCategory":"INVOICE","tenantId":"e629a03c-7ffe-4913-bd94-ff2fdb36a702","tenantType":"ORGANISATION"}],"firstEventSequence": 2,"lastEventSequence": 3, "entropy": "GATSEZXWIBPBRNQOTMOH"}';
         $webhook = new Webhook($this->application, $payload);
 
         $events = $webhook->getEvents();
 
-        $evt = array_pop($events);
-        $this->assertNull($evt->getEventClass());
+        $evt = array_shift($events);
+        $this->expectException(Exception::class);
 
-        $evt = array_pop($events);
+        $evt->getEventClass();
+
+        $evt = array_shift($events);
         $this->assertSame(\XeroPHP\Models\Accounting\Contact::class, $evt->getEventClass());
 
-        $evt = array_pop($events);
-        $this->assertSame(\XeroPHP\Models\Accounting\Invoice::class, $evt->getEventClass());
-
-        $evt = array_pop($events);
+        $evt = array_shift($events);
         $this->assertSame(\XeroPHP\Models\Subscription::class, $evt->getEventClass());
+
+        $evt = array_shift($events);
+        $this->assertSame(\XeroPHP\Models\Accounting\Invoice::class, $evt->getEventClass());
     }
 
     public function testGetTenantId()

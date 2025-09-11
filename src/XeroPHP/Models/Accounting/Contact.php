@@ -587,18 +587,6 @@ class Contact extends Remote\Model
     }
 
     /**
-     * @param string $value
-     * @deprecated Use setBankAccountDetails
-     * @return Contact
-     */
-    public function setBankAccountDetail($value)
-    {
-        $this->setBankAccountDetails($value);
-
-        return $this;
-    }
-
-    /**
      * @return string
      */
     public function getTaxNumber()
@@ -739,15 +727,6 @@ class Contact extends Remote\Model
     }
 
     /**
-     * @deprecated - this is a read only property and this method will be removed in future versions
-     *
-     * @param $value
-     */
-    public function setIsSupplier($value)
-    {
-    }
-
-    /**
      * @return bool
      */
     public function getIsCustomer()
@@ -755,14 +734,6 @@ class Contact extends Remote\Model
         return $this->_data['IsCustomer'];
     }
 
-    /**
-     * @deprecated - this is a read only property and this method will be removed in future versions
-     *
-     * @param $value
-     */
-    public function setIsCustomer($value)
-    {
-    }
 
     /**
      * @return string
@@ -1155,14 +1126,5 @@ class Contact extends Remote\Model
     public function getHasAttachments()
     {
         return $this->_data['HasAttachments'];
-    }
-
-    /**
-     * @deprecated - this is a read only property and this method will be removed in future versions
-     *
-     * @param $value
-     */
-    public function setHasAttachment($value)
-    {
     }
 }

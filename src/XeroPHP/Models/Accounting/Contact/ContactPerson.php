@@ -32,40 +32,32 @@ class ContactPerson extends Remote\Model
 
     /**
      * Get the resource uri of the class (Contacts) etc.
-     *
-     * @return string
      */
-    public static function getResourceURI()
+    public static function getResourceURI(): string
     {
         return 'ContactPerson';
     }
 
     /**
      * Get the root node name.  Just the unqualified classname.
-     *
-     * @return string
      */
-    public static function getRootNodeName()
+    public static function getRootNodeName(): string
     {
         return 'ContactPerson';
     }
 
     /**
      * Get the guid property.
-     *
-     * @return string
      */
-    public static function getGUIDProperty()
+    public static function getGUIDProperty(): string
     {
         return '';
     }
 
     /**
      * Get the stem of the API (core.xro) etc.
-     *
-     * @return string
      */
-    public static function getAPIStem()
+    public static function getAPIStem(): string
     {
         return Remote\URL::API_CORE;
     }
@@ -73,10 +65,9 @@ class ContactPerson extends Remote\Model
     /**
      * Get the supported methods.
      */
-    public static function getSupportedMethods()
+    public static function getSupportedMethods(): array
     {
-        return [
-        ];
+        return [];
     }
 
     /**
@@ -86,38 +77,28 @@ class ContactPerson extends Remote\Model
      *  [2] - PHP type
      *  [3] - Is an Array
      *  [4] - Saves directly.
-     *
-     * @return array
      */
-    public static function getProperties()
+    public static function getProperties(): array
     {
         return [
-            'FirstName' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
-            'LastName' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
-            'EmailAddress' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'FirstName'       => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'LastName'        => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'EmailAddress'    => [false, self::PROPERTY_TYPE_STRING, null, false, false],
             'IncludeInEmails' => [false, self::PROPERTY_TYPE_BOOLEAN, null, false, false],
         ];
     }
 
-    public static function isPageable()
+    public static function isPageable(): bool
     {
         return false;
     }
 
-    /**
-     * @return string
-     */
-    public function getFirstName()
+    public function getFirstName(): string
     {
         return $this->_data['FirstName'];
     }
 
-    /**
-     * @param string $value
-     *
-     * @return ContactPerson
-     */
-    public function setFirstName($value)
+    public function setFirstName(string $value): static
     {
         $this->propertyUpdated('FirstName', $value);
         $this->_data['FirstName'] = $value;
@@ -125,19 +106,11 @@ class ContactPerson extends Remote\Model
         return $this;
     }
 
-    /**
-     * @return string
-     */
-    public function getLastName()
+    public function getLastName(): string
     {
         return $this->_data['LastName'];
     }
 
-    /**
-     * @param string $value
-     *
-     * @return ContactPerson
-     */
     public function setLastName($value)
     {
         $this->propertyUpdated('LastName', $value);
@@ -155,7 +128,7 @@ class ContactPerson extends Remote\Model
     }
 
     /**
-     * @param string $value
+     * @param  string  $value
      *
      * @return ContactPerson
      */
@@ -176,7 +149,7 @@ class ContactPerson extends Remote\Model
     }
 
     /**
-     * @param bool $value
+     * @param  bool  $value
      *
      * @return ContactPerson
      */
