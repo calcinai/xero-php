@@ -3,9 +3,11 @@
 namespace XeroPHP\Models\Accounting;
 
 use XeroPHP\Remote;
+use XeroPHP\Traits\HistoryTrait;
 
 class BatchPayment extends Remote\Model
 {
+    use HistoryTrait;
 
     /**
      * Date the payment is being made (YYYY-MM-DD) e.g. 2009-09-06

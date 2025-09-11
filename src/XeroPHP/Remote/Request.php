@@ -20,6 +20,8 @@ class Request
 
     const CONTENT_TYPE_XML = 'text/xml';
 
+    const CONTENT_TYPE_APPLICATION_XML = 'application/xml';
+
     const CONTENT_TYPE_JSON = 'application/json';
 
     const CONTENT_TYPE_PDF = 'application/pdf';
@@ -114,7 +116,7 @@ class Request
         if ($guzzleResponse->hasHeader('X-DayLimit-Remaining')) {
             $this->app->updateTenantRateLimits(
                 $guzzleResponse->getHeader('X-DayLimit-Remaining')[0],
-                $guzzleResponse->getHeader('X-MinLimit-Remaining')[0],
+                $guzzleResponse->getHeader('X-MinLimit-Remaining')[0]
             );
         }
 
