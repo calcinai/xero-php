@@ -10,7 +10,7 @@ class RequiredFieldException extends Exception
     protected $class;
     protected $field;
 
-    public function __construct($class, $field, $message = "", $code = 0, Throwable $previous = null)
+    public function __construct($class, $field, $message = "", $code = 0, ?Throwable $previous = null)
     {
         $this->class = $class;
         $this->field = $field;
