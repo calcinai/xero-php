@@ -54,9 +54,15 @@ class Payment extends Remote\Model
      *
      * @property string Reference
      */
-    
+
     /**
      * An optional description to appear on a payee bank statement when Payment is a child of BatchPayment.
+     *
+     * @property string Details
+     */
+
+    /**
+     * Details of the Batch the payment was part of.
      *
      * @property string BatchPayment
      */
@@ -193,6 +199,7 @@ class Payment extends Remote\Model
             'CurrencyRate' => [false, self::PROPERTY_TYPE_FLOAT, null, false, false],
             'Amount' => [false, self::PROPERTY_TYPE_FLOAT, null, false, false],
             'Reference' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'Details' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
             'BatchPayment' => [false, self::PROPERTY_TYPE_OBJECT, 'Accounting\\BatchPayment', true, false],
             'IsReconciled' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
             'Status' => [false, self::PROPERTY_TYPE_ENUM, null, false, false],
