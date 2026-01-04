@@ -133,7 +133,13 @@ class Query
             } elseif (preg_match('/^DateTime\(.+\)$/', $args[1])) {
                 $this->where[] = sprintf('%s==%s', $args[0], $args[1]);
             } else {
-                $this->where[] = sprintf('%s=="%s"', $args[0], $args[1]);
+                // Until fixes from Guzzle, a preliminary escape of + into %2B is needed
+                // to avoid '+' symbol being used as a RFC3986 sub-delims instead of part of
+                // the searched string.
+                // @ref https://github.com/calcinai/xero-php/issues/931
+                // @ref https://github.com/guzzle/psr7/issues/618
+                $strValue = str_replace('+', '%2B', $args[1]);
+                $this->where[] = sprintf('%s=="%s"', $args[0], $strValue);
             }
         } else {
             $this->where[] = $args[0];

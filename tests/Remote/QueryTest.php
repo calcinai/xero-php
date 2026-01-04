@@ -43,6 +43,12 @@ class QueryTest extends \PHPUnit_Framework_TestCase
       $where = $query->getWhere();
       $this->assertSame("SomeKey==\"any string value\"", $where, "String in where string should have surrounding quotes");
 
+      // #931 Where: string with Plus '+' symbol
+      $query = new Query($xero_app);
+      $query->where('SomeKey', 'Home+ ltd');
+      $where = $query->getWhere();
+      $this->assertSame("SomeKey==\"Home%2B ltd\"", $where, "Right part of the boolean expression must have %2B as a placeholder for '+' character");
+
       // Where: string contains integer
       $query = new Query($xero_app);
       $query->where('SomeKey', '3');
@@ -93,7 +99,6 @@ class QueryTest extends \PHPUnit_Framework_TestCase
       $query->where('SomeKey', false);
       $where = $query->getWhere();
       $this->assertSame("SomeKey=false", $where, "false passed as bool should have no quotes in where string");
-
    }
 
    function testAndWhere() {
