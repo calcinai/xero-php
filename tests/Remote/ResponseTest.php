@@ -3,12 +3,13 @@
 namespace XeroPHP\Tests\Remote;
 
 
+use PHPUnit\Framework\TestCase;
 use XeroPHP\Application;
 use XeroPHP\Remote\Request;
 use XeroPHP\Remote\Response;
 use XeroPHP\Remote\URL;
 
-class ResponseTest extends \PHPUnit_Framework_TestCase
+class ResponseTest extends TestCase
 {
 
     public function testRootWarningsAreParsedJson()
