@@ -197,7 +197,7 @@ class Application
         /** @var Remote\Model $class */
         $class = $this->validateModelClass($model);
 
-        if(!$guid){
+        if (! $guid) {
             throw new Remote\Exception\NotFoundException;
         }
 
@@ -238,7 +238,7 @@ class Application
         /** @var $class Remote\Model */
         $class = $this->validateModelClass($model);
 
-        if(empty($guids)){
+        if (empty($guids)) {
             return [];
         }
 
@@ -288,7 +288,7 @@ class Application
         //(special saving endpoints)
         $this->savePropertiesDirectly($object);
 
-        if (!$object->isDirty()) {
+        if (! $object->isDirty()) {
             return null;
         }
 
@@ -305,7 +305,51 @@ class Application
             $object->setApplication($this);
         }
 
-        if (!$object::supportsMethod($method)) {
+        if (! $object::supportsMethod($method)) {
+            throw new Exception(sprintf('%s doesn\'t support [%s] via the API', get_class($object), $method));
+        }
+
+        //Put in an array with the first level containing only the 'root node'.
+        $data = [$object::getRootNodeName() => $object->toStringArray(true)];
+        $url = new URL($this, $uri, $object::getAPIStem());
+        $request = new Request($this, $url, $method);
+
+        $request->setBody(Helpers::arrayToXML($data))->send();
+        $response = $request->getResponse();
+
+        if (false !== $element = current($response->getElements())) {
+            $object->fromStringArray($element, $replace_data);
+        }
+        //Mark the object as clean since no exception was thrown
+        $object->setClean();
+
+        return $response;
+    }
+
+    /**
+     * @param Remote\Model $object
+     * @param bool $replace_data
+     *
+     * @throws Exception
+     *
+     * @return Remote\Response|null
+     */
+    public function update(Remote\Model $object, $replace_data = false)
+    {
+        //Saves any properties that don't want to be included in the normal loop
+        //(special saving endpoints)
+        $this->savePropertiesDirectly($object);
+
+        if (! $object->isDirty()) {
+            return null;
+        }
+
+        $object->validate();
+
+        $method = $object::supportsMethod(Request::METHOD_POST) ? Request::METHOD_POST : Request::METHOD_PUT;
+        $uri = sprintf('%s/%s', $object::getResourceURI(), $object->getGUID());
+
+        if (! $object::supportsMethod($method)) {
             throw new Exception(sprintf('%s doesn\'t support [%s] via the API', get_class($object), $method));
         }
 
@@ -441,7 +485,7 @@ class Application
      */
     public function delete(Remote\Model $object)
     {
-        if (!$object::supportsMethod(Request::METHOD_DELETE)) {
+        if (! $object::supportsMethod(Request::METHOD_DELETE)) {
             throw new Exception(
                 sprintf(
                     '%s doesn\'t support [DELETE] via the API',
