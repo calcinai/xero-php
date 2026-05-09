@@ -212,7 +212,7 @@ abstract class Model implements ObjectInterface, \JsonSerializable, \ArrayAccess
                 continue;
             }
 
-            if ($isArray && ! is_array($input_array[$property])) {
+            if ($isArray && !is_array($input_array[$property])) {
                 $this->_data[$property] = null;
 
                 continue;
@@ -349,7 +349,7 @@ abstract class Model implements ObjectInterface, \JsonSerializable, \ArrayAccess
             case self::PROPERTY_TYPE_BOOLEAN:
                 return in_array(strtolower($value), ['true', '1', 'yes'], true);
 
-            /** @noinspection PhpMissingBreakStatementInspection */
+                /** @noinspection PhpMissingBreakStatementInspection */
             case self::PROPERTY_TYPE_TIMESTAMP:
                 $timezone = new \DateTimeZone('UTC');
 
@@ -429,6 +429,24 @@ abstract class Model implements ObjectInterface, \JsonSerializable, \ArrayAccess
     }
 
     /**
+     * Shorthand update an object if it is instantiated with app context.
+     *
+     * @throws Exception
+     *
+     * @return Response|null
+     */
+    public function update()
+    {
+        if ($this->_application === null) {
+            throw new Exception(
+                '->update() is only available on objects that have an injected application context.'
+            );
+        }
+
+        return $this->_application->update($this);
+    }
+
+    /**
      * Shorthand save an object if it is instantiated with app context.
      *
      * @throws Exception
@@ -494,6 +512,10 @@ abstract class Model implements ObjectInterface, \JsonSerializable, \ArrayAccess
      */
     public function __get($property)
     {
+        if (empty($property)) {
+            return false;
+        }
+
         $getter = sprintf('get%s', $property);
 
         if (method_exists($this, $getter)) {
@@ -513,6 +535,10 @@ abstract class Model implements ObjectInterface, \JsonSerializable, \ArrayAccess
      */
     public function __set($property, $value)
     {
+        if (empty($property)) {
+            return false;
+        }
+
         $setter = sprintf('set%s', $property);
 
         if (method_exists($this, $setter)) {
@@ -521,7 +547,7 @@ abstract class Model implements ObjectInterface, \JsonSerializable, \ArrayAccess
 
         trigger_error(sprintf("Undefined property %s::$%s.\n", __CLASS__, $property));
     }
-
+    
     protected function propertyUpdated($property, $value)
     {
         $currentValue = isset($this->_data[$property]) ? $this->_data[$property] : null;

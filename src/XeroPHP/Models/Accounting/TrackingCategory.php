@@ -1,4 +1,5 @@
 <?php
+
 namespace XeroPHP\Models\Accounting;
 
 use XeroPHP\Remote;
@@ -207,7 +208,7 @@ class TrackingCategory extends Remote\Model
     {
         return $this->_data['TrackingOptionID'];
     }
- 
+
     /**
      * @param string $value
      *
