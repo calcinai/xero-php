@@ -349,15 +349,15 @@ class Query
         }
 
         if ($this->page !== null) {
-            $request->setParameter('page', $this->page);
+            $request->setParameter('page', (string) $this->page);
         }
 
         if ($this->pageSize !== null) {
-            $request->setParameter('pageSize', $this->pageSize);
+            $request->setParameter('pageSize', (string) $this->pageSize);
         }
 
         if ($this->offset !== null) {
-            $request->setParameter('offset', $this->offset);
+            $request->setParameter('offset', (string) $this->offset);
         }
 
         if ($this->includeArchived !== false) {
