@@ -151,11 +151,6 @@ class EarningsRate extends Remote\Model
     const EARNINGSTYPE_WORKERSCOMPENSATION = 'WORKERSCOMPENSATION';
     
     /**
-     * @deprecated this Earning Type is no longer used
-     */
-    const EARNINGSTYPE_FIXED = 'FIXED';
-
-    /**
      * The rate's Rate Type
      *
      * @property string RateType
@@ -273,7 +268,7 @@ class EarningsRate extends Remote\Model
     /**
      * @param string $value
      *
-     * @return EarningsRate
+     * @return self
      */
     public function setName($value)
     {
@@ -294,7 +289,7 @@ class EarningsRate extends Remote\Model
     /**
      * @param string $value
      *
-     * @return EarningsRate
+     * @return self
      */
     public function setAccountCode($value)
     {
@@ -315,7 +310,7 @@ class EarningsRate extends Remote\Model
     /**
      * @param string $value
      *
-     * @return EarningsRate
+     * @return self
      */
     public function setTypeOfUnit($value)
     {
@@ -336,7 +331,7 @@ class EarningsRate extends Remote\Model
     /**
      * @param string $value
      *
-     * @return EarningsRate
+     * @return self
      */
     public function setIsExemptFromTax($value)
     {
@@ -357,7 +352,7 @@ class EarningsRate extends Remote\Model
     /**
      * @param string $value
      *
-     * @return EarningsRate
+     * @return self
      */
     public function setIsExemptFromSuper($value)
     {
@@ -378,7 +373,7 @@ class EarningsRate extends Remote\Model
     /**
      * @param string $value
      *
-     * @return EarningsRate
+     * @return self
      */
     public function setAllowanceType($value)
     {
@@ -399,7 +394,7 @@ class EarningsRate extends Remote\Model
     /**
      * @param string $value
      *
-     * @return EarningsRate
+     * @return self
      */
     public function setEarningsType($value)
     {
@@ -420,7 +415,7 @@ class EarningsRate extends Remote\Model
     /**
      * @param string $value
      *
-     * @return EarningsRate
+     * @return self
      */
     public function setEarningsRateID($value)
     {
@@ -441,7 +436,7 @@ class EarningsRate extends Remote\Model
     /**
      * @param string $value
      *
-     * @return EarningsRate
+     * @return self
      */
     public function setRateType($value)
     {
@@ -462,7 +457,7 @@ class EarningsRate extends Remote\Model
     /**
      * @param float $value
      *
-     * @return EarningsRate
+     * @return self
      */
     public function setRatePerUnit($value)
     {
@@ -483,7 +478,7 @@ class EarningsRate extends Remote\Model
     /**
      * @param float $value
      *
-     * @return EarningsRate
+     * @return self
      */
     public function setMultiplier($value)
     {
@@ -504,7 +499,7 @@ class EarningsRate extends Remote\Model
     /**
      * @param bool $value
      *
-     * @return EarningsRate
+     * @return self
      */
     public function setAccrueLeave($value)
     {
@@ -525,7 +520,7 @@ class EarningsRate extends Remote\Model
     /**
      * @param float $value
      *
-     * @return EarningsRate
+     * @return self
      */
     public function setAmount($value)
     {
@@ -546,7 +541,7 @@ class EarningsRate extends Remote\Model
     /**
      * @param bool $value
      *
-     * @return EarningsRate
+     * @return self
      */
     public function setCurrentRecord($value)
     {
@@ -567,7 +562,7 @@ class EarningsRate extends Remote\Model
     /**
      * @param string $value
      *
-     * @return EarningRate
+     * @return self
      */
     public function setEmploymentTerminationPaymentType($value)
     {
@@ -588,7 +583,7 @@ class EarningsRate extends Remote\Model
     /**
      * @param string $value
      *
-     * @return EarningRate
+     * @return self
      */
     public function setAllowanceCategory($value)
     {

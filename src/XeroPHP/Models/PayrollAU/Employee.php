@@ -94,14 +94,6 @@ class Employee extends Remote\Model
      */
 
     /**
-     * This property has been removed from the Xero API.
-     *
-     * @property string Occupation
-     *
-     * @deprecated
-     */
-
-    /**
      * JobTitle of the employee (max length = 50).
      *
      * @property string JobTitle
@@ -584,31 +576,6 @@ class Employee extends Remote\Model
     {
         $this->propertyUpdated('IsAuthorisedToApproveTimesheets', $value);
         $this->_data['IsAuthorisedToApproveTimesheets'] = $value;
-
-        return $this;
-    }
-
-    /**
-     * @return string
-     *
-     * @deprecated
-     */
-    public function getOccupation()
-    {
-        return $this->_data['Occupation'];
-    }
-
-    /**
-     * @param string $value
-     *
-     * @return Employee
-     *
-     * @deprecated
-     */
-    public function setOccupation($value)
-    {
-        $this->propertyUpdated('Occupation', $value);
-        $this->_data['Occupation'] = $value;
 
         return $this;
     }

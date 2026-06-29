@@ -19,15 +19,6 @@ class SuperFundProduct extends Remote\Model
      */
 
     /**
-     * The SPIN of the Regulated SuperFund. (e.g NML0117AU) This field has been deprecated.  New superfunds
-     * will not have a SPIN value.  The USI field should be used instead of SPIN.
-     *
-     * @property string SPIN
-     *
-     * @deprecated
-     */
-
-    /**
      * The name of the Regulated SuperFund.
      *
      * @property string ProductName
@@ -146,31 +137,6 @@ class SuperFundProduct extends Remote\Model
     {
         $this->propertyUpdated('USI', $value);
         $this->_data['USI'] = $value;
-
-        return $this;
-    }
-
-    /**
-     * @return string
-     *
-     * @deprecated
-     */
-    public function getSPIN()
-    {
-        return $this->_data['SPIN'];
-    }
-
-    /**
-     * @param string $value
-     *
-     * @return SuperFundProduct
-     *
-     * @deprecated
-     */
-    public function setSPIN($value)
-    {
-        $this->propertyUpdated('SPIN', $value);
-        $this->_data['SPIN'] = $value;
 
         return $this;
     }

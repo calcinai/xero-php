@@ -6,11 +6,12 @@ use GuzzleHttp\Client;
 use GuzzleHttp\Handler\MockHandler;
 use GuzzleHttp\HandlerStack;
 use GuzzleHttp\Psr7\Response;
+use PHPUnit\Framework\TestCase;
 use XeroPHP\Application;
 use XeroPHP\Remote\Model;
 use XeroPHP\Tests\Remote\Model\ModelWithCollection;
 
-class ModelTest extends \PHPUnit_Framework_TestCase
+class ModelTest extends TestCase
 {
     public function testAccessorMethods()
     {

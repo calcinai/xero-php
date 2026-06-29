@@ -88,7 +88,7 @@ class SubscriptionItem extends Model {
      */
     public function getStatus()
     {
-        return $this->data['status'];
+        return $this->_data['status'];
     }
 
     /**

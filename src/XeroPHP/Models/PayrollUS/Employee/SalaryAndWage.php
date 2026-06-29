@@ -7,14 +7,6 @@ use XeroPHP\Remote;
 class SalaryAndWage extends Remote\Model
 {
     /**
-     * This property has been removed from the Xero API.
-     *
-     * @property string SalaryAndWageID
-     *
-     * @deprecated
-     */
-
-    /**
      * Xero unique identifier for SalaryAndWage item. e.g c56b19ef-75bf-45e8-98a4-e699a96609f7.
      *
      * @property string SalaryAndWagesID
@@ -132,31 +124,6 @@ class SalaryAndWage extends Remote\Model
     public static function isPageable()
     {
         return false;
-    }
-
-    /**
-     * @return string
-     *
-     * @deprecated
-     */
-    public function getSalaryAndWageID()
-    {
-        return $this->_data['SalaryAndWageID'];
-    }
-
-    /**
-     * @param string $value
-     *
-     * @return SalaryAndWage
-     *
-     * @deprecated
-     */
-    public function setSalaryAndWageID($value)
-    {
-        $this->propertyUpdated('SalaryAndWageID', $value);
-        $this->_data['SalaryAndWageID'] = $value;
-
-        return $this;
     }
 
     /**

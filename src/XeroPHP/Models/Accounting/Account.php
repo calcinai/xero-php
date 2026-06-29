@@ -5,6 +5,38 @@ namespace XeroPHP\Models\Accounting;
 use XeroPHP\Remote;
 use XeroPHP\Traits\AttachmentTrait;
 
+/**
+ * @method string getCode()
+ * @method self setCode(string $value)
+ * @method string getName()
+ * @method self setName(string $value)
+ * @method string getType()
+ * @method self setType(string $value)
+ * @method string getBankAccountNumber()
+ * @method self setBankAccountNumber(string $value)
+ * @method string getStatus()
+ * @method self setStatus(string $value)
+ * @method string getDescription()
+ * @method self setDescription(string $value)
+ * @method string getBankAccountType()
+ * @method self setBankAccountType(string $value)
+ * @method string getCurrencyCode()
+ * @method self setCurrencyCode(string $value)
+ * @method string getTaxType()
+ * @method self setTaxType(string $value)
+ * @method bool getEnablePaymentsToAccount()
+ * @method self setEnablePaymentsToAccount(bool $value)
+ * @method bool getShowInExpenseClaims()
+ * @method self setShowInExpenseClaims(bool $value)
+ * @method string getAccountID()
+ * @method self setAccountID(string $value)
+ * @method string getClass()
+ * @method string getSystemAccount()
+ * @method string getReportingCode()
+ * @method string getReportingCodeName()
+ * @method bool getHasAttachments()
+ * @method \DateTimeInterface getUpdatedDateUTC()
+ */
 class Account extends Remote\Model
 {
     use AttachmentTrait;
@@ -211,40 +243,32 @@ class Account extends Remote\Model
 
     /**
      * Get the resource uri of the class (Contacts) etc.
-     *
-     * @return string
      */
-    public static function getResourceURI()
+    public static function getResourceURI(): string
     {
         return 'Accounts';
     }
 
     /**
      * Get the root node name.  Just the unqualified classname.
-     *
-     * @return string
      */
-    public static function getRootNodeName()
+    public static function getRootNodeName(): string
     {
         return 'Account';
     }
 
     /**
      * Get the guid property.
-     *
-     * @return string
      */
-    public static function getGUIDProperty()
+    public static function getGUIDProperty(): string
     {
         return 'AccountID';
     }
 
     /**
      * Get the stem of the API (core.xro) etc.
-     *
-     * @return string
      */
-    public static function getAPIStem()
+    public static function getAPIStem(): string
     {
         return Remote\URL::API_CORE;
     }
@@ -252,7 +276,7 @@ class Account extends Remote\Model
     /**
      * Get the supported methods.
      */
-    public static function getSupportedMethods()
+    public static function getSupportedMethods(): array
     {
         return [
             Remote\Request::METHOD_GET,
@@ -269,335 +293,41 @@ class Account extends Remote\Model
      *  [2] - PHP type
      *  [3] - Is an Array
      *  [4] - Saves directly.
-     *
-     * @return array
      */
-    public static function getProperties()
+    public static function getProperties(): array
     {
         return [
-            'Code' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
-            'Name' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
-            'Type' => [false, self::PROPERTY_TYPE_ENUM, null, false, false],
-            'BankAccountNumber' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
-            'Status' => [false, self::PROPERTY_TYPE_ENUM, null, false, false],
-            'Description' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
-            'BankAccountType' => [false, self::PROPERTY_TYPE_ENUM, null, false, false],
-            'CurrencyCode' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
-            'TaxType' => [false, self::PROPERTY_TYPE_ENUM, null, false, false],
+            'Code'                    => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'Name'                    => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'Type'                    => [false, self::PROPERTY_TYPE_ENUM, null, false, false],
+            'BankAccountNumber'       => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'Status'                  => [false, self::PROPERTY_TYPE_ENUM, null, false, false],
+            'Description'             => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'BankAccountType'         => [false, self::PROPERTY_TYPE_ENUM, null, false, false],
+            'CurrencyCode'            => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'TaxType'                 => [false, self::PROPERTY_TYPE_ENUM, null, false, false],
             'EnablePaymentsToAccount' => [false, self::PROPERTY_TYPE_BOOLEAN, null, false, false],
-            'ShowInExpenseClaims' => [false, self::PROPERTY_TYPE_BOOLEAN, null, false, false],
-            'AccountID' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
-            'Class' => [false, self::PROPERTY_TYPE_ENUM, null, false, false],
-            'SystemAccount' => [false, self::PROPERTY_TYPE_ENUM, null, false, false],
-            'ReportingCode' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
-            'ReportingCodeName' => [false, self::PROPERTY_TYPE_STRING, null, false, false],
-            'HasAttachments' => [false, self::PROPERTY_TYPE_BOOLEAN, null, false, false],
-            'UpdatedDateUTC' => [false, self::PROPERTY_TYPE_TIMESTAMP, '\\DateTimeInterface', false, false],
+            'ShowInExpenseClaims'     => [false, self::PROPERTY_TYPE_BOOLEAN, null, false, false],
+            'AccountID'               => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'Class'                   => [false, self::PROPERTY_TYPE_ENUM, null, false, false],
+            'SystemAccount'           => [false, self::PROPERTY_TYPE_ENUM, null, false, false],
+            'ReportingCode'           => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'ReportingCodeName'       => [false, self::PROPERTY_TYPE_STRING, null, false, false],
+            'HasAttachments'          => [false, self::PROPERTY_TYPE_BOOLEAN, null, false, false],
+            'UpdatedDateUTC'          => [false, self::PROPERTY_TYPE_TIMESTAMP, '\\DateTimeInterface', false, false],
         ];
     }
 
-    public static function isPageable()
+    public static function isPageable(): bool
     {
         return false;
     }
 
     /**
-     * @return string
+     * @deprecated
      */
-    public function getCode()
+    public function setShowInExpenseClaim(bool $value): static
     {
-        return $this->_data['Code'];
-    }
-
-    /**
-     * @param string $value
-     *
-     * @return Account
-     */
-    public function setCode($value)
-    {
-        $this->propertyUpdated('Code', $value);
-        $this->_data['Code'] = $value;
-
-        return $this;
-    }
-
-    /**
-     * @return string
-     */
-    public function getName()
-    {
-        return $this->_data['Name'];
-    }
-
-    /**
-     * @param string $value
-     *
-     * @return Account
-     */
-    public function setName($value)
-    {
-        $this->propertyUpdated('Name', $value);
-        $this->_data['Name'] = $value;
-
-        return $this;
-    }
-
-    /**
-     * @return string
-     */
-    public function getType()
-    {
-        return $this->_data['Type'];
-    }
-
-    /**
-     * @param string $value
-     *
-     * @return Account
-     */
-    public function setType($value)
-    {
-        $this->propertyUpdated('Type', $value);
-        $this->_data['Type'] = $value;
-
-        return $this;
-    }
-
-    /**
-     * @return string
-     */
-    public function getBankAccountNumber()
-    {
-        return $this->_data['BankAccountNumber'];
-    }
-
-    /**
-     * @param string $value
-     *
-     * @return Account
-     */
-    public function setBankAccountNumber($value)
-    {
-        $this->propertyUpdated('BankAccountNumber', $value);
-        $this->_data['BankAccountNumber'] = $value;
-
-        return $this;
-    }
-
-    /**
-     * @return string
-     */
-    public function getStatus()
-    {
-        return $this->_data['Status'];
-    }
-
-    /**
-     * @param string $value
-     *
-     * @return Account
-     */
-    public function setStatus($value)
-    {
-        $this->propertyUpdated('Status', $value);
-        $this->_data['Status'] = $value;
-
-        return $this;
-    }
-
-    /**
-     * @return string
-     */
-    public function getDescription()
-    {
-        return $this->_data['Description'];
-    }
-
-    /**
-     * @param string $value
-     *
-     * @return Account
-     */
-    public function setDescription($value)
-    {
-        $this->propertyUpdated('Description', $value);
-        $this->_data['Description'] = $value;
-
-        return $this;
-    }
-
-    /**
-     * @return string
-     */
-    public function getBankAccountType()
-    {
-        return $this->_data['BankAccountType'];
-    }
-
-    /**
-     * @param string $value
-     *
-     * @return Account
-     */
-    public function setBankAccountType($value)
-    {
-        $this->propertyUpdated('BankAccountType', $value);
-        $this->_data['BankAccountType'] = $value;
-
-        return $this;
-    }
-
-    /**
-     * @return string
-     */
-    public function getCurrencyCode()
-    {
-        return $this->_data['CurrencyCode'];
-    }
-
-    /**
-     * @param string $value
-     *
-     * @return Account
-     */
-    public function setCurrencyCode($value)
-    {
-        $this->propertyUpdated('CurrencyCode', $value);
-        $this->_data['CurrencyCode'] = $value;
-
-        return $this;
-    }
-
-    /**
-     * @return string
-     */
-    public function getTaxType()
-    {
-        return $this->_data['TaxType'];
-    }
-
-    /**
-     * @param string $value
-     *
-     * @return Account
-     */
-    public function setTaxType($value)
-    {
-        $this->propertyUpdated('TaxType', $value);
-        $this->_data['TaxType'] = $value;
-
-        return $this;
-    }
-
-    /**
-     * @return bool
-     */
-    public function getEnablePaymentsToAccount()
-    {
-        return $this->_data['EnablePaymentsToAccount'];
-    }
-
-    /**
-     * @param bool $value
-     *
-     * @return Account
-     */
-    public function setEnablePaymentsToAccount($value)
-    {
-        $this->propertyUpdated('EnablePaymentsToAccount', $value);
-        $this->_data['EnablePaymentsToAccount'] = $value;
-
-        return $this;
-    }
-
-    /**
-     * @return bool
-     */
-    public function getShowInExpenseClaims()
-    {
-        return $this->_data['ShowInExpenseClaims'];
-    }
-
-    /**
-     * @param bool $value
-     *
-     * @return Account
-     */
-    public function setShowInExpenseClaim($value)
-    {
-        $this->propertyUpdated('ShowInExpenseClaims', $value);
-        $this->_data['ShowInExpenseClaims'] = $value;
-
-        return $this;
-    }
-
-    /**
-     * @return string
-     */
-    public function getAccountID()
-    {
-        return $this->_data['AccountID'];
-    }
-
-    /**
-     * @param string $value
-     *
-     * @return Account
-     */
-    public function setAccountID($value)
-    {
-        $this->propertyUpdated('AccountID', $value);
-        $this->_data['AccountID'] = $value;
-
-        return $this;
-    }
-
-    /**
-     * @return string
-     */
-    public function getClass()
-    {
-        return $this->_data['Class'];
-    }
-
-    /**
-     * @return string
-     */
-    public function getSystemAccount()
-    {
-        return $this->_data['SystemAccount'];
-    }
-
-    /**
-     * @return string
-     */
-    public function getReportingCode()
-    {
-        return $this->_data['ReportingCode'];
-    }
-
-    /**
-     * @return string
-     */
-    public function getReportingCodeName()
-    {
-        return $this->_data['ReportingCodeName'];
-    }
-
-    /**
-     * @return bool
-     */
-    public function getHasAttachments()
-    {
-        return $this->_data['HasAttachments'];
-    }
-
-    /**
-     * @return \DateTimeInterface
-     */
-    public function getUpdatedDateUTC()
-    {
-        return $this->_data['UpdatedDateUTC'];
+        return $this->setShowInExpenseClaims($value);
     }
 }

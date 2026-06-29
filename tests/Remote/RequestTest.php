@@ -9,6 +9,7 @@ use GuzzleHttp\Handler\MockHandler;
 use GuzzleHttp\HandlerStack;
 use GuzzleHttp\Psr7\Request as GuzzleRequest;
 use GuzzleHttp\Psr7\Response;
+use PHPUnit\Framework\TestCase;
 use XeroPHP\Application;
 use XeroPHP\Remote\Exception\UnknownStatusException;
 use XeroPHP\Remote\Request as XeroRequest;
@@ -16,7 +17,7 @@ use XeroPHP\Remote\URL;
 use XeroPHP\Remote\Exception\BadRequestException;
 use XeroPHP\Remote\Exception\RateLimitExceededException;
 
-class RequestTest extends \PHPUnit_Framework_TestCase
+class RequestTest extends TestCase
 {
     private function getMockedApplication($mockedResponses)
     {

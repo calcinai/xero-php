@@ -200,7 +200,7 @@ class Item extends Remote\Model
     /**
      * @param string $value
      *
-     * @return Item
+     * @return self
      */
     public function setItemID($value)
     {
@@ -221,7 +221,7 @@ class Item extends Remote\Model
     /**
      * @param string $value
      *
-     * @return Item
+     * @return self
      */
     public function setCode($value)
     {
@@ -242,7 +242,7 @@ class Item extends Remote\Model
     /**
      * @param string $value
      *
-     * @return Item
+     * @return self
      */
     public function setInventoryAssetAccountCode($value)
     {
@@ -263,7 +263,7 @@ class Item extends Remote\Model
     /**
      * @param string $value
      *
-     * @return Item
+     * @return self
      */
     public function setName($value)
     {
@@ -284,7 +284,7 @@ class Item extends Remote\Model
     /**
      * @param bool $value
      *
-     * @return Item
+     * @return self
      */
     public function setIsSold($value)
     {
@@ -305,7 +305,7 @@ class Item extends Remote\Model
     /**
      * @param bool $value
      *
-     * @return Item
+     * @return self
      */
     public function setIsPurchased($value)
     {
@@ -326,7 +326,7 @@ class Item extends Remote\Model
     /**
      * @param string $value
      *
-     * @return Item
+     * @return self
      */
     public function setDescription($value)
     {
@@ -347,7 +347,7 @@ class Item extends Remote\Model
     /**
      * @param string $value
      *
-     * @return Item
+     * @return self
      */
     public function setPurchaseDescription($value)
     {
@@ -368,18 +368,7 @@ class Item extends Remote\Model
     /**
      * @param Purchase $value
      *
-     * @return Item
-     *
-     * @deprecated
-     */
-    public function addPurchaseDetail(Purchase $value)
-    {
-    }
-
-    /**
-     * @param Purchase $value
-     *
-     * @return Item
+     * @return self
      */
     public function setPurchaseDetails(Purchase $value)
     {
@@ -395,17 +384,6 @@ class Item extends Remote\Model
     public function getSalesDetails()
     {
         return $this->_data['SalesDetails'];
-    }
-
-    /**
-     * @param Sale $value
-     *
-     * @return Item
-     *
-     * @deprecated
-     */
-    public function addSalesDetail(Sale $value)
-    {
     }
 
     /**

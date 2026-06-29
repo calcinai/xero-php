@@ -65,14 +65,6 @@ class OpeningBalance extends Remote\Model
      */
 
     /**
-     * This property has been removed from the Xero API.
-     *
-     * @property string EmployeeID
-     *
-     * @deprecated
-     */
-
-    /**
      * Get the resource uri of the class (Contacts) etc.
      *
      * @return string
@@ -349,31 +341,6 @@ class OpeningBalance extends Remote\Model
     {
         $this->propertyUpdated('ReimbursementTypeID', $value);
         $this->_data['ReimbursementTypeID'] = $value;
-
-        return $this;
-    }
-
-    /**
-     * @return string
-     *
-     * @deprecated
-     */
-    public function getEmployeeID()
-    {
-        return $this->_data['EmployeeID'];
-    }
-
-    /**
-     * @param string $value
-     *
-     * @return OpeningBalance
-     *
-     * @deprecated
-     */
-    public function setEmployeeID($value)
-    {
-        $this->propertyUpdated('EmployeeID', $value);
-        $this->_data['EmployeeID'] = $value;
 
         return $this;
     }
